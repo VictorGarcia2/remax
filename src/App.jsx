@@ -5,6 +5,7 @@ import SectionPorque from './components/SectionPorque/SectionPorque'
 import SectionVariedad from './components/SectionVariedad/SectionVariedad'
 import SectionEncuentra from './components/SectionEncuentra/SectionEncuentra'
 import SectionCTA from './components/SectionCTA/SectionCTA'
+import SectionComoComprar from './components/SectionComoComprar/SectionComoComprar'
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
     <SectionVariedad/>
     <SectionEncuentra/>
     <SectionCTA/>
+    <SectionComoComprar/>
     </>
   )
 }
