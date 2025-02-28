@@ -3,6 +3,7 @@ import Header from "./Header"
 import Search from "./Search";
 export default function HomeSearch() {
   const [currentIndex, setCurrentIndex] = useState(0);
+
   // Array de imágenes (reemplaza con tus propias URLs)
   const images = [
     "HomePageContent/pexels-binyaminmellish-186077 1.jpg",
@@ -11,6 +12,7 @@ export default function HomeSearch() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+      
     }, 5000); 
     return () => clearInterval(interval);
   }, [images.length]);
@@ -38,8 +40,7 @@ export default function HomeSearch() {
         </div>
         <div className="h-[536px] w-full absolute z-0 bg-linear-180 from-black/60 to-100%"></div>
         <img
-          className="object-cover h-[536px] "
-          src={images[currentIndex]}
+          className={` object-cover h-[536px] `}          src={images[currentIndex]}
           alt=""
         />
       </div>

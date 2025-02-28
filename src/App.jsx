@@ -6,6 +6,9 @@ import SectionVariedad from './components/SectionVariedad/SectionVariedad'
 import SectionEncuentra from './components/SectionEncuentra/SectionEncuentra'
 import SectionCTA from './components/SectionCTA/SectionCTA'
 import SectionComoComprar from './components/SectionComoComprar/SectionComoComprar'
+import SectionOpiniones from './components/SectionOpiniones/SectionOpiniones'
+import SectionEquipo from './components/SectionEquipo/SectionEquipo'
+import SectionFooter from './components/SectionFooter/SectionFooter'
 
 export default function App() {
   return (
@@ -16,6 +19,9 @@ export default function App() {
     <SectionEncuentra/>
     <SectionCTA/>
     <SectionComoComprar/>
+    <SectionOpiniones/>
+    <SectionEquipo/>
+    <SectionFooter/>
     </>
   )
 }
