@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function MenuFilter() {
+export default function MenuFilter({menuClose, setMenuClose}) {
     const [openSections, setOpenSections] = useState({
         "accordion-collapse-body-1": true,
         "accordion-collapse-body-2": true,
@@ -14,8 +14,9 @@ export default function MenuFilter() {
         }));
     };
 
+   
     return (
-        <div className="w-screen h-screen fixed text-[#7B7B7B] font-display z-50 bg-white ">
+        <div className={`${menuClose && "hidden"} w-screen h-screen fixed text-[#7B7B7B] font-display z-50 bg-white`}>
             <div
                 className="flex flex-col items-center w-full "
                 id="accordion-collapse"
@@ -23,7 +24,7 @@ export default function MenuFilter() {
             >
                 <div className="flex justify-between font-display  w-full px-5">
                     <p className="text-2xl">Filtros</p>
-                    <img className="w-7" src="HomePageContent/close.svg" alt="" />
+                    <img onClick={()=> setMenuClose(true)} className="w-7" src="HomePageContent/close.svg" alt="" />
                 </div>
                 <form className="mt-10 w-full font-lightitalic">
                     <div className="rounded-[8px] gap-3 ">
@@ -221,8 +222,8 @@ export default function MenuFilter() {
                         </div>
                     </div>
                     <div className="flex justify-evenly w-full bottom-10 fixed z-50">
-                        <button>Limpiar</button>
-                        <button>Aplicar</button>
+                        <button className="w-20 h-10 text-[#DB1C2E] rounded ">Limpiar</button>
+                        <button className="w-20 h-10 bg-[#DB1C2E] rounded text-white" >Aplicar</button>
                     </div>
                 </form>
             </div>
