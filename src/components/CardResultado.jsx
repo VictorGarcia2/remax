@@ -34,12 +34,12 @@ export default function CardResultado({ propiedades }) {
             <div className="flex absolute justify-around mx-auto gap-70">
               <img
                 onClick={() => goToPrevious(index)}
-                src="/public/HomePageContent/arrowizq.svg"
+                src="HomePageContent/arrowizq.svg"
                 alt=""
               />
               <img
                 onClick={() => goToNext(index)}
-                src="/public/HomePageContent/arrowderecha.svg"
+                src="HomePageContent/arrowderecha.svg"
                 alt=""
               />
             </div>
@@ -68,7 +68,7 @@ export default function CardResultado({ propiedades }) {
               <button className="bg-blue-800 rounded-2xl w-[73px] h-[29px] shadow-2xs py-1 flex items-center justify-center ">
                 {" "}
                 <img
-                  src="/public/HomePageContent/brand-whatsapp 1.svg"
+                  src="HomePageContent/brand-whatsapp 1.svg"
                   alt=""
                 />
               </button>

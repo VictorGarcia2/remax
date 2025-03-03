@@ -54,7 +54,7 @@ export default function Search() {
           <li className="flex items-center gap-1 pb-1">
             <img
               className="w-5"
-              src="/public/HomePageContent/casa.svg"
+              src="HomePageContent/casa.svg"
               alt=""
             />{" "}
             <p> Casa </p>{" "}
@@ -65,7 +65,7 @@ export default function Search() {
           >
             <img
               className="w-5"
-              src="/public/HomePageContent/casaencondominio.svg"
+              src="HomePageContent/casaencondominio.svg"
               alt=""
             />
             <p>Casa en Condominio</p>
@@ -73,7 +73,7 @@ export default function Search() {
           <li className="flex items-center gap-1 pb-1">
             <img
               className="w-5"
-              src="/public/HomePageContent/icondepartamento.svg"
+              src="HomePageContent/icondepartamento.svg"
               alt=""
             />
             <p>Departamento</p>
@@ -81,7 +81,7 @@ export default function Search() {
           <li className="flex items-center gap-1 pb-1">
             <img
               className="w-5"
-              src="/public/HomePageContent/edificio.svg"
+              src="HomePageContent/edificio.svg"
               alt=""
             />
             <p>Edificio</p>
@@ -89,7 +89,7 @@ export default function Search() {
           <li className="flex items-center gap-1 pb-1">
             <img
               className="w-5"
-              src="/public/HomePageContent/Terreno.svg"
+              src="HomePageContent/Terreno.svg"
               alt=""
             />
             <p>Terreno</p>
@@ -97,7 +97,7 @@ export default function Search() {
           <li className="flex items-center gap-1 pb-1">
             <img
               className="w-5"
-              src="/public/HomePageContent/desarrollo.svg"
+              src="HomePageContent/desarrollo.svg"
               alt=""
             />
             <p>Desarrollo</p>

@@ -10,7 +10,7 @@ export default function () {
           inmediato. ¡Es fácil, rápido y sin compromisos!
         </p>
         <button className="rounded-2xl mt-3 mb-5  shadow-[0_5px_5px] shadow-black/40 bg-[#5CD16A] w-20 h-7 flex justify-center">
-          <img src="/public/HomePageContent/brand-whatsapp 1.svg" alt="" />
+          <img src="HomePageContent/brand-whatsapp 1.svg" alt="" />
         </button>
       </div>
     </div>

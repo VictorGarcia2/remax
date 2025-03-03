@@ -11,7 +11,7 @@ export default function SectionVariedad() {
             <p className="absolute text-white z-50">Departamentos</p>
           <img
             className=" opacity-70 object-cover w-[356px] h-[140px] rounded"
-            src="/public/HomePageContent/pexels-binyaminmellish-186077 1.jpg"
+            src="HomePageContent/pexels-binyaminmellish-186077 1.jpg"
             alt=""
           />
         </div>
@@ -19,7 +19,7 @@ export default function SectionVariedad() {
             <p className="absolute text-white z-50">Departamentos</p>
           <img
             className=" opacity-70 object-cover w-[356px] h-[140px] rounded"
-            src="/public/HomePageContent/pexels-binyaminmellish-186077 1.jpg"
+            src="HomePageContent/pexels-binyaminmellish-186077 1.jpg"
             alt=""
           />
         </div>
@@ -27,7 +27,7 @@ export default function SectionVariedad() {
             <p className="absolute text-white z-50">Departamentos</p>
           <img
             className=" opacity-70 object-cover w-[356px] h-[140px] rounded"
-            src="/public/HomePageContent/pexels-binyaminmellish-186077 1.jpg"
+            src="HomePageContent/pexels-binyaminmellish-186077 1.jpg"
             alt=""
           />
         </div>
@@ -35,7 +35,7 @@ export default function SectionVariedad() {
             <p className="absolute text-white z-50">Departamentos</p>
           <img
             className=" opacity-70 object-cover w-[356px] h-[140px] rounded"
-            src="/public/HomePageContent/pexels-binyaminmellish-186077 1.jpg"
+            src="HomePageContent/pexels-binyaminmellish-186077 1.jpg"
             alt=""
           />
         </div>

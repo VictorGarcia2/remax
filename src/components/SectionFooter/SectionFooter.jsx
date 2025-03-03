@@ -17,10 +17,10 @@ export default function SectionFooter() {
       </ol>
       <div className="flex gap-3 mt-3">
         <a href="">
-          <img src="/public/HomePageContent/Facebook.svg" alt="" />
+          <img src="HomePageContent/Facebook.svg" alt="" />
         </a>
         <a href="">
-          <img src="/public/HomePageContent/Instagram.svg" alt="" />
+          <img src="HomePageContent/Instagram.svg" alt="" />
         </a>
       </div>
     </div>

@@ -19,7 +19,7 @@ const handle = (prop)=> {
             <img 
             onClick={()=> setOpenMenu(false)}
               className="w-8"
-              src="/public/HomePageContent/close.svg"
+              src="HomePageContent/close.svg"
               alt=""
             />
           </div>
@@ -40,7 +40,7 @@ const handle = (prop)=> {
           />
         </div>
         <div>
-          <img onClick={handle} src="/public/HomePageContent/Menu.svg" alt="" />
+          <img onClick={handle} src="HomePageContent/Menu.svg" alt="" />
         </div>
       </div>
     </>

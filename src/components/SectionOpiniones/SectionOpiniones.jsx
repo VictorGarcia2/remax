@@ -5,49 +5,49 @@ const opiniones = [
     nombre: "Fernando Gutierrez",
     comentario: "Muy buena atención y gran servicio por parte del asesor que me atendió",
     estrellas: 3,
-    imagenUsuario: "/public/HomePageContent/user-solid 1.svg",
+    imagenUsuario: "HomePageContent/user-solid 1.svg",
   },
   {
     nombre: "Fernando Gutierrez",
     comentario: "Muy buena atención y gran servicio por parte del asesor que me atendió",
     estrellas: 1,
-    imagenUsuario: "/public/HomePageContent/user-solid 1.svg",
+    imagenUsuario: "HomePageContent/user-solid 1.svg",
   },
   {
     nombre: "Fernando Gutierrez",
     comentario: "Muy buena atención y gran servicio por parte del asesor que me atendió",
     estrellas: 5,
-    imagenUsuario: "/public/HomePageContent/user-solid 1.svg",
+    imagenUsuario: "HomePageContent/user-solid 1.svg",
   },
   {
     nombre: "Fernando Gutierrez",
     comentario: "Muy buena atención y gran servicio por parte del asesor que me atendió",
     estrellas: 2,
-    imagenUsuario: "/public/HomePageContent/user-solid 1.svg",
+    imagenUsuario: "HomePageContent/user-solid 1.svg",
   },
   {
     nombre: "Fernando Gutierrez",
     comentario: "Muy buena atención y gran servicio por parte del asesor que me atendió",
     estrellas: 3,
-    imagenUsuario: "/public/HomePageContent/user-solid 1.svg",
+    imagenUsuario: "HomePageContent/user-solid 1.svg",
   },
   {
     nombre: "Fernando Gutierrez",
     comentario: "Muy buena atención y gran servicio por parte del asesor que me atendió",
     estrellas: 2,
-    imagenUsuario: "/public/HomePageContent/user-solid 1.svg",
+    imagenUsuario: "HomePageContent/user-solid 1.svg",
   },
   {
     nombre: "Fernando Gutierrez",
     comentario: "Muy buena atención y gran servicio por parte del asesor que me atendió",
     estrellas: 3,
-    imagenUsuario: "/public/HomePageContent/user-solid 1.svg",
+    imagenUsuario: "HomePageContent/user-solid 1.svg",
   },
   {
     nombre: "Fernando Gutierrez",
     comentario: "Muy buena atención y gran servicio por parte del asesor que me atendió",
     estrellas: 1,
-    imagenUsuario: "/public/HomePageContent/user-solid 1.svg",
+    imagenUsuario: "HomePageContent/user-solid 1.svg",
   },
   // Puedes agregar más opiniones aquí
 ];
@@ -68,7 +68,7 @@ export default function SectionOpiniones() {
               <p className="font-[500] italic text-base">{opinion.nombre}</p>
               <div className="flex gap-1 mt-3">
                 {Array.from({ length: opinion.estrellas }).map((_, i) => (
-                  <img key={i} src="/public/HomePageContent/Star.svg" alt="" />
+                  <img key={i} src="HomePageContent/Star.svg" alt="" />
                 ))}
               </div>
               <p className="mt-3 text-base">{opinion.comentario}</p>

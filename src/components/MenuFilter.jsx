@@ -76,7 +76,7 @@ export default function MenuFilter({menuClose, setMenuClose}) {
                             <div className="flex flex-col items-end text-base  mt-1 w-full px-4">
                                 <label className="flex items-center gap-3" htmlFor="">
                                     <img
-                                        src="/public/HomePageContent/sectorcomercialicon.svg"
+                                        src="HomePageContent/sectorcomercialicon.svg"
                                         alt=""
                                     />
                                     Comercial
