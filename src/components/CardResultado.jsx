@@ -1,27 +1,28 @@
 import React, { useState } from "react";
-
-export default function CardResultado({propiedades}) {
-  
-   const [countimg, setcountimg] = useState()
-
-  const [currentIndexes, setCurrentIndexes] = useState(propiedades.map(() => 0));
+export default function CardResultado({ propiedades }) {
+  const [countimg, setcountimg] = useState();
+  const [currentIndexes, setCurrentIndexes] = useState(
+    propiedades.map(() => 0)
+  );
   const goToPrevious = (index) => {
-    const isFirstImage = currentIndexes[index] === 0
-    const newIndex = isFirstImage ? propiedades[index].gallery.length - 1  : currentIndexes[index] - 1;
-    setcountimg(newIndex + 1)
-    setCurrentIndexes((prevIndexes) => prevIndexes.map((item, idx) => (idx === index ? newIndex : item))
-    );
-  };
-
-  const goToNext = (index) => {
-    const isLastImage = currentIndexes[index] === propiedades[index].gallery.length - 1;
-    const newIndex = isLastImage ? 0 : currentIndexes[index] + 1;
-    setcountimg(newIndex + 1)
+    const isFirstImage = currentIndexes[index] === 0;
+    const newIndex = isFirstImage
+      ? propiedades[index].gallery.length - 1
+      : currentIndexes[index] - 1;
+    setcountimg(newIndex + 1);
     setCurrentIndexes((prevIndexes) =>
       prevIndexes.map((item, idx) => (idx === index ? newIndex : item))
     );
   };
-
+  const goToNext = (index) => {
+    const isLastImage =
+      currentIndexes[index] === propiedades[index].gallery.length - 1;
+    const newIndex = isLastImage ? 0 : currentIndexes[index] + 1;
+    setcountimg(newIndex + 1);
+    setCurrentIndexes((prevIndexes) =>
+      prevIndexes.map((item, idx) => (idx === index ? newIndex : item))
+    );
+  };
   return (
     <div className="flex flex-col justify-center items-center">
       {propiedades &&
@@ -49,7 +50,9 @@ export default function CardResultado({propiedades}) {
                 alt=""
               />
             </div>
-          <p className=" z-50 mt-19 absolute bg-black/40 rounded-full p-1 text-white text-sm  ">{countimg}/{propiedades.length}</p>
+            <p className=" z-50 mt-19 absolute bg-black/40 rounded-full p-1 text-white text-sm  ">
+              {countimg}/{propiedades.length}
+            </p>
             <div className="w-60 bg-white h-28 absolute mt-56 rounded-2xl shadow flex flex-col items-center pt-2 font-display">
               <p className="text-base font-bold text-[#7B7B7B]">
                 {item.precio}
