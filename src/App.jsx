@@ -1,27 +1,17 @@
-import React from 'react'
-
-import HomeSearch from './components/SectionHome/HomeSearch'
-import SectionPorque from './components/SectionPorque/SectionPorque'
-import SectionVariedad from './components/SectionVariedad/SectionVariedad'
-import SectionEncuentra from './components/SectionEncuentra/SectionEncuentra'
-import SectionCTA from './components/SectionCTA/SectionCTA'
-import SectionComoComprar from './components/SectionComoComprar/SectionComoComprar'
-import SectionOpiniones from './components/SectionOpiniones/SectionOpiniones'
-import SectionEquipo from './components/SectionEquipo/SectionEquipo'
-import SectionFooter from './components/SectionFooter/SectionFooter'
+import React from "react";
+import Residencial from "./pages/Residencial";
+import { Route, Routes } from "react-router";
+import Comercial from "./pages/Comercial";
+import ResultadosBusqueda from "./pages/Buscador/ResultadosBusqueda";
 
 export default function App() {
   return (
     <>
-    <HomeSearch/>
-    <SectionPorque/>
-    <SectionVariedad/>
-    <SectionEncuentra/>
-    <SectionCTA/>
-    <SectionComoComprar/>
-    <SectionOpiniones/>
-    <SectionEquipo/>
-    <SectionFooter/>
+      <Routes>
+        <Route path="/" element={<Residencial />} />
+        <Route path="/comercial" element={<Comercial />} />
+        <Route path="/resultado" element={<ResultadosBusqueda />} />
+      </Routes>
     </>
-  )
+  );
 }
