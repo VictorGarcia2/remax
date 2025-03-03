@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router";
 export default function Search() {
   const [openTipo, setOpenTipo] = useState(true);
   const handle = () => {
@@ -34,11 +35,13 @@ export default function Search() {
           />
 
           <div className="rounded-e-full w-13 h-11 bg-[#003DA4] align-middle  items-center flex shadow-[0_3px_1px] shadow-black/50">
+          <Link to={"/resultado"} >
             <img
               className="mx-auto"
-              src="/public/HomePageContent/Search Normal.svg"
+              src="HomePageContent/Search Normal.svg"
               alt=""
-            />
+              />
+              </Link>
           </div>
         </div>
       </div>
