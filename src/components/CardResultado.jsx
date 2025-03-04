@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { Link } from "react-router";
 export default function CardResultado({ propiedades }) {
-  const [countimg, setcountimg] = useState();
+  const [countimg, setcountimg] = useState(1);
   const [currentIndexes, setCurrentIndexes] = useState(
     propiedades.map(() => 0)
   );
@@ -28,7 +29,7 @@ export default function CardResultado({ propiedades }) {
       {propiedades &&
         propiedades.map((item, index) => (
           <div
-            key={item.id}
+            key={index}
             className="w-full flex flex-col mt-6 mb-30 justify-center items-center"
           >
             <div className="flex absolute justify-around mx-auto gap-70">
@@ -53,7 +54,8 @@ export default function CardResultado({ propiedades }) {
             <p className=" z-50 mt-19 absolute bg-black/40 rounded-full p-1 text-white text-sm  ">
               {countimg}/{propiedades.length}
             </p>
-            <div className="w-60 bg-white h-28 absolute mt-56 rounded-2xl shadow flex flex-col items-center pt-2 font-display">
+            
+            <Link to={"/seleccion"} className="w-60 bg-white h-28 absolute mt-56 rounded-2xl shadow flex flex-col items-center pt-2 font-display">
               <p className="text-base font-bold text-[#7B7B7B]">
                 {item.precio}
               </p>
@@ -72,7 +74,7 @@ export default function CardResultado({ propiedades }) {
                   alt=""
                 />
               </button>
-            </div>
+            </Link>
           </div>
         ))}
     </div>

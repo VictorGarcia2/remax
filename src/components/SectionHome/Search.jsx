@@ -34,8 +34,8 @@ export default function Search() {
             placeholder="Busca una zona..."
           />
 
-          <div className="rounded-e-full w-13 h-11 bg-[#003DA4] align-middle  items-center flex shadow-[0_3px_1px] shadow-black/50">
-          <Link to={"/resultado"} >
+          <div className="rounded-e-full  w-13 h-11 bg-[#003DA4] align-middle  items-center flex shadow-[0_3px_1px] shadow-black/50">
+          <Link to={"/resultado"} className="mx-auto" >
             <img
               className="mx-auto"
               src="HomePageContent/Search Normal.svg"

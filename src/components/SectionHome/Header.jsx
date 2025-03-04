@@ -7,11 +7,7 @@ const handle = (prop)=> {
 }
 
   return (
-    <>
-
-
-
-              
+    <>  
       <div className={` w-48 bg-white fixed transition-all duration-[900ms] ease-in-out  right-0 z-50 font-display text-[#7B7B7B] h-screen ${openMenu ? "translate-x-0 pointer-events-auto":" translate-x-full pointer-events-none"}`}>
         <div className="p-5 flex flex-col justify-end items-end">
           <div className="flex w-full justify-between">

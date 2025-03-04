@@ -6,7 +6,7 @@ export default function CantidadPropiedades({propiedades}) {
   console.log(count)
   return (
     <>
-          <div  className='px-5 mt-4'>Propiedades disponibles: {count}</div>
+          <div  className='px-5 mt-4 text-[#7b7b7b]'>Propiedades disponibles: {count}</div>
     </>
   )
 }
