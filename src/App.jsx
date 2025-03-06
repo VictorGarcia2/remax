@@ -13,8 +13,9 @@ export default function App() {
       direccion: "Calle Principal #123, Colonia Centro",
       sector: "Residencial",
       imagenes: [
-        "https://example.com/imagen1.jpg",
-        "https://example.com/imagen2.jpg",
+        "HomePageContent/pexels-fotoaibe-1571460 1.jpg",
+        "HomePageContent/pexels-binyaminmellish-186077 1.jpg",
+        "HomePageContent/pexels-houzlook-3797991.jpg",
       ],
       amenidades: ["Alberca", "Jardín", "Cochera para 2 autos"],
       metrosCuadrados: 200,
@@ -40,8 +41,9 @@ export default function App() {
       direccion: "Avenida Reforma #456, Colonia Moderna",
       sector: "Comercial",
       imagenes: [
-        "https://example.com/imagen3.jpg",
-        "https://example.com/imagen4.jpg",
+        "HomePageContent/pexels-binyaminmellish-186077 1.jpg",
+        "HomePageContent/pexels-houzlook-3797991.jpg",
+        "HomePageContent/pexels-fotoaibe-1571460 1.jpg",
       ],
       amenidades: ["Gimnasio", "Terraza", "Estacionamiento subterráneo"],
       metrosCuadrados: 80,
@@ -63,7 +65,6 @@ export default function App() {
   ];
   const [propiedades, setPropiedades] = useState(lisimg);
 
-  
   const [menuClose, setMenuClose] = useState(true);
   return (
     <>
@@ -74,6 +75,8 @@ export default function App() {
           path="/resultado"
           element={
             <ResultadosBusqueda
+              menuClose={menuClose}
+              setMenuClose={setMenuClose}
               propiedades={propiedades}
               setPropiedades={setPropiedades}
             />

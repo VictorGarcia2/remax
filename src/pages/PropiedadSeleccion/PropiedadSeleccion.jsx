@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import HeaderResultadoBusqueda from "../../components/HeaderResultadoBusqueda";
+import SectionFooter from '../../components/SectionFooter/SectionFooter.jsx'
 export default function PropiedadSeleccion({ propiedades }) {
   return (
     <>
@@ -22,7 +23,7 @@ export default function PropiedadSeleccion({ propiedades }) {
             1/2
           </p>
         </div>
-        <div className="w-full text-[#7b7b7b]">
+        <div className="w-full flex flex-col text-[#7b7b7b]">
           <div className="px-5">
             <p className="">Departamento en Venta</p>
             <p>Departamento desde: $2,000,000 MXN</p>
@@ -47,9 +48,85 @@ export default function PropiedadSeleccion({ propiedades }) {
               <img src="" alt="" />
             </div>
           </div>
-          <p>Departamento  en  Venta en  AV. Salvador Diaz #345, Verazcruz, México.</p>
+          <p>
+            Departamento en Venta en AV. Salvador Diaz #345, Veracruz, México.
+          </p>
+          <hr />
+          <button className="mt-2 mx-auto bg-[#DB1C2E] w-[352px] h-[48px] text-white rounded-[10px]">
+            Calculador de hipotecas
+          </button>
+          <div>
+            <p>Descripcion del innmueble</p>
+            <br />
+            <p>
+              ParqueViatt® Se encuentra a 200 m del periférico Raúl López
+              Sánchez, vialidad que conecta la zona industrial de Gómez Palacio
+              con las salidas más importantes y concurridas de La Laguna, por lo
+              que es la ruta principal del tráfico de carga pesada y a tan solo
+              600m del centro trailero de la ciudad.  ParqueViatt® contará con
+              solo 21 bodegas que van desde los 745m2 hasta los 2,072m2, estas
+              se concentran alrededor de un gran patio de maniobras que fue
+              diseñado para garantizar los radios de giro de cada tráiler, para
+              eficientizar su tránsito. 
+            </p>
+          </div>
+          <div>
+            <p>Informacion detallada</p>
+            <div>
+              <div className="flex justify-between">
+                <p>Tipo de propiedad</p>
+                <p>Departamento</p>
+              </div>
+              <div className="flex justify-between">
+                <p>Estacionamiento</p>
+                <p>10 Cajones</p>
+              </div>
+              <div className="flex justify-between">
+                <p>Construcción</p>
+                <p>88.93 m2</p>
+              </div>
+              <div className="flex justify-between">
+                <p>Baños</p>
+                <p>1.0</p>
+              </div>
+              <div className="flex justify-between">
+                <p>Edad de Propiedadd</p>
+                <p>10 años</p>
+              </div>
+              <div className="flex justify-between">
+                <p>Uso de Suelo</p>
+                <p>Comercial</p>
+              </div>
+              <div className="flex justify-between">
+                <p>Niveles/Piso</p>
+                <p>1</p>
+              </div>
+              <div className="flex justify-between">
+                <p>Mantenimiento</p>
+                <p>$5,208 MXN</p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p>Ubicacion</p>
+            <br />
+            <p>
+              Departamento en Venta en AV. Salvador Diaz #345, Veracruz, México.
+            </p>
+            <div className="w-[353px] h-[254px] bg-green-100 mx-auto rounded-[10px]"></div>
+          </div>
+          <div>
+            <p>Amenidades</p>
+            <div>
+
+            </div>
+          </div>
+          <div>
+            <p>Zonas y Facilidades</p>
+          </div>
         </div>
       </div>
+      <SectionFooter/>
     </>
   );
 }

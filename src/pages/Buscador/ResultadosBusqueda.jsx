@@ -6,7 +6,7 @@ import CantidadPropiedades from "../../components/CantidadPropiedades";
 import CardResultado from "../../components/CardResultado";
 import MenuFilter from "../../components/MenuFilter";
 
-export default function ResultadosBusqueda({propiedades,setPropiedades}) {
+export default function ResultadosBusqueda({propiedades,setPropiedades, menuClose, setMenuClose}) {
 
   
   return (

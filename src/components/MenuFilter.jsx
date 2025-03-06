@@ -16,9 +16,9 @@ export default function MenuFilter({menuClose, setMenuClose}) {
 
    
     return (
-        <div className={`${menuClose && "hidden"} w-screen h-screen fixed text-[#7B7B7B] font-display z-50 bg-white`}>
+        <div className={`${menuClose && "hidden"} w-screen top-0 h-screen fixed text-[#7B7B7B] font-display z-50 bg-white`}>
             <div
-                className="flex flex-col items-center w-full "
+                className="flex flex-col py-4 items-center w-full "
                 id="accordion-collapse"
                 data-accordion="collapse"
             >
