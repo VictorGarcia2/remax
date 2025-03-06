@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import HeaderResultadoBusqueda from "../../components/HeaderResultadoBusqueda";
-import SectionFooter from '../../components/SectionFooter/SectionFooter.jsx'
+import SectionFooter from "../../components/SectionFooter/SectionFooter.jsx";
 export default function PropiedadSeleccion({ propiedades }) {
   return (
     <>
@@ -32,20 +32,41 @@ export default function PropiedadSeleccion({ propiedades }) {
               <p>30,000m²</p>
             </div>
           </div>
-          <hr className="w-full text-[#7B7B7B]" />
-          <div>
-            <p> Contacta al Agente</p>
+          <hr className="w-full my-2 text-[#7B7B7B]" />
+          <div className="w-[358px] h-[158px]  p-3 text-center flex  flex-col  justify-between items-center shadow-lg rounded-[10px] mx-auto my-5 bg-[#F9F9F9]">
             <div>
-              <p>Veronica Olan Garcia</p>
-              <p>Solicita informacion</p>
-              <div>
-                <img src="/public/HomePageContent/whatsapp.png" alt="" />
-                <img src="/public/HomePageContent/correo.svg" alt="" />
-                <img src="/public/HomePageContent/phone.svg" alt="" />
-              </div>
+              <p> Contacta al Agente</p>
             </div>
-            <div>
-              <img src="" alt="" />
+            <div className="flex gap-15 items-center justify-between">
+              <div className="">
+                <p>Veronica Olan Garcia</p>
+                <p>Solicita informacion</p>
+                <div className="flex items-center justify-center gap-4">
+                  <img
+                    className="w-auto h-full"
+                    src="/public/HomePageContent/whatsapp.png"
+                    alt=""
+                  />
+                  <img
+                    className="w-auto h-full"
+                    src="/public/HomePageContent/correo.svg"
+                    alt=""
+                  />
+                  <img
+                    className="w-auto h-full"
+                    src="/public/HomePageContent/phone.svg"
+                    alt=""
+                  />
+                </div>
+              </div>
+              <div>
+                <img
+                  className="w-[99px] h-[104px] object-cover rounded-[15px]"
+                  src="/public/HomePageContent/agente.png"
+                  alt=""
+                />
+              </div>{" "}
+              
             </div>
           </div>
           <p>
@@ -117,16 +138,14 @@ export default function PropiedadSeleccion({ propiedades }) {
           </div>
           <div>
             <p>Amenidades</p>
-            <div>
-
-            </div>
+            <div></div>
           </div>
           <div>
             <p>Zonas y Facilidades</p>
           </div>
         </div>
       </div>
-      <SectionFooter/>
+      <SectionFooter />
     </>
   );
 }
