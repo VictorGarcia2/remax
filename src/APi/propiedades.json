@@ -1,0 +1,234 @@
+{
+    "propiedades": [
+      {
+        "tipoPropiedad": "Casa",
+        "precio": 3500000,
+        "tipoTransaccion": "Venta",
+        "direccion": "Calle José María Pino Suárez #45, Colonia Centro, Villahermosa, Tabasco",
+        "sector": "Residencial",
+        "imagenes": ["https://example.com/casa1.jpg", "https://example.com/casa2.jpg"],
+        "amenidades": ["Alberca", "Jardín", "Cochera para 3 autos"],
+        "metrosCuadrados": 250,
+        "descripcion": "Casa amplia con 4 habitaciones, 3 baños, cocina integral y terraza.",
+        "tiempoConstruida": "8 años",
+        "zonas": ["Parque Tomás Garrido Canabal", "Escuelas", "Centro comercial Galerías Tabasco"],
+        "facilidades": ["Seguridad 24/7", "Área de juegos infantiles"],
+        "contactoAgente": {
+          "nombre": "Carlos Martínez",
+          "celular": "+52 55 1122 3344",
+          "redesSociales": {
+            "facebook": "https://facebook.com/carlosmartinez",
+            "instagram": "https://instagram.com/carlosmartinez"
+          },
+          "imagenAgente": "https://example.com/agente1.jpg"
+        }
+      },
+      {
+        "tipoPropiedad": "Departamento",
+        "precio": 15000,
+        "tipoTransaccion": "Renta",
+        "direccion": "Avenida Francisco I. Madero #789, Colonia Atasta, Villahermosa, Tabasco",
+        "sector": "Comercial",
+        "imagenes": ["https://example.com/depto1.jpg", "https://example.com/depto2.jpg"],
+        "amenidades": ["Gimnasio", "Terraza", "Estacionamiento subterráneo"],
+        "metrosCuadrados": 90,
+        "descripcion": "Departamento moderno con 2 habitaciones, 2 baños y vista a la ciudad.",
+        "tiempoConstruida": "5 años",
+        "zonas": ["Zona financiera", "Restaurantes", "Transporte público"],
+        "facilidades": ["Concierge", "Salón de eventos"],
+        "contactoAgente": {
+          "nombre": "Ana García",
+          "celular": "+52 55 9988 7766",
+          "redesSociales": {
+            "facebook": "https://facebook.com/anagarcia",
+            "instagram": "https://instagram.com/anagarcia"
+          },
+          "imagenAgente": "https://example.com/agente2.jpg"
+        }
+      },
+      {
+        "tipoPropiedad": "Oficina",
+        "precio": 5000000,
+        "tipoTransaccion": "Venta",
+        "direccion": "Calle 27 de Febrero #1010, Colonia Reforma, Villahermosa, Tabasco",
+        "sector": "Comercial",
+        "imagenes": ["https://example.com/oficina1.jpg", "https://example.com/oficina2.jpg"],
+        "amenidades": ["Sala de juntas", "Estacionamiento", "Cafetería"],
+        "metrosCuadrados": 300,
+        "descripcion": "Oficina en zona premium con amplios espacios y acabados de lujo.",
+        "tiempoConstruida": "12 años",
+        "zonas": ["Zona financiera", "Restaurantes", "Transporte público"],
+        "facilidades": ["Seguridad 24/7", "Área de espera"],
+        "contactoAgente": {
+          "nombre": "Luis Hernández",
+          "celular": "+52 55 3344 5566",
+          "redesSociales": {
+            "facebook": "https://facebook.com/luishernandez",
+            "instagram": "https://instagram.com/luishernandez"
+          },
+          "imagenAgente": "https://example.com/agente3.jpg"
+        }
+      },
+      {
+        "tipoPropiedad": "Terreno",
+        "precio": 1200000,
+        "tipoTransaccion": "Venta",
+        "direccion": "Carretera Villahermosa-Teapa KM 12.5, Colonia La Manga, Tabasco",
+        "sector": "Residencial",
+        "imagenes": ["https://example.com/terreno1.jpg", "https://example.com/terreno2.jpg"],
+        "amenidades": [],
+        "metrosCuadrados": 500,
+        "descripcion": "Terreno plano ideal para construcción de vivienda.",
+        "tiempoConstruida": "N/A",
+        "zonas": ["Escuelas", "Centro comercial", "Áreas verdes"],
+        "facilidades": ["Acceso controlado"],
+        "contactoAgente": {
+          "nombre": "Mónica Sánchez",
+          "celular": "+52 55 6677 8899",
+          "redesSociales": {
+            "facebook": "https://facebook.com/monicasanchez",
+            "instagram": "https://instagram.com/monicasanchez"
+          },
+          "imagenAgente": "https://example.com/agente4.jpg"
+        }
+      },
+      {
+        "tipoPropiedad": "Casa",
+        "precio": 2800000,
+        "tipoTransaccion": "Venta",
+        "direccion": "Calle Miguel Hidalgo #22, Colonia Tamulté, Villahermosa, Tabasco",
+        "sector": "Residencial",
+        "imagenes": ["https://example.com/casa3.jpg", "https://example.com/casa4.jpg"],
+        "amenidades": ["Jardín", "Cochera para 2 autos", "Terraza"],
+        "metrosCuadrados": 180,
+        "descripcion": "Casa con 3 habitaciones, 2 baños y amplio jardín.",
+        "tiempoConstruida": "15 años",
+        "zonas": ["Parque La Choca", "Escuelas", "Centro comercial"],
+        "facilidades": ["Seguridad 24/7"],
+        "contactoAgente": {
+          "nombre": "Roberto Díaz",
+          "celular": "+52 55 2233 4455",
+          "redesSociales": {
+            "facebook": "https://facebook.com/robertodiaz",
+            "instagram": "https://instagram.com/robertodiaz"
+          },
+          "imagenAgente": "https://example.com/agente5.jpg"
+        }
+      },
+      {
+        "tipoPropiedad": "Departamento",
+        "precio": 18000,
+        "tipoTransaccion": "Renta",
+        "direccion": "Avenida Universidad #345, Colonia Educación, Villahermosa, Tabasco",
+        "sector": "Residencial",
+        "imagenes": ["https://example.com/depto3.jpg", "https://example.com/depto4.jpg"],
+        "amenidades": ["Gimnasio", "Terraza", "Estacionamiento"],
+        "metrosCuadrados": 100,
+        "descripcion": "Departamento con 2 habitaciones, 2 baños y vista panorámica.",
+        "tiempoConstruida": "7 años",
+        "zonas": ["Restaurantes", "Bares", "Parques"],
+        "facilidades": ["Concierge", "Área de lavado"],
+        "contactoAgente": {
+          "nombre": "Sofía Ramírez",
+          "celular": "+52 55 5566 7788",
+          "redesSociales": {
+            "facebook": "https://facebook.com/sofiaramirez",
+            "instagram": "https://instagram.com/sofiaramirez"
+          },
+          "imagenAgente": "https://example.com/agente6.jpg"
+        }
+      },
+      {
+        "tipoPropiedad": "Casa",
+        "precio": 4200000,
+        "tipoTransaccion": "Venta",
+        "direccion": "Calle Pino Suárez #67, Colonia Bosques de Saloya, Villahermosa, Tabasco",
+        "sector": "Residencial",
+        "imagenes": ["https://example.com/casa5.jpg", "https://example.com/casa6.jpg"],
+        "amenidades": ["Alberca", "Jardín", "Cochera para 4 autos"],
+        "metrosCuadrados": 300,
+        "descripcion": "Casa de lujo con 5 habitaciones, 4 baños y amplios espacios.",
+        "tiempoConstruida": "10 años",
+        "zonas": ["Club de golf", "Escuelas", "Centro comercial"],
+        "facilidades": ["Seguridad 24/7", "Área de juegos infantiles"],
+        "contactoAgente": {
+          "nombre": "Jorge López",
+          "celular": "+52 55 9988 1122",
+          "redesSociales": {
+            "facebook": "https://facebook.com/jorgelopez",
+            "instagram": "https://instagram.com/jorgelopez"
+          },
+          "imagenAgente": "https://example.com/agente7.jpg"
+        }
+      },
+      {
+        "tipoPropiedad": "Oficina",
+        "precio": 8000,
+        "tipoTransaccion": "Renta",
+        "direccion": "Calle Lerdo de Tejada #89, Colonia Centro, Villahermosa, Tabasco",
+        "sector": "Comercial",
+        "imagenes": ["https://example.com/oficina3.jpg", "https://example.com/oficina4.jpg"],
+        "amenidades": ["Sala de juntas", "Estacionamiento", "Cafetería"],
+        "metrosCuadrados": 120,
+        "descripcion": "Oficina en zona céntrica con excelente ubicación.",
+        "tiempoConstruida": "20 años",
+        "zonas": ["Zona financiera", "Restaurantes", "Transporte público"],
+        "facilidades": ["Seguridad 24/7"],
+        "contactoAgente": {
+          "nombre": "Patricia Gómez",
+          "celular": "+52 55 3344 5566",
+          "redesSociales": {
+            "facebook": "https://facebook.com/patriciagomez",
+            "instagram": "https://instagram.com/patriciagomez"
+          },
+          "imagenAgente": "https://example.com/agente8.jpg"
+        }
+      },
+      {
+        "tipoPropiedad": "Terreno",
+        "precio": 900000,
+        "tipoTransaccion": "Venta",
+        "direccion": "Carretera Villahermosa-Cárdenas KM 15, Colonia La Manga, Tabasco",
+        "sector": "Residencial",
+        "imagenes": ["https://example.com/terreno3.jpg", "https://example.com/terreno4.jpg"],
+        "amenidades": [],
+        "metrosCuadrados": 400,
+        "descripcion": "Terreno ideal para construcción de vivienda o desarrollo comercial.",
+        "tiempoConstruida": "N/A",
+        "zonas": ["Áreas verdes", "Escuelas", "Centro comercial"],
+        "facilidades": ["Acceso controlado"],
+        "contactoAgente": {
+          "nombre": "Ricardo Torres",
+          "celular": "+52 55 6677 8899",
+          "redesSociales": {
+            "facebook": "https://facebook.com/ricardotorres",
+            "instagram": "https://instagram.com/ricardotorres"
+          },
+          "imagenAgente": "https://example.com/agente9.jpg"
+        }
+      },
+      {
+        "tipoPropiedad": "Casa",
+        "precio": 1900000,
+        "tipoTransaccion": "Venta",
+        "direccion": "Calle Benito Juárez #12, Colonia Gaviotas, Villahermosa, Tabasco",
+        "sector": "Residencial",
+        "imagenes": ["https://example.com/casa7.jpg", "https://example.com/casa8.jpg"],
+        "amenidades": ["Jardín", "Cochera para 2 autos"],
+        "metrosCuadrados": 150,
+        "descripcion": "Casa con 3 habitaciones, 2 baños y jardín.",
+        "tiempoConstruida": "12 años",
+        "zonas": ["Parque La Choca", "Escuelas", "Centro comercial"],
+        "facilidades": ["Seguridad 24/7"],
+        "contactoAgente": {
+          "nombre": "Fernanda Castro",
+          "celular": "+52 55 1122 3344",
+          "redesSociales": {
+            "facebook": "https://facebook.com/fernandacastro",
+            "instagram": "https://instagram.com/fernandacastro"
+          },
+          "imagenAgente": "https://example.com/agente10.jpg"
+        }
+      }
+    ]
+  }

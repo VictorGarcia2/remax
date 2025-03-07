@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import Search from "./Search";
-/* import { Propiedades } from "../../APi/propiedades"; */
+
 
 export default function HomeSearch() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  /* const [data, setData] = useState([])
+  const [data, setData] = useState([])
    console.log(data)
   useEffect(() => {
-    Propiedades()
-      .then((response) => setData(response))
-      .catch(error => console.error(error))
+    fetch('src/APi/propiedades.json')
+    .then( response => response.json() )
+    .then( datos => {
+        setData(datos)
+    });
   }, [])
- */
   // Array de imágenes (reemplaza con tus propias URLs)
   const images = [
     "HomePageContent/pexels-binyaminmellish-186077 1.jpg",
