@@ -6,7 +6,6 @@ import Search from "./Search";
 export default function HomeSearch() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [data, setData] = useState([])
-   console.log(data)
   useEffect(() => {
     fetch('src/APi/propiedades.json')
     .then( response => response.json() )
@@ -14,7 +13,6 @@ export default function HomeSearch() {
         setData(datos)
     });
   }, [])
-  // Array de imágenes (reemplaza con tus propias URLs)
   const images = [
     "HomePageContent/pexels-binyaminmellish-186077 1.jpg",
     "HomePageContent/pexels-houzlook-3797991.jpg",
@@ -44,7 +42,7 @@ export default function HomeSearch() {
               disfrutar de la tranquilidad. ¡Tu próximo hogar o refugio ideal te
               espera!
             </p>
-            <Search />
+            <Search data={data} setData={setData}/>
           </div>
         </div>
         <div className="h-[536px] w-full absolute z-0 bg-linear-180 from-black/60 to-100%"></div>
