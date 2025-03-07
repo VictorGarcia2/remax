@@ -6,15 +6,12 @@ export default function MenuFilter({menuClose, setMenuClose}) {
         "accordion-collapse-body-2": true,
         "accordion-collapse-body-3": true,
     });
-
     const toggleSection = (sectionId) => {
         setOpenSections((prevState) => ({
             ...prevState,
             [sectionId]: !prevState[sectionId],
         }));
-    };
-
-   
+    };   
     return (
         <div className={`${menuClose && "hidden"} w-screen top-0 h-screen fixed text-[#7B7B7B] font-display z-50 bg-white`}>
             <div
