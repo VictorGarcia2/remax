@@ -27,7 +27,7 @@ export default function PropiedadSeleccion({ propiedades }) {
       <div className="bottom-4 right-4 bg-blueRemax rounded-full  fixed z-50  w-[50px] h-[50px] flex items-center justify-center">
         <img
           className="w-8"
-          src="/public/HomePageContent/brand-whatsapp 1.svg"
+          src="HomePageContent/brand-whatsapp 1.svg"
           alt=""
         />
       </div>
@@ -36,7 +36,7 @@ export default function PropiedadSeleccion({ propiedades }) {
           <div className="absolute right-3 top-4 bg-black/50 p-1 rounded-full">
             <img
               className="w-[20px] h-[20px]"
-              src="/public/HomePageContent/iconshare.png"
+              src="HomePageContent/iconshare.png"
               alt=""
             />
           </div>
@@ -55,7 +55,7 @@ export default function PropiedadSeleccion({ propiedades }) {
           <div className="flex w-full">
             <img
               className="w-full object-cover h-[202px]"
-              src="/public/HomePageContent/pexels-houzlook-3797991.jpg"
+              src="HomePageContent/pexels-houzlook-3797991.jpg"
               alt="Imagen de propiedad"
             />
           </div>
@@ -69,7 +69,7 @@ export default function PropiedadSeleccion({ propiedades }) {
             <p>Departamento desde: $2,000,000 MXN</p>
             <div className="flex">
               <img
-                src="/public/HomePageContent/iconmeters.svg"
+                src="HomePageContent/iconmeters.svg"
                 alt="Icono de metros cuadrados"
               />
               <p>30,000m²</p>
@@ -87,17 +87,17 @@ export default function PropiedadSeleccion({ propiedades }) {
                 <div className="flex items-center justify-center gap-4">
                   <img
                     className="w-auto h-full"
-                    src="/public/HomePageContent/whatsapp.png"
+                    src="HomePageContent/whatsapp.png"
                     alt="WhatsApp"
                   />
                   <img
                     className="w-auto h-full"
-                    src="/public/HomePageContent/correo.svg"
+                    src="HomePageContent/correo.svg"
                     alt="Correo"
                   />
                   <img
                     className="w-auto h-full"
-                    src="/public/HomePageContent/phone.svg"
+                    src="HomePageContent/phone.svg"
                     alt="Teléfono"
                   />
                 </div>
@@ -105,7 +105,7 @@ export default function PropiedadSeleccion({ propiedades }) {
               <div>
                 <img
                   className="w-[99px] h-[104px] object-cover rounded-[15px]"
-                  src="/public/HomePageContent/agente.png"
+                  src="HomePageContent/agente.png"
                   alt="Foto del agente"
                 />
               </div>
