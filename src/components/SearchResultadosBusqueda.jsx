@@ -14,7 +14,7 @@ export default function SearchResultadosBusqueda({ menuClose, setMenuClose }) {
           id=""
           placeholder="Buscar en una zona"
         />
-        <img className="w-5 " src="HomePageContent/Search Results.svg" alt="" />
+        <img loading="lazy" className="w-5 " src="HomePageContent/Search Results.svg" alt="" />
       </div>
       <img onClick={handle} src="HomePageContent/Filter.svg" alt="" />
     </div>

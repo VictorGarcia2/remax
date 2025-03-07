@@ -26,6 +26,7 @@ export default function PropiedadSeleccion({ propiedades }) {
       </div>
       <div className="bottom-4 right-4 bg-blueRemax rounded-full  fixed z-50  w-[50px] h-[50px] flex items-center justify-center">
         <img
+          loading="lazy"
           className="w-8"
           src="HomePageContent/brand-whatsapp 1.svg"
           alt=""
@@ -35,6 +36,7 @@ export default function PropiedadSeleccion({ propiedades }) {
         <div className="w-full flex relative  flex-col justify-center items-center">
           <div className="absolute right-3 top-4 bg-black/50 p-1 rounded-full">
             <img
+              loading="lazy"
               className="w-[20px] h-[20px]"
               src="HomePageContent/iconshare.png"
               alt=""
@@ -42,11 +44,13 @@ export default function PropiedadSeleccion({ propiedades }) {
           </div>
           <div className="flex w-full absolute justify-around mx-auto gap-70">
             <img
+              loading="lazy"
               className="w-[27px] h-[27px]"
               src="HomePageContent/arrowizq.svg"
               alt="Flecha izquierda"
             />
             <img
+              loading="lazy"
               className="w-[27px] h-[27px]"
               src="HomePageContent/arrowderecha.svg"
               alt="Flecha derecha"
@@ -54,6 +58,7 @@ export default function PropiedadSeleccion({ propiedades }) {
           </div>
           <div className="flex w-full">
             <img
+              loading="lazy"
               className="w-full object-cover h-[202px]"
               src="HomePageContent/pexels-houzlook-3797991.jpg"
               alt="Imagen de propiedad"
@@ -69,6 +74,7 @@ export default function PropiedadSeleccion({ propiedades }) {
             <p>Departamento desde: $2,000,000 MXN</p>
             <div className="flex">
               <img
+                loading="lazy"
                 src="HomePageContent/iconmeters.svg"
                 alt="Icono de metros cuadrados"
               />
@@ -86,16 +92,19 @@ export default function PropiedadSeleccion({ propiedades }) {
                 <p className="font-medium text-[16px]">Solicita información:</p>
                 <div className="flex items-center justify-center gap-4">
                   <img
+                    loading="lazy"
                     className="w-auto h-full"
                     src="HomePageContent/whatsapp.png"
                     alt="WhatsApp"
                   />
                   <img
+                    loading="lazy"
                     className="w-auto h-full"
                     src="HomePageContent/correo.svg"
                     alt="Correo"
                   />
                   <img
+                    loading="lazy"
                     className="w-auto h-full"
                     src="HomePageContent/phone.svg"
                     alt="Teléfono"
@@ -104,6 +113,7 @@ export default function PropiedadSeleccion({ propiedades }) {
               </div>
               <div>
                 <img
+                  loading="lazy"
                   className="w-[99px] h-[104px] object-cover rounded-[15px]"
                   src="HomePageContent/agente.png"
                   alt="Foto del agente"

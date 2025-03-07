@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Header from "./Header"
+import Header from "./Header";
 import Search from "./Search";
 /* import { Propiedades } from "../../APi/propiedades"; */
 
 export default function HomeSearch() {
   const [currentIndex, setCurrentIndex] = useState(0);
-   /* const [data, setData] = useState([])
+  /* const [data, setData] = useState([])
    console.log(data)
   useEffect(() => {
     Propiedades()
@@ -21,10 +21,9 @@ export default function HomeSearch() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-      
-    }, 5000); 
+    }, 5000);
     return () => clearInterval(interval);
-  }, [images.length ]);
+  }, [images.length]);
   return (
     <>
       <div className="w-full">
@@ -44,12 +43,14 @@ export default function HomeSearch() {
               disfrutar de la tranquilidad. ¡Tu próximo hogar o refugio ideal te
               espera!
             </p>
-          <Search/>
+            <Search />
           </div>
         </div>
         <div className="h-[536px] w-full absolute z-0 bg-linear-180 from-black/60 to-100%"></div>
         <img
-          className={` object-cover h-[536px] `} src={images[currentIndex]}
+          loading="lazy"
+          className={` object-cover h-[536px] `}
+          src={images[currentIndex]}
           alt=""
         />
       </div>

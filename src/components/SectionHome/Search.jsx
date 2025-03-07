@@ -35,13 +35,14 @@ export default function Search() {
           />
 
           <div className="rounded-e-full  w-13 h-11 bg-[#003DA4] align-middle  items-center flex shadow-[0_3px_1px] shadow-black/50">
-          <Link to={"/resultado"} className="mx-auto" >
-            <img
-              className="mx-auto"
-              src="HomePageContent/Search Normal.svg"
-              alt=""
+            <Link to={"/resultado"} className="mx-auto">
+              <img
+                loading="lazy"
+                className="mx-auto"
+                src="HomePageContent/Search Normal.svg"
+                alt=""
               />
-              </Link>
+            </Link>
           </div>
         </div>
       </div>
@@ -53,6 +54,7 @@ export default function Search() {
         <ol className="font-display  text-start py-5 px-5 text-base  text-[#414141]">
           <li className="flex items-center gap-1 pb-1">
             <img
+              loading="lazy"
               className="w-5"
               src="HomePageContent/casa.svg"
               alt=""
@@ -64,6 +66,7 @@ export default function Search() {
             className="flex items-center gap-1 pb-1"
           >
             <img
+              loading="lazy"
               className="w-5"
               src="HomePageContent/casaencondominio.svg"
               alt=""
@@ -72,6 +75,7 @@ export default function Search() {
           </li>
           <li className="flex items-center gap-1 pb-1">
             <img
+              loading="lazy"
               className="w-5"
               src="HomePageContent/icondepartamento.svg"
               alt=""
@@ -80,6 +84,7 @@ export default function Search() {
           </li>
           <li className="flex items-center gap-1 pb-1">
             <img
+              loading="lazy"
               className="w-5"
               src="HomePageContent/edificio.svg"
               alt=""
@@ -88,6 +93,7 @@ export default function Search() {
           </li>
           <li className="flex items-center gap-1 pb-1">
             <img
+              loading="lazy"
               className="w-5"
               src="HomePageContent/Terreno.svg"
               alt=""
@@ -96,6 +102,7 @@ export default function Search() {
           </li>
           <li className="flex items-center gap-1 pb-1">
             <img
+              loading="lazy"
               className="w-5"
               src="HomePageContent/desarrollo.svg"
               alt=""

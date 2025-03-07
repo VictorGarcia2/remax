@@ -8,32 +8,36 @@ export default function SectionVariedad() {
       </p>
       <div className="grid grid-cols-1 gap-6 mt-3">
         <div className="bg-black rounded relative flex flex-col justify-center items-center">
-            <p className="absolute text-white z-50">Departamentos</p>
+          <p className="absolute text-white z-50">Departamentos</p>
           <img
+            loading="lazy"
             className=" opacity-70 object-cover w-[356px] h-[140px] rounded"
             src="HomePageContent/pexels-binyaminmellish-186077 1.jpg"
             alt=""
           />
         </div>
         <div className="bg-black rounded relative flex flex-col justify-center items-center">
-            <p className="absolute text-white z-50">Departamentos</p>
+          <p className="absolute text-white z-50">Departamentos</p>
           <img
+            loading="lazy"
             className=" opacity-70 object-cover w-[356px] h-[140px] rounded"
             src="HomePageContent/pexels-binyaminmellish-186077 1.jpg"
             alt=""
           />
         </div>
         <div className="bg-black rounded relative flex flex-col justify-center items-center">
-            <p className="absolute text-white z-50">Departamentos</p>
+          <p className="absolute text-white z-50">Departamentos</p>
           <img
+            loading="lazy"
             className=" opacity-70 object-cover w-[356px] h-[140px] rounded"
             src="HomePageContent/pexels-binyaminmellish-186077 1.jpg"
             alt=""
           />
         </div>
         <div className="bg-black rounded relative flex flex-col justify-center items-center">
-            <p className="absolute text-white z-50">Departamentos</p>
+          <p className="absolute text-white z-50">Departamentos</p>
           <img
+            loading="lazy"
             className=" opacity-70 object-cover w-[356px] h-[140px] rounded"
             src="HomePageContent/pexels-binyaminmellish-186077 1.jpg"
             alt=""

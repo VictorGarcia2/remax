@@ -12,6 +12,7 @@ export default function SectionComoComprar() {
             <div className="flex px-1 flex-col justify-center gap-4">
               <div className="mx-auto  rounded shadow-[0_5px_5px] shadow-black/40 p-4 text-[#7b7b7b] bg-[#F9F9F9] w-[329px] h-[110px] flex ">
                 <img
+                  loading="lazy"
                   className="w-13"
                   src="HomePageContent/iconsearch.svg"
                   alt=""
@@ -26,6 +27,7 @@ export default function SectionComoComprar() {
               </div>
               <div className="mx-auto  rounded shadow-[0_5px_5px] shadow-black/40 p-4 text-[#7b7b7b] bg-[#F9F9F9] w-[329px] h-[110px] flex ">
                 <img
+                  loading="lazy"
                   className="w-13"
                   src="HomePageContent/iconphone.svg"
                   alt=""
@@ -40,6 +42,7 @@ export default function SectionComoComprar() {
               </div>
               <div className="mx-auto  rounded shadow-[0_5px_5px] shadow-black/40 p-4 text-[#7b7b7b] bg-[#F9F9F9] w-[329px] h-[110px] flex ">
                 <img
+                  loading="lazy"
                   className="w-13"
                   src="HomePageContent/iconedificiocompra.svg"
                   alt=""
@@ -60,6 +63,7 @@ export default function SectionComoComprar() {
             <div className="flex px-1 flex-col justify-center gap-4">
               <div className="mx-auto  rounded shadow-[0_5px_5px] shadow-black/40 p-4 text-[#7b7b7b] bg-[#F9F9F9] w-[329px] h-[110px] flex ">
                 <img
+                  loading="lazy"
                   className="w-13"
                   src="HomePageContent/valoracion.svg"
                   alt=""
@@ -72,6 +76,7 @@ export default function SectionComoComprar() {
               </div>
               <div className="mx-auto  rounded shadow-[0_5px_5px] shadow-black/40 p-4 text-[#7b7b7b] bg-[#F9F9F9] w-[329px] h-[110px] flex ">
                 <img
+                  loading="lazy"
                   className="w-13"
                   src="HomePageContent/estrategia.svg"
                   alt=""
@@ -82,7 +87,12 @@ export default function SectionComoComprar() {
                 </p>
               </div>
               <div className="mx-auto  rounded shadow-[0_5px_5px] shadow-black/40 p-4 text-[#7b7b7b] bg-[#F9F9F9] w-[329px] h-[110px] flex ">
-                <img className="w-13" src="HomePageContent/cierre.svg" alt="" />
+                <img
+                  loading="lazy"
+                  className="w-13"
+                  src="HomePageContent/cierre.svg"
+                  alt=""
+                />
                 <p className="text-end w-full text-[14px]">
                   <span className="font-[700]"> Cierre Rápido y Seguro</span>
                   <br /> Gestionamos visitas, negociaciones y el proceso legal.
