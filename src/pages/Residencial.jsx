@@ -8,7 +8,6 @@ import SectionCTA from "../components/SectionCTA/SectionCTA"
 import SectionComoComprar from "../components/SectionComoComprar/SectionComoComprar"
 import SectionOpiniones from "../components/SectionOpiniones/SectionOpiniones"
 import SectionEquipo from "../components/SectionEquipo/SectionEquipo"
-
 export default function Residencial() {
     return (
         <>
