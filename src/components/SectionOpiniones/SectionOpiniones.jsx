@@ -64,7 +64,7 @@ export default function SectionOpiniones() {
       <p className="italic text-2xl font-[800] text-[#7b7b7b]">
         Opiniones Verificadas en Google
       </p>
-      <div className="mt-5 flex gap-10 overflow-x-scroll">
+      <div className="mt-6 pt-10 ps-10 pe-3 flex gap-10 overflow-x-scroll">
         {opiniones.map((opinion, index) => (
           <div key={index} className="relative  mb-10">
             <div className="bg-[#D9D9D9]  absolute shadow-[0_5px_5px] shadow-black/40 -mt-6 -ml-6 w-16 h-16 rounded-full flex justify-center items-center">
