@@ -7,7 +7,7 @@ export default function SectionEncuentra() {
         <span className="font-[800] italic"> Encuentra </span> tu Propiedad
         Ideal o Vende con <span className="font-[800] italic"> Expertos </span>
       </p>
-      <p className="text-base text-[#2e2c2c] mt-3">
+      <p className="text-base text-[#2e2c2c] mt-3 sm:w-4xl">
         En REMAX CIN, te ayudamos a comprar o vender propiedades de manera
         fácil, segura y con el respaldo de nuestros asesores expertos. Con
         herramientas como nuestro buscador avanzado y una atención

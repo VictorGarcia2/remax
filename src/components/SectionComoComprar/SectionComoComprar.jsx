@@ -6,7 +6,7 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 export default function SectionComoComprar() {
   return (
     <>
-      <div className="flex flex-col justify-center text-center px-5">
+     {/*  <div className="flex flex-col justify-center text-center px-5">
         <div className="font-display flex -mx-2   gap-2 overflow-auto overflow-x-scroll text-center pb-10">
           <div>
             <p className="italic  text-2xl font-[800] font-display text-[#7b7b7b]">
@@ -104,7 +104,7 @@ export default function SectionComoComprar() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
         <div class="aspect-w-16 aspect-h-7">
           <img
@@ -115,36 +115,34 @@ export default function SectionComoComprar() {
         </div>
         <div class="mt-5 lg:mt-16 grid lg:grid-cols-3 gap-8 lg:gap-12">
           <div class="lg:col-span-1">
-            <h2 class="font-bold text-2xl md:text-3xl text-gray-800 dark:text-neutral-200">
-            ¿Como Comprar una Propiedad?
+            <h2 class="font-bold text-2xl md:text-3xl text-gray-800 ">
+              ¿Como Comprar una Propiedad?
             </h2>
-            <p class="mt-2 md:mt-4 text-gray-500 dark:text-neutral-500">
-              Besides working with start-up enterprises as a partner for
-              digitalization, we have built enterprise products for common pain
-              points that we have encountered in various products and projects.
+            <p class="mt-2 md:mt-4 text-gray-500 ">
+              No solo vendemos propiedades, creamos oportunidades. Explora
+              opciones adaptadas a tus necesidades, resuelve dudas con
+              consultoría 24/7 y concreta con procesos auditados. La compra de
+              tu inmueble, en las manos correctas.
             </p>
           </div>
           <div class="lg:col-span-2">
-            <div class="grid sm:grid-cols-2 gap-8 md:gap-12">
+            <div class="grid sm:grid-cols-3 gap-8 md:gap-12">
               <div class="flex gap-x-5">
-              <FontAwesomeIcon icon={faMagnifyingGlass} />
+              <FontAwesomeIcon icon={faMagnifyingGlass} style={{color: "#003DA4",}} size="xl" />
                 <div class="grow">
-                  <h3 class="text-lg font-semibold text-gray-800 dark:text-white">
-                    Creative minds
-                  </h3>
-                  <p className="text-start w-full text-[14px]">
-                  {" "}
-                  <span className="font-[700]">
-                    Busca en Nuestro Buscador Avanzado{" "}
-                  </span>
-                  <br /> Filtra por ubicación, precio y tipo de propiedad.
-                </p>
+                  <p className="text-start w-full text-xl">
+                    {" "}
+                    <span className="font-[700]">
+                      Busca en Nuestro Buscador Avanzado{" "}
+                    </span>
+                    <br /> Filtra por ubicación, precio y tipo de propiedad.
+                  </p>
                 </div>
               </div>
 
               <div class="flex gap-x-5">
                 <svg
-                  class="shrink-0 mt-1 size-6 text-blue-600 dark:text-blue-500"
+                  class="shrink-0 mt-1 size-6 text-blue-600 "
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
                   height="24"
@@ -159,19 +157,19 @@ export default function SectionComoComprar() {
                   <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z" />
                 </svg>
                 <div class="grow">
-                  <h3 class="text-lg font-semibold text-gray-800 dark:text-white">
-                    Simple and affordable
-                  </h3>
-                  <p class="mt-1 text-gray-600 dark:text-neutral-400">
-                    From boarding passes to movie tickets, there's pretty much
-                    nothing you can't store with Preline.
+                  <p className="text-start w-full text-xl">
+                    {" "}
+                    <span className="font-[700]">
+                      Recibe Asesoría Personalizada
+                    </span>
+                    <br /> Un asesor REMAX te contactará para guiarte.
                   </p>
                 </div>
               </div>
 
               <div class="flex gap-x-5">
                 <svg
-                  class="shrink-0 mt-1 size-6 text-blue-600 dark:text-blue-500"
+                  class="shrink-0 mt-1 size-6 text-blue-600 "
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
                   height="24"
@@ -186,41 +184,13 @@ export default function SectionComoComprar() {
                   <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
                 </svg>
                 <div class="grow">
-                  <h3 class="text-lg font-semibold text-gray-800 dark:text-white">
-                    Industry-leading documentation
-                  </h3>
-                  <p class="mt-1 text-gray-600 dark:text-neutral-400">
-                    Our documentation and extensive Client libraries contain
-                    everything a business needs to build a custom integration.
-                  </p>
-                </div>
-              </div>
-
-              <div class="flex gap-x-5">
-                <svg
-                  class="shrink-0 mt-1 size-6 text-blue-600 dark:text-blue-500"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                  <circle cx="9" cy="7" r="4" />
-                  <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                </svg>
-                <div class="grow">
-                  <h3 class="text-lg font-semibold text-gray-800 dark:text-white">
-                    Designing for people
-                  </h3>
-                  <p class="mt-1 text-gray-600 dark:text-neutral-400">
-                    We actively pursue the right balance between functionality
-                    and aesthetics, creating delightful experiences.
+                  <p className="text-start w-full text-xl">
+                    {" "}
+                    <span className="font-[700]">
+                       Visita, Negocia y Cierra
+                    </span>
+                    <br /> Te acompañamos en todo el proceso para una compra
+                    segura.
                   </p>
                 </div>
               </div>
