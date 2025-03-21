@@ -15,8 +15,8 @@ export default function Residencial() {
             <SectionPorque />
             <SectionVariedad />
             <SectionEncuentra />
-            <SectionCTA />
             <SectionComoComprar />
+            <SectionCTA />
             <SectionOpiniones />
             <SectionEquipo />
            <SectionFooter/>
