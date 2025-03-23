@@ -30,7 +30,6 @@ export default function SectionEquipo() {
           src="HomePageContent/mujer-llamando.jpg"
           alt=""
         />
-
         <div className="mt-4  font-display gap-4  font-[400] flex flex-col    items-center">
           <p className="italic  text-5xl w-[480px] font-[800] text-[#7b7b7b]">
             ¡Únete a Nuestro Equipo de Bienes Raíces!
