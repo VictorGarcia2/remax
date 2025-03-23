@@ -24,13 +24,13 @@ export default function SectionEquipo() {
           </button>
         </div>
       </div>
-      <div className="  sm:visible mt-10 mb-10 px-5 font-display flex gap-10 justify-center items-center text-center">
+      <div className=" hidden sm:visible   mt-10 mb-10 px-5 font-display sm:flex gap-10 justify-center items-center text-center">
         <img
           className=" rounded-2xl w-[462px] h-[514px] object-cover  shadow-[0_5px_5px] shadow-black/10"
           src="HomePageContent/mujer-llamando.jpg"
           alt=""
         />
-        <div className="mt-4  font-display gap-4  font-[400] flex flex-col    items-center">
+        <div className="mt-4  font-display gap-4  font-[400]  flex flex-col    items-center">
           <p className="italic  text-5xl w-[480px] font-[800] text-[#7b7b7b]">
             ¡Únete a Nuestro Equipo de Bienes Raíces!
           </p>

@@ -14,8 +14,9 @@ export default function HomeSearch() {
     });
   }, [])
   const images = [
-    "HomePageContent/pexels-binyaminmellish-186077 1.jpg",
-    "HomePageContent/pexels-houzlook-3797991.jpg",
+    "HomePageContent/diapo1.webp",
+    "HomePageContent/diapo2.webp",
+    
   ];
   useEffect(() => {
     const interval = setInterval(() => {

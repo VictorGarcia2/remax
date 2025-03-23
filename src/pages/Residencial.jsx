@@ -6,8 +6,9 @@ import  SectionVariedad from "../components/SectionVariedad/SectionVariedad"
 import SectionEncuentra from "../components/SectionEncuentra/SectionEncuentra"
 import SectionCTA from "../components/SectionCTA/SectionCTA"
 import SectionComoComprar from "../components/SectionComoComprar/SectionComoComprar"
-import SectionOpiniones from "../components/SectionOpiniones/SectionOpiniones"
+
 import SectionEquipo from "../components/SectionEquipo/SectionEquipo"
+import Testimonials from "../components/SectionOpiniones/SectionOpiniones";
 export default function Residencial() {
     return (
         <>
@@ -17,7 +18,7 @@ export default function Residencial() {
             <SectionEncuentra />
             <SectionComoComprar />
             <SectionCTA />
-            <SectionOpiniones />
+            <Testimonials/>
             <SectionEquipo />
            <SectionFooter/>
         </>

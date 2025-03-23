@@ -108,8 +108,8 @@ export default function SectionComoComprar() {
       <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
         <div class="aspect-w-16 aspect-h-7">
           <img
-            class="w-full object-cover rounded-xl h-50 "
-            src="https://images.unsplash.com/photo-1624571409412-1f253e1ecc89?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"
+            class="w-full object-cover rounded-xl h-80 "
+            src="HomePageContent/jakub-zerdzicki-bqUZEAeWuok-unsplash.jpg"
             alt="Features Image"
           />
         </div>

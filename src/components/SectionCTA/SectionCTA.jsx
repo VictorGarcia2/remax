@@ -8,7 +8,7 @@ export default function () {
           aria-hidden="true"
           class="flex absolute -top-96 start-1/2 transform -translate-x-1/2"
         >
-          <div class="bg-linear-to-r from-violet-300/50 to-purple-100 blur-3xl w-100 h-175 rotate-[-60deg] transform -translate-x-40 "></div>
+          <div class="bg-linear-to-r from-blueRemax/50 to-redRemax/20 blur-3xl w-100 h-175 rotate-[-60deg] transform -translate-x-40 "></div>
           <div class="bg-linear-to-tl from-blue-50 via-blue-100 to-blue-50 blur-3xl w-[1440px] h-200 rounded-fulls origin-top-left -rotate-12 -translate-x-60 "></div>
         </div>
 
