@@ -60,7 +60,7 @@ export default function PropiedadSeleccion({ propiedades }) {
             <img
               loading="lazy"
               className="w-full object-cover h-[202px]"
-              src="HomePageContent/pexels-houzlook-3797991.jpg"
+              src="HomePageContent/pexels-fotoaibe-1571460 1.jpg"
               alt="Imagen de propiedad"
             />
           </div>
