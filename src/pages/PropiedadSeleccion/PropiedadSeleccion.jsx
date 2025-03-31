@@ -11,7 +11,6 @@ export default function PropiedadSeleccion({ propiedades }) {
       }, 4000);
     }, 3000);
   }, []);
-
   return (
     <>
       <HeaderPropiedadSeleccion />

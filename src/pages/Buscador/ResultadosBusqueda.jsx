@@ -5,17 +5,24 @@ import SearchResultadosBusqueda from "../../components/SearchResultadosBusqueda"
 import CantidadPropiedades from "../../components/CantidadPropiedades";
 import CardResultado from "../../components/CardResultado";
 import MenuFilter from "../../components/MenuFilter";
-
-export default function ResultadosBusqueda({propiedades,setPropiedades, menuClose, setMenuClose}) {
-
-  
+import FiltrosDesktop from "../../components/FiltrosDesktop";
+export default function ResultadosBusqueda({
+  propiedades,
+  setPropiedades,
+  menuClose,
+  setMenuClose,
+}) {
   return (
     <>
       <MenuFilter menuClose={menuClose} setMenuClose={setMenuClose} />
       <HeaderResultadoBusqueda />
-      <SearchResultadosBusqueda  menuClose={menuClose} setMenuClose={setMenuClose} />
+      <FiltrosDesktop/>
+      <SearchResultadosBusqueda
+        menuClose={menuClose}
+        setMenuClose={setMenuClose}
+      />
       <CantidadPropiedades propiedades={propiedades} />
-      <CardResultado  propiedades={propiedades}/>
+      <CardResultado propiedades={propiedades} />
       <SectionFooter />
     </>
   );

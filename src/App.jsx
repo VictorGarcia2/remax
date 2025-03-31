@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router";
 import Comercial from "./pages/Comercial";
 import ResultadosBusqueda from "./pages/Buscador/ResultadosBusqueda";
 import PropiedadSeleccion from "./pages/PropiedadSeleccion/PropiedadSeleccion";
+import FetchDataWithKey from "./APi/Api";
 export default function App() {
   const lisimg = [
     {
@@ -13,9 +14,9 @@ export default function App() {
       direccion: "Calle Principal #123, Colonia Centro",
       sector: "Residencial",
       imagenes: [
-        "HomePageContent/pexels-fotoaibe-1571460 1.jpg",
-        "HomePageContent/pexels-binyaminmellish-186077 1.jpg",
-        "HomePageContent/pexels-houzlook-3797991.jpg",
+        "HomePageContent/nathan-fertig-FBXuXp57eM0-unsplash.webp",
+        "HomePageContent/diapo1.webp",
+        "HomePageContent/diapo2.webp",
       ],
       amenidades: ["Alberca", "Jardín", "Cochera para 2 autos"],
       metrosCuadrados: 200,
@@ -41,9 +42,177 @@ export default function App() {
       direccion: "Avenida Reforma #456, Colonia Moderna",
       sector: "Comercial",
       imagenes: [
-        "HomePageContent/pexels-binyaminmellish-186077 1.jpg",
-        "HomePageContent/pexels-houzlook-3797991.jpg",
-        "HomePageContent/pexels-fotoaibe-1571460 1.jpg",
+        "HomePageContent/nathan-fertig-FBXuXp57eM0-unsplash.webp",
+        "HomePageContent/diapo1.webp",
+        "HomePageContent/diapo2.webp",
+      ],
+      amenidades: ["Gimnasio", "Terraza", "Estacionamiento subterráneo"],
+      metrosCuadrados: 80,
+      descripcion:
+        "Departamento moderno con 1 habitación, 1 baño, cocina equipada y vista a la ciudad.",
+      tiempoConstruida: "5 años",
+      zonas: ["Zona financiera", "Restaurantes", "Transporte público"],
+      facilidades: ["Concierge", "Salón de eventos"],
+      contactoAgente: {
+        nombre: "María López",
+        celular: "+52 55 8765 4321",
+        redesSociales: {
+          facebook: "https://facebook.com/marialopez",
+          instagram: "https://instagram.com/marialopez",
+        },
+        imagenAgente: "https://example.com/agente2.jpg",
+      },
+    },
+    {
+      tipoPropiedad: "Departamento",
+      precio: 12000,
+      tipoTransaccion: "Renta",
+      direccion: "Avenida Reforma #456, Colonia Moderna",
+      sector: "Comercial",
+      imagenes: [
+        "HomePageContent/nathan-fertig-FBXuXp57eM0-unsplash.webp",
+        "HomePageContent/diapo1.webp",
+        "HomePageContent/diapo2.webp",
+      ],
+      amenidades: ["Gimnasio", "Terraza", "Estacionamiento subterráneo"],
+      metrosCuadrados: 80,
+      descripcion:
+        "Departamento moderno con 1 habitación, 1 baño, cocina equipada y vista a la ciudad.",
+      tiempoConstruida: "5 años",
+      zonas: ["Zona financiera", "Restaurantes", "Transporte público"],
+      facilidades: ["Concierge", "Salón de eventos"],
+      contactoAgente: {
+        nombre: "María López",
+        celular: "+52 55 8765 4321",
+        redesSociales: {
+          facebook: "https://facebook.com/marialopez",
+          instagram: "https://instagram.com/marialopez",
+        },
+        imagenAgente: "https://example.com/agente2.jpg",
+      },
+    },
+    {
+      tipoPropiedad: "Departamento",
+      precio: 12000,
+      tipoTransaccion: "Renta",
+      direccion: "Avenida Reforma #456, Colonia Moderna",
+      sector: "Comercial",
+      imagenes: [
+        "HomePageContent/nathan-fertig-FBXuXp57eM0-unsplash.webp",
+        "HomePageContent/diapo1.webp",
+        "HomePageContent/diapo2.webp",
+      ],
+      amenidades: ["Gimnasio", "Terraza", "Estacionamiento subterráneo"],
+      metrosCuadrados: 80,
+      descripcion:
+        "Departamento moderno con 1 habitación, 1 baño, cocina equipada y vista a la ciudad.",
+      tiempoConstruida: "5 años",
+      zonas: ["Zona financiera", "Restaurantes", "Transporte público"],
+      facilidades: ["Concierge", "Salón de eventos"],
+      contactoAgente: {
+        nombre: "María López",
+        celular: "+52 55 8765 4321",
+        redesSociales: {
+          facebook: "https://facebook.com/marialopez",
+          instagram: "https://instagram.com/marialopez",
+        },
+        imagenAgente: "https://example.com/agente2.jpg",
+      },
+    },
+    {
+      tipoPropiedad: "Departamento",
+      precio: 12000,
+      tipoTransaccion: "Renta",
+      direccion: "Avenida Reforma #456, Colonia Moderna",
+      sector: "Comercial",
+      imagenes: [
+        "HomePageContent/nathan-fertig-FBXuXp57eM0-unsplash.webp",
+        "HomePageContent/diapo1.webp",
+        "HomePageContent/diapo2.webp",
+      ],
+      amenidades: ["Gimnasio", "Terraza", "Estacionamiento subterráneo"],
+      metrosCuadrados: 80,
+      descripcion:
+        "Departamento moderno con 1 habitación, 1 baño, cocina equipada y vista a la ciudad.",
+      tiempoConstruida: "5 años",
+      zonas: ["Zona financiera", "Restaurantes", "Transporte público"],
+      facilidades: ["Concierge", "Salón de eventos"],
+      contactoAgente: {
+        nombre: "María López",
+        celular: "+52 55 8765 4321",
+        redesSociales: {
+          facebook: "https://facebook.com/marialopez",
+          instagram: "https://instagram.com/marialopez",
+        },
+        imagenAgente: "https://example.com/agente2.jpg",
+      },
+    },
+    {
+      tipoPropiedad: "Departamento",
+      precio: 12000,
+      tipoTransaccion: "Renta",
+      direccion: "Avenida Reforma #456, Colonia Moderna",
+      sector: "Comercial",
+      imagenes: [
+        "HomePageContent/nathan-fertig-FBXuXp57eM0-unsplash.webp",
+        "HomePageContent/diapo1.webp",
+        "HomePageContent/diapo2.webp",
+      ],
+      amenidades: ["Gimnasio", "Terraza", "Estacionamiento subterráneo"],
+      metrosCuadrados: 80,
+      descripcion:
+        "Departamento moderno con 1 habitación, 1 baño, cocina equipada y vista a la ciudad.",
+      tiempoConstruida: "5 años",
+      zonas: ["Zona financiera", "Restaurantes", "Transporte público"],
+      facilidades: ["Concierge", "Salón de eventos"],
+      contactoAgente: {
+        nombre: "María López",
+        celular: "+52 55 8765 4321",
+        redesSociales: {
+          facebook: "https://facebook.com/marialopez",
+          instagram: "https://instagram.com/marialopez",
+        },
+        imagenAgente: "https://example.com/agente2.jpg",
+      },
+    },
+    {
+      tipoPropiedad: "Departamento",
+      precio: 12000,
+      tipoTransaccion: "Renta",
+      direccion: "Avenida Reforma #456, Colonia Moderna",
+      sector: "Comercial",
+      imagenes: [
+        "HomePageContent/nathan-fertig-FBXuXp57eM0-unsplash.webp",
+        "HomePageContent/diapo1.webp",
+        "HomePageContent/diapo2.webp",
+      ],
+      amenidades: ["Gimnasio", "Terraza", "Estacionamiento subterráneo"],
+      metrosCuadrados: 80,
+      descripcion:
+        "Departamento moderno con 1 habitación, 1 baño, cocina equipada y vista a la ciudad.",
+      tiempoConstruida: "5 años",
+      zonas: ["Zona financiera", "Restaurantes", "Transporte público"],
+      facilidades: ["Concierge", "Salón de eventos"],
+      contactoAgente: {
+        nombre: "María López",
+        celular: "+52 55 8765 4321",
+        redesSociales: {
+          facebook: "https://facebook.com/marialopez",
+          instagram: "https://instagram.com/marialopez",
+        },
+        imagenAgente: "https://example.com/agente2.jpg",
+      },
+    },
+    {
+      tipoPropiedad: "Departamento",
+      precio: 12000,
+      tipoTransaccion: "Renta",
+      direccion: "Avenida Reforma #456, Colonia Moderna",
+      sector: "Comercial",
+      imagenes: [
+        "HomePageContent/nathan-fertig-FBXuXp57eM0-unsplash.webp",
+        "HomePageContent/diapo1.webp",
+        "HomePageContent/diapo2.webp",
       ],
       amenidades: ["Gimnasio", "Terraza", "Estacionamiento subterráneo"],
       metrosCuadrados: 80,
@@ -92,6 +261,7 @@ export default function App() {
           }
         />
       </Routes>
+    {/*   <FetchDataWithKey/> */}
     </>
   );
 }

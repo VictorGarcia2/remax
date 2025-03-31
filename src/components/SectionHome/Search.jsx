@@ -3,7 +3,7 @@ import { Link } from "react-router";
 export default function Search({ data, setData }) {
   const [openTipo, setOpenTipo] = useState(true);
   const [direccion, setDireccion] = useState("");
-  console.log(direccion);
+ 
 
   const handle = () => {
     setOpenTipo(false);

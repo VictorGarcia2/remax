@@ -7,16 +7,14 @@ export default function MenuFilter({ menuClose, setMenuClose }) {
     "accordion-collapse-body-3": true,
   });
   const toggleSection = (sectionId) => {
-    setOpenSections((prevState) => ({
-      ...prevState,
-      [sectionId]: !prevState[sectionId],
-    }));
+    setOpenSections((prevState) => ({...prevState, [sectionId]: !prevState[sectionId],}));
   };
   return (
+    //Mobile
     <div
       className={`${
         menuClose && "hidden"
-      } w-screen top-0 h-screen fixed text-[#7B7B7B] font-display z-50 bg-white`}
+      }  w-screen top-0 h-screen fixed text-[#7B7B7B] font-display z-50 bg-white`}
     >
       <div
         className="flex flex-col py-4 items-center w-full "
