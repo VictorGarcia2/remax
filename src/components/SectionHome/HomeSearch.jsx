@@ -5,9 +5,7 @@ import { getConsults } from "../../APi/APICall";
 
 
 export default function HomeSearch() {
-  useEffect(() => {
-    getConsults( )
-  }, [])
+  
   
   const [currentIndex, setCurrentIndex] = useState(0);
   const [data, setData] = useState([])

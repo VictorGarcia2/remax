@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router";
+import { getConsults } from "../../APi/APICall";
 export default function Search({ data, setData }) {
   const [openTipo, setOpenTipo] = useState(true);
   const [direccion, setDireccion] = useState("");
@@ -7,6 +8,7 @@ export default function Search({ data, setData }) {
 
   const handle = () => {
     setOpenTipo(false);
+    getConsults()
   };
   const handleSubmitSearch = (e) => {
     e.preventDefault();
