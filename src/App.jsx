@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Residencial from "./pages/Residencial";
 import { Route, Routes } from "react-router";
 import Comercial from "./pages/Comercial";
 import ResultadosBusqueda from "./pages/Buscador/ResultadosBusqueda";
 import PropiedadSeleccion from "./pages/PropiedadSeleccion/PropiedadSeleccion";
 import FetchDataWithKey from "./APi/Api";
+
 export default function App() {
+
   const lisimg = [
     {
       tipoPropiedad: "Casa",
@@ -261,7 +263,7 @@ export default function App() {
           }
         />
       </Routes>
-    {/*   <FetchDataWithKey/> */}
+    <FetchDataWithKey></FetchDataWithKey>
     </>
   );
 }

@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import Search from "./Search";
+import { getConsults } from "../../APi/APICall";
 
 
 export default function HomeSearch() {
+  useEffect(() => {
+    getConsults( )
+  }, [])
+  
   const [currentIndex, setCurrentIndex] = useState(0);
   const [data, setData] = useState([])
   useEffect(() => {

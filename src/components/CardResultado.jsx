@@ -29,15 +29,15 @@ export default function CardResultado({ propiedades }) {
   return (
     <div className="grid grid-cols-1 xl:grid-cols-2 justify-center items-start">
       <div className="overflow-y-scroll h-[700px] relative">
-        <div className="grid grid-cols-1 xl:grid-cols-2 justify-center items-center">
+        <div className="grid grid-cols-1 xl:grid-cols-2 justify-center md:gap-3 items-center md:px-8">
           {propiedades &&
             propiedades.map((item, index) => (
               <>
                 <div
                   key={index}
-                  className="w-full flex flex-col mt-6 mb-30 justify-center items-center"
+                  className="w-full flex flex-col  mt-6 mb-30 justify-center items-center"
                 >
-                  <div className="flex absolute justify-around mx-auto gap-70">
+                  <div className="flex absolute justify-around mx-auto gap-60">
                     <img
                       loading="lazy"
                       onClick={() => goToPrevious(index)}

@@ -40,9 +40,8 @@ export default function Tipo() {
         <MenuItem value="">
           <em>None</em>
         </MenuItem>
-        <MenuItem value={10}>Ten</MenuItem>
-        <MenuItem value={20}>Twenty</MenuItem>
-        <MenuItem value={30}>Thirty</MenuItem>
+        <MenuItem value={10}>Renta</MenuItem>
+        <MenuItem value={20}>Venta</MenuItem>
       </Select>
     </FormControl>
   );
