@@ -4,7 +4,7 @@ import { Route, Routes } from "react-router";
 import Comercial from "./pages/Comercial";
 import ResultadosBusqueda from "./pages/Buscador/ResultadosBusqueda";
 import PropiedadSeleccion from "./pages/PropiedadSeleccion/PropiedadSeleccion";
-import FetchDataWithKey from "./APi/Api";
+
 
 export default function App() {
 
@@ -263,7 +263,7 @@ export default function App() {
           }
         />
       </Routes>
-    <FetchDataWithKey></FetchDataWithKey>
+
     </>
   );
 }
