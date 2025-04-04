@@ -32,7 +32,6 @@ const httpsOptions = {
     key: fs.readFileSync('../ssl/key.pem'), // ✅ Ruta correcta
     cert: fs.readFileSync('../ssl/cert.pem') // ✅ Ruta correcta
 };
-
 https.createServer(httpsOptions, app).listen(PORT, () => {
     console.log(`✅ Servidor HTTPS en https://localhost:${PORT}`);
 });
