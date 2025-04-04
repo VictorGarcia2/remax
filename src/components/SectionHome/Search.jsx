@@ -1,15 +1,48 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
 import { getConsults } from "../../APi/APICall";
 export default function Search({ data, setData }) {
   const [openTipo, setOpenTipo] = useState(true);
   const [direccion, setDireccion] = useState("");
  
-
+  const [propiedades, setPropiedades] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+console.log(propiedades)
+  
   const handle = () => {
     setOpenTipo(false);
-    getConsults()
   };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Usa siempre el endpoint /api para mantener consistencia
+        const response = await fetch('/api/propiedades');
+        
+        if (!response.ok) {
+          throw new Error(`Error HTTP! estado: ${response.status}`);
+        }
+  
+        const data = await response.json();
+        
+        if (!data || data.length === 0) {
+          throw new Error("No se encontraron propiedades");
+        }
+        
+        setPropiedades(data);
+      } catch (err) {
+        setError(err.message);
+        console.error("Error al obtener datos:", {
+          error: err,
+          url: '/api/propiedades'
+        });
+      } finally {
+        setLoading(false);
+      }
+    };
+  
+    fetchData();
+  }, []); // Eliminé [handle] porque no se usa en la petición
   const handleSubmitSearch = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
