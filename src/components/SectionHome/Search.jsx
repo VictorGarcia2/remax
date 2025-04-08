@@ -5,7 +5,6 @@ import axios from "axios";
 export default function Search({ data, setData }) {
   const [openTipo, setOpenTipo] = useState(true);
   const [direccion, setDireccion] = useState("");
-
   const [propiedades, setPropiedades] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -14,18 +13,16 @@ export default function Search({ data, setData }) {
     setOpenTipo(false);
   };
   useEffect(() => {
-    setTimeout(() => {
-      axios
-        .get("https://localhost:3000/character")
-        .then((res) => {
-          setPropiedades(res.data);
-          setLoading(false);
-        })
-        .catch((err) => {
-          console.error(" Error en frontend:", err);
-          setLoading(false);
-        });
-    }, 1000);
+    axios
+      .get("https://localhost:3000/character")
+      .then((res) => {
+        setPropiedades(res.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error(" Error en frontend:", err);
+        setLoading(false);
+      });
   }, []);
   const handleSubmitSearch = (e) => {
     e.preventDefault();

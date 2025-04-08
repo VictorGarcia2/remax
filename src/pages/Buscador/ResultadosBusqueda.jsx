@@ -12,17 +12,37 @@ export default function ResultadosBusqueda({
   menuClose,
   setMenuClose,
 }) {
+  const [busqueda, setBusqueda] = useState("");
+  const [manejoBusqueda, setManejoBusqueda] = useState(false);
+  const [propiedadesVisibles, setPropiedadesVisibles] = useState([]);
+ 
+
   return (
     <>
       <MenuFilter menuClose={menuClose} setMenuClose={setMenuClose} />
-      <HeaderResultadoBusqueda />
-      <FiltrosDesktop/>
+      <HeaderResultadoBusqueda
+        setBusqueda={setBusqueda}
+        busqueda={busqueda}
+        setManejoBusqueda={setManejoBusqueda}
+      />
+      <FiltrosDesktop />
       <SearchResultadosBusqueda
         menuClose={menuClose}
         setMenuClose={setMenuClose}
+        setBusqueda={setBusqueda}
+        busqueda={busqueda}
+        setManejoBusqueda={setManejoBusqueda}
       />
       <CantidadPropiedades propiedades={propiedades} />
-      <CardResultado propiedades={propiedades} />
+      <CardResultado
+        propiedades={propiedades}
+        setBusqueda={setBusqueda}
+        busqueda={busqueda}
+        manejoBusqueda={manejoBusqueda}
+        setManejoBusqueda={setManejoBusqueda}
+        setPropiedadesVisibles={setPropiedadesVisibles}
+        propiedadesVisibles={propiedadesVisibles}
+      />
       <SectionFooter />
     </>
   );

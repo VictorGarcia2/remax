@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router";
 import Mapbox from "./Mapbox";
-export default function CardResultado({ propiedades }) {
-  console.log(propiedades);
+export default function CardResultado({ propiedades, setBusqueda, busqueda, manejoBusqueda, setPropiedadesVisibles, propiedadesVisibles }) {
+/*   console.log(propiedades);
   const [countimg, setcountimg] = useState(1);
   const [currentIndexes, setCurrentIndexes] = useState(
     propiedades.map(() => 0)
@@ -24,14 +24,15 @@ export default function CardResultado({ propiedades }) {
     setcountimg(newIndex + 1);
     setCurrentIndexes((prevIndexes) =>
       prevIndexes.map((item, idx) => (idx === index ? newIndex : item))
-    );
+    ); 
   };
+  */
   return (
     <div className="grid grid-cols-1 xl:grid-cols-2 justify-center items-start">
       <div className="overflow-y-scroll h-[700px] relative">
         <div className="grid grid-cols-1 xl:grid-cols-2 justify-center md:gap-3 items-center md:px-8">
-          {propiedades &&
-            propiedades.map((item, index) => (
+          {propiedadesVisibles &&
+            propiedadesVisibles.map((item, index) => (
               <>
                 <div
                   key={index}
@@ -40,13 +41,13 @@ export default function CardResultado({ propiedades }) {
                   <div className="flex absolute justify-around mx-auto gap-60">
                     <img
                       loading="lazy"
-                      onClick={() => goToPrevious(index)}
+                     /*  onClick={() => goToPrevious(index)} */
                       src="HomePageContent/arrowizq.svg"
                       alt=""
                     />
                     <img
                       loading="lazy"
-                      onClick={() => goToNext(index)}
+                     /*  onClick={() => goToNext(index)} */
                       src="HomePageContent/arrowderecha.svg"
                       alt=""
                     />
@@ -55,12 +56,12 @@ export default function CardResultado({ propiedades }) {
                     <img
                       loading="lazy"
                       className="w-[353px] h-[198px] rounded-2xl"
-                      src={item.imagenes[currentIndexes[index]]}
+                      /* src={item.imagenes[currentIndexes[index]]} */
                       alt=""
                     />
                   </div>
                   <p className=" z-40 mt-19 absolute bg-black/40 rounded-full p-1 text-white text-sm  ">
-                    {countimg}/{propiedades.length}
+                    {/* {countimg}/{propiedades.length} */}
                   </p>
 
                   <Link
@@ -74,9 +75,9 @@ export default function CardResultado({ propiedades }) {
                       {item.direccion}
                     </p>
                     <div className="flex text-[#7B7B7B] font-[500] text-[15px]">
-                      <p>{item.tipoPropiedad} | </p>
-                      <p>{item.tipoTransaccion}| </p>
-                      <p>{item.metrosCuadrados}m2</p>
+                      <p>{item.descripcion} | </p>
+                      <p>{item.descripcion}| </p>
+                      <p>{item.descripcion}m2</p>
                     </div>
                     <button className="bg-blue-800 rounded-2xl w-[73px] h-[29px] shadow-2xs py-1 flex items-center justify-center ">
                       {" "}
@@ -93,7 +94,7 @@ export default function CardResultado({ propiedades }) {
         </div>
       </div>
       <div className="mt-0">
-        <Mapbox />
+        <Mapbox setBusqueda={setBusqueda} busqueda={busqueda} manejoBusqueda={manejoBusqueda} setPropiedadesVisibles={setPropiedadesVisibles} propiedadesVisibles={propiedadesVisibles}/>
       </div>
     </div>
   );

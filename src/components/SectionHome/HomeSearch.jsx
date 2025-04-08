@@ -45,7 +45,7 @@ export default function HomeSearch() {
         </div>
         <div className="h-[536px] sm:h-[680px] 2xl:h-[900px] w-full absolute z-0 bg-linear-180 from-black/60 to-100%"></div>
         <img
-          loading="lazy"
+         
           className={` object-cover h-[536px] w-full sm:h-[680px] 2xl:h-[900px] `}
           src={images[currentIndex]}
           alt=""

@@ -5,6 +5,8 @@ import {
   AccordionBody,
 } from "@material-tailwind/react";
 import { useState } from "react";
+import { faCarSide, faElevator, faPersonSwimming, faUserShield } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Icon({ id, open }) {
   return (
@@ -119,13 +121,62 @@ export function Dropdown() {
         <AccordionHeader onClick={handleOpenAcc4}>
           <p className="font-bold text-[18px] lg:text-3xl">Amenidades</p>
         </AccordionHeader>
-        <AccordionBody></AccordionBody>
+        <AccordionBody>
+          <div className="grid grid-cols-3 gap-2">
+            
+            <div className="w-full">
+              <div className="bg-[#D9D9D9] flex items-center gap-2 rounded py-2  px-2 justify-start  text-2xl ">
+                <FontAwesomeIcon icon={faCarSide} className="text-[#797979]" />
+                <p className="text-[#797979]">Estacionamiento</p>
+              </div>
+            </div>
+            <div className="bg-[#D9D9D9] flex items-center gap-2 rounded py-2  px-2 justify-start text-2xl ">
+              <FontAwesomeIcon
+                icon={faPersonSwimming}
+                className="text-[#797979]"
+              />
+              <p className="text-[#797979]">Alberca</p>
+            </div>
+            <div className="bg-[#D9D9D9] flex items-center gap-2 rounded py-2  px-2 justify-start text-2xl ">
+              <FontAwesomeIcon icon={faElevator} className="text-[#797979]" />
+              <p className="text-[#797979]">Elevador</p>
+            </div>
+            <div className="bg-[#D9D9D9] flex items-center gap-2 rounded py-2  px-2 justify-start text-2xl ">
+              <FontAwesomeIcon icon={faUserShield} className="text-[#797979]" />
+              <p className="text-[#797979]">Caseta de Vigilancia</p>
+            </div>
+          </div>
+        </AccordionBody>
       </Accordion>
       <Accordion open={openAcc5} icon={<Icon id={5} open={open} />}>
         <AccordionHeader onClick={handleOpenAcc5}>
-          <p className="font-bold text-[18px] lg:text-3xl">Zonas y Facilidades</p>
+          <p className="font-bold text-[18px] lg:text-3xl">
+            Zonas y Facilidades
+          </p>
         </AccordionHeader>
-        <AccordionBody></AccordionBody>
+        <AccordionBody>
+          <div className="grid grid-cols-2 gap-2">
+            <div className="bg-[#D9D9D9] flex items-center gap-2 rounded py-2  px-2 justify-start text-2xl">
+              <p>Alumbrado</p>
+            </div>
+            <div className="bg-[#D9D9D9] flex items-center gap-2 rounded py-2  px-2 justify-start text-2xl">
+              <p>Caseta de vigilancia</p>
+            </div>
+            <div className="bg-[#D9D9D9] flex items-center gap-2 rounded py-2  px-2 justify-start text-2xl">
+              <p>Áreas comúnes</p>
+            </div>
+            <div className="bg-[#D9D9D9] flex items-center gap-2 rounded py-2  px-2 justify-start text-2xl">
+              <p>Bardeado</p>
+            </div>
+            <div className="bg-[#D9D9D9] flex items-center gap-2 rounded py-2  px-2 justify-start text-2xl">
+              <p>Gimnacios cercanos</p>
+            </div>
+            <div className="bg-[#D9D9D9] flex items-center gap-2 rounded py-2  px-2 justify-start text-2xl">
+              <p>Escuelas Cercanas</p>
+            </div>
+           
+          </div>
+        </AccordionBody>
       </Accordion>
     </>
   );

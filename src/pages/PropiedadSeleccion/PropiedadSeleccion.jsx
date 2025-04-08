@@ -6,7 +6,70 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import Paginacion from "../../components/Pagination.jsx";
+import axios from "axios";
 export default function PropiedadSeleccion() {
+  const [propiedades, setPropiedades] = useState([]);
+  console.log(propiedades[0]);
+  const [fotoEscogida, setFotoEscogida] = useState();
+  const [totalPaginas, setTotalPaginas] = useState(1);
+  const [pagina, setPagina] = useState();
+  const countPage = propiedades.length;
+  useEffect(() => {
+    if (propiedades[pagina]) {
+      const resultado = propiedades[pagina - 1].image + 1;
+      // Imprime la imagen en esa posición
+      setFotoEscogida(resultado);
+    } else {
+      console.log("No existe una propiedad en esa página.");
+    }
+    setTotalPaginas(countPage);
+  }, [pagina]);
+  const imagenes = [
+    {
+      alt: "Libro sobre mesa",
+      image:
+        "https://images.unsplash.com/photo-1743076851851-0762b336b56d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      alt: "Ciudad al atardecer",
+      image:
+        "https://images.unsplash.com/photo-1741705877378-124c4c259e30?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      alt: "Ciudad al atardecer",
+      image:
+        "https://images.unsplash.com/photo-1741850826374-47b63fd4a840?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      alt: "Ciudad al atardecer",
+      image:
+        "https://images.unsplash.com/photo-1725120425314-8f455c4792fd?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      alt: "Ciudad al atardecer",
+      image:
+        "https://images.unsplash.com/photo-1725120425314-8f455c4792fd?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+  ];
+  useEffect(() => {
+    setPropiedades(imagenes);
+    /*  axios
+      .get("https://localhost:3000/character")
+      .then((res) => {
+        setPropiedades(res.data.results);
+      })
+      .catch((err) => {
+        console.error(" Error en frontend:", err);
+        setLoading(false);
+      }); */
+  }, []);
+  const [openGallery, setOpenGallery] = useState(true);
+  const handleAbrir = () => {
+    setOpenGallery(false);
+  };
+  const handleCerrar = () => {
+    setOpenGallery(true);
+  };
   const [animation, setAnimation] = useState(false);
   useEffect(() => {
     setTimeout(() => {
@@ -18,22 +81,31 @@ export default function PropiedadSeleccion() {
   }, []);
   return (
     <>
-      <div className="flex flex-col -mt-5 justify-center items-center  w-full h-full fixed   p-0 z-40 bg-black/50">
+      <div
+        className={` ${
+          openGallery && "invisible"
+        } flex flex-col bg-black/70 -mt-5 justify-center items-center  w-full h-full fixed   p-0 z-40 "`}
+      >
         <div className="w-[1000px] pt-6  bg-white rounded-2xl flex flex-col justify-center items-center shadow-[0px_4px_5px_0px] shadow-black/40">
-          <div className="w-full flex flex-col  items-end px-10  top-2">
-            <FontAwesomeIcon icon={faX} size="2xl" />
+          <div className="w-full flex flex-col  items-end px-12 pt-5  top-2">
+            <FontAwesomeIcon
+              onClick={handleCerrar}
+              icon={faX}
+              size="2xl"
+              className="cursor-pointer hover:text-blueRemax active:text-blueRemax"
+            />
           </div>
           <br />
           <br />
           <img
             loading="lazy"
-            className="w-[90%] h-130 object-cover"
-            src="HomePageContent/pexels-fotoaibe-1571460 1.jpg"
-            alt="Imagen de propiedad"
+            className="w-[90%] h-130 object-cover "
+            src={fotoEscogida}
+            alt={fotoEscogida}
           />
-        <div className="py-7">
-          <Paginacion/>
-        </div>
+          <div className="py-7">
+            <Paginacion setPagina={setPagina} totalPaginas={totalPaginas} />
+          </div>
         </div>
       </div>
       <HeaderPropiedadSeleccion />
@@ -68,13 +140,13 @@ export default function PropiedadSeleccion() {
           <div className="flex w-full absolute justify-around mx-auto gap-70">
             <img
               loading="lazy"
-              className="w-[27px] h-[27px]"
+              className="w-[27px] h-[27px] cursor-pointer"
               src="HomePageContent/arrowizq.svg"
               alt="Flecha izquierda"
             />
             <img
               loading="lazy"
-              className="w-[27px] h-[27px]"
+              className="w-[27px] h-[27px] cursor-pointer"
               src="HomePageContent/arrowderecha.svg"
               alt="Flecha derecha"
             />
@@ -82,12 +154,12 @@ export default function PropiedadSeleccion() {
           <div className="flex  w-full">
             <img
               loading="lazy"
-              className="w-full object-cover h-[202px]"
+              className="w-full object-cover h-[202px] cursor-pointer"
               src="HomePageContent/pexels-fotoaibe-1571460 1.jpg"
               alt="Imagen de propiedad"
             />
           </div>
-          <p className="z-50 mt-35 absolute bg-black/40 rounded-full p-1 text-white text-sm">
+          <p className="z-20 mt-35 absolute bg-black/40 rounded-full p-1 text-white text-sm">
             1/2
           </p>
         </div>
@@ -95,23 +167,29 @@ export default function PropiedadSeleccion() {
         <div className="grid grid-cols-2 gap-2 w-full ">
           <div>
             <img
-              className="rounded-2xl w-full  h-[569px]"
-              src="/public/HomePageContent/nathan-fertig-FBXuXp57eM0-unsplash.webp"
+              onClick={handleAbrir}
+              id={propiedades[0]}
+              className="rounded-2xl w-full object-cover  h-[569px] cursor-pointer"
+              src={propiedades[0]?.image}
               alt=""
             />
           </div>
           <div className="grid grid-cols-1 gap-3">
             <div className="">
               <img
-                className="rounded-2xl  h-[277px] w-full object-cover"
-                src="/public/HomePageContent/nathan-fertig-FBXuXp57eM0-unsplash.webp"
+                onClick={handleAbrir}
+                id={propiedades[1]}
+                className="rounded-2xl  h-[277px] w-full object-cover cursor-pointer"
+                src={propiedades[1]?.image}
                 alt=""
               />
             </div>
             <div className="">
               <img
-                className="rounded-2xl h-[277px]  w-full object-cover"
-                src="/public/HomePageContent/nathan-fertig-FBXuXp57eM0-unsplash.webp"
+                onClick={handleAbrir}
+                id={propiedades[2]}
+                className="rounded-2xl h-[277px]  w-full object-cover cursor-pointer"
+                src={propiedades[2]?.image}
                 alt=""
               />
             </div>
@@ -149,11 +227,9 @@ export default function PropiedadSeleccion() {
                     Solicita información:
                   </p>
                   <div className="flex items-center justify-center gap-4">
-                    <img
-                      loading="lazy"
-                      className="w-auto h-full"
-                      src="HomePageContent/whatsapp.png"
-                      alt="WhatsApp"
+                    <FontAwesomeIcon
+                      icon={faWhatsapp}
+                      style={{ width: "20px", height: "40px", color: "gray" }}
                     />
                     <img
                       loading="lazy"
@@ -193,7 +269,7 @@ export default function PropiedadSeleccion() {
           </div>
           {/* Contacta a un agente desktop */}
           <div className=" overflow-visible    relative">
-            <div className="sticky top-2 pb-2 ">
+            <div className="sticky top-2 pb-1 ">
               <div className="w-[551px] h-[237px] p-3 text-center flex flex-col justify-evenly items-center shadow-[0px_4px_5px_0px] shadow-black/40 rounded-[10px] mx-auto my-5 bg-[#F9F9F9]">
                 <div>
                   <p className="font-bold text-[18px] lg:text-3xl">
@@ -209,11 +285,9 @@ export default function PropiedadSeleccion() {
                       Solicita información:
                     </p>
                     <div className="flex items-center justify-center gap-4">
-                      <img
-                        loading="lazy"
-                        className="w-8 h-full"
-                        src="HomePageContent/whatsapp.png"
-                        alt="WhatsApp"
+                      <FontAwesomeIcon
+                        icon={faWhatsapp}
+                        style={{ width: "40px", height: "40px", color: "gray" }}
                       />
                       <img
                         loading="lazy"
@@ -239,7 +313,7 @@ export default function PropiedadSeleccion() {
                   </div>
                 </div>
               </div>
-              <div className="w-[551px]   gap-10  p-3 text-center flex flex-col justify-evenly items-center shadow-[0px_4px_5px_0px] shadow-black/40 rounded-[10px] mx-auto my-5 bg-[#F9F9F9]">
+              <div className="w-[551px]  gap-10  p-3 text-center flex flex-col justify-evenly items-center shadow-[0px_4px_5px_0px] shadow-black/40 rounded-[10px] mx-auto my-5 bg-[#F9F9F9]">
                 <div className="text-start items-start w-full px-6">
                   <p className="font-bold   text-[18px] lg:text-3xl pt-4">
                     Contáctanos
