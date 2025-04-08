@@ -16,13 +16,13 @@ export default function Search({ data, setData }) {
   useEffect(() => {
     setTimeout(() => {
       axios
-        .get("https://localhost:3000/api/propiedades")
+        .get("https://localhost:3000/character")
         .then((res) => {
           setPropiedades(res.data);
           setLoading(false);
         })
         .catch((err) => {
-          console.error("💥 Error en frontend:", err);
+          console.error(" Error en frontend:", err);
           setLoading(false);
         });
     }, 1000);

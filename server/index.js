@@ -8,14 +8,13 @@ import fs from 'fs';
 const app = express();
 const PORT = 3000;
 
-// Middlewares
+
 app.use(cors());
 app.use(express.json());
 
-// Ruta
-app.get('/api/propiedades', async (req, res) => {
+app.get('/character', async (req, res) => {
   try {
-    const response = await axios.get('https://us-central1-remax-api.cloudfunctions.net/api/propiedades', {
+    const response = await axios.get('https://rickandmortyapi.com/api/character', {
       headers: {
         Authorization: 'Bearer Hvh8n23m53.n7hiu32S09gh6tUj.JJpyfq.HioJ19J3RGgHJSIOop4t4t',
         Accept: 'application/json'
@@ -24,12 +23,12 @@ app.get('/api/propiedades', async (req, res) => {
 
     res.json(response.data);
   } catch (error) {
-    console.error('❌ Error al obtener propiedades:', error.message);
-    res.status(500).json({ error: 'Error al obtener propiedades' });
+    console.error('Error al obtener propiedades:', error.message);
+    res.status(500).json({ error: 'Error al obtener propiedades', message: error.message });
   }
 });
 
-// 🔒 Configuración HTTPS
+// Configuración HTTPS
 const httpsOptions = {
   key: fs.readFileSync('./ssl/key.pem'),
   cert: fs.readFileSync('./ssl/cert.pem')

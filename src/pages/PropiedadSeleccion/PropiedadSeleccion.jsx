@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
 import SectionFooter from "../../components/SectionFooter/SectionFooter.jsx";
 import HeaderPropiedadSeleccion from "./HeaderPropiedadSeleccion.jsx";
-export default function PropiedadSeleccion({ propiedades }) {
+import { Dropdown } from "../../components/Dropdown.jsx";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import { faX } from "@fortawesome/free-solid-svg-icons";
+import Paginacion from "../../components/Pagination.jsx";
+export default function PropiedadSeleccion() {
   const [animation, setAnimation] = useState(false);
   useEffect(() => {
     setTimeout(() => {
@@ -13,9 +18,27 @@ export default function PropiedadSeleccion({ propiedades }) {
   }, []);
   return (
     <>
+      <div className="flex flex-col -mt-5 justify-center items-center  w-full h-full fixed   p-0 z-40 bg-black/50">
+        <div className="w-[1000px] pt-6  bg-white rounded-2xl flex flex-col justify-center items-center shadow-[0px_4px_5px_0px] shadow-black/40">
+          <div className="w-full flex flex-col  items-end px-10  top-2">
+            <FontAwesomeIcon icon={faX} size="2xl" />
+          </div>
+          <br />
+          <br />
+          <img
+            loading="lazy"
+            className="w-[90%] h-130 object-cover"
+            src="HomePageContent/pexels-fotoaibe-1571460 1.jpg"
+            alt="Imagen de propiedad"
+          />
+        <div className="py-7">
+          <Paginacion/>
+        </div>
+        </div>
+      </div>
       <HeaderPropiedadSeleccion />
       <div
-        className={` transition-all duration-[900ms] ease-in-out   bottom-4 right-4 bg-blueRemax rounded-full  fixed z-50  w-[217px] h-[50px] flex items-center justify-center ${
+        className={`transition-all duration-[900ms]  lg:invisible  ease-in-out   bottom-4 right-4 bg-blueRemax rounded-full  fixed z-50  w-[217px] h-[50px] flex items-center justify-center ${
           animation ? "translate-x-0 opacity-100 " : " opacity-0 translate-x-0 "
         }`}
       >
@@ -23,7 +46,7 @@ export default function PropiedadSeleccion({ propiedades }) {
           Contacta a un agente
         </p>
       </div>
-      <div className="bottom-4 right-4 bg-blueRemax rounded-full  fixed z-50  w-[50px] h-[50px] flex items-center justify-center">
+      <div className="bottom-4 right-4 lg:invisible  bg-blueRemax rounded-full  fixed z-50  w-[50px] h-[50px] flex items-center justify-center">
         <img
           loading="lazy"
           className="w-8"
@@ -31,8 +54,9 @@ export default function PropiedadSeleccion({ propiedades }) {
           alt=""
         />
       </div>
-      <div className="flex flex-col justify-center items-start">
-        <div className="w-full flex relative  flex-col justify-center items-center">
+      <div className="flex flex-col  px-2 justify-center items-start">
+        {/* Galería móvil */}
+        <div className="w-full lg:hidden flex relative  flex-col justify-center items-center">
           <div className="absolute right-3 top-4 bg-black/50 p-1 rounded-full">
             <img
               loading="lazy"
@@ -55,7 +79,7 @@ export default function PropiedadSeleccion({ propiedades }) {
               alt="Flecha derecha"
             />
           </div>
-          <div className="flex w-full">
+          <div className="flex  w-full">
             <img
               loading="lazy"
               className="w-full object-cover h-[202px]"
@@ -67,138 +91,209 @@ export default function PropiedadSeleccion({ propiedades }) {
             1/2
           </p>
         </div>
-        <div className="w-full flex flex-col text-[#7b7b7b]">
-          <div className="px-5">
-            <p>Departamento en Venta</p>
-            <p>Departamento desde: $2,000,000 MXN</p>
-            <div className="flex">
+        {/* Galería Desktop */}
+        <div className="grid grid-cols-2 gap-2 w-full ">
+          <div>
+            <img
+              className="rounded-2xl w-full  h-[569px]"
+              src="/public/HomePageContent/nathan-fertig-FBXuXp57eM0-unsplash.webp"
+              alt=""
+            />
+          </div>
+          <div className="grid grid-cols-1 gap-3">
+            <div className="">
               <img
-                loading="lazy"
-                src="HomePageContent/iconmeters.svg"
-                alt="Icono de metros cuadrados"
+                className="rounded-2xl  h-[277px] w-full object-cover"
+                src="/public/HomePageContent/nathan-fertig-FBXuXp57eM0-unsplash.webp"
+                alt=""
               />
-              <p>30,000m²</p>
+            </div>
+            <div className="">
+              <img
+                className="rounded-2xl h-[277px]  w-full object-cover"
+                src="/public/HomePageContent/nathan-fertig-FBXuXp57eM0-unsplash.webp"
+                alt=""
+              />
             </div>
           </div>
-          <hr className="w-full my-2 text-[#7B7B7B]" />
-          <div className="w-[341px] h-[158px] p-3 text-center flex flex-col justify-between items-center shadow-[0px_4px_5px_0px] shadow-black/40 rounded-[10px] mx-auto my-5 bg-[#F9F9F9]">
-            <div>
-              <p className="font-bold text-[18px]">Contacta al Agente</p>
+        </div>
+        <div className="w-full flex flex-col lg:grid lg:grid-cols-2 text-[#7b7b7b]">
+          <div>
+            <div className="px-5 pt-5">
+              <p className="lg:text-3xl">Departamento en Venta</p>
+              <p className="lg:text-3xl font-bold">
+                Departamento desde: $2,000,000 MXN
+              </p>
+              <div className="flex lg:gap-2 lg:mt-2">
+                <img
+                  className=" lg:w-10"
+                  loading="lazy"
+                  src="HomePageContent/iconmeters.svg"
+                  alt="Icono de metros cuadrados"
+                />
+                <p className="lg:text-3xl">30,000m²</p>
+              </div>
             </div>
-            <div className="flex gap-15 items-center justify-between">
+            <hr className="w-full my-2 text-[#7B7B7B]" />
+            {/* Contacta a un agente móvil */}
+            <div className="w-[341px] lg:hidden h-[158px] p-3 text-center flex flex-col justify-between items-center shadow-[0px_4px_5px_0px] shadow-black/40 rounded-[10px] mx-auto my-5 bg-[#F9F9F9]">
               <div>
-                <p className="font-medium text-[16px]">Verónica Olan García</p>
-                <p className="font-medium text-[16px]">Solicita información:</p>
-                <div className="flex items-center justify-center gap-4">
+                <p className="font-bold text-[18px]">Contacta al Agente</p>
+              </div>
+              <div className="flex gap-15 items-center justify-between">
+                <div>
+                  <p className="font-medium text-[16px]">
+                    Verónica Olan García
+                  </p>
+                  <p className="font-medium text-[16px]">
+                    Solicita información:
+                  </p>
+                  <div className="flex items-center justify-center gap-4">
+                    <img
+                      loading="lazy"
+                      className="w-auto h-full"
+                      src="HomePageContent/whatsapp.png"
+                      alt="WhatsApp"
+                    />
+                    <img
+                      loading="lazy"
+                      className="w-auto h-full"
+                      src="HomePageContent/correo.svg"
+                      alt="Correo"
+                    />
+                    <img
+                      loading="lazy"
+                      className="w-auto h-full"
+                      src="HomePageContent/phone.svg"
+                      alt="Teléfono"
+                    />
+                  </div>
+                </div>
+                <div>
                   <img
                     loading="lazy"
-                    className="w-auto h-full"
-                    src="HomePageContent/whatsapp.png"
-                    alt="WhatsApp"
-                  />
-                  <img
-                    loading="lazy"
-                    className="w-auto h-full"
-                    src="HomePageContent/correo.svg"
-                    alt="Correo"
-                  />
-                  <img
-                    loading="lazy"
-                    className="w-auto h-full"
-                    src="HomePageContent/phone.svg"
-                    alt="Teléfono"
+                    className="w-[99px] h-[104px] object-cover rounded-[15px]"
+                    src="HomePageContent/agente.png"
+                    alt="Foto del agente"
                   />
                 </div>
               </div>
-              <div>
-                <img
-                  loading="lazy"
-                  className="w-[99px] h-[104px] object-cover rounded-[15px]"
-                  src="HomePageContent/agente.png"
-                  alt="Foto del agente"
-                />
-              </div>
             </div>
-          </div>
-          <p className="px-5 text-[18px] font-bold my-3">
-            Departamento en Venta en AV. Salvador Díaz #345, Veracruz, México.
-          </p>
-          <hr />
-          <button className="mt-3 mx-auto bg-[#DB1C2E] w-[341px] text-[18px] font-bold h-[48px] text-white rounded-[10px]">
-            Calculadora de hipotecas
-          </button>
-          <div className="px-5 mt-5">
-            <p className="font-bold text-[18px]">Descripción del inmueble</p>
-            <br />
-            <p>
-              ParqueViatt® se encuentra a 200 m del Periférico Raúl López
-              Sánchez, vialidad que conecta la zona industrial de Gómez Palacio
-              con las salidas más importantes y concurridas de La Laguna, por lo
-              que es la ruta principal del tráfico de carga pesada y a tan solo
-              600 m del centro trailero de la ciudad. ParqueViatt® contará con
-              solo 21 bodegas que van desde los 745 m² hasta los 2,072 m², estas
-              se concentran alrededor de un gran patio de maniobras que fue
-              diseñado para garantizar los radios de giro de cada tráiler, para
-              eficientizar su tránsito.
-            </p>
-          </div>
-          <hr className="my-4" />
-          <div className=" mt-4 px-5 flex flex-col gap-4">
-            <p className="font-bold text-[18px]">Información detallada</p>
-            <div className=" flex flex-col gap-4">
-              <div className="flex justify-between">
-                <p className="text-base">Tipo de propiedad</p>
-                <p className="font-bold text-base">Departamento</p>
-              </div>
-              <div className="flex justify-between">
-                <p className="text-base">Estacionamiento</p>
-                <p className="font-bold text-base">10 cajones</p>
-              </div>
-              <div className="flex justify-between">
-                <p className="text-base">Construcción</p>
-                <p className="font-bold text-base">88.93 m²</p>
-              </div>
-              <div className="flex justify-between">
-                <p className="text-base">Baños</p>
-                <p className="font-bold text-base">1.0</p>
-              </div>
-              <div className="flex justify-between">
-                <p className="text-base">Edad de Propiedad</p>
-                <p className="font-bold text-base">10 años</p>
-              </div>
-              <div className="flex justify-between">
-                <p className="text-base">Uso de Suelo</p>
-                <p className="font-bold text-base">Comercial</p>
-              </div>
-              <div className="flex justify-between">
-                <p className="text-base">Niveles/Piso</p>
-                <p className="font-bold text-base">1</p>
-              </div>
-              <div className="flex justify-between">
-                <p className="text-base">Mantenimiento</p>
-                <p className="font-bold text-base">$5,208 MXN</p>
-              </div>
-            </div>
-          </div>
-          <hr className="mt-4" />
-          <div className="px-5 my-4">
-            <p className="text-[18px] font-bold">Ubicación</p>
-
-            <p className="font-regular text-[18px]">
+            <p className="px-5 text-[18px] lg:text-3xl font-bold my-3">
               Departamento en Venta en AV. Salvador Díaz #345, Veracruz, México.
             </p>
-            <div className="w-[353px] mt-3 h-[254px] bg-green-100 mx-auto rounded-[10px]"></div>
+            <hr />
+            {/* Calculadora de hipotecas móvil */}
+            <button className="mt-3 lg:hidden mx-auto bg-[#DB1C2E] w-[341px] text-[18px] font-bold h-[48px] text-white rounded-[10px]">
+              Calculadora de hipotecas
+            </button>
+            <div className="px-5 mt-5">
+              <Dropdown />
+            </div>
           </div>
-          <hr className="my-3" />
-          <div className="px-5">
-            <p className="font-bold text-[18px]">Amenidades</p>
-            <div></div>
-          </div>
-          <div className="px-5">
-            <p className="font-bold text-[18px]">Zonas y Facilidades</p>
+          {/* Contacta a un agente desktop */}
+          <div className=" overflow-visible    relative">
+            <div className="sticky top-2 pb-2 ">
+              <div className="w-[551px] h-[237px] p-3 text-center flex flex-col justify-evenly items-center shadow-[0px_4px_5px_0px] shadow-black/40 rounded-[10px] mx-auto my-5 bg-[#F9F9F9]">
+                <div>
+                  <p className="font-bold text-[18px] lg:text-3xl">
+                    Contacta al Agente
+                  </p>
+                </div>
+                <div className="flex gap-15  items-center justify-between">
+                  <div>
+                    <p className="font-medium  text-[16px] lg:text-2xl">
+                      Verónica Olan García
+                    </p>
+                    <p className="font-medium text-[16px] lg:text-xl">
+                      Solicita información:
+                    </p>
+                    <div className="flex items-center justify-center gap-4">
+                      <img
+                        loading="lazy"
+                        className="w-8 h-full"
+                        src="HomePageContent/whatsapp.png"
+                        alt="WhatsApp"
+                      />
+                      <img
+                        loading="lazy"
+                        className="w-11 h-full"
+                        src="HomePageContent/correo.svg"
+                        alt="Correo"
+                      />
+                      <img
+                        loading="lazy"
+                        className="w-8 h-full"
+                        src="HomePageContent/phone.svg"
+                        alt="Teléfono"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <img
+                      loading="lazy"
+                      className="w-[99px] h-[104px] lg:w-[152px] lg:h-[152px] object-cover rounded-[15px]"
+                      src="HomePageContent/agente.png"
+                      alt="Foto del agente"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="w-[551px]   gap-10  p-3 text-center flex flex-col justify-evenly items-center shadow-[0px_4px_5px_0px] shadow-black/40 rounded-[10px] mx-auto my-5 bg-[#F9F9F9]">
+                <div className="text-start items-start w-full px-6">
+                  <p className="font-bold   text-[18px] lg:text-3xl pt-4">
+                    Contáctanos
+                  </p>
+                </div>
+                <div className="flex  ">
+                  <form action=" " className="w-full flex flex-col ">
+                    {/* Aquí va un formulario con nombres, teléfono y correo electrónico, con dos botones */}
+                    <div className="flex flex-col w-120 text-2xl text-start gap-3">
+                      <label htmlFor="">
+                        Nombre(s)
+                        <input
+                          type="text"
+                          placeholder="Juan Martín"
+                          className="border border-gray-300 rounded-lg p-2 w-full"
+                        />
+                      </label>
+                      <label htmlFor="">
+                        Teléfono
+                        <input
+                          type="number"
+                          placeholder="9932402987"
+                          className="border border-gray-300 rounded-lg p-2 w-full"
+                        />
+                      </label>
+                      <label htmlFor="">
+                        Correo Electrónico
+                        <input
+                          type="email"
+                          placeholder="example@gmail.com"
+                          className="border border-gray-300 rounded-lg p-2 w-full"
+                        />
+                      </label>
+                      <div className="flex flex-col py-4 justify-center gap-5">
+                        <button className="bg-blueRemax h-[50px] rounded">
+                          <FontAwesomeIcon
+                            icon={faWhatsapp}
+                            size="xl"
+                            style={{ color: "white" }}
+                          />
+                        </button>
+                        <button className="bg-redRemax h-[50px] text-white text-2xl rounded">
+                          Calculadora de Hipotecas
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
       <SectionFooter />
     </>
   );
