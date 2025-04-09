@@ -4,7 +4,6 @@ const FetchDataWithKey = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  console.log(data);
   useEffect(() => {
     fetch("https://us-central1-remax-api.cloudfunctions.net/api/propiedades", {
       method: "GET",

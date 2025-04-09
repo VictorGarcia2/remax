@@ -5,10 +5,16 @@ import React, { useState } from "react";
 export default function RangoDePrecio() {
   const [openModal, setOpenModal] = useState(true);
   const handle = () => {
-    setOpenModal(false);
+    setOpenModal((prevState) => !prevState);
   };
   return (
     <>
+      <div
+        onClick={handle}
+        className={`${
+          openModal && "hidden"
+        } h-[1900px] w-[1000px] z-10  absolute`}
+      ></div>
       <div className="flex flex-col ">
         <div
           onClick={handle}
@@ -16,29 +22,34 @@ export default function RangoDePrecio() {
         >
           {" "}
           <p className="text-xl"> Rango de precios </p>
-          <FontAwesomeIcon className={`${openModal&& "rotate-180 ease-in"} rotate-0 transform  `} icon={faChevronDown} />
+          <FontAwesomeIcon
+            className={`${
+              openModal && "rotate-180 ease-in"
+            } rotate-0 transform  `}
+            icon={faChevronDown}
+          />
         </div>
         {/* Modal */}
         <form
           className={` ${
             openModal && "hidden"
-          } z-10 bg-gray-100 py-10 rounded-2xl px-4 absolute mt-13 flex flex-col gap-4`}
+          } z-10 bg-gray-100 py-10  rounded-2xl px-4 absolute mt-13 flex flex-col gap-4`}
         >
-          <div>
-            <label htmlFor="">
+          <div className="flex gap-2">
+            <label htmlFor="" className="flex items-center gap-2 ">
               De:
               <input
                 type="number"
-                className="border-b px-1"
+                className="border-b border-t-0 border-s-0 border-e-0 px-1"
                 placeholder="1000"
                 min="0"
               />
             </label>
-            <label htmlFor="">
+            <label htmlFor="" className="flex items-center gap-2">
               Hasta:
               <input
                 type="number"
-                className="border-b px-1"
+                className="border-b border-t-0 border-s-0 border-e-0 px-1"
                 placeholder="1300000"
                 min="0"
               />

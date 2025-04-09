@@ -3,14 +3,14 @@ import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 
 // Tu array de propiedades
-export const propiedades = [
+export const propiedadess = [
   {
     direccion: "Av. Gregorio Méndez 123, Villahermosa, Tabasco",
     tipoPropiedad: "Casa",
     precio: 1500000,
     descripcion: "Casa amplia con jardín y cochera.",
-    lat: 17.9949,
-    lng: -92.9273,
+    latitud: 17.9949,
+    longitud: -92.9273,
   },
   {
     direccion: "Calle Reforma 456, Cárdenas, Tabasco",
@@ -33,17 +33,22 @@ export const propiedades = [
 mapboxgl.accessToken =
   "pk.eyJ1IjoidmljdG9yZ2FyY2lhcHJ6IiwiYSI6ImNtNXZ3dW0wMjA2aHgyanE1M3ptczQ2azUifQ.ILrTXW_4c9_pbGC3Uj-wdg";
 
-const MapboxConCards = ({ setBusqueda, busqueda, manejoBusqueda, setPropiedadesVisibles, propiedadesVisibles }) => {
+const MapboxConCards = ({
+  busqueda,
+  manejoBusqueda,
+  setPropiedadesVisibles,
+  propiedades,
+  setAutoCompleteHome,
+  busquedaHome,
+}) => {
   const mapContainerRef = useRef(null);
   const mapRef = useRef(null);
-  
   const markersRef = useRef([]);
-  /* const [busqueda, setBusqueda] = useState(""); */
   useEffect(() => {
     mapRef.current = new mapboxgl.Map({
       container: mapContainerRef.current,
       center: [-92.912, 17.989], // Villahermosa
-      zoom: 10,
+      zoom: 11,
     });
 
     mapRef.current.addControl(new mapboxgl.NavigationControl());
@@ -58,30 +63,41 @@ const MapboxConCards = ({ setBusqueda, busqueda, manejoBusqueda, setPropiedadesV
     });
 
     return () => mapRef.current.remove();
-  }, []);
+  }, [manejoBusqueda])
 
-  const agregarMarkers = (lista) => {
-    markersRef.current.forEach((m) => m.remove());
+  const agregarMarkers = async (lista) => {
+    // Limpiar marcadores existentes
+    markersRef.current.forEach((m) => m.marker.remove());
     markersRef.current = [];
 
-    lista.forEach((prop) => {
+    for (const prop of lista) {
+
+      // Verificar si existen las coordenadas (usando las llaves correctas)
+      if (!prop.longitud || !prop.latitud) continue;
+
       const marker = new mapboxgl.Marker({ color: "#e63946" })
-        .setLngLat([prop.lng, prop.lat])
+        // Usar longitud primero (lng) y luego latitud (lat) - formato [lng, lat]
+        .setLngLat([parseFloat(prop.longitud), parseFloat(prop.latitud)])
         .setPopup(
           new mapboxgl.Popup().setHTML(
-            `<strong>${prop.tipoPropiedad}</strong><br/>${prop.direccion}`
+            `<strong>${prop.tipos?.tipo_nombre || "Propiedad"}</strong><br/>
+             <small>${prop.calle || ""} ${
+              prop.numero_exterior || ""
+            }</small><br/>
+             <strong>$${prop.mxn_corriente || "0"}</strong>`
           )
         )
         .addTo(mapRef.current);
 
       markersRef.current.push({ marker, prop });
-    });
+    }
   };
-
   const actualizarVisibles = () => {
     const bounds = mapRef.current.getBounds();
     const visibles = markersRef.current
-      .filter(({ marker, prop }) => bounds.contains([prop.lng, prop.lat]))
+      .filter(({ marker, prop }) =>
+        bounds.contains([prop.longitud, prop.latitud])
+      )
       .map(({ prop }) => prop);
     setPropiedadesVisibles(visibles);
   };
@@ -94,14 +110,27 @@ const MapboxConCards = ({ setBusqueda, busqueda, manejoBusqueda, setPropiedadesV
         )}.json?access_token=${mapboxgl.accessToken}`
       );
       const data = await response.json();
+
+      setAutoCompleteHome(data.features);
+    };
+    manejarBusqueda();
+  }, [busqueda]);
+
+  useEffect(() => {
+    const manejarBusqueda = async () => {
+      const response = await fetch(
+        `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
+          busqueda
+        )}.json?access_token=${mapboxgl.accessToken}`
+      );
+      const data = await response.json();
       if (data.features.length > 0) {
-        const [lng, lat] = data.features[0].center;
-        mapRef.current.flyTo({ center: [lng, lat], zoom: 13 });
+        const [longitud, latitud] = data.features[0].center;
+        mapRef.current.flyTo({ center: [longitud, latitud], zoom: 13 });
       }
     };
-
     manejarBusqueda();
-  }, [, manejoBusqueda]);
+  }, [manejoBusqueda]);
 
   return (
     <div className="w-full flex flex-col lg:flex-row gap-4">

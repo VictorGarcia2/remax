@@ -1,8 +1,8 @@
 import React from 'react'
 
-export default function CantidadPropiedades({propiedades}) {
+export default function CantidadPropiedades({propiedadesVisibles}) {
 
-  const count = propiedades.length
+  const count = propiedadesVisibles.length
 
   return (
     <>

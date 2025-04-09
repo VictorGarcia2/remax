@@ -1,18 +1,45 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { getConsults } from "../../APi/APICall";
 import axios from "axios";
-export default function Search({ data, setData }) {
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import mapboxgl from "mapbox-gl";
+export default function Search({
+  data,
+  setData,
+  busquedaHome,
+  setBusquedaHome,
+  autoCompleteHome,
+  setAutoCompleteHome,
+  setBusqueda
+}) {
   const [openTipo, setOpenTipo] = useState(true);
   const [direccion, setDireccion] = useState("");
-  const [propiedades, setPropiedades] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  console.log(propiedades);
+  mapboxgl.accessToken = "pk.eyJ1IjoidmljdG9yZ2FyY2lhcHJ6IiwiYSI6ImNtNXZ3dW0wMjA2aHgyanE1M3ptczQ2azUifQ.ILrTXW_4c9_pbGC3Uj-wdg";
   const handle = () => {
     setOpenTipo(false);
   };
+  const navigate = useNavigate();
+  const handleSearch = (e) => {
+    setBusqueda(e.target.textContent);
+    navigate("/resultado");
+  };
   useEffect(() => {
+    const manejarBusqueda = async () => {
+      const response = await fetch(
+        `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
+          busquedaHome
+        )}.json?access_token=${mapboxgl.accessToken}`
+      );
+      const data = await response.json();
+     
+      setAutoCompleteHome(data.features);
+    };
+    manejarBusqueda();
+  }, [busquedaHome]);
+  
+  /*   useEffect(() => {
     axios
       .get("https://localhost:3000/character")
       .then((res) => {
@@ -23,19 +50,19 @@ export default function Search({ data, setData }) {
         console.error(" Error en frontend:", err);
         setLoading(false);
       });
-  }, []);
-  const handleSubmitSearch = (e) => {
+  }, []); */
+  /*   const handleSubmitSearch = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const body = {
       direccion: formData.get("searchs"),
     };
     setDireccion(body.direccion);
-  };
+  }; */
   return (
     <>
       <div className="mt-10 flex flex-col gap-1 pb-1 font-display ">
-        <form onClick={handleSubmitSearch} action="">
+        <form action="">
           <div className=" mx-16 sm:mx-30 font-display font-ligh flex gap-1 pb-1 ">
             <p className="text-sm bg-blueRemax w-16 rounded sm:w-28 sm:h-9 sm:text-2xl font-extralight flex justify-center items-center h-7 text-center">
               {" "}
@@ -57,12 +84,28 @@ export default function Search({ data, setData }) {
                 Tipo
               </p>
             </div>
-            <input
-              name="searchs"
-              type="text"
-              className="bg-white text-[#414141] text-sm sm:text-2xl px-3 rounded h-11 w-60 shadow-[0_3px_1px] shadow-black/50 sm:h-16 sm:w-[465px] align-middle items-center flex"
-              placeholder="Busca una zona..."
-            />
+            <div className="flex flex-col relative gap-2">
+              <input
+                value={busquedaHome}
+                onChange={(e) => setBusquedaHome(e.target.value)}
+                name="searchs"
+                type="text"
+                className="bg-white text-[#414141] text-sm sm:text-2xl px-3 rounded h-11 w-60 shadow-[0_3px_1px] shadow-black/50 sm:h-16 sm:w-[465px] align-middle items-center flex"
+                placeholder="Busca una zona..."
+              />
+              <div className={`${autoCompleteHome|| "invisible"} top-19 absolute bg-white px-2 flex flex-col py-4 items-start  gap-2 rounded shadow-[0_3px_1px] shadow-black/50`}>
+                {autoCompleteHome &&
+                  autoCompleteHome.map((item) => (
+                    <div onClick={handleSearch} className="flex items-center gap-1 py-1 hover:bg-gray-200 rounded w-full px-1 cursor-pointer">
+                      <FontAwesomeIcon
+                        icon={faLocationDot}
+                        className="text-[#7b7b7b]"
+                      />
+                      <p className=" text-start text-[#7b7b7b]">{item.place_name}</p>
+                    </div>
+                  ))}
+              </div>
+            </div>
 
             <div className="rounded-e-full  w-13 h-11 sm:h-16 sm:w-20 bg-[#003DA4] align-middle  items-center flex shadow-[0_3px_1px] shadow-black/50">
               <Link to={"/resultado"} className="mx-auto">

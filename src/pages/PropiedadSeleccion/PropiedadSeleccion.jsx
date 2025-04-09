@@ -9,7 +9,7 @@ import Paginacion from "../../components/Pagination.jsx";
 import axios from "axios";
 export default function PropiedadSeleccion() {
   const [propiedades, setPropiedades] = useState([]);
-  console.log(propiedades[0]);
+  const [propiedadSeleccion, setPropiedadSeleccion] = useState();
   const [fotoEscogida, setFotoEscogida] = useState();
   const [totalPaginas, setTotalPaginas] = useState(1);
   const [pagina, setPagina] = useState();
@@ -53,16 +53,26 @@ export default function PropiedadSeleccion() {
   ];
   useEffect(() => {
     setPropiedades(imagenes);
-    /*  axios
-      .get("https://localhost:3000/character")
+    axios
+      .get("https://localhost:3000/api/propiedades")
       .then((res) => {
-        setPropiedades(res.data.results);
+        setPropiedades(res.data.data.rows);
       })
       .catch((err) => {
         console.error(" Error en frontend:", err);
         setLoading(false);
-      }); */
+      });
   }, []);
+
+  useEffect(() => {
+    const selectedProperty = propiedades.find(
+      (item) => item.propiedad_id === 565681)
+      console.log(selectedProperty)
+    if (selectedProperty) {
+      setPropiedadSeleccion(selectedProperty);
+    }
+  }, [propiedades]);
+
   const [openGallery, setOpenGallery] = useState(true);
   const handleAbrir = () => {
     setOpenGallery(false);
@@ -199,18 +209,25 @@ export default function PropiedadSeleccion() {
           <div>
             <div className="px-5 pt-5">
               <p className="lg:text-3xl">Departamento en Venta</p>
-              <p className="lg:text-3xl font-bold">
-                Departamento desde: $2,000,000 MXN
-              </p>
-              <div className="flex lg:gap-2 lg:mt-2">
-                <img
-                  className=" lg:w-10"
-                  loading="lazy"
-                  src="HomePageContent/iconmeters.svg"
-                  alt="Icono de metros cuadrados"
-                />
-                <p className="lg:text-3xl">30,000m²</p>
-              </div>
+              {propiedadSeleccion && (
+                <>
+                  <p className="lg:text-3xl font-bold">
+                    Departamento desde:{" "}
+                    {propiedadSeleccion.mxn_corriente.toLocaleString("es-MX")}MXN
+                  </p>
+                  <div className="flex lg:gap-2 lg:mt-2">
+                    <img
+                      className=" lg:w-10"
+                      loading="lazy"
+                      src="HomePageContent/iconmeters.svg"
+                      alt="Icono de metros cuadrados"
+                    />
+                    <p className="lg:text-3xl">
+                      {propiedadSeleccion.m2_construccion}m²
+                    </p>
+                  </div>
+                </>
+              )}
             </div>
             <hr className="w-full my-2 text-[#7B7B7B]" />
             {/* Contacta a un agente móvil */}

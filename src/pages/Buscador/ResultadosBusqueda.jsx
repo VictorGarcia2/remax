@@ -8,24 +8,30 @@ import MenuFilter from "../../components/MenuFilter";
 import FiltrosDesktop from "../../components/FiltrosDesktop";
 export default function ResultadosBusqueda({
   propiedades,
-  setPropiedades,
   menuClose,
   setMenuClose,
+  busqueda,
+  setBusqueda,
+  manejoBusqueda,
+  setManejoBusqueda,
+  propiedadesVisibles,
+  setPropiedadesVisibles,
+  setAutoCompleteHome,
+  busquedaHome,
 }) {
-  const [busqueda, setBusqueda] = useState("");
-  const [manejoBusqueda, setManejoBusqueda] = useState(false);
-  const [propiedadesVisibles, setPropiedadesVisibles] = useState([]);
- 
-
+  // El estado guardará un array con los valores seleccionados
+  const [selectedOptions, setSelectedOptions] = useState([]);
+  console.log(busquedaHome);
   return (
     <>
       <MenuFilter menuClose={menuClose} setMenuClose={setMenuClose} />
-      <HeaderResultadoBusqueda
+      <HeaderResultadoBusqueda />
+      <FiltrosDesktop
         setBusqueda={setBusqueda}
         busqueda={busqueda}
         setManejoBusqueda={setManejoBusqueda}
+        setSelectedOptions={setSelectedOptions}
       />
-      <FiltrosDesktop />
       <SearchResultadosBusqueda
         menuClose={menuClose}
         setMenuClose={setMenuClose}
@@ -33,7 +39,7 @@ export default function ResultadosBusqueda({
         busqueda={busqueda}
         setManejoBusqueda={setManejoBusqueda}
       />
-      <CantidadPropiedades propiedades={propiedades} />
+      <CantidadPropiedades propiedadesVisibles={propiedadesVisibles} />
       <CardResultado
         propiedades={propiedades}
         setBusqueda={setBusqueda}
@@ -42,6 +48,10 @@ export default function ResultadosBusqueda({
         setManejoBusqueda={setManejoBusqueda}
         setPropiedadesVisibles={setPropiedadesVisibles}
         propiedadesVisibles={propiedadesVisibles}
+        setSelectedOptions={setSelectedOptions}
+        selectedOptions={selectedOptions}
+        setAutoCompleteHome={setAutoCompleteHome}
+        busquedaHome={busquedaHome}
       />
       <SectionFooter />
     </>
