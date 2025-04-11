@@ -105,7 +105,7 @@ export default function SectionFooter() {
               <a href="">
                 <img
                   className="w-5 h-5"
-                  src="HomePageContent/Instagram.svg"
+                  src="/HomePageContent/Instagram.svg"
                   alt=""
                 />
               </a>

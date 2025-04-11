@@ -27,7 +27,7 @@ export default function MenuFilter({ menuClose, setMenuClose }) {
             onClick={() => setMenuClose(true)}
             loading="lazy"
             className="w-7"
-            src="HomePageContent/close.svg"
+            src="/HomePageContent/close.svg"
             alt=""
           />
         </div>
@@ -82,7 +82,7 @@ export default function MenuFilter({ menuClose, setMenuClose }) {
                 <label className="flex items-center gap-3" htmlFor="">
                   <img
                     loading="lazy"
-                    src="HomePageContent/sectorcomercialicon.svg"
+                    src="/HomePageContent/sectorcomercialicon.svg"
                     alt=""
                   />
                   Comercial
@@ -91,7 +91,7 @@ export default function MenuFilter({ menuClose, setMenuClose }) {
                 <label className="flex items-center gap-3 mb-2" htmlFor="">
                   <img
                     loading="lazy"
-                    src="HomePageContent/sectorresidencialicon.svg"
+                    src="/HomePageContent/sectorresidencialicon.svg"
                     alt=""
                   />
                   Residencial

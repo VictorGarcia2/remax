@@ -12,7 +12,7 @@ import Testimonials from "../components/SectionOpiniones/SectionOpiniones";
 export default function Residencial({busquedaHome, setBusquedaHome, autoCompleteHome,setAutoCompleteHome,setBusqueda}) {
     return (
         <>
-            <HomeSearch busquedaHome={busquedaHome} setBusqueda={setBusqueda} setBusquedaHome={setBusquedaHome} autoCompleteHome={autoCompleteHome} setAutoCompleteHome={setAutoCompleteHome}/>
+            <HomeSearch busquedaHome={busquedaHome}  setBusqueda={setBusqueda} setBusquedaHome={setBusquedaHome} autoCompleteHome={autoCompleteHome} setAutoCompleteHome={setAutoCompleteHome}/>
             <SectionPorque />
             <SectionVariedad />
             <SectionEncuentra />

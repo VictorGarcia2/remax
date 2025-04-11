@@ -1,4 +1,4 @@
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown, faCity, faHouse } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 
@@ -7,16 +7,25 @@ export default function Sector({ setSelectedOptions }) {
   const handle = () => {
     setOpenModal((prevState) => !prevState);
   };
+
   const handleCheckboxChange = (event) => {
-    const value = event.target.value;
+    const value = event.target.value.toLowerCase();
     if (event.target.checked) {
+      console.log("activado",value)
       // Si está marcado, añadirlo al array
       setSelectedOptions((prev) => [...prev, value]);
     } else {
       // Si está desmarcado, eliminarlo del array
       setSelectedOptions((prev) => prev.filter((item) => item !== value));
+      console.log("inactivo",value)
     }
   };
+  const lugares = [
+    { icon: <FontAwesomeIcon icon={faHouse} />, nombre: "Residencial" },
+    { icon: <FontAwesomeIcon icon={faCity} />, nombre: "Comercial",  },
+ 
+  ];
+
   return (
     <>
       <div
@@ -52,37 +61,30 @@ export default function Sector({ setSelectedOptions }) {
           } z-50 bg-gray-100 py-5 rounded-2xl px-4 absolute mt-13 flex flex-col gap-4`}
         >
           <div>
-            <div class="flex items-center mb-4">
-              <label
-                for="default-checkbox"
-                class="mx-2 text-sm font-medium text-gray-900 "
+            {lugares.map((lugar, index) => (
+              <div
+                key={index}
+                className="flex  justify-between  items-center mb-4"
               >
-                Residencial
-              </label>
-
-              <input
-                id="default-checkbox"
-                onChange={handleCheckboxChange}
-                type="checkbox"
-                value=""
-                class="w-4 h-4 text-blueRemax bg-gray-100 border-gray-300 rounded-sm focus:ring-blueRemax "
-              />
-            </div>
-            <div class="flex items-center mb-4">
-              <label
-                for="default-checkbox"
-                class="mx-2 text-sm font-medium text-gray-900 "
-              >
-                Comercial/Industrial
-              </label>
-              <input
-                onChange={handleCheckboxChange}
-                id="default-checkbox"
-                type="checkbox"
-                value=""
-                class="w-4 h-4 text-blueRemax bg-gray-100 border-gray-300 rounded-sm focus:ring-blueRemax "
-              />
-            </div>
+                <div>
+                  {lugar.icon}
+                  <label
+                    htmlFor={`checkbox-${index}`}
+                    className="mx-2 text-sm font-medium text-gray-900 "
+                  >
+                    {lugar.nombre}
+                  </label>
+                </div>
+                <input
+                  id={`checkbox-${index}`}
+                  type="checkbox"
+                  name="tipo"
+                  value={lugar.nombre}
+                  onChange={handleCheckboxChange}
+                  className="w-4 h-4 text-red-600  bg-gray-100 border-gray-300 rounded-sm focus:ring-red-600 "
+                />
+              </div>
+            ))}
           </div>
         </form>
       </div>

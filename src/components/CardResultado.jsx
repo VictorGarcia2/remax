@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Link } from "react-router";
 import Mapbox from "./Mapbox";
 import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
@@ -13,120 +13,139 @@ export default function CardResultado({
   selectedOptions,
   setAutoCompleteHome,
   busquedaHome,
+  setSelectedOptions,
+  nuevas,
+  setNuevas,
+  precioMinimo,
+  setPrecioMinimo,
+  setPrecioMaximo,
+  precioMaximo,
+  aplicarFiltros,
+  setSeleccion,
+  seleccion,
+  selectedOptionsTipos, selectedOptionsOperacion
 }) {
+  const [, updateState] = useState();
+  const forceUpdate = useCallback(() => updateState({}), []);
+  const currentImageIndices = useRef({});
 
-  const [countimg, setcountimg] = useState(1);
-
-  useEffect(() => {
-    if (selectedOptions.length === 0) {
-      setPropiedadesVisibles(propiedades);
-    } else {
-      const filtered = propiedades.filter((item) => {
-        return selectedOptions.some(
-          (option) => item.tipos.tipo_nombre === option
-        );
-      });
-      setPropiedadesVisibles(filtered);
-    }
-  }, [selectedOptions, propiedades]);
-
-  const [currentIndexes, setCurrentIndexes] = useState(
-    propiedades.map(() => 0)
-  );
-  const goToPrevious = (index) => {
-    const isFirstImage = currentIndexes[index] === 0;
-    const newIndex = isFirstImage
-      ? propiedades[index].imagenes.length - 1
-      : currentIndexes[index] - 1;
-    setcountimg(newIndex + 1);
-    setCurrentIndexes((prevIndexes) =>
-      prevIndexes.map((item, idx) => (idx === index ? newIndex : item))
-    );
-  };
   const goToNext = (index) => {
-    const isLastImage =
-      currentIndexes[index] === propiedades[index].imagenes.length - 1;
-    const newIndex = isLastImage ? 0 : currentIndexes[index] + 1;
-    setcountimg(newIndex + 1);
-    setCurrentIndexes((prevIndexes) =>
-      prevIndexes.map((item, idx) => (idx === index ? newIndex : item))
-    );
+    const propiedadId = propiedadesVisibles[index].propiedad_id;
+    const totalImages = propiedadesVisibles[index].imagenes.split(",").length;
+    currentImageIndices.current[propiedadId] =
+      ((currentImageIndices.current[propiedadId] || 0) + 1) % totalImages;
+    forceUpdate();
   };
 
-  const seleccionPropiedad = (e) =>{
-    console.log(e.target.id)
-  }
+  const goToPrevious = (index) => {
+    const propiedadId = propiedadesVisibles[index].propiedad_id;
+    const totalImages = propiedadesVisibles[index].imagenes.split(",").length;
+    currentImageIndices.current[propiedadId] =
+      ((currentImageIndices.current[propiedadId] || 0) - 1 + totalImages) %
+      totalImages;
+    forceUpdate();
+  };
 
+  /* const seleccionPropiedad = (e) => {
+    setSeleccion(e.target.id)
+    console.log("Propiedad seleccionada:", e.target.id);
+  }; */
   return (
     <div className="grid grid-cols-1 xl:grid-cols-2 justify-center items-start">
       <div className="overflow-y-scroll h-[700px] relative">
-        <div className="grid grid-cols-1  xl:grid-cols-2 justify-center md:gap-3 items-center md:px-8">
+        <div className="grid grid-cols-1 xl:grid-cols-2 justify-center md:gap-3 items-center md:px-8">
           {propiedadesVisibles && propiedadesVisibles.length > 0 ? (
-            propiedadesVisibles.map((item, index) => (
-              <div
-                key={index}
-                className="w-full flex flex-col mt-6 mb-30 justify-center items-center"
-              >
-                <div className="flex absolute justify-around mx-auto gap-60">
-                  <img
-                    loading="lazy"
-                    onClick={() => goToPrevious(index)}
-                    src="HomePageContent/arrowizq.svg"
-                    alt=""
-                    className="cursor-pointer"
-                  />
-                  <img
-                    loading="lazy"
-                    onClick={() => goToNext(index)}
-                    src="HomePageContent/arrowderecha.svg"
-                    alt=""
-                    className="cursor-pointer"
-                  />
-                </div>
-                <div className="flex">
-                  <img
-                    loading="lazy"
-                    className="w-[353px] h-[198px] object-cover rounded-2xl"
-                    src={`https://cdn.remax.com.mx/properties/${
-                      item.propiedad_id
-                    }/${item.imagenes.split(",")[0]}`}
-                    alt=""
-                  />
-                </div>
-                <p className="z-40 mt-19 absolute bg-black/40 rounded-full p-1 text-white text-sm">
-                  {countimg}/{item.imagenes.length}
-                </p>
+            propiedadesVisibles.map((item, index) => {
+              const currentIndex =
+                currentImageIndices.current[item.propiedad_id] || 0;
+              const imagenesArray = item.imagenes.split(",");
 
-                <Link
-                  id={item.propiedad_id}
-                  onClick={seleccionPropiedad}
-                 /*  to={"/seleccion"} */
-                  className="w-70 bg-white h-28 absolute mt-65 rounded-2xl shadow flex flex-col items-center pt-2 font-display"
+              return (
+                <div
+                  key={item.propiedad_id}
+                  className="w-full flex flex-col mt-16 mb-8 justify-center items-center"
                 >
-                  <p className="text-base font-bold text-[#7B7B7B]">
-                    {item.mxn_corriente.toLocaleString("es-MX")}MXN
-                  </p>
-                  <p className="text-base px-2 text-center font-[500] text-[#7B7B7B]">
-                    {item.calle}
-                  </p>
-                  <div className="flex text-[#7B7B7B] font-[500] text-[15px]">
-                    <p>{item.tipos.tipo_nombre} | </p>{item.operacion === "1" ? (<p>Venta |</p>) : item.operacion === "2" ? (<p>Renta | </p>) : null}<p>{item.m2_construccion}m2</p>
-                  </div>
-                  <button className="bg-blue-800 rounded-2xl w-[73px] h-[29px] shadow-2xs py-1 flex items-center justify-center">
+                  {/* Flechas */}
+                  <div className="flex absolute justify-around mx-auto gap-60">
                     <img
                       loading="lazy"
-                      src="HomePageContent/brand-whatsapp 1.svg"
-                      alt=""
+                      onClick={() => goToPrevious(index)}
+                      src="/HomePageContent/arrowizq.svg"
+                      alt="Anterior"
+                      className="cursor-pointer"
                     />
-                  </button>
-                </Link>
-              </div>
-            ))
+                    <img
+                      loading="lazy"
+                      onClick={() => goToNext(index)}
+                      src="/HomePageContent/arrowderecha.svg"
+                      alt="Siguiente"
+                      className="cursor-pointer"
+                    />
+                  </div>
+
+                  {/* Imagen actual */}
+                  <div className="flex">
+                    <img
+                      loading="lazy"
+                      className="w-[353px] h-[198px] object-cover rounded-2xl"
+                      src={`https://cdn.remax.com.mx/properties/${item.propiedad_id}/${imagenesArray[currentIndex]}`}
+                      alt={`Imagen ${currentIndex + 1}`}
+                    />
+                  </div>
+
+                  {/* Paginación */}
+                  <p className="z-40 mt-4 absolute bg-black/40 rounded-full p-1 text-white text-sm">
+                    {currentIndex + 1}/{imagenesArray.length}
+                  </p>
+
+                  {/* Info propiedad */}
+                  <Link
+                    id={item.propiedad_id}
+                    onClick={() => setSeleccion(item.propiedad_id)} // No es necesario para la ruta, pero si necesitas almacenar el ID, lo mantienes
+                    to={`/propiedades/seleccion/${item.propiedad_id}`} // Usa directamente item.propiedad_id
+                    className="w-[280px] bg-white h-28 absolute mt-[260px] rounded-2xl shadow flex flex-col items-center pt-2 font-display"
+                  >
+                    <p className="text-base font-bold text-[#7B7B7B]">
+                      {Number(item.mxn_corriente).toLocaleString("en-US")}MXN
+                    </p>
+                    <p className="text-base px-2 text-center font-[500] text-[#7B7B7B]">
+                      {item.calle}
+                    </p>
+                    <div className="flex text-[#7B7B7B] font-[500] text-[15px]">
+                      <p>{item.tipos?.tipo_nombre || "Tipo"} | </p>
+                      <p>
+                        {item.operacion === "1"
+                          ? "Venta"
+                          : item.operacion === "2"
+                          ? "Renta"
+                          : "N/A"}{" "}
+                        |
+                      </p>
+                      <p>{item.m2_construccion}m²</p>
+                    </div>
+                    <div
+                     /*  href={`https://wa.me/${
+                        item.telefono_agente || "52XXXXXXXXXX"
+                      }`} */
+                      /* target="_blank" */
+                      rel="noopener noreferrer"
+                      className="bg-blue-800 rounded-2xl w-[73px] h-[29px] shadow-2xs py-1 flex items-center justify-center mt-2"
+                    >
+                      <img
+                        loading="lazy"
+                        src="HomePageContent/brand-whatsapp 1.svg"
+                        alt="WhatsApp"
+                      />
+                    </div>
+                  </Link>
+                </div>
+              );
+            })
           ) : (
-            <div className=" mt-70 mx-10 w-[800px] px-9 flex flex-col justify-center items-center ">
+            <div className="mt-[70px] mx-10 w-[800px] px-9 flex flex-col justify-center items-center">
               <FontAwesomeIcon
                 icon={faCircleExclamation}
-                className="text-[#7b7b7b] "
+                className="text-[#7b7b7b]"
                 size="2xl"
               />
               <p className="text-2xl text-[#7b7b7b] text-center">
@@ -136,8 +155,20 @@ export default function CardResultado({
           )}
         </div>
       </div>
+
+      {/* Mapa */}
       <div className="mt-0">
         <Mapbox
+        selectedOptionsOperacion={selectedOptionsOperacion}
+          aplicarFiltros={aplicarFiltros}
+          precioMaximo={precioMaximo}
+          setPrecioMaximo={setPrecioMaximo}
+          precioMinimo={precioMinimo}
+          setPrecioMinimo={setPrecioMinimo}
+          setNuevas={setNuevas}
+          nuevas={nuevas}
+          setSelectedOptions={setSelectedOptions}
+          selectedOptions={selectedOptions}
           propiedades={propiedades}
           setBusqueda={setBusqueda}
           busqueda={busqueda}
@@ -146,6 +177,7 @@ export default function CardResultado({
           propiedadesVisibles={propiedadesVisibles}
           setAutoCompleteHome={setAutoCompleteHome}
           busquedaHome={busquedaHome}
+          selectedOptionsTipos={selectedOptionsTipos}
         />
       </div>
     </div>

@@ -109,7 +109,7 @@ export default function SectionComoComprar() {
         <div class="aspect-w-16 aspect-h-7">
           <img
             class="w-full object-cover rounded-xl h-80 "
-            src="HomePageContent/jakub-zerdzicki-bqUZEAeWuok-unsplash.jpg"
+            src="/HomePageContent/jakub-zerdzicki-bqUZEAeWuok-unsplash.jpg"
             alt="Features Image"
           />
         </div>

@@ -16,7 +16,7 @@ export default function SectionEquipo() {
 
           <img
             className=" rounded-2xl  shadow-[0_5px_5px] shadow-black/10"
-            src="HomePageContent/mujer-llamando.jpg"
+            src="/HomePageContent/mujer-llamando.jpg"
             alt=""
           />
           <button className=" z-10 shadow-[0_5px_5px] shadow-black/40 -mt-8 w-44 h-14 bg-[#003DA4] rounded-2xl text-white ">
@@ -27,7 +27,7 @@ export default function SectionEquipo() {
       <div className=" hidden sm:visible   mt-10 mb-10 px-5 font-display sm:flex gap-10 justify-center items-center text-center">
         <img
           className=" rounded-2xl w-[462px] h-[514px] object-cover  shadow-[0_5px_5px] shadow-black/10"
-          src="HomePageContent/mujer-llamando.jpg"
+          src="/HomePageContent/mujer-llamando.jpg"
           alt=""
         />
         <div className="mt-4  font-display gap-4  font-[400]  flex flex-col    items-center">

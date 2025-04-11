@@ -363,23 +363,31 @@ export default function App() {
     },
   ];
 
- 
-  const [propiedades, setPropiedades] = useState([])
+  const [propiedades, setPropiedades] = useState([]);
   const [menuClose, setMenuClose] = useState(true);
   const [busquedaHome, setBusquedaHome] = useState("");
   const [busqueda, setBusqueda] = useState("");
   const [manejoBusqueda, setManejoBusqueda] = useState(false);
   const [propiedadesVisibles, setPropiedadesVisibles] = useState([]);
-  const [autoCompleteHome, setAutoCompleteHome] = useState([]) 
-
+  const [autoCompleteHome, setAutoCompleteHome] = useState([]);
+  const [selectedOptions, setSelectedOptions] = useState([]);
+  const [selectedOptionsTipos, setSelectedOptionsTipos] = useState([]);
+  const [selectedOptionsOperacion, setSelectedOptionsOperacion] = useState([]);
+  const [nuevas, setNuevas] = useState([]);
+  const [precioMinimo, setPrecioMinimo] = useState(0);
+  const [precioMaximo, setPrecioMaximo] = useState(Infinity);
+  const [aplicarFiltros, setAplicarFiltros] = useState(Date.now());
+  const [seleccion, setSeleccion] = useState();
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get('https://localhost:3000/api/propiedades');
-         const data = response.data.data.rows
-         setPropiedades(data)
+        const response = await axios.get(
+          "https://localhost:3000/api/propiedades"
+        );
+        const data = response.data.data.rows;
+        setPropiedades(data);
       } catch (error) {
-        console.error('Algo salió mal al consumir la API', error);
+        console.error("Algo salió mal al consumir la API", error);
       }
     };
     getData();
@@ -390,14 +398,34 @@ export default function App() {
         <Route
           path="/"
           element={
-            <Residencial busquedaHome={busquedaHome} setBusquedaHome={setBusquedaHome} autoCompleteHome={autoCompleteHome} setAutoCompleteHome={setAutoCompleteHome} setBusqueda={setBusqueda} />
+            <Residencial
+              setSelectedOptions={setSelectedOptions}
+              selectedOptions={selectedOptions}
+              busquedaHome={busquedaHome}
+              setBusquedaHome={setBusquedaHome}
+              autoCompleteHome={autoCompleteHome}
+              setAutoCompleteHome={setAutoCompleteHome}
+              setBusqueda={setBusqueda}
+            />
           }
         />
         <Route path="/comercial" element={<Comercial />} />
         <Route
-          path="/resultado"
+          path="/propiedades"
           element={
             <ResultadosBusqueda
+            selectedOptionsOperacion={selectedOptionsOperacion}
+            setSelectedOptionsOperacion={setSelectedOptionsOperacion}
+              selectedOptionsTipos={selectedOptionsTipos}
+              setSelectedOptionsTipos={setSelectedOptionsTipos}
+              aplicarFiltros={aplicarFiltros}
+              setAplicarFiltros={setAplicarFiltros}
+              precioMaximo={precioMaximo}
+              setPrecioMaximo={setPrecioMaximo}
+              precioMinimo={precioMinimo}
+              setPrecioMinimo={setPrecioMinimo}
+              setSelectedOptions={setSelectedOptions}
+              selectedOptions={selectedOptions}
               menuClose={menuClose}
               setMenuClose={setMenuClose}
               propiedades={propiedades}
@@ -410,13 +438,18 @@ export default function App() {
               setPropiedadesVisibles={setPropiedadesVisibles}
               setAutoCompleteHome={setAutoCompleteHome}
               busquedaHome={busquedaHome}
+              nuevas={nuevas}
+              setNuevas={setNuevas}
+              seleccion={seleccion}
+              setSeleccion={setSeleccion}
             />
           }
         />
         <Route
-          path="/seleccion"
+          path="/propiedades/seleccion/:id"
           element={
             <PropiedadSeleccion
+              seleccion={seleccion}
               propiedades={propiedades}
               setPropiedades={setPropiedades}
             />

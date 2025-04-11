@@ -28,7 +28,7 @@ function Icon({ id, open }) {
     </svg>
   );
 }
-export function Dropdown() {
+export function Dropdown({propiedadSeleccion}) {
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
   const [openAcc1, setOpenAcc1] = useState(true);
   const [openAcc2, setOpenAcc2] = useState(true);
@@ -51,15 +51,7 @@ export function Dropdown() {
         </AccordionHeader>
         <AccordionBody>
           <p className="text-base lg:text-2xl">
-            ParqueViatt® se encuentra a 200 m del Periférico Raúl López Sánchez,
-            vialidad que conecta la zona industrial de Gómez Palacio con las
-            salidas más importantes y concurridas de La Laguna, por lo que es la
-            ruta principal del tráfico de carga pesada y a tan solo 600 m del
-            centro trailero de la ciudad. ParqueViatt® contará con solo 21
-            bodegas que van desde los 745 m² hasta los 2,072 m², estas se
-            concentran alrededor de un gran patio de maniobras que fue diseñado
-            para garantizar los radios de giro de cada tráiler, para
-            eficientizar su tránsito.
+          {propiedadSeleccion?.propiedades_meta.descripcion || ""}
           </p>
         </AccordionBody>
       </Accordion>

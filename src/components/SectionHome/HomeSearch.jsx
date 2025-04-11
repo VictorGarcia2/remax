@@ -7,6 +7,7 @@ export default function HomeSearch({
   autoCompleteHome,
   setAutoCompleteHome,
   setBusqueda,
+  
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [data, setData] = useState([]);
@@ -36,6 +37,7 @@ export default function HomeSearch({
               te ayudamos a vender o encontrar tu próximo refugio ideal.
             </p>
             <Search
+            
               data={data}
               setData={setData}
               setBusqueda={setBusqueda}

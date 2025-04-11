@@ -4,19 +4,19 @@ export default function SectionVariedad() {
 
   const propiedades = [
     {
-      img: "HomePageContent/optim.webp",
+      img: "/HomePageContent/optim.webp",
       title: "Desarrollos"
     },
     {
-      img: "HomePageContent/optim2.webp",
+      img: "/HomePageContent/optim2.webp",
       title: "Terrenos"
     },
     {
-      img: "HomePageContent/optim3.webp",
+      img: "/HomePageContent/optim3.webp",
       title: "Departamentos"
     },
     {
-      img: "HomePageContent/optim4.webp",
+      img: "/HomePageContent/optim4.webp",
       title: "Casa"
     }
   ];

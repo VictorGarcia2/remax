@@ -1,35 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
-
-// Tu array de propiedades
-export const propiedadess = [
-  {
-    direccion: "Av. Gregorio Méndez 123, Villahermosa, Tabasco",
-    tipoPropiedad: "Casa",
-    precio: 1500000,
-    descripcion: "Casa amplia con jardín y cochera.",
-    latitud: 17.9949,
-    longitud: -92.9273,
-  },
-  {
-    direccion: "Calle Reforma 456, Cárdenas, Tabasco",
-    tipoPropiedad: "Departamento",
-    precio: 850000,
-    descripcion: "Departamento céntrico cerca de todo.",
-    lat: 18.0033,
-    lng: -93.3791,
-  },
-  {
-    direccion: "Calle 27, Centro, Villahermosa, Tabasco",
-    tipoPropiedad: "Terreno",
-    precio: 500000,
-    descripcion: "Terreno plano listo para construir.",
-    lat: 17.9894,
-    lng: -92.9331,
-  },
-];
-
 mapboxgl.accessToken =
   "pk.eyJ1IjoidmljdG9yZ2FyY2lhcHJ6IiwiYSI6ImNtNXZ3dW0wMjA2aHgyanE1M3ptczQ2azUifQ.ILrTXW_4c9_pbGC3Uj-wdg";
 
@@ -40,30 +11,93 @@ const MapboxConCards = ({
   propiedades,
   setAutoCompleteHome,
   busquedaHome,
+  selectedOptions,
+  nuevas,
+  setNuevas,
+  precioMinimo,
+  precioMaximo,
+  aplicarFiltros,
+  selectedOptionsTipos,
+  selectedOptionsOperacion,
 }) => {
   const mapContainerRef = useRef(null);
   const mapRef = useRef(null);
   const markersRef = useRef([]);
   useEffect(() => {
+    const noHayFiltros =
+      selectedOptionsTipos.length === 0 &&
+      precioMinimo === 0 &&
+      precioMaximo === Infinity &&
+      selectedOptionsOperacion.length === 0 &&
+      selectedOptions.length === 0;
+  
+    if (noHayFiltros) {
+      setNuevas(propiedades);
+    } else {
+      const tiposSeleccionados = selectedOptionsTipos.map(Number);
+      const sectoresSeleccionados = Array.isArray(selectedOptions)
+        ? selectedOptions.filter(Boolean).map(String)
+        : [];
+      const operacionesSeleccionadas = Array.isArray(selectedOptionsOperacion)
+        ? selectedOptionsOperacion.filter(Boolean).map(String)
+        : [];
+  
+      const filtered = propiedades.filter((item) => {
+        const precio = parseFloat(item.mxn_corriente) || 0;
+        const cumplePrecio = precio >= precioMinimo && precio <= precioMaximo;
+        const cumpleTipos =
+          tiposSeleccionados.length === 0 ||
+          tiposSeleccionados.includes(item.tipos?.tipo_id);
+        const cumpleOperaciones =
+          operacionesSeleccionadas.length === 0 ||
+          operacionesSeleccionadas.includes(item.operacion);
+        const cumpleSector =
+          sectoresSeleccionados.length === 0 ||
+          sectoresSeleccionados.includes(item.sector);
+  
+        return cumplePrecio && cumpleTipos && cumpleOperaciones && cumpleSector;
+      });
+  
+      setNuevas(filtered);
+    }
+  }, [
+    selectedOptionsTipos,
+    selectedOptionsOperacion,
+    selectedOptions,
+    propiedades,
+    precioMinimo,
+    precioMaximo
+  ]);
+  
+
+  useEffect(() => {
+    if (!mapContainerRef.current) return;
+
     mapRef.current = new mapboxgl.Map({
       container: mapContainerRef.current,
-      center: [-92.912, 17.989], // Villahermosa
+      center: [-96.135744, 19.172264], // Veracruz
       zoom: 11,
     });
-
     mapRef.current.addControl(new mapboxgl.NavigationControl());
-
     mapRef.current.on("load", () => {
-      agregarMarkers(propiedades);
+      agregarMarkers(nuevas);
       actualizarVisibles();
     });
-
     mapRef.current.on("moveend", () => {
       actualizarVisibles();
     });
 
     return () => mapRef.current.remove();
-  }, [manejoBusqueda])
+  }, []); 
+
+
+  useEffect(() => {
+    if (mapRef.current && nuevas.length > 0) {
+      agregarMarkers(nuevas);
+      actualizarVisibles();
+    }
+  }, [mapRef.current, nuevas]);
+  
 
   const agregarMarkers = async (lista) => {
     // Limpiar marcadores existentes
@@ -71,20 +105,24 @@ const MapboxConCards = ({
     markersRef.current = [];
 
     for (const prop of lista) {
-
       // Verificar si existen las coordenadas (usando las llaves correctas)
       if (!prop.longitud || !prop.latitud) continue;
 
       const marker = new mapboxgl.Marker({ color: "#e63946" })
-        // Usar longitud primero (lng) y luego latitud (lat) - formato [lng, lat]
         .setLngLat([parseFloat(prop.longitud), parseFloat(prop.latitud)])
         .setPopup(
-          new mapboxgl.Popup().setHTML(
-            `<strong>${prop.tipos?.tipo_nombre || "Propiedad"}</strong><br/>
-             <small>${prop.calle || ""} ${
-              prop.numero_exterior || ""
-            }</small><br/>
-             <strong>$${prop.mxn_corriente || "0"}</strong>`
+          new mapboxgl.Popup({ closeButton: true, closeOnClick: true }).setHTML(
+            `<div style="font-family: Arial, sans-serif; padding: 10px; text-align: center;">
+             <h3 style="margin: 0; font-size: 16px; color: #2a9d8f;">${
+               prop.tipos?.tipo_nombre || "Propiedad"
+             }</h3>
+             <p style="margin: 5px 0; font-size: 14px; color: #264653;">
+           ${prop.calle || ""} ${prop.numero_exterior || ""}
+             </p>
+             <p style="margin: 5px 0; font-size: 14px; font-weight: bold; color: #e76f51;">
+           $${prop.mxn_corriente?.toLocaleString() || "0"}
+             </p>
+           </div>`
           )
         )
         .addTo(mapRef.current);
@@ -120,7 +158,7 @@ const MapboxConCards = ({
     const manejarBusqueda = async () => {
       const response = await fetch(
         `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
-          busqueda
+          busqueda || busquedaHome
         )}.json?access_token=${mapboxgl.accessToken}`
       );
       const data = await response.json();

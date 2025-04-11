@@ -18,21 +18,43 @@ export default function ResultadosBusqueda({
   setPropiedadesVisibles,
   setAutoCompleteHome,
   busquedaHome,
+  setPropiedades,
+  setSelectedOptions,
+  selectedOptions,
+  nuevas,
+  setNuevas,
+  precioMinimo,
+  setPrecioMinimo,
+  setPrecioMaximo,
+  precioMaximo,
+  setAplicarFiltros,
+  aplicarFiltros,
+  seleccion,
+  setSeleccion,
+  setSelectedOptionsTipos,
+  selectedOptionsTipos, setSelectedOptionsOperacion, selectedOptionsOperacion
 }) {
-  // El estado guardará un array con los valores seleccionados
-  const [selectedOptions, setSelectedOptions] = useState([]);
-  console.log(busquedaHome);
   return (
     <>
       <MenuFilter menuClose={menuClose} setMenuClose={setMenuClose} />
       <HeaderResultadoBusqueda />
       <FiltrosDesktop
+      setSelectedOptionsOperacion={setSelectedOptionsOperacion}
+      setSelectedOptionsTipos={setSelectedOptionsTipos}
+        setAplicarFiltros={setAplicarFiltros}
+        precioMaximo={precioMaximo}
+        setPrecioMaximo={setPrecioMaximo}
+        precioMinimo={precioMinimo}
+        setPrecioMinimo={setPrecioMinimo}
         setBusqueda={setBusqueda}
         busqueda={busqueda}
         setManejoBusqueda={setManejoBusqueda}
         setSelectedOptions={setSelectedOptions}
+        selectedOptions={selectedOptions}
       />
       <SearchResultadosBusqueda
+        setSelectedOptions={setSelectedOptions}
+        selectedOptions={selectedOptions}
         menuClose={menuClose}
         setMenuClose={setMenuClose}
         setBusqueda={setBusqueda}
@@ -41,6 +63,19 @@ export default function ResultadosBusqueda({
       />
       <CantidadPropiedades propiedadesVisibles={propiedadesVisibles} />
       <CardResultado
+      selectedOptionsOperacion={selectedOptionsOperacion}
+      selectedOptionsTipos={selectedOptionsTipos}
+        seleccion={seleccion}
+        setSeleccion={setSeleccion}
+        aplicarFiltros={aplicarFiltros}
+        precioMaximo={precioMaximo}
+        setPrecioMaximo={setPrecioMaximo}
+        precioMinimo={precioMinimo}
+        setPrecioMinimo={setPrecioMinimo}
+        nuevas={nuevas}
+        setNuevas={setNuevas}
+        setSelectedOptions={setSelectedOptions}
+        selectedOptions={selectedOptions}
         propiedades={propiedades}
         setBusqueda={setBusqueda}
         busqueda={busqueda}
@@ -48,10 +83,9 @@ export default function ResultadosBusqueda({
         setManejoBusqueda={setManejoBusqueda}
         setPropiedadesVisibles={setPropiedadesVisibles}
         propiedadesVisibles={propiedadesVisibles}
-        setSelectedOptions={setSelectedOptions}
-        selectedOptions={selectedOptions}
         setAutoCompleteHome={setAutoCompleteHome}
         busquedaHome={busquedaHome}
+        setPropiedades={setPropiedades}
       />
       <SectionFooter />
     </>

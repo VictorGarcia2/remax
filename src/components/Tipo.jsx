@@ -3,33 +3,33 @@
 import { faBuildingUser, faChevronDown, faCity, faHouse, faMapLocationDot, faPenRuler } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
-export default function Tipo({setSelectedOptions}) {
+export default function Tipo({setSelectedOptionsTipos}) {
    
     // Función para manejar los cambios de los checkboxes
     const handleCheckboxChange = (event) => {
       const value = event.target.value;
       if (event.target.checked) {
         // Si está marcado, añadirlo al array
-        setSelectedOptions((prev) => [...prev, value]);
+        setSelectedOptionsTipos((prev) => [...prev, value]);
       } else {
         // Si está desmarcado, eliminarlo del array
-        setSelectedOptions((prev) => prev.filter((item) => item !== value));
+        setSelectedOptionsTipos((prev) => prev.filter((item) => item !== value));
       }
     };
   const lugares = [
     { icon: <FontAwesomeIcon icon={faHouse} />,
-      nombre: "Casa" },
+      nombre: "Casa", "tipo_id": 1, },
     { icon: <FontAwesomeIcon icon={faCity} />,
-      nombre: "Casa en Condominio" },
+      nombre: "Casa en Condominio", "tipo_id": 2, },
     { 
       icon: <FontAwesomeIcon icon={faBuildingUser} />,
-      nombre: "Departamento" },
+      nombre: "Departamento", "tipo_id": 3, },
     { 
       icon: <FontAwesomeIcon icon={faPenRuler} />,
-      nombre: "Desarrollo" },
+      nombre: "Desarrollo", "tipo_id": 6,  },
     { 
       icon: <FontAwesomeIcon icon={faMapLocationDot} />,
-      nombre: "Terreno" }
+      nombre: "Terreno", "tipo_id": 4, }
   ];
   const [openModal, setOpenModal] = useState(true);
   const handle = () => {
@@ -77,7 +77,7 @@ export default function Tipo({setSelectedOptions}) {
             id={`checkbox-${index}`}
             type="checkbox"
             name="tipo"
-            value={lugar.nombre}
+            value={lugar.tipo_id}
             onChange={handleCheckboxChange}
             className="w-4 h-4 text-red-600  bg-gray-100 border-gray-300 rounded-sm focus:ring-red-600 "
             />

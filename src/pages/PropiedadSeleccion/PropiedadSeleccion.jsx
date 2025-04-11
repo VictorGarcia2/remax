@@ -7,9 +7,12 @@ import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import Paginacion from "../../components/Pagination.jsx";
 import axios from "axios";
-export default function PropiedadSeleccion() {
+import { useParams } from "react-router";
+export default function PropiedadSeleccion({seleccion}) {
+  const {id} = useParams()
   const [propiedades, setPropiedades] = useState([]);
   const [propiedadSeleccion, setPropiedadSeleccion] = useState();
+  console.log(propiedadSeleccion)
   const [fotoEscogida, setFotoEscogida] = useState();
   const [totalPaginas, setTotalPaginas] = useState(1);
   const [pagina, setPagina] = useState();
@@ -23,8 +26,8 @@ export default function PropiedadSeleccion() {
       console.log("No existe una propiedad en esa página.");
     }
     setTotalPaginas(countPage);
-  }, [pagina]);
-  const imagenes = [
+  }, [id]);
+  /* const imagenes = [
     {
       alt: "Libro sobre mesa",
       image:
@@ -50,9 +53,10 @@ export default function PropiedadSeleccion() {
       image:
         "https://images.unsplash.com/photo-1725120425314-8f455c4792fd?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
-  ];
+  ]; */
+  
   useEffect(() => {
-    setPropiedades(imagenes);
+    /* setPropiedades(imagenes); */
     axios
       .get("https://localhost:3000/api/propiedades")
       .then((res) => {
@@ -62,16 +66,15 @@ export default function PropiedadSeleccion() {
         console.error(" Error en frontend:", err);
         setLoading(false);
       });
-  }, []);
-
+  }, [seleccion]);
   useEffect(() => {
     const selectedProperty = propiedades.find(
-      (item) => item.propiedad_id === 565681)
-      console.log(selectedProperty)
+      (item) => item.propiedad_id === Number(id))
     if (selectedProperty) {
       setPropiedadSeleccion(selectedProperty);
     }
   }, [propiedades]);
+
 
   const [openGallery, setOpenGallery] = useState(true);
   const handleAbrir = () => {
@@ -89,6 +92,8 @@ export default function PropiedadSeleccion() {
       }, 4000);
     }, 3000);
   }, []);
+  console.log(propiedadSeleccion)
+  const imagenesArray = propiedadSeleccion?.imagenes.split(",");
   return (
     <>
       <div
@@ -103,7 +108,7 @@ export default function PropiedadSeleccion() {
               icon={faX}
               size="2xl"
               className="cursor-pointer hover:text-blueRemax active:text-blueRemax"
-            />
+              />
           </div>
           <br />
           <br />
@@ -132,7 +137,7 @@ export default function PropiedadSeleccion() {
         <img
           loading="lazy"
           className="w-8"
-          src="HomePageContent/brand-whatsapp 1.svg"
+          src="/HomePageContent/brand-whatsapp 1.svg"
           alt=""
         />
       </div>
@@ -143,7 +148,7 @@ export default function PropiedadSeleccion() {
             <img
               loading="lazy"
               className="w-[20px] h-[20px]"
-              src="HomePageContent/iconshare.png"
+              src="/HomePageContent/iconshare.png"
               alt=""
             />
           </div>
@@ -151,13 +156,13 @@ export default function PropiedadSeleccion() {
             <img
               loading="lazy"
               className="w-[27px] h-[27px] cursor-pointer"
-              src="HomePageContent/arrowizq.svg"
+              src="/HomePageContent/arrowizq.svg"
               alt="Flecha izquierda"
             />
             <img
               loading="lazy"
               className="w-[27px] h-[27px] cursor-pointer"
-              src="HomePageContent/arrowderecha.svg"
+              src="/HomePageContent/arrowderecha.svg"
               alt="Flecha derecha"
             />
           </div>
@@ -165,7 +170,7 @@ export default function PropiedadSeleccion() {
             <img
               loading="lazy"
               className="w-full object-cover h-[202px] cursor-pointer"
-              src="HomePageContent/pexels-fotoaibe-1571460 1.jpg"
+              src="/HomePageContent/pexels-fotoaibe-1571460 1.jpg"
               alt="Imagen de propiedad"
             />
           </div>
@@ -174,37 +179,39 @@ export default function PropiedadSeleccion() {
           </p>
         </div>
         {/* Galería Desktop */}
-        <div className="grid grid-cols-2 gap-2 w-full ">
+        {/* <div className="grid grid-cols-2 gap-2 w-full ">
           <div>
             <img
               onClick={handleAbrir}
-              id={propiedades[0]}
+              id="1"
               className="rounded-2xl w-full object-cover  h-[569px] cursor-pointer"
-              src={propiedades[0]?.image}
+              src={`https://cdn.remax.com.mx/properties/${propiedadSeleccion.propiedad_id}/${imagenesArray[0]}`}
               alt=""
             />
+
+
           </div>
           <div className="grid grid-cols-1 gap-3">
             <div className="">
               <img
                 onClick={handleAbrir}
-                id={propiedades[1]}
+               id="2"
                 className="rounded-2xl  h-[277px] w-full object-cover cursor-pointer"
-                src={propiedades[1]?.image}
+                src={`https://cdn.remax.com.mx/properties/${propiedadSeleccion.propiedad_id}/${imagenesArray[1]}`}
                 alt=""
               />
             </div>
             <div className="">
               <img
                 onClick={handleAbrir}
-                id={propiedades[2]}
+                id="3"
                 className="rounded-2xl h-[277px]  w-full object-cover cursor-pointer"
-                src={propiedades[2]?.image}
+                src={`https://cdn.remax.com.mx/properties/${propiedadSeleccion.propiedad_id}/${imagenesArray[2]}`}
                 alt=""
               />
             </div>
           </div>
-        </div>
+        </div> */}
         <div className="w-full flex flex-col lg:grid lg:grid-cols-2 text-[#7b7b7b]">
           <div>
             <div className="px-5 pt-5">
@@ -213,13 +220,13 @@ export default function PropiedadSeleccion() {
                 <>
                   <p className="lg:text-3xl font-bold">
                     Departamento desde:{" "}
-                    {propiedadSeleccion.mxn_corriente.toLocaleString("es-MX")}MXN
+                    {Number(propiedadSeleccion.mxn_corriente).toLocaleString("en-US")} MXN
                   </p>
                   <div className="flex lg:gap-2 lg:mt-2">
                     <img
                       className=" lg:w-10"
                       loading="lazy"
-                      src="HomePageContent/iconmeters.svg"
+                      src="/HomePageContent/iconmeters.svg"
                       alt="Icono de metros cuadrados"
                     />
                     <p className="lg:text-3xl">
@@ -251,13 +258,13 @@ export default function PropiedadSeleccion() {
                     <img
                       loading="lazy"
                       className="w-auto h-full"
-                      src="HomePageContent/correo.svg"
+                      src="/HomePageContent/correo.svg"
                       alt="Correo"
                     />
                     <img
                       loading="lazy"
                       className="w-auto h-full"
-                      src="HomePageContent/phone.svg"
+                      src="/HomePageContent/phone.svg"
                       alt="Teléfono"
                     />
                   </div>
@@ -266,7 +273,7 @@ export default function PropiedadSeleccion() {
                   <img
                     loading="lazy"
                     className="w-[99px] h-[104px] object-cover rounded-[15px]"
-                    src="HomePageContent/agente.png"
+                    src="/HomePageContent/agente.png"
                     alt="Foto del agente"
                   />
                 </div>
@@ -281,7 +288,7 @@ export default function PropiedadSeleccion() {
               Calculadora de hipotecas
             </button>
             <div className="px-5 mt-5">
-              <Dropdown />
+              <Dropdown propiedadSeleccion={propiedadSeleccion}/>
             </div>
           </div>
           {/* Contacta a un agente desktop */}
@@ -309,13 +316,13 @@ export default function PropiedadSeleccion() {
                       <img
                         loading="lazy"
                         className="w-11 h-full"
-                        src="HomePageContent/correo.svg"
+                        src="/HomePageContent/correo.svg"
                         alt="Correo"
                       />
                       <img
                         loading="lazy"
                         className="w-8 h-full"
-                        src="HomePageContent/phone.svg"
+                        src="/HomePageContent/phone.svg"
                         alt="Teléfono"
                       />
                     </div>
@@ -324,7 +331,7 @@ export default function PropiedadSeleccion() {
                     <img
                       loading="lazy"
                       className="w-[99px] h-[104px] lg:w-[152px] lg:h-[152px] object-cover rounded-[15px]"
-                      src="HomePageContent/agente.png"
+                      src="/HomePageContent/agente.png"
                       alt="Foto del agente"
                     />
                   </div>

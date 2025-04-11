@@ -20,7 +20,7 @@ export default function SectionPorque() {
           <div>
             <img
               class="rounded-xl"
-              src="HomePageContent/nathan-fertig-FBXuXp57eM0-unsplash.webp"
+              src="/HomePageContent/nathan-fertig-FBXuXp57eM0-unsplash.webp"
               alt="Features Image"
             />
           </div>

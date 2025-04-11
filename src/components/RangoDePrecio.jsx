@@ -2,7 +2,13 @@ import { faChevronDown, faL } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 
-export default function RangoDePrecio() {
+export default function RangoDePrecio({
+  precioMinimo,
+  setPrecioMinimo,
+  setPrecioMaximo,
+  precioMaximo,
+  setAplicarFiltros
+}) {
   const [openModal, setOpenModal] = useState(true);
   const handle = () => {
     setOpenModal((prevState) => !prevState);
@@ -31,15 +37,17 @@ export default function RangoDePrecio() {
         </div>
         {/* Modal */}
         <form
-          className={` ${
+          className={`${
             openModal && "hidden"
-          } z-10 bg-gray-100 py-10  rounded-2xl px-4 absolute mt-13 flex flex-col gap-4`}
+          } z-10 bg-gray-100 py-10 rounded-2xl px-4 absolute mt-13 flex flex-col gap-4`}
         >
           <div className="flex gap-2">
-            <label htmlFor="" className="flex items-center gap-2 ">
+            <label htmlFor="" className="flex items-center gap-2">
               De:
               <input
                 type="number"
+                value={precioMinimo}
+                onChange={(e) => setPrecioMinimo(Number(e.target.value))}
                 className="border-b border-t-0 border-s-0 border-e-0 px-1"
                 placeholder="1000"
                 min="0"
@@ -49,19 +57,28 @@ export default function RangoDePrecio() {
               Hasta:
               <input
                 type="number"
+                value={precioMaximo}
+                onChange={(e) => setPrecioMaximo(Number(e.target.value))}
                 className="border-b border-t-0 border-s-0 border-e-0 px-1"
                 placeholder="1300000"
                 min="0"
               />
             </label>
           </div>
+
           <div className="flex mt-3 justify-end gap-3 items-center">
-            <button class="text-blueRemax hover:text-white border border-blueRemax hover:bg-blueRemax focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2  ">
+            {/* Botón Limpiar */}
+            <button
+              type="button"
+              onClick={() => {
+                setPrecioMinimo(0);
+                setPrecioMaximo(Infinity);
+              }}
+              className="text-blueRemax hover:text-white border border-blueRemax hover:bg-blueRemax focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+            >
               Limpiar
             </button>
-            <button class="focus:outline-none text-white bg-blueRemax hover:bg-blueRemax focus:ring-4 focus:ring-blue-200  font-medium rounded-lg text-sm px-5 py-2.5 me-2 ">
-              Aplicar
-            </button>
+
           </div>
         </form>
       </div>

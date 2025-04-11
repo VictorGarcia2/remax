@@ -19,14 +19,14 @@ export default function SearchResultadosBusqueda({ menuClose, setMenuClose,setBu
         <img
           loading="lazy"
           className="w-5 "
-          src="HomePageContent/Search Results.svg"
+          src="/HomePageContent/Search Results.svg"
           alt=""
         />
       </div>
       <img
         className="xl:hidden"
         onClick={handle}
-        src="HomePageContent/Filter.svg"
+        src="/HomePageContent/Filter.svg"
         alt=""
       />
     </div>

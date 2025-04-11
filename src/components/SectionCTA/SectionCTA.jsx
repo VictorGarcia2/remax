@@ -30,7 +30,7 @@ export default function () {
                 <button className="rounded-2xl mt-3 mb-5  shadow-[0_5px_5px] shadow-black/40 bg-blueRemax w-24  h-9 flex justify-center">
                   <img
                     className="w-6"
-                    src="HomePageContent/brand-whatsapp 1.svg"
+                    src="/HomePageContent/brand-whatsapp 1.svg"
                     alt=""
                   />
                 </button>
