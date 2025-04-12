@@ -51,7 +51,7 @@ export function Dropdown({propiedadSeleccion}) {
         </AccordionHeader>
         <AccordionBody>
           <p className="text-base lg:text-2xl">
-          {propiedadSeleccion?.propiedades_meta.descripcion || ""}
+          {propiedadSeleccion?.propiedades_meta.descripcion.replace(/[\r\n]+/g, ' ').trim() || ""} 
           </p>
         </AccordionBody>
       </Accordion>

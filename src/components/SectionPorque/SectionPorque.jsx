@@ -15,18 +15,18 @@ export default function SectionPorque() {
           hogar perfecto para ti y tu familia.
         </p>
       </div> */}
-      <div class=" w-full bg-blueRemax/20  py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-        <div class="md:grid md:grid-cols-2 md:items-center md:gap-12 xl:gap-32">
+      <div className=" w-full bg-blueRemax/20  py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+        <div className="md:grid md:grid-cols-2 md:items-center md:gap-12 xl:gap-32">
           <div>
             <img
-              class="rounded-xl"
+              className="rounded-xl"
               src="/HomePageContent/nathan-fertig-FBXuXp57eM0-unsplash.webp"
               alt="Features Image"
             />
           </div>
-          <div class="">
-            <div class="space-y-6 sm:space-y-8">
-              <div class="space-y-2 md:space-y-4">
+          <div className="">
+            <div className="space-y-6 sm:space-y-8">
+              <div className="space-y-2 md:space-y-4">
                 <p className="text-2xl sm:text-[40px] sm:mt-0 mt-10 text-[#2e2c2c]">
                   ¿Qué hace de{" "}
                   <span className="font-[800] italic "> REMAX CIN</span> tu

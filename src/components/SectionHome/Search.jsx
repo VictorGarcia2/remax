@@ -11,15 +11,75 @@ export default function Search({
   autoCompleteHome,
   setAutoCompleteHome,
   setBusqueda,
+  setSelectedOptionsTipos,
+  setSelectedOptionsOperacion,
 }) {
   const [openTipo, setOpenTipo] = useState(true);
   const [direccion, setDireccion] = useState("");
   const [modalBusqueda, setModalBusqueda] = useState(true);
   mapboxgl.accessToken =
     "pk.eyJ1IjoidmljdG9yZ2FyY2lhcHJ6IiwiYSI6ImNtNXZ3dW0wMjA2aHgyanE1M3ptczQ2azUifQ.ILrTXW_4c9_pbGC3Uj-wdg";
-  const handle = () => {
-    setOpenTipo(false);
+
+  const handleOperacion = (event) => {
+    const value = event.target.id;
+    if (event) {
+      console.log("marca operaciones", value);
+      // Si está marcado, añadirlo al array y mantener solo el último elemento
+      setSelectedOptionsOperacion([value]);
+    } else {
+      // Si está desmarcado, eliminarlo del array
+      setSelectedOptionsOperacion((prev) =>
+        prev.filter((item) => item !== value)
+      );
+    }
   };
+  const handleTipos = (event) => {
+    const value = event.target.id;
+    if (event) {
+      console.log("marca tipos", value);
+      setOpenTipo(true);
+      setSelectedOptionsTipos([value]);
+    } else {
+      setSelectedOptionsTipos((prev) => prev.filter((item) => item !== value));
+    }
+  };
+  const operacion = [
+    { id: "1", operacion: "Venta" },
+    { id: "2", operacion: "Renta" },
+  ];
+  const tiposPropiedad = [
+    {
+      tipo_id: 1,
+      tipo_nombre: "Casa",
+      sector_nombre: "residencial",
+      src: "/HomePageContent/casa.svg",
+    },
+    {
+      tipo_id: 2,
+      tipo_nombre: "Casa en Condominio",
+      sector_nombre: "residencial",
+      src: "/HomePageContent/casaencondominio.svg",
+    },
+    {
+      tipo_id: 3,
+      tipo_nombre: "Departamento",
+      sector_nombre: "residencial",
+      src: "/HomePageContent/icondepartamento.svg",
+    },
+    {
+      tipo_id: 4,
+      tipo_nombre: "Terreno",
+      sector_nombre: "residencial",
+      src: "/HomePageContent/Terreno.svg",
+    },
+    {
+      tipo_id: 6,
+      tipo_nombre: "Desarrollo",
+      sector_nombre: "residencial",
+      src: "/HomePageContent/desarrollo.svg",
+    },
+  ];
+
   const navigate = useNavigate();
   const handleSearch = (e) => {
     setBusqueda("");
@@ -27,7 +87,6 @@ export default function Search({
     navigate("/propiedades");
     setModalBusqueda(true);
   };
-
   const autoCompleteModal = (e) => {
     setBusquedaHome(e.target.value);
     if (e.target.value) {
@@ -48,23 +107,35 @@ export default function Search({
     };
     manejarBusqueda();
   }, [busquedaHome]);
+  const [selectedItem, setSelectedItem] = useState(null);
   return (
     <>
       <div className="mt-10 flex flex-col gap-1 pb-1 font-display ">
         <form action="">
           <div className=" mx-16 sm:mx-30 font-display font-ligh flex gap-1 pb-1 ">
-            <p className="text-sm cursor-pointer bg-blueRemax w-16 rounded sm:w-28 sm:h-9 sm:text-2xl font-extralight flex justify-center items-center h-7 text-center">
-              {" "}
-              Renta{" "}
-            </p>
-            <p className="text-sm cursor-pointer bg-blueRemax w-16 sm:w-28 sm:h-9 rounded sm:text-2xl font-extralight flex justify-center items-center h-7 text-center">
-              {" "}
-              Venta
-            </p>
+            {operacion &&
+              operacion.map((item) => (
+                <label
+                  key={item.id}
+                  className={`text-sm cursor-pointer ${
+                    selectedItem === item.id
+                      ? "bg-blueRemax text-white"
+                      : "bg-white text-[#414141]"
+                  } w-16 rounded sm:w-28 sm:h-9 sm:text-2xl font-extralight flex justify-center items-center h-7 text-center`}
+                >
+                  <input
+                    type="checkbox" // o type="radio" si es selección única
+                    id={item.id}
+                    onChange={() => setSelectedItem(item.id)}
+                    className="hidden"
+                  />
+                  {item.operacion}
+                </label>
+              ))}
           </div>
           <div className="flex gap-1 pb-1">
             <div
-              onClick={handle}
+              onClick={() => setOpenTipo(false)}
               className={`${
                 openTipo ? "bg-white text-[#414141]" : "bg-[#003DA4] text-white"
               } cursor-pointer rounded-s-2xl w-16 sm:w-[116px] sm:h-16 h-11 shadow-[0_3px_1px] shadow-black/50  align-middle text-center items-center flex`}
@@ -125,66 +196,24 @@ export default function Search({
         <div
           className={`${
             openTipo && "hidden"
-          } w-60 sm:w-80 h-auto bg-white mt-1 rounded shadow-[0_3px_1px]   flex flex-col justify-center align-middle items-start shadow-black/50`}
+          } w-60 sm:w-80 h-auto bg-white mt-1 rounded shadow-[0_3px_1px]   flex flex-col justify-center align-middle items-center shadow-black/50`}
         >
-          <ol className="font-display  text-start py-4 px-5 text-base sm:text-2xl  text-[#414141]">
-            <li className="flex items-center cursor-pointer  gap-1 pb-1">
-              <img
-                loading="lazy"
-                className="w-5 sm:w-8"
-                src="/HomePageContent/casa.svg"
-                alt=""
-              />{" "}
-              <p> Casa </p>{" "}
-            </li>
-            <li
-              onClick={() => setOpenTipo(true)}
-              className="flex items-center cursor-pointer  gap-1 pb-1"
-            >
-              <img
-                loading="lazy"
-                className="w-5 sm:w-8"
-                src="/HomePageContent/casaencondominio.svg"
-                alt=""
-              />
-              <p>Casa en Condominio</p>
-            </li>
-            <li className="flex items-center cursor-pointer  gap-1 pb-1">
-              <img
-                loading="lazy"
-                className="w-5 sm:w-8"
-                src="/HomePageContent/icondepartamento.svg"
-                alt=""
-              />
-              <p>Departamento</p>
-            </li>
-            <li className="flex items-center cursor-pointer  gap-1 pb-1">
-              <img
-                loading="lazy"
-                className="w-5 sm:w-8"
-                src="/HomePageContent/edificio.svg"
-                alt=""
-              />
-              <p>Edificio</p>
-            </li>
-            <li className="flex items-center cursor-pointer  gap-1 pb-1">
-              <img
-                loading="lazy"
-                className="w-5 sm:w-8"
-                src="/HomePageContent/Terreno.svg"
-                alt=""
-              />
-              <p>Terreno</p>
-            </li>
-            <li className="flex items-center cursor-pointer  gap-1 pb-1">
-              <img
-                loading="lazy"
-                className="w-5 sm:w-8"
-                src="/HomePageContent/desarrollo.svg"
-                alt=""
-              />
-              <p>Desarrollo</p>
-            </li>
+          <ol className="font-display  text-start py-4  text-base sm:text-2xl  text-[#414141]">
+            {tiposPropiedad &&
+              tiposPropiedad.map((item) => (
+                <li
+                  onClick={handleTipos}
+                  className="hover:bg-gray-200 py-2 px-5 w-full flex items-center cursor-pointer  gap-1 pb-1"
+                >
+                  <img
+                    loading="lazy"
+                    className="w-5 sm:w-8"
+                    src={item.src}
+                    alt=""
+                  />{" "}
+                  <p id={item.tipo_id}> {item.tipo_nombre} </p>{" "}
+                </li>
+              ))}
           </ol>
         </div>
       </div>

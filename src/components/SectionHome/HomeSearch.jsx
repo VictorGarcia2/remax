@@ -7,8 +7,10 @@ export default function HomeSearch({
   autoCompleteHome,
   setAutoCompleteHome,
   setBusqueda,
-  
+  setSelectedOptionsTipos,
+  setSelectedOptionsOperacion,
 }) {
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [data, setData] = useState([]);
   const images = ["HomePageContent/diapo1.webp", "HomePageContent/diapo2.webp"];
@@ -37,7 +39,8 @@ export default function HomeSearch({
               te ayudamos a vender o encontrar tu próximo refugio ideal.
             </p>
             <Search
-            
+              setSelectedOptionsOperacion={setSelectedOptionsOperacion}
+              setSelectedOptionsTipos={setSelectedOptionsTipos}
               data={data}
               setData={setData}
               setBusqueda={setBusqueda}

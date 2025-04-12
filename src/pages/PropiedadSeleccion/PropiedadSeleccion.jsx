@@ -8,55 +8,18 @@ import { faX } from "@fortawesome/free-solid-svg-icons";
 import Paginacion from "../../components/Pagination.jsx";
 import axios from "axios";
 import { useParams } from "react-router";
-export default function PropiedadSeleccion({seleccion}) {
-  const {id} = useParams()
+export default function PropiedadSeleccion({ seleccion }) {
+  const { id } = useParams();
   const [propiedades, setPropiedades] = useState([]);
   const [propiedadSeleccion, setPropiedadSeleccion] = useState();
-  console.log(propiedadSeleccion)
+  console.log(propiedadSeleccion);
   const [fotoEscogida, setFotoEscogida] = useState();
   const [totalPaginas, setTotalPaginas] = useState(1);
   const [pagina, setPagina] = useState();
-  const countPage = propiedades.length;
+  const countPage = propiedadSeleccion?.imagenes ? propiedadSeleccion.imagenes.split(",").length : 0;
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    if (propiedades[pagina]) {
-      const resultado = propiedades[pagina - 1].image + 1;
-      // Imprime la imagen en esa posición
-      setFotoEscogida(resultado);
-    } else {
-      console.log("No existe una propiedad en esa página.");
-    }
-    setTotalPaginas(countPage);
-  }, [id]);
-  /* const imagenes = [
-    {
-      alt: "Libro sobre mesa",
-      image:
-        "https://images.unsplash.com/photo-1743076851851-0762b336b56d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      alt: "Ciudad al atardecer",
-      image:
-        "https://images.unsplash.com/photo-1741705877378-124c4c259e30?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      alt: "Ciudad al atardecer",
-      image:
-        "https://images.unsplash.com/photo-1741850826374-47b63fd4a840?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      alt: "Ciudad al atardecer",
-      image:
-        "https://images.unsplash.com/photo-1725120425314-8f455c4792fd?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      alt: "Ciudad al atardecer",
-      image:
-        "https://images.unsplash.com/photo-1725120425314-8f455c4792fd?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-  ]; */
-  
-  useEffect(() => {
-    /* setPropiedades(imagenes); */
     axios
       .get("https://localhost:3000/api/propiedades")
       .then((res) => {
@@ -66,15 +29,37 @@ export default function PropiedadSeleccion({seleccion}) {
         console.error(" Error en frontend:", err);
         setLoading(false);
       });
-  }, [seleccion]);
+  }, []);
   useEffect(() => {
     const selectedProperty = propiedades.find(
-      (item) => item.propiedad_id === Number(id))
+      (item) => item.propiedad_id === parseInt(id)
+    );
     if (selectedProperty) {
       setPropiedadSeleccion(selectedProperty);
     }
   }, [propiedades]);
 
+  useEffect(() => {
+    if (propiedadSeleccion && propiedadSeleccion.imagenes) {
+      const imagenesArray = propiedadSeleccion.imagenes.split(",");
+  
+      // Si hay imágenes, seleccionamos la primera como default o según la página
+      if (imagenesArray.length > 0) {
+        // Usamos 'pagina' como índice, pero nos aseguramos que esté dentro del rango
+        const index = pagina && pagina >= 1 && pagina <= imagenesArray.length ? pagina - 1 : 0;
+        const resultado = `https://cdn.remax.com.mx/properties/${propiedadSeleccion.propiedad_id}/${imagenesArray[index]}`;
+        setFotoEscogida(resultado);
+      } else {
+        console.log("No hay imágenes válidas.");
+      }
+    } else {
+      console.log("No existe una propiedad seleccionada o no tiene imágenes.");
+    }
+  
+    if (countPage !== undefined) {
+      setTotalPaginas(countPage);
+    }
+  }, [propiedadSeleccion, pagina]);
 
   const [openGallery, setOpenGallery] = useState(true);
   const handleAbrir = () => {
@@ -92,7 +77,6 @@ export default function PropiedadSeleccion({seleccion}) {
       }, 4000);
     }, 3000);
   }, []);
-  console.log(propiedadSeleccion)
   const imagenesArray = propiedadSeleccion?.imagenes.split(",");
   return (
     <>
@@ -108,7 +92,7 @@ export default function PropiedadSeleccion({seleccion}) {
               icon={faX}
               size="2xl"
               className="cursor-pointer hover:text-blueRemax active:text-blueRemax"
-              />
+            />
           </div>
           <br />
           <br />
@@ -178,66 +162,79 @@ export default function PropiedadSeleccion({seleccion}) {
             1/2
           </p>
         </div>
-        {/* Galería Desktop */}
-        {/* <div className="grid grid-cols-2 gap-2 w-full ">
-          <div>
-            <img
-              onClick={handleAbrir}
-              id="1"
-              className="rounded-2xl w-full object-cover  h-[569px] cursor-pointer"
-              src={`https://cdn.remax.com.mx/properties/${propiedadSeleccion.propiedad_id}/${imagenesArray[0]}`}
-              alt=""
-            />
-
-
-          </div>
-          <div className="grid grid-cols-1 gap-3">
-            <div className="">
-              <img
-                onClick={handleAbrir}
-               id="2"
-                className="rounded-2xl  h-[277px] w-full object-cover cursor-pointer"
-                src={`https://cdn.remax.com.mx/properties/${propiedadSeleccion.propiedad_id}/${imagenesArray[1]}`}
-                alt=""
-              />
-            </div>
-            <div className="">
-              <img
-                onClick={handleAbrir}
-                id="3"
-                className="rounded-2xl h-[277px]  w-full object-cover cursor-pointer"
-                src={`https://cdn.remax.com.mx/properties/${propiedadSeleccion.propiedad_id}/${imagenesArray[2]}`}
-                alt=""
-              />
-            </div>
-          </div>
-        </div> */}
-        <div className="w-full flex flex-col lg:grid lg:grid-cols-2 text-[#7b7b7b]">
-          <div>
-            <div className="px-5 pt-5">
-              <p className="lg:text-3xl">Departamento en Venta</p>
-              {propiedadSeleccion && (
-                <>
-                  <p className="lg:text-3xl font-bold">
-                    Departamento desde:{" "}
-                    {Number(propiedadSeleccion.mxn_corriente).toLocaleString("en-US")} MXN
-                  </p>
-                  <div className="flex lg:gap-2 lg:mt-2">
-                    <img
-                      className=" lg:w-10"
-                      loading="lazy"
-                      src="/HomePageContent/iconmeters.svg"
-                      alt="Icono de metros cuadrados"
-                    />
-                    <p className="lg:text-3xl">
-                      {propiedadSeleccion.m2_construccion}m²
-                    </p>
-                  </div>
-                </>
+       
+          <div className="grid grid-cols-2 gap-2 w-full ">
+            <div>
+              {imagenesArray ? (
+                <img
+            onClick={handleAbrir}
+            id="1"
+            className="rounded-2xl w-full object-cover  h-[569px] cursor-pointer"
+            src={`https://cdn.remax.com.mx/properties/${propiedadSeleccion?.propiedad_id}/${imagenesArray[0]}`}
+            alt=""
+                />
+              ) : (
+                <div className="rounded-2xl w-full h-[569px] bg-gray-300 animate-pulse"></div>
               )}
             </div>
-            <hr className="w-full my-2 text-[#7B7B7B]" />
-            {/* Contacta a un agente móvil */}
+            <div className="grid grid-cols-1 gap-3">
+              <div className="">
+                {imagenesArray ? (
+            <img
+              onClick={handleAbrir}
+              id="2"
+              className="rounded-2xl  h-[277px] w-full object-cover cursor-pointer"
+              src={`https://cdn.remax.com.mx/properties/${propiedadSeleccion?.propiedad_id}/${imagenesArray[1]}`}
+              alt=""
+            />
+                ) : (
+            <div className="rounded-2xl h-[277px] w-full bg-gray-300 animate-pulse"></div>
+                )}
+              </div>
+              <div className="">
+                {imagenesArray ? (
+            <img
+              onClick={handleAbrir}
+              id="3"
+              className="rounded-2xl h-[277px]  w-full object-cover cursor-pointer"
+              src={`https://cdn.remax.com.mx/properties/${propiedadSeleccion?.propiedad_id}/${imagenesArray[2]}`}
+              alt=""
+            />
+                ) : (
+            <div className="rounded-2xl h-[277px] w-full bg-gray-300 animate-pulse"></div>
+                )}
+              </div>
+            </div>
+          </div>
+          <div className="w-full flex flex-col lg:grid lg:grid-cols-2 text-[#7b7b7b]">
+            <div>
+              <div className="px-5 pt-5">
+                <p className="lg:text-3xl">Departamento en Venta</p>
+                {propiedadSeleccion && (
+            <>
+              <p className="lg:text-3xl font-bold">
+                Departamento desde:{" "}
+                {Number(propiedadSeleccion.mxn_corriente).toLocaleString(
+                  "en-US"
+                )}{" "}
+                MXN
+              </p>
+              <div className="flex lg:gap-2 lg:mt-2">
+                <img
+                  className=" lg:w-10"
+                  loading="lazy"
+                  src="/HomePageContent/iconmeters.svg"
+                  alt="Icono de metros cuadrados"
+                />
+                <p className="lg:text-3xl">
+                  {propiedadSeleccion.m2_construccion}m²
+                </p>
+              </div>
+            </>
+                )}
+              </div>
+              <hr className="w-full my-2 text-[#7B7B7B]" />
+              {/* Contacta a un agente móvil */}
             <div className="w-[341px] lg:hidden h-[158px] p-3 text-center flex flex-col justify-between items-center shadow-[0px_4px_5px_0px] shadow-black/40 rounded-[10px] mx-auto my-5 bg-[#F9F9F9]">
               <div>
                 <p className="font-bold text-[18px]">Contacta al Agente</p>
@@ -288,7 +285,7 @@ export default function PropiedadSeleccion({seleccion}) {
               Calculadora de hipotecas
             </button>
             <div className="px-5 mt-5">
-              <Dropdown propiedadSeleccion={propiedadSeleccion}/>
+              <Dropdown propiedadSeleccion={propiedadSeleccion} />
             </div>
           </div>
           {/* Contacta a un agente desktop */}

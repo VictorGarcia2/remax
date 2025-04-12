@@ -7,6 +7,7 @@ import { Link } from "react-router";
 import mapboxgl from "mapbox-gl";
 import { faL, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import LimpiarFiltro from "./LimpiarFiltro.jsx";
 
 export default function FiltrosDesktop({
   busqueda,
@@ -54,12 +55,26 @@ export default function FiltrosDesktop({
       setBusqueda("");
     }, 1000);
   };
+  const [limpiar, setlimpiar] = useState(false);
+
+  useEffect(() => {
+    if (limpiar) {
+      setPrecioMaximo(Infinity);
+      setPrecioMinimo(0);
+      setSelectedOptions([]);
+      setSelectedOptionsOperacion([]);
+      setSelectedOptionsTipos([]);
+      setTimeout(() => {
+        setlimpiar(false);
+      }, 1000);
+    }
+  }, [limpiar]);
   return (
     <div className="grid grid-cols-2">
-      <div className="flex px-17 gap-2 items-center ">
+      <div className="flex px-21 gap-2 items-center justify-between ">
         {
           <RangoDePrecio
-           setAplicarFiltros={setAplicarFiltros}
+            setAplicarFiltros={setAplicarFiltros}
             precioMaximo={precioMaximo}
             precioMinimo={precioMinimo}
             setPrecioMinimo={setPrecioMinimo}
@@ -69,6 +84,7 @@ export default function FiltrosDesktop({
         <Operacion setSelectedOptionsOperacion={setSelectedOptionsOperacion} />
         <Sector setSelectedOptions={setSelectedOptions} />
         <Tipo setSelectedOptionsTipos={setSelectedOptionsTipos} />
+        <LimpiarFiltro setlimpiar={setlimpiar} />
       </div>
       <div className="flex gap-1 ">
         <input

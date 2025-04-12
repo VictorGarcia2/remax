@@ -9,10 +9,10 @@ import SectionComoComprar from "../components/SectionComoComprar/SectionComoComp
 
 import SectionEquipo from "../components/SectionEquipo/SectionEquipo"
 import Testimonials from "../components/SectionOpiniones/SectionOpiniones";
-export default function Residencial({busquedaHome, setBusquedaHome, autoCompleteHome,setAutoCompleteHome,setBusqueda}) {
+export default function Residencial({busquedaHome, setBusquedaHome, autoCompleteHome,setAutoCompleteHome,setBusqueda, setSelectedOptionsTipos, setSelectedOptionsOperacion}) {
     return (
         <>
-            <HomeSearch busquedaHome={busquedaHome}  setBusqueda={setBusqueda} setBusquedaHome={setBusquedaHome} autoCompleteHome={autoCompleteHome} setAutoCompleteHome={setAutoCompleteHome}/>
+            <HomeSearch busquedaHome={busquedaHome} setSelectedOptionsTipos={setSelectedOptionsTipos} setSelectedOptionsOperacion={setSelectedOptionsOperacion}  setBusqueda={setBusqueda} setBusquedaHome={setBusquedaHome} autoCompleteHome={autoCompleteHome} setAutoCompleteHome={setAutoCompleteHome}/>
             <SectionPorque />
             <SectionVariedad />
             <SectionEncuentra />
