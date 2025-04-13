@@ -32,26 +32,30 @@ export default function ResultadosBusqueda({
   seleccion,
   setSeleccion,
   setSelectedOptionsTipos,
-  selectedOptionsTipos, setSelectedOptionsOperacion, selectedOptionsOperacion
+  selectedOptionsTipos,
+  setSelectedOptionsOperacion,
+  selectedOptionsOperacion,
 }) {
   return (
     <>
       <MenuFilter menuClose={menuClose} setMenuClose={setMenuClose} />
       <HeaderResultadoBusqueda />
-      <FiltrosDesktop
-      setSelectedOptionsOperacion={setSelectedOptionsOperacion}
-      setSelectedOptionsTipos={setSelectedOptionsTipos}
-        setAplicarFiltros={setAplicarFiltros}
-        precioMaximo={precioMaximo}
-        setPrecioMaximo={setPrecioMaximo}
-        precioMinimo={precioMinimo}
-        setPrecioMinimo={setPrecioMinimo}
-        setBusqueda={setBusqueda}
-        busqueda={busqueda}
-        setManejoBusqueda={setManejoBusqueda}
-        setSelectedOptions={setSelectedOptions}
-        selectedOptions={selectedOptions}
-      />
+      <div className="hidden sm:block">
+        <FiltrosDesktop
+          setSelectedOptionsOperacion={setSelectedOptionsOperacion}
+          setSelectedOptionsTipos={setSelectedOptionsTipos}
+          setAplicarFiltros={setAplicarFiltros}
+          precioMaximo={precioMaximo}
+          setPrecioMaximo={setPrecioMaximo}
+          precioMinimo={precioMinimo}
+          setPrecioMinimo={setPrecioMinimo}
+          setBusqueda={setBusqueda}
+          busqueda={busqueda}
+          setManejoBusqueda={setManejoBusqueda}
+          setSelectedOptions={setSelectedOptions}
+          selectedOptions={selectedOptions}
+        />
+      </div>
       <SearchResultadosBusqueda
         setSelectedOptions={setSelectedOptions}
         selectedOptions={selectedOptions}
@@ -63,8 +67,8 @@ export default function ResultadosBusqueda({
       />
       <CantidadPropiedades propiedadesVisibles={propiedadesVisibles} />
       <CardResultado
-      selectedOptionsOperacion={selectedOptionsOperacion}
-      selectedOptionsTipos={selectedOptionsTipos}
+        selectedOptionsOperacion={selectedOptionsOperacion}
+        selectedOptionsTipos={selectedOptionsTipos}
         seleccion={seleccion}
         setSeleccion={setSeleccion}
         aplicarFiltros={aplicarFiltros}

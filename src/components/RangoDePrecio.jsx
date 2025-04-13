@@ -7,7 +7,7 @@ export default function RangoDePrecio({
   setPrecioMinimo,
   setPrecioMaximo,
   precioMaximo,
-  setAplicarFiltros
+  setAplicarFiltros,
 }) {
   const [openModal, setOpenModal] = useState(true);
   const handle = () => {
@@ -42,26 +42,34 @@ export default function RangoDePrecio({
           } z-10 bg-gray-100 py-10 rounded-2xl px-4 absolute mt-13 flex flex-col gap-4`}
         >
           <div className="flex gap-2">
-            <label htmlFor="" className="flex items-center gap-2">
+            <label className="flex items-center gap-2">
               De:
               <input
-                type="number"
-                value={precioMinimo}
-                onChange={(e) => setPrecioMinimo(Number(e.target.value))}
-                className="border-b border-t-0 border-s-0 border-e-0 px-1"
-                placeholder="1000"
-                min="0"
+                type="text" // Cambiado de number a text para mejor control del formato
+                value={precioMinimo ? precioMinimo.toLocaleString() : ""}
+                onChange={(e) => {
+                  const rawValue = e.target.value.replace(/[^0-9]/g, "");
+                  setPrecioMinimo(
+                    rawValue === "" ? null : parseFloat(rawValue)
+                  );
+                }}
+                className="border-b border-t-0 border-s-0 border-e-0 px-1 w-32"
+                placeholder="1,000"
               />
             </label>
-            <label htmlFor="" className="flex items-center gap-2">
+            <label className="flex items-center gap-2">
               Hasta:
               <input
-                type="number"
-                value={precioMaximo}
-                onChange={(e) => setPrecioMaximo(Number(e.target.value))}
-                className="border-b border-t-0 border-s-0 border-e-0 px-1"
-                placeholder="1300000"
-                min="0"
+                type="text" // Cambiado de number a text
+                value={precioMaximo ? precioMaximo.toLocaleString() : ""}
+                onChange={(e) => {
+                  const rawValue = e.target.value.replace(/[^0-9]/g, "");
+                  setPrecioMaximo(
+                    rawValue === "" ? null : parseFloat(rawValue)
+                  );
+                }}
+                className="border-b border-t-0 border-s-0 border-e-0 px-1 w-32"
+                placeholder="1,300,000"
               />
             </label>
           </div>
@@ -78,7 +86,13 @@ export default function RangoDePrecio({
             >
               Limpiar
             </button>
-
+            <button
+              type="button"
+              onClick={handle}
+              className=" text-white hover:text-blueRemax border bg-blueRemax border-blueRemax hover:bg-white focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+            >
+              Cerrar
+            </button>
           </div>
         </form>
       </div>

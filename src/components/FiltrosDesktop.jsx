@@ -26,7 +26,6 @@ export default function FiltrosDesktop({
     "pk.eyJ1IjoidmljdG9yZ2FyY2lhcHJ6IiwiYSI6ImNtNXZ3dW0wMjA2aHgyanE1M3ptczQ2azUifQ.ILrTXW_4c9_pbGC3Uj-wdg";
   const [autoCompleteHome, setAutoCompleteHome] = useState([]);
   const [modalBusqueda, setModalBusqueda] = useState(true);
-
   const autoCompleteModal = (e) => {
     setBusqueda(e.target.value);
     if (e.target.value) {
@@ -40,7 +39,7 @@ export default function FiltrosDesktop({
       const response = await fetch(
         `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
           busqueda
-        )}.json?access_token=${mapboxgl.accessToken}`
+        )}.json?access_token=${mapboxgl.accessToken}&types=address,neighborhood,place&language=es&country=MX`
       );
       const data = await response.json();
       setAutoCompleteHome(data.features);
@@ -70,7 +69,7 @@ export default function FiltrosDesktop({
     }
   }, [limpiar]);
   return (
-    <div className="grid grid-cols-2">
+    <div className="grid grid-cols-2 ">
       <div className="flex px-21 gap-2 items-center justify-between ">
         {
           <RangoDePrecio

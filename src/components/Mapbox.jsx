@@ -18,10 +18,7 @@ const MapboxConCards = ({
   selectedOptionsTipos,
   selectedOptionsOperacion,
 }) => {
-  console.log("operacion", selectedOptionsOperacion);
-  console.log("tipos", selectedOptionsTipos);
   const [mapIsReady, setMapIsReady] = useState(false);
-
   const mapContainerRef = useRef(null);
   const mapRef = useRef(null);
   const markersRef = useRef([]);
@@ -46,9 +43,6 @@ const MapboxConCards = ({
       const operacionesSeleccionadas = Array.isArray(selectedOptionsOperacion)
         ? selectedOptionsOperacion.filter(Boolean).map(String)
         : [];
-      console.log(tiposSeleccionados);
-      console.log(sectoresSeleccionados);
-      console.log(operacionesSeleccionadas);
 
       const filtered = propiedades.filter((item) => {
         const precio = parseFloat(item.mxn_corriente) || 0;
@@ -81,7 +75,6 @@ const MapboxConCards = ({
   ]);
 
   // Inicializar mapa solo una vez
-  console.log("estas son las nuevas", nuevas);
   useEffect(() => {
     if (!mapContainerRef.current) return;
 
@@ -128,7 +121,6 @@ const MapboxConCards = ({
 
     for (const prop of lista) {
       if (!prop.longitud || !prop.latitud) continue;
-
       const marker = new mapboxgl.Marker({ color: "#e63946" })
         .setLngLat([parseFloat(prop.longitud), parseFloat(prop.latitud)])
         .setPopup(
@@ -178,9 +170,59 @@ const MapboxConCards = ({
       setAutoCompleteHome(data.features);
 
       if (data.features.length > 0) {
-        const [longitud, latitud] = data.features[0].center;
-        mapRef.current.flyTo({ center: [longitud, latitud], zoom: 13 });
+  const feature = data.features[0];
+  const [longitud, latitud] = feature.center;
+
+  mapRef.current.flyTo({ center: [longitud, latitud], zoom: 13 });
+
+  // Eliminar capa previa si existe
+  if (mapRef.current.getLayer("limite-colonia")) {
+    mapRef.current.removeLayer("limite-colonia");
+  }
+  if (mapRef.current.getSource("limite-colonia")) {
+    mapRef.current.removeSource("limite-colonia");
+  }
+
+  // Verificar si existe un bbox (caja delimitadora)
+  if (feature.bbox) {
+    const [[minLng, minLat], [maxLng, maxLat]] = [
+      [feature.bbox[0], feature.bbox[1]],
+      [feature.bbox[2], feature.bbox[3]],
+    ];
+
+    // Crear un GeoJSON de un polígono utilizando el bbox
+    const geojsonPolygon = {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [[
+          [minLng, minLat],
+          [maxLng, minLat],
+          [maxLng, maxLat],
+          [minLng, maxLat],
+          [minLng, minLat]
+        ]]
       }
+    };
+
+    mapRef.current.addSource("limite-colonia", {
+      type: "geojson",
+      data: geojsonPolygon,
+    });
+
+    mapRef.current.addLayer({
+      id: "limite-colonia",
+      type: "line",
+      source: "limite-colonia",
+      paint: {
+        "line-color": "#0077ff",
+        "line-width": 3,
+        "line-dasharray": [2, 2],
+      },
+    });
+  }
+}
+
     };
     manejarBusqueda();
   }, [ manejoBusqueda,busquedaHome]);

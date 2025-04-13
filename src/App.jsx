@@ -381,12 +381,9 @@ export default function App() {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get('https://us-central1-remax-api.cloudfunctions.net/api/propiedades', {
-          headers: {
-            Authorization: 'Bearer Hvh8n23m53.n7hiu32S09gh6tUj.JJpyfq.HioJ19J3RGgHJSIOop4t4t',
-            Accept: 'application/json'
-          }
-        });
+        const response = await axios.get(
+          "https://localhost:3000/api/propiedades"
+        );
         const data = response.data.data.rows;
         setPropiedades(data);
       } catch (error) {

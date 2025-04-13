@@ -16,6 +16,9 @@ export default function Tipo({setSelectedOptionsTipos}) {
         setSelectedOptionsTipos((prev) => prev.filter((item) => item !== value));
       }
     };
+
+
+    
   const lugares = [
     { icon: <FontAwesomeIcon icon={faHouse} />,
       nombre: "Casa", "tipo_id": 1, },

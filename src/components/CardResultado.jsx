@@ -45,28 +45,22 @@ export default function CardResultado({
       totalImages;
     forceUpdate();
   };
-
-  /* const seleccionPropiedad = (e) => {
-    setSeleccion(e.target.id)
-    console.log("Propiedad seleccionada:", e.target.id);
-  }; */
   return (
     <div className="grid grid-cols-1 xl:grid-cols-2 justify-center items-start">
       <div className="overflow-y-scroll h-[700px] relative">
-        <div className="grid grid-cols-1 xl:grid-cols-2 justify-center md:gap-3 items-center md:px-8">
+        <div className="grid grid-cols-1 xl:grid-cols-3 justify-center md:gap-3 pb-22 items-center md:px-8">
           {propiedadesVisibles && propiedadesVisibles.length > 0 ? (
             propiedadesVisibles.map((item, index) => {
               const currentIndex =
                 currentImageIndices.current[item.propiedad_id] || 0;
               const imagenesArray = item.imagenes.split(",");
-
               return (
                 <div
                   key={item.propiedad_id}
-                  className="w-full flex flex-col mt-16 mb-8 justify-center items-center"
+                  className="w-full flex flex-col mt-5  mb-20 justify-center items-center"
                 >
                   {/* Flechas */}
-                  <div className="flex absolute justify-around mx-auto gap-60">
+                  <div className="flex absolute justify-around mx-auto gap-50">
                     <img
                       loading="lazy"
                       onClick={() => goToPrevious(index)}
@@ -94,7 +88,7 @@ export default function CardResultado({
                   </div>
 
                   {/* Paginación */}
-                  <p className="z-40 mt-4 absolute bg-black/40 rounded-full p-1 text-white text-sm">
+                  <p className="z-40 mt-27 absolute bg-black/40 rounded-full p-1 text-white text-sm">
                     {currentIndex + 1}/{imagenesArray.length}
                   </p>
 
@@ -129,7 +123,7 @@ export default function CardResultado({
                       }`} */
                       /* target="_blank" */
                       rel="noopener noreferrer"
-                      className="bg-blue-800 rounded-2xl w-[73px] h-[29px] shadow-2xs py-1 flex items-center justify-center mt-2"
+                      className="bg-blue-800 rounded-2xl w-[73px] h-[29px] shadow-2xs py-1 flex items-center justify-center mt-4"
                     >
                       <img
                         loading="lazy"
@@ -142,7 +136,7 @@ export default function CardResultado({
               );
             })
           ) : (
-            <div className="mt-[70px] mx-10 w-[800px] px-9 flex flex-col justify-center items-center">
+            <div className="mt-[70px] mx-10 w-20 px-9 flex flex-col justify-center items-center">
               <FontAwesomeIcon
                 icon={faCircleExclamation}
                 className="text-[#7b7b7b]"
@@ -157,7 +151,7 @@ export default function CardResultado({
       </div>
 
       {/* Mapa */}
-      <div className="mt-0">
+      <div className="mt-0 invisible sm:visible">
         <Mapbox
         selectedOptionsOperacion={selectedOptionsOperacion}
           aplicarFiltros={aplicarFiltros}

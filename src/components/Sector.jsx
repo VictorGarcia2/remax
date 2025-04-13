@@ -11,13 +11,13 @@ export default function Sector({ setSelectedOptions }) {
   const handleCheckboxChange = (event) => {
     const value = event.target.value.toLowerCase();
     if (event.target.checked) {
-      console.log("activado",value)
+  
       // Si está marcado, añadirlo al array
       setSelectedOptions((prev) => [...prev, value]);
     } else {
       // Si está desmarcado, eliminarlo del array
       setSelectedOptions((prev) => prev.filter((item) => item !== value));
-      console.log("inactivo",value)
+    
     }
   };
   const lugares = [

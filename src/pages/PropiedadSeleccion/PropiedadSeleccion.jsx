@@ -12,11 +12,13 @@ export default function PropiedadSeleccion({ seleccion }) {
   const { id } = useParams();
   const [propiedades, setPropiedades] = useState([]);
   const [propiedadSeleccion, setPropiedadSeleccion] = useState();
-  console.log(propiedadSeleccion);
   const [fotoEscogida, setFotoEscogida] = useState();
   const [totalPaginas, setTotalPaginas] = useState(1);
   const [pagina, setPagina] = useState();
-  const countPage = propiedadSeleccion?.imagenes ? propiedadSeleccion.imagenes.split(",").length : 0;
+  console.log(propiedadSeleccion);
+  const countPage = propiedadSeleccion?.imagenes
+    ? propiedadSeleccion.imagenes.split(",").length
+    : 0;
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -42,11 +44,14 @@ export default function PropiedadSeleccion({ seleccion }) {
   useEffect(() => {
     if (propiedadSeleccion && propiedadSeleccion.imagenes) {
       const imagenesArray = propiedadSeleccion.imagenes.split(",");
-  
+
       // Si hay imágenes, seleccionamos la primera como default o según la página
       if (imagenesArray.length > 0) {
         // Usamos 'pagina' como índice, pero nos aseguramos que esté dentro del rango
-        const index = pagina && pagina >= 1 && pagina <= imagenesArray.length ? pagina - 1 : 0;
+        const index =
+          pagina && pagina >= 1 && pagina <= imagenesArray.length
+            ? pagina - 1
+            : 0;
         const resultado = `https://cdn.remax.com.mx/properties/${propiedadSeleccion.propiedad_id}/${imagenesArray[index]}`;
         setFotoEscogida(resultado);
       } else {
@@ -55,7 +60,7 @@ export default function PropiedadSeleccion({ seleccion }) {
     } else {
       console.log("No existe una propiedad seleccionada o no tiene imágenes.");
     }
-  
+
     if (countPage !== undefined) {
       setTotalPaginas(countPage);
     }
@@ -78,6 +83,33 @@ export default function PropiedadSeleccion({ seleccion }) {
     }, 3000);
   }, []);
   const imagenesArray = propiedadSeleccion?.imagenes.split(",");
+
+  const tipos = [
+    { nombre: "Casa", tipo_id: 1 },
+    { nombre: "Casa en Condominio", tipo_id: 2 },
+    { nombre: "Departamento", tipo_id: 3 },
+    { nombre: "Terreno", tipo_id: 4 },
+    { nombre: "Desarrollo", tipo_id: 6 },
+  ];
+
+  const operaciones = [
+    { nombre: "Venta", operacion_id: 1 },
+    { nombre: "Renta", operacion_id: 2 },
+  ];
+
+  const tituloPro = [
+    { nombre: "Casa en Venta", tipo_id: 1, operacion_id: 1 },
+    { nombre: "Casa en Renta", tipo_id: 1, operacion_id: 2 },
+    { nombre: "Casa en Condominio en Venta", tipo_id: 2, operacion_id: 1 },
+    { nombre: "Casa en Condominio en Renta", tipo_id: 2, operacion_id: 2 },
+    { nombre: "Departamento en Venta", tipo_id: 3, operacion_id: 1 },
+    { nombre: "Departamento en Renta", tipo_id: 3, operacion_id: 2 },
+    { nombre: "Terreno en Venta", tipo_id: 4, operacion_id: 1 },
+    { nombre: "Terreno en Renta", tipo_id: 4, operacion_id: 2 },
+    { nombre: "Desarrollo en Venta", tipo_id: 6, operacion_id: 1 },
+    { nombre: "Desarrollo en Renta", tipo_id: 6, operacion_id: 2 },
+  ];
+  
   return (
     <>
       <div
@@ -162,79 +194,86 @@ export default function PropiedadSeleccion({ seleccion }) {
             1/2
           </p>
         </div>
-       
-          <div className="grid grid-cols-2 gap-2 w-full ">
-            <div>
+
+        <div className="grid grid-cols-2 gap-2 w-full ">
+          <div>
+            {imagenesArray ? (
+              <img
+                onClick={handleAbrir}
+                id="1"
+                className="rounded-2xl w-full object-cover  h-[569px] cursor-pointer"
+                src={`https://cdn.remax.com.mx/properties/${propiedadSeleccion?.propiedad_id}/${imagenesArray[0]}`}
+                alt=""
+              />
+            ) : (
+              <div className="rounded-2xl w-full h-[569px] bg-gray-300 animate-pulse"></div>
+            )}
+          </div>
+          <div className="grid grid-cols-1 gap-3">
+            <div className="">
               {imagenesArray ? (
                 <img
-            onClick={handleAbrir}
-            id="1"
-            className="rounded-2xl w-full object-cover  h-[569px] cursor-pointer"
-            src={`https://cdn.remax.com.mx/properties/${propiedadSeleccion?.propiedad_id}/${imagenesArray[0]}`}
-            alt=""
+                  onClick={handleAbrir}
+                  id="2"
+                  className="rounded-2xl  h-[277px] w-full object-cover cursor-pointer"
+                  src={`https://cdn.remax.com.mx/properties/${propiedadSeleccion?.propiedad_id}/${imagenesArray[1]}`}
+                  alt=""
                 />
               ) : (
-                <div className="rounded-2xl w-full h-[569px] bg-gray-300 animate-pulse"></div>
+                <div className="rounded-2xl h-[277px] w-full bg-gray-300 animate-pulse"></div>
               )}
             </div>
-            <div className="grid grid-cols-1 gap-3">
-              <div className="">
-                {imagenesArray ? (
-            <img
-              onClick={handleAbrir}
-              id="2"
-              className="rounded-2xl  h-[277px] w-full object-cover cursor-pointer"
-              src={`https://cdn.remax.com.mx/properties/${propiedadSeleccion?.propiedad_id}/${imagenesArray[1]}`}
-              alt=""
-            />
-                ) : (
-            <div className="rounded-2xl h-[277px] w-full bg-gray-300 animate-pulse"></div>
-                )}
-              </div>
-              <div className="">
-                {imagenesArray ? (
-            <img
-              onClick={handleAbrir}
-              id="3"
-              className="rounded-2xl h-[277px]  w-full object-cover cursor-pointer"
-              src={`https://cdn.remax.com.mx/properties/${propiedadSeleccion?.propiedad_id}/${imagenesArray[2]}`}
-              alt=""
-            />
-                ) : (
-            <div className="rounded-2xl h-[277px] w-full bg-gray-300 animate-pulse"></div>
-                )}
-              </div>
+            <div className="">
+              {imagenesArray ? (
+                <img
+                  onClick={handleAbrir}
+                  id="3"
+                  className="rounded-2xl h-[277px]  w-full object-cover cursor-pointer"
+                  src={`https://cdn.remax.com.mx/properties/${propiedadSeleccion?.propiedad_id}/${imagenesArray[2]}`}
+                  alt=""
+                />
+              ) : (
+                <div className="rounded-2xl h-[277px] w-full bg-gray-300 animate-pulse"></div>
+              )}
             </div>
           </div>
-          <div className="w-full flex flex-col lg:grid lg:grid-cols-2 text-[#7b7b7b]">
-            <div>
-              <div className="px-5 pt-5">
-                <p className="lg:text-3xl">Departamento en Venta</p>
-                {propiedadSeleccion && (
-            <>
-              <p className="lg:text-3xl font-bold">
-                Departamento desde:{" "}
-                {Number(propiedadSeleccion.mxn_corriente).toLocaleString(
-                  "en-US"
-                )}{" "}
-                MXN
-              </p>
-              <div className="flex lg:gap-2 lg:mt-2">
-                <img
-                  className=" lg:w-10"
-                  loading="lazy"
-                  src="/HomePageContent/iconmeters.svg"
-                  alt="Icono de metros cuadrados"
-                />
+        </div>
+        <div className="w-full flex flex-col lg:grid lg:grid-cols-2 text-[#7b7b7b]">
+          <div>
+            <div className="px-5 pt-5">
+              {tituloPro.map((item) => (
                 <p className="lg:text-3xl">
-                  {propiedadSeleccion.m2_construccion}m²
+                  {item.tipo_id === propiedadSeleccion?.tipos?.tipo_id &&
+                  item.operacion_id === propiedadSeleccion?.operacion
+                    ? item.nombre
+                    : ""}
                 </p>
-              </div>
-            </>
-                )}
-              </div>
-              <hr className="w-full my-2 text-[#7B7B7B]" />
-              {/* Contacta a un agente móvil */}
+              ))}
+              {propiedadSeleccion && (
+                <>
+                  <p className="lg:text-3xl font-bold">
+                    Departamento desde:{" "}
+                    {Number(propiedadSeleccion.mxn_corriente).toLocaleString(
+                      "en-US"
+                    )}{" "}
+                    MXN
+                  </p>
+                  <div className="flex lg:gap-2 lg:mt-2">
+                    <img
+                      className=" lg:w-10"
+                      loading="lazy"
+                      src="/HomePageContent/iconmeters.svg"
+                      alt="Icono de metros cuadrados"
+                    />
+                    <p className="lg:text-3xl">
+                      {propiedadSeleccion.m2_construccion}m²
+                    </p>
+                  </div>
+                </>
+              )}
+            </div>
+            <hr className="w-full my-2 text-[#7B7B7B]" />
+            {/* Contacta a un agente móvil */}
             <div className="w-[341px] lg:hidden h-[158px] p-3 text-center flex flex-col justify-between items-center shadow-[0px_4px_5px_0px] shadow-black/40 rounded-[10px] mx-auto my-5 bg-[#F9F9F9]">
               <div>
                 <p className="font-bold text-[18px]">Contacta al Agente</p>

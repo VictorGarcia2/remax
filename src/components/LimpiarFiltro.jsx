@@ -3,7 +3,6 @@ export default function LimpiarFiltro({ setlimpiar }) {
 
     const handle = ()=>{
         setlimpiar(true)
-        console.log("hola")
     }
   return (
     <>
