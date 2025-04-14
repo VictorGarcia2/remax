@@ -83,7 +83,7 @@ export default function PropiedadSeleccion({ seleccion }) {
     }, 3000);
   }, []);
   const imagenesArray = propiedadSeleccion?.imagenes.split(",");
-
+  const [cargada, setCargada] = useState(false);
   const tipos = [
     { nombre: "Casa", tipo_id: 1 },
     { nombre: "Casa en Condominio", tipo_id: 2 },
@@ -98,27 +98,27 @@ export default function PropiedadSeleccion({ seleccion }) {
   ];
 
   const tituloPro = [
-    { nombre: "Casa en Venta", tipo_id: 1, operacion_id: 1 },
-    { nombre: "Casa en Renta", tipo_id: 1, operacion_id: 2 },
-    { nombre: "Casa en Condominio en Venta", tipo_id: 2, operacion_id: 1 },
-    { nombre: "Casa en Condominio en Renta", tipo_id: 2, operacion_id: 2 },
-    { nombre: "Departamento en Venta", tipo_id: 3, operacion_id: 1 },
-    { nombre: "Departamento en Renta", tipo_id: 3, operacion_id: 2 },
-    { nombre: "Terreno en Venta", tipo_id: 4, operacion_id: 1 },
-    { nombre: "Terreno en Renta", tipo_id: 4, operacion_id: 2 },
-    { nombre: "Desarrollo en Venta", tipo_id: 6, operacion_id: 1 },
-    { nombre: "Desarrollo en Renta", tipo_id: 6, operacion_id: 2 },
+    { nombre: "Casa en Venta", tipo_id: 1, operacion_id: "1" },
+    { nombre: "Casa en Renta", tipo_id: 1, operacion_id: "2" },
+    { nombre: "Casa en Condominio en Venta", tipo_id: 2, operacion_id: "1" },
+    { nombre: "Casa en Condominio en Renta", tipo_id: 2, operacion_id: "2" },
+    { nombre: "Departamento en Venta", tipo_id: 3, operacion_id: "1" },
+    { nombre: "Departamento en Renta", tipo_id: 3, operacion_id: "2" },
+    { nombre: "Terreno en Venta", tipo_id: 4, operacion_id: "1" },
+    { nombre: "Terreno en Renta", tipo_id: 4, operacion_id: "2" },
+    { nombre: "Desarrollo en Venta", tipo_id: 6, operacion_id: "1" },
+    { nombre: "Desarrollo en Renta", tipo_id: 6, operacion_id: "2" },
   ];
-  
+  const imagenAgente = `https://cdn.remax.com.mx/agentes/${propiedadSeleccion?.agentes?.imagen}`;
   return (
     <>
       <div
         className={` ${
           openGallery && "invisible"
-        } flex flex-col bg-black/70 -mt-5 justify-center items-center  w-full h-full fixed   p-0 z-40 "`}
+        } flex flex-col bg-black/70 mx-auto -mt-5 justify-center items-center  w-full h-full fixed   p-0 z-40 "`}
       >
-        <div className="w-[1000px] pt-6  bg-white rounded-2xl flex flex-col justify-center items-center shadow-[0px_4px_5px_0px] shadow-black/40">
-          <div className="w-full flex flex-col  items-end px-12 pt-5  top-2">
+        <div className=" lg:w-[1000px] relative pt-6 w-full h-full bg-white rounded-2xl flex flex-col justify-center items-center shadow-[0px_4px_5px_0px] shadow-black/40">
+          <div className="w-full flex flex-col absolute top-6 left-35  lg:items-end lg:px-12 lg:pt-5  lg:top-2">
             <FontAwesomeIcon
               onClick={handleCerrar}
               icon={faX}
@@ -130,11 +130,11 @@ export default function PropiedadSeleccion({ seleccion }) {
           <br />
           <img
             loading="lazy"
-            className="w-[90%] h-130 object-cover "
+            className=" lg:w-[90%] lg:h-130 object-cover w-80 "
             src={fotoEscogida}
             alt={fotoEscogida}
           />
-          <div className="py-7">
+          <div className="py-7 ">
             <Paginacion setPagina={setPagina} totalPaginas={totalPaginas} />
           </div>
         </div>
@@ -159,7 +159,7 @@ export default function PropiedadSeleccion({ seleccion }) {
       </div>
       <div className="flex flex-col  px-2 justify-center items-start">
         {/* Galería móvil */}
-        <div className="w-full lg:hidden flex relative  flex-col justify-center items-center">
+        {/*  <div className="w-full lg:hidden flex relative  flex-col justify-center items-center">
           <div className="absolute right-3 top-4 bg-black/50 p-1 rounded-full">
             <img
               loading="lazy"
@@ -193,7 +193,7 @@ export default function PropiedadSeleccion({ seleccion }) {
           <p className="z-20 mt-35 absolute bg-black/40 rounded-full p-1 text-white text-sm">
             1/2
           </p>
-        </div>
+        </div> */}
 
         <div className="grid grid-cols-2 gap-2 w-full ">
           <div>
@@ -201,12 +201,12 @@ export default function PropiedadSeleccion({ seleccion }) {
               <img
                 onClick={handleAbrir}
                 id="1"
-                className="rounded-2xl w-full object-cover  h-[569px] cursor-pointer"
+                className="rounded-2xl w-full object-cover h-[300px] lg:h-[569px] cursor-pointer"
                 src={`https://cdn.remax.com.mx/properties/${propiedadSeleccion?.propiedad_id}/${imagenesArray[0]}`}
                 alt=""
               />
             ) : (
-              <div className="rounded-2xl w-full h-[569px] bg-gray-300 animate-pulse"></div>
+              <div className="rounded-2xl w-full h-[300px] lg:h-[569px] bg-gray-300 animate-pulse"></div>
             )}
           </div>
           <div className="grid grid-cols-1 gap-3">
@@ -215,12 +215,12 @@ export default function PropiedadSeleccion({ seleccion }) {
                 <img
                   onClick={handleAbrir}
                   id="2"
-                  className="rounded-2xl  h-[277px] w-full object-cover cursor-pointer"
+                  className="rounded-2xl h-[142px] lg:h-[277px] w-full object-cover cursor-pointer"
                   src={`https://cdn.remax.com.mx/properties/${propiedadSeleccion?.propiedad_id}/${imagenesArray[1]}`}
                   alt=""
                 />
               ) : (
-                <div className="rounded-2xl h-[277px] w-full bg-gray-300 animate-pulse"></div>
+                <div className="rounded-2xl h-[142px] lg:h-[277px] w-full bg-gray-300 animate-pulse"></div>
               )}
             </div>
             <div className="">
@@ -228,12 +228,12 @@ export default function PropiedadSeleccion({ seleccion }) {
                 <img
                   onClick={handleAbrir}
                   id="3"
-                  className="rounded-2xl h-[277px]  w-full object-cover cursor-pointer"
+                  className="rounded-2xl h-[142px] lg:h-[277px]  w-full object-cover cursor-pointer"
                   src={`https://cdn.remax.com.mx/properties/${propiedadSeleccion?.propiedad_id}/${imagenesArray[2]}`}
                   alt=""
                 />
               ) : (
-                <div className="rounded-2xl h-[277px] w-full bg-gray-300 animate-pulse"></div>
+                <div className="rounded-2xl h-[142px] lg:h-[277px] w-full bg-gray-300 animate-pulse"></div>
               )}
             </div>
           </div>
@@ -251,16 +251,18 @@ export default function PropiedadSeleccion({ seleccion }) {
               ))}
               {propiedadSeleccion && (
                 <>
-                  <p className="lg:text-3xl font-bold">
-                    Departamento desde:{" "}
-                    {Number(propiedadSeleccion.mxn_corriente).toLocaleString(
-                      "en-US"
-                    )}{" "}
-                    MXN
-                  </p>
+                  {tipos.map((item) => (
+                    <p key={item.tipo_id} className="lg:text-3xl font-bold">
+                      {item.tipo_id === propiedadSeleccion?.tipos?.tipo_id
+                        ? `${item.nombre} desde: ${Number(
+                            propiedadSeleccion.mxn_corriente
+                          ).toLocaleString("en-US")} MXN`
+                        : null}
+                    </p>
+                  ))}
                   <div className="flex lg:gap-2 lg:mt-2">
                     <img
-                      className=" lg:w-10"
+                      className="lg:w-10"
                       loading="lazy"
                       src="/HomePageContent/iconmeters.svg"
                       alt="Icono de metros cuadrados"
@@ -306,13 +308,20 @@ export default function PropiedadSeleccion({ seleccion }) {
                   </div>
                 </div>
                 <div>
-                  <img
-                    loading="lazy"
-                    className="w-[99px] h-[104px] object-cover rounded-[15px]"
-                    src="/HomePageContent/agente.png"
-                    alt="Foto del agente"
-                  />
-                </div>
+                    {imagenAgente && !cargada ? (
+                      <div className="w-[99px] h-[104px] lg:w-[152px] lg:h-[152px] rounded-[15px] bg-gray-300 animate-pulse" />
+                    ) : null}
+
+                    <img
+                      loading="lazy"
+                      className={`w-[99px] h-[104px] lg:w-[152px] lg:h-[152px] object-cover rounded-[15px] transition-opacity duration-300 ${
+                        cargada ? "opacity-100" : "opacity-0 absolute"
+                      }`}
+                      src={imagenAgente}
+                      alt="Foto del agente"
+                      onLoad={() => setCargada(true)}
+                    />
+                  </div>
               </div>
             </div>
             <p className="px-5 text-[18px] lg:text-3xl font-bold my-3">
@@ -328,7 +337,7 @@ export default function PropiedadSeleccion({ seleccion }) {
             </div>
           </div>
           {/* Contacta a un agente desktop */}
-          <div className=" overflow-visible    relative">
+          <div className=" overflow-visible hidden lg:visible   relative">
             <div className="sticky top-2 pb-1 ">
               <div className="w-[551px] h-[237px] p-3 text-center flex flex-col justify-evenly items-center shadow-[0px_4px_5px_0px] shadow-black/40 rounded-[10px] mx-auto my-5 bg-[#F9F9F9]">
                 <div>
@@ -364,11 +373,18 @@ export default function PropiedadSeleccion({ seleccion }) {
                     </div>
                   </div>
                   <div>
+                    {imagenAgente && !cargada ? (
+                      <div className="w-[99px] h-[104px] lg:w-[152px] lg:h-[152px] rounded-[15px] bg-gray-300 animate-pulse" />
+                    ) : null}
+
                     <img
                       loading="lazy"
-                      className="w-[99px] h-[104px] lg:w-[152px] lg:h-[152px] object-cover rounded-[15px]"
-                      src="/HomePageContent/agente.png"
+                      className={`w-[99px] h-[104px] lg:w-[152px] lg:h-[152px] object-cover rounded-[15px] transition-opacity duration-300 ${
+                        cargada ? "opacity-100" : "opacity-0 absolute"
+                      }`}
+                      src={imagenAgente}
                       alt="Foto del agente"
+                      onLoad={() => setCargada(true)}
                     />
                   </div>
                 </div>

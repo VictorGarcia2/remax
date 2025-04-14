@@ -45,6 +45,7 @@ export default function RangoDePrecio({
             <label className="flex items-center gap-2">
               De:
               <input
+          
                 type="text" // Cambiado de number a text para mejor control del formato
                 value={precioMinimo ? precioMinimo.toLocaleString() : ""}
                 onChange={(e) => {
@@ -54,14 +55,14 @@ export default function RangoDePrecio({
                   );
                 }}
                 className="border-b border-t-0 border-s-0 border-e-0 px-1 w-32"
-                placeholder="1,000"
+                placeholder="1,000 MXN"
               />
             </label>
             <label className="flex items-center gap-2">
               Hasta:
               <input
                 type="text" // Cambiado de number a text
-                value={precioMaximo ? precioMaximo.toLocaleString() : ""}
+                value={precioMaximo && precioMaximo !== Infinity ? precioMaximo.toLocaleString() : ""}
                 onChange={(e) => {
                   const rawValue = e.target.value.replace(/[^0-9]/g, "");
                   setPrecioMaximo(
@@ -69,7 +70,7 @@ export default function RangoDePrecio({
                   );
                 }}
                 className="border-b border-t-0 border-s-0 border-e-0 px-1 w-32"
-                placeholder="1,300,000"
+                placeholder="50,300,000 MXN"
               />
             </label>
           </div>

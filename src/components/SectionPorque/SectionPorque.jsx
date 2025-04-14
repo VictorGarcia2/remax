@@ -15,7 +15,7 @@ export default function SectionPorque() {
           hogar perfecto para ti y tu familia.
         </p>
       </div> */}
-      <div className=" w-full bg-blueRemax/20  py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+      <div className=" w-full bg-blueRemax/20 px-6  py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
         <div className="md:grid md:grid-cols-2 md:items-center md:gap-12 xl:gap-32">
           <div>
             <img

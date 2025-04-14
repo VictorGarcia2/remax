@@ -23,7 +23,8 @@ export default function CardResultado({
   aplicarFiltros,
   setSeleccion,
   seleccion,
-  selectedOptionsTipos, selectedOptionsOperacion
+  selectedOptionsTipos,
+  selectedOptionsOperacion,
 }) {
   const [, updateState] = useState();
   const forceUpdate = useCallback(() => updateState({}), []);
@@ -45,10 +46,14 @@ export default function CardResultado({
       totalImages;
     forceUpdate();
   };
+  function truncateByCharacters(text, maxLength) {
+    if (!text) return "";
+    return text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
+  }
   return (
     <div className="grid grid-cols-1 xl:grid-cols-2 justify-center items-start">
-      <div className="overflow-y-scroll h-[700px] relative">
-        <div className="grid grid-cols-1 xl:grid-cols-3 justify-center md:gap-3 pb-22 items-center md:px-8">
+      <div className="overflow-y-scroll h-[660px] lg:h-[700px] relative">
+        <div className="grid grid-cols-1 xl:grid-cols-3 justify-center md:gap-3 pb-22 items-center md:px-8 relative">
           {propiedadesVisibles && propiedadesVisibles.length > 0 ? (
             propiedadesVisibles.map((item, index) => {
               const currentIndex =
@@ -57,7 +62,7 @@ export default function CardResultado({
               return (
                 <div
                   key={item.propiedad_id}
-                  className="w-full flex flex-col mt-5  mb-20 justify-center items-center"
+                  className="w-full flex flex-col mt-5  mb-30 lg:mb-20 justify-center items-center"
                 >
                   {/* Flechas */}
                   <div className="flex absolute justify-around mx-auto gap-50">
@@ -102,8 +107,8 @@ export default function CardResultado({
                     <p className="text-base font-bold text-[#7B7B7B]">
                       {Number(item.mxn_corriente).toLocaleString("en-US")}MXN
                     </p>
-                    <p className="text-base px-2 text-center font-[500] text-[#7B7B7B]">
-                      {item.calle}
+                    <p className="text-base px-2 text-center w-[250px] font-[500] text-[#7B7B7B]">
+                    {truncateByCharacters(item.calle, 20)}
                     </p>
                     <div className="flex text-[#7B7B7B] font-[500] text-[15px]">
                       <p>{item.tipos?.tipo_nombre || "Tipo"} | </p>
@@ -118,7 +123,7 @@ export default function CardResultado({
                       <p>{item.m2_construccion}m²</p>
                     </div>
                     <div
-                     /*  href={`https://wa.me/${
+                      /*  href={`https://wa.me/${
                         item.telefono_agente || "52XXXXXXXXXX"
                       }`} */
                       /* target="_blank" */
@@ -136,15 +141,17 @@ export default function CardResultado({
               );
             })
           ) : (
-            <div className="mt-[70px] mx-10 w-20 px-9 flex flex-col justify-center items-center">
-              <FontAwesomeIcon
-                icon={faCircleExclamation}
-                className="text-[#7b7b7b]"
-                size="2xl"
-              />
-              <p className="text-2xl text-[#7b7b7b] text-center">
-                Estamos en busca de propiedades por aquí. ¡Vuelve pronto!
-              </p>
+            <div className="mt-[70px] h-full   mx-auto my-auto w-full px-9 flex flex-col absolute ">
+              <div className="items-center my-55 flex flex-col justify-center">
+                <FontAwesomeIcon
+                  icon={faCircleExclamation}
+                  className="text-[#7b7b7b]"
+                  size="2xl"
+                />
+                <p className="text-2xl text-[#7b7b7b] text-center">
+                  Estamos en busca de propiedades por aquí. ¡Vuelve pronto!
+                </p>
+              </div>
             </div>
           )}
         </div>
@@ -153,7 +160,7 @@ export default function CardResultado({
       {/* Mapa */}
       <div className="mt-0 invisible sm:visible">
         <Mapbox
-        selectedOptionsOperacion={selectedOptionsOperacion}
+          selectedOptionsOperacion={selectedOptionsOperacion}
           aplicarFiltros={aplicarFiltros}
           precioMaximo={precioMaximo}
           setPrecioMaximo={setPrecioMaximo}

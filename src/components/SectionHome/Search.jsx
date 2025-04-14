@@ -23,7 +23,6 @@ export default function Search({
   const handleOperacion = (event) => {
     const value = event.target.id;
     if (event) {
-
       // Si está marcado, añadirlo al array y mantener solo el último elemento
       setSelectedOptionsOperacion([value]);
     } else {
@@ -36,7 +35,7 @@ export default function Search({
   const handleTipos = (event) => {
     const value = event.target.id;
     if (event) {
-  
+   console.log(typeof(value))
       setOpenTipo(true);
       setSelectedOptionsTipos([value]);
     } else {
@@ -79,7 +78,7 @@ export default function Search({
       src: "/HomePageContent/desarrollo.svg",
     },
   ];
-
+ 
   const navigate = useNavigate();
   const handleSearch = (e) => {
     setBusqueda("");
@@ -135,7 +134,7 @@ export default function Search({
           </div>
           <div className="flex gap-1 pb-1">
             <div
-              onClick={() => setOpenTipo(false)}
+              onClick={() => setOpenTipo((prevState) => !prevState)}
               className={`${
                 openTipo ? "bg-white text-[#414141]" : "bg-[#003DA4] text-white"
               } cursor-pointer hover:bg-blueRemax hover:text-white rounded-s-2xl w-16 sm:w-[116px] sm:h-16 h-11 shadow-[0_3px_1px] shadow-black/50  align-middle text-center items-center flex`}

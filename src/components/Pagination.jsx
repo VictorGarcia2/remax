@@ -98,8 +98,8 @@ function Paginacion({setPagina, totalPaginas}) {
   const currentItems = items.slice(startIndex, endIndex);
 
   return (
-    <div className=" py-12 px-4">
-      <div className="max-w-3xl mx-auto">
+    <div className="py-12 px-4">
+      <div className="w-70 lg:max-w-3xl mx-auto">
         <Pagination
           totalPages={totalPages}
           currentPage={currentPage}

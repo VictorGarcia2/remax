@@ -118,10 +118,46 @@ export function Dropdown({ propiedadSeleccion }) {
     if (!str) return "";
     return str.replace(/<[^>]*>/g, "");
   }
-  const cleanDescription = removeHTMLTags(
-    propiedadSeleccion?.propiedades_meta.descripcion
-  );
-
+  
+  const DescripcionInmueble = ({ descripcion }) => {
+    const cleanDescription = removeHTMLTags(descripcion);
+  
+    // Separar por asteriscos (posibles subtítulos o secciones)
+    const secciones = cleanDescription.split('*').filter(Boolean);
+  
+    return (
+      <div className="space-y-4 text-gray-800  leading-relaxed">
+        {secciones.map((seccion, index) => {
+          // Si hay guiones, convertirlos en lista
+          const partes = seccion.split('-').filter(Boolean);
+  
+          if (partes.length > 1) {
+            const titulo = partes[0].trim();
+            const items = partes.slice(1);
+  
+            return (
+              <div key={index}>
+                <p className="font-bold text-base lg:text-2xl text-[#7b7b7b]">{titulo}</p>
+                <ul className="list-disc list-inside ml-4 text-base lg:text-2xl text-[#7b7b7b]">
+                  {items.map((item, i) => (
+                    <li key={i}>{item.trim()}</li>
+                  ))}
+                </ul>
+              </div>
+            );
+          }
+  
+          // Si no hay guiones, renderizar como párrafo normal
+          return (
+            <p key={index} className="text-justify text-base lg:text-2xl text-[#7b7b7b]">
+              {seccion.trim()}
+            </p>
+          );
+        })}
+      </div>
+    );
+  };
+  
   const latitud = propiedadSeleccion?.latitud;
   const longitud = propiedadSeleccion?.longitud;
 
@@ -152,54 +188,7 @@ export function Dropdown({ propiedadSeleccion }) {
     };
   }, []);
 
-  const AIRE_ACONDICIONADO =
-    propiedadSeleccion?.propiedades_meta?.aire_acondicionado;
-  const ALBERCA = propiedadSeleccion?.propiedades_meta?.alberca;
-  const AMUEBLADA = propiedadSeleccion?.propiedades_meta?.amueblada;
-  const AREA_DE_JUEGOS = propiedadSeleccion?.propiedades_meta?.area_de_juegos;
-  const AREAS_COMUNES = propiedadSeleccion?.propiedades_meta?.areas_comunes;
-  const AREAS_NINOS = propiedadSeleccion?.propiedades_meta?.areas_ninos;
-  const BALCON = propiedadSeleccion?.propiedades_meta?.balcon;
-  const BIBLIOTECA = propiedadSeleccion?.propiedades_meta?.biblioteca;
-  const BODEGA = propiedadSeleccion?.propiedades_meta?.bodega;
-  const CAFETERIA = propiedadSeleccion?.propiedades_meta?.cafeteria;
-  const CALEFACCION = propiedadSeleccion?.propiedades_meta?.calefaccion;
-  const CANCHA_DE_FUTBOL =
-    propiedadSeleccion?.propiedades_meta?.cancha_de_futbol;
-  const CANCHA_DE_PADEL = propiedadSeleccion?.propiedades_meta?.cancha_de_padel;
-  const CANCHA_DE_TENIS = propiedadSeleccion?.propiedades_meta?.cancha_de_tenis;
-  const CASA_CLUB = propiedadSeleccion?.propiedades_meta?.casa_club;
-  const CHIMENEA = propiedadSeleccion?.propiedades_meta?.chimenea;
-  const COCINA_INTEGRAL = propiedadSeleccion?.propiedades_meta?.cocina_integral;
-  const CUARTO_DE_RECREACION =
-    propiedadSeleccion?.propiedades_meta?.cuarto_de_recreacion;
-  const CUARTO_DE_SERVICIO =
-    propiedadSeleccion?.propiedades_meta?.cuarto_de_servicio;
-  const CUARTO_TV = propiedadSeleccion?.propiedades_meta?.cuarto_tv;
-  const ELEVADOR = propiedadSeleccion?.propiedades_meta?.elevador;
-  const ENERGIA_SOLAR = propiedadSeleccion?.propiedades_meta?.energia_solar;
-  const GIMNASIO = propiedadSeleccion?.propiedades_meta?.gimnasio;
-  const HIDRONEUMATICO = propiedadSeleccion?.propiedades_meta?.hidroneumatico;
-  const INTERNET = propiedadSeleccion?.propiedades_meta?.internet;
-  const JACUZZI = propiedadSeleccion?.propiedades_meta?.jacuzzi;
-  const JARDIN = propiedadSeleccion?.propiedades_meta?.jardin;
-  const LAVANDERIA = propiedadSeleccion?.propiedades_meta?.lavanderia;
-  const LINEA_TELEFONICA =
-    propiedadSeleccion?.propiedades_meta?.linea_telefonica;
-  const MASCOTAS = propiedadSeleccion?.propiedades_meta?.mascotas;
-  const PARRILLA = propiedadSeleccion?.propiedades_meta?.parrilla;
-  const SALON_DE_CINE = propiedadSeleccion?.propiedades_meta?.salon_de_cine;
-  const SALON_DE_FIESTAS =
-    propiedadSeleccion?.propiedades_meta?.salon_de_fiestas;
-  const SPA = propiedadSeleccion?.propiedades_meta?.spa;
-  const SISTEMA_DE_SEGURIDAD =
-    propiedadSeleccion?.propiedades_meta?.sistema_de_seguridad;
-  const TERRAZA = propiedadSeleccion?.propiedades_meta?.terraza;
-  const VESTIDOR = propiedadSeleccion?.propiedades_meta?.vestidor;
-  const VIGILANCIA = propiedadSeleccion?.propiedades_meta?.vigilancia;
-  const VISTA_PANORAMICA =
-    propiedadSeleccion?.propiedades_meta?.vista_panoramica;
-  const ZONA_ARBOLADA = propiedadSeleccion?.propiedades_meta?.zona_arbolada;
+
 
   const amenidadesFiltradas = {
     aire_acondicionado: "Aire acondicionado",
@@ -311,12 +300,12 @@ export function Dropdown({ propiedadSeleccion }) {
           </p>
         </AccordionHeader>
         <AccordionBody>
-          <p className="text-base lg:text-2xl">{cleanDescription}</p>
+        <DescripcionInmueble descripcion={propiedadSeleccion?.propiedades_meta.descripcion}/>
         </AccordionBody>
       </Accordion>
       <Accordion open={openAcc2} icon={<Icon id={2} open={open} />}>
         <AccordionHeader onClick={handleOpenAcc2}>
-          <p className="font-bold text-[18px] lg:text-3xl">
+          <p className="font-bold text-lg lg:text-3xl">
             Información detallada
           </p>
         </AccordionHeader>
@@ -378,67 +367,21 @@ export function Dropdown({ propiedadSeleccion }) {
       </Accordion>
       <Accordion open={openAcc4} icon={<Icon id={4} open={open} />}>
         <AccordionHeader onClick={handleOpenAcc4}>
-          <p className="font-bold text-[18px] lg:text-3xl">Amenidades</p>
+          <p className="font-bold text-[18px] lg:text-3xl">Amenidades y Zonas</p>
         </AccordionHeader>
         <AccordionBody>
           <div className="flex flex-wrap gap-2">
             {amenidadesDisponibles &&
               amenidadesDisponibles.map((item) => (
-                <div className="bg-[#D9D9D9] flex items-center gap-2 rounded py-2 px-2 text-2xl">
+                <div className="bg-[#D9D9D9] flex items-center gap-2 rounded py-2 px-2 text-base lg:text-2xl">
                   <FontAwesomeIcon icon={item.icon} className="text-[#797979]"/>
                   <p className="text-[#797979]">{item.label}</p>
                 </div>
               ))}
-
-            {/*   <div className="bg-[#D9D9D9] flex items-center gap-2 rounded py-2 px-2 text-2xl">
-              <FontAwesomeIcon
-                icon={faPersonSwimming}
-                className="text-[#797979]"
-              />
-              <p className="text-[#797979]">Alberca</p>
-            </div>
-
-            <div className="bg-[#D9D9D9] flex items-center gap-2 rounded py-2 px-2 text-2xl">
-              <FontAwesomeIcon icon={faElevator} className="text-[#797979]" />
-              <p className="text-[#797979]">Elevador</p>
-            </div>
-
-            <div className="bg-[#D9D9D9] flex items-center gap-2 rounded py-2 px-2 text-2xl col-span-3">
-              <FontAwesomeIcon icon={faUserShield} className="text-[#797979]" />
-              <p className="text-[#797979]">Caseta de Vigilancia</p>
-            </div> */}
           </div>
         </AccordionBody>
       </Accordion>
-      <Accordion open={openAcc5} icon={<Icon id={5} open={open} />}>
-        <AccordionHeader onClick={handleOpenAcc5}>
-          <p className="font-bold text-[18px] lg:text-3xl">
-            Zonas y Facilidades
-          </p>
-        </AccordionHeader>
-        <AccordionBody>
-          <div className="flex flex-wrap gap-2">
-            <div className="bg-[#D9D9D9] flex items-center gap-2 rounded py-2  px-2 justify-start text-2xl">
-              <p>Alumbrado</p>
-            </div>
-            <div className="bg-[#D9D9D9] flex items-center gap-2 rounded py-2  px-2 justify-start text-2xl">
-              <p>Caseta de vigilancia</p>
-            </div>
-            <div className="bg-[#D9D9D9] flex items-center gap-2 rounded py-2  px-2 justify-start text-2xl">
-              <p>Áreas comúnes</p>
-            </div>
-            <div className="bg-[#D9D9D9] flex items-center gap-2 rounded py-2  px-2 justify-start text-2xl">
-              <p>Bardeado</p>
-            </div>
-            <div className="bg-[#D9D9D9] flex items-center gap-2 rounded py-2  px-2 justify-start text-2xl">
-              <p>Gimnacios cercanos</p>
-            </div>
-            <div className="bg-[#D9D9D9] flex items-center gap-2 rounded py-2  px-2 justify-start text-2xl">
-              <p>Escuelas Cercanas</p>
-            </div>
-          </div>
-        </AccordionBody>
-      </Accordion>
+
     </>
   );
 }
