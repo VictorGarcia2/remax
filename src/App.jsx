@@ -395,7 +395,7 @@ export default function App() {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get("src/APi/propiedades.json");
+        const response = await axios.get("APi/propiedades.json");
         const data = response.data; // O data.rows si tu JSON tiene esa estructura
         setPropiedades(data);
       } catch (error) {
@@ -404,7 +404,7 @@ export default function App() {
     };
     getData();
   }, [busquedaHome]);
-  
+
   return (
     <>
       <Routes>
