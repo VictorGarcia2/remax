@@ -392,11 +392,12 @@ export default function App() {
     };
     getData();
   }, [busquedaHome]); */
+  console.log(propiedades)
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get("APi/propiedades.json");
-        const data = response.data; // O data.rows si tu JSON tiene esa estructura
+        const response = await axios.get("src/APi/propiedades.json");
+        const data = response.data.data.rows; // O data.rows si tu JSON tiene esa estructura
         setPropiedades(data);
       } catch (error) {
         console.error("Error al cargar el JSON local:", error);
@@ -404,7 +405,7 @@ export default function App() {
     };
     getData();
   }, [busquedaHome]);
-
+  
   return (
     <>
       <Routes>
