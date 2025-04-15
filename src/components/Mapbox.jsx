@@ -115,14 +115,38 @@ const MapboxConCards = ({
       actualizarVisibles();
     }
   }, [mapIsReady,nuevas]); // NO pongas mapLoadedRef.current como dependencia, porque es una ref
+
+
+  const abreviarPrecio = (valor) => {
+    if (valor >= 1_000_000) return `${(valor / 1_000_000).toFixed(1)}M`;
+    if (valor >= 1_000) return `${(valor / 1_000).toFixed(0)}K`;
+    return valor.toString();
+  };
+  
   const agregarMarkers = (lista) => {
-    // Eliminar marcadores antiguos
     markersRef.current.forEach(({ marker }) => marker.remove());
     markersRef.current = [];
-
+  
     for (const prop of lista) {
       if (!prop.longitud || !prop.latitud) continue;
-      const marker = new mapboxgl.Marker({ color: "#e63946" })
+  
+      const precio = prop.mxn_corriente || 0;
+  
+      // Crear elemento HTML personalizado para el marcador
+      const el = document.createElement("div");
+      el.style.background = "#e63946";
+      el.style.color = "#fff";
+      el.style.padding = "4px 8px";
+      el.style.borderRadius = "6px";
+      el.style.fontSize = "14px";
+      el.style.fontWeight = "bold";
+      el.style.boxShadow = "0 2px 6px rgba(0,0,0,0.3)";
+      el.style.cursor = "pointer";
+  
+      // Guardar el valor original del precio en el elemento
+      el.dataset.valorOriginal = precio;
+  
+      const marker = new mapboxgl.Marker({ element: el })
         .setLngLat([parseFloat(prop.longitud), parseFloat(prop.latitud)])
         .setPopup(
           new mapboxgl.Popup({ closeButton: true, closeOnClick: true }).setHTML(
@@ -134,16 +158,43 @@ const MapboxConCards = ({
               ${prop.calle || ""} ${prop.numero_exterior || ""}
               </p>
               <p style="margin: 5px 0; font-size: 14px; font-weight: bold; color: #e76f51;">
-              $${prop.mxn_corriente?.toLocaleString() || "0"}
+              $${precio.toLocaleString("en-US", {
+                minimumFractionDigits: 3,
+                maximumFractionDigits: 3,
+              })} MXN
               </p>
             </div>`
           )
         )
         .addTo(mapRef.current);
-
-      markersRef.current.push({ marker, prop });
+  
+      markersRef.current.push({ marker, prop, el });
     }
+  
+    // Agregar listener al mapa para cambiar contenido según zoom
+    mapRef.current.on("zoom", () => {
+      const zoom = mapRef.current.getZoom();
+      markersRef.current.forEach(({ el }) => {
+        const valor = parseFloat(el.dataset.valorOriginal);
+        if (zoom < 12) {
+          el.innerText = ""; // Mostrar solo el punto
+          el.style.width = "10px";
+          el.style.height = "10px";
+          el.style.borderRadius = "50%";
+          el.style.padding = "0";
+          el.style.background = "#e63946";
+        } else {
+          el.innerText = `$${abreviarPrecio(valor)}`;
+          el.style.width = "auto";
+          el.style.height = "auto";
+          el.style.borderRadius = "6px";
+          el.style.padding = "4px 8px";
+        }
+      });
+    });
   };
+  
+  
 
   const actualizarVisibles = () => {
     const bounds = mapRef.current.getBounds();
@@ -229,13 +280,13 @@ const MapboxConCards = ({
   }, [ manejoBusqueda,busquedaHome]);
 
   return (
-    <div className="w-full flex flex-col lg:flex-row gap-4">
+    <div className="w-full  flex flex-col lg:flex-row gap-4">
       {/* Mapa */}
-      <div className="w-full h-[700px] relative">
+      <div className="w-full h-[660px] lg:h-[700px] relative">
         <div
           ref={mapContainerRef}
           style={{ width: "100%", height: "100%" }}
-          className="rounded-xl overflow-hidden"
+          className="lg:rounded-xl overflow-hidden"
         />
       </div>
     </div>

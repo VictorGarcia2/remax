@@ -378,7 +378,7 @@ export default function App() {
   const [precioMaximo, setPrecioMaximo] = useState(Infinity);
   const [aplicarFiltros, setAplicarFiltros] = useState(Date.now());
   const [seleccion, setSeleccion] = useState();
-  useEffect(() => {
+  /* useEffect(() => {
     const getData = async () => {
       try {
         const response = await axios.get(
@@ -391,7 +391,20 @@ export default function App() {
       }
     };
     getData();
+  }, [busquedaHome]); */
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await axios.get("src/APi/propiedades.json");
+        const data = response.data; // O data.rows si tu JSON tiene esa estructura
+        setPropiedades(data);
+      } catch (error) {
+        console.error("Error al cargar el JSON local:", error);
+      }
+    };
+    getData();
   }, [busquedaHome]);
+  
   return (
     <>
       <Routes>

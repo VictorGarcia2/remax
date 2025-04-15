@@ -82,6 +82,11 @@ export default function PropiedadSeleccion({ seleccion }) {
       }, 4000);
     }, 3000);
   }, []);
+  const colonia = propiedadSeleccion?.colonias.colonia_nombre;
+  const estado = propiedadSeleccion?.estados?.estado_nombre;
+  const ciudad = propiedadSeleccion?.ciudades.ciudad_nombre;
+  const calle = propiedadSeleccion?.calle;
+  const direccion = `${calle}, ${colonia}, ${ciudad}, ${estado}`;
   const imagenesArray = propiedadSeleccion?.imagenes.split(",");
   const [cargada, setCargada] = useState(false);
   const tipos = [
@@ -93,8 +98,8 @@ export default function PropiedadSeleccion({ seleccion }) {
   ];
 
   const operaciones = [
-    { nombre: "Venta", operacion_id: 1 },
-    { nombre: "Renta", operacion_id: 2 },
+    { nombre: "Venta", operacion_id: "1" },
+    { nombre: "Renta", operacion_id: "2" },
   ];
 
   const tituloPro = [
@@ -117,8 +122,8 @@ export default function PropiedadSeleccion({ seleccion }) {
           openGallery && "invisible"
         } flex flex-col bg-black/70 mx-auto -mt-5 justify-center items-center  w-full h-full fixed   p-0 z-40 "`}
       >
-        <div className=" lg:w-[1000px] relative pt-6 w-full h-full bg-white rounded-2xl flex flex-col justify-center items-center shadow-[0px_4px_5px_0px] shadow-black/40">
-          <div className="w-full flex flex-col absolute top-6 left-35  lg:items-end lg:px-12 lg:pt-5  lg:top-2">
+        <div className=" lg:w-3xl lg:max-h-10/12 relative pt-6 w-full h-full bg-white rounded-2xl flex flex-col justify-center items-center shadow-[0px_4px_5px_0px] shadow-black/40">
+          <div className="w-full flex flex-col absolute lg:static top-6 left-35  lg:items-end lg:px-12 lg:pt-5  ">
             <FontAwesomeIcon
               onClick={handleCerrar}
               icon={faX}
@@ -158,43 +163,6 @@ export default function PropiedadSeleccion({ seleccion }) {
         />
       </div>
       <div className="flex flex-col  px-2 justify-center items-start">
-        {/* Galería móvil */}
-        {/*  <div className="w-full lg:hidden flex relative  flex-col justify-center items-center">
-          <div className="absolute right-3 top-4 bg-black/50 p-1 rounded-full">
-            <img
-              loading="lazy"
-              className="w-[20px] h-[20px]"
-              src="/HomePageContent/iconshare.png"
-              alt=""
-            />
-          </div>
-          <div className="flex w-full absolute justify-around mx-auto gap-70">
-            <img
-              loading="lazy"
-              className="w-[27px] h-[27px] cursor-pointer"
-              src="/HomePageContent/arrowizq.svg"
-              alt="Flecha izquierda"
-            />
-            <img
-              loading="lazy"
-              className="w-[27px] h-[27px] cursor-pointer"
-              src="/HomePageContent/arrowderecha.svg"
-              alt="Flecha derecha"
-            />
-          </div>
-          <div className="flex  w-full">
-            <img
-              loading="lazy"
-              className="w-full object-cover h-[202px] cursor-pointer"
-              src="/HomePageContent/pexels-fotoaibe-1571460 1.jpg"
-              alt="Imagen de propiedad"
-            />
-          </div>
-          <p className="z-20 mt-35 absolute bg-black/40 rounded-full p-1 text-white text-sm">
-            1/2
-          </p>
-        </div> */}
-
         <div className="grid grid-cols-2 gap-2 w-full ">
           <div>
             {imagenesArray ? (
@@ -241,26 +209,32 @@ export default function PropiedadSeleccion({ seleccion }) {
         <div className="w-full flex flex-col lg:grid lg:grid-cols-2 text-[#7b7b7b]">
           <div>
             <div className="px-5 pt-5">
-              {tituloPro.map((item) => (
-                <p className="lg:text-3xl">
-                  {item.tipo_id === propiedadSeleccion?.tipos?.tipo_id &&
-                  item.operacion_id === propiedadSeleccion?.operacion
-                    ? item.nombre
-                    : ""}
-                </p>
-              ))}
-              {propiedadSeleccion && (
+              {tituloPro && propiedadSeleccion ? (
+                tituloPro.map((item) => (
+                  <p key={item.nombre} className="lg:text-3xl">
+                    {item.tipo_id === propiedadSeleccion?.tipos?.tipo_id &&
+                    item.operacion_id === propiedadSeleccion?.operacion
+                      ? item.nombre
+                      : ""}
+                  </p>
+                ))
+              ) : (
+                <div className="h-[32px] w-[200px] bg-gray-300 rounded-md animate-pulse mb-2"></div>
+              )}
+
+              {propiedadSeleccion && tipos ? (
                 <>
-                  {tipos.map((item) => (
-                    <p key={item.tipo_id} className="lg:text-3xl font-bold">
-                      {item.tipo_id === propiedadSeleccion?.tipos?.tipo_id
-                        ? `${item.nombre} desde: ${Number(
+                  {tipos.map(
+                    (item) =>
+                      item.tipo_id === propiedadSeleccion?.tipos?.tipo_id && (
+                        <p key={item.tipo_id} className="lg:text-3xl font-bold">
+                          {`${item.nombre} desde: ${Number(
                             propiedadSeleccion.mxn_corriente
-                          ).toLocaleString("en-US")} MXN`
-                        : null}
-                    </p>
-                  ))}
-                  <div className="flex lg:gap-2 lg:mt-2">
+                          ).toLocaleString("en-US")} MXN`}
+                        </p>
+                      )
+                  )}
+                  <div className="flex lg:gap-2 lg:mt-2 items-center">
                     <img
                       className="lg:w-10"
                       loading="lazy"
@@ -272,8 +246,17 @@ export default function PropiedadSeleccion({ seleccion }) {
                     </p>
                   </div>
                 </>
+              ) : (
+                <>
+                  <div className="h-[32px] w-[280px] bg-gray-300 rounded-md animate-pulse mb-2"></div>
+                  <div className="flex lg:gap-2 lg:mt-2 items-center">
+                    <div className="w-10 h-10 bg-gray-300 rounded-full animate-pulse"></div>
+                    <div className="h-[28px] w-[80px] bg-gray-300 rounded-md animate-pulse ml-2"></div>
+                  </div>
+                </>
               )}
             </div>
+
             <hr className="w-full my-2 text-[#7B7B7B]" />
             {/* Contacta a un agente móvil */}
             <div className="w-[341px] lg:hidden h-[158px] p-3 text-center flex flex-col justify-between items-center shadow-[0px_4px_5px_0px] shadow-black/40 rounded-[10px] mx-auto my-5 bg-[#F9F9F9]">
@@ -308,36 +291,52 @@ export default function PropiedadSeleccion({ seleccion }) {
                   </div>
                 </div>
                 <div>
-                    {imagenAgente && !cargada ? (
-                      <div className="w-[99px] h-[104px] lg:w-[152px] lg:h-[152px] rounded-[15px] bg-gray-300 animate-pulse" />
-                    ) : null}
+                  {imagenAgente && !cargada ? (
+                    <div className="w-[99px] h-[104px] lg:w-[152px] lg:h-[152px] rounded-[15px] bg-gray-300 animate-pulse" />
+                  ) : null}
 
-                    <img
-                      loading="lazy"
-                      className={`w-[99px] h-[104px] lg:w-[152px] lg:h-[152px] object-cover rounded-[15px] transition-opacity duration-300 ${
-                        cargada ? "opacity-100" : "opacity-0 absolute"
-                      }`}
-                      src={imagenAgente}
-                      alt="Foto del agente"
-                      onLoad={() => setCargada(true)}
-                    />
-                  </div>
+                  <img
+                    loading="lazy"
+                    className={`w-[99px] h-[104px] lg:w-[152px] lg:h-[152px] object-cover rounded-[15px] transition-opacity duration-300 ${
+                      cargada ? "opacity-100" : "opacity-0 absolute"
+                    }`}
+                    src={imagenAgente}
+                    alt="Foto del agente"
+                    onLoad={() => setCargada(true)}
+                  />
+                </div>
               </div>
             </div>
-            <p className="px-5 text-[18px] lg:text-3xl font-bold my-3">
-              Departamento en Venta en AV. Salvador Díaz #345, Veracruz, México.
-            </p>
+            {tipos && operaciones && propiedadSeleccion ? (
+              tipos.map((tipo) =>
+                operaciones.map((operacion) =>
+                  propiedadSeleccion?.tipos?.tipo_id === tipo?.tipo_id &&
+                  propiedadSeleccion?.operacion === operacion?.operacion_id ? (
+                    <p
+                      key={`${tipo.tipo_id}-${operacion.operacion_id}`}
+                      className="px-5 text-[18px] lg:text-3xl font-bold my-3"
+                    >
+                      {tipo?.nombre} en {operacion?.nombre} en {direccion}
+                    </p>
+                  ) : null
+                )
+              )
+            ) : (
+              <div className=" mx-5 my-3 h-[32px] lg:h-[40px] w-[240px] lg:w-[400px] bg-gray-300 rounded-md animate-pulse"></div>
+            )}
             <hr />
             {/* Calculadora de hipotecas móvil */}
-            <button className="mt-3 lg:hidden mx-auto bg-[#DB1C2E] w-[341px] text-[18px] font-bold h-[48px] text-white rounded-[10px]">
-              Calculadora de hipotecas
-            </button>
+            <div className="w-full flex justify-center">
+              <button className="mt-3 lg:hidden mx-auto bg-[#DB1C2E] w-[341px] text-[18px] font-bold h-[48px] text-white rounded-[10px]">
+                Calculadora de hipotecas
+              </button>
+            </div>
             <div className="px-5 mt-5">
               <Dropdown propiedadSeleccion={propiedadSeleccion} />
             </div>
           </div>
           {/* Contacta a un agente desktop */}
-          <div className=" overflow-visible hidden lg:visible   relative">
+          <div className=" overflow-visible hidden lg:block   relative">
             <div className="sticky top-2 pb-1 ">
               <div className="w-[551px] h-[237px] p-3 text-center flex flex-col justify-evenly items-center shadow-[0px_4px_5px_0px] shadow-black/40 rounded-[10px] mx-auto my-5 bg-[#F9F9F9]">
                 <div>

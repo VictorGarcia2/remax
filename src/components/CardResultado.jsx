@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Link } from "react-router";
 import Mapbox from "./Mapbox";
-import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
+import { faCircleExclamation, faMap } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function CardResultado({
   propiedades,
@@ -29,7 +29,6 @@ export default function CardResultado({
   const [, updateState] = useState();
   const forceUpdate = useCallback(() => updateState({}), []);
   const currentImageIndices = useRef({});
-
   const goToNext = (index) => {
     const propiedadId = propiedadesVisibles[index].propiedad_id;
     const totalImages = propiedadesVisibles[index].imagenes.split(",").length;
@@ -37,22 +36,60 @@ export default function CardResultado({
       ((currentImageIndices.current[propiedadId] || 0) + 1) % totalImages;
     forceUpdate();
   };
-
+  const [mapa, setMapa] = useState(false);
   const goToPrevious = (index) => {
     const propiedadId = propiedadesVisibles[index].propiedad_id;
     const totalImages = propiedadesVisibles[index].imagenes.split(",").length;
     currentImageIndices.current[propiedadId] =
-      ((currentImageIndices.current[propiedadId] || 0) - 1 + totalImages) %
+    ((currentImageIndices.current[propiedadId] || 0) - 1 + totalImages) %
       totalImages;
-    forceUpdate();
-  };
+      forceUpdate();
+    };
   function truncateByCharacters(text, maxLength) {
     if (!text) return "";
-    return text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
+    return text.length > maxLength
+    ? text.substring(0, maxLength) + "..."
+    : text;
   }
+  
+  const [mostrarMapa, setMostrarMapa] = useState()
+  const mostrar = [
+    {
+      icon: "faMap",
+      nombre: "Mapa",
+    },
+    {
+      icon: "faList",
+      nombre: "Lista",
+    },
+  ];
+
+
+  const handle = () => {
+    setMapa((prevState) => !prevState);
+  };
   return (
     <div className="grid grid-cols-1 xl:grid-cols-2 justify-center items-start">
-      <div className="overflow-y-scroll h-[660px] lg:h-[700px] relative">
+      <div className="fixed lg:invisible z-50 flex bottom-5 left-30 w-full">
+        <button
+          onClick={() => {
+            handle();
+            setMostrarMapa((prevState) => (prevState === 0 ? 1 : 0));
+          }}
+          type="button"
+          className="inline-flex mx-auto gap-2 bg-gray-200 items-center px-4 py-2 text-sm font-medium text-[#7b7b7b] border-gray-900 rounded-3xl hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-blueRemax/50 focus:bg-blueRemax focus:text-white"
+        >
+          <FontAwesomeIcon
+            icon={mostrarMapa === 0 ? faMap : faCircleExclamation}
+          />
+          {mostrarMapa === 0 ? mostrar[0].nombre : mostrar[1].nombre}
+        </button>
+      </div>
+      <div
+        className={`${
+          mapa && "hidden"
+        } overflow-y-scroll h-[660px] lg:h-[700px] relative`}
+      >
         <div className="grid grid-cols-1 xl:grid-cols-3 justify-center md:gap-3 pb-22 items-center md:px-8 relative">
           {propiedadesVisibles && propiedadesVisibles.length > 0 ? (
             propiedadesVisibles.map((item, index) => {
@@ -108,7 +145,7 @@ export default function CardResultado({
                       {Number(item.mxn_corriente).toLocaleString("en-US")}MXN
                     </p>
                     <p className="text-base px-2 text-center w-[250px] font-[500] text-[#7B7B7B]">
-                    {truncateByCharacters(item.calle, 20)}
+                      {truncateByCharacters(item.calle, 20)}
                     </p>
                     <div className="flex text-[#7B7B7B] font-[500] text-[15px]">
                       <p>{item.tipos?.tipo_nombre || "Tipo"} | </p>
@@ -156,9 +193,8 @@ export default function CardResultado({
           )}
         </div>
       </div>
-
       {/* Mapa */}
-      <div className="mt-0 invisible sm:visible">
+      <div className={`${mapa || "invisible"} mt-0  sm:visible`}>
         <Mapbox
           selectedOptionsOperacion={selectedOptionsOperacion}
           aplicarFiltros={aplicarFiltros}

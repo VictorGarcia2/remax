@@ -1,24 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react";
 
 function Pagination({ totalPages, currentPage, onPageChange }) {
   const getPageNumbers = () => {
     const pages = [];
     const showEllipsis = totalPages > 7;
+
     if (!showEllipsis) {
       for (let i = 1; i <= totalPages; i++) {
         pages.push(i);
       }
       return pages;
     }
-    // Always show first page
-    pages.push(1);
+
+    pages.push(1); // always show first page
 
     if (currentPage > 3) {
       pages.push("ellipsis1");
     }
 
-    // Show pages around current page
     for (
       let i = Math.max(2, currentPage - 1);
       i <= Math.min(totalPages - 1, currentPage + 1);
@@ -31,8 +31,7 @@ function Pagination({ totalPages, currentPage, onPageChange }) {
       pages.push("ellipsis2");
     }
 
-    // Always show last page
-    pages.push(totalPages);
+    pages.push(totalPages); // always show last page
 
     return pages;
   };
@@ -40,45 +39,44 @@ function Pagination({ totalPages, currentPage, onPageChange }) {
   const pageNumbers = getPageNumbers();
 
   return (
-    <nav className="flex items-center justify-center space-x-1">
+    <nav className="flex flex-wrap justify-center items-center gap-2 sm:gap-3">
       <button
         onClick={() => currentPage > 1 && onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="p-2 cursor-pointer rounded-lg hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
-        aria-label="Previous page"
+        className="p-2 rounded-lg hover:bg-gray-100 disabled:opacity-50"
+        aria-label="Página anterior"
       >
         <ChevronLeft className="w-5 h-5" />
       </button>
 
-      {pageNumbers.map((pageNumber, index) => (
-        <React.Fragment key={index}>
-          {pageNumber === "ellipsis1" || pageNumber === "ellipsis2" ? (
-            <span className="px-4 py-2">
-              <MoreHorizontal className="w-5 h-5 text-gray-400" />
-            </span>
-          ) : (
-            <button
-              onClick={() => onPageChange(pageNumber)}
-              className={`w-10 h-10 text-center cursor-pointer  rounded-full text-sm font-medium transition-colors
-                ${
-                  currentPage === pageNumber
-                    ? "bg-blueRemax text-white"
-                    : "text-gray-600 hover:bg-gray-100"
-                }`}
-            >
-              {pageNumber}
-            </button>
-          )}
-        </React.Fragment>
-      ))}
+      {pageNumbers.map((pageNumber, index) =>
+        pageNumber.toString().includes("ellipsis") ? (
+          <span key={index} className="px-2 text-gray-400">
+            <MoreHorizontal className="w-5 h-5" />
+          </span>
+        ) : (
+          <button
+            key={index}
+            onClick={() => onPageChange(pageNumber)}
+            className={`w-9 h-9 sm:w-10 sm:h-10 text-sm font-medium rounded-full transition-colors
+              ${
+                currentPage === pageNumber
+                  ? "bg-blueRemax text-white"
+                  : "text-gray-600 hover:bg-gray-100"
+              }`}
+          >
+            {pageNumber}
+          </button>
+        )
+      )}
 
       <button
         onClick={() =>
           currentPage < totalPages && onPageChange(currentPage + 1)
         }
         disabled={currentPage === totalPages}
-        className="p-2 rounded-lg hover:bg-gray-100 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-        aria-label="Next page"
+        className="p-2 rounded-lg hover:bg-gray-100 disabled:opacity-50"
+        aria-label="Página siguiente"
       >
         <ChevronRight className="w-5 h-5" />
       </button>
@@ -86,22 +84,18 @@ function Pagination({ totalPages, currentPage, onPageChange }) {
   );
 }
 
-function Paginacion({setPagina, totalPaginas}) {
-  
+function Paginacion({ setPagina, totalPaginas }) {
   const [currentPage, setCurrentPage] = useState(1);
-  setPagina(currentPage)
-  const totalPages = totalPaginas
-  const items = Array.from({ length: 100 }, (_, i) => `Item ${i + 1}`);
-  const itemsPerPage = 10;
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const currentItems = items.slice(startIndex, endIndex);
+
+  useEffect(() => {
+    setPagina(currentPage);
+  }, [currentPage, setPagina]);
 
   return (
-    <div className="py-12 px-4">
-      <div className="w-70 lg:max-w-3xl mx-auto">
+    <div className="py-8 px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-3xl mx-auto">
         <Pagination
-          totalPages={totalPages}
+          totalPages={totalPaginas}
           currentPage={currentPage}
           onPageChange={setCurrentPage}
         />

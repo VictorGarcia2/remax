@@ -99,7 +99,7 @@ export default function Search({
       const response = await fetch(
         `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
           busquedaHome
-        )}.json?access_token=${mapboxgl.accessToken}`
+        )}.json?access_token=${mapboxgl.accessToken}&types=address,neighborhood,place&language=es&country=MX`
       );
       const data = await response.json();
       setAutoCompleteHome(data.features);
@@ -156,7 +156,7 @@ export default function Search({
               <div
                 className={`${
                   modalBusqueda && "invisible"
-                } top-19 absolute bg-white px-2 flex flex-col py-4 items-start  gap-2 rounded shadow-[0_3px_1px] shadow-black/50`}
+                } top-13 lg:top-19 absolute bg-white px-2 flex flex-col py-4 items-start  gap-2 rounded shadow-[0_3px_1px] shadow-black/50`}
               >
                 {autoCompleteHome &&
                   autoCompleteHome.map((item) => (
