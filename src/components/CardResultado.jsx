@@ -41,29 +41,28 @@ export default function CardResultado({
     const propiedadId = propiedadesVisibles[index].propiedad_id;
     const totalImages = propiedadesVisibles[index].imagenes.split(",").length;
     currentImageIndices.current[propiedadId] =
-    ((currentImageIndices.current[propiedadId] || 0) - 1 + totalImages) %
+      ((currentImageIndices.current[propiedadId] || 0) - 1 + totalImages) %
       totalImages;
-      forceUpdate();
-    };
+    forceUpdate();
+  };
   function truncateByCharacters(text, maxLength) {
     if (!text) return "";
     return text.length > maxLength
-    ? text.substring(0, maxLength) + "..."
-    : text;
+      ? text.substring(0, maxLength) + "..."
+      : text;
   }
-  
-  const [mostrarMapa, setMostrarMapa] = useState()
+
+  const [mostrarMapa, setMostrarMapa] = useState();
   const mostrar = [
-    {
-      icon: "faMap",
-      nombre: "Mapa",
-    },
     {
       icon: "faList",
       nombre: "Lista",
     },
+    {
+      icon: "faMap",
+      nombre: "Mapa",
+    },
   ];
-
 
   const handle = () => {
     setMapa((prevState) => !prevState);
