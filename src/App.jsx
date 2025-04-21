@@ -7,6 +7,8 @@ import PropiedadSeleccion from "./pages/PropiedadSeleccion/PropiedadSeleccion";
 import axios from "axios";
 
 import propierties from "/src/APi/propiedades.json";
+import Eleccion from "./pages/Eleccion";
+import NuestroEquipo from "./pages/NuestroEquipo";
 export default function App() {
   const [propiedades, setPropiedades] = useState([]);
   const [menuClose, setMenuClose] = useState(true);
@@ -23,6 +25,7 @@ export default function App() {
   const [precioMaximo, setPrecioMaximo] = useState(Infinity);
   const [aplicarFiltros, setAplicarFiltros] = useState(Date.now());
   const [seleccion, setSeleccion] = useState();
+  const [valor, setValor] = useState("");
   /* useEffect(() => {
     const getData = async () => {
       try {
@@ -46,10 +49,12 @@ export default function App() {
   return (
     <>
       <Routes>
+        <Route path="/" element={<Eleccion setValor={setValor} />} />
         <Route
-          path="/"
+          path={"/residencial"}
           element={
             <Residencial
+              valor={valor}
               setSelectedOptionsOperacion={setSelectedOptionsOperacion}
               setSelectedOptionsTipos={setSelectedOptionsTipos}
               setSelectedOptions={setSelectedOptions}
@@ -62,7 +67,6 @@ export default function App() {
             />
           }
         />
-        <Route path="/comercial" element={<Comercial />} />
         <Route
           path="/propiedades"
           element={
@@ -108,6 +112,7 @@ export default function App() {
             />
           }
         />
+        <Route path={"/NuestroEquipo"} element={<NuestroEquipo/>} />
       </Routes>
     </>
   );

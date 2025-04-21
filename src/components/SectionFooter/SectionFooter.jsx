@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 export default function SectionFooter() {
   return (
@@ -42,9 +43,9 @@ export default function SectionFooter() {
                 </h2>
                 <ul class="text-[#2e2c2c]  font-medium">
                   <li class="mb-4">
-                    <a href="https://flowbite.com/" class="hover:underline">
+                    <Link to={'/NuestroEquipo'} class="hover:underline">
                       Nuestro Equipo
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>

@@ -49,13 +49,13 @@ export default function Header() {
         >
           <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white ">
             <li>
-              <a
-                href="#"
+              <Link
+                to={"/"}
                 className="block py-2 px-3 text-white bg-blueRemax rounded-sm md:bg-transparent md:text-blue-700 md:p-0 "
                 aria-current="page"
               >
                 Inicio
-              </a>
+              </Link>
             </li>
             <li>
               <a
@@ -90,12 +90,12 @@ export default function Header() {
               </a>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                to={"/NuestroEquipo"}
                 className="block py-2 px-3 text-[#2e2c2c] rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 "
               >
                 Nuestro equipo
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
