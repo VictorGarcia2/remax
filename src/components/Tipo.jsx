@@ -1,95 +1,87 @@
-
-
-import { faBuildingUser, faChevronDown, faCity, faHouse, faMapLocationDot, faPenRuler } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
-export default function Tipo({setSelectedOptionsTipos}) {
-   
-    // Función para manejar los cambios de los checkboxes
-    const handleCheckboxChange = (event) => {
-      const value = event.target.value;
-      if (event.target.checked) {
-        // Si está marcado, añadirlo al array
-        setSelectedOptionsTipos((prev) => [...prev, value]);
-      } else {
-        // Si está desmarcado, eliminarlo del array
-        setSelectedOptionsTipos((prev) => prev.filter((item) => item !== value));
-      }
-    };
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faBuildingUser,
+  faChevronDown,
+  faCity,
+  faHouse,
+  faMapLocationDot,
+  faPenRuler,
+} from "@fortawesome/free-solid-svg-icons";
 
-
-    
-  const lugares = [
-    { icon: <FontAwesomeIcon icon={faHouse} />,
-      nombre: "Casa", "tipo_id": 1, },
-    { icon: <FontAwesomeIcon icon={faCity} />,
-      nombre: "Casa en Condominio", "tipo_id": 2, },
-    { 
-      icon: <FontAwesomeIcon icon={faBuildingUser} />,
-      nombre: "Departamento", "tipo_id": 3, },
-    { 
-      icon: <FontAwesomeIcon icon={faPenRuler} />,
-      nombre: "Desarrollo", "tipo_id": 6,  },
-    { 
-      icon: <FontAwesomeIcon icon={faMapLocationDot} />,
-      nombre: "Terreno", "tipo_id": 4, }
-  ];
+export default function Tipo({ setSelectedOptionsTipos }) {
   const [openModal, setOpenModal] = useState(true);
-  const handle = () => {
-    setOpenModal((prevState) => !prevState);
+
+  const lugares = [
+    { icon: faHouse, nombre: "Casa", tipo_id: 1 },
+    { icon: faCity, nombre: "Casa en Condominio", tipo_id: 2 },
+    { icon: faBuildingUser, nombre: "Departamento", tipo_id: 3 },
+    { icon: faPenRuler, nombre: "Desarrollo", tipo_id: 6 },
+    { icon: faMapLocationDot, nombre: "Terreno", tipo_id: 4 },
+  ];
+
+  const toggleModal = () => setOpenModal((prev) => !prev);
+
+  const handleCheckboxChange = (event) => {
+    const { value, checked } = event.target;
+    setSelectedOptionsTipos((prev) =>
+      checked ? [...prev, value] : prev.filter((item) => item !== value)
+    );
   };
+
   return (
     <>
-    <div onClick={handle} className={`${openModal && "hidden"} h-[1900px] w-[1000px] z-10  absolute`}>
+      {/* Overlay */}
+      {!openModal && (
+        <div
+          onClick={toggleModal}
+          className="h-[1900px] w-[1000px] z-10 absolute"
+        ></div>
+      )}
 
-    </div>
-      <div className="flex flex-col   ">
-      <div
-        onClick={handle}
-        className="flex  justify-center items-center gap-2 bg-gray-100 rounded-2xl relative px-3 py-2 cursor-pointer"
-      >
-        {" "}
-        <p className="text-xl"> Tipo </p>
-        <FontAwesomeIcon
-        className={`${
-          openModal && "rotate-180 ease-in"
-        } rotate-0 transform  `}
-        icon={faChevronDown}
-        />
-      </div>
-      {/* Modal */}
-      <form
-        className={` ${
-        openModal && "hidden"
-        } z-50 bg-gray-100 z- py-5 rounded-2xl px-4 absolute mt-13 flex flex-col gap-4`}
-      >
-        <div>
-        {
-          lugares.map((lugar, index) => (
-          <div key={index} className="flex  justify-between  items-center mb-4">
-            <div>
-            {lugar.icon}
-            <label
-            htmlFor={`checkbox-${index}`}
-            className="mx-2 text-sm font-medium text-gray-900 "
-            >
-            {lugar.nombre}
-            </label>
-            </div>
-            <input
-            id={`checkbox-${index}`}
-            type="checkbox"
-            name="tipo"
-            value={lugar.tipo_id}
-            onChange={handleCheckboxChange}
-            className="w-4 h-4 text-red-600  bg-gray-100 border-gray-300 rounded-sm focus:ring-red-600 "
-            />
-          </div>
-          ))
-        }           
+      <div className="flex flex-col">
+        {/* Dropdown Button */}
+        <div
+          onClick={toggleModal}
+          className="flex justify-center items-center gap-2 bg-gray-100 rounded-2xl px-3 py-2 cursor-pointer"
+        >
+          <p className="text-xl">Tipo</p>
+          <FontAwesomeIcon
+            className={`transform ${
+              openModal ? "rotate-0" : "rotate-180"
+            } transition-transform`}
+            icon={faChevronDown}
+          />
         </div>
-      </form>
+
+        {/* Modal */}
+        {!openModal && (
+          <form className="z-50 bg-gray-100 py-5 rounded-2xl px-4 absolute mt-13 flex flex-col gap-4">
+            {lugares.map(({ icon, nombre, tipo_id }, index) => (
+              <div
+                key={tipo_id}
+                className="flex justify-between items-center mb-4"
+              >
+                <label className="flex items-center cursor-pointer w-full justify-between">
+                  <div className="flex items-center">
+                    <FontAwesomeIcon icon={icon} />
+                    <span className="mx-2 text-sm font-medium text-gray-900">
+                      {nombre}
+                    </span>
+                  </div>
+                  <input
+                    type="checkbox"
+                    name="tipo"
+                    value={tipo_id}
+                    onChange={handleCheckboxChange}
+                    className="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-red-600"
+                  />
+                </label>
+              </div>
+            ))}
+          </form>
+        )}
       </div>
     </>
-    );
+  );
 }

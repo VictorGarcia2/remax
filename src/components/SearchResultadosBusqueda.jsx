@@ -1,11 +1,18 @@
+import { faFilter } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
-export default function SearchResultadosBusqueda({ menuClose, setMenuClose,setBusqueda, busqueda }) {
+export default function SearchResultadosBusqueda({
+  menuClose,
+  setMenuClose,
+  setBusqueda,
+  busqueda,
+}) {
   const handle = () => {
     setMenuClose(false);
   };
   return (
-    <div className="flex justify-center px-5 gap-4 xl:hidden">
+    <div className="flex justify-center items-center px-5 gap-4 xl:hidden">
       <div className=" flex w-60 justify-around shadow-[0_3px_1px] shadow-[#BBBBBB]/50  rounded-[15px] h-[30px] border border-[#BBBBBB] ">
         <input
           value={busqueda}
@@ -23,12 +30,9 @@ export default function SearchResultadosBusqueda({ menuClose, setMenuClose,setBu
           alt=""
         />
       </div>
-      <img
-        className="xl:hidden"
-        onClick={handle}
-        src="/HomePageContent/Filter.svg"
-        alt=""
-      />
+      <div className="xl:hidden" onClick={handle}>
+        <FontAwesomeIcon icon={faFilter} color="#7b7b7b" size="xl" />
+      </div>
     </div>
   );
 }

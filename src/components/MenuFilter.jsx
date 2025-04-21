@@ -1,20 +1,81 @@
+import {
+  faBuildingUser,
+  faCity,
+  faHouse,
+  faMapLocationDot,
+  faPenRuler,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 
-export default function MenuFilter({ menuClose, setMenuClose }) {
+export default function MenuFilter({
+  menuClose,
+  setMenuClose,
+  setPrecioMinimo,
+  setPrecioMaximo,
+  precioMinimo,
+  precioMaximo,
+  setSelectedOptionsTipos,
+  setSelectedOptionsOperacion,
+  setSelectedOptions,
+}) {
   const [openSections, setOpenSections] = useState({
     "accordion-collapse-body-1": true,
     "accordion-collapse-body-2": true,
     "accordion-collapse-body-3": true,
+    "accordion-collapse-body-4": true,
   });
   const toggleSection = (sectionId) => {
-    setOpenSections((prevState) => ({...prevState, [sectionId]: !prevState[sectionId],}));
+    setOpenSections((prevState) => ({
+      ...prevState,
+      [sectionId]: !prevState[sectionId],
+    }));
   };
+  const handleCheckboxChangeTipo = (event) => {
+    const { value, checked } = event.target;
+    setSelectedOptionsTipos((prev) =>
+      checked ? [...prev, value] : prev.filter((item) => item !== value)
+    );
+  };
+  const handleCheckboxChangeOperacion = (event) => {
+    const { value, checked } = event.target;
+    console.log(value)
+    setSelectedOptionsOperacion((prev) =>
+      checked ? [...prev, value] : prev.filter((item) => item !== value)
+    );
+  };
+  const handleCheckboxChangeSector = (event) => {
+    const value = event.target.value.toLowerCase();
+    if (event.target.checked) {
+      // Si está marcado, añadirlo al array
+      setSelectedOptions((prev) => [...prev, value]);
+    } else {
+      // Si está desmarcado, eliminarlo del array
+      setSelectedOptions((prev) => prev.filter((item) => item !== value));
+    }
+  };
+  const sector = [
+    { icon: <FontAwesomeIcon icon={faCity} />, nombre: "Residencial" },
+    { icon: <FontAwesomeIcon icon={faBuildingUser} />, nombre: "Comercial" },
+  ];
+  const lugares = [
+    { icon: faHouse, nombre: "Casa", tipo_id: 1 },
+    { icon: faBuildingUser, nombre: "Casa en Condominio", tipo_id: 2 },
+    { icon: faCity, nombre: "Departamento", tipo_id: 3 },
+    { icon: faPenRuler, nombre: "Desarrollo", tipo_id: 6 },
+    { icon: faMapLocationDot, nombre: "Terreno", tipo_id: 4 },
+  ];
+  const operation = [
+    { icon: faBuildingUser, nombre: 1, titulo: "Venta" },
+    { icon: faCity, nombre: 2, titulo: "Renta" },
+  ];
+
   return (
     //Mobile
     <div
       className={`${
         menuClose && "hidden"
-      }  w-screen top-0 h-screen fixed text-[#7B7B7B] font-display z-50 bg-white`}
+      }  w-screen top-0 h-screen fixed text-[#7B7B7B] font-display px-5 z-50 bg-white`}
     >
       <div
         className="flex flex-col py-4 items-center w-full "
@@ -71,33 +132,40 @@ export default function MenuFilter({ menuClose, setMenuClose }) {
             </div>
             <div
               id="accordion-collapse-body-1"
-              className={`transition-all duration-300 ease-in-out flex flex-col items-center  ${
+              className={`transition-all duration-300 ease-in-out flex flex-col items-end  ${
                 openSections["accordion-collapse-body-1"]
                   ? "max-h-screen opacity-100"
                   : "max-h-0 opacity-0"
               } overflow-hidden `}
               aria-labelledby="accordion-collapse-heading-1"
             >
-              <div className="flex flex-col items-end text-base  mt-1 w-full px-4">
-                <label className="flex items-center gap-3" htmlFor="">
-                  <img
-                    loading="lazy"
-                    src="/HomePageContent/sectorcomercialicon.svg"
-                    alt=""
-                  />
-                  Comercial
-                  <input type="radio" name="opt" id="" />
-                </label>
-                <label className="flex items-center gap-3 mb-2" htmlFor="">
-                  <img
-                    loading="lazy"
-                    src="/HomePageContent/sectorresidencialicon.svg"
-                    alt=""
-                  />
-                  Residencial
-                  <input type="radio" name="opt" id="" />
-                </label>
+              <div className="z-50  flex text-base flex-col items-end   mt-1 px-4">
+                {sector.map((lugar, index) => (
+                  <div
+                    key={index}
+                    className="flex  justify-between  items-center mb-4"
+                  >
+                    <div>
+                      {lugar.icon}
+                      <label
+                        htmlFor={`checkbox-${index}`}
+                        className="mx-2 text-sm font-medium text-gray-900 "
+                      >
+                        {lugar.nombre}
+                      </label>
+                    </div>
+                    <input
+                      id={`checkbox-${index}`}
+                      type="checkbox"
+                      name="tipo"
+                      value={lugar.nombre}
+                      onChange={handleCheckboxChangeSector}
+                      className="w-4 h-4 text-red-600  bg-gray-100 border-gray-300 rounded-sm focus:ring-red-600 "
+                    />
+                  </div>
+                ))}
               </div>
+
               <hr className="w-full static text-[#7b7b7b7b]" />
             </div>
           </div>
@@ -140,23 +208,38 @@ export default function MenuFilter({ menuClose, setMenuClose }) {
             </div>
             <div
               id="accordion-collapse-body-2"
-              className={` transition-all duration-300 ease-in-out flex flex-col items-center  ${
+              className={` transition-all duration-300 ease-in-out flex flex-col items-end ${
                 openSections["accordion-collapse-body-2"]
                   ? "max-h-screen opacity-100"
                   : "max-h-0 opacity-0"
               } overflow-hidden `}
               aria-labelledby="accordion-collapse-heading-2"
             >
-              <div className="flex text-base flex-col items-end  mt-1 w-full px-4">
-                <label className="flex items-center gap-3" htmlFor="">
-                  Venta
-                  <input type="checkbox" name="opt" id="" />
-                </label>
-                <label className="flex items-center gap-3 mb-2" htmlFor="">
-                  Renta
-                  <input type="checkbox" name="opt" id="" />
-                </label>
-              </div>
+              <form className="z-50  flex text-base flex-col items-end  mt-1 px-4">
+                {operation.map(({ icon, nombre, titulo }, index) => (
+                  <div
+                    key={index}
+                    className="flex justify-between items-center mb-4"
+                  >
+                    <div className="flex items-center">
+                      <FontAwesomeIcon icon={icon} />
+                      <label
+                        htmlFor={`checkbox-${index}`}
+                        className="mx-2 text-sm font-medium text-gray-900"
+                      >
+                        {titulo}
+                      </label>
+                    </div>
+                    <input
+                      id={`checkbox-${index}`}
+                      type="checkbox"
+                      value={nombre}
+                      onChange={handleCheckboxChangeOperacion}
+                      className="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-red-600"
+                    />
+                  </div>
+                ))}
+              </form>
               <hr className="w-full static text-[#7b7b7b7b]" />
             </div>
           </div>
@@ -206,28 +289,115 @@ export default function MenuFilter({ menuClose, setMenuClose }) {
               } overflow-hidden `}
               aria-labelledby="accordion-collapse-heading-3"
             >
-              <div className="flex text-base justify-between items-center mb-4  mt-3 w-full px-4">
-                <label className="flex items-center gap-3" htmlFor="">
+              <div className="flex gap-2">
+                <label className="flex items-center gap-2">
                   De:
                   <input
-                    className="w-30 border-b border-[#7b7b7b7b]"
-                    type="text"
-                    name="opt"
-                    placeholder="10000"
-                    id=""
+                    type="text" // Cambiado de number a text para mejor control del formato
+                    value={precioMinimo ? precioMinimo.toLocaleString() : ""}
+                    onChange={(e) => {
+                      const rawValue = e.target.value.replace(/[^0-9]/g, "");
+                      setPrecioMinimo(
+                        rawValue === "" ? null : parseFloat(rawValue)
+                      );
+                    }}
+                    className="border-b border-t-0 border-s-0 border-e-0 px-1 w-32"
+                    placeholder="1,000 MXN"
                   />
                 </label>
-                <label className="flex items-center gap-3 " htmlFor="">
+                <label className="flex items-center gap-2">
                   Hasta:
                   <input
-                    className="w-30 border-b border-[#7b7b7b7b]"
-                    type="text"
-                    name="opt"
-                    placeholder="1000000"
-                    id=""
+                    type="text" // Cambiado de number a text
+                    value={
+                      precioMaximo && precioMaximo !== Infinity
+                        ? precioMaximo.toLocaleString()
+                        : ""
+                    }
+                    onChange={(e) => {
+                      const rawValue = e.target.value.replace(/[^0-9]/g, "");
+                      setPrecioMaximo(
+                        rawValue === "" ? null : parseFloat(rawValue)
+                      );
+                    }}
+                    className="border-b border-t-0 border-s-0 border-e-0 px-1 w-32"
+                    placeholder="50,300,000 MXN"
                   />
                 </label>
               </div>
+              <hr className="w-full static text-[#7b7b7b7b]" />
+            </div>
+          </div>
+          <div className="rounded-[8px] mt-2 gap-3 ">
+            <div
+              className="flex items-center px-5 justify-end"
+              id="accordion-collapse-heading-3"
+            >
+              <button
+                type="button"
+                className="px-4 text-2xl font-display"
+                onClick={() => toggleSection("accordion-collapse-body-4")}
+                aria-expanded={
+                  openSections["accordion-collapse-body-3"] || false
+                }
+                aria-controls="accordion-collapse-body-3"
+              >
+                Tipos
+              </button>
+              <svg
+                data-accordion-icon
+                className={`w-3 h-3 shrink-0 transition-transform duration-300 ${
+                  openSections["accordion-collapse-body-4"]
+                    ? "rotate-0"
+                    : "rotate-180"
+                }`}
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 10 6"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M9 5 5 1 1 5"
+                />
+              </svg>
+            </div>
+            <div
+              id="accordion-collapse-body-3"
+              className={` transition-all duration-300 ease-in-out flex flex-col items-end  ${
+                openSections["accordion-collapse-body-4"]
+                  ? "max-h-screen opacity-100"
+                  : "max-h-0 opacity-0"
+              } overflow-hidden `}
+              aria-labelledby="accordion-collapse-heading-3"
+            >
+              <form className="z-50  flex text-base flex-col items-end   mt-1 px-4 ">
+                {lugares.map(({ icon, nombre, tipo_id }, index) => (
+                  <div
+                    key={tipo_id}
+                    className="flex justify-between items-center mb-4"
+                  >
+                    <label className="flex items-center cursor-pointer w-full justify-between">
+                      <div className="flex items-center">
+                        <FontAwesomeIcon icon={icon} />
+                        <span className="mx-2 text-sm font-medium text-gray-900">
+                          {nombre}
+                        </span>
+                      </div>
+                      <input
+                        type="checkbox"
+                        name="tipo"
+                        value={tipo_id}
+                        onChange={handleCheckboxChangeTipo}
+                        className="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-red-600"
+                      />
+                    </label>
+                  </div>
+                ))}
+              </form>
               <hr className="w-full static text-[#7b7b7b7b]" />
             </div>
           </div>
@@ -236,7 +406,7 @@ export default function MenuFilter({ menuClose, setMenuClose }) {
               Limpiar
             </button>
             <button className="w-20 h-10 bg-[#DB1C2E] rounded text-white">
-              Aplicar
+              Cerrar
             </button>
           </div>
         </form>

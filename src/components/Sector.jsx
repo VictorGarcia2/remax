@@ -1,4 +1,8 @@
-import { faChevronDown, faCity, faHouse } from "@fortawesome/free-solid-svg-icons";
+import {
+  faChevronDown,
+  faCity,
+  faHouse,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 
@@ -11,19 +15,16 @@ export default function Sector({ setSelectedOptions }) {
   const handleCheckboxChange = (event) => {
     const value = event.target.value.toLowerCase();
     if (event.target.checked) {
-  
       // Si está marcado, añadirlo al array
       setSelectedOptions((prev) => [...prev, value]);
     } else {
       // Si está desmarcado, eliminarlo del array
       setSelectedOptions((prev) => prev.filter((item) => item !== value));
-    
     }
   };
-  const lugares = [
+  const sector = [
     { icon: <FontAwesomeIcon icon={faHouse} />, nombre: "Residencial" },
-    { icon: <FontAwesomeIcon icon={faCity} />, nombre: "Comercial",  },
- 
+    { icon: <FontAwesomeIcon icon={faCity} />, nombre: "Comercial" },
   ];
 
   return (
@@ -61,7 +62,7 @@ export default function Sector({ setSelectedOptions }) {
           } z-50 bg-gray-100 py-5 rounded-2xl px-4 absolute mt-13 flex flex-col gap-4`}
         >
           <div>
-            {lugares.map((lugar, index) => (
+            {sector.map((lugar, index) => (
               <div
                 key={index}
                 className="flex  justify-between  items-center mb-4"

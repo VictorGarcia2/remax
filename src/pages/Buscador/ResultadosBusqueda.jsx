@@ -36,9 +36,24 @@ export default function ResultadosBusqueda({
   setSelectedOptionsOperacion,
   selectedOptionsOperacion,
 }) {
+  console.log("selectedOptionsOperacion", selectedOptionsOperacion);
   return (
     <>
-      <MenuFilter menuClose={menuClose} setMenuClose={setMenuClose} />
+      <MenuFilter
+      setSelectedOptionsOperacion={setSelectedOptionsOperacion}
+
+        precioMaximo={precioMaximo}
+        setPrecioMaximo={setPrecioMaximo}
+        precioMinimo={precioMinimo}
+        setPrecioMinimo={setPrecioMinimo}
+        setBusqueda={setBusqueda}
+        busqueda={busqueda}
+        setSelectedOptionsTipos={setSelectedOptionsTipos}
+        menuClose={menuClose}
+        setMenuClose={setMenuClose}
+        setSelectedOptions={setSelectedOptions}
+        selectedOptions={selectedOptions}
+      />
       <HeaderResultadoBusqueda />
       <div className="hidden sm:block">
         <FiltrosDesktop

@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Link } from "react-router";
 import Mapbox from "./Mapbox";
-import { faCircleExclamation, faMap } from "@fortawesome/free-solid-svg-icons";
+import { faCircleExclamation, faList, faMap } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function CardResultado({
   propiedades,
@@ -69,17 +69,17 @@ export default function CardResultado({
   };
   return (
     <div className="grid grid-cols-1 xl:grid-cols-2 justify-center items-start">
-      <div className="fixed lg:invisible z-50 flex bottom-5 left-30 w-full">
+      <div className="fixed lg:invisible z-40 flex bottom-10 left-30 w-full">
         <button
           onClick={() => {
             handle();
             setMostrarMapa((prevState) => (prevState === 0 ? 1 : 0));
           }}
           type="button"
-          className="inline-flex mx-auto gap-2 bg-gray-200 items-center px-4 py-2 text-sm font-medium text-[#7b7b7b] border-gray-900 rounded-3xl hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-blueRemax/50 focus:bg-blueRemax focus:text-white"
+          className="inline-flex mx-auto gap-2 bg-gray-900  items-center px-4 py-2 text-sm font-medium text-white border-gray-900 rounded-3xl hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-redRemax/50 focus:bg-redRemax focus:text-white"
         >
           <FontAwesomeIcon
-            icon={mostrarMapa === 0 ? faMap : faCircleExclamation}
+            icon={mostrarMapa === 0 ? faList : faMap}
           />
           {mostrarMapa === 0 ? mostrar[0].nombre : mostrar[1].nombre}
         </button>
