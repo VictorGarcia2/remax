@@ -282,7 +282,7 @@ const MapboxConCards = ({
   return (
     <div className="w-full  flex flex-col lg:flex-row gap-4">
       {/* Mapa */}
-      <div className="w-full h-screen lg:h-[700px] relative">
+      <div className="w-full h-[400px] lg:h-[700px] relative">
         <div
           ref={mapContainerRef}
           style={{ width: "100%", height: "100%" }}
