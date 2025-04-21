@@ -15,7 +15,12 @@ export default function HomeSearch({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [data, setData] = useState([]);
   const [selectedKey, setSelectedKey] = useState(null); // se inicializa vacío
-  const images = ["HomePageContent/diapo1.webp", "HomePageContent/diapo2.webp"];
+  const imagesByValor = {
+    comercial: ["HomePageContent/comercial1.webp", "HomePageContent/comercial2.webp"],
+    residencial: ["HomePageContent/residencial1.webp", "HomePageContent/residencial2.webp"],
+  };
+
+  const images = imagesByValor[valor] || ["HomePageContent/default1.webp", "HomePageContent/default2.webp"];
 
   // Control de slides
   useEffect(() => {
@@ -23,7 +28,7 @@ export default function HomeSearch({
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [images]);
 
   // Sincronizar selectedKey desde localStorage o prop valor
   useEffect(() => {
