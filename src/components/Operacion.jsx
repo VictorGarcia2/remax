@@ -36,7 +36,7 @@ export default function Operacion({ setSelectedOptionsOperacion }) {
           onClick={toggleModal}
           className="flex justify-center items-center gap-2 bg-gray-100 rounded-2xl px-3 py-2 cursor-pointer"
         >
-          <p className="text-xl">Operacion</p>
+          <p className="text-lg sm:text-xl md:text-xl 2xl:text-2xl">Operacion</p>
           <FontAwesomeIcon
             className={`transform transition-transform ${
               openModal ? "rotate-180" : "rotate-0"

@@ -1,7 +1,11 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Link } from "react-router";
 import Mapbox from "./Mapbox";
-import { faCircleExclamation, faList, faMap } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCircleExclamation,
+  faList,
+  faMap,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function CardResultado({
   propiedades,
@@ -78,9 +82,7 @@ export default function CardResultado({
           type="button"
           className="inline-flex mx-auto gap-2 bg-gray-900  items-center px-4 py-2 text-sm font-medium text-white border-gray-900 rounded-3xl hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-redRemax/50 focus:bg-redRemax focus:text-white"
         >
-          <FontAwesomeIcon
-            icon={mostrarMapa === 0 ? faList : faMap}
-          />
+          <FontAwesomeIcon icon={mostrarMapa === 0 ? faList : faMap} />
           {mostrarMapa === 0 ? mostrar[0].nombre : mostrar[1].nombre}
         </button>
       </div>
@@ -89,7 +91,7 @@ export default function CardResultado({
           mapa && "hidden"
         } overflow-y-scroll h-[660px] lg:h-[700px] relative`}
       >
-        <div className="grid grid-cols-1 xl:grid-cols-3 justify-center md:gap-3 pb-22 items-center md:px-8 relative">
+        <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 justify-center md:gap-3 pb-22 items-center md:px-8 relative">
           {propiedadesVisibles && propiedadesVisibles.length > 0 ? (
             propiedadesVisibles.map((item, index) => {
               const currentIndex =
@@ -101,7 +103,7 @@ export default function CardResultado({
                   className="w-full flex flex-col mt-5  mb-30 lg:mb-20 justify-center items-center"
                 >
                   {/* Flechas */}
-                  <div className="flex absolute justify-around mx-auto gap-50">
+                  <div className="flex absolute justify-around mx-auto xl:gap-40 2xl:gap-50 ">
                     <img
                       loading="lazy"
                       onClick={() => goToPrevious(index)}
@@ -138,7 +140,7 @@ export default function CardResultado({
                     id={item.propiedad_id}
                     onClick={() => setSeleccion(item.propiedad_id)} // No es necesario para la ruta, pero si necesitas almacenar el ID, lo mantienes
                     to={`/propiedades/seleccion/${item.propiedad_id}`} // Usa directamente item.propiedad_id
-                    className="w-[280px] bg-white h-28 absolute mt-[260px] rounded-2xl shadow flex flex-col items-center pt-2 font-display"
+                    className=" 2xl:w-[280px] bg-white h-28 absolute mt-[260px] rounded-2xl shadow flex flex-col items-center pt-2 font-display"
                   >
                     <p className="text-base font-bold text-[#7B7B7B]">
                       {Number(item.mxn_corriente).toLocaleString("en-US")}MXN
@@ -159,10 +161,6 @@ export default function CardResultado({
                       <p>{item.m2_construccion}m²</p>
                     </div>
                     <div
-                      /*  href={`https://wa.me/${
-                        item.telefono_agente || "52XXXXXXXXXX"
-                      }`} */
-                      /* target="_blank" */
                       rel="noopener noreferrer"
                       className="bg-blue-800 rounded-2xl w-[73px] h-[29px] shadow-2xs py-1 flex items-center justify-center mt-4"
                     >

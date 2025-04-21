@@ -41,7 +41,6 @@ export default function ResultadosBusqueda({
     <>
       <MenuFilter
       setSelectedOptionsOperacion={setSelectedOptionsOperacion}
-
         precioMaximo={precioMaximo}
         setPrecioMaximo={setPrecioMaximo}
         precioMinimo={precioMinimo}

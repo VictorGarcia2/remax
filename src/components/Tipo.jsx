@@ -45,7 +45,7 @@ export default function Tipo({ setSelectedOptionsTipos }) {
           onClick={toggleModal}
           className="flex justify-center items-center gap-2 bg-gray-100 rounded-2xl px-3 py-2 cursor-pointer"
         >
-          <p className="text-xl">Tipo</p>
+          <p className="text-lg sm:text-xl md:text-xl 2xl:text-2xl">Tipo</p>
           <FontAwesomeIcon
             className={`transform ${
               openModal ? "rotate-0" : "rotate-180"

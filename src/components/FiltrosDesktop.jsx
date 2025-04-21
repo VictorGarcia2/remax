@@ -70,7 +70,7 @@ export default function FiltrosDesktop({
   }, [limpiar]);
   return (
     <div className="grid grid-cols-2 ">
-      <div className="flex px-21 gap-2 items-center justify-between ">
+      <div className="flex px-7 2xl:px-21 gap-2 items-center justify-between ">
         {
           <RangoDePrecio
             setAplicarFiltros={setAplicarFiltros}

@@ -6,7 +6,7 @@ export default function CantidadPropiedades({propiedadesVisibles}) {
 
   return (
     <>
-          <div  className='px-17 mt-4 text-[#7b7b7b]'>Propiedades disponibles: {count}</div>
+          <div  className=' mt-4 mx-auto flex justify-center md:justify-start md:px-17 w-full text-[#7b7b7b]'>Propiedades disponibles: {count}</div>
     </>
   )
 }
