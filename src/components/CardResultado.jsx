@@ -72,7 +72,7 @@ export default function CardResultado({
     setMapa((prevState) => !prevState);
   };
   return (
-    <div className="grid grid-cols-1 xl:grid-cols-2 justify-center items-start">
+    <div className="grid grid-cols-1 xl:grid-cols-2 justify-center  items-start">
       <div className="fixed lg:invisible z-40 flex bottom-10 left-30 w-full">
         <button
           onClick={() => {
@@ -103,7 +103,7 @@ export default function CardResultado({
                   className="w-full flex flex-col mt-5  mb-30 lg:mb-20 justify-center items-center"
                 >
                   {/* Flechas */}
-                  <div className="flex absolute justify-around mx-auto xl:gap-40 2xl:gap-50 ">
+                  <div className="flex absolute justify-around mx-auto gap-70 xl:gap-40 2xl:gap-50 ">
                     <img
                       loading="lazy"
                       onClick={() => goToPrevious(index)}
