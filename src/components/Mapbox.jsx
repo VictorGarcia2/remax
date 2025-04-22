@@ -149,9 +149,9 @@ const MapboxConCards = ({
     } */
 
     return (
-      <div className="w-full flex flex-col mt-5 mb-30 lg:mb-20 justify-center items-center">
+      <div className="w-[300px] flex flex-col mt-5 mb-30 lg:mb-20 justify-center items-center">
         {/* Flechas */}
-        <div className="flex absolute justify-around mx-auto gap-70 xl:gap-40 2xl:gap-50 ">
+    {/*     <div className="flex absolute justify-around mx-auto gap-70 xl:gap-40 2xl:gap-50 ">
           <img
             loading="lazy"
             onClick={goToPrevious}
@@ -166,33 +166,33 @@ const MapboxConCards = ({
             alt="Siguiente"
             className="cursor-pointer"
           />
-        </div>
+        </div> */}
 
         {/* Imagen actual */}
         <div className="flex">
           <img
             loading="lazy"
-            className="w-[353px] h-[198px] object-cover rounded-2xl"
+            className=" w-[200px] h-[100px] lg:w-[280px] lg:h-[140px] object-cover rounded-t-2xl"
             src={`https://cdn.remax.com.mx/properties/${prop.propiedad_id}/${imagenesArray[currentIndex]}`}
             alt={`Imagen ${currentIndex + 1}`}
           />
         </div>
 
         {/* Paginación */}
-        <p className="z-40 mt-27 absolute bg-black/40 rounded-full p-1 text-white text-sm">
+        {/* <p className="z-40 mt-27 absolute bg-black/40 rounded-full p-1 text-white text-sm">
           {currentIndex + 1}/{imagenesArray.length}
-        </p>
+        </p> */}
 
         {/* Info propiedad */}
         <a
           href={`/propiedades/seleccion/${prop.propiedad_id}`}
           style={{ textDecoration: "none" }}
-          className="2xl:w-[280px] bg-white h-28 absolute mt-[260px] rounded-2xl shadow flex flex-col items-center pt-2 font-display"
+          className="w-[200px] mt-[210px] 2xl:w-[280px] bg-white lg:h-28 absolute lg:mt-[250px] rounded-b-2xl shadow flex flex-col items-center  font-display"
         >
-          <p className="text-base font-bold text-[#7B7B7B]">
+          <p className="text-sm font-bold text-[#7B7B7B]">
             {Number(prop.mxn_corriente).toLocaleString("en-US")}MXN
           </p>
-          <p className="text-base px-2 text-center w-[250px] font-[500] text-[#7B7B7B]">
+          <p className="text-base md:text-base px-2 text-center w-[250px] font-[500] text-[#7B7B7B]">
             {prop.calle}
           </p>
           <div className="flex text-[#7B7B7B] font-[500] text-[15px]">
