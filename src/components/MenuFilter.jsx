@@ -402,10 +402,10 @@ export default function MenuFilter({
             </div>
           </div>
           <div className="flex justify-evenly w-full bottom-10 fixed z-50">
-            <button className="w-20 h-10 text-[#DB1C2E] rounded ">
+            <button type="button" className="w-20 h-10 text-[#DB1C2E] rounded ">
               Limpiar
             </button>
-            <button className="w-20 h-10 bg-[#DB1C2E] rounded text-white">
+            <button type="button" className="w-20 h-10 bg-[#DB1C2E] rounded text-white">
               Cerrar
             </button>
           </div>
