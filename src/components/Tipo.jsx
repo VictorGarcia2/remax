@@ -9,7 +9,7 @@ import {
   faPenRuler,
 } from "@fortawesome/free-solid-svg-icons";
 
-export default function Tipo({ setSelectedOptionsTipos }) {
+export default function Tipo({ selectedOptionsTipos, setSelectedOptionsTipos }) {
   const [openModal, setOpenModal] = useState(true);
 
   const lugares = [
@@ -24,14 +24,14 @@ export default function Tipo({ setSelectedOptionsTipos }) {
 
   const handleCheckboxChange = (event) => {
     const { value, checked } = event.target;
+    const intValue = parseInt(value);
     setSelectedOptionsTipos((prev) =>
-      checked ? [...prev, value] : prev.filter((item) => item !== value)
+      checked ? [...prev, intValue] : prev.filter((item) => item !== intValue)
     );
   };
 
   return (
     <>
-      {/* Overlay */}
       {!openModal && (
         <div
           onClick={toggleModal}
@@ -40,7 +40,6 @@ export default function Tipo({ setSelectedOptionsTipos }) {
       )}
 
       <div className="flex flex-col">
-        {/* Dropdown Button */}
         <div
           onClick={toggleModal}
           className="flex justify-center items-center gap-2 bg-gray-100 rounded-2xl px-3 py-2 cursor-pointer"
@@ -54,10 +53,9 @@ export default function Tipo({ setSelectedOptionsTipos }) {
           />
         </div>
 
-        {/* Modal */}
         {!openModal && (
           <form className="z-50 bg-gray-100 py-5 rounded-2xl px-4 absolute mt-13 flex flex-col gap-4">
-            {lugares.map(({ icon, nombre, tipo_id }, index) => (
+            {lugares.map(({ icon, nombre, tipo_id }) => (
               <div
                 key={tipo_id}
                 className="flex justify-between items-center mb-4"
@@ -73,6 +71,7 @@ export default function Tipo({ setSelectedOptionsTipos }) {
                     type="checkbox"
                     name="tipo"
                     value={tipo_id}
+                    checked={selectedOptionsTipos.includes(tipo_id)}
                     onChange={handleCheckboxChange}
                     className="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-red-600"
                   />
@@ -85,3 +84,4 @@ export default function Tipo({ setSelectedOptionsTipos }) {
     </>
   );
 }
+

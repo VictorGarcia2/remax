@@ -34,7 +34,7 @@ export default function ResultadosBusqueda({
   selectedOptionsTipos,
   setSelectedOptionsOperacion,
   selectedOptionsOperacion,
-  selectedOptions
+  selectedOptions, 
 }) {
  
   return (
@@ -56,7 +56,6 @@ export default function ResultadosBusqueda({
       <HeaderResultadoBusqueda />
       <div className="hidden sm:block">
         <FiltrosDesktop
-
           setSelectedOptionsOperacion={setSelectedOptionsOperacion}
           setSelectedOptionsTipos={setSelectedOptionsTipos}
           setAplicarFiltros={setAplicarFiltros}

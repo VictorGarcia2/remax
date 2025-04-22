@@ -3,39 +3,16 @@ import { ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react";
 
 function Pagination({ totalPages, currentPage, onPageChange }) {
   const getPageNumbers = () => {
-    const pages = [];
-    const showEllipsis = totalPages > 7;
-
-    if (!showEllipsis) {
-      for (let i = 1; i <= totalPages; i++) {
-        pages.push(i);
-      }
-      return pages;
-    }
-
-    pages.push(1); // always show first page
-
-    if (currentPage > 3) {
-      pages.push("ellipsis1");
-    }
-
-    for (
-      let i = Math.max(2, currentPage - 1);
-      i <= Math.min(totalPages - 1, currentPage + 1);
-      i++
-    ) {
-      pages.push(i);
-    }
-
-    if (currentPage < totalPages - 2) {
-      pages.push("ellipsis2");
-    }
-
-    pages.push(totalPages); // always show last page
-
+    if (totalPages <= 7) return Array.from({ length: totalPages }, (_, i) => i + 1);
+    const pages = [1];
+    if (currentPage > 3) pages.push("ellipsis1");
+    const start = Math.max(2, currentPage - 1);
+    const end = Math.min(totalPages - 1, currentPage + 1);
+    for (let i = start; i <= end; i++) pages.push(i);
+    if (currentPage < totalPages - 2) pages.push("ellipsis2");
+    pages.push(totalPages);
     return pages;
   };
-
   const pageNumbers = getPageNumbers();
 
   return (
@@ -50,7 +27,7 @@ function Pagination({ totalPages, currentPage, onPageChange }) {
       </button>
 
       {pageNumbers.map((pageNumber, index) =>
-        pageNumber.toString().includes("ellipsis") ? (
+        typeof pageNumber === "string" ? (
           <span key={index} className="px-2 text-gray-400">
             <MoreHorizontal className="w-5 h-5" />
           </span>
@@ -58,12 +35,11 @@ function Pagination({ totalPages, currentPage, onPageChange }) {
           <button
             key={index}
             onClick={() => onPageChange(pageNumber)}
-            className={`w-9 h-9 sm:w-10 sm:h-10 text-sm font-medium rounded-full transition-colors
-              ${
-                currentPage === pageNumber
-                  ? "bg-blueRemax text-white"
-                  : "text-gray-600 hover:bg-gray-100"
-              }`}
+            className={`w-9 h-9 sm:w-10 sm:h-10 text-sm font-medium rounded-full transition-colors ${
+              currentPage === pageNumber
+                ? "bg-blueRemax text-white"
+                : "text-gray-600 hover:bg-gray-100"
+            }`}
           >
             {pageNumber}
           </button>
@@ -71,9 +47,7 @@ function Pagination({ totalPages, currentPage, onPageChange }) {
       )}
 
       <button
-        onClick={() =>
-          currentPage < totalPages && onPageChange(currentPage + 1)
-        }
+        onClick={() => currentPage < totalPages && onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
         className="p-2 rounded-lg hover:bg-gray-100 disabled:opacity-50"
         aria-label="Página siguiente"
@@ -93,7 +67,7 @@ function Paginacion({ setPagina, totalPaginas }) {
 
   return (
     <div className="py-8 px-4 sm:px-6 lg:px-8">
-      <div className="w-full max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-3xl mx-auto">
+      <div className="w-full max-w-3xl mx-auto">
         <Pagination
           totalPages={totalPaginas}
           currentPage={currentPage}
@@ -103,5 +77,4 @@ function Paginacion({ setPagina, totalPaginas }) {
     </div>
   );
 }
-
 export default Paginacion;

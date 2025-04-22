@@ -83,8 +83,8 @@ export default function FiltrosDesktop({
           />
         }
         <Operacion setSelectedOptionsOperacion={setSelectedOptionsOperacion} />
-        <Sector setSelectedOptions={setSelectedOptions} />
-        <Tipo setSelectedOptionsTipos={setSelectedOptionsTipos} selectedOptions={selectedOptionsTipos}/>
+        <Sector setSelectedOptions={setSelectedOptions} selectedOptions={selectedOptions} />
+        <Tipo setSelectedOptionsTipos={setSelectedOptionsTipos} selectedOptionsTipos={selectedOptionsTipos} />
         <LimpiarFiltro setlimpiar={setlimpiar} />
       </div>
       <div className="flex gap-1 ">

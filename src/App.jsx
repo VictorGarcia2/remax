@@ -71,6 +71,7 @@ export default function App() {
           path="/propiedades"
           element={
             <ResultadosBusqueda
+            
               selectedOptionsOperacion={selectedOptionsOperacion}
               setSelectedOptionsOperacion={setSelectedOptionsOperacion}
               selectedOptionsTipos={selectedOptionsTipos}
