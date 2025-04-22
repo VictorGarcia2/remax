@@ -172,7 +172,7 @@ const MapboxConCards = ({
         <div className="flex">
           <img
             loading="lazy"
-            className=" w-[200px] h-[100px] lg:w-[280px] lg:h-[140px] object-cover rounded-t-2xl"
+            className=" w-[200px] h-[120px] lg:w-[280px] lg:h-[140px] object-cover rounded-t-2xl"
             src={`https://cdn.remax.com.mx/properties/${prop.propiedad_id}/${imagenesArray[currentIndex]}`}
             alt={`Imagen ${currentIndex + 1}`}
           />
@@ -187,17 +187,17 @@ const MapboxConCards = ({
         <a
           href={`/propiedades/seleccion/${prop.propiedad_id}`}
           style={{ textDecoration: "none" }}
-          className="w-[200px] mt-[210px] 2xl:w-[280px] bg-white lg:h-28 absolute lg:mt-[250px] rounded-b-2xl shadow flex flex-col items-center  font-display"
+          className="w-[200px] mt-[210px] 2xl:w-[280px] bg-white lg:h-28  absolute lg:mt-[250px] rounded-b-2xl shadow flex flex-col items-center  font-display"
         >
-          <p className="text-sm font-bold text-[#7B7B7B]">
+          <p className="text-sm font-bold mt-2 text-[#7B7B7B]">
             {Number(prop.mxn_corriente).toLocaleString("en-US")}MXN
           </p>
-          <p className="text-base md:text-base px-2 text-center w-[250px] font-[500] text-[#7B7B7B]">
+          <p className="text-sm md:text-base px-2 text-center w-[250px] font-[500] text-[#7B7B7B]">
             {prop.calle}
           </p>
           <div className="flex text-[#7B7B7B] font-[500] text-[15px]">
-            <p>{prop.tipos?.tipo_nombre || "Tipo"} | </p>
-            <p>
+            <p className="text-sm md:text-base">{prop.tipos?.tipo_nombre || "Tipo"} | </p>
+            <p className="text-sm md:text-base">
               {prop.operacion === "1"
                 ? "Venta"
                 : prop.operacion === "2"
@@ -205,7 +205,7 @@ const MapboxConCards = ({
                 : "N/A"}{" "}
               |
             </p>
-            <p>{prop.m2_construccion}m²</p>
+            <p className="text-sm md:text-base">{prop.m2_construccion}m²</p>
           </div>
           <div
             rel="noopener noreferrer"
