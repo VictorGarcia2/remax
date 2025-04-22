@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { Link } from 'react-router';
-export default function Header() {
+import { useState } from "react";
+import { Link } from "react-router";
+export default function Header({ setSelectedOptionsOperacion }) {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <nav className="bg-white fixed w-full z-50 top-0 start-0">
@@ -43,7 +43,7 @@ export default function Header() {
         </div>
         <div
           className={`${
-            isOpen ? 'block' : 'hidden'
+            isOpen ? "block" : "hidden"
           } items-center justify-between w-full md:flex md:w-auto md:order-1`}
           id="navbar-sticky"
         >
@@ -58,20 +58,22 @@ export default function Header() {
               </Link>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                onClick={() => setSelectedOptionsOperacion([1])}
+                to={"/propiedades"}
                 className="block py-2 px-3 text-[#2e2c2c] rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0  "
               >
                 Comprar
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                onClick={() => setSelectedOptionsOperacion([2])}
+                to={"/propiedades"}
                 className="block py-2 px-3 text-[#2e2c2c] rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 "
               >
                 Vender
-              </a>
+              </Link>
             </li>
             <li>
               <a

@@ -21,6 +21,8 @@ export default function FiltrosDesktop({
   setAplicarFiltros,
   setSelectedOptionsTipos,
   setSelectedOptionsOperacion,
+  selectedOptions, 
+  selectedOptionsTipos
 }) {
   mapboxgl.accessToken =
     "pk.eyJ1IjoidmljdG9yZ2FyY2lhcHJ6IiwiYSI6ImNtNXZ3dW0wMjA2aHgyanE1M3ptczQ2azUifQ.ILrTXW_4c9_pbGC3Uj-wdg";
@@ -82,7 +84,7 @@ export default function FiltrosDesktop({
         }
         <Operacion setSelectedOptionsOperacion={setSelectedOptionsOperacion} />
         <Sector setSelectedOptions={setSelectedOptions} />
-        <Tipo setSelectedOptionsTipos={setSelectedOptionsTipos} />
+        <Tipo setSelectedOptionsTipos={setSelectedOptionsTipos} selectedOptions={selectedOptionsTipos}/>
         <LimpiarFiltro setlimpiar={setlimpiar} />
       </div>
       <div className="flex gap-1 ">

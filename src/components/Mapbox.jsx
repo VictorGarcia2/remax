@@ -33,37 +33,35 @@ const MapboxConCards = ({
       precioMaximo === Infinity &&
       selectedOptionsOperacion.length === 0 &&
       selectedOptions.length === 0;
-
+  
     if (noHayFiltros) {
       setNuevas(propiedades);
-    } else {
-      const tiposSeleccionados = selectedOptionsTipos.map(Number);
-      const sectoresSeleccionados = Array.isArray(selectedOptions)
-        ? selectedOptions.filter(Boolean).map(String)
-        : [];
-      const operacionesSeleccionadas = Array.isArray(selectedOptionsOperacion)
-        ? selectedOptionsOperacion.filter(Boolean).map(String)
-        : [];
-
-      const filtered = propiedades.filter((item) => {
-        const precio = parseFloat(item.mxn_corriente) || 0;
-        const cumplePrecio = precio >= precioMinimo && precio <= precioMaximo;
-        const numero = parseFloat(item.tipos?.tipo_id);
-        const cumpleTipos =
-          tiposSeleccionados.length === 0 ||
-          tiposSeleccionados.includes(numero);
-        const cumpleOperaciones =
-          operacionesSeleccionadas.length === 0 ||
-          operacionesSeleccionadas.includes(item.operacion);
-        const cumpleSector =
-          sectoresSeleccionados.length === 0 ||
-          sectoresSeleccionados.includes(item.sector);
-
-        return cumplePrecio && cumpleTipos && cumpleOperaciones && cumpleSector;
-      });
-
-      setNuevas(filtered);
+      return;
     }
+  
+    const tiposSeleccionados = selectedOptionsTipos.map(Number);
+    const sectoresSeleccionados = Array.isArray(selectedOptions)
+      ? selectedOptions.filter(Boolean).map(String)
+      : [];
+    const operacionesSeleccionadas = Array.isArray(selectedOptionsOperacion)
+      ? selectedOptionsOperacion.filter(Boolean).map(String)
+      : [];
+  
+    const filtered = propiedades.filter((item) => {
+      const precio = parseFloat(item.mxn_corriente) || 0;
+      const cumplePrecio = precio >= precioMinimo && precio <= precioMaximo;
+      const numero = parseFloat(item.tipos?.tipo_id);
+      const cumpleTipos =
+        tiposSeleccionados.length === 0 || tiposSeleccionados.includes(numero);
+      const cumpleOperaciones =
+        operacionesSeleccionadas.length === 0 || operacionesSeleccionadas.includes(item.operacion);
+      const cumpleSector =
+        sectoresSeleccionados.length === 0 || sectoresSeleccionados.includes(item.sector);
+  
+      return cumplePrecio && cumpleTipos && cumpleOperaciones && cumpleSector;
+    });
+  
+    setNuevas(filtered); // SIEMPRE actualiza, aunque esté vacío
   }, [
     selectedOptionsTipos,
     selectedOptionsOperacion,
@@ -108,13 +106,19 @@ const MapboxConCards = ({
     };
   }, []);
 
-  // Cuando cambian las propiedades filtradas
   useEffect(() => {
-    if (mapLoadedRef.current && nuevas.length > 0) {
+    if (!mapLoadedRef.current) return;
+  
+    // Limpiar marcadores anteriores
+    markersRef.current.forEach(({ marker }) => marker.remove());
+    markersRef.current = [];
+  
+    if (nuevas.length > 0) {
       agregarMarkers(nuevas);
-      actualizarVisibles();
     }
-  }, [mapIsReady,nuevas]); // NO pongas mapLoadedRef.current como dependencia, porque es una ref
+  
+    actualizarVisibles();
+  }, [mapIsReady, nuevas]); // NO pongas mapLoadedRef.current como dependencia, porque es una ref
 
 
   const abreviarPrecio = (valor) => {
@@ -211,20 +215,16 @@ const MapboxConCards = ({
     const manejarBusqueda = async () => {
       const lugar = busqueda || busquedaHome;
       if (!lugar) return;
-
       const response = await fetch(
         `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
           lugar
         )}.json?access_token=${mapboxgl.accessToken}`
       );
       const data = await response.json();
-
       setAutoCompleteHome(data.features);
-
       if (data.features.length > 0) {
   const feature = data.features[0];
   const [longitud, latitud] = feature.center;
-
   mapRef.current.flyTo({ center: [longitud, latitud], zoom: 13 });
 
   // Eliminar capa previa si existe

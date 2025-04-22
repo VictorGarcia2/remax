@@ -20,7 +20,6 @@ export default function ResultadosBusqueda({
   busquedaHome,
   setPropiedades,
   setSelectedOptions,
-  selectedOptions,
   nuevas,
   setNuevas,
   precioMinimo,
@@ -35,8 +34,9 @@ export default function ResultadosBusqueda({
   selectedOptionsTipos,
   setSelectedOptionsOperacion,
   selectedOptionsOperacion,
+  selectedOptions
 }) {
-  console.log("selectedOptionsOperacion", selectedOptionsOperacion);
+ 
   return (
     <>
       <MenuFilter
@@ -56,6 +56,7 @@ export default function ResultadosBusqueda({
       <HeaderResultadoBusqueda />
       <div className="hidden sm:block">
         <FiltrosDesktop
+
           setSelectedOptionsOperacion={setSelectedOptionsOperacion}
           setSelectedOptionsTipos={setSelectedOptionsTipos}
           setAplicarFiltros={setAplicarFiltros}
@@ -68,6 +69,7 @@ export default function ResultadosBusqueda({
           setManejoBusqueda={setManejoBusqueda}
           setSelectedOptions={setSelectedOptions}
           selectedOptions={selectedOptions}
+          selectedOptionsTipos={selectedOptionsTipos}
         />
       </div>
       <SearchResultadosBusqueda

@@ -92,7 +92,7 @@ export default function HomeSearch({
   return (
     <div className="w-full mt-18">
       <div className="w-full absolute z-10">
-        <Header />
+        <Header setSelectedOptionsOperacion={setSelectedOptionsOperacion} />
         <div className="text-center w-[336px] 2xl:mt-48 font-display flex flex-col justify-content-center items-center text-white mx-auto mt-16 sm:mt-20">
           <p className="text-2xl sm:text-3xl sm:w-[730px] md:text-4xl lg:w-[730px]">
             {selectedContent.tittle}
