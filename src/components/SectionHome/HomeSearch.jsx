@@ -16,11 +16,22 @@ export default function HomeSearch({
   const [data, setData] = useState([]);
   const [selectedKey, setSelectedKey] = useState(null); // se inicializa vacío
   const imagesByValor = {
-    comercial: ["HomePageContent/comercial1.webp", "HomePageContent/comercial2.webp"],
-    residencial: ["HomePageContent/residencial1.webp", "HomePageContent/residencial2.webp"],
+    comercial: [
+      "HomePageContent/comercial/comercial (1).webp",
+      "HomePageContent/comercial/comercial (2).webp","HomePageContent/comercial/comercial (3).webp",
+    ],
+    residencial: [
+      "HomePageContent/residencial/residencial (1).webp",
+      "HomePageContent/residencial/residencial (2).webp",
+      "HomePageContent/residencial/residencial (3).webp",
+      "HomePageContent/residencial/residencial (4).webp",
+    ],
   };
 
-  const images = imagesByValor[valor] || ["HomePageContent/default1.webp", "HomePageContent/default2.webp"];
+  const images = imagesByValor[valor] || [
+    "HomePageContent/residencial/residencial (1).webp",
+    "HomePageContent/default2.webp",
+  ];
 
   // Control de slides
   useEffect(() => {
@@ -51,7 +62,10 @@ export default function HomeSearch({
       tittle: (
         <>
           Tu Hogar Ideal: Espacios que Encuentran Estilo,
-          <span className="font-extrabold italic"> Comodidad y Oportunidad </span>
+          <span className="font-extrabold italic">
+            {" "}
+            Comodidad y Oportunidad{" "}
+          </span>
         </>
       ),
       description:
@@ -72,7 +86,8 @@ export default function HomeSearch({
     },
   ];
 
-  const selectedContent = content.find((item) => item.key === selectedKey) || content[0];
+  const selectedContent =
+    content.find((item) => item.key === selectedKey) || content[0];
 
   return (
     <div className="w-full mt-18">
