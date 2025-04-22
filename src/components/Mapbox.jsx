@@ -1,8 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
+import ReactDOMServer from "react-dom/server";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
+import { Link } from "react-router";
 
-mapboxgl.accessToken = "pk.eyJ1IjoidmljdG9yZ2FyY2lhcHJ6IiwiYSI6ImNtNXZ3dW0wMjA2aHgyanE1M3ptczQ2azUifQ.ILrTXW_4c9_pbGC3Uj-wdg";
+mapboxgl.accessToken =
+  "pk.eyJ1IjoidmljdG9yZ2lhcHJ6IiwiYSI6ImNtNXZ3dW0wMjA2aHgyanE1M3ptczQ2azUifQ.ILrTXW_4c9_pbGC3Uj-wdg";
+
 const MapboxConCards = ({
   busqueda,
   manejoBusqueda,
@@ -18,14 +22,12 @@ const MapboxConCards = ({
   selectedOptionsTipos,
   selectedOptionsOperacion,
 }) => {
-  console.log(selectedOptionsTipos)
   const [mapIsReady, setMapIsReady] = useState(false);
   const mapContainerRef = useRef(null);
   const mapRef = useRef(null);
   const markersRef = useRef([]);
   const mapLoadedRef = useRef(false);
 
-  // Aplicar filtros
   useEffect(() => {
     const noHayFiltros =
       selectedOptionsTipos.length === 0 &&
@@ -33,12 +35,12 @@ const MapboxConCards = ({
       precioMaximo === Infinity &&
       selectedOptionsOperacion.length === 0 &&
       selectedOptions.length === 0;
-  
+
     if (noHayFiltros) {
       setNuevas(propiedades);
       return;
     }
-  
+
     const tiposSeleccionados = selectedOptionsTipos.map(Number);
     const sectoresSeleccionados = Array.isArray(selectedOptions)
       ? selectedOptions.filter(Boolean).map(String)
@@ -46,7 +48,7 @@ const MapboxConCards = ({
     const operacionesSeleccionadas = Array.isArray(selectedOptionsOperacion)
       ? selectedOptionsOperacion.filter(Boolean).map(String)
       : [];
-  
+
     const filtered = propiedades.filter((item) => {
       const precio = parseFloat(item.mxn_corriente) || 0;
       const cumplePrecio = precio >= precioMinimo && precio <= precioMaximo;
@@ -54,14 +56,16 @@ const MapboxConCards = ({
       const cumpleTipos =
         tiposSeleccionados.length === 0 || tiposSeleccionados.includes(numero);
       const cumpleOperaciones =
-        operacionesSeleccionadas.length === 0 || operacionesSeleccionadas.includes(item.operacion);
+        operacionesSeleccionadas.length === 0 ||
+        operacionesSeleccionadas.includes(item.operacion);
       const cumpleSector =
-        sectoresSeleccionados.length === 0 || sectoresSeleccionados.includes(item.sector);
-  
+        sectoresSeleccionados.length === 0 ||
+        sectoresSeleccionados.includes(item.sector);
+
       return cumplePrecio && cumpleTipos && cumpleOperaciones && cumpleSector;
     });
-  
-    setNuevas(filtered); // SIEMPRE actualiza, aunque esté vacío
+
+    setNuevas(filtered);
   }, [
     selectedOptionsTipos,
     selectedOptionsOperacion,
@@ -70,10 +74,9 @@ const MapboxConCards = ({
     precioMinimo,
     precioMaximo,
     setNuevas,
-    busqueda
+    busqueda,
   ]);
 
-  // Inicializar mapa solo una vez
   useEffect(() => {
     if (!mapContainerRef.current) return;
 
@@ -88,9 +91,8 @@ const MapboxConCards = ({
 
     mapRef.current.on("load", () => {
       mapLoadedRef.current = true;
-      setMapIsReady(true)
+      setMapIsReady(true);
 
-      // Esperamos hasta que nuevas tenga propiedades para agregar
       if (nuevas.length > 0) {
         agregarMarkers(nuevas);
         actualizarVisibles();
@@ -108,85 +110,160 @@ const MapboxConCards = ({
 
   useEffect(() => {
     if (!mapLoadedRef.current) return;
-  
-    // Limpiar marcadores anteriores
+
     markersRef.current.forEach(({ marker }) => marker.remove());
     markersRef.current = [];
-  
+
     if (nuevas.length > 0) {
       agregarMarkers(nuevas);
     }
-  
-    actualizarVisibles();
-  }, [mapIsReady, nuevas]); // NO pongas mapLoadedRef.current como dependencia, porque es una ref
 
+    actualizarVisibles();
+  }, [mapIsReady, nuevas]);
 
   const abreviarPrecio = (valor) => {
     if (valor >= 1_000_000) return `${(valor / 1_000_000).toFixed(1)}M`;
     if (valor >= 1_000) return `${(valor / 1_000).toFixed(0)}K`;
     return valor.toString();
   };
-  
+  const PopupContent = ({ prop }) => {
+    const [currentIndex, setCurrentIndex] = useState(0); // Usar useState para el índice de la imagen
+    const imagenesArray = prop.imagenes.split(","); // Convertir las imágenes en un array
+
+    const goToNext = () => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % imagenesArray.length);
+    };
+
+    const goToPrevious = () => {
+      setCurrentIndex(
+        (prevIndex) =>
+          (prevIndex - 1 + imagenesArray.length) % imagenesArray.length
+      );
+    };
+    /*  function truncateByCharacters(text, maxLength) {
+      if (!text || typeof text !== "string" || maxLength <= 0) return ""; // Validaciones adicionales
+
+      return text.length > maxLength
+        ? text.substring(0, maxLength) + "..."
+        : text;
+    } */
+
+    return (
+      <div className="w-full flex flex-col mt-5 mb-30 lg:mb-20 justify-center items-center">
+        {/* Flechas */}
+        <div className="flex absolute justify-around mx-auto gap-70 xl:gap-40 2xl:gap-50 ">
+          <img
+            loading="lazy"
+            onClick={goToPrevious}
+            src="/HomePageContent/arrowizq.svg"
+            alt="Anterior"
+            className="cursor-pointer"
+          />
+          <img
+            loading="lazy"
+            onClick={goToNext}
+            src="/HomePageContent/arrowderecha.svg"
+            alt="Siguiente"
+            className="cursor-pointer"
+          />
+        </div>
+
+        {/* Imagen actual */}
+        <div className="flex">
+          <img
+            loading="lazy"
+            className="w-[353px] h-[198px] object-cover rounded-2xl"
+            src={`https://cdn.remax.com.mx/properties/${prop.propiedad_id}/${imagenesArray[currentIndex]}`}
+            alt={`Imagen ${currentIndex + 1}`}
+          />
+        </div>
+
+        {/* Paginación */}
+        <p className="z-40 mt-27 absolute bg-black/40 rounded-full p-1 text-white text-sm">
+          {currentIndex + 1}/{imagenesArray.length}
+        </p>
+
+        {/* Info propiedad */}
+        <a
+          href={`/propiedades/seleccion/${prop.propiedad_id}`}
+          style={{ textDecoration: "none" }}
+          className="2xl:w-[280px] bg-white h-28 absolute mt-[260px] rounded-2xl shadow flex flex-col items-center pt-2 font-display"
+        >
+          <p className="text-base font-bold text-[#7B7B7B]">
+            {Number(prop.mxn_corriente).toLocaleString("en-US")}MXN
+          </p>
+          <p className="text-base px-2 text-center w-[250px] font-[500] text-[#7B7B7B]">
+            {prop.calle}
+          </p>
+          <div className="flex text-[#7B7B7B] font-[500] text-[15px]">
+            <p>{prop.tipos?.tipo_nombre || "Tipo"} | </p>
+            <p>
+              {prop.operacion === "1"
+                ? "Venta"
+                : prop.operacion === "2"
+                ? "Renta"
+                : "N/A"}{" "}
+              |
+            </p>
+            <p>{prop.m2_construccion}m²</p>
+          </div>
+          <div
+            rel="noopener noreferrer"
+            className="bg-blue-800 rounded-2xl w-[73px] h-[29px] shadow-2xs py-1 flex items-center justify-center mt-4"
+          >
+            <img
+              loading="lazy"
+              src="HomePageContent/brand-whatsapp 1.svg"
+              alt="WhatsApp"
+            />
+          </div>
+        </a>
+      </div>
+    );
+  };
+
   const agregarMarkers = (lista) => {
     markersRef.current.forEach(({ marker }) => marker.remove());
     markersRef.current = [];
-  
+
     for (const prop of lista) {
       if (!prop.longitud || !prop.latitud) continue;
-  
+
       const precio = prop.mxn_corriente || 0;
-  
-      // Crear elemento HTML personalizado para el marcador
+
       const el = document.createElement("div");
       el.style.background = "#e63946";
       el.style.color = "#fff";
-      el.style.padding = "4px 8px";
-      el.style.borderRadius = "6px";
+      el.style.padding = "8px 8px";
+      el.style.borderRadius = "100px";
       el.style.fontSize = "14px";
       el.style.fontWeight = "bold";
       el.style.boxShadow = "0 2px 6px rgba(0,0,0,0.3)";
       el.style.cursor = "pointer";
-  
-      // Guardar el valor original del precio en el elemento
       el.dataset.valorOriginal = precio;
-  
+
       const marker = new mapboxgl.Marker({ element: el })
         .setLngLat([parseFloat(prop.longitud), parseFloat(prop.latitud)])
         .setPopup(
           new mapboxgl.Popup({ closeButton: true, closeOnClick: true }).setHTML(
-            `<div style="font-family: Arial, sans-serif; padding: 10px; text-align: center;">
-              <h3 style="margin: 0; font-size: 16px; color: #2a9d8f;">${
-                prop.tipos?.tipo_nombre || "Propiedad"
-              }</h3>
-              <p style="margin: 5px 0; font-size: 14px; color: #264653;">
-              ${prop.calle || ""} ${prop.numero_exterior || ""}
-              </p>
-              <p style="margin: 5px 0; font-size: 14px; font-weight: bold; color: #e76f51;">
-              $${precio.toLocaleString("en-US", {
-                minimumFractionDigits: 3,
-                maximumFractionDigits: 3,
-              })} MXN
-              </p>
-            </div>`
+            ReactDOMServer.renderToString(<PopupContent prop={prop} />)
           )
         )
         .addTo(mapRef.current);
-  
+
       markersRef.current.push({ marker, prop, el });
     }
-  
-    // Agregar listener al mapa para cambiar contenido según zoom
+
     mapRef.current.on("zoom", () => {
       const zoom = mapRef.current.getZoom();
       markersRef.current.forEach(({ el }) => {
         const valor = parseFloat(el.dataset.valorOriginal);
-        if (zoom < 12) {
-          el.innerText = ""; // Mostrar solo el punto
+        if (zoom < 10) {
+          el.innerText = "";
           el.style.width = "10px";
           el.style.height = "10px";
           el.style.borderRadius = "50%";
           el.style.padding = "0";
-          el.style.background = "#e63946";
         } else {
           el.innerText = `$${abreviarPrecio(valor)}`;
           el.style.width = "auto";
@@ -197,8 +274,6 @@ const MapboxConCards = ({
       });
     });
   };
-  
-  
 
   const actualizarVisibles = () => {
     const bounds = mapRef.current.getBounds();
@@ -210,7 +285,6 @@ const MapboxConCards = ({
     setPropiedadesVisibles(visibles);
   };
 
-  // Búsqueda (una sola vez)
   useEffect(() => {
     const manejarBusqueda = async () => {
       const lugar = busqueda || busquedaHome;
@@ -223,65 +297,62 @@ const MapboxConCards = ({
       const data = await response.json();
       setAutoCompleteHome(data.features);
       if (data.features.length > 0) {
-  const feature = data.features[0];
-  const [longitud, latitud] = feature.center;
-  mapRef.current.flyTo({ center: [longitud, latitud], zoom: 13 });
+        const feature = data.features[0];
+        const [longitud, latitud] = feature.center;
+        mapRef.current.flyTo({ center: [longitud, latitud], zoom: 13 });
 
-  // Eliminar capa previa si existe
-  if (mapRef.current.getLayer("limite-colonia")) {
-    mapRef.current.removeLayer("limite-colonia");
-  }
-  if (mapRef.current.getSource("limite-colonia")) {
-    mapRef.current.removeSource("limite-colonia");
-  }
+        if (mapRef.current.getLayer("limite-colonia")) {
+          mapRef.current.removeLayer("limite-colonia");
+        }
+        if (mapRef.current.getSource("limite-colonia")) {
+          mapRef.current.removeSource("limite-colonia");
+        }
 
-  // Verificar si existe un bbox (caja delimitadora)
-  if (feature.bbox) {
-    const [[minLng, minLat], [maxLng, maxLat]] = [
-      [feature.bbox[0], feature.bbox[1]],
-      [feature.bbox[2], feature.bbox[3]],
-    ];
+        if (feature.bbox) {
+          const [[minLng, minLat], [maxLng, maxLat]] = [
+            [feature.bbox[0], feature.bbox[1]],
+            [feature.bbox[2], feature.bbox[3]],
+          ];
 
-    // Crear un GeoJSON de un polígono utilizando el bbox
-    const geojsonPolygon = {
-      type: "Feature",
-      geometry: {
-        type: "Polygon",
-        coordinates: [[
-          [minLng, minLat],
-          [maxLng, minLat],
-          [maxLng, maxLat],
-          [minLng, maxLat],
-          [minLng, minLat]
-        ]]
+          const geojsonPolygon = {
+            type: "Feature",
+            geometry: {
+              type: "Polygon",
+              coordinates: [
+                [
+                  [minLng, minLat],
+                  [maxLng, minLat],
+                  [maxLng, maxLat],
+                  [minLng, maxLat],
+                  [minLng, minLat],
+                ],
+              ],
+            },
+          };
+
+          mapRef.current.addSource("limite-colonia", {
+            type: "geojson",
+            data: geojsonPolygon,
+          });
+
+          mapRef.current.addLayer({
+            id: "limite-colonia",
+            type: "line",
+            source: "limite-colonia",
+            paint: {
+              "line-color": "#0077ff",
+              "line-width": 3,
+              "line-dasharray": [2, 2],
+            },
+          });
+        }
       }
     };
-
-    mapRef.current.addSource("limite-colonia", {
-      type: "geojson",
-      data: geojsonPolygon,
-    });
-
-    mapRef.current.addLayer({
-      id: "limite-colonia",
-      type: "line",
-      source: "limite-colonia",
-      paint: {
-        "line-color": "#0077ff",
-        "line-width": 3,
-        "line-dasharray": [2, 2],
-      },
-    });
-  }
-}
-
-    };
     manejarBusqueda();
-  }, [ manejoBusqueda,busquedaHome]);
+  }, [manejoBusqueda, busquedaHome]);
 
   return (
-    <div className="w-full  flex flex-col lg:flex-row gap-4">
-      {/* Mapa */}
+    <div className="w-full flex flex-col lg:flex-row gap-4">
       <div className="w-full h-[400px] lg:h-[700px] relative">
         <div
           ref={mapContainerRef}

@@ -42,3 +42,30 @@
   --color-blueRemax: #003DA4;
   --color-redRemax: #DB1C2E;
 }
+.mapboxgl-popup-content {
+  background-color: #ffffff00 !important; /* gris oscuro */
+  border-radius: 0 !important;        /* bordes grandes */
+  padding: 0.5rem !important;
+  box-shadow: none !important;
+  border: 0px !important;  /* borde color verde tailwind */
+}
+
+.mapboxgl-popup-close-button {
+  background-color: #10b981 !important; /* verde tailwind */
+  color: white !important;
+  border: none !important;
+  border-radius: 9999px !important; /* redondo */
+  font-size: 16px !important;
+  width: 28px !important;
+  height: 28px !important;
+  top: 8px !important;
+  right: 8px !important;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mapboxgl-popup-close-button:hover {
+  background-color: #059669 !important; /* verde más oscuro al pasar el mouse */
+}
