@@ -296,7 +296,7 @@ export default function MenuFilter({
               } overflow-hidden `}
               aria-labelledby="accordion-collapse-heading-3"
             >
-              <div className="flex gap-2">
+              <div className="flex mb-3 mt-3 gap-2">
                 <label className="flex items-center gap-2">
                   De:
                   <input
@@ -327,7 +327,7 @@ export default function MenuFilter({
                         rawValue === "" ? null : parseFloat(rawValue)
                       );
                     }}
-                    className="border-b border-t-0 border-s-0 border-e-0 px-1 w-32"
+                    className="border-b border-t-0 border-s-0 border-e-0 px-1 w-35"
                     placeholder="50,300,000 MXN"
                   />
                 </label>
@@ -408,17 +408,17 @@ export default function MenuFilter({
               <hr className="w-full static text-[#7b7b7b7b]" />
             </div>
           </div>
-          <div className="flex justify-evenly w-full bottom-10 fixed z-50">
+          <div className="flex justify-evenly w-full bottom-10 mt-10 z-50">
             <button
               type="button"
-              className="w-20 h-10 text-[#DB1C2E] rounded "
+              className="w-20 h-10 text-[#DB1C2E] cursor-pointer rounded "
               onClick={() => setMenuClose((prev) => !prev)}
             >
               Limpiar
             </button>
             <button
               type="button"
-              className="w-20 h-10 bg-[#DB1C2E] rounded text-white"
+              className="w-20 h-10 bg-[#DB1C2E] rounded cursor-pointer text-white"
               onClick={() => setMenuClose((prev) => !prev)}
             >
               Cerrar
