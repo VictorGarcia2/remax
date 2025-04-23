@@ -1,19 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown, faCity, faHouse } from "@fortawesome/free-solid-svg-icons";
+import {
+  faChevronDown,
+  faCity,
+  faHouse,
+} from "@fortawesome/free-solid-svg-icons";
 
-export default function Sector({ selectedOptions, setSelectedOptions  }) {
+export default function Sector({ selectedOptions, setSelectedOptions }) {
   const [openModal, setOpenModal] = useState(false);
   const modalRef = useRef(null);
 
   const toggleModal = () => setOpenModal((prev) => !prev);
-
-  const handleCheckboxChange = (event) => {
-    const value = event.target.value.toLowerCase();
-    setSelectedOptions((prev) =>
-      event.target.checked ? [...prev, value] : prev.filter((item) => item !== value)
-    );
-  };
 
   const handleClickOutside = (event) => {
     if (modalRef.current && !modalRef.current.contains(event.target)) {
@@ -34,9 +31,27 @@ export default function Sector({ selectedOptions, setSelectedOptions  }) {
   }, [openModal]);
 
   const sectors = [
-    { icon: faHouse, name: "Residencial" },
-    { icon: faCity, name: "Comercial" },
+    { icon: faHouse, name: "Residencial", nombre: "Residencial" },
+    {
+      icon: faCity,
+      name: "Comercial/Industrial",
+      nombre: "Comercial/Industrial",
+      values: ["comercial", "industrial"],
+    },
   ];
+
+  const handleCheckboxChange = (event) => {
+    const sector = sectors.find((s) => s.name === event.target.value);
+    const valuesToAddOrRemove = sector.values || [
+      event.target.value.toLowerCase(),
+    ];
+
+    setSelectedOptions((prev) =>
+      event.target.checked
+        ? [...prev, ...valuesToAddOrRemove]
+        : prev.filter((item) => !valuesToAddOrRemove.includes(item))
+    );
+  };
 
   return (
     <div className="flex flex-col relative">
@@ -47,7 +62,9 @@ export default function Sector({ selectedOptions, setSelectedOptions  }) {
       >
         <p className="text-lg sm:text-xl md:text-xl 2xl:text-2xl">Sector</p>
         <FontAwesomeIcon
-          className={`transform transition-transform ${openModal ? "rotate-180" : "rotate-0"}`}
+          className={`transform transition-transform ${
+            openModal ? "rotate-180" : "rotate-0"
+          }`}
           icon={faChevronDown}
         />
       </div>
@@ -73,7 +90,7 @@ export default function Sector({ selectedOptions, setSelectedOptions  }) {
                 id={`checkbox-${index}`}
                 type="checkbox"
                 value={sector.name}
-                checked={selectedOptions.includes(id)}
+                checked={selectedOptions.includes(sector.name.toLowerCase())}
                 onChange={handleCheckboxChange}
                 className="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-red-600"
               />

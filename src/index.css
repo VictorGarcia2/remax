@@ -66,6 +66,26 @@
   justify-content: center;
 }
 
+@media (min-width: 1200px) {
+  .mapboxgl-popup-close-button {
+    top: 35px !important;
+    left: 255px !important;
+    width: 34px !important;
+    height: 34px !important;
+    font-size: 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .mapboxgl-popup-close-button {
+    top: 15px !important;
+    left: 100px !important;
+    width: 20px !important;
+    height: 20px !important;
+    font-size: 12px !important;
+  }
+}
+
 .mapboxgl-popup-close-button:hover {
   background-color: #000e8f !important; /* verde más oscuro al pasar el mouse */
   color: white !important; /* verde tailwind */

@@ -44,7 +44,7 @@ export default function RangoDePrecio({
         <>
           <div
             onClick={toggleModal}
-            className="fixed inset-0 bg-black bg-opacity-25 z-10"
+            className="fixed inset-0 bg-black/0 bg-opacity-25 z-10"
           ></div>
           <form className="z-20 bg-gray-100 py-10 rounded-2xl px-4 absolute mt-13 flex flex-col gap-4">
             <div className="flex gap-2">
