@@ -22,7 +22,7 @@ export default function PropiedadSeleccion({ seleccion }) {
     : 0;
   const [loading, setLoading] = useState(true);
 
-/*   useEffect(() => {
+  /*   useEffect(() => {
     axios
       .get("https://localhost:3000/api/propiedades")
       .then((res) => {
@@ -34,6 +34,20 @@ export default function PropiedadSeleccion({ seleccion }) {
       });
   }, []); */
 
+  const agentesId = [
+    { id: "101914741", nombre: "Verónica Olán García" },
+    { id: "102162316", nombre: "Andrés Guerra Olan" },
+    { id: "101932987", nombre: "Andrés Guerra García" },
+    { id: "102296937", nombre: "Beatriz Hernandez Aguilera" }, 
+    { id: "102298360", nombre: "Verónica Itzel Guerra Olán" },
+    { id: "102312153", nombre: "Dulce Angelica Flores De Jesus" },
+    { id: "102427296", nombre: "Aída Leon Varela" },
+    { id: "102437017", nombre: "Yazmin Vazquez Valdez" },
+    { id: "102433046", nombre: "Fernanda Lozada" },
+  ];
+
+  const filtroagente = propiedadSeleccion?.agentes?.numeroasociado ? agentesId.filter((item) => propiedadSeleccion.agentes.numeroasociado.includes(item.id)): [];
+ 
   useEffect(() => {
     const data = propierties.data.rows; // o como venga en tu JSON
     setPropiedades(data);
@@ -272,7 +286,7 @@ export default function PropiedadSeleccion({ seleccion }) {
               <div className="flex gap-15 items-center justify-between">
                 <div>
                   <p className="font-medium text-[16px]">
-                    Verónica Olan García
+                    {filtroagente[0]?.nombre}
                   </p>
                   <p className="font-medium text-[16px]">
                     Solicita información:
@@ -353,7 +367,7 @@ export default function PropiedadSeleccion({ seleccion }) {
                 <div className="flex gap-15  items-center justify-between">
                   <div>
                     <p className="font-medium  text-[16px] lg:text-2xl">
-                      Verónica Olan García
+                    {filtroagente[0]?.nombre}
                     </p>
                     <p className="font-medium text-[16px] lg:text-xl">
                       Solicita información:
