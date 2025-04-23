@@ -91,7 +91,7 @@ export default function CardResultado({
           mapa && "hidden"
         } overflow-y-scroll h-[660px] lg:h-[700px] relative`}
       >
-        <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 justify-center md:gap-3 pb-22 items-center md:px-8 relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 justify-center md:gap-3 pb-22 items-center md:px-8 relative">
           {propiedadesVisibles && propiedadesVisibles.length > 0 ? (
             propiedadesVisibles.map((item, index) => {
               const currentIndex =
@@ -149,7 +149,7 @@ export default function CardResultado({
                       {truncateByCharacters(item.calle, 20)}
                     </p>
                     <div className="flex text-[#7B7B7B] font-[500] text-[15px]">
-                      <p>{item.tipos?.tipo_nombre || "Tipo"} | </p>
+                      <p>{truncateByCharacters(item.tipos?.tipo_nombre,15 || "Tipo")} | </p>
                       <p>
                         {item.operacion === "1"
                           ? "Venta"
@@ -191,7 +191,7 @@ export default function CardResultado({
         </div>
       </div>
       {/* Mapa */}
-      <div className={`${mapa || "invisible"} mt-0  sm:visible`}>
+      <div className={`${mapa || "hidden"} mt-0  xl:block`}>
         <Mapbox
           selectedOptionsOperacion={selectedOptionsOperacion}
           aplicarFiltros={aplicarFiltros}

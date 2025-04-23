@@ -39,24 +39,31 @@ export default function MenuFilter({
   };
   const handleCheckboxChangeOperacion = (event) => {
     const { value, checked } = event.target;
-    console.log(value)
+    console.log(value);
     setSelectedOptionsOperacion((prev) =>
       checked ? [...prev, value] : prev.filter((item) => item !== value)
     );
   };
   const handleCheckboxChangeSector = (event) => {
-    const value = event.target.value.toLowerCase();
-    if (event.target.checked) {
-      // Si está marcado, añadirlo al array
-      setSelectedOptions((prev) => [...prev, value]);
-    } else {
-      // Si está desmarcado, eliminarlo del array
-      setSelectedOptions((prev) => prev.filter((item) => item !== value));
-    }
+    const sector = sectors.find((s) => s.name === event.target.value);
+    const valuesToAddOrRemove = sector.values || [
+      event.target.value.toLowerCase(),
+    ];
+
+    setSelectedOptions((prev) =>
+      event.target.checked
+        ? [...prev, ...valuesToAddOrRemove]
+        : prev.filter((item) => !valuesToAddOrRemove.includes(item))
+    );
   };
-  const sector = [
+  const sectors = [
     { icon: <FontAwesomeIcon icon={faCity} />, nombre: "Residencial" },
-    { icon: <FontAwesomeIcon icon={faBuildingUser} />, nombre: "Comercial" },
+    {
+      icon: <FontAwesomeIcon icon={faBuildingUser} />,
+      nombre: "Comercial/Industrial",
+      name: "Comercial/Industrial",
+      values: ["comercial", "industrial"],
+    },
   ];
   const lugares = [
     { icon: faHouse, nombre: "Casa", tipo_id: 1 },
@@ -85,7 +92,7 @@ export default function MenuFilter({
         <div className="flex justify-between font-display  w-full px-5">
           <p className="text-2xl">Filtros</p>
           <img
-            onClick={() => setMenuClose((prev) => !prev)}
+            onClick={() => setMenuClose(true)}
             loading="lazy"
             className="w-7"
             src="/HomePageContent/close.svg"
@@ -101,12 +108,7 @@ export default function MenuFilter({
               <button
                 type="button"
                 className="px-4 text-2xl font-display"
-                onClick={() =>
-                  setOpenSections((prev) => ({
-                    ...prev,
-                    "accordion-collapse-body-1": !prev["accordion-collapse-body-1"],
-                  }))
-                }
+                onClick={() => toggleSection("accordion-collapse-body-1")}
                 aria-expanded={
                   openSections["accordion-collapse-body-1"] || false
                 }
@@ -145,7 +147,7 @@ export default function MenuFilter({
               aria-labelledby="accordion-collapse-heading-1"
             >
               <div className="z-50  flex text-base flex-col items-end   mt-1 px-4">
-                {sector.map((lugar, index) => (
+                {sectors.map((lugar, index) => (
                   <div
                     key={index}
                     className="flex  justify-between  items-center mb-4"
@@ -174,7 +176,238 @@ export default function MenuFilter({
               <hr className="w-full static text-[#7b7b7b7b]" />
             </div>
           </div>
-          {/* Other sections remain unchanged */}
+          <div className="rounded-[8px] mt-2 gap-3 ">
+            <div
+              className="flex items-center px-5 justify-end"
+              id="accordion-collapse-heading-2"
+            >
+              <button
+                type="button"
+                className="px-4 text-2xl font-display"
+                onClick={() => toggleSection("accordion-collapse-body-2")}
+                aria-expanded={
+                  openSections["accordion-collapse-body-2"] || false
+                }
+                aria-controls="accordion-collapse-body-2"
+              >
+                Operacion
+              </button>
+              <svg
+                data-accordion-icon
+                className={`w-3 h-3 shrink-0 transition-transform duration-300 ${
+                  openSections["accordion-collapse-body-2"]
+                    ? "rotate-0"
+                    : "rotate-180"
+                }`}
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 10 6"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M9 5 5 1 1 5"
+                />
+              </svg>
+            </div>
+            <div
+              id="accordion-collapse-body-2"
+              className={` transition-all duration-300 ease-in-out flex flex-col items-end ${
+                openSections["accordion-collapse-body-2"]
+                  ? "max-h-screen opacity-100"
+                  : "max-h-0 opacity-0"
+              } overflow-hidden `}
+              aria-labelledby="accordion-collapse-heading-2"
+            >
+              <form className="z-50  flex text-base flex-col items-end  mt-1 px-4">
+                {operation.map(({ icon, nombre, titulo }, index) => (
+                  <div
+                    key={index}
+                    className="flex justify-between items-center mb-4"
+                  >
+                    <div className="flex items-center">
+                      <FontAwesomeIcon icon={icon} />
+                      <label
+                        htmlFor={`checkbox-${index}`}
+                        className="mx-2 text-sm font-medium text-gray-900"
+                      >
+                        {titulo}
+                      </label>
+                    </div>
+                    <input
+                      id={`checkbox-${index}`}
+                      type="checkbox"
+                      value={nombre}
+                      onChange={handleCheckboxChangeOperacion}
+                      className="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-red-600"
+                    />
+                  </div>
+                ))}
+              </form>
+              <hr className="w-full static text-[#7b7b7b7b]" />
+            </div>
+          </div>
+          <div className="rounded-[8px] mt-2 gap-3 ">
+            <div
+              className="flex items-center px-5 justify-end"
+              id="accordion-collapse-heading-3"
+            >
+              <button
+                type="button"
+                className="px-4 text-2xl font-display"
+                onClick={() => toggleSection("accordion-collapse-body-3")}
+                aria-expanded={
+                  openSections["accordion-collapse-body-3"] || false
+                }
+                aria-controls="accordion-collapse-body-3"
+              >
+                Rango de precios
+              </button>
+              <svg
+                data-accordion-icon
+                className={`w-3 h-3 shrink-0 transition-transform duration-300 ${
+                  openSections["accordion-collapse-body-3"]
+                    ? "rotate-0"
+                    : "rotate-180"
+                }`}
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 10 6"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M9 5 5 1 1 5"
+                />
+              </svg>
+            </div>
+            <div
+              id="accordion-collapse-body-3"
+              className={` transition-all duration-300 ease-in-out flex flex-col items-center  ${
+                openSections["accordion-collapse-body-3"]
+                  ? "max-h-screen opacity-100"
+                  : "max-h-0 opacity-0"
+              } overflow-hidden `}
+              aria-labelledby="accordion-collapse-heading-3"
+            >
+              <div className="flex gap-2">
+                <label className="flex items-center gap-2">
+                  De:
+                  <input
+                    type="text" // Cambiado de number a text para mejor control del formato
+                    value={precioMinimo ? precioMinimo.toLocaleString() : ""}
+                    onChange={(e) => {
+                      const rawValue = e.target.value.replace(/[^0-9]/g, "");
+                      setPrecioMinimo(
+                        rawValue === "" ? null : parseFloat(rawValue)
+                      );
+                    }}
+                    className="border-b border-t-0 border-s-0 border-e-0 px-1 w-32"
+                    placeholder="1,000 MXN"
+                  />
+                </label>
+                <label className="flex items-center gap-2">
+                  Hasta:
+                  <input
+                    type="text" // Cambiado de number a text
+                    value={
+                      precioMaximo && precioMaximo !== Infinity
+                        ? precioMaximo.toLocaleString()
+                        : ""
+                    }
+                    onChange={(e) => {
+                      const rawValue = e.target.value.replace(/[^0-9]/g, "");
+                      setPrecioMaximo(
+                        rawValue === "" ? null : parseFloat(rawValue)
+                      );
+                    }}
+                    className="border-b border-t-0 border-s-0 border-e-0 px-1 w-32"
+                    placeholder="50,300,000 MXN"
+                  />
+                </label>
+              </div>
+              <hr className="w-full static text-[#7b7b7b7b]" />
+            </div>
+          </div>
+          <div className="rounded-[8px] mt-2 gap-3 ">
+            <div
+              className="flex items-center px-5 justify-end"
+              id="accordion-collapse-heading-3"
+            >
+              <button
+                type="button"
+                className="px-4 text-2xl font-display"
+                onClick={() => toggleSection("accordion-collapse-body-4")}
+                aria-expanded={
+                  openSections["accordion-collapse-body-3"] || false
+                }
+                aria-controls="accordion-collapse-body-3"
+              >
+                Tipos
+              </button>
+              <svg
+                data-accordion-icon
+                className={`w-3 h-3 shrink-0 transition-transform duration-300 ${
+                  openSections["accordion-collapse-body-4"]
+                    ? "rotate-0"
+                    : "rotate-180"
+                }`}
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 10 6"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M9 5 5 1 1 5"
+                />
+              </svg>
+            </div>
+            <div
+              id="accordion-collapse-body-3"
+              className={` transition-all duration-300 ease-in-out flex flex-col items-end  ${
+                openSections["accordion-collapse-body-4"]
+                  ? "max-h-screen opacity-100"
+                  : "max-h-0 opacity-0"
+              } overflow-hidden `}
+              aria-labelledby="accordion-collapse-heading-3"
+            >
+              <form className="z-50  flex text-base flex-col items-end   mt-1 px-4 ">
+                {lugares.map(({ icon, nombre, tipo_id }, index) => (
+                  <div
+                    key={tipo_id}
+                    className="flex justify-between items-center mb-4"
+                  >
+                    <label className="flex items-center cursor-pointer w-full justify-between">
+                      <div className="flex items-center">
+                        <FontAwesomeIcon icon={icon} />
+                        <span className="mx-2 text-sm font-medium text-gray-900">
+                          {nombre}
+                        </span>
+                      </div>
+                      <input
+                        type="checkbox"
+                        name="tipo"
+                        value={tipo_id}
+                        onChange={handleCheckboxChangeTipo}
+                        className="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-red-600"
+                      />
+                    </label>
+                  </div>
+                ))}
+              </form>
+              <hr className="w-full static text-[#7b7b7b7b]" />
+            </div>
+          </div>
           <div className="flex justify-evenly w-full bottom-10 fixed z-50">
             <button
               type="button"
