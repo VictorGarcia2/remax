@@ -98,7 +98,7 @@ function Poliza() {
             </Link>
           <a
             href="#contact"
-            className="bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-blue-700 transition-all duration-300 hover:shadow-lg"
+            className="bg-blue-600 text-white px-6 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition-all duration-300 hover:shadow-lg"
           >
             Solicitar póliza
           </a>
@@ -125,7 +125,7 @@ function Poliza() {
           </p>
           <a
             href="#contact"
-            className="group bg-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-700 transition-all duration-300 hover:shadow-xl inline-flex items-center gap-2"
+            className="group bg-blue-600 text-white px-8 py-4 rounded-2xl text-lg font-semibold hover:bg-blue-700 transition-all duration-300 hover:shadow-xl inline-flex items-center gap-2"
           >
             🔵 Solicita tu póliza ahora
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -242,7 +242,7 @@ function Poliza() {
       {/* Testimonial */}
       <section className="py-32 bg-white">
         <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto bg-gradient-to-r from-blue-600 to-blue-400 rounded-3xl p-12 text-center text-white relative overflow-hidden">
+          <div className="max-w-4xl mx-auto bg-gradient-to-r from-blue-600 to-blue-400 rounded-2xl p-12 text-center text-white relative overflow-hidden">
             <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')] opacity-10"></div>
             <div className="relative z-10">
               <MessageSquareQuote className="w-16 h-16 mx-auto mb-8 animate-float" />
@@ -271,7 +271,7 @@ function Poliza() {
             </h2>
             <form
               onSubmit={handleSubmit}
-              className="space-y-6 bg-white/30 backdrop-blur-md p-8 rounded-3xl shadow-xl"
+              className="space-y-6 bg-white/30 backdrop-blur-md p-8 rounded-2xl shadow-xl"
             >
               <div>
                 <label className="block text-gray-700 mb-2 font-medium">
@@ -379,7 +379,7 @@ function Poliza() {
               </div>
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-blue-600 to-blue-400 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
+                className="w-full bg-gradient-to-r from-blue-600 to-blue-400 text-white px-8 py-4 rounded-2xl text-lg font-semibold hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
               >
                 Solicitar ahora
               </button>
@@ -440,7 +440,7 @@ function Poliza() {
       {/* Final CTA */}
       <section className="py-32 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-6 text-center">
-          <div className="bg-gradient-to-r from-blueRemax to-blue-400 rounded-3xl p-16 relative overflow-hidden">
+          <div className="bg-gradient-to-r from-blueRemax to-blue-400 rounded-2xl p-16 relative overflow-hidden">
             <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')] opacity-10"></div>
             <div className="relative z-10">
               <Lock className="w-16 h-16 text-white mx-auto mb-8 animate-float" />
@@ -454,7 +454,7 @@ function Poliza() {
               </p>
               <a
                 href="#contact"
-                className="inline-block bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
+                className="inline-block bg-white text-blue-600 px-8 py-4 rounded-2xl text-lg font-semibold hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
               >
                 🔴 Solicita tu póliza ahora
               </a>
