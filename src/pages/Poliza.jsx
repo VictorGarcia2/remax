@@ -85,13 +85,13 @@ function Poliza() {
           {isScrolled ? (
               <img
               src="logos/New_RMX_Mark_R4_RGB_dark.png"
-              className="w-40"
+              className="w-37 md:w-40"
               alt=""
               />
             ) : (
                 <img
                 src="logos/New_RMX_Mark_R4_RGB_cream.png"
-                className="w-40"
+                className="w-37 md:w-40"
                 alt=""
                 />
             )}
@@ -110,10 +110,10 @@ function Poliza() {
         className="relative min-h-screen flex items-center justify-center bg-cover bg-center"
         style={{
           backgroundImage:
-            'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80")',
+            ', url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80")',
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/70"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-black/90"></div>
         <div className="container mx-auto px-6 text-center relative z-10">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-center text-white">
             Póliza de Rentas
