@@ -9,6 +9,7 @@ import axios from "axios";
 import propierties from "/src/APi/propiedades.json";
 import Eleccion from "./pages/Eleccion";
 import NuestroEquipo from "./pages/NuestroEquipo";
+import Poliza from "./pages/Poliza";
 export default function App() {
   const [propiedades, setPropiedades] = useState([]);
   const [menuClose, setMenuClose] = useState(true);
@@ -114,6 +115,7 @@ export default function App() {
           }
         />
         <Route path={"/NuestroEquipo"} element={<NuestroEquipo/>} />
+        <Route path="/Polizas-de-renta" element={<Poliza />} />
       </Routes>
     </>
   );

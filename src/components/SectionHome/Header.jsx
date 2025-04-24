@@ -84,12 +84,12 @@ export default function Header({ setSelectedOptionsOperacion }) {
               </a>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                to={"/Polizas-de-renta"}
                 className="block py-2 px-3 text-[#2e2c2c]rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 "
               >
                 Pólizas de renta
-              </a>
+              </Link>
             </li>
             <li>
               <Link
