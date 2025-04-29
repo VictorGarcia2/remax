@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import Residencial from "./pages/Residencial";
 import { Route, Routes } from "react-router";
-import Comercial from "./pages/Comercial";
+
 import ResultadosBusqueda from "./pages/Buscador/ResultadosBusqueda";
 import PropiedadSeleccion from "./pages/PropiedadSeleccion/PropiedadSeleccion";
-import axios from "axios";
 
 import propierties from "/src/APi/propiedades.json";
 import Eleccion from "./pages/Eleccion";

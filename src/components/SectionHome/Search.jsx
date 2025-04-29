@@ -14,12 +14,12 @@ export default function Search({
   setSelectedOptionsTipos,
   setSelectedOptionsOperacion,
 }) {
+  console.log(autoCompleteHome);
   const [openTipo, setOpenTipo] = useState(true);
   const [direccion, setDireccion] = useState("");
   const [modalBusqueda, setModalBusqueda] = useState(true);
   mapboxgl.accessToken =
     "pk.eyJ1IjoidmljdG9yZ2FyY2lhcHJ6IiwiYSI6ImNtNXZ3dW0wMjA2aHgyanE1M3ptczQ2azUifQ.ILrTXW_4c9_pbGC3Uj-wdg";
-
   const handleOperacion = (event) => {
     const value = event.target.id;
     if (event) {
@@ -35,7 +35,7 @@ export default function Search({
   const handleTipos = (event) => {
     const value = event.target.id;
     if (event) {
-   console.log(typeof(value))
+      console.log(typeof value);
       setOpenTipo(true);
       setSelectedOptionsTipos([value]);
     } else {
@@ -78,7 +78,7 @@ export default function Search({
       src: "/HomePageContent/desarrollo.svg",
     },
   ];
- 
+
   const navigate = useNavigate();
   const handleSearch = (e) => {
     setBusqueda("");
@@ -96,34 +96,58 @@ export default function Search({
   };
   useEffect(() => {
     const manejarBusqueda = async () => {
-      const response = await fetch(
-        `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
-          busquedaHome
-        )}.json?access_token=${mapboxgl.accessToken}&types=address,neighborhood,place&language=es&country=MX`
-      );
-      const data = await response.json();
-      setAutoCompleteHome(data.features);
+      try {
+        const response = await fetch(
+          `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
+            busquedaHome
+          )}.json?access_token=${
+            mapboxgl.accessToken
+          }&types=place,address&language=es&country=MX`
+        );
+        const data = await response.json();
+        if (data.features && data.features.length > 0) {
+          // Filtramos y etiquetamos los resultados
+          const filteredData = data.features.map((item) => {
+            if (item.place_type.includes("place")) {
+              return { ...item, category: "ciudad" };
+            } else if (item.place_type.includes("address")) {
+              return { ...item, category: "direccion" };
+            }
+            return item;
+          });
+          setAutoCompleteHome(filteredData);
+        } else {
+          setAutoCompleteHome([]);
+        }
+      } catch (error) {
+        console.error("Error al buscar lugar:", error);
+        setAutoCompleteHome([]);
+      }
     };
-    manejarBusqueda();
+
+    if (busquedaHome) {
+      manejarBusqueda();
+    }
   }, [busquedaHome]);
+
   const [selectedItem, setSelectedItem] = useState(null);
   return (
     <>
-      <div className="mt-10 flex flex-col gap-1 pb-1 font-display ">
+      <div className="mt-10 flex flex-col gap-1 pb-1 font-display">
         <form action="">
-          <div className=" mx-16 sm:mx-30 font-display font-ligh flex gap-1 pb-1 ">
+          <div className="mx-4 sm:mx-16 lg:mx-30 font-display font-light flex gap-1 pb-1">
             {operacion &&
               operacion.map((item) => (
                 <label
                   key={item.id}
-                  className={`text-sm cursor-pointer ${
+                  className={`text-xs sm:text-sm lg:text-base cursor-pointer ${
                     selectedItem === item.id
                       ? "bg-blueRemax text-white"
                       : "bg-white text-[#414141]"
-                  } hover:bg-blueRemax hover:text-white w-16 rounded sm:w-28 sm:h-9 sm:text-2xl font-extralight flex justify-center items-center h-7 text-center`}
+                  } hover:bg-blueRemax hover:text-white w-12 sm:w-20 lg:w-28 sm:h-8 lg:h-9 rounded flex justify-center items-center h-7 text-center`}
                 >
                   <input
-                    type="checkbox" // o type="radio" si es selección única
+                    type="checkbox"
                     id={item.id}
                     onChange={() => setSelectedItem(item.id)}
                     className="hidden"
@@ -137,9 +161,9 @@ export default function Search({
               onClick={() => setOpenTipo((prevState) => !prevState)}
               className={`${
                 openTipo ? "bg-white text-[#414141]" : "bg-[#003DA4] text-white"
-              } cursor-pointer hover:bg-blueRemax hover:text-white rounded-s-2xl w-16 sm:w-[116px] sm:h-16 h-11 shadow-[0_3px_1px] shadow-black/50  align-middle text-center items-center flex`}
+              } cursor-pointer hover:bg-blueRemax hover:text-white rounded-s-2xl w-12 sm:w-20 lg:w-[116px] sm:h-12 lg:h-16 h-11 shadow-[0_3px_1px] shadow-black/50 align-middle text-center items-center flex`}
             >
-              <p className={`  text-sm sm:text-2xl text-center w-full `}>
+              <p className="text-xs sm:text-sm lg:text-2xl text-center w-full">
                 Tipo
               </p>
             </div>
@@ -150,17 +174,22 @@ export default function Search({
                 onChange={autoCompleteModal}
                 name="searchs"
                 type="text"
-                className="bg-white text-[#414141] text-sm sm:text-2xl px-3 rounded h-11 w-60 shadow-[0_3px_1px] shadow-black/50 sm:h-16 sm:w-[465px] align-middle items-center flex"
+                className="bg-white text-[#414141] text-xs sm:text-sm lg:text-2xl px-3 rounded h-10 sm:h-12 lg:h-16 w-40 sm:w-60 lg:w-[465px] shadow-[0_3px_1px] shadow-black/50 align-middle items-center flex"
                 placeholder="Busca una zona..."
               />
               <div
                 className={`${
                   modalBusqueda && "invisible"
-                } top-13 lg:top-19 absolute bg-white px-2 flex flex-col py-4 items-start  gap-2 rounded shadow-[0_3px_1px] shadow-black/50`}
+                } top-12 sm:top-14 lg:top-19 absolute bg-white px-2 flex flex-col py-4 items-start gap-2 rounded shadow-[0_3px_1px] shadow-black/50`}
               >
-                {autoCompleteHome &&
-                  autoCompleteHome.map((item) => (
+                <p className="text-start px-2 text-xs sm:text-sm lg:text-base text-[#7b7b7b]">
+                  Ciudades
+                </p>
+                {autoCompleteHome
+                  .filter((item) => item.category === "ciudad")
+                  .map((item) => (
                     <div
+                      key={item.id} // Asegúrate de poner key
                       onClick={handleSearch}
                       className="flex items-center gap-1 py-1 hover:bg-gray-200 rounded w-full px-1 cursor-pointer"
                     >
@@ -168,7 +197,28 @@ export default function Search({
                         icon={faLocationDot}
                         className="text-[#7b7b7b]"
                       />
-                      <p className=" text-start text-[#7b7b7b]">
+                      <p className="text-start text-xs sm:text-sm lg:text-base text-[#7b7b7b]">
+                        {item.place_name}
+                      </p>
+                    </div>
+                  ))}
+
+                <p className="text-start px-2 text-xs sm:text-sm lg:text-base text-[#7b7b7b]">
+                  Direcciones
+                </p>
+                {autoCompleteHome
+                  .filter((item) => item.category === "direccion")
+                  .map((item) => (
+                    <div
+                      key={item.id}
+                      onClick={handleSearch}
+                      className="flex items-center gap-1 py-1 hover:bg-gray-200 rounded w-full px-1 cursor-pointer"
+                    >
+                      <FontAwesomeIcon
+                        icon={faLocationDot}
+                        className="text-[#7b7b7b]"
+                      />
+                      <p className="text-start text-xs sm:text-sm lg:text-base text-[#7b7b7b]">
                         {item.place_name}
                       </p>
                     </div>
@@ -177,13 +227,13 @@ export default function Search({
             </div>
             <div
               onClick={handleSearch}
-              className="rounded-e-full cursor-pointer w-13 h-11 sm:h-16 sm:w-20 bg-[#003DA4] align-middle  items-center flex shadow-[0_3px_1px] shadow-black/50"
+              className="rounded-e-full cursor-pointer w-10 sm:w-14 lg:w-20 h-10 sm:h-12 lg:h-16 bg-[#003DA4] align-middle items-center flex shadow-[0_3px_1px] shadow-black/50"
             >
-              <Link to={"/propiedades"} className="mx-auto cursor-pointer ">
+              <Link to={"/propiedades"} className="mx-auto cursor-pointer">
                 <button className="items-center flex">
                   <img
                     loading="lazy"
-                    className="mx-auto w-4.8 sm:w-9 cursor-pointer "
+                    className="mx-auto w-4 sm:w-6 lg:w-9 cursor-pointer"
                     src="/HomePageContent/Search Normal.svg"
                     alt=""
                   />
@@ -195,22 +245,22 @@ export default function Search({
         <div
           className={`${
             openTipo && "hidden"
-          } w-60 sm:w-80 h-auto bg-white mt-1 rounded shadow-[0_3px_1px]   flex flex-col justify-center align-middle items-center shadow-black/50`}
+          } w-40 sm:w-60 lg:w-80 h-auto bg-white mt-1 rounded shadow-[0_3px_1px] flex flex-col justify-center align-middle items-center shadow-black/50`}
         >
-          <ol className="font-display  text-start py-4  text-base sm:text-2xl  text-[#414141]">
+          <ol className="font-display text-start py-4 text-xs sm:text-base lg:text-2xl text-[#414141]">
             {tiposPropiedad &&
               tiposPropiedad.map((item) => (
                 <li
                   onClick={handleTipos}
-                  className="hover:bg-gray-200 py-2 px-5 w-full flex items-center cursor-pointer  gap-1 pb-1"
+                  className="hover:bg-gray-200 py-2 px-5 w-full flex items-center cursor-pointer gap-1"
                 >
                   <img
                     loading="lazy"
-                    className="w-5 sm:w-8"
+                    className="w-4 sm:w-6 lg:w-8"
                     src={item.src}
                     alt=""
-                  />{" "}
-                  <p id={item.tipo_id}> {item.tipo_nombre} </p>{" "}
+                  />
+                  <p id={item.tipo_id}>{item.tipo_nombre}</p>
                 </li>
               ))}
           </ol>

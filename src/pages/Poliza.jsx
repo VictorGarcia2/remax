@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+/* eslint-disable react/no-unescaped-entities */
+import  { useState, useEffect } from "react";
 import {
   Shield,
   CheckCircle2,
@@ -110,7 +111,7 @@ function Poliza() {
         className="relative min-h-screen flex items-center justify-center bg-cover bg-center"
         style={{
           backgroundImage:
-            ', url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80")',
+            'url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80")',
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-black/90"></div>

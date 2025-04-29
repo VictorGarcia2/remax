@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+/* eslint-disable react/prop-types */
+
 import SectionFooter from "../../components/SectionFooter/SectionFooter";
 import HeaderResultadoBusqueda from "../../components/HeaderResultadoBusqueda";
 import SearchResultadosBusqueda from "../../components/SearchResultadosBusqueda";

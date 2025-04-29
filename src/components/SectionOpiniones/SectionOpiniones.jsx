@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 import { useRef, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore from "swiper";
@@ -85,7 +86,7 @@ const Testimonials = () => {
           <div className="flex items-center gap-20">
             <button
               ref={prevButtonRef}
-              className="swiper-button-prev group flex justify-center items-center border border-solid border-blueRemax w-20 h-20 transition-all duration-500 rounded-full hover:bg-blueRemax/50"
+              className="swiper-button-prev group flex justify-center items-center border border-solid border-blueRemax w-50 h-50 transition-all duration-500 rounded-full hover:bg-blueRemax/50"
             >
               <svg
                 className="h-6 w-6 text-blueRemax group-hover:text-white"
