@@ -185,7 +185,7 @@ export default function PropiedadSeleccion({ seleccion }) {
       <div
         className={` ${
           openGallery && "invisible"
-        } flex flex-col bg-black/70 mx-auto -mt-5 justify-center items-center  w-full h-full fixed   p-0 z-40 "`}
+        } flex flex-col bg-black/70 mx-auto -mt-5 justify-center items-center  w-full h-full fixed   p-0 z-50 "`}
       >
         <div className=" lg:w-3xl lg:max-h-10/12 relative pt-6 w-full h-full bg-white rounded-2xl flex flex-col justify-center items-center shadow-[0px_4px_5px_0px] shadow-black/40">
           <div className="w-full flex flex-col absolute lg:static top-6 left-35  lg:items-end lg:px-12 lg:pt-5  ">
@@ -211,7 +211,7 @@ export default function PropiedadSeleccion({ seleccion }) {
       </div>
       <HeaderPropiedadSeleccion />
       <div
-        className={`transition-all duration-[900ms]  lg:invisible  ease-in-out   bottom-4 right-4 bg-blueRemax rounded-full  fixed z-50  w-[217px] h-[50px] flex items-center justify-center ${
+        className={`transition-all duration-[900ms]  lg:invisible  ease-in-out   bottom-4 right-4 bg-blueRemax rounded-full  fixed z-40  w-[217px] h-[50px] flex items-center justify-center ${
           animation ? "translate-x-0 opacity-100 " : " opacity-0 translate-x-0 "
         }`}
       >

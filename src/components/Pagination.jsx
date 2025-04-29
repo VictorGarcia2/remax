@@ -35,7 +35,7 @@ function Pagination({ totalPages, currentPage, onPageChange }) {
           <button
             key={index}
             onClick={() => onPageChange(pageNumber)}
-            className={`w-9 h-9 sm:w-10 sm:h-10 text-sm font-medium rounded-full transition-colors ${
+            className={`w-5 h-5 sm:w-10 sm:h-10 text-sm font-medium rounded-full transition-colors ${
               currentPage === pageNumber
                 ? "bg-blueRemax text-white"
                 : "text-gray-600 hover:bg-gray-100"
