@@ -161,7 +161,7 @@ export default function Search({
               onClick={() => setOpenTipo((prevState) => !prevState)}
               className={`${
                 openTipo ? "bg-white text-[#414141]" : "bg-[#003DA4] text-white"
-              } cursor-pointer hover:bg-blueRemax hover:text-white rounded-s-2xl w-12 sm:w-20 lg:w-[116px] sm:h-12 lg:h-16 h-11 shadow-[0_3px_1px] shadow-black/50 align-middle text-center items-center flex`}
+              } cursor-pointer hover:bg-blueRemax hover:text-white rounded-s-2xl w-12  sm:w-20 lg:w-[116px] sm:h-12 lg:h-16 h-10 shadow-[0_3px_1px] shadow-black/50 align-middle text-center items-center flex`}
             >
               <p className="text-xs sm:text-sm lg:text-2xl text-center w-full">
                 Tipo

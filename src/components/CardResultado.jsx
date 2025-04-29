@@ -191,7 +191,8 @@ export default function CardResultado({
         </div>
       </div>
       {/* Mapa */}
-      <div className={`${mapa || "hidden"} mt-0  xl:block`}>
+      <div className={`${mapa ? "" : "hidden"} mt-0 xl:block`}>
+
         <Mapbox
           selectedOptionsOperacion={selectedOptionsOperacion}
           aplicarFiltros={aplicarFiltros}

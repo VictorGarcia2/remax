@@ -352,8 +352,8 @@ const MapboxConCards = ({
   }, [manejoBusqueda, busquedaHome]);
 
   return (
-    <div className="w-full flex flex-col lg:flex-row gap-4">
-      <div className="w-full h-[400px] lg:h-[700px] relative">
+    <div className=" flex flex-col lg:flex-row gap-4">
+      <div className=" w-full h-[400px] lg:h-[700px] relative">
         <div
           ref={mapContainerRef}
           style={{ width: "100%", height: "100%" }}
