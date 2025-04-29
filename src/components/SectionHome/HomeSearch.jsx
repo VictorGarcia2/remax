@@ -17,9 +17,9 @@ export default function HomeSearch({
   const [selectedKey, setSelectedKey] = useState(null); // se inicializa vacío
   const imagesByValor = {
     comercial: [
-      "/HomePageContent/comercial/comercial (1).webp",
-      "/HomePageContent/comercial/comercial (2).webp",
-      "/HomePageContent/comercial/comercial (3).webp",
+      "/HomePageContent/comercial/comercial1.webp",
+      "/HomePageContent/comercial/comercial2.webp",
+      "/HomePageContent/comercial/comercial3.webp",
     ],
     residencial: [
       "/HomePageContent/residencial/residencial (1).webp",
@@ -30,8 +30,8 @@ export default function HomeSearch({
   };
 
   const images = imagesByValor[valor] || [
-    "HomePageContent/residencial/residencial (1).webp",
-    "HomePageContent/default2.webp",
+    "/HomePageContent/comercial/comercial1.webp",
+    "/HomePageContent/comercial/comercial2.webp",
   ];
 
   // Control de slides

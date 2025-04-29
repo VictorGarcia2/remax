@@ -180,7 +180,7 @@ export default function Search({
                   modalBusqueda && "invisible"
                 } top-12 sm:top-14 lg:top-19 absolute bg-white px-2 flex flex-col py-4 items-start gap-2 rounded shadow-[0_3px_1px] shadow-black/50`}
               >
-                <p className="text-start px-2 text-xs sm:text-sm lg:text-base text-[#7b7b7b]">
+                <p className="text-start font-bold px-2 text-xs sm:text-sm lg:text-base text-[#7b7b7b]">
                   Ciudades
                 </p>
                 {autoCompleteHome
@@ -201,7 +201,7 @@ export default function Search({
                     </div>
                   ))}
 
-                <p className="text-start px-2 text-xs sm:text-sm lg:text-base text-[#7b7b7b]">
+                <p className="text-start px-2 font-bold text-xs sm:text-sm lg:text-base text-[#7b7b7b]">
                   Direcciones
                 </p>
                 {autoCompleteHome

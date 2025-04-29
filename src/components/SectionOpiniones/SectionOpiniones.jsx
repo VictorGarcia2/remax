@@ -15,43 +15,42 @@ const Testimonials = () => {
 
   const testimonials = [
     {
-      name: "Jane D",
-      role: "CEO",
-      text: "Pagedone is simply the best tool of investment in the market right now.",
-      image: "https://pagedone.io/asset/uploads/1696229969.png",
+      "name": "Aida Leon",
+      "role": "Customer",
+      "text": "Excellent real estate service, they advised me throughout the entire process to find my ideal home🤗",
+      "image": "https://lh3.googleusercontent.com/a/ACg8ocIaqoSh1PGLsGsdBayGHdy7pE3eQxIn7a7Oi5A9QpDszTvoPm4g=s128-c0x00000000-cc-rp-mo",
+      "rating": 5
     },
     {
-      name: "Harsh P.",
-      role: "Product Designer",
-      text: "I was hesitant to try pagedone at first, but I'm so glad I did - it's exceeded all of my expectations.",
-      image: "https://pagedone.io/asset/uploads/1696229994.png",
+      "name": "Andres Guerra",
+      "role": "Customer",
+      "text": "Excellent service and advice, I found the ideal house with them!",
+      "image": "https://lh3.googleusercontent.com/a-/ALV-UjXsZrUje1NR6uaS4pu_dh7QKwukGtNDT2zM-DWVJyOd8ZSRVqCA=s128-c0x00000000-cc-rp-mo",
+      "rating": 5
     },
     {
-      name: "Alex K.",
-      role: "Design Lead",
-      text: "Pagedone stands out as the most user-friendly and effective solution I've ever used.",
-      image: "https://pagedone.io/asset/uploads/1696230027.png",
-    },
-    // Duplicados para probar el loop
-    {
-      name: "Jane D",
-      role: "CEO",
-      text: "Pagedone is simply the best tool of investment in the market right now.",
-      image: "https://pagedone.io/asset/uploads/1696229969.png",
+      "name": "Jocelyn Lozada",
+      "role": "Customer",
+      "text": "Excellent service 👍",
+      "image": "https://lh3.googleusercontent.com/a-/ALV-UjWnk3wxmgcBBxLlLj4rXsIYPL5ModCTER1zu1qhbgQuGGPbUSEBAQ=s128-c0x00000000-cc-rp-mo-ba2",
+      "rating": 5
     },
     {
-      name: "Harsh P.",
-      role: "Product Designer",
-      text: "I was hesitant to try pagedone at first, but I'm so glad I did - it's exceeded all of my expectations.",
-      image: "https://pagedone.io/asset/uploads/1696229994.png",
+      "name": "Arturo León Varela",
+      "role": "Customer",
+      "text": "Excellent service",
+      "image": "https://lh3.googleusercontent.com/a-/ALV-UjXT-G4s06TBx32OiyrHCwTJd-VVrhk6WDxUWUVTXpKv5v6THGh5HA=s128-c0x00000000-cc-rp-mo",
+      "rating": 5
     },
     {
-      name: "Alex K.",
-      role: "Design Lead",
-      text: "Pagedone stands out as the most user-friendly and effective solution I've ever used.",
-      image: "https://pagedone.io/asset/uploads/1696230027.png",
-    },
-  ];
+      "name": "Itzel Hernandez",
+      "role": "Customer",
+      "text": "Excellent service",
+      "image": "https://lh3.googleusercontent.com/a/ACg8ocL8rFffJX6oma66sek7ae2-rx3FZo847Efi3I7vLZx10QVnNA=s128-c0x00000000-cc-rp-mo",
+      "rating": 5
+    }
+  ]
+  
 
   useEffect(() => {
     if (swiperRef.current && swiperRef.current.swiper) {
@@ -157,7 +156,7 @@ const Testimonials = () => {
             <SwiperSlide key={index}>
               <div className="group bg-white border border-solid h-auto border-gray-300 rounded-2xl p-6 transition-all duration-500 w-full hover:border-indigo-600 swiper-slide-active:border-indigo-600">
                 <div className="flex items-center mb-9 gap-2 text-amber-500 transition-all duration-500 group-hover:text-indigo-600 swiper-slide-active:text-indigo-600">
-                  {[...Array(5)].map((_, i) => (
+                  {Array.from({ length: testimonial.rating }).map((_, i) => (
                     <StarIcon key={i} />
                   ))}
                 </div>

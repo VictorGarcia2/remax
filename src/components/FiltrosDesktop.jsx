@@ -38,16 +38,41 @@ export default function FiltrosDesktop({
   };
   useEffect(() => {
     const manejarBusqueda = async () => {
-      const response = await fetch(
-        `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
-          busqueda
-        )}.json?access_token=${mapboxgl.accessToken}&types=address,neighborhood,place&language=es&country=MX`
-      );
-      const data = await response.json();
-      setAutoCompleteHome(data.features);
+      try {
+        const response = await fetch(
+          `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
+            busqueda
+          )}.json?access_token=${
+            mapboxgl.accessToken
+          }&types=place,address&language=es&country=MX`
+        );
+        const data = await response.json();
+        if (data.features && data.features.length > 0) {
+          // Filtramos y etiquetamos los resultados
+          const filteredData = data.features.map((item) => {
+            if (item.place_type.includes("place")) {
+              return { ...item, category: "ciudad" };
+            } else if (item.place_type.includes("address")) {
+              return { ...item, category: "direccion" };
+            }
+            return item;
+          });
+          setAutoCompleteHome(filteredData);
+        } else {
+          setAutoCompleteHome([]);
+        }
+      } catch (error) {
+        console.error("Error al buscar lugar:", error);
+        setAutoCompleteHome([]);
+      }
     };
-    manejarBusqueda();
+
+    if (busqueda) {
+      manejarBusqueda();
+    }
   }, [busqueda]);
+
+
   const handleSearch = (e) => {
     setManejoBusqueda((prevState) => !prevState);
     setBusqueda(e.target.textContent);
@@ -102,19 +127,47 @@ export default function FiltrosDesktop({
             modalBusqueda && "hidden"
           } mt-13 z-50 absolute bg-white px-2 flex flex-col py-4 items-start  gap-2 rounded shadow-[0_3px_1px] shadow-black/50`}
         >
-          {autoCompleteHome &&
-            autoCompleteHome.map((item) => (
-              <div
-                onClick={handleSearch}
-                className="flex items-center gap-1 py-1 hover:bg-gray-200 rounded w-full px-1 cursor-pointer"
-              >
-                <FontAwesomeIcon
-                  icon={faLocationDot}
-                  className="text-[#7b7b7b]"
-                />
-                <p className=" text-start text-[#7b7b7b]">{item.place_name}</p>
-              </div>
-            ))}
+          <p className="font-bold text-start px-2 text-xs sm:text-sm lg:text-base text-[#7b7b7b]">
+                           Ciudades
+                         </p>
+                         {autoCompleteHome
+                           .filter((item) => item.category === "ciudad")
+                           .map((item) => (
+                             <div
+                               key={item.id} // Asegúrate de poner key
+                               onClick={handleSearch}
+                               className="flex items-center gap-1 py-1 hover:bg-gray-200 rounded w-full px-1 cursor-pointer"
+                             >
+                               <FontAwesomeIcon
+                                 icon={faLocationDot}
+                                 className="text-[#7b7b7b]"
+                               />
+                               <p className="text-start text-xs sm:text-sm lg:text-base text-[#7b7b7b]">
+                                 {item.place_name}
+                               </p>
+                             </div>
+                           ))}
+         
+                         <p className="text-start font-bold px-2 text-xs sm:text-sm lg:text-base text-[#7b7b7b]">
+                           Direcciones
+                         </p>
+                         {autoCompleteHome
+                           .filter((item) => item.category === "direccion")
+                           .map((item) => (
+                             <div
+                               key={item.id}
+                               onClick={handleSearch}
+                               className="flex items-center gap-1 py-1 hover:bg-gray-200 rounded w-full px-1 cursor-pointer"
+                             >
+                               <FontAwesomeIcon
+                                 icon={faLocationDot}
+                                 className="text-[#7b7b7b]"
+                               />
+                               <p className="text-start text-xs sm:text-sm lg:text-base text-[#7b7b7b]">
+                                 {item.place_name}
+                               </p>
+                             </div>
+                           ))}
         </div>
         <div
           onClick={() => setManejoBusqueda((prevState) => !prevState)}

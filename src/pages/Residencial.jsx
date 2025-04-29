@@ -9,6 +9,7 @@ import SectionComoComprar from "../components/SectionComoComprar/SectionComoComp
 
 import SectionEquipo from "../components/SectionEquipo/SectionEquipo"
 import Testimonials from "../components/SectionOpiniones/SectionOpiniones";
+
 export default function Residencial({valor, busquedaHome, setBusquedaHome, autoCompleteHome,setAutoCompleteHome,setBusqueda, setSelectedOptionsTipos, setSelectedOptionsOperacion}) {
     return (
         <>

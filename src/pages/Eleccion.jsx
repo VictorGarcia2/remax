@@ -29,8 +29,8 @@ const Eleccion = ({ setValor }) => {
     setValor(value.toLowerCase());
   };
   const sectors = [
-    { id: 1, name: "Comercial/Industrial", color: "bg-[#db1c2e]", path: "/residencial" },
-    { id: 2, name: "Residencial", color: "bg-[#003da4]", path: "/residencial" },
+    { id: 1, name: "Comercial/Industrial", color: "bg-[#db1c2e]", path: "/residencial", valor: "comercial" },
+    { id: 2, name: "Residencial", color: "bg-[#003da4]", path: "/residencial", valor: "residencial" },
   ];
 
   return (
@@ -56,7 +56,7 @@ const Eleccion = ({ setValor }) => {
                 className="w-full sm:w-auto "
               >
                 <Button
-                  onClick={() => handle(sector.name)}
+                  onClick={() => handle(sector.valor)}
                   className={`${sector.color} w-full cursor-pointer text-white text-lg sm:text-xl md:text-2xl font-semibold py-3 px-6 rounded-lg shadow-[0px_4px_4px_#00000040]`}
                 >
                   {sector.name}
