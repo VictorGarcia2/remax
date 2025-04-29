@@ -1,17 +1,9 @@
 import React from "react";
 import { Link } from "react-router"; // Asegúrate que sea "react-router-dom"
 
-
-
 // Button Component
 const Button = React.forwardRef(({ className, ...props }, ref) => {
-  return (
-    <button
-      className={className}
-      ref={ref}
-      {...props}
-    />
-  );
+  return <button className={className} ref={ref} {...props} />;
 });
 Button.displayName = "Button";
 
@@ -26,22 +18,18 @@ const Card = React.forwardRef(({ className, ...props }, ref) => (
 Card.displayName = "Card";
 
 const CardContent = React.forwardRef(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={`p-6 pt-0 ${className}`}
-    {...props}
-  />
+  <div ref={ref} className={`p-6 pt-0 ${className}`} {...props} />
 ));
 CardContent.displayName = "CardContent";
 
 // Main App Component
-const Eleccion = ({setValor}) => {
-    const handle = (value) => {
-      console.log(value.toLowerCase());
-      setValor(value.toLowerCase());
-    }
+const Eleccion = ({ setValor }) => {
+  const handle = (value) => {
+    console.log(value.toLowerCase());
+    setValor(value.toLowerCase());
+  };
   const sectors = [
-    { id: 1, name: "Comercial", color: "bg-[#db1c2e]", path: "/residencial" },
+    { id: 1, name: "Comercial/Industrial", color: "bg-[#db1c2e]", path: "/residencial" },
     { id: 2, name: "Residencial", color: "bg-[#003da4]", path: "/residencial" },
   ];
 
@@ -56,12 +44,17 @@ const Eleccion = ({setValor}) => {
           />
 
           <h1 className="text-center text-neutral-700 text-xl sm:text-2xl md:text-3xl font-light leading-snug">
-            <span className="font-bold">Bienvenido:</span> Elige el sector que te interesa.
+            <span className="font-bold">Bienvenido:</span> Elige el sector que
+            te interesa.
           </h1>
 
           <div className="flex flex-col sm:flex-row gap-4 w-full justify-center">
             {sectors.map((sector) => (
-              <Link to={sector.path} key={sector.id} className="w-full sm:w-auto ">
+              <Link
+                to={sector.path}
+                key={sector.id}
+                className="w-full sm:w-auto "
+              >
                 <Button
                   onClick={() => handle(sector.name)}
                   className={`${sector.color} w-full cursor-pointer text-white text-lg sm:text-xl md:text-2xl font-semibold py-3 px-6 rounded-lg shadow-[0px_4px_4px_#00000040]`}

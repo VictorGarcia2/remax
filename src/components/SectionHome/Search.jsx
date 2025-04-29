@@ -135,7 +135,7 @@ export default function Search({
     <>
       <div className="mt-10 flex flex-col gap-1 pb-1 font-display">
         <form action="">
-          <div className="mx-4 sm:mx-16 lg:mx-30 font-display font-light flex gap-1 pb-1">
+          <div className="mx-13 sm:mx-16 lg:mx-30 font-display font-light flex gap-1 pb-1">
             {operacion &&
               operacion.map((item) => (
                 <label
@@ -144,7 +144,7 @@ export default function Search({
                     selectedItem === item.id
                       ? "bg-blueRemax text-white"
                       : "bg-white text-[#414141]"
-                  } hover:bg-blueRemax hover:text-white w-12 sm:w-20 lg:w-28 sm:h-8 lg:h-9 rounded flex justify-center items-center h-7 text-center`}
+                  } hover:bg-blueRemax hover:text-white w-12 sm:w-20 lg:w-28 sm:h-8 lg:h-9 rounded flex justify-center items-center h-7 font-normal text-center`}
                 >
                   <input
                     type="checkbox"
