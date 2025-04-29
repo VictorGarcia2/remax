@@ -1,4 +1,5 @@
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import Residencial from "./pages/Residencial";
 import { Route, Routes } from "react-router";
 
@@ -29,25 +30,43 @@ export default function App() {
   const [aplicarFiltros, setAplicarFiltros] = useState(Date.now());
   const [seleccion, setSeleccion] = useState();
   const [valor, setValor] = useState("");
-  /* useEffect(() => {
+  
+
+  useEffect(() => {
+    fetch("https://us-central1-remax-api.cloudfunctions.net/api/propiedades", {
+      method: "GET",
+      headers: {
+        "Authorization": "Bearer Hvh8n23m53.n7hiu32S09gh6tUj.JJpyfq.HioJ19J3RGgHJSIOop4t4t",
+        "Content-Type": "application/json",
+      },
+    })
+      .then(response => response.json())
+      .then(data => {
+        setPropiedades(data.data.rows); // O ajusta según estructura de tu API
+      })
+      .catch(error => console.error("Error:", error));
+  }, [busquedaHome]);
+  
+
+ /*  useEffect(() => {
     const getData = async () => {
       try {
         const response = await axios.get(
-          "https://localhost:3000/api/propiedades"
+          "https://us-central1-remax-api.cloudfunctions.net/api/propiedades"
         );
         const data = response.data.data.rows;
         setPropiedades(data);
-        } catch (error) {
-          console.error("Algo salió mal al consumir la API", error);
-          }
-          };
-          getData();
-          }, [busquedaHome]); */
+      } catch (error) {
+        console.error("Algo salió mal al consumir la API", error);
+      }
+    };
+    getData();
+  }, [busquedaHome]); */
 
-          useEffect(() => {
+  /*  useEffect(() => {
             const data = propierties.data.rows; // o como venga en tu JSON
             setPropiedades(data);
-          }, [busquedaHome]);
+          }, [busquedaHome]); */
 
   return (
     <>
@@ -74,7 +93,6 @@ export default function App() {
           path="/propiedades"
           element={
             <ResultadosBusqueda
-            
               selectedOptionsOperacion={selectedOptionsOperacion}
               setSelectedOptionsOperacion={setSelectedOptionsOperacion}
               selectedOptionsTipos={selectedOptionsTipos}
@@ -116,15 +134,20 @@ export default function App() {
             />
           }
         />
-        <Route path={"/NuestroEquipo"} element={<NuestroEquipo/>} />
+        <Route path={"/NuestroEquipo"} element={<NuestroEquipo />} />
         <Route path="/Polizas-de-renta" element={<Poliza />} />
         {/* terminos y condiciones */}
-        <Route path="/terminos-y-condiciones" element={<TerminosyCondiciones />} />
+        <Route
+          path="/terminos-y-condiciones"
+          element={<TerminosyCondiciones />}
+        />
         {/* codigo de etica */}
         <Route path="/codigo-de-etica" element={<CodigodeEtica />} />
         {/* aviso de privacidad */}
-        <Route path="/politica-de-privacidad" element={<PoliticadePrivacidad />} />
-        
+        <Route
+          path="/politica-de-privacidad"
+          element={<PoliticadePrivacidad />}
+        />
       </Routes>
     </>
   );
