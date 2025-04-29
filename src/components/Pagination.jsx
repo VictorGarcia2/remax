@@ -67,7 +67,7 @@ function Paginacion({ setPagina, totalPaginas }) {
 
   return (
     <div className="py-8 px-4 sm:px-6 lg:px-8">
-      <div className="w-full max-w-3xl mx-auto">
+      <div className="w-full  md:max-w-2xl mx-auto">
         <Pagination
           totalPages={totalPaginas}
           currentPage={currentPage}
