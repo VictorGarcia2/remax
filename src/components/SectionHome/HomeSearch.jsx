@@ -17,14 +17,15 @@ export default function HomeSearch({
   const [selectedKey, setSelectedKey] = useState(null); // se inicializa vacío
   const imagesByValor = {
     comercial: [
-      "HomePageContent/comercial/comercial (1).webp",
-      "HomePageContent/comercial/comercial (2).webp","HomePageContent/comercial/comercial (3).webp",
+      "/HomePageContent/comercial/comercial (1).webp",
+      "/HomePageContent/comercial/comercial (2).webp",
+      "/HomePageContent/comercial/comercial (3).webp",
     ],
     residencial: [
-      "HomePageContent/residencial/residencial (1).webp",
-      "HomePageContent/residencial/residencial (2).webp",
-      "HomePageContent/residencial/residencial (3).webp",
-      "HomePageContent/residencial/residencial (4).webp",
+      "/HomePageContent/residencial/residencial (1).webp",
+      "/HomePageContent/residencial/residencial (2).webp",
+      "/HomePageContent/residencial/residencial (3).webp",
+      "/HomePageContent/residencial/residencial (4).webp",
     ],
   };
 
