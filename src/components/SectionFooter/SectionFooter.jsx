@@ -4,35 +4,13 @@ import { Link } from "react-router";
 export default function SectionFooter() {
   return (
     <>
-      {/* <div className="px-5 font-display flex flex-col justify-center items-center text-center mb-5">
-        <hr className="text-[#7b7b7b] w-80" />
-        <ol className="text-[#7b7b7b] mt-3">
-          <li>
-            <a href="">Términos y condiciones</a>  
-          </li>
-          <li>
-            <a href="">Aviso de privacidad</a>{" "}
-          </li>
-          <li>
-            <a href="">Código de ética</a>{" "}
-          </li>
-        </ol>
-        <div className="flex gap-3 mt-3">
-          <a href="">
-            <img src="HomePageContent/Facebook.svg" alt="" />
-          </a>
-          <a href="">
-            <img src="HomePageContent/Instagram.svg" alt="" />
-          </a>
-        </div>
-      </div> */}
       <footer class="bg-blueRemax/10 text-[#2e2c2c]">
         <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
           <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0">
               <img
                 className="w-30"
-                src="logos/New_RMX_Mark_R4_RGB_dark.png"
+                src="/logos/New_RMX_Mark_R4_RGB_dark.png"
                 alt=""
               />
             </div>
@@ -85,7 +63,8 @@ export default function SectionFooter() {
             </span>
             <div class="flex mt-4 sm:justify-center gap-10 sm:mt-0">
               <a
-                href="#"
+                href="https://www.facebook.com/share/1E4AQv6USq/?mibextid=wwXIfr" 
+                target="_blank"
                 class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
               >
                 <svg
@@ -103,7 +82,7 @@ export default function SectionFooter() {
                 </svg>
                 <span class="sr-only">Facebook page</span>
               </a>
-              <a href="">
+              <a href="https://www.instagram.com/remaxcin.veracruz?igsh=bG96MG53a2V4eGp6" target="_blank">
                 <img
                   className="w-5 h-5"
                   src="/HomePageContent/Instagram.svg"

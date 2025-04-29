@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router";
-import { getConsults } from "../../APi/APICall";
-import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faL, faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import {  faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import mapboxgl from "mapbox-gl";
 export default function Search({
   busquedaHome,
