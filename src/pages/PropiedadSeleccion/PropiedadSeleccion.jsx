@@ -9,6 +9,8 @@ import Paginacion from "../../components/Pagination.jsx";
 import axios from "axios";
 import { useParams } from "react-router";
 import propierties from "/src/APi/propiedades.json";
+import { ShareButtons } from "../../components/ShareButtons.jsx";
+import { Share2 } from "lucide-react";
 export default function PropiedadSeleccion({ seleccion }) {
   const { id } = useParams();
   const [propiedades, setPropiedades] = useState([]);
@@ -38,7 +40,7 @@ export default function PropiedadSeleccion({ seleccion }) {
     { id: "101914741", nombre: "Verónica Olán García" },
     { id: "102162316", nombre: "Andrés Guerra Olan" },
     { id: "101932987", nombre: "Andrés Guerra García" },
-    { id: "102296937", nombre: "Beatriz Hernandez Aguilera" }, 
+    { id: "102296937", nombre: "Beatriz Hernandez Aguilera" },
     { id: "102298360", nombre: "Verónica Itzel Guerra Olán" },
     { id: "102312153", nombre: "Dulce Angelica Flores De Jesus" },
     { id: "102427296", nombre: "Aída Leon Varela" },
@@ -46,8 +48,12 @@ export default function PropiedadSeleccion({ seleccion }) {
     { id: "102433046", nombre: "Fernanda Lozada" },
   ];
 
-  const filtroagente = propiedadSeleccion?.agentes?.numeroasociado ? agentesId.filter((item) => propiedadSeleccion.agentes.numeroasociado.includes(item.id)): [];
- 
+  const filtroagente = propiedadSeleccion?.agentes?.numeroasociado
+    ? agentesId.filter((item) =>
+        propiedadSeleccion.agentes.numeroasociado.includes(item.id)
+      )
+    : [];
+
   useEffect(() => {
     const data = propierties.data.rows; // o como venga en tu JSON
     setPropiedades(data);
@@ -135,8 +141,47 @@ export default function PropiedadSeleccion({ seleccion }) {
     { nombre: "Desarrollo en Renta", tipo_id: 6, operacion_id: "2" },
   ];
   const imagenAgente = `https://cdn.remax.com.mx/agentes/${propiedadSeleccion?.agentes?.imagen}`;
+
+  const [shareModalOpen, setShareModalOpen] = useState(true);
+
+  const share = () => {
+    /* usa prev state */
+    setShareModalOpen((prevState) => !prevState);
+  };
   return (
     <>
+      <div
+        className={`${
+          shareModalOpen && "invisible"
+        } flex flex-col justify-center items-center fixed z-50 w-full h-full bg-white/70`}
+      >
+        <div className="min-h-screen  flex items-center justify-center p-4">
+          <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-8 space-y-6">
+            <div className="text-center space-y-2">
+              <div className="flex justify-center">
+                <img
+                  className="max-w-[200px]"
+                  src="/logos/New_RMX_Mark_R4_RGB_dark.png"
+                  alt=""
+                />
+              </div>
+              <h1 className="text-2xl font-bold text-gray-800">
+                Comparte esta propiedad
+              </h1>
+              <p className="text-gray-600">
+                Comparte este link para acceder a la propiedad.
+              </p>
+            </div>
+
+            <div className="flex justify-center">
+              <ShareButtons
+               
+                setShareModalOpen={setShareModalOpen}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
       <div
         className={` ${
           openGallery && "invisible"
@@ -228,20 +273,24 @@ export default function PropiedadSeleccion({ seleccion }) {
         </div>
         <div className="w-full flex flex-col lg:grid lg:grid-cols-2 text-[#7b7b7b]">
           <div>
-            <div className="px-5 pt-5">
-              {tituloPro && propiedadSeleccion ? (
-                tituloPro.map((item) => (
-                  <p key={item.nombre} className="lg:text-3xl">
-                    {item.tipo_id === propiedadSeleccion?.tipos?.tipo_id &&
-                    item.operacion_id === propiedadSeleccion?.operacion
-                      ? item.nombre
-                      : ""}
-                  </p>
-                ))
-              ) : (
-                <div className="h-[32px] w-[200px] bg-gray-300 rounded-md animate-pulse mb-2"></div>
-              )}
-
+            <div className="px-5 pt-5 items-center justify-start">
+              <div className="flex  justify-start items-center text-start ">
+                {tituloPro && propiedadSeleccion ? (
+                  tituloPro.map((item) => (
+                    <p key={item.nombre} className="lg:text-3xl">
+                      {item.tipo_id === propiedadSeleccion?.tipos?.tipo_id &&
+                      item.operacion_id === propiedadSeleccion?.operacion
+                        ? item.nombre
+                        : ""}
+                    </p>
+                  ))
+                ) : (
+                  <div className="h-[32px] w-[200px] bg-gray-300 rounded-md animate-pulse mb-2"></div>
+                )}
+                <div className="px-4 pt-1 lg:px-10 lg:pt-2">
+                  <Share2 className={"cursor-pointer  w-4 lg:w-10  text-4xl"} onClick={share} />
+                </div>
+              </div>
               {propiedadSeleccion && tipos ? (
                 <>
                   {tipos.map(
@@ -367,7 +416,7 @@ export default function PropiedadSeleccion({ seleccion }) {
                 <div className="flex gap-15  items-center justify-between">
                   <div>
                     <p className="font-medium  text-[16px] lg:text-2xl">
-                    {filtroagente[0]?.nombre}
+                      {filtroagente[0]?.nombre}
                     </p>
                     <p className="font-medium text-[16px] lg:text-xl">
                       Solicita información:

@@ -9,6 +9,9 @@ import propierties from "/src/APi/propiedades.json";
 import Eleccion from "./pages/Eleccion";
 import NuestroEquipo from "./pages/NuestroEquipo";
 import Poliza from "./pages/Poliza";
+import TerminosyCondiciones from "./components/TerminosyCondiciones";
+import CodigodeEtica from "./components/CodigodeEtica";
+import PoliticadePrivacidad from "./components/PoliticadePrivacidad";
 export default function App() {
   const [propiedades, setPropiedades] = useState([]);
   const [menuClose, setMenuClose] = useState(true);
@@ -115,6 +118,13 @@ export default function App() {
         />
         <Route path={"/NuestroEquipo"} element={<NuestroEquipo/>} />
         <Route path="/Polizas-de-renta" element={<Poliza />} />
+        {/* terminos y condiciones */}
+        <Route path="/terminos-y-condiciones" element={<TerminosyCondiciones />} />
+        {/* codigo de etica */}
+        <Route path="/codigo-de-etica" element={<CodigodeEtica />} />
+        {/* aviso de privacidad */}
+        <Route path="/politica-de-privacidad" element={<PoliticadePrivacidad />} />
+        
       </Routes>
     </>
   );

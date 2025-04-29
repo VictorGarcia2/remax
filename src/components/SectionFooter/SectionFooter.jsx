@@ -56,19 +56,19 @@ export default function SectionFooter() {
                 </h2>
                 <ul class=" font-medium">
                   <li class="mb-4">
-                    <a href="#" class="hover:underline">
+                    <Link to={"/politica-de-privacidad"} class="hover:underline">
                       Aviso de privacidad
-                    </a>
+                    </Link>
                   </li>
                   <li class="mb-4">
-                    <a href="#" class="hover:underline">
+                    <Link to={"/codigo-de-etica"} class="hover:underline">
                       Código de ética
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#" class="hover:underline">
+                    <Link to={"/terminos-y-condiciones"} class="hover:underline">
                       Terminos &amp; Condiciones
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
