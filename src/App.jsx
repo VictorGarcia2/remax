@@ -32,7 +32,7 @@ export default function App() {
   const [valor, setValor] = useState("");
   
 
-  useEffect(() => {
+ /*  useEffect(() => {
     fetch("https://us-central1-remax-api.cloudfunctions.net/api/propiedades", {
       method: "GET",
       headers: {
@@ -45,7 +45,7 @@ export default function App() {
         setPropiedades(data.data.rows); // O ajusta según estructura de tu API
       })
       .catch(error => console.error("Error:", error));
-  }, [busquedaHome]);
+  }, [busquedaHome]); */
   
 
  /*  useEffect(() => {
@@ -63,10 +63,10 @@ export default function App() {
     getData();
   }, [busquedaHome]); */
 
-  /*  useEffect(() => {
+   useEffect(() => {
             const data = propierties.data.rows; // o como venga en tu JSON
             setPropiedades(data);
-          }, [busquedaHome]); */
+          }, [busquedaHome]);
 
   return (
     <>

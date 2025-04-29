@@ -174,10 +174,7 @@ export default function PropiedadSeleccion({ seleccion }) {
             </div>
 
             <div className="flex justify-center">
-              <ShareButtons
-               
-                setShareModalOpen={setShareModalOpen}
-              />
+              <ShareButtons setShareModalOpen={setShareModalOpen} />
             </div>
           </div>
         </div>
@@ -288,7 +285,10 @@ export default function PropiedadSeleccion({ seleccion }) {
                   <div className="h-[32px] w-[200px] bg-gray-300 rounded-md animate-pulse mb-2"></div>
                 )}
                 <div className="px-4 pt-1 lg:px-10 lg:pt-2">
-                  <Share2 className={"cursor-pointer  w-4 lg:w-10  text-4xl"} onClick={share} />
+                  <Share2
+                    className={"cursor-pointer  w-4 lg:w-10  text-4xl"}
+                    onClick={share}
+                  />
                 </div>
               </div>
               {propiedadSeleccion && tipos ? (

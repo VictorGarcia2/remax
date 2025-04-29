@@ -5,8 +5,11 @@ import {
   faCircleExclamation,
   faList,
   faMap,
+  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Share2 } from "lucide-react";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 export default function CardResultado({
   propiedades,
   setBusqueda,
@@ -30,6 +33,7 @@ export default function CardResultado({
   selectedOptionsTipos,
   selectedOptionsOperacion,
 }) {
+  console.log(seleccion);
   const [, updateState] = useState();
   const forceUpdate = useCallback(() => updateState({}), []);
   const currentImageIndices = useRef({});
@@ -67,12 +71,59 @@ export default function CardResultado({
       nombre: "Mapa",
     },
   ];
-
+  const [shareModalOpen, setShareModalOpen] = useState(true);
   const handle = () => {
     setMapa((prevState) => !prevState);
   };
   return (
     <div className="grid grid-cols-1 xl:grid-cols-2 justify-center  items-start">
+      <div
+        className={`${
+          shareModalOpen && "invisible"
+        } flex flex-col justify-center items-center fixed z-50 w-full h-full top-0 bg-white/70`}
+      >
+        <div className="min-h-screen  flex items-center justify-center p-4">
+          <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-8 space-y-6">
+            <div className="text-center space-y-2">
+            <div className="text-end   ">
+              <FontAwesomeIcon icon={faXmark}  size="2xl" className="cursor-pointer"  onClick={()=> setShareModalOpen(true)}/>
+            </div>
+              <div className="flex justify-center">
+                <img
+                  className="max-w-[200px]"
+                  src="/logos/New_RMX_Mark_R4_RGB_dark.png"
+                  alt=""
+                />
+              </div>
+              <h1 className="text-2xl font-bold text-gray-800">
+                Envianos mensaje por WhatsApp
+              </h1>
+              <p className="text-gray-600">
+                Si estas interesado en esta propiedad, envíanos un mensaje
+              </p>
+            </div>
+
+            <div className="flex justify-center">
+              <button
+                className="inline-flex items-center cursor-pointer gap-2 px-4 py-2 bg-blueRemax text-white rounded-lg shadow-sm hover:bg-blueRemax/80 transition-colors duration-200"
+                aria-label="Contactar por WhatsApp"
+                onClick={() => {
+                  const mensaje = `Estoy interesado en esta propiedad: ${window.location.origin}/propiedades/seleccion/${seleccion}`;
+                  const whatsappLink = `https://wa.me/521234567890?text=${encodeURIComponent(
+                    mensaje
+                  )}`;
+                  window.open(whatsappLink, "_blank");
+                }}
+              >
+                <FontAwesomeIcon icon={faWhatsapp} className="w-4 h-4" />
+                <span className="text-sm sm:text-base md:text-lg">
+                  Contactar por WhatsApp
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="fixed lg:invisible z-40 flex bottom-10 left-30 w-full">
         <button
           onClick={() => {
@@ -136,33 +187,45 @@ export default function CardResultado({
                   </p>
 
                   {/* Info propiedad */}
-                  <Link
-                    id={item.propiedad_id}
-                    onClick={() => setSeleccion(item.propiedad_id)} // No es necesario para la ruta, pero si necesitas almacenar el ID, lo mantienes
-                    to={`/propiedades/seleccion/${item.propiedad_id}`} // Usa directamente item.propiedad_id
-                    className=" 2xl:w-[280px] bg-white h-28 absolute mt-[260px] rounded-2xl shadow flex flex-col items-center pt-2 font-display"
-                  >
-                    <p className="text-base font-bold text-[#7B7B7B]">
-                      {Number(item.mxn_corriente).toLocaleString("en-US")}MXN
-                    </p>
-                    <p className="text-base px-2 text-center w-[250px] font-[500] text-[#7B7B7B]">
-                      {truncateByCharacters(item.calle, 20)}
-                    </p>
-                    <div className="flex text-[#7B7B7B] font-[500] text-[15px]">
-                      <p>{truncateByCharacters(item.tipos?.tipo_nombre,15 || "Tipo")} | </p>
-                      <p>
-                        {item.operacion === "1"
-                          ? "Venta"
-                          : item.operacion === "2"
-                          ? "Renta"
-                          : "N/A"}{" "}
-                        |
+                  <div className="2xl:w-[280px] bg-white h-28 absolute mt-[260px] rounded-2xl shadow flex flex-col items-center pt-2 font-display">
+                    <Link
+                      id={item.propiedad_id}
+                      onClick={() => setSeleccion(item.propiedad_id)} // No es necesario para la ruta, pero si necesitas almacenar el ID, lo mantienes
+                      to={`/propiedades/seleccion/${item.propiedad_id}`} // Usa directamente item.propiedad_id
+                      className=" text-center "
+                    >
+                      <p className="text-base font-bold text-[#7B7B7B]">
+                        {Number(item.mxn_corriente).toLocaleString("en-US")}MXN
                       </p>
-                      <p>{item.m2_construccion}m²</p>
-                    </div>
+                      <p className="text-base px-2 text-center w-[250px] font-[500] text-[#7B7B7B]">
+                        {truncateByCharacters(item.calle, 20)}
+                      </p>
+                      <div className="flex text-[#7B7B7B] font-[500] text-[15px]">
+                        <p>
+                          {truncateByCharacters(
+                            item.tipos?.tipo_nombre,
+                            15 || "Tipo"
+                          )}{" "}
+                          |{" "}
+                        </p>
+                        <p>
+                          {item.operacion === "1"
+                            ? "Venta"
+                            : item.operacion === "2"
+                            ? "Renta"
+                            : "N/A"}{" "}
+                          |
+                        </p>
+                        <p>{item.m2_construccion}m²</p>
+                      </div>
+                    </Link>
                     <div
+                      onClick={() => {
+                        setShareModalOpen(false);
+                        setSeleccion(item.propiedad_id);
+                      }}
                       rel="noopener noreferrer"
-                      className="bg-blue-800 rounded-2xl w-[73px] h-[29px] shadow-2xs py-1 flex items-center justify-center mt-4"
+                      className="bg-blue-800 rounded-2xl w-[73px] h-[29px] shadow-2xs py-1 flex items-center justify-center cursor-pointer mt-4 z-40"
                     >
                       <img
                         loading="lazy"
@@ -170,7 +233,7 @@ export default function CardResultado({
                         alt="WhatsApp"
                       />
                     </div>
-                  </Link>
+                  </div>
                 </div>
               );
             })
@@ -192,7 +255,6 @@ export default function CardResultado({
       </div>
       {/* Mapa */}
       <div className={`${mapa ? "" : "invisible"} mt-0 xl:visible`}>
-
         <Mapbox
           selectedOptionsOperacion={selectedOptionsOperacion}
           aplicarFiltros={aplicarFiltros}
