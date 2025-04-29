@@ -63,8 +63,9 @@ export default function HomeSearch({
       tittle: (
         <>
           Tu Hogar Ideal: Espacios que Encuentran Estilo,
+          <br />
           <span className="font-extrabold italic">
-            {" "}
+           
             Comodidad y Oportunidad{" "}
           </span>
         </>
@@ -75,20 +76,19 @@ export default function HomeSearch({
     {
       key: "residencial",
       tittle: (
-        <>
-          Bienes Raíces{" "}
-          <span className="font-extrabold italic"> Residenciales: </span> Tu
-          Espacio, tu <span className="font-extrabold italic"> Estilo </span>{" "}
-          para <span className="font-extrabold italic"> Cada </span> Necesidad
-        </>
+        <p className="text-3xl md:text-5xl">
+         Empieza 
+          <span className="font-extrabold italic"> tu búsqueda:  </span> <br /> encuentra tu hogar 
+          <span className="font-extrabold italic"> soñado </span>{" "} 
+        </p>
       ),
       description:
-        "Descubre propiedades residenciales únicas: desde acogedores hogares y modernos departamentos hasta exclusivas fincas y ranchos. Encuentra el espacio perfecto para vivir, invertir o disfrutar de la tranquilidad. ¡Tu próximo hogar o refugio ideal te espera!",
+        "",
     },
   ];
 
   const selectedContent =
-    content.find((item) => item.key === selectedKey) || content[0];
+    content.find((item) => item.key === valor) || content[0];
 
   return (
     <div className="w-full mt-18">

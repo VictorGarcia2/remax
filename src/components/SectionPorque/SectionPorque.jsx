@@ -18,11 +18,11 @@ const content = [
     tittle: (
       <>
         ¿Por qué Elegir <span className="font-[800] italic">REMAX CIN</span>{" "}
-        para tu Próxima Propiedad Residencial?
+        para tu Próxima Propiedad?
       </>
     ),
     description:
-      "En REMAX CIN, nos esforzamos por ofrecerte la mejor experiencia en bienes raíces residenciales. Nuestro compromiso con la calidad y el servicio personalizado nos distingue, asegurando que encuentres el hogar perfecto para ti y tu familia.",
+      "Con el respaldo de una marca global y más de 28 años transformando sueños en hogares. Más que una inmobiliaria, somos tu plataforma de soluciones inmobiliarias con asesores expertamente capacitados. Combinamos experiencia, innovación y servicio personalizado para ofrecerte la mejor experiencia en bienes raíces residenciales. Descubre la diferencia de trabajar con los mejores.",
   },
 ];
 
@@ -51,7 +51,7 @@ export default function SectionPorque({ valor }) {
     }
   }, [valor]);
 
-  const selectedContent = content.find((item) => item.key === selectedKey) || content[0];
+  const selectedContent = content.find((item) => item.key === valor) || content[0];
 
   return (
     <div className="w-full bg-blueRemax/20 px-6 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
