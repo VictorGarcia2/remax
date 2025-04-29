@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {  faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import mapboxgl from "mapbox-gl";
 export default function Search({
   busquedaHome,
@@ -138,7 +138,7 @@ export default function Search({
               operacion.map((item) => (
                 <label
                   key={item.id}
-                  className={`text-xs sm:text-sm lg:text-base cursor-pointer ${
+                  className={`text-sm sm:text-sm lg:text-base cursor-pointer ${
                     selectedItem === item.id
                       ? "bg-blueRemax text-white"
                       : "bg-white text-[#414141]"
@@ -161,7 +161,7 @@ export default function Search({
                 openTipo ? "bg-white text-[#414141]" : "bg-[#003DA4] text-white"
               } cursor-pointer hover:bg-blueRemax hover:text-white rounded-s-2xl w-12  sm:w-20 lg:w-[116px] sm:h-12 lg:h-16 h-10 shadow-[0_3px_1px] shadow-black/50 align-middle text-center items-center flex`}
             >
-              <p className="text-xs sm:text-sm lg:text-2xl text-center w-full">
+              <p className="text-sm sm:text-sm lg:text-2xl text-center w-full">
                 Tipo
               </p>
             </div>
@@ -172,7 +172,7 @@ export default function Search({
                 onChange={autoCompleteModal}
                 name="searchs"
                 type="text"
-                className="bg-white text-[#414141] text-xs sm:text-sm lg:text-2xl px-3 rounded h-10 sm:h-12 lg:h-16 w-40 sm:w-60 lg:w-[465px] shadow-[0_3px_1px] shadow-black/50 align-middle items-center flex"
+                className="bg-white text-[#414141] text-sm sm:text-sm lg:text-2xl px-3 rounded h-10 sm:h-12 lg:h-16  w-60 lg:w-[465px] shadow-[0_3px_1px] shadow-black/50 align-middle items-center flex"
                 placeholder="Busca una zona..."
               />
               <div
@@ -180,7 +180,7 @@ export default function Search({
                   modalBusqueda && "invisible"
                 } top-12 sm:top-14 lg:top-19 absolute bg-white px-2 flex flex-col py-4 items-start gap-2 rounded shadow-[0_3px_1px] shadow-black/50`}
               >
-                <p className="text-start font-bold px-2 text-xs sm:text-sm lg:text-base text-[#7b7b7b]">
+                <p className="text-start font-bold px-2 text-sm sm:text-sm lg:text-base text-[#7b7b7b]">
                   Ciudades
                 </p>
                 {autoCompleteHome
@@ -195,13 +195,13 @@ export default function Search({
                         icon={faLocationDot}
                         className="text-[#7b7b7b]"
                       />
-                      <p className="text-start text-xs sm:text-sm lg:text-base text-[#7b7b7b]">
+                      <p className="text-start text-sm sm:text-sm lg:text-base text-[#7b7b7b]">
                         {item.place_name}
                       </p>
                     </div>
                   ))}
 
-                <p className="text-start px-2 font-bold text-xs sm:text-sm lg:text-base text-[#7b7b7b]">
+                <p className="text-start px-2 font-bold text-sm sm:text-sm lg:text-base text-[#7b7b7b]">
                   Direcciones
                 </p>
                 {autoCompleteHome
@@ -216,7 +216,7 @@ export default function Search({
                         icon={faLocationDot}
                         className="text-[#7b7b7b]"
                       />
-                      <p className="text-start text-xs sm:text-sm lg:text-base text-[#7b7b7b]">
+                      <p className="text-start text-sm sm:text-sm lg:text-base text-[#7b7b7b]">
                         {item.place_name}
                       </p>
                     </div>
@@ -245,7 +245,7 @@ export default function Search({
             openTipo && "hidden"
           } w-40 sm:w-60 lg:w-80 h-auto bg-white mt-1 rounded shadow-[0_3px_1px] flex flex-col justify-center align-middle items-center shadow-black/50`}
         >
-          <ol className="font-display text-start py-4 text-xs sm:text-base lg:text-2xl text-[#414141]">
+          <ol className="font-display text-start py-4 text-sm sm:text-base lg:text-2xl text-[#414141]">
             {tiposPropiedad &&
               tiposPropiedad.map((item) => (
                 <li
