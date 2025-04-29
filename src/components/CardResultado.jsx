@@ -191,7 +191,7 @@ export default function CardResultado({
         </div>
       </div>
       {/* Mapa */}
-      <div className={`${mapa ? "" : "hidden"} mt-0 xl:block`}>
+      <div className={`${mapa ? "" : "invisible"} mt-0 xl:visible`}>
 
         <Mapbox
           selectedOptionsOperacion={selectedOptionsOperacion}
