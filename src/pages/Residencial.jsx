@@ -15,8 +15,8 @@ export default function Residencial({valor, busquedaHome, setBusquedaHome, autoC
         <>
             <HomeSearch valor={valor} busquedaHome={busquedaHome} setSelectedOptionsTipos={setSelectedOptionsTipos} setSelectedOptionsOperacion={setSelectedOptionsOperacion}  setBusqueda={setBusqueda} setBusquedaHome={setBusquedaHome} autoCompleteHome={autoCompleteHome} setAutoCompleteHome={setAutoCompleteHome}/>
             <SectionPorque valor={valor}/>
-            <SectionVariedad setBusqueda={setBusqueda} setSelectedOptionsTipos={setSelectedOptionsTipos} />
-            <SectionEncuentra />
+            <SectionVariedad valor={valor} setBusqueda={setBusqueda} setSelectedOptionsTipos={setSelectedOptionsTipos} />
+            <SectionEncuentra valor={valor} />
             <SectionComoComprar />
             <SectionCTA />
             <Testimonials/>

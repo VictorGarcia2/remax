@@ -17,21 +17,22 @@ export default function HomeSearch({
   const [selectedKey, setSelectedKey] = useState(null); // se inicializa vacío
   const imagesByValor = {
     comercial: [
-      "/HomePageContent/comercial/comercial1.webp",
-      "/HomePageContent/comercial/comercial2.webp",
-      "/HomePageContent/comercial/comercial3.webp",
+      "/HomePageContent/comercial/Comercial-oficina.webp",
+      "/HomePageContent/comercial/Comercial-rancho.webp",
+      "/HomePageContent/comercial/Comercial-nave.webp",
+      "/HomePageContent/comercial/Comercial-local.webp",
     ],
     residencial: [
-      "/HomePageContent/residencial/residencial (1).webp",
-      "/HomePageContent/residencial/residencial (2).webp",
-      "/HomePageContent/residencial/residencial (3).webp",
-      "/HomePageContent/residencial/residencial (4).webp",
+      "/HomePageContent/residencial/residencial-casa.webp",
+      "/HomePageContent/residencial/residencial-interiordepa.webp",
+      "/HomePageContent/residencial/residencial-condominio.webp",
+      "/HomePageContent/residencial/residencial-casa2.webp",
     ],
   };
 
   const images = imagesByValor[valor] || [
-    "/HomePageContent/comercial/comercial1.webp",
-    "/HomePageContent/comercial/comercial2.webp",
+    "/HomePageContent/comercial/Comercial-bodega.webp",
+    "/HomePageContent/comercial/Comercial-terreno2.webp",
   ];
 
   // Control de slides
@@ -62,28 +63,26 @@ export default function HomeSearch({
       key: "comercial",
       tittle: (
         <>
-          Tu Hogar Ideal: Espacios que Encuentran Estilo,
-          <br />
-          <span className="font-extrabold italic">
-           
-            Comodidad y Oportunidad{" "}
-          </span>
+          Encuentra el
+          <span className="font-extrabold italic"> espacio </span>
+          que tu negocio necesita
         </>
       ),
-      description:
-        "Encuentra propiedades residenciales únicas: hogares acogedores, modernos departamentos. Ya sea para vivir, invertir o disfrutar, te ayudamos a vender o encontrar tu próximo refugio ideal.",
+      description: "",
     },
     {
       key: "residencial",
       tittle: (
         <p className="text-3xl md:text-5xl">
-         Empieza 
-          <span className="font-extrabold italic"> tu búsqueda:  </span> <br /> encuentra tu hogar 
-          <span className="font-extrabold italic"> soñado </span>{" "} 
+          Empieza
+          <span className="font-extrabold italic">
+            {" "}
+            tu búsqueda:{" "}
+          </span> <br /> encuentra tu hogar
+          <span className="font-extrabold italic"> soñado </span>{" "}
         </p>
       ),
-      description:
-        "",
+      description: "",
     },
   ];
 
@@ -94,13 +93,13 @@ export default function HomeSearch({
     <div className="w-full mt-18">
       <div className="w-full absolute z-10">
         <Header setSelectedOptionsOperacion={setSelectedOptionsOperacion} />
-        <div className="text-center w-[336px] 2xl:mt-48 font-display flex flex-col justify-content-center items-center text-white mx-auto mt-16 sm:mt-20">
-          <p className="text-2xl sm:text-3xl sm:w-[730px] md:text-4xl lg:w-[730px]">
+        <div className="text-center w-[336px] 2xl:mt-70 font-display flex flex-col justify-content-center items-center text-white mx-auto mt-16 sm:mt-20">
+          <p className="text-2xl sm:text-3xl sm:w-[730px] md:text-6xl lg:w-[730px]">
             {selectedContent.tittle}
           </p>
-          <p className="text-[1rem] sm:text-4xl sm:w-[740px] md:text-3xl mt-7">
+         {/*  <p className="text-[1rem] sm:text-4xl sm:w-[740px] md:text-3xl mt-7">
             {selectedContent.description}
-          </p>
+          </p> */}
           <Search
             setSelectedOptionsOperacion={setSelectedOptionsOperacion}
             setSelectedOptionsTipos={setSelectedOptionsTipos}

@@ -11,7 +11,7 @@ const content = [
       </>
     ),
     description:
-      "Encuentra opciones comerciales ideales con asesoría experta y certeza jurídica en REMAX CIN. Vende o renta tu propiedad con seguridad, rapidez y el mejor valor.",
+      <>Solo REMAX, forma parte del del Instituto Comercial e Industrial (ICEI), transformamos el mercado con asesores especializados y certificados. Nuestra red de  <span className="font-[800] italic"> 15,000+ expertos</span>  en   <span className="font-[800] italic"> 110 países </span> , combinada con capacitación de élite y soporte corporativo, garantiza transacciones seguras y estratégicas. Aquí no solo compras o vendes; inviertes con ventaja competitiva</>
   },
   {
     key: "residencial",
@@ -51,7 +51,8 @@ export default function SectionPorque({ valor }) {
     }
   }, [valor]);
 
-  const selectedContent = content.find((item) => item.key === valor) || content[0];
+  const selectedContent =
+    content.find((item) => item.key === valor) || content[0];
 
   return (
     <div className="w-full bg-blueRemax/20 px-6 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
