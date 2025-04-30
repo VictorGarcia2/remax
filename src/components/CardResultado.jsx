@@ -109,7 +109,7 @@ export default function CardResultado({
                 aria-label="Contactar por WhatsApp"
                 onClick={() => {
                   const mensaje = `Estoy interesado en esta propiedad: ${window.location.origin}/propiedades/seleccion/${seleccion}`;
-                  const whatsappLink = `https://wa.me/521234567890?text=${encodeURIComponent(
+                  const whatsappLink = `https://wa.me/5212292696629?text=${encodeURIComponent(
                     mensaje
                   )}`;
                   window.open(whatsappLink, "_blank");
