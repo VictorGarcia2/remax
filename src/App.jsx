@@ -30,9 +30,8 @@ export default function App() {
   const [aplicarFiltros, setAplicarFiltros] = useState(Date.now());
   const [seleccion, setSeleccion] = useState();
   const [valor, setValor] = useState("");
-  
 
- /*  useEffect(() => {
+  /*  useEffect(() => {
     fetch("https://us-central1-remax-api.cloudfunctions.net/api/propiedades", {
       method: "GET",
       headers: {
@@ -46,9 +45,8 @@ export default function App() {
       })
       .catch(error => console.error("Error:", error));
   }, [busquedaHome]); */
-  
 
- /*  useEffect(() => {
+  /*  useEffect(() => {
     const getData = async () => {
       try {
         const response = await axios.get(
@@ -63,10 +61,10 @@ export default function App() {
     getData();
   }, [busquedaHome]); */
 
-   useEffect(() => {
-            const data = propierties.data.rows; // o como venga en tu JSON
-            setPropiedades(data);
-          }, [busquedaHome]);
+  useEffect(() => {
+    const data = propierties.data.rows; // o como venga en tu JSON
+    setPropiedades(data);
+  }, [busquedaHome]);
 
   return (
     <>
@@ -76,6 +74,7 @@ export default function App() {
           path={"/residencial"}
           element={
             <Residencial
+              propiedades={propiedades}
               valor={valor}
               setSelectedOptionsOperacion={setSelectedOptionsOperacion}
               setSelectedOptionsTipos={setSelectedOptionsTipos}
@@ -134,7 +133,10 @@ export default function App() {
             />
           }
         />
-        <Route path={"/NuestroEquipo"} element={<NuestroEquipo />} />
+        <Route
+          path={"/NuestroEquipo"}
+          element={<NuestroEquipo propiedades={propiedades} />}
+        />
         <Route path="/Polizas-de-renta" element={<Poliza />} />
         {/* terminos y condiciones */}
         <Route

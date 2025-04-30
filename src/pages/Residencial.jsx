@@ -10,7 +10,7 @@ import SectionComoComprar from "../components/SectionComoComprar/SectionComoComp
 import SectionEquipo from "../components/SectionEquipo/SectionEquipo"
 import Testimonials from "../components/SectionOpiniones/SectionOpiniones";
 
-export default function Residencial({valor, busquedaHome, setBusquedaHome, autoCompleteHome,setAutoCompleteHome,setBusqueda, setSelectedOptionsTipos, setSelectedOptionsOperacion}) {
+export default function Residencial({valor, busquedaHome, setBusquedaHome, autoCompleteHome,setAutoCompleteHome,setBusqueda, setSelectedOptionsTipos, setSelectedOptionsOperacion, propiedades}) {
     return (
         <>
             <HomeSearch valor={valor} busquedaHome={busquedaHome} setSelectedOptionsTipos={setSelectedOptionsTipos} setSelectedOptionsOperacion={setSelectedOptionsOperacion}  setBusqueda={setBusqueda} setBusquedaHome={setBusquedaHome} autoCompleteHome={autoCompleteHome} setAutoCompleteHome={setAutoCompleteHome}/>
@@ -20,7 +20,7 @@ export default function Residencial({valor, busquedaHome, setBusquedaHome, autoC
             <SectionComoComprar />
             <SectionCTA />
             <Testimonials/>
-            <SectionEquipo />
+            <SectionEquipo  propiedades={propiedades} />
            <SectionFooter/>
         </>
     );

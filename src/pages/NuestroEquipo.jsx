@@ -3,11 +3,11 @@ import { Equipo } from "../components/Equipo";
 import Header from "../components/SectionHome/Header";
 import SectionFooter from "../components/SectionFooter/SectionFooter";
 
-export default function NuestroEquipo() {
+export default function NuestroEquipo({propiedades}) {
   return (
     <>
     <Header/>
-      <Equipo />
+      <Equipo propiedades={propiedades} />
       <SectionFooter/>
     </>
   );

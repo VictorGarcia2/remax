@@ -85,11 +85,11 @@ export default function () {
               </div>
               <div className="mt-8 gap-3 flex justify-center">
                 <button
-                  className="rounded-2xl mt-3 mb-5 shadow-[0_5px_5px] shadow-black/40 bg-blueRemax w-24 h-9 flex justify-center"
+                  className="rounded-2xl mt-3 mb-5 shadow-[0_5px_5px] shadow-black/40 bg-blueRemax w-24 h-9 flex cursor-pointer justify-center"
                   onClick={() => setShareModalOpen(true)}
                 >
                   <img
-                    className="w-6"
+                    className="w-6 h-6 m-auto"
                     src="/HomePageContent/brand-whatsapp 1.svg"
                     alt=""
                   />

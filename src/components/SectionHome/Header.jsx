@@ -11,7 +11,7 @@ export default function Header({ setSelectedOptionsOperacion }) {
         >
           <img
             src="logos/New_RMX_Mark_R4_RGB_dark.png"
-            className="h-8"
+            className="h-12"
             alt="Flowbite Logo"
           />
         </Link>

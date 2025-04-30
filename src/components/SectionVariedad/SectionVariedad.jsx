@@ -9,7 +9,7 @@ export default function SectionVariedad({ setBusqueda, setSelectedOptionsTipos, 
       propiedades: [
         { img: "/HomePageContent/residencial/residencial-desarrollo.webp", title: "Desarrollos", tipo_id: 6 },
         { img: "/HomePageContent/residencial/residencial-terreno.webp", title: "Terrenos", tipo_id: 4 },
-        { img: "/public/HomePageContent/residencial/residencial-interiordepa3.webp", title: "Departamentos", tipo_id: 3 },
+        { img: "/HomePageContent/residencial/residencial-interiordepa3.webp", title: "Departamentos", tipo_id: 3 },
         { img: "/HomePageContent/residencial/residencial-casa2.webp", title: "Casa", tipo_id: 1 },
       ],
     },

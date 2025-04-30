@@ -43,20 +43,24 @@ export default function HomeSearch({
     return () => clearInterval(interval);
   }, [images]);
 
-  // Sincronizar selectedKey desde localStorage o prop valor
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const stored = localStorage.getItem("selectedKey");
-      setSelectedKey(stored || valor);
-    }
-  }, [valor]);
-
-  // Guardar en localStorage cada vez que selectedKey cambia
-  useEffect(() => {
-    if (selectedKey) {
-      localStorage.setItem("selectedKey", selectedKey);
-    }
-  }, [selectedKey]);
+    // Sincronizar selectedKey desde localStorage o prop valor
+    useEffect(() => {
+      if (typeof window !== "undefined") {
+        const stored = localStorage.getItem("selectedKey");
+        if (stored) {
+          setSelectedKey(stored);
+        } else {
+          setSelectedKey(valor); // Si no hay valor en localStorage, usar el valor prop
+        }
+      }
+    }, [valor]);
+  
+    // Guardar en localStorage cada vez que selectedKey cambia
+    useEffect(() => {
+      if (selectedKey !== null) {
+        localStorage.setItem("selectedKey", selectedKey);
+      }
+    }, [selectedKey]);
 
   const content = [
     {
@@ -93,8 +97,8 @@ export default function HomeSearch({
     <div className="w-full mt-18">
       <div className="w-full absolute z-10">
         <Header setSelectedOptionsOperacion={setSelectedOptionsOperacion} />
-        <div className="text-center w-[336px] 2xl:mt-70 font-display flex flex-col justify-content-center items-center text-white mx-auto mt-16 sm:mt-20">
-          <p className="text-2xl sm:text-3xl sm:w-[730px] md:text-6xl lg:w-[730px]">
+        <div className="text-center w-[336px] 2xl:mt-70 font-display flex flex-col justify-content-center items-center text-white mx-auto mt-35 sm:mt-40">
+          <p className="text-4xl sm:text-3xl sm:w-[730px] md:text-6xl lg:w-[730px]">
             {selectedContent.tittle}
           </p>
          {/*  <p className="text-[1rem] sm:text-4xl sm:w-[740px] md:text-3xl mt-7">

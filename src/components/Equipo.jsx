@@ -1,56 +1,33 @@
 import React from "react";
 
-export const Equipo = () => {
-  const teamMembers = [
-    {
-      id: 1,
-      name: "Andres Guerra García",
-      role: "Silent Broker",
-      image: "https://placehold.co/200x200",
-    },
-    {
-      id: 2,
-      name: "Andres Guerra Olan",
-      role: "Asociado",
-      image: "https://placehold.co/200x200",
-    },
-    {
-      id: 3,
-      name: "Beatriz Hernandez Aguilera",
-      role: "Asociado",
-      image: "https://placehold.co/200x200",
-    },
-    {
-      id: 4,
-      name: "Dulce Angelica Flores de Jesus",
-      role: "Asociado",
-      image: "https://placehold.co/200x200",
-    },
-    {
-      id: 5,
-      name: "Verónica Itzel Guerra Olán",
-      role: "Asociado",
-      image: "https://placehold.co/200x200",
-    },
-    {
-      id: 6,
-      name: "Irma Espinoza Hernández",
-      role: "Asociado",
-      image: "https://placehold.co/200x200",
-    },
-    {
-      id: 7,
-      name: "Oscar Cordero García",
-      role: "Asociado",
-      image: "https://placehold.co/200x200",
-    },
-    {
-      id: 8,
-      name: "Beatriz Hernandez Aguilera",
-      role: "Asociado",
-      image: "https://placehold.co/200x200",
-    },
+export const Equipo = ({ propiedades }) => {
+  console.log(propiedades);
+  const todosLosAgentes = propiedades.map((p) => p.agentes).filter(Boolean); // elimina undefined/null por seguridad
+
+  // 2. Filtrar agentes únicos por su ID
+  const agentesUnicos = Array.from(
+    new Map(todosLosAgentes.map((a) => [a.agente_id, a])).values()
+  );
+
+  // 3. Puedes enriquecer con nombre si tienes el mapeo:
+  const agentesId = [
+    { id: "101914741", nombre: "Verónica Olán García" },
+    { id: "102162316", nombre: "Andrés Guerra Olan" },
+    { id: "101932987", nombre: "Andrés Guerra García" },
+    { id: "102296937", nombre: "Beatriz Hernandez Aguilera" },
+    { id: "102298360", nombre: "Verónica Itzel Guerra Olán" },
+    { id: "102312153", nombre: "Dulce Angelica Flores De Jesus" },
+    { id: "102427296", nombre: "Aída Leon Varela" },
+    { id: "102437017", nombre: "Yazmin Vazquez Valdez" },
+    { id: "102433046", nombre: "Fernanda Lozada" },
   ];
+
+  const agentesConNombre = agentesUnicos.map((agente) => {
+    const match = agentesId.find((a) => a.id === agente.numeroasociado);
+    return {
+      ...agente, nombre: match?.nombre || "Agente desconocido",
+    };
+  });
 
   return (
     <div className="bg-white flex flex-row justify-center w-full">
@@ -65,25 +42,25 @@ export const Equipo = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {teamMembers.map((member) => (
+          {agentesConNombre.map((agente) => (
             <div
-              key={member.id}
+              key={agente.id}
               className="bg-[#f9f9f9] rounded-[10px] shadow-[0px_4px_4px_#00000040] overflow-hidden p-5 flex flex-col items-center"
             >
               <div className="w-[200px] h-[200px] mb-6 relative">
                 <img
                   className="w-full h-full object-cover rounded-full"
-                  alt={`Photo of ${member.name}`}
-                  src={member.image}
+                  alt="Agente"
+                  src=  {`https://cdn.remax.com.mx/agentes/${agente.imagen}`}
                 />
               </div>
 
               <h3 className="font-extrabold italic text-[#7b7b7b] text-xl text-center mb-1 [font-family:'Lato',Helvetica]">
-                {member.name}
+              {agente.nombre}
               </h3>
 
               <p className="font-normal italic text-[#db1c2e] text-lg text-center mb-3 [font-family:'Lato',Helvetica]">
-                {member.role}
+                {/* {member.role} */}
               </p>
 
               <div className="flex space-x-4">
@@ -105,4 +82,5 @@ export const Equipo = () => {
       </div>
     </div>
   );
+
 };
