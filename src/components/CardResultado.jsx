@@ -182,7 +182,7 @@ export default function CardResultado({
                   </div>
 
                   {/* Paginación */}
-                  <p className="z-10 mt-27 absolute bg-black/40 rounded-full p-1 text-white text-sm">
+                  <p className="z-10 mt-27 absolute bg-black/40 rounded-full p-1 text-center text-white text-sm">
                     {currentIndex + 1}/{imagenesArray.length}
                   </p>
 
@@ -197,18 +197,18 @@ export default function CardResultado({
                       <p className="text-base font-bold text-[#7B7B7B]">
                         {Number(item.mxn_corriente).toLocaleString("en-US")}MXN
                       </p>
-                      <p className="text-base px-2 text-center w-[250px] font-[500] text-[#7B7B7B]">
+                      <p className="text-base px-2 text-center w-[250px]font-[500] text-[#7B7B7B]">
                         {truncateByCharacters(item.calle, 20)}
                       </p>
                       <div className="flex text-[#7B7B7B] font-[500] text-[15px]">
-                        <p>
+                        <p className="text-center">
                           {truncateByCharacters(
                             item.tipos?.tipo_nombre,
                             15 || "Tipo"
                           )}{" "}
                           |{" "}
                         </p>
-                        <p>
+                        <p className="text-center">
                           {item.operacion === "1"
                             ? "Venta"
                             : item.operacion === "2"
@@ -216,7 +216,7 @@ export default function CardResultado({
                             : "N/A"}{" "}
                           |
                         </p>
-                        <p>{item.m2_construccion}m²</p>
+                        <p className="text-center">{item.m2_construccion}m²</p>
                       </div>
                     </Link>
                     <div

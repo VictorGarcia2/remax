@@ -13,6 +13,7 @@ import Poliza from "./pages/Poliza";
 import TerminosyCondiciones from "./components/TerminosyCondiciones";
 import CodigodeEtica from "./components/CodigodeEtica";
 import PoliticadePrivacidad from "./components/PoliticadePrivacidad";
+import ScrollToTop from "./components/ScrollTop";
 export default function App() {
   const [propiedades, setPropiedades] = useState([]);
   const [menuClose, setMenuClose] = useState(true);
@@ -29,7 +30,7 @@ export default function App() {
   const [precioMaximo, setPrecioMaximo] = useState(Infinity);
   const [aplicarFiltros, setAplicarFiltros] = useState(Date.now());
   const [seleccion, setSeleccion] = useState();
-  const [valor, setValor] = useState("");
+  const [valor, setValor] = useState("residencial");
 
   /*  useEffect(() => {
     fetch("https://us-central1-remax-api.cloudfunctions.net/api/propiedades", {
@@ -68,10 +69,11 @@ export default function App() {
 
   return (
     <>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Eleccion setValor={setValor} />} />
         <Route
-          path={"/residencial"}
+          path={"/inicio"}
           element={
             <Residencial
               propiedades={propiedades}

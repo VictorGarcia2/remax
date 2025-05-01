@@ -17,7 +17,7 @@ export default function HomeSearch({
   const [selectedKey, setSelectedKey] = useState(null); // se inicializa vacío
   const imagesByValor = {
     comercial: [
-      "/HomePageContent/comercial/Comercial-oficina.webp",
+      "/HomePageContent/comercial/Comercial-oficina2.webp",
       "/HomePageContent/comercial/Comercial-rancho.webp",
       "/HomePageContent/comercial/Comercial-nave.webp",
       "/HomePageContent/comercial/Comercial-local.webp",

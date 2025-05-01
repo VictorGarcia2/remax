@@ -29,8 +29,8 @@ const Eleccion = ({ setValor }) => {
     setValor(value.toLowerCase());
   };
   const sectors = [
-    { id: 1, name: "Comercial / Industrial", color: "bg-[#db1c2e]", path: "/residencial", valor: "comercial" },
-    { id: 2, name: "Residencial", color: "bg-[#003da4]", path: "/residencial", valor: "residencial" },
+    { id: 1, name: "Comercial / Industrial", color: "bg-[#db1c2e]", path: "/inicio", valor: "comercial" },
+    { id: 2, name: "Residencial", color: "bg-[#003da4]", path: "/inicio", valor: "residencial" },
   ];
 
   return (
