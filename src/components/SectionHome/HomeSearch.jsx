@@ -23,7 +23,7 @@ export default function HomeSearch({
       "/HomePageContent/comercial/Comercial-local.webp",
     ],
     residencial: [
-      "/HomePageContent/residencial/residencial-casa.webp",
+      "/HomePageContent/residencial/3.webp",
       "/HomePageContent/residencial/residencial-interiordepa.webp",
       "/HomePageContent/residencial/residencial-condominio.webp",
       "/HomePageContent/residencial/residencial-casa2.webp",
