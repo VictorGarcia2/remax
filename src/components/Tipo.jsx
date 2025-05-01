@@ -18,7 +18,47 @@ export default function Tipo({ selectedOptionsTipos, setSelectedOptionsTipos }) 
     { icon: faBuildingUser, nombre: "Departamento", tipo_id: 3 },
     { icon: faPenRuler, nombre: "Desarrollo", tipo_id: 6 },
     { icon: faMapLocationDot, nombre: "Terreno", tipo_id: 4 },
+    { icon: faMapLocationDot, nombre: "Terreno - Comercial", tipo_id: 10 },
+    { icon: faMapLocationDot, nombre: "Terreno - Residencial", tipo_id: 5 },
+    { icon: faBuildingUser, nombre: "Edificio", tipo_id: 8 },
+    { icon: faBuildingUser, nombre: "Finca/Rancho", tipo_id: 14 },
+    { icon: faBuildingUser, nombre: "Bodega - Comercial", tipo_id: 19 },
+    { icon: faBuildingUser, nombre: "Bodega - Industrial", tipo_id: 7 },
   ];
+
+/* "tipos": {
+          "tipo_id": 10,
+          "tipo_nombre": "Terreno - Comercial",
+          "sector_nombre": "comercial"
+        },
+
+
+        "tipos": {
+          "tipo_id": 9,
+          "tipo_nombre": "Local - Comercial",
+          "sector_nombre": "comercial"
+        },
+        "tipos": {
+          "tipo_id": 7,
+          "tipo_nombre": "Bodega - Comercial",
+          "sector_nombre": "comercial"
+        },
+        "tipos": {
+          "tipo_id": 10,
+          "tipo_nombre": "Terreno - Comercial",
+          "sector_nombre": "comercial"
+        },
+        "tipos": {
+          "tipo_id": 13,
+          "tipo_nombre": "Edificio - Comercial",
+          "sector_nombre": "comercial"
+        },
+        "tipos": {
+          "tipo_id": 14,
+          "tipo_nombre": "Finca/Rancho - Comercial",
+          "sector_nombre": "comercial"
+        }, */
+
 
   const toggleModal = () => setOpenModal((prev) => !prev);
 

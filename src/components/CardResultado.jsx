@@ -76,7 +76,7 @@ export default function CardResultado({
     setMapa((prevState) => !prevState);
   };
   return (
-    <div className="grid grid-cols-1 xl:grid-cols-2 justify-center  items-start">
+    <div className="grid grid-cols-1 xl:grid-cols-2 justify-center z-10  items-start">
       <div
         className={`${
           shareModalOpen && "invisible"
@@ -154,7 +154,7 @@ export default function CardResultado({
                   className="w-full flex flex-col mt-5  mb-30 lg:mb-20 justify-center items-center"
                 >
                   {/* Flechas */}
-                  <div className="flex absolute justify-around mx-auto gap-70 xl:gap-40 2xl:gap-50 ">
+                  <div className="flex absolute justify-around z-10 mx-auto gap-70 xl:gap-40 2xl:gap-50 ">
                     <img
                       loading="lazy"
                       onClick={() => goToPrevious(index)}
@@ -172,7 +172,7 @@ export default function CardResultado({
                   </div>
 
                   {/* Imagen actual */}
-                  <div className="flex">
+                  <div className="flex ">
                     <img
                       loading="lazy"
                       className="w-[353px] h-[198px] object-cover rounded-2xl"
@@ -182,7 +182,7 @@ export default function CardResultado({
                   </div>
 
                   {/* Paginación */}
-                  <p className="z-40 mt-27 absolute bg-black/40 rounded-full p-1 text-white text-sm">
+                  <p className="z-10 mt-27 absolute bg-black/40 rounded-full p-1 text-white text-sm">
                     {currentIndex + 1}/{imagenesArray.length}
                   </p>
 
@@ -225,7 +225,7 @@ export default function CardResultado({
                         setSeleccion(item.propiedad_id);
                       }}
                       rel="noopener noreferrer"
-                      className="bg-blue-800 rounded-2xl w-[73px] h-[29px] shadow-2xs py-1 flex items-center justify-center cursor-pointer mt-4 z-40"
+                      className="bg-blue-800 rounded-2xl  w-[73px] h-[29px] shadow-2xs py-1 flex items-center justify-center cursor-pointer mt-4 z-10"
                     >
                       <img
                         loading="lazy"

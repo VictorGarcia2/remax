@@ -17,7 +17,7 @@ export default function SectionVariedad({ setBusqueda, setSelectedOptionsTipos, 
       nombre: "Comercial",
       propiedades: [
         { img: "/HomePageContent/comercial/Comercial-oficina2.webp", title: "Oficinas", tipo_id: 7 },
-        { img: "/HomePageContent/comercial/Comercial-bodega.webp", title: "Bodegas y Naves", tipo_id: 7 },
+        { img: "/HomePageContent/comercial/Comercial-bodega.webp", title: "Bodegas y Naves", tipo_id: 19 },
         { img: "/HomePageContent/comercial/Comercial-local2.webp", title: "Locales", tipo_id: 9 },
         { img: "/HomePageContent/comercial/Comercial-rancho.webp", title: "Fincas y Ranchos", tipo_id: 14 },
         { img: "/HomePageContent/comercial/Comercial-terreno2.webp", title: "Terrenos", tipo_id: 10 },

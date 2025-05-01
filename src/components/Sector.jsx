@@ -90,7 +90,13 @@ export default function Sector({ selectedOptions, setSelectedOptions }) {
                 id={`checkbox-${index}`}
                 type="checkbox"
                 value={sector.name}
-                checked={selectedOptions.includes(sector.name.toLowerCase())}
+                checked={
+                  sector.values
+                    ? sector.values.every((val) =>
+                        selectedOptions.includes(val)
+                      )
+                    : selectedOptions.includes(sector.name.toLowerCase())
+                }
                 onChange={handleCheckboxChange}
                 className="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-red-600"
               />
