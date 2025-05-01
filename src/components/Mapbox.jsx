@@ -2,7 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import ReactDOMServer from "react-dom/server";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
-import { Link } from "react-router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 mapboxgl.accessToken =
   "pk.eyJ1IjoidmljdG9yZ2lhcHJ6IiwiYSI6ImNtNXZ3dW0wMjA2aHgyanE1M3ptczQ2azUifQ.ILrTXW_4c9_pbGC3Uj-wdg";
@@ -21,13 +23,15 @@ const MapboxConCards = ({
   precioMaximo,
   selectedOptionsTipos,
   selectedOptionsOperacion,
+  seleccion,
+  setSeleccion
 }) => {
   const [mapIsReady, setMapIsReady] = useState(false);
   const mapContainerRef = useRef(null);
   const mapRef = useRef(null);
   const markersRef = useRef([]);
   const mapLoadedRef = useRef(false);
-
+  const [shareModalOpen, setShareModalOpen] = useState(true);
   useEffect(() => {
     const noHayFiltros =
       selectedOptionsTipos.length === 0 &&
@@ -126,49 +130,12 @@ const MapboxConCards = ({
     if (valor >= 1_000) return `${(valor / 1_000).toFixed(0)}K`;
     return valor.toString();
   };
-  const PopupContent = ({ prop }) => {
+  const PopupContent = ({ prop, seleccion }) => {
     const [currentIndex, setCurrentIndex] = useState(0); // Usar useState para el índice de la imagen
     const imagenesArray = prop.imagenes.split(","); // Convertir las imágenes en un array
-
-    const goToNext = () => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % imagenesArray.length);
-    };
-
-    const goToPrevious = () => {
-      setCurrentIndex(
-        (prevIndex) =>
-          (prevIndex - 1 + imagenesArray.length) % imagenesArray.length
-      );
-    };
-    /*  function truncateByCharacters(text, maxLength) {
-      if (!text || typeof text !== "string" || maxLength <= 0) return ""; // Validaciones adicionales
-
-      return text.length > maxLength
-        ? text.substring(0, maxLength) + "..."
-        : text;
-    } */
-
+   
     return (
       <div className="w-[300px] flex flex-col mt-5 mb-30 lg:mb-20 justify-center items-center">
-        {/* Flechas */}
-    {/*     <div className="flex absolute justify-around mx-auto gap-70 xl:gap-40 2xl:gap-50 ">
-          <img
-            loading="lazy"
-            onClick={goToPrevious}
-            src="/HomePageContent/arrowizq.svg"
-            alt="Anterior"
-            className="cursor-pointer"
-          />
-          <img
-            loading="lazy"
-            onClick={goToNext}
-            src="/HomePageContent/arrowderecha.svg"
-            alt="Siguiente"
-            className="cursor-pointer"
-          />
-        </div> */}
-
-        {/* Imagen actual */}
         <div className="flex">
           <img
             loading="lazy"
@@ -178,16 +145,10 @@ const MapboxConCards = ({
           />
         </div>
 
-        {/* Paginación */}
-        {/* <p className="z-40 mt-27 absolute bg-black/40 rounded-full p-1 text-white text-sm">
-          {currentIndex + 1}/{imagenesArray.length}
-        </p> */}
-
-        {/* Info propiedad */}
         <a
           href={`/propiedades/seleccion/${prop.propiedad_id}`}
           style={{ textDecoration: "none" }}
-          className="w-[200px] mt-[210px] 2xl:w-[280px] bg-white lg:h-28  absolute lg:mt-[250px] rounded-b-2xl shadow flex flex-col items-center  font-display"
+          className="w-[200px] mt-[210px] 2xl:w-[280px] bg-white lg:h-28  absolute lg:mt-[200px] rounded-b-2xl shadow flex flex-col items-center  font-display"
         >
           <p className="text-sm font-bold mt-2 text-[#7B7B7B]">
             {Number(prop.mxn_corriente).toLocaleString("en-US")}MXN
@@ -196,7 +157,9 @@ const MapboxConCards = ({
             {prop.calle}
           </p>
           <div className="flex text-[#7B7B7B] font-[500] text-[15px]">
-            <p className="text-sm md:text-base">{prop.tipos?.tipo_nombre || "Tipo"} | </p>
+            <p className="text-sm md:text-base">
+              {prop.tipos?.tipo_nombre || "Tipo"} |{" "}
+            </p>
             <p className="text-sm md:text-base">
               {prop.operacion === "1"
                 ? "Venta"
@@ -207,9 +170,15 @@ const MapboxConCards = ({
             </p>
             <p className="text-sm md:text-base">{prop.m2_construccion}m²</p>
           </div>
+        </a>
+      {/*   <div className="absolute bottom-0 mt-4  flex gap-2">
           <div
             rel="noopener noreferrer"
-            className="bg-blue-800 rounded-2xl w-[73px] h-[29px] shadow-2xs py-1 flex items-center justify-center mt-4"
+            className="bg-blue-800 rounded-2xl cursor-pointer w-[73px] h-[29px] shadow-2xs py-1 flex items-center justify-center z-40"
+            onClick={() => {
+              setShareModalOpen(false);
+              setSeleccion(item.propiedad_id);
+            }}
           >
             <img
               loading="lazy"
@@ -217,7 +186,7 @@ const MapboxConCards = ({
               alt="WhatsApp"
             />
           </div>
-        </a>
+        </div> */}
       </div>
     );
   };
@@ -246,7 +215,9 @@ const MapboxConCards = ({
         .setLngLat([parseFloat(prop.longitud), parseFloat(prop.latitud)])
         .setPopup(
           new mapboxgl.Popup({ closeButton: true, closeOnClick: true }).setHTML(
-            ReactDOMServer.renderToString(<PopupContent prop={prop} />)
+            ReactDOMServer.renderToString(
+              <PopupContent prop={prop} seleccion={seleccion} />
+            )
           )
         )
         .addTo(mapRef.current);
@@ -352,6 +323,54 @@ const MapboxConCards = ({
   }, [manejoBusqueda, busquedaHome]);
 
   return (
+    <>
+    <div
+            className={`${
+              shareModalOpen && "invisible"
+            } flex flex-col justify-center items-center fixed z-50 w-full h-full top-0 bg-white/70`}
+          >
+            <div className="min-h-screen  flex items-center justify-center p-4">
+              <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-8 space-y-6">
+                <div className="text-center space-y-2">
+                <div className="text-end   ">
+                  <FontAwesomeIcon icon={faXmark}  size="2xl" className="cursor-pointer"  onClick={()=> setShareModalOpen(true)}/>
+                </div>
+                  <div className="flex justify-center">
+                    <img
+                      className="max-w-[200px]"
+                      src="/logos/New_RMX_Mark_R4_RGB_dark.png"
+                      alt=""
+                    />
+                  </div>
+                  <h1 className="text-2xl font-bold text-gray-800">
+                    Envianos mensaje por WhatsApp
+                  </h1>
+                  <p className="text-gray-600">
+                    Si estas interesado en esta propiedad, envíanos un mensaje
+                  </p>
+                </div>
+    
+                <div className="flex justify-center">
+                  <button
+                    className="inline-flex items-center cursor-pointer gap-2 px-4 py-2 bg-blueRemax text-white rounded-lg shadow-sm hover:bg-blueRemax/80 transition-colors duration-200"
+                    aria-label="Contactar por WhatsApp"
+                    onClick={() => {
+                      const mensaje = `Estoy interesado en esta propiedad: ${window.location.origin}/propiedades/seleccion/${seleccion}`;
+                      const whatsappLink = `https://wa.me/5212292696629?text=${encodeURIComponent(
+                        mensaje
+                      )}`;
+                      window.open(whatsappLink, "_blank");
+                    }}
+                  >
+                    <FontAwesomeIcon icon={faWhatsapp} className="w-4 h-4" />
+                    <span className="text-sm sm:text-base md:text-lg">
+                      Contactar por WhatsApp
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
     <div className=" flex flex-col lg:flex-row gap-4">
       <div className=" w-full h-[400px] lg:h-[700px] relative">
         <div
@@ -361,6 +380,7 @@ const MapboxConCards = ({
         />
       </div>
     </div>
+          </>
   );
 };
 

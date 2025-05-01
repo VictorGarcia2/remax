@@ -77,6 +77,7 @@ export default function CardResultado({
   };
   return (
     <div className="grid grid-cols-1 xl:grid-cols-2 justify-center z-10  items-start">
+      {/* modal para contactar por whatsapp con link de la propiedad */}
       <div
         className={`${
           shareModalOpen && "invisible"
@@ -219,6 +220,7 @@ export default function CardResultado({
                         <p className="text-center">{item.m2_construccion}m²</p>
                       </div>
                     </Link>
+                    {/* boton whatsapp que abre modal */}
                     <div
                       onClick={() => {
                         setShareModalOpen(false);
@@ -256,6 +258,8 @@ export default function CardResultado({
       {/* Mapa */}
       <div className={`${mapa ? "" : "invisible"} mt-0 xl:visible`}>
         <Mapbox
+        setSeleccion={setSeleccion}
+        seleccion={seleccion}
           selectedOptionsOperacion={selectedOptionsOperacion}
           aplicarFiltros={aplicarFiltros}
           precioMaximo={precioMaximo}
