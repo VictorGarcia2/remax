@@ -47,11 +47,11 @@ export default function App() {
       .catch(error => console.error("Error:", error));
   }, [busquedaHome]); */
 
-  /*  useEffect(() => {
+/*    useEffect(() => {
     const getData = async () => {
       try {
         const response = await axios.get(
-          "https://us-central1-remax-api.cloudfunctions.net/api/propiedades"
+          "https://localhost:3000/api/propiedades"
         );
         const data = response.data.data.rows;
         setPropiedades(data);
@@ -60,8 +60,8 @@ export default function App() {
       }
     };
     getData();
-  }, [busquedaHome]); */
-
+  }, [busquedaHome]);
+console.log(propiedades) */
   useEffect(() => {
     const data = propierties.data.rows; // o como venga en tu JSON
     setPropiedades(data);

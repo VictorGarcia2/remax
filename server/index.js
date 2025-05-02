@@ -28,7 +28,9 @@ app.get('/api/propiedades', async (req, res) => {
     res.status(500).json({ error: 'Error al obtener propiedades', message: error.message });
   }
 });
-app.get('/api/reviews', async (req, res) => {
+
+
+/* app.get('/api/reviews', async (req, res) => {
   const PLACE_ID = "ChIJKXUPvsBBw4UR0E0egP5gxWY";
   const API_KEY = "AIzaSyDGzn6fDlMeBm_ybhHCEGa7PTfhOm8IOJg";
 
@@ -67,7 +69,7 @@ app.get('/api/reviews', async (req, res) => {
     });
   }
 });
-
+ */
 
 
 const httpsOptions = {
