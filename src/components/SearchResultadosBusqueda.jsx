@@ -56,7 +56,7 @@ export default function SearchResultadosBusqueda({
   }, [busqueda]);
 
   return (
-    <div className="flex justify-center items-center px-5 gap-4 xl:hidden">
+    <div className="flex justify-center items-center px-5 gap-4 lg:hidden">
       <div className="flex gap-1">
         <input
           autoComplete="off"

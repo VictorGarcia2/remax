@@ -55,7 +55,7 @@ export default function ResultadosBusqueda({
         selectedOptions={selectedOptions}
       />
       <HeaderResultadoBusqueda />
-      <div className="hidden 2xl:block">
+      <div className="hidden lg:block">
         <FiltrosDesktop
           setSelectedOptionsOperacion={setSelectedOptionsOperacion}
           setSelectedOptionsTipos={setSelectedOptionsTipos}
