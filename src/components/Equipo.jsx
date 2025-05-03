@@ -2,21 +2,19 @@ import React from "react";
 
 export const Equipo = ({ propiedades }) => {
   console.log(propiedades);
-  const todosLosAgentes = propiedades.map((p) => p.agentes).filter(Boolean); // elimina undefined/null por seguridad
+  const todosLosAgentes = propiedades.map((p) => p.agentes).filter(Boolean);
 
-  // 2. Filtrar agentes únicos por su ID
   const agentesUnicos = Array.from(
     new Map(todosLosAgentes.map((a) => [a.agente_id, a])).values()
   );
 
-  // 3. Lista de agentes con sus nombres
   const agentesId = [
     {
       id: "101914741",
       nombre: "Verónica Olán García",
       role: "Broker Owner",
-      correo: null,
-      telefono: null,
+      correo: "adm.remaxrna@gmail.com",
+      telefono: "9933000810",
     },
     {
       id: "102162316",
@@ -75,7 +73,7 @@ export const Equipo = ({ propiedades }) => {
       role: "Asociado",
       correo: "fernanda.lozada0608@gmail.com",
       telefono: "2291746290",
-      imagen: "https://cdn.remax.com.mx/agentes/1738008694.jpg"
+      imagen: "https://cdn.remax.com.mx/agentes/1738008694.jpg",
     },
     {
       id: "FALTANTE",
@@ -83,7 +81,7 @@ export const Equipo = ({ propiedades }) => {
       role: "Asociado",
       correo: "oscar.corderoga@gmail.com",
       telefono: "228147770",
-      imagen: "https://cdn.remax.com.mx/agentes/1739232781.jpg"
+      imagen: "https://cdn.remax.com.mx/agentes/1739232781.jpg",
     },
     {
       id: "FALTANTE",
@@ -91,17 +89,15 @@ export const Equipo = ({ propiedades }) => {
       role: "Asociado",
       correo: "danielamtzvarela07@gmail.com",
       telefono: "2291125136",
-      imagen: "https://cdn.remax.com.mx/agentes/1741797649.jpg"
+      imagen: "https://cdn.remax.com.mx/agentes/1741797649.jpg",
     },
   ];
-  
 
-  // 4. Combinar agentes únicos con la lista completa de agentes
   const agentesConNombre = agentesId.map((agente) => {
     const match = agentesUnicos.find((a) => a.numeroasociado === agente.id);
     return {
       ...match,
-      ...agente, // agente sobrescribe match
+      ...agente,
       imagen:
         agente.imagen ||
         match?.imagen ||
@@ -150,38 +146,50 @@ export const Equipo = ({ propiedades }) => {
                 {agente.role}
               </p>
 
-              <div className="flex space-x-4">
-                <button aria-label="Send email" className="p-1">
-                  <svg
-                    width="23"
-                    height="23"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="text-gray-700"
+              <div className="flex flex-col items-center space-y-2 mt-2">
+                {agente.correo && (
+                  <a
+                    href={`mailto:${agente.correo}`}
+                    className="text-blue-600 hover:underline text-sm flex items-center gap-1"
                   >
-                    <rect width="20" height="16" x="2" y="4" rx="2" />
-                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                  </svg>
-                </button>
-                <button aria-label="Call" className="p-1">
-                  <svg
-                    width="20"
-                    height="19"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="text-gray-700"
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="text-blue-600"
+                    >
+                      <rect width="20" height="16" x="2" y="4" rx="2" />
+                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                    </svg>
+                    {agente.correo}
+                  </a>
+                )}
+                {agente.telefono && (
+                  <a
+                    href={`tel:${agente.telefono}`}
+                    className="text-blue-600 hover:underline text-sm flex items-center gap-1"
                   >
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-                  </svg>
-                </button>
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="text-blue-600"
+                    >
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
+                    {agente.telefono}
+                  </a>
+                )}
               </div>
             </div>
           ))}
