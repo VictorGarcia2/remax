@@ -11,31 +11,90 @@ export const Equipo = ({ propiedades }) => {
 
   // 3. Lista de agentes con sus nombres
   const agentesId = [
-    { id: "101914741", nombre: "Verónica Olán García", role: "Broker Owner" },
+    {
+      id: "101914741",
+      nombre: "Verónica Olán García",
+      role: "Broker Owner",
+      correo: null,
+      telefono: null,
+    },
     {
       id: "102162316",
       nombre: "Andrés Guerra Olan",
-      role: "Silent Broker",
+      role: "Gerente Comercial",
       imagen: "https://cdn.remax.com.mx/agentes/1631137654.jpg",
+      correo: "a.guerraolan@gmail.com",
+      telefono: "9933468417",
     },
-    { id: "101932987", nombre: "Andrés Guerra García", role: "Silent Broker" },
-    /* los de abajo que sean en rol Asociado */
-    { id: "102296937", nombre: "Beatriz Hernandez Aguilera", role: "Asociado" },
-    { id: "102298360", nombre: "Verónica Itzel Guerra Olán", role: "Asociado" },
     {
-      id: "102312153",
-      nombre: "Dulce Angelica Flores De Jesus",
-      role: "Asociado",
+      id: "101932987",
+      nombre: "Andrés Guerra García",
+      role: "Silent Broker",
+      correo: "aguerra736@gmail.com",
+      telefono: "2292696629",
     },
     {
       id: "102427296",
       nombre: "Aída Leon Varela",
-      role: "Asociado",
+      role: "Coordinadora Jurídica",
       imagen: "https://cdn.remax.com.mx/agentes/1743614587.jpg",
+      correo: "juridico.remax.cin.veracruz@gmail.com",
+      telefono: "2292696629",
     },
-    { id: "102437017", nombre: "Yazmin Vazquez Valdez", role: "Asociado" },
-    { id: "102433046", nombre: "Fernanda Lozada", role: "Asociado" },
+    {
+      id: "102296937",
+      nombre: "Beatriz Hernandez Aguilera",
+      role: "Asociado",
+      correo: "bettyhdez1@gmail.com",
+      telefono: "2292696629",
+    },
+    {
+      id: "102298360",
+      nombre: "Verónica Itzel Guerra Olán",
+      role: "Asociado",
+      correo: "remaxcincoleccion@gmail.com",
+      telefono: "2292696629",
+    },
+    {
+      id: "102312153",
+      nombre: "Dulce Angelica Flores De Jesus",
+      role: "Asociado",
+      correo: "floresdejesus9@gmail.com",
+      telefono: "2292696629",
+    },
+    {
+      id: "102437017",
+      nombre: "Yazmin Vazquez Valdez",
+      role: "Asociado",
+      correo: "arq.vazquez@live.com.mx",
+      telefono: "7821224287",
+    },
+    {
+      id: "102433046",
+      nombre: "Fernanda Lozada",
+      role: "Asociado",
+      correo: "fernanda.lozada0608@gmail.com",
+      telefono: "2291746290",
+      imagen: "https://cdn.remax.com.mx/agentes/1738008694.jpg"
+    },
+    {
+      id: "FALTANTE",
+      nombre: "Oscar Cordero García",
+      role: "Asociado",
+      correo: "oscar.corderoga@gmail.com",
+      telefono: "228147770",
+      imagen: "https://cdn.remax.com.mx/agentes/1739232781.jpg"
+    },
+    {
+      id: "FALTANTE",
+      nombre: "Daniela Martínez",
+      role: "Asociado",
+      correo: "danielamtzvarela07@gmail.com",
+      telefono: "2291125136",
+      imagen: "https://cdn.remax.com.mx/agentes/1741797649.jpg"
+    },
   ];
+  
 
   // 4. Combinar agentes únicos con la lista completa de agentes
   const agentesConNombre = agentesId.map((agente) => {
