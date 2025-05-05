@@ -1,9 +1,15 @@
 import {
+  faBuilding,
   faBuildingUser,
   faCity,
   faHouse,
+  faHouseChimney,
+  faIndustry,
+  faMap,
   faMapLocationDot,
   faPenRuler,
+  faTreeCity,
+  faWarehouse,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
@@ -65,13 +71,20 @@ export default function MenuFilter({
       values: ["comercial", "industrial"],
     },
   ];
-  const lugares = [
-    { icon: faHouse, nombre: "Casa", tipo_id: 1 },
-    { icon: faBuildingUser, nombre: "Casa en Condominio", tipo_id: 2 },
-    { icon: faCity, nombre: "Departamento", tipo_id: 3 },
-    { icon: faPenRuler, nombre: "Desarrollo", tipo_id: 6 },
-    { icon: faMapLocationDot, nombre: "Terreno", tipo_id: 4 },
-  ];
+  
+    const lugares = [
+      { icon: faHouse, nombre: "Casa", tipo_id: 1 },
+      { icon: faHouseChimney, nombre: "Casa en Condominio", tipo_id: 2 },
+      { icon: faBuilding, nombre: "Departamento", tipo_id: 3 },
+      { icon: faPenRuler, nombre: "Desarrollo", tipo_id: 6 },
+      { icon: faMap, nombre: "Terreno", tipo_id: 4 },
+      { icon: faMap, nombre: "Terreno - Comercial", tipo_id: 10 },
+      { icon: faMap, nombre: "Terreno - Residencial", tipo_id: 5 },
+      { icon: faBuilding, nombre: "Edificio", tipo_id: 8 },
+      { icon: faTreeCity, nombre: "Finca/Rancho", tipo_id: 14 },
+      { icon: faWarehouse, nombre: "Bodega - Comercial", tipo_id: 19 },
+      { icon: faIndustry, nombre: "Bodega - Industrial", tipo_id: 7 },
+    ];
   const operation = [
     { icon: faBuildingUser, nombre: 1, titulo: "Venta" },
     { icon: faCity, nombre: 2, titulo: "Renta" },
