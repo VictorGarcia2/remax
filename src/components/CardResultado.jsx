@@ -86,9 +86,14 @@ export default function CardResultado({
         <div className="min-h-screen  flex items-center justify-center p-4">
           <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-8 space-y-6">
             <div className="text-center space-y-2">
-            <div className="text-end   ">
-              <FontAwesomeIcon icon={faXmark}  size="2xl" className="cursor-pointer"  onClick={()=> setShareModalOpen(true)}/>
-            </div>
+              <div className="text-end   ">
+                <FontAwesomeIcon
+                  icon={faXmark}
+                  size="2xl"
+                  className="cursor-pointer"
+                  onClick={() => setShareModalOpen(true)}
+                />
+              </div>
               <div className="flex justify-center">
                 <img
                   className="max-w-[200px]"
@@ -143,7 +148,7 @@ export default function CardResultado({
           mapa && "hidden"
         } overflow-y-scroll h-[660px] lg:h-[700px] relative`}
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 justify-center md:gap-3 pb-22 items-center md:px-8 relative">
+        <div className="grid h-96  grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 justify-center md:gap-3  items-center md:px-8 relative">
           {propiedadesVisibles && propiedadesVisibles.length > 0 ? (
             propiedadesVisibles.map((item, index) => {
               const currentIndex =
@@ -188,7 +193,7 @@ export default function CardResultado({
                   </p>
 
                   {/* Info propiedad */}
-                  <div className="2xl:w-[280px] bg-white h-28 absolute mt-[260px] rounded-2xl shadow flex flex-col items-center pt-2 font-display">
+                  <div className="w-[280px] 2xl:w-[280px] bg-white h-28 absolute mt-[260px] rounded-2xl shadow flex flex-col items-center pt-2 font-display">
                     <Link
                       id={item.propiedad_id}
                       onClick={() => setSeleccion(item.propiedad_id)} // No es necesario para la ruta, pero si necesitas almacenar el ID, lo mantienes
@@ -258,8 +263,8 @@ export default function CardResultado({
       {/* Mapa */}
       <div className={`${mapa ? "" : "invisible"} mt-0 xl:visible`}>
         <Mapbox
-        setSeleccion={setSeleccion}
-        seleccion={seleccion}
+          setSeleccion={setSeleccion}
+          seleccion={seleccion}
           selectedOptionsOperacion={selectedOptionsOperacion}
           aplicarFiltros={aplicarFiltros}
           precioMaximo={precioMaximo}
