@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+  faBuilding,
   faBuildingUser,
   faChevronDown,
   faCity,
   faHouse,
+  faHouseChimney,
+  faIndustry,
+  faMap,
   faMapLocationDot,
   faPenRuler,
+  faTreeCity,
+  faWarehouse,
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function Tipo({ selectedOptionsTipos, setSelectedOptionsTipos }) {
@@ -14,18 +20,17 @@ export default function Tipo({ selectedOptionsTipos, setSelectedOptionsTipos }) 
 
   const lugares = [
     { icon: faHouse, nombre: "Casa", tipo_id: 1 },
-    { icon: faCity, nombre: "Casa en Condominio", tipo_id: 2 },
-    { icon: faBuildingUser, nombre: "Departamento", tipo_id: 3 },
+    { icon: faHouseChimney, nombre: "Casa en Condominio", tipo_id: 2 },
+    { icon: faBuilding, nombre: "Departamento", tipo_id: 3 },
     { icon: faPenRuler, nombre: "Desarrollo", tipo_id: 6 },
-    { icon: faMapLocationDot, nombre: "Terreno", tipo_id: 4 },
-    { icon: faMapLocationDot, nombre: "Terreno - Comercial", tipo_id: 10 },
-    { icon: faMapLocationDot, nombre: "Terreno - Residencial", tipo_id: 5 },
-    { icon: faBuildingUser, nombre: "Edificio", tipo_id: 8 },
-    { icon: faBuildingUser, nombre: "Finca/Rancho", tipo_id: 14 },
-    { icon: faBuildingUser, nombre: "Bodega - Comercial", tipo_id: 19 },
-    { icon: faBuildingUser, nombre: "Bodega - Industrial", tipo_id: 7 },
+    { icon: faMap, nombre: "Terreno", tipo_id: 4 },
+    { icon: faMap, nombre: "Terreno - Comercial", tipo_id: 10 },
+    { icon: faMap, nombre: "Terreno - Residencial", tipo_id: 5 },
+    { icon: faBuilding, nombre: "Edificio", tipo_id: 8 },
+    { icon: faTreeCity, nombre: "Finca/Rancho", tipo_id: 14 },
+    { icon: faWarehouse, nombre: "Bodega - Comercial", tipo_id: 19 },
+    { icon: faIndustry, nombre: "Bodega - Industrial", tipo_id: 7 },
   ];
-
 /* "tipos": {
           "tipo_id": 10,
           "tipo_nombre": "Terreno - Comercial",
