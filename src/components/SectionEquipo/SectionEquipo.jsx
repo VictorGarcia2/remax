@@ -5,7 +5,8 @@ export default function SectionEquipo() {
     <>
       <div className="  sm:hidden mt-10 mb-10 px-5 font-display flex flex-col justify-center items-center text-center">
         <p className="italic  text-2xl font-[800] text-[#7b7b7b]">
-          ¡Únete a Nuestro Equipo de Bienes Raíces!
+          Recibe primero las mejores oportunidades industriales. ¡Suscríbete
+          ahora!
         </p>
 
         <div className="mt-4 relative font-display  font-[400] flex flex-col    items-center">
@@ -32,7 +33,8 @@ export default function SectionEquipo() {
         />
         <div className="mt-4  font-display gap-4  font-[400]  flex flex-col    items-center">
           <p className="italic  text-5xl w-[480px] font-[800] text-[#7b7b7b]">
-            ¡Únete a Nuestro Equipo de Bienes Raíces!
+            Recibe primero las mejores oportunidades industriales. ¡Suscríbete
+            ahora!!
           </p>
           <p className=" z-10 italic bottom-15 text-4xl   rounded-2xl p-1  w-80 font-[700] text-[20px] text-[#7b7b7b]">
             Únete a nosotros y aprovecha las oportunidades del mercado
