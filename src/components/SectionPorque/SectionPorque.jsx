@@ -22,7 +22,7 @@ const content = [
         ventaja competitiva
       </>
     ),
-    imagen: "/public/HomePageContent/comercial/Comercial-nave2.jpg",
+    imagen: "/HomePageContent/comercial/Comercial-nave2.jpg",
   },
   {
     key: "residencial",
