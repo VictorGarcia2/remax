@@ -345,18 +345,22 @@ export default function PropiedadSeleccion({ seleccion }) {
                       icon={faWhatsapp}
                       style={{ width: "20px", height: "40px", color: "gray" }}
                     />
-                    <img
-                      loading="lazy"
-                      className="w-auto h-full"
-                      src="/HomePageContent/correo.svg"
-                      alt="Correo"
-                    />
-                    <img
-                      loading="lazy"
-                      className="w-auto h-full"
-                      src="/HomePageContent/phone.svg"
-                      alt="Teléfono"
-                    />
+                    <a href="mailto:adm.remaxrna@gmail.com">
+                      <img
+                        loading="lazy"
+                        className="w-auto h-full"
+                        src="/HomePageContent/correo.svg"
+                        alt="Correo"
+                      />
+                    </a>
+                    <a href="tel:+5219933000810">
+                      <img
+                        loading="lazy"
+                        className="w-auto h-full"
+                        src="/HomePageContent/phone.svg"
+                        alt="Teléfono"
+                      />
+                    </a>
                   </div>
                 </div>
                 <div>
@@ -426,18 +430,22 @@ export default function PropiedadSeleccion({ seleccion }) {
                         icon={faWhatsapp}
                         style={{ width: "40px", height: "40px", color: "gray" }}
                       />
-                      <img
-                        loading="lazy"
-                        className="w-11 h-full"
-                        src="/HomePageContent/correo.svg"
-                        alt="Correo"
-                      />
-                      <img
-                        loading="lazy"
-                        className="w-8 h-full"
-                        src="/HomePageContent/phone.svg"
-                        alt="Teléfono"
-                      />
+                      <a href="mailto:adm.remaxrna@gmail.com">
+                        <img
+                          loading="lazy"
+                          className="w-11 h-full"
+                          src="/HomePageContent/correo.svg"
+                          alt="Correo"
+                        />
+                      </a>
+                      <a href="tel:+5219933000810">
+                        <img
+                          loading="lazy"
+                          className="w-8 h-full"
+                          src="/HomePageContent/phone.svg"
+                          alt="Teléfono"
+                        />
+                      </a>
                     </div>
                   </div>
                   <div>
