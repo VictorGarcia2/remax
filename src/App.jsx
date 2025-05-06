@@ -76,6 +76,7 @@ console.log(propiedades) */
           path={"/inicio"}
           element={
             <Residencial
+            selectedOptionsOperacion={selectedOptionsOperacion}
               propiedades={propiedades}
               valor={valor}
               setSelectedOptionsOperacion={setSelectedOptionsOperacion}

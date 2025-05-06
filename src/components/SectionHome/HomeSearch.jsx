@@ -11,6 +11,7 @@ export default function HomeSearch({
   setSelectedOptionsTipos,
   setSelectedOptionsOperacion,
   valor,
+  selectedOptionsOperacion
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [data, setData] = useState([]);
@@ -105,6 +106,7 @@ export default function HomeSearch({
             {selectedContent.description}
           </p> */}
           <Search
+          selectedOptionsOperacion={selectedOptionsOperacion}
             setSelectedOptionsOperacion={setSelectedOptionsOperacion}
             setSelectedOptionsTipos={setSelectedOptionsTipos}
             data={data}

@@ -11,8 +11,10 @@ export default function Search({
   setBusqueda,
   setSelectedOptionsTipos,
   setSelectedOptionsOperacion,
+  selectedOptionsOperacion
 }) {
-  console.log(autoCompleteHome);
+  const [selectedItem, setSelectedItem] = useState(null);
+  console.log(selectedItem)
   const [openTipo, setOpenTipo] = useState(true);
   const [direccion, setDireccion] = useState("");
   const [modalBusqueda, setModalBusqueda] = useState(true);
@@ -21,6 +23,7 @@ export default function Search({
   const handleOperacion = (event) => {
     const value = event.target.id;
     if (event) {
+      setSelectedItem(value);
       // Si está marcado, añadirlo al array y mantener solo el último elemento
       setSelectedOptionsOperacion([value]);
     } else {
@@ -128,7 +131,6 @@ export default function Search({
     }
   }, [busquedaHome]);
 
-  const [selectedItem, setSelectedItem] = useState(null);
   return (
     <>
       <div className="mt-10 flex flex-col gap-1 pb-1 font-display">
@@ -147,7 +149,7 @@ export default function Search({
                   <input
                     type="checkbox"
                     id={item.id}
-                    onChange={() => setSelectedItem(item.id)}
+                    onChange={handleOperacion}
                     className="hidden"
                   />
                   {item.operacion}

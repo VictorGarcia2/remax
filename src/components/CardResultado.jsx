@@ -33,7 +33,8 @@ export default function CardResultado({
   selectedOptionsTipos,
   selectedOptionsOperacion,
 }) {
-  console.log(seleccion);
+  console.log(selectedOptionsTipos)
+
   const [, updateState] = useState();
   const forceUpdate = useCallback(() => updateState({}), []);
   const currentImageIndices = useRef({});

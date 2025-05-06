@@ -37,7 +37,8 @@ export default function ResultadosBusqueda({
   selectedOptionsOperacion,
   selectedOptions, 
 }) {
- 
+console.log(selectedOptionsOperacion)
+
   return (
     <>
       <MenuFilter
