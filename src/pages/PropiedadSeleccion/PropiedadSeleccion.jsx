@@ -8,7 +8,7 @@ import { faX } from "@fortawesome/free-solid-svg-icons";
 import Paginacion from "../../components/Pagination.jsx";
 import axios from "axios";
 import { useParams } from "react-router";
-import propierties from "/src/APi/propiedades.json";
+/* import propierties from "/src/APi/propiedades.json"; */
 import { ShareButtons } from "../../components/ShareButtons.jsx";
 import { Share2 } from "lucide-react";
 export default function PropiedadSeleccion({ seleccion }) {
@@ -24,7 +24,7 @@ export default function PropiedadSeleccion({ seleccion }) {
     : 0;
   const [loading, setLoading] = useState(true);
 
-  /*   useEffect(() => {
+    useEffect(() => {
     axios
       .get("https://localhost:3000/api/propiedades")
       .then((res) => {
@@ -34,7 +34,7 @@ export default function PropiedadSeleccion({ seleccion }) {
         console.error(" Error en frontend:", err);
         setLoading(false);
       });
-  }, []); */
+  }, []);
 
   const agentesId = [
     { id: "101914741", nombre: "Verónica Olán García" },
@@ -54,10 +54,10 @@ export default function PropiedadSeleccion({ seleccion }) {
       )
     : [];
 
-  useEffect(() => {
+ /*  useEffect(() => {
     const data = propierties.data.rows; // o como venga en tu JSON
     setPropiedades(data);
-  }, []);
+  }, []); */
   useEffect(() => {
     const selectedProperty = propiedades.find(
       (item) => item.propiedad_id === parseInt(id)

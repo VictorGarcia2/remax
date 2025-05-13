@@ -6,7 +6,7 @@ import { Route, Routes } from "react-router";
 import ResultadosBusqueda from "./pages/Buscador/ResultadosBusqueda";
 import PropiedadSeleccion from "./pages/PropiedadSeleccion/PropiedadSeleccion";
 
-import propierties from "/src/APi/propiedades.json";
+/* import propierties from "/src/APi/propiedades.json"; */
 import Eleccion from "./pages/Eleccion";
 import NuestroEquipo from "./pages/NuestroEquipo";
 import Poliza from "./pages/Poliza";
@@ -47,7 +47,7 @@ export default function App() {
       .catch(error => console.error("Error:", error));
   }, [busquedaHome]); */
 
-/*    useEffect(() => {
+   useEffect(() => {
     const getData = async () => {
       try {
         const response = await axios.get(
@@ -61,11 +61,11 @@ export default function App() {
     };
     getData();
   }, [busquedaHome]);
-console.log(propiedades) */
-  useEffect(() => {
+console.log(propiedades)
+/*   useEffect(() => {
     const data = propierties.data.rows; // o como venga en tu JSON
     setPropiedades(data);
-  }, [busquedaHome]);
+  }, [busquedaHome]); */
 
   return (
     <>
