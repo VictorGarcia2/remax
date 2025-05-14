@@ -6,7 +6,7 @@ export default function CodigodeEtica() {
     return (
         <>
         <Header/>
-        <div className="p-6  text-[#7b7b7b] max-w-6xl flex flex-col justify-center items-center mx-auto mb-5 font-sans leading-relaxed">
+        <div className="pt-30 p-6  text-[#7b7b7b] max-w-6xl flex flex-col justify-center items-center mx-auto mb-5 font-sans leading-relaxed">
             <h1 className="text-2xl font-bold text-center mb-6">CÓDIGO DE ÉTICA REMAX CIN</h1>
             <h2 className="text-xl font-semibold text-center mb-4">RE/MAX CIN REAL ESTATE</h2>
             <p className="mb-4">

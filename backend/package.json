@@ -1,0 +1,14 @@
+{
+  "name": "remax-backend",
+  "version": "1.0.0",
+  "description": "API backend para REMAX",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "cors": "^2.8.5",
+    "axios": "^1.9.0"
+  }
+}

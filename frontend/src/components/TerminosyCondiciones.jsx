@@ -6,7 +6,7 @@ export default function TerminosyCondiciones() {
     return (
         <>
         <Header/> 
-        <div className="p-5 font-sans leading-relaxed max-w-6xl flex flex-col justify-center items-center text-[#7b7b7b] mx-auto mb-5">
+        <div className="pt-30 p-5 font-sans leading-relaxed max-w-6xl flex flex-col justify-center items-center text-[#7b7b7b] mx-auto mb-5">
             <h1 className="text-center mb-5 text-2xl font-bold">Términos y Condiciones de Uso</h1>
             <h2 className="text-xl font-semibold">RE/MAX CIN – CONSULTORÍA INMOBILIARIA, PROYECTOS APP Y NEGOCIOS</h2>
             <p className="font-bold">Última actualización: 01 de Mayo del 2025</p>
