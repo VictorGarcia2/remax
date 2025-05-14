@@ -448,10 +448,17 @@ export default function PropiedadSeleccion({ seleccion }) {
                       Solicita información:
                     </p>
                     <div className="flex items-center justify-center gap-4">
-                      <FontAwesomeIcon
-                        icon={faWhatsapp}
-                        style={{ width: "40px", height: "40px", color: "gray" }}
-                      />
+                      <a 
+                        href={`https://wa.me/5219933000810?text=Hola, estoy interesado en la propiedad ${propiedadSeleccion?.propiedad_id} ubicada en ${direccion}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <FontAwesomeIcon
+                          icon={faWhatsapp}
+                          style={{ width: "40px", height: "40px", color: "#25D366" }}
+                          className="hover:scale-110 transition-transform"
+                        />
+                      </a>
                       <a href="mailto:adm.remaxrna@gmail.com">
                         <img
                           loading="lazy"
