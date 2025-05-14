@@ -14,7 +14,7 @@ import TerminosyCondiciones from "./components/TerminosyCondiciones";
 import CodigodeEtica from "./components/CodigodeEtica";
 import PoliticadePrivacidad from "./components/PoliticadePrivacidad";
 import ScrollToTop from "./components/ScrollTop";
-export default function App() {
+ const App = () => {
   const [propiedades, setPropiedades] = useState([]);
   const [menuClose, setMenuClose] = useState(true);
   const [busquedaHome, setBusquedaHome] = useState("");
@@ -157,3 +157,6 @@ console.log(propiedades)
     </>
   );
 }
+
+
+export default App;
