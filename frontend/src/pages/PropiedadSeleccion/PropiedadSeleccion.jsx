@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import SectionFooter from "../../components/SectionFooter/SectionFooter.jsx";
 import HeaderPropiedadSeleccion from "./HeaderPropiedadSeleccion.jsx";
 import { Dropdown } from "../../components/Dropdown.jsx";
@@ -150,6 +151,27 @@ export default function PropiedadSeleccion({ seleccion }) {
   };
   return (
     <>
+      <Helmet>
+        <meta name="description" content={`${propiedadSeleccion?.descripcion_corta} en ${direccion}`} />
+        <link rel="canonical" href={`https://www.remax.com.mx/propiedades/seleccion/${propiedadSeleccion?.propiedad_id}`} />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "RealEstateListing",
+            "name": propiedadSeleccion?.titulo,
+            "description": propiedadSeleccion?.descripcion_corta,
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": direccion
+            },
+            "offers": {
+              "@type": "Offer",
+              "price": propiedadSeleccion?.precio,
+              "priceCurrency": "MXN"
+            }
+          })}
+        </script>
+      </Helmet>
       <div
         className={`${
           shareModalOpen && "invisible"

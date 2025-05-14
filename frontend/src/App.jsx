@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 import Residencial from "./pages/Residencial";
 import { Route, Routes } from "react-router";
 
@@ -69,6 +70,11 @@ console.log(propiedades)
 
   return (
     <>
+      <Helmet>
+        <title>REMAX México - Bienes Raíces y Propiedades</title>
+        <meta name="description" content="Encuentra tu propiedad ideal con REMAX México. Amplio catálogo de casas, departamentos y terrenos en venta o renta."/>
+        <link rel="canonical" href="https://www.remax.com.mx"/>
+      </Helmet>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Eleccion setValor={setValor} />} />
