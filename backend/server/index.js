@@ -30,8 +30,8 @@ app.get('/api/propiedades', async (req, res) => {
 
 // Configuración HTTPS
 const httpsOptions = {
-  key: fs.readFileSync('/ssl/key.pem'),
-  cert: fs.readFileSync('/ssl/cert.pem')
+  key: fs.readFileSync('./ssl/key.pem'),
+  cert: fs.readFileSync('./ssl/cert.pem')
 };
 
 https.createServer(httpsOptions, app).listen(PORT, () => {
