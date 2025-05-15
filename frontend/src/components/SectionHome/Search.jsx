@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { faLocationDot, faHouse, faHouseUser, faBuilding, faLandmark, faMapLocation, faBuildingCircleCheck, faWarehouse, faBuildingColumns, faStore, faTractor, faBoxOpen } from "@fortawesome/free-solid-svg-icons";
 import mapboxgl from "mapbox-gl";
 export default function Search({
   busquedaHome,
@@ -11,7 +11,8 @@ export default function Search({
   setBusqueda,
   setSelectedOptionsTipos,
   setSelectedOptionsOperacion,
-  selectedOptionsOperacion
+  selectedOptionsOperacion,
+  valor
 }) {
   const [selectedItem, setSelectedItem] = useState(null);
   console.log(selectedItem)
@@ -47,38 +48,87 @@ export default function Search({
     { id: "1", operacion: "Venta" },
     { id: "2", operacion: "Renta" },
   ];
+
   const tiposPropiedad = [
     {
       tipo_id: 1,
       tipo_nombre: "Casa",
       sector_nombre: "residencial",
       src: "/HomePageContent/casa.svg",
+      icon: faHouse
     },
     {
       tipo_id: 2,
       tipo_nombre: "Casa en Condominio",
-      sector_nombre: "residencial",
+      sector_nombre: "residencial", 
       src: "/HomePageContent/casaencondominio.svg",
+      icon: faHouseUser
     },
     {
       tipo_id: 3,
       tipo_nombre: "Departamento",
       sector_nombre: "residencial",
       src: "/HomePageContent/icondepartamento.svg",
+      icon: faBuilding
     },
     {
       tipo_id: 4,
       tipo_nombre: "Terreno",
       sector_nombre: "residencial",
-      src: "/HomePageContent/Terreno.svg",
+      src: "/HomePageContent/terreno.svg",
+      icon: faMapLocation
+    },
+    {
+      tipo_id: 5,
+      tipo_nombre: "Terreno - Residencial",
+      sector_nombre: "residencial",
+      src: "/HomePageContent/terreno-residencial.svg",
+      icon: faMapLocation
     },
     {
       tipo_id: 6,
       tipo_nombre: "Desarrollo",
       sector_nombre: "residencial",
       src: "/HomePageContent/desarrollo.svg",
+      icon: faBuildingCircleCheck
+    },
+    {
+      tipo_id: 7,
+      tipo_nombre: "Bodega - Industrial",
+      sector_nombre: "industrial",
+      src: "/HomePageContent/bodega-industrial.svg",
+      icon: faWarehouse
+    },
+    {
+      tipo_id: 8,
+      tipo_nombre: "Edificio",
+      sector_nombre: "comercial",
+      src: "/HomePageContent/edificio.svg",
+      icon: faBuildingColumns
+    },
+    {
+      tipo_id: 10,
+      tipo_nombre: "Terreno - Comercial",
+      sector_nombre: "comercial",
+      src: "/HomePageContent/terreno-comercial.svg",
+      icon: faStore
+    },
+    {
+      tipo_id: 14,
+      tipo_nombre: "Finca/Rancho",
+      sector_nombre: "agropecuario",
+      src: "/HomePageContent/finca-rancho.svg",
+      icon: faTractor
+    },
+    {
+      tipo_id: 19,
+      tipo_nombre: "Bodega - Comercial",
+      sector_nombre: "comercial",
+      src: "/HomePageContent/bodega-comercial.svg",
+      icon: faBoxOpen
     },
   ];
+  
 
   const navigate = useNavigate();
   const handleSearch = (e) => {
@@ -251,16 +301,15 @@ export default function Search({
             {tiposPropiedad &&
               tiposPropiedad.map((item) => (
                 <li
+                  key={item.tipo_id}
                   onClick={handleTipos}
                   className="hover:bg-gray-200 py-2 px-5 w-full flex items-center cursor-pointer gap-1"
                 >
-                  <img
-                    loading="lazy"
-                    className="w-4 sm:w-6 lg:w-8"
-                    src={item.src}
-                    alt=""
+                  <FontAwesomeIcon
+                    icon={item.icon}
+                    className="w-4 sm:w-6 lg:w-8 text-[#414141]"
                   />
-                  <p id={item.tipo_id}>{item.tipo_nombre}</p>
+                  <p id={item.tipo_id.toString()}>{item.tipo_nombre}</p>
                 </li>
               ))}
           </ol>

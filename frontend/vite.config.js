@@ -12,8 +12,8 @@ export default defineConfig(({ command }) => {
     server: isDev
       ? {
           https: {
-            key: fs.readFileSync(path.resolve(__dirname, 'ssl/key.pem')),
-            cert: fs.readFileSync(path.resolve(__dirname, 'ssl/cert.pem'))
+            key: fs.readFileSync(path.resolve(__dirname, '../backend/ssl/key.pem')),
+            cert: fs.readFileSync(path.resolve(__dirname, '../backend/ssl/cert.pem'))
           },
           proxy: {
             '/api': {

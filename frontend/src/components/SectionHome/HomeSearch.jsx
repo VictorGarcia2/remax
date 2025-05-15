@@ -106,6 +106,7 @@ export default function HomeSearch({
             {selectedContent.description}
           </p> */}
           <Search
+          valor={valor}
           selectedOptionsOperacion={selectedOptionsOperacion}
             setSelectedOptionsOperacion={setSelectedOptionsOperacion}
             setSelectedOptionsTipos={setSelectedOptionsTipos}
