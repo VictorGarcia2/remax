@@ -36,19 +36,21 @@ export default function PropiedadSeleccion({ seleccion }) {
         setLoading(false);
       });
   }, []);
-  
 
-  const agentesId = useMemo(() => [
-    { id: "101914741", nombre: "Verónica Olán García" },
-    { id: "102162316", nombre: "Andrés Guerra Olan" },
-    { id: "101932987", nombre: "Andrés Guerra García" },
-    { id: "102296937", nombre: "Beatriz Hernandez Aguilera" },
-    { id: "102298360", nombre: "Verónica Itzel Guerra Olán" },
-    { id: "102312153", nombre: "Dulce Angelica Flores De Jesus" },
-    { id: "102427296", nombre: "Aída Leon Varela" },
-    { id: "102437017", nombre: "Yazmin Vazquez Valdez" },
-    { id: "102433046", nombre: "Fernanda Lozada" },
-  ], []);
+  const agentesId = useMemo(
+    () => [
+      { id: "101914741", nombre: "Verónica Olán García" },
+      { id: "102162316", nombre: "Andrés Guerra Olan" },
+      { id: "101932987", nombre: "Andrés Guerra García" },
+      { id: "102296937", nombre: "Beatriz Hernandez Aguilera" },
+      { id: "102298360", nombre: "Verónica Itzel Guerra Olán" },
+      { id: "102312153", nombre: "Dulce Angelica Flores De Jesus" },
+      { id: "102427296", nombre: "Aída Leon Varela" },
+      { id: "102437017", nombre: "Yazmin Vazquez Valdez" },
+      { id: "102433046", nombre: "Fernanda Lozada" },
+    ],
+    []
+  );
 
   const filtroagente = propiedadSeleccion?.agentes?.numeroasociado
     ? agentesId.filter((item) =>
@@ -56,7 +58,7 @@ export default function PropiedadSeleccion({ seleccion }) {
       )
     : [];
 
- /*  useEffect(() => {
+  /*  useEffect(() => {
     const data = propierties.data.rows; // o como venga en tu JSON
     setPropiedades(data);
   }, []); */
@@ -117,31 +119,40 @@ export default function PropiedadSeleccion({ seleccion }) {
   const direccion = `${calle}, ${colonia}, ${ciudad}, ${estado}`;
   const imagenesArray = propiedadSeleccion?.imagenes.split(",");
   const [cargada, setCargada] = useState(false);
-  const tipos = useMemo(() => [
-    { nombre: "Casa", tipo_id: 1 },
-    { nombre: "Casa en Condominio", tipo_id: 2 },
-    { nombre: "Departamento", tipo_id: 3 },
-    { nombre: "Terreno", tipo_id: 4 },
-    { nombre: "Desarrollo", tipo_id: 6 },
-  ], []);
+  const tipos = useMemo(
+    () => [
+      { nombre: "Casa", tipo_id: 1 },
+      { nombre: "Casa en Condominio", tipo_id: 2 },
+      { nombre: "Departamento", tipo_id: 3 },
+      { nombre: "Terreno", tipo_id: 4 },
+      { nombre: "Desarrollo", tipo_id: 6 },
+    ],
+    []
+  );
 
-  const operaciones = useMemo(() => [
-    { nombre: "Venta", operacion_id: "1" },
-    { nombre: "Renta", operacion_id: "2" },
-  ], []);
+  const operaciones = useMemo(
+    () => [
+      { nombre: "Venta", operacion_id: "1" },
+      { nombre: "Renta", operacion_id: "2" },
+    ],
+    []
+  );
 
-  const tituloPro = useMemo(() => [
-    { nombre: "Casa en Venta", tipo_id: 1, operacion_id: "1" },
-    { nombre: "Casa en Renta", tipo_id: 1, operacion_id: "2" },
-    { nombre: "Casa en Condominio en Venta", tipo_id: 2, operacion_id: "1" },
-    { nombre: "Casa en Condominio en Renta", tipo_id: 2, operacion_id: "2" },
-    { nombre: "Departamento en Venta", tipo_id: 3, operacion_id: "1" },
-    { nombre: "Departamento en Renta", tipo_id: 3, operacion_id: "2" },
-    { nombre: "Terreno en Venta", tipo_id: 4, operacion_id: "1" },
-    { nombre: "Terreno en Renta", tipo_id: 4, operacion_id: "2" },
-    { nombre: "Desarrollo en Venta", tipo_id: 6, operacion_id: "1" },
-    { nombre: "Desarrollo en Renta", tipo_id: 6, operacion_id: "2" },
-  ], []);
+  const tituloPro = useMemo(
+    () => [
+      { nombre: "Casa en Venta", tipo_id: 1, operacion_id: "1" },
+      { nombre: "Casa en Renta", tipo_id: 1, operacion_id: "2" },
+      { nombre: "Casa en Condominio en Venta", tipo_id: 2, operacion_id: "1" },
+      { nombre: "Casa en Condominio en Renta", tipo_id: 2, operacion_id: "2" },
+      { nombre: "Departamento en Venta", tipo_id: 3, operacion_id: "1" },
+      { nombre: "Departamento en Renta", tipo_id: 3, operacion_id: "2" },
+      { nombre: "Terreno en Venta", tipo_id: 4, operacion_id: "1" },
+      { nombre: "Terreno en Renta", tipo_id: 4, operacion_id: "2" },
+      { nombre: "Desarrollo en Venta", tipo_id: 6, operacion_id: "1" },
+      { nombre: "Desarrollo en Renta", tipo_id: 6, operacion_id: "2" },
+    ],
+    []
+  );
   const imagenAgente = `https://cdn.remax.com.mx/agentes/${propiedadSeleccion?.agentes?.imagen}`;
 
   const [shareModalOpen, setShareModalOpen] = useState(true);
@@ -153,35 +164,41 @@ export default function PropiedadSeleccion({ seleccion }) {
   return (
     <>
       <Helmet>
-        <meta name="description" content={`${propiedadSeleccion?.descripcion_corta} en ${direccion}`} />
-        <link rel="canonical" href={`https://www.remax.com.mx/propiedades/seleccion/${propiedadSeleccion?.propiedad_id}`} />
+        <meta
+          name="description"
+          content={`${propiedadSeleccion?.descripcion_corta} en ${direccion}`}
+        />
+        <link
+          rel="canonical"
+          href={`https://www.remax.com.mx/propiedades/seleccion/${propiedadSeleccion?.propiedad_id}`}
+        />
         // Schema actualizado con más detalles
         <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "RealEstateListing",
-          "name": propiedadSeleccion?.titulo,
-          "description": propiedadSeleccion?.descripcion_corta,
-          "image": propiedadSeleccion?.imagenes.split(",")[0],
-          "numberOfRooms": propiedadSeleccion?.recamaras,
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Veracruz",
-            "addressRegion": "Veracruz",
-            "streetAddress": direccion
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": propiedadSeleccion?.lat,
-            "longitude": propiedadSeleccion?.lng
-          },
-          "offers": {
-            "@type": "Offer",
-            "price": propiedadSeleccion?.precio,
-            "priceCurrency": "MXN",
-            "availability": "https://schema.org/InStock"
-          }
-        })}
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "RealEstateListing",
+            name: propiedadSeleccion?.titulo,
+            description: propiedadSeleccion?.descripcion_corta,
+            image: propiedadSeleccion?.imagenes.split(",")[0],
+            numberOfRooms: propiedadSeleccion?.recamaras,
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Veracruz",
+              addressRegion: "Veracruz",
+              streetAddress: direccion,
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: propiedadSeleccion?.lat,
+              longitude: propiedadSeleccion?.lng,
+            },
+            offers: {
+              "@type": "Offer",
+              price: propiedadSeleccion?.precio,
+              priceCurrency: "MXN",
+              availability: "https://schema.org/InStock",
+            },
+          })}
         </script>
       </Helmet>
       <div
@@ -250,14 +267,20 @@ export default function PropiedadSeleccion({ seleccion }) {
           Contacta a un agente
         </p>
       </div>
-      <div className="bottom-4 right-4 lg:invisible  bg-blueRemax rounded-full  fixed z-50  w-[50px] h-[50px] flex items-center justify-center">
-        <img
-          loading="lazy"
-          className="w-8"
-          src="/HomePageContent/brand-whatsapp 1.svg"
-          alt=""
-        />
-      </div>
+      <a
+        href={`https://wa.me/5212292696629?text=Hola, estoy interesado en la propiedad ${propiedadSeleccion?.propiedad_id} ubicada en ${direccion}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div className="bottom-4 right-4 lg:invisible  bg-blueRemax rounded-full  fixed z-50  w-[50px] h-[50px] flex items-center justify-center">
+          <img
+            loading="lazy"
+            className="w-8"
+            src="/HomePageContent/brand-whatsapp 1.svg"
+            alt=""
+          />
+        </div>
+      </a>
       <div className="flex flex-col  px-2 justify-center items-start">
         <div className="grid grid-cols-2 gap-2 w-full ">
           <div>
@@ -375,14 +398,25 @@ export default function PropiedadSeleccion({ seleccion }) {
                     Solicita información:
                   </p>
                   <div className="flex items-center justify-center gap-4">
-                    <FontAwesomeIcon
-                      icon={faWhatsapp}
-                      style={{ width: "20px", height: "40px", color: "gray" }}
-                    />
+                    <a
+                      href={`https://wa.me/5212292696629?text=Hola, estoy interesado en la propiedad ${propiedadSeleccion?.propiedad_id} ubicada en ${direccion}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FontAwesomeIcon
+                        icon={faWhatsapp}
+                        style={{
+                          width: "25px",
+                          height: "40px",
+                          color: "#25D366",
+                        }}
+                        className="hover:scale-110 transition-transform"
+                      />
+                    </a>
                     <a href="mailto:adm.remaxrna@gmail.com">
                       <img
                         loading="lazy"
-                        className="w-auto h-full"
+                        className="w-auto h-full hover:scale-110 transition-transform"
                         src="/HomePageContent/correo.svg"
                         alt="Correo"
                       />
@@ -390,7 +424,7 @@ export default function PropiedadSeleccion({ seleccion }) {
                     <a href="tel:+5219933000810">
                       <img
                         loading="lazy"
-                        className="w-auto h-full"
+                        className="w-auto h-full hover:scale-110 transition-transform"
                         src="/HomePageContent/phone.svg"
                         alt="Teléfono"
                       />
@@ -460,21 +494,25 @@ export default function PropiedadSeleccion({ seleccion }) {
                       Solicita información:
                     </p>
                     <div className="flex items-center justify-center gap-4">
-                      <a 
+                      <a
                         href={`https://wa.me/5212292696629?text=Hola, estoy interesado en la propiedad ${propiedadSeleccion?.propiedad_id} ubicada en ${direccion}`}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         <FontAwesomeIcon
                           icon={faWhatsapp}
-                          style={{ width: "40px", height: "40px", color: "#25D366" }}
+                          style={{
+                            width: "40px",
+                            height: "40px",
+                            color: "#25D366",
+                          }}
                           className="hover:scale-110 transition-transform"
                         />
                       </a>
                       <a href="mailto:remax.cin.veracruz@gmail.com">
                         <img
                           loading="lazy"
-                          className="w-11 h-full"
+                          className="w-11 h-full hover:scale-110 transition-transform"
                           src="/HomePageContent/correo.svg"
                           alt="Correo"
                         />
@@ -482,7 +520,7 @@ export default function PropiedadSeleccion({ seleccion }) {
                       <a href="tel:+5212292696629">
                         <img
                           loading="lazy"
-                          className="w-8 h-full"
+                          className="w-8 h-full hover:scale-110 transition-transform"
                           src="/HomePageContent/phone.svg"
                           alt="Teléfono"
                         />
