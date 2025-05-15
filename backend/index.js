@@ -54,7 +54,7 @@ app.get('/api/propiedades', async (req, res) => {
   try {
     const response = await axios.get('https://us-central1-remax-api.cloudfunctions.net/api/propiedades', {
       headers: {
-        Authorization: 'Hvh8n23m53.n7hiu32S09gh6tUj.JJpyfq.HioJ19J3RGgHJSIOop4t4t',
+        Authorization: 'Bearer Hvh8n23m53.n7hiu32S09gh6tUj.JJpyfq.HioJ19J3RGgHJSIOop4t4t',
         Accept: 'application/json'
       }
     });
