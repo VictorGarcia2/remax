@@ -25,17 +25,18 @@ export default function PropiedadSeleccion({ seleccion }) {
     : 0;
   const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
+  useEffect(() => {
     axios
-      .get("https://localhost:3000/api/propiedades")
+      .get("/api/propiedades")
       .then((res) => {
         setPropiedades(res.data.data.rows);
       })
       .catch((err) => {
-        console.error(" Error en frontend:", err);
+        console.error("❌ Error en frontend:", err);
         setLoading(false);
       });
   }, []);
+  
 
   const agentesId = [
     { id: "101914741", nombre: "Verónica Olán García" },

@@ -48,12 +48,10 @@ import ScrollToTop from "./components/ScrollTop";
       .catch(error => console.error("Error:", error));
   }, [busquedaHome]); */
 
-   useEffect(() => {
+  useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get(
-          "https://localhost:3000/api/propiedades"
-        );
+        const response = await axios.get("/api/propiedades");
         const data = response.data.data.rows;
         setPropiedades(data);
       } catch (error) {
@@ -62,6 +60,7 @@ import ScrollToTop from "./components/ScrollTop";
     };
     getData();
   }, [busquedaHome]);
+  
 console.log(propiedades)
 /*   useEffect(() => {
     const data = propierties.data.rows; // o como venga en tu JSON
