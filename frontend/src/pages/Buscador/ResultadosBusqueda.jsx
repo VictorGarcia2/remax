@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-
+import { memo, useMemo } from "react";
 import SectionFooter from "../../components/SectionFooter/SectionFooter";
 import HeaderResultadoBusqueda from "../../components/HeaderResultadoBusqueda";
 import SearchResultadosBusqueda from "../../components/SearchResultadosBusqueda";
@@ -7,7 +7,8 @@ import CantidadPropiedades from "../../components/CantidadPropiedades";
 import CardResultado from "../../components/CardResultado";
 import MenuFilter from "../../components/MenuFilter";
 import FiltrosDesktop from "../../components/FiltrosDesktop";
-export default function ResultadosBusqueda({
+
+const ResultadosBusqueda = ({
   propiedades,
   menuClose,
   setMenuClose,
@@ -35,14 +36,16 @@ export default function ResultadosBusqueda({
   selectedOptionsTipos,
   setSelectedOptionsOperacion,
   selectedOptionsOperacion,
-  selectedOptions, 
-}) {
-console.log(selectedOptionsOperacion)
+  selectedOptions,
+  valor,
+}) => {
+  console.log(valor);
 
   return (
     <>
       <MenuFilter
-      setSelectedOptionsOperacion={setSelectedOptionsOperacion}
+      valor={valor}
+        setSelectedOptionsOperacion={setSelectedOptionsOperacion}
         precioMaximo={precioMaximo}
         setPrecioMaximo={setPrecioMaximo}
         precioMinimo={precioMinimo}
@@ -58,6 +61,7 @@ console.log(selectedOptionsOperacion)
       <HeaderResultadoBusqueda />
       <div className="hidden lg:block">
         <FiltrosDesktop
+          valor={valor}
           setSelectedOptionsOperacion={setSelectedOptionsOperacion}
           setSelectedOptionsTipos={setSelectedOptionsTipos}
           setAplicarFiltros={setAplicarFiltros}
@@ -111,4 +115,6 @@ console.log(selectedOptionsOperacion)
       <SectionFooter />
     </>
   );
-}
+};
+
+export default memo(ResultadosBusqueda);

@@ -58,11 +58,46 @@ export default function Search({
       icon: faHouse
     },
     {
+      tipo_id: 1,
+      tipo_nombre: "Casa",
+      sector_nombre: "comercial",
+      src: "/HomePageContent/casa.svg",
+      icon: faBuilding
+    },
+    {
+      tipo_id: 9,
+      tipo_nombre: "Local",
+      sector_nombre: "comercial",
+      src: "/HomePageContent/casa.svg",
+      icon: faStore
+    },
+    {
       tipo_id: 2,
       tipo_nombre: "Casa en Condominio",
       sector_nombre: "residencial", 
       src: "/HomePageContent/casaencondominio.svg",
       icon: faHouseUser
+    },
+    {
+      tipo_id: 2,
+      tipo_nombre: "Condominio",
+      sector_nombre: "comercial", 
+      src: "/HomePageContent/casaencondominio.svg",
+      icon: faBuildingCircleCheck
+    },
+    {
+      tipo_id: 2,
+      tipo_nombre: "Oficina",
+      sector_nombre: "comercial", 
+      src: "/HomePageContent/casaencondominio.svg",
+      icon: faBuildingColumns
+    },
+    {
+      tipo_id: 2,
+      tipo_nombre: "Plaza",
+      sector_nombre: "comercial", 
+      src: "/HomePageContent/casaencondominio.svg",
+      icon: faStore
     },
     {
       tipo_id: 3,
@@ -95,7 +130,7 @@ export default function Search({
     {
       tipo_id: 7,
       tipo_nombre: "Bodega - Industrial",
-      sector_nombre: "industrial",
+      sector_nombre: "comercial",
       src: "/HomePageContent/bodega-industrial.svg",
       icon: faWarehouse
     },
@@ -108,24 +143,24 @@ export default function Search({
     },
     {
       tipo_id: 10,
-      tipo_nombre: "Terreno - Comercial",
+      tipo_nombre: "Terreno",
       sector_nombre: "comercial",
       src: "/HomePageContent/terreno-comercial.svg",
-      icon: faStore
+      icon: faMapLocation
     },
     {
       tipo_id: 14,
       tipo_nombre: "Finca/Rancho",
-      sector_nombre: "agropecuario",
+      sector_nombre: "comercial",
       src: "/HomePageContent/finca-rancho.svg",
       icon: faTractor
     },
     {
       tipo_id: 19,
-      tipo_nombre: "Bodega - Comercial",
+      tipo_nombre: "Bodega",
       sector_nombre: "comercial",
       src: "/HomePageContent/bodega-comercial.svg",
-      icon: faBoxOpen
+      icon: faWarehouse
     },
   ];
   
@@ -299,7 +334,9 @@ export default function Search({
         >
           <ol className="font-display text-start py-4 text-sm sm:text-base lg:text-2xl text-[#414141]">
             {tiposPropiedad &&
-              tiposPropiedad.map((item) => (
+              tiposPropiedad
+              .filter(item => item.sector_nombre === valor)
+              .map((item) => (
                 <li
                   key={item.tipo_id}
                   onClick={handleTipos}

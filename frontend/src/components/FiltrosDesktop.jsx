@@ -22,8 +22,10 @@ export default function FiltrosDesktop({
   setSelectedOptionsTipos,
   setSelectedOptionsOperacion,
   selectedOptions, 
-  selectedOptionsTipos
+  selectedOptionsTipos,
+  valor
 }) {
+  console.log(valor)
   mapboxgl.accessToken =
     "pk.eyJ1IjoidmljdG9yZ2FyY2lhcHJ6IiwiYSI6ImNtNXZ3dW0wMjA2aHgyanE1M3ptczQ2azUifQ.ILrTXW_4c9_pbGC3Uj-wdg";
   const [autoCompleteHome, setAutoCompleteHome] = useState([]);
@@ -109,7 +111,7 @@ export default function FiltrosDesktop({
         }
         <Operacion setSelectedOptionsOperacion={setSelectedOptionsOperacion} />
         <Sector setSelectedOptions={setSelectedOptions} selectedOptions={selectedOptions} />
-        <Tipo setSelectedOptionsTipos={setSelectedOptionsTipos} selectedOptionsTipos={selectedOptionsTipos} />
+        <Tipo setSelectedOptionsTipos={setSelectedOptionsTipos} selectedOptionsTipos={selectedOptionsTipos} selectedOptions={selectedOptions} valor={valor} />
         <LimpiarFiltro setlimpiar={setlimpiar} />
       </div>
       <div className="flex gap-1 ">

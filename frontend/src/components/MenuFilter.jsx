@@ -1,13 +1,19 @@
 import {
   faBuilding,
+  faBuildingCircleCheck,
+  faBuildingColumns,
   faBuildingUser,
   faCity,
   faHouse,
   faHouseChimney,
+  faHouseUser,
   faIndustry,
   faMap,
+  faMapLocation,
   faMapLocationDot,
   faPenRuler,
+  faStore,
+  faTractor,
   faTreeCity,
   faWarehouse,
 } from "@fortawesome/free-solid-svg-icons";
@@ -24,6 +30,8 @@ export default function MenuFilter({
   setSelectedOptionsTipos,
   setSelectedOptionsOperacion,
   setSelectedOptions,
+  selectedOptions,
+  valor,
 }) {
   const [openSections, setOpenSections] = useState({
     "accordion-collapse-body-1": true,
@@ -39,8 +47,9 @@ export default function MenuFilter({
   };
   const handleCheckboxChangeTipo = (event) => {
     const { value, checked } = event.target;
+    const intValue = parseInt(value);
     setSelectedOptionsTipos((prev) =>
-      checked ? [...prev, value] : prev.filter((item) => item !== value)
+      checked ? [...prev, intValue] : prev.filter((item) => item !== intValue)
     );
   };
   const handleCheckboxChangeOperacion = (event) => {
@@ -63,7 +72,11 @@ export default function MenuFilter({
     );
   };
   const sectors = [
-    { icon: <FontAwesomeIcon icon={faCity} />, nombre: "Residencial" },
+    {
+      icon: <FontAwesomeIcon icon={faCity} />,
+      nombre: "Residencial",
+      name: "Residencial",
+    },
     {
       icon: <FontAwesomeIcon icon={faBuildingUser} />,
       nombre: "Comercial/Industrial",
@@ -71,20 +84,161 @@ export default function MenuFilter({
       values: ["comercial", "industrial"],
     },
   ];
-  
-    const lugares = [
-      { icon: faHouse, nombre: "Casa", tipo_id: 1 },
-      { icon: faHouseChimney, nombre: "Casa en Condominio", tipo_id: 2 },
-      { icon: faBuilding, nombre: "Departamento", tipo_id: 3 },
-      { icon: faPenRuler, nombre: "Desarrollo", tipo_id: 6 },
-      { icon: faMap, nombre: "Terreno", tipo_id: 4 },
-      { icon: faMap, nombre: "Terreno - Comercial", tipo_id: 10 },
-      { icon: faMap, nombre: "Terreno - Residencial", tipo_id: 5 },
-      { icon: faBuilding, nombre: "Edificio", tipo_id: 8 },
-      { icon: faTreeCity, nombre: "Finca/Rancho", tipo_id: 14 },
-      { icon: faWarehouse, nombre: "Bodega - Comercial", tipo_id: 19 },
-      { icon: faIndustry, nombre: "Bodega - Industrial", tipo_id: 7 },
-    ];
+
+  const lugares = [
+    {
+      tipo_id: 1,
+      nombre: "Casa",
+      sector: "residencial",
+      src: "/HomePageContent/casa.svg",
+      icon: faHouse
+    },
+    {
+      tipo_id: 1,
+      nombre: "Casa",
+      sector: "comercial",
+      src: "/HomePageContent/casa.svg",
+      icon: faBuilding
+    },
+    {
+      tipo_id: 9,
+      nombre: "Local",
+      sector: "comercial",
+      src: "/HomePageContent/casa.svg",
+      icon: faStore
+    },
+    {
+      tipo_id: 2,
+      nombre: "Casa en Condominio",
+      sector: "residencial", 
+      src: "/HomePageContent/casaencondominio.svg",
+      icon: faHouseUser
+    },
+    {
+      tipo_id: 2,
+      nombre: "Condominio",
+      sector: "comercial", 
+      src: "/HomePageContent/casaencondominio.svg",
+      icon: faBuildingCircleCheck
+    },
+    {
+      tipo_id: 2,
+      nombre: "Oficina",
+      sector: "comercial", 
+      src: "/HomePageContent/casaencondominio.svg",
+      icon: faBuildingColumns
+    },
+    {
+      tipo_id: 2,
+      nombre: "Plaza",
+      sector: "comercial", 
+      src: "/HomePageContent/casaencondominio.svg",
+      icon: faStore
+    },
+    {
+      tipo_id: 3,
+      nombre: "Departamento",
+      sector: "residencial",
+      src: "/HomePageContent/icondepartamento.svg",
+      icon: faBuilding
+    },
+    {
+      tipo_id: 4,
+      nombre: "Terreno",
+      sector: "residencial",
+      src: "/HomePageContent/terreno.svg",
+      icon: faMapLocation
+    },
+    {
+      tipo_id: 5,
+      nombre: "Terreno - Residencial",
+      sector: "residencial",
+      src: "/HomePageContent/terreno-residencial.svg",
+      icon: faMapLocation
+    },
+    {
+      tipo_id: 6,
+      nombre: "Desarrollo",
+      sector: "residencial",
+      src: "/HomePageContent/desarrollo.svg",
+      icon: faBuildingCircleCheck
+    },
+    {
+      tipo_id: 7,
+      nombre: "Bodega - Industrial",
+      sector: "comercial",
+      src: "/HomePageContent/bodega-industrial.svg",
+      icon: faWarehouse
+    },
+    {
+      tipo_id: 8,
+      nombre: "Edificio",
+      sector: "comercial",
+      src: "/HomePageContent/edificio.svg",
+      icon: faBuildingColumns
+    },
+    {
+      tipo_id: 10,
+      nombre: "Terreno",
+      sector: "comercial",
+      src: "/HomePageContent/terreno-comercial.svg",
+      icon: faMapLocation
+    },
+    {
+      tipo_id: 14,
+      nombre: "Finca/Rancho",
+      sector: "comercial",
+      src: "/HomePageContent/finca-rancho.svg",
+      icon: faTractor
+    },
+    {
+      tipo_id: 19,
+      nombre: "Bodega",
+      sector: "comercial",
+      src: "/HomePageContent/bodega-comercial.svg",
+      icon: faWarehouse
+    },
+  ];
+
+  const getColorClass = () => {
+    const tieneComercial =
+      selectedOptions.includes("comercial") ||
+      selectedOptions.includes("industrial");
+    return tieneComercial
+      ? "text-red-600 focus:ring-red-600"
+      : "text-blue-600 focus:ring-blue-600";
+  };
+
+  const propiedadesFiltradas = lugares.filter((lugar) => {
+    const tieneComercial =
+      selectedOptions.includes("comercial") ||
+      selectedOptions.includes("industrial");
+    const tieneResidencial = selectedOptions.includes("residencial");
+
+    // Si no hay opciones seleccionadas, usar el valor por defecto
+    if (selectedOptions.length === 0) {
+      return lugar.sector === (valor?.toLowerCase() || "residencial");
+    }
+
+    // Si ambos sectores están seleccionados, mostrar todas las propiedades
+    if (tieneComercial && tieneResidencial) {
+      return true;
+    }
+
+    // Si solo está seleccionado comercial/industrial, mostrar solo propiedades comerciales
+    if (tieneComercial) {
+      return lugar.sector === "comercial";
+    }
+
+    // Si solo está seleccionado residencial, mostrar solo propiedades residenciales
+    if (tieneResidencial) {
+      return lugar.sector === "residencial";
+    }
+
+    // Si no hay ningún sector seleccionado, mostrar todas las propiedades
+    return true;
+  });
+
   const operation = [
     { icon: faBuildingUser, nombre: 1, titulo: "Venta" },
     { icon: faCity, nombre: 2, titulo: "Renta" },
@@ -109,7 +263,8 @@ export default function MenuFilter({
             loading="lazy"
             className="w-7"
             src="/HomePageContent/close.svg"
-            alt=""
+            alt="Cerrar menú de filtros"
+            title="Cerrar filtros"
           />
         </div>
         <form className="mt-10 w-full font-lightitalic">
@@ -235,7 +390,7 @@ export default function MenuFilter({
               } overflow-hidden `}
               aria-labelledby="accordion-collapse-heading-2"
             >
-              <form className="z-50  flex text-base flex-col items-end  mt-1 px-4">
+              <form className="z-50   flex text-base flex-col items-end  mt-1 px-4">
                 {operation.map(({ icon, nombre, titulo }, index) => (
                   <div
                     key={index}
@@ -394,29 +549,31 @@ export default function MenuFilter({
               } overflow-hidden `}
               aria-labelledby="accordion-collapse-heading-3"
             >
-              <form className="z-50  flex text-base flex-col items-end   mt-1 px-4 ">
-                {lugares.map(({ icon, nombre, tipo_id }, index) => (
-                  <div
-                    key={tipo_id}
-                    className="flex justify-between items-center mb-4"
-                  >
-                    <label className="flex items-center cursor-pointer w-full justify-between">
-                      <div className="flex items-center">
-                        <FontAwesomeIcon icon={icon} />
-                        <span className="mx-2 text-sm font-medium text-gray-900">
-                          {nombre}
-                        </span>
-                      </div>
-                      <input
-                        type="checkbox"
-                        name="tipo"
-                        value={tipo_id}
-                        onChange={handleCheckboxChangeTipo}
-                        className="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-red-600"
-                      />
-                    </label>
-                  </div>
-                ))}
+              <form className="z-50 overflow-y-scroll h-60  flex text-base flex-col items-end   mt-1 px-4 ">
+                {propiedadesFiltradas.map(
+                  ({ icon, nombre, tipo_id }, index) => (
+                    <div
+                      key={tipo_id}
+                      className="flex justify-between items-center mb-4"
+                    >
+                      <label className="flex items-center cursor-pointer w-full justify-between">
+                        <div className="flex items-center">
+                          <FontAwesomeIcon icon={icon} />
+                          <span className="mx-2 text-sm font-medium text-gray-900">
+                            {nombre}
+                          </span>
+                        </div>
+                        <input
+                          type="checkbox"
+                          name="tipo"
+                          value={tipo_id}
+                          onChange={handleCheckboxChangeTipo}
+                          className={`w-4 h-4 ${getColorClass()} bg-gray-100 border-gray-300 rounded-sm`}
+                        />
+                      </label>
+                    </div>
+                  )
+                )}
               </form>
               <hr className="w-full static text-[#7b7b7b7b]" />
             </div>

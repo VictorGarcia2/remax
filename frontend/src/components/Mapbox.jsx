@@ -144,11 +144,10 @@ const MapboxConCards = ({
             alt={`Imagen ${currentIndex + 1}`}
           />
         </div>
-
         <a
           href={`/propiedades/seleccion/${prop.propiedad_id}`}
           style={{ textDecoration: "none" }}
-          className="w-[200px] mt-[210px] 2xl:w-[280px] bg-white lg:h-28  absolute lg:mt-[200px] rounded-b-2xl shadow flex flex-col items-center  font-display"
+          className="w-[200px] mt-[210px] 2xl:w-[280px] bg-white lg:h-28  absolute lg:mt-[200px] rounded-b-2xl shadow flex flex-col items-center px-2  font-display"
         >
           <p className="text-sm font-bold mt-2 text-[#7B7B7B]">
             {Number(prop.mxn_corriente).toLocaleString("en-US")}MXN
@@ -171,22 +170,6 @@ const MapboxConCards = ({
             <p className="text-sm md:text-base">{prop.m2_construccion}m²</p>
           </div>
         </a>
-      {/*   <div className="absolute bottom-0 mt-4  flex gap-2">
-          <div
-            rel="noopener noreferrer"
-            className="bg-blue-800 rounded-2xl cursor-pointer w-[73px] h-[29px] shadow-2xs py-1 flex items-center justify-center z-40"
-            onClick={() => {
-              setShareModalOpen(false);
-              setSeleccion(item.propiedad_id);
-            }}
-          >
-            <img
-              loading="lazy"
-              src="HomePageContent/brand-whatsapp 1.svg"
-              alt="WhatsApp"
-            />
-          </div>
-        </div> */}
       </div>
     );
   };

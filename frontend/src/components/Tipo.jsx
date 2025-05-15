@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBuilding,
@@ -15,54 +15,81 @@ import {
   faWarehouse,
 } from "@fortawesome/free-solid-svg-icons";
 
-export default function Tipo({ selectedOptionsTipos, setSelectedOptionsTipos }) {
+export default function Tipo({ selectedOptionsTipos, setSelectedOptionsTipos, selectedOptions, valor }) {
   const [openModal, setOpenModal] = useState(true);
+  
+  // Determinar el sector actual basado en selectedOptions
+  useEffect(() => {
+    // Limpiar las selecciones cuando cambia el sector
+    setSelectedOptionsTipos([]);
+    
+    // Si selectedOptions incluye "comercial" o "industrial", mostrar opciones comerciales
+    const isComercial = selectedOptions.some(option => 
+      ["comercial", "industrial"].includes(option.toLowerCase())
+    );
+    
+    // Si no hay selección en selectedOptions, usar el valor por defecto
+    if (selectedOptions.length === 0) {
+      setSelectedSector(valor?.toLowerCase() || "residencial");
+    } else {
+      setSelectedSector(isComercial ? "comercial" : "residencial");
+    }
+  }, [selectedOptions, valor]);
+  const [selectedSector, setSelectedSector] = useState(valor);
+
+  // Actualizar el sector seleccionado cuando cambia el valor
+  useEffect(() => {
+    setSelectedSector(valor);
+    // Limpiar las selecciones cuando cambia el sector
+    setSelectedOptionsTipos([]);
+  }, [valor]);
+
+  
+  // Determinar el color basado en el sector y selectedOptions
+  const getColorClass = () => {
+    if (valor?.toLowerCase() === 'comercial' || selectedOptions.includes("comercial")) {
+      return 'text-red-600 focus:ring-red-600';
+    }
+    return 'text-blue-600 focus:ring-blue-600';
+  };
 
   const lugares = [
-    { icon: faHouse, nombre: "Casa", tipo_id: 1 },
-    { icon: faHouseChimney, nombre: "Casa en Condominio", tipo_id: 2 },
-    { icon: faBuilding, nombre: "Departamento", tipo_id: 3 },
-    { icon: faPenRuler, nombre: "Desarrollo", tipo_id: 6 },
-    { icon: faMap, nombre: "Terreno", tipo_id: 4 },
-    { icon: faMap, nombre: "Terreno - Comercial", tipo_id: 10 },
-    { icon: faMap, nombre: "Terreno - Residencial", tipo_id: 5 },
-    { icon: faBuilding, nombre: "Edificio", tipo_id: 8 },
-    { icon: faTreeCity, nombre: "Finca/Rancho", tipo_id: 14 },
-    { icon: faWarehouse, nombre: "Bodega - Comercial", tipo_id: 19 },
-    { icon: faIndustry, nombre: "Bodega - Industrial", tipo_id: 7 },
+    { icon: faHouse, nombre: "Casa", tipo_id: 1, sector: "residencial" },
+    { icon: faHouseChimney, nombre: "Casa en Condominio", tipo_id: 2, sector: "residencial" },
+    { icon: faBuilding, nombre: "Departamento", tipo_id: 3, sector: "residencial" },
+    { icon: faPenRuler, nombre: "Desarrollo", tipo_id: 6, sector: "residencial" },
+    { icon: faMap, nombre: "Terreno", tipo_id: 4, sector: "residencial" },
+    { icon: faMap, nombre: "Terreno - Comercial", tipo_id: 10, sector: "comercial" },
+    { icon: faMap, nombre: "Terreno - Residencial", tipo_id: 5, sector: "residencial" },
+    { icon: faBuilding, nombre: "Edificio", tipo_id: 8, sector: "comercial" },
+    { icon: faTreeCity, nombre: "Finca/Rancho", tipo_id: 14, sector: "residencial" },
+    { icon: faWarehouse, nombre: "Bodega - Comercial", tipo_id: 19, sector: "comercial" },
+    { icon: faIndustry, nombre: "Bodega - Industrial", tipo_id: 7, sector: "comercial" },
   ];
-/* "tipos": {
-          "tipo_id": 10,
-          "tipo_nombre": "Terreno - Comercial",
-          "sector_nombre": "comercial"
-        },
 
-
-        "tipos": {
-          "tipo_id": 9,
-          "tipo_nombre": "Local - Comercial",
-          "sector_nombre": "comercial"
-        },
-        "tipos": {
-          "tipo_id": 7,
-          "tipo_nombre": "Bodega - Comercial",
-          "sector_nombre": "comercial"
-        },
-        "tipos": {
-          "tipo_id": 10,
-          "tipo_nombre": "Terreno - Comercial",
-          "sector_nombre": "comercial"
-        },
-        "tipos": {
-          "tipo_id": 13,
-          "tipo_nombre": "Edificio - Comercial",
-          "sector_nombre": "comercial"
-        },
-        "tipos": {
-          "tipo_id": 14,
-          "tipo_nombre": "Finca/Rancho - Comercial",
-          "sector_nombre": "comercial"
-        }, */
+  const propiedadesFiltradas = lugares.filter(lugar => {
+    // Si hay opciones seleccionadas, filtrar por esas opciones
+    if (selectedOptions.length > 0) {
+      // Si ambos sectores están seleccionados, mostrar todas las propiedades
+      const tieneComercial = selectedOptions.includes("comercial") || selectedOptions.includes("industrial");
+      const tieneResidencial = selectedOptions.includes("residencial");
+      
+      if (tieneComercial && tieneResidencial) {
+        return true; // Mostrar todas las propiedades
+      }
+      
+      // Si solo está seleccionado uno de los sectores, filtrar por ese sector
+      if (tieneComercial) {
+        return lugar.sector === "comercial";
+      }
+      if (tieneResidencial) {
+        return lugar.sector === "residencial";
+      }
+    }
+    
+    // Si no hay opciones seleccionadas, usar el valor por defecto
+    return lugar.sector === (valor?.toLowerCase() || "residencial");
+  });
 
 
   const toggleModal = () => setOpenModal((prev) => !prev);
@@ -100,7 +127,7 @@ export default function Tipo({ selectedOptionsTipos, setSelectedOptionsTipos }) 
 
         {!openModal && (
           <form className="z-50 bg-gray-100 py-5 rounded-2xl px-4 absolute mt-13 flex flex-col gap-4">
-            {lugares.map(({ icon, nombre, tipo_id }) => (
+            {propiedadesFiltradas.map(({ icon, nombre, tipo_id }) => (
               <div
                 key={tipo_id}
                 className="flex justify-between items-center mb-4"
@@ -118,7 +145,7 @@ export default function Tipo({ selectedOptionsTipos, setSelectedOptionsTipos }) 
                     value={tipo_id}
                     checked={selectedOptionsTipos.includes(tipo_id)}
                     onChange={handleCheckboxChange}
-                    className="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-red-600"
+                    className={`w-4 h-4 ${getColorClass()} bg-gray-100 border-gray-300 rounded-sm`}
                   />
                 </label>
               </div>

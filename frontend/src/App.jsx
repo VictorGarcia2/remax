@@ -1,21 +1,29 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense, lazy } from "react";
 import axios from "axios";
 import { Helmet } from "react-helmet";
-import Residencial from "./pages/Residencial";
 import { Route, Routes } from "react-router";
-
-import ResultadosBusqueda from "./pages/Buscador/ResultadosBusqueda";
-import PropiedadSeleccion from "./pages/PropiedadSeleccion/PropiedadSeleccion";
-
-/* import propierties from "/src/APi/propiedades.json"; */
-import Eleccion from "./pages/Eleccion";
-import NuestroEquipo from "./pages/NuestroEquipo";
-import Poliza from "./pages/Poliza";
-import TerminosyCondiciones from "./components/TerminosyCondiciones";
-import CodigodeEtica from "./components/CodigodeEtica";
-import PoliticadePrivacidad from "./components/PoliticadePrivacidad";
 import ScrollToTop from "./components/ScrollTop";
- const App = () => {
+
+// Importaciones lazy para code splitting
+const Residencial = lazy(() => import("./pages/Residencial"));
+const ResultadosBusqueda = lazy(() =>
+  import("./pages/Buscador/ResultadosBusqueda")
+);
+const PropiedadSeleccion = lazy(() =>
+  import("./pages/PropiedadSeleccion/PropiedadSeleccion")
+);
+const Eleccion = lazy(() => import("./pages/Eleccion"));
+const NuestroEquipo = lazy(() => import("./pages/NuestroEquipo"));
+const Poliza = lazy(() => import("./pages/Poliza"));
+const TerminosyCondiciones = lazy(() =>
+  import("./components/TerminosyCondiciones")
+);
+const CodigodeEtica = lazy(() => import("./components/CodigodeEtica"));
+const PoliticadePrivacidad = lazy(() =>
+  import("./components/PoliticadePrivacidad")
+);
+
+const App = () => {
   const [propiedades, setPropiedades] = useState([]);
   const [menuClose, setMenuClose] = useState(true);
   const [busquedaHome, setBusquedaHome] = useState("");
@@ -60,9 +68,9 @@ import ScrollToTop from "./components/ScrollTop";
     };
     getData();
   }, [busquedaHome]);
-  
-console.log(propiedades)
-/*   useEffect(() => {
+
+  console.log(propiedades);
+  /*   useEffect(() => {
     const data = propierties.data.rows; // o como venga en tu JSON
     setPropiedades(data);
   }, [busquedaHome]); */
@@ -70,98 +78,114 @@ console.log(propiedades)
   return (
     <>
       <Helmet>
-        <title>REMAX México - Bienes Raíces y Propiedades</title>
-        <meta name="description" content="Encuentra tu propiedad ideal con REMAX México. Amplio catálogo de casas, departamentos y terrenos en venta o renta."/>
-        <link rel="canonical" href="https://www.remax.com.mx"/>
+        <title>REMAX CIN - Bienes Raíces y Propiedades</title>
+        <meta
+          name="description"
+          content="REMAX CIN Veracruz - Expertos en propiedades residenciales, comerciales e industriales. Encuentra tu espacio ideal con amplio catálogo de bienes raíces en venta y renta."
+        />
+        <title>
+          REMAX CIN Veracruz - Propiedades Residenciales, Comerciales e
+          Industriales
+        </title>
+        <link rel="canonical" href="https://www.remax.com.mx" />
       </Helmet>
       <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Eleccion setValor={setValor} />} />
-        <Route
-          path={"/inicio"}
-          element={
-            <Residencial
-            selectedOptionsOperacion={selectedOptionsOperacion}
-              propiedades={propiedades}
-              valor={valor}
-              setSelectedOptionsOperacion={setSelectedOptionsOperacion}
-              setSelectedOptionsTipos={setSelectedOptionsTipos}
-              setSelectedOptions={setSelectedOptions}
-              selectedOptions={selectedOptions}
-              busquedaHome={busquedaHome}
-              setBusquedaHome={setBusquedaHome}
-              autoCompleteHome={autoCompleteHome}
-              setAutoCompleteHome={setAutoCompleteHome}
-              setBusqueda={setBusqueda}
+      <Suspense
+        fallback={
+          <div className="flex items-center justify-center min-h-screen">
+            <img
+              src="/logos/New_RMX_Mark_R4_RGB_dark.png"
+              alt="Cargando..."
+              className="w-40 h-auto animate-pulse"
             />
-          }
-        />
-        <Route
-          path="/propiedades"
-          element={
-            <ResultadosBusqueda
-              selectedOptionsOperacion={selectedOptionsOperacion}
-              setSelectedOptionsOperacion={setSelectedOptionsOperacion}
-              selectedOptionsTipos={selectedOptionsTipos}
-              setSelectedOptionsTipos={setSelectedOptionsTipos}
-              aplicarFiltros={aplicarFiltros}
-              setAplicarFiltros={setAplicarFiltros}
-              precioMaximo={precioMaximo}
-              setPrecioMaximo={setPrecioMaximo}
-              precioMinimo={precioMinimo}
-              setPrecioMinimo={setPrecioMinimo}
-              setSelectedOptions={setSelectedOptions}
-              selectedOptions={selectedOptions}
-              menuClose={menuClose}
-              setMenuClose={setMenuClose}
-              propiedades={propiedades}
-              setPropiedades={setPropiedades}
-              busqueda={busqueda}
-              setBusqueda={setBusqueda}
-              manejoBusqueda={manejoBusqueda}
-              setManejoBusqueda={setManejoBusqueda}
-              propiedadesVisibles={propiedadesVisibles}
-              setPropiedadesVisibles={setPropiedadesVisibles}
-              setAutoCompleteHome={setAutoCompleteHome}
-              busquedaHome={busquedaHome}
-              nuevas={nuevas}
-              setNuevas={setNuevas}
-              seleccion={seleccion}
-              setSeleccion={setSeleccion}
-            />
-          }
-        />
-        <Route
-          path="/propiedades/seleccion/:id"
-          element={
-            <PropiedadSeleccion
-              seleccion={seleccion}
-              propiedades={propiedades}
-              setPropiedades={setPropiedades}
-            />
-          }
-        />
-        <Route
-          path={"/NuestroEquipo"}
-          element={<NuestroEquipo propiedades={propiedades} />}
-        />
-        <Route path="/Polizas-de-renta" element={<Poliza />} />
-        {/* terminos y condiciones */}
-        <Route
-          path="/terminos-y-condiciones"
-          element={<TerminosyCondiciones />}
-        />
-        {/* codigo de etica */}
-        <Route path="/codigo-de-etica" element={<CodigodeEtica />} />
-        {/* aviso de privacidad */}
-        <Route
-          path="/politica-de-privacidad"
-          element={<PoliticadePrivacidad />}
-        />
-      </Routes>
+          </div>
+        }
+      >
+        <Routes>
+          <Route path="/" element={<Eleccion setValor={setValor} />} />
+          <Route
+            path="/inicio"
+            element={
+              <Residencial
+                selectedOptionsOperacion={selectedOptionsOperacion}
+                propiedades={propiedades}
+                valor={valor}
+                setSelectedOptionsOperacion={setSelectedOptionsOperacion}
+                setSelectedOptionsTipos={setSelectedOptionsTipos}
+                setSelectedOptions={setSelectedOptions}
+                selectedOptions={selectedOptions}
+                busquedaHome={busquedaHome}
+                setBusquedaHome={setBusquedaHome}
+                autoCompleteHome={autoCompleteHome}
+                setAutoCompleteHome={setAutoCompleteHome}
+                setBusqueda={setBusqueda}
+              />
+            }
+          />
+          <Route
+            path="/propiedades"
+            element={
+              <ResultadosBusqueda
+                valor={valor}
+                selectedOptionsOperacion={selectedOptionsOperacion}
+                setSelectedOptionsOperacion={setSelectedOptionsOperacion}
+                selectedOptionsTipos={selectedOptionsTipos}
+                setSelectedOptionsTipos={setSelectedOptionsTipos}
+                aplicarFiltros={aplicarFiltros}
+                setAplicarFiltros={setAplicarFiltros}
+                precioMaximo={precioMaximo}
+                setPrecioMaximo={setPrecioMaximo}
+                precioMinimo={precioMinimo}
+                setPrecioMinimo={setPrecioMinimo}
+                setSelectedOptions={setSelectedOptions}
+                selectedOptions={selectedOptions}
+                menuClose={menuClose}
+                setMenuClose={setMenuClose}
+                propiedades={propiedades}
+                setPropiedades={setPropiedades}
+                busqueda={busqueda}
+                setBusqueda={setBusqueda}
+                manejoBusqueda={manejoBusqueda}
+                setManejoBusqueda={setManejoBusqueda}
+                propiedadesVisibles={propiedadesVisibles}
+                setPropiedadesVisibles={setPropiedadesVisibles}
+                setAutoCompleteHome={setAutoCompleteHome}
+                busquedaHome={busquedaHome}
+                nuevas={nuevas}
+                setNuevas={setNuevas}
+                seleccion={seleccion}
+                setSeleccion={setSeleccion}
+              />
+            }
+          />
+          <Route
+            path="/propiedades/seleccion/:id"
+            element={
+              <PropiedadSeleccion
+                seleccion={seleccion}
+                propiedades={propiedades}
+                setPropiedades={setPropiedades}
+              />
+            }
+          />
+          <Route
+            path="/NuestroEquipo"
+            element={<NuestroEquipo propiedades={propiedades} />}
+          />
+          <Route path="/Polizas-de-renta" element={<Poliza />} />
+          <Route
+            path="/terminos-y-condiciones"
+            element={<TerminosyCondiciones />}
+          />
+          <Route path="/codigo-de-etica" element={<CodigodeEtica />} />
+          <Route
+            path="/politica-de-privacidad"
+            element={<PoliticadePrivacidad />}
+          />
+        </Routes>
+      </Suspense>
     </>
   );
-}
-
+};
 
 export default App;

@@ -38,7 +38,7 @@ export default function PropiedadSeleccion({ seleccion }) {
   }, []);
   
 
-  const agentesId = [
+  const agentesId = useMemo(() => [
     { id: "101914741", nombre: "Verónica Olán García" },
     { id: "102162316", nombre: "Andrés Guerra Olan" },
     { id: "101932987", nombre: "Andrés Guerra García" },
@@ -48,7 +48,7 @@ export default function PropiedadSeleccion({ seleccion }) {
     { id: "102427296", nombre: "Aída Leon Varela" },
     { id: "102437017", nombre: "Yazmin Vazquez Valdez" },
     { id: "102433046", nombre: "Fernanda Lozada" },
-  ];
+  ], []);
 
   const filtroagente = propiedadSeleccion?.agentes?.numeroasociado
     ? agentesId.filter((item) =>
@@ -117,20 +117,20 @@ export default function PropiedadSeleccion({ seleccion }) {
   const direccion = `${calle}, ${colonia}, ${ciudad}, ${estado}`;
   const imagenesArray = propiedadSeleccion?.imagenes.split(",");
   const [cargada, setCargada] = useState(false);
-  const tipos = [
+  const tipos = useMemo(() => [
     { nombre: "Casa", tipo_id: 1 },
     { nombre: "Casa en Condominio", tipo_id: 2 },
     { nombre: "Departamento", tipo_id: 3 },
     { nombre: "Terreno", tipo_id: 4 },
     { nombre: "Desarrollo", tipo_id: 6 },
-  ];
+  ], []);
 
-  const operaciones = [
+  const operaciones = useMemo(() => [
     { nombre: "Venta", operacion_id: "1" },
     { nombre: "Renta", operacion_id: "2" },
-  ];
+  ], []);
 
-  const tituloPro = [
+  const tituloPro = useMemo(() => [
     { nombre: "Casa en Venta", tipo_id: 1, operacion_id: "1" },
     { nombre: "Casa en Renta", tipo_id: 1, operacion_id: "2" },
     { nombre: "Casa en Condominio en Venta", tipo_id: 2, operacion_id: "1" },
@@ -141,7 +141,7 @@ export default function PropiedadSeleccion({ seleccion }) {
     { nombre: "Terreno en Renta", tipo_id: 4, operacion_id: "2" },
     { nombre: "Desarrollo en Venta", tipo_id: 6, operacion_id: "1" },
     { nombre: "Desarrollo en Renta", tipo_id: 6, operacion_id: "2" },
-  ];
+  ], []);
   const imagenAgente = `https://cdn.remax.com.mx/agentes/${propiedadSeleccion?.agentes?.imagen}`;
 
   const [shareModalOpen, setShareModalOpen] = useState(true);
@@ -155,22 +155,33 @@ export default function PropiedadSeleccion({ seleccion }) {
       <Helmet>
         <meta name="description" content={`${propiedadSeleccion?.descripcion_corta} en ${direccion}`} />
         <link rel="canonical" href={`https://www.remax.com.mx/propiedades/seleccion/${propiedadSeleccion?.propiedad_id}`} />
+        // Schema actualizado con más detalles
         <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "RealEstateListing",
-            "name": propiedadSeleccion?.titulo,
-            "description": propiedadSeleccion?.descripcion_corta,
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": direccion
-            },
-            "offers": {
-              "@type": "Offer",
-              "price": propiedadSeleccion?.precio,
-              "priceCurrency": "MXN"
-            }
-          })}
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "RealEstateListing",
+          "name": propiedadSeleccion?.titulo,
+          "description": propiedadSeleccion?.descripcion_corta,
+          "image": propiedadSeleccion?.imagenes.split(",")[0],
+          "numberOfRooms": propiedadSeleccion?.recamaras,
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Veracruz",
+            "addressRegion": "Veracruz",
+            "streetAddress": direccion
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": propiedadSeleccion?.lat,
+            "longitude": propiedadSeleccion?.lng
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": propiedadSeleccion?.precio,
+            "priceCurrency": "MXN",
+            "availability": "https://schema.org/InStock"
+          }
+        })}
         </script>
       </Helmet>
       <div
@@ -450,7 +461,7 @@ export default function PropiedadSeleccion({ seleccion }) {
                     </p>
                     <div className="flex items-center justify-center gap-4">
                       <a 
-                        href={`https://wa.me/5219933000810?text=Hola, estoy interesado en la propiedad ${propiedadSeleccion?.propiedad_id} ubicada en ${direccion}`}
+                        href={`https://wa.me/5212292696629?text=Hola, estoy interesado en la propiedad ${propiedadSeleccion?.propiedad_id} ubicada en ${direccion}`}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -460,7 +471,7 @@ export default function PropiedadSeleccion({ seleccion }) {
                           className="hover:scale-110 transition-transform"
                         />
                       </a>
-                      <a href="mailto:adm.remaxrna@gmail.com">
+                      <a href="mailto:remax.cin.veracruz@gmail.com">
                         <img
                           loading="lazy"
                           className="w-11 h-full"
@@ -468,7 +479,7 @@ export default function PropiedadSeleccion({ seleccion }) {
                           alt="Correo"
                         />
                       </a>
-                      <a href="tel:+5219933000810">
+                      <a href="tel:+5212292696629">
                         <img
                           loading="lazy"
                           className="w-8 h-full"
