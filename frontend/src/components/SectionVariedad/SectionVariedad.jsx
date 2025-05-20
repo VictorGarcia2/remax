@@ -57,14 +57,14 @@ export default function SectionVariedad({ setBusqueda, setSelectedOptionsTipos, 
             key={index}
             id={propiedad.tipo_id}
             onClick={handleSearch}
-            className="bg-black rounded relative flex flex-col justify-center items-center cursor-pointer"
+            className="bg-black rounded relative flex flex-col justify-center items-center cursor-pointer transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl"
           >
-            <p className="absolute text-lg italic text-white font-bold sm:text-4xl z-50">
+            <p className="absolute text-lg italic text-white font-bold sm:text-4xl z-50 transition-all duration-300 transform hover:scale-110">
               {propiedad.title}
             </p>
             <img
               loading="lazy"
-              className="opacity-90 object-cover w-[356px] sm:w-[660px] sm:h-[262px] h-[140px] rounded"
+              className="opacity-90 object-cover w-[356px] sm:w-[660px] sm:h-[262px] h-[140px] rounded transition-opacity duration-300 hover:opacity-60"
               src={propiedad.img}
               alt={propiedad.title}
             />

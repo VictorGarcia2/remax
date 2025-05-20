@@ -249,7 +249,7 @@ export default function MenuFilter({
     <div
       className={`${
         menuClose && "hidden"
-      }  w-screen top-0 h-screen fixed text-[#7B7B7B] font-display px-2 z-50 bg-white`}
+      }  w-screen top-0 h-full overflow-y-scroll  fixed text-[#7B7B7B] font-display px-2 z-50 bg-white`}
     >
       <div
         className="flex flex-col py-4 items-center w-full "

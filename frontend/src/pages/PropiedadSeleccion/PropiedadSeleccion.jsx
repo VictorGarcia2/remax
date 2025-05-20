@@ -19,7 +19,6 @@ export default function PropiedadSeleccion({ seleccion }) {
   const [fotoEscogida, setFotoEscogida] = useState();
   const [totalPaginas, setTotalPaginas] = useState(1);
   const [pagina, setPagina] = useState();
-  console.log(propiedadSeleccion);
   const countPage = propiedadSeleccion?.imagenes
     ? propiedadSeleccion.imagenes.split(",").length
     : 0;
@@ -27,7 +26,7 @@ export default function PropiedadSeleccion({ seleccion }) {
 
   useEffect(() => {
     axios
-      .get("/api/propiedades")
+      .get("https://remaxcin.com/api/propiedades")
       .then((res) => {
         setPropiedades(res.data.data.rows);
       })
@@ -177,26 +176,46 @@ export default function PropiedadSeleccion({ seleccion }) {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "RealEstateListing",
-            name: propiedadSeleccion?.titulo,
-            description: propiedadSeleccion?.descripcion_corta,
-            image: propiedadSeleccion?.imagenes.split(",")[0],
-            numberOfRooms: propiedadSeleccion?.recamaras,
-            address: {
+            "@id": `https://remaxcin.mx/propiedades/seleccion/${propiedadSeleccion?.propiedad_id}`,
+            "identifier": propiedadSeleccion?.propiedad_id,
+            "name": propiedadSeleccion?.titulo,
+            "description": propiedadSeleccion?.descripcion_corta,
+            "url": `https://remaxcin.mx/propiedades/seleccion/${propiedadSeleccion?.propiedad_id}`,
+            "image": propiedadSeleccion?.imagenes.split(",").map(img => 
+              `https://cdn.remax.com.mx/properties/${propiedadSeleccion.propiedad_id}/${img}`
+            ),
+            "numberOfRooms": propiedadSeleccion?.recamaras,
+            "numberOfBathroomsTotal": propiedadSeleccion?.banos,
+            "floorSize": {
+              "@type": "QuantitativeValue",
+              "value": propiedadSeleccion?.propiedades_meta?.construccion,
+              "unitText": "m2"
+            },
+            "address": {
               "@type": "PostalAddress",
-              addressLocality: "Veracruz",
-              addressRegion: "Veracruz",
-              streetAddress: direccion,
+              "addressLocality": propiedadSeleccion?.ciudades?.ciudad_nombre,
+              "addressRegion": propiedadSeleccion?.estados?.estado_nombre,
+              "addressCountry": "MX",
+              "streetAddress": direccion
             },
-            geo: {
+            "geo": {
               "@type": "GeoCoordinates",
-              latitude: propiedadSeleccion?.lat,
-              longitude: propiedadSeleccion?.lng,
+              "latitude": propiedadSeleccion?.lat,
+              "longitude": propiedadSeleccion?.lng
             },
-            offers: {
+            "offers": {
               "@type": "Offer",
-              price: propiedadSeleccion?.precio,
-              priceCurrency: "MXN",
-              availability: "https://schema.org/InStock",
+              "price": propiedadSeleccion?.precio,
+              "priceCurrency": "MXN",
+              "availability": "https://schema.org/InStock",
+              "validFrom": new Date().toISOString()
+            },
+            "broker": {
+              "@type": "RealEstateAgent",
+              "name": filtroagente[0]?.nombre || "RE/MAX CIN",
+              "image": imagenAgente,
+              "telephone": "+52 229 923 0000",
+              "email": "remax.cin.veracruz@gmail.com"
             },
           })}
         </script>

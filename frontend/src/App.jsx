@@ -3,24 +3,25 @@ import axios from "axios";
 import { Helmet } from "react-helmet";
 import { Route, Routes } from "react-router";
 import ScrollToTop from "./components/ScrollTop";
+import LoadingSpinner from "./components/LoadingSpinner";
 
 // Importaciones lazy para code splitting
 const Residencial = lazy(() => import("./pages/Residencial"));
-const ResultadosBusqueda = lazy(() =>
-  import("./pages/Buscador/ResultadosBusqueda")
+const ResultadosBusqueda = lazy(() => 
+  import(/* webpackChunkName: "resultados-busqueda" */ "./pages/Buscador/ResultadosBusqueda")
 );
 const PropiedadSeleccion = lazy(() =>
-  import("./pages/PropiedadSeleccion/PropiedadSeleccion")
+  import(/* webpackChunkName: "propiedad-seleccion" */ "./pages/PropiedadSeleccion/PropiedadSeleccion")
 );
-const Eleccion = lazy(() => import("./pages/Eleccion"));
-const NuestroEquipo = lazy(() => import("./pages/NuestroEquipo"));
-const Poliza = lazy(() => import("./pages/Poliza"));
+const Eleccion = lazy(() => import(/* webpackChunkName: "eleccion" */ "./pages/Eleccion"));
+const NuestroEquipo = lazy(() => import(/* webpackChunkName: "nuestro-equipo" */ "./pages/NuestroEquipo"));
+const Poliza = lazy(() => import(/* webpackChunkName: "poliza" */ "./pages/Poliza"));
 const TerminosyCondiciones = lazy(() =>
-  import("./components/TerminosyCondiciones")
+  import(/* webpackChunkName: "terminos" */ "./components/TerminosyCondiciones")
 );
-const CodigodeEtica = lazy(() => import("./components/CodigodeEtica"));
+const CodigodeEtica = lazy(() => import(/* webpackChunkName: "codigo-etica" */ "./components/CodigodeEtica"));
 const PoliticadePrivacidad = lazy(() =>
-  import("./components/PoliticadePrivacidad")
+  import(/* webpackChunkName: "privacidad" */ "./components/PoliticadePrivacidad")
 );
 
 const App = () => {
@@ -59,7 +60,7 @@ const App = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get("/api/propiedades");
+        const response = await axios.get("https://remaxcin.com/api/propiedades");
         const data = response.data.data.rows;
         setPropiedades(data);
       } catch (error) {
@@ -90,17 +91,8 @@ const App = () => {
         <link rel="canonical" href="https://www.remax.com.mx" />
       </Helmet>
       <ScrollToTop />
-      <Suspense
-        fallback={
-          <div className="flex items-center justify-center min-h-screen">
-            <img
-              src="/logos/New_RMX_Mark_R4_RGB_dark.png"
-              alt="Cargando..."
-              className="w-40 h-auto animate-pulse"
-            />
-          </div>
-        }
-      >
+      <Suspense fallback={<LoadingSpinner />}>
+
         <Routes>
           <Route path="/" element={<Eleccion setValor={setValor} />} />
           <Route

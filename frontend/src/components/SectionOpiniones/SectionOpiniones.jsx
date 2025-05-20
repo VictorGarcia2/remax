@@ -18,35 +18,35 @@ const Testimonials = () => {
       "name": "Aida Leon",
       "role": "Customer",
       "text": "Excellent real estate service, they advised me throughout the entire process to find my ideal home🤗",
-      "image": "https://lh3.googleusercontent.com/a/ACg8ocIaqoSh1PGLsGsdBayGHdy7pE3eQxIn7a7Oi5A9QpDszTvoPm4g=s128-c0x00000000-cc-rp-mo",
+      "image": "",
       "rating": 5
     },
     {
       "name": "Andres Guerra",
       "role": "Customer",
       "text": "Excellent service and advice, I found the ideal house with them!",
-      "image": "https://lh3.googleusercontent.com/a-/ALV-UjXsZrUje1NR6uaS4pu_dh7QKwukGtNDT2zM-DWVJyOd8ZSRVqCA=s128-c0x00000000-cc-rp-mo",
+      "image": "",
       "rating": 5
     },
     {
       "name": "Jocelyn Lozada",
       "role": "Customer",
       "text": "Excellent service 👍",
-      "image": "https://lh3.googleusercontent.com/a-/ALV-UjWnk3wxmgcBBxLlLj4rXsIYPL5ModCTER1zu1qhbgQuGGPbUSEBAQ=s128-c0x00000000-cc-rp-mo-ba2",
+      "image": "",
       "rating": 5
     },
     {
       "name": "Arturo León Varela",
       "role": "Customer",
       "text": "Excellent service",
-      "image": "https://lh3.googleusercontent.com/a-/ALV-UjXT-G4s06TBx32OiyrHCwTJd-VVrhk6WDxUWUVTXpKv5v6THGh5HA=s128-c0x00000000-cc-rp-mo",
+      "image": "",
       "rating": 5
     },
     {
       "name": "Itzel Hernandez",
       "role": "Customer",
       "text": "Excellent service",
-      "image": "https://lh3.googleusercontent.com/a/ACg8ocL8rFffJX6oma66sek7ae2-rx3FZo847Efi3I7vLZx10QVnNA=s128-c0x00000000-cc-rp-mo",
+      "image": "",
       "rating": 5
     }
   ]
