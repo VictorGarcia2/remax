@@ -2,7 +2,6 @@ import React, { Suspense, lazy } from "react";
 import HomeSearch from "../components/SectionHome/HomeSearch";
 import LoadingSpinner from "../components/LoadingSpinner";
 import SectionDesarrolloDestacado from "../components/SectionDesarrolloDestacado/SectionDesarrolloDestacado";
-
 const SectionPorque = lazy(() => import("../components/SectionPorque/SectionPorque"));
 const SectionFooter = lazy(() => import("../components/SectionFooter/SectionFooter"));
 const SectionVariedad = lazy(() => import("../components/SectionVariedad/SectionVariedad"));
