@@ -139,7 +139,7 @@ const MapboxConCards = ({
         <div className="flex">
           <img
             loading="lazy"
-            className=" w-[200px] h-[120px] lg:w-[280px] lg:h-[140px] object-cover rounded-t-2xl"
+            className=" w-[200px] h-[120px] lg:w-[280px] lg:h-[280px] object-cover rounded-t-2xl"
             src={`https://cdn.remax.com.mx/properties/${prop.propiedad_id}/${imagenesArray[currentIndex]}`}
             alt={`Imagen ${currentIndex + 1}`}
           />
@@ -147,7 +147,7 @@ const MapboxConCards = ({
         <a
           href={`/propiedades/seleccion/${prop.propiedad_id}`}
           style={{ textDecoration: "none" }}
-          className="w-[200px] mt-[210px] 2xl:w-[280px] bg-white lg:h-28  absolute lg:mt-[200px] rounded-b-2xl shadow flex flex-col items-center px-2  font-display"
+          className="w-[280px] h-[120px] lg:h-[120px] mt-[210px] 2xl:w-[280px] bg-white  absolute lg:mt-[200px] rounded-b-2xl shadow flex flex-col items-center px-2  font-display"
         >
           <p className="text-sm font-bold mt-2 text-[#7B7B7B]">
             {Number(prop.mxn_corriente).toLocaleString("en-US")}MXN

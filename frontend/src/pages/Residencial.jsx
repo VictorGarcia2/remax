@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from "react";
 import HomeSearch from "../components/SectionHome/HomeSearch";
 import LoadingSpinner from "../components/LoadingSpinner";
+import SectionDesarrolloDestacado from "../components/SectionDesarrolloDestacado/SectionDesarrolloDestacado";
 
 const SectionPorque = lazy(() => import("../components/SectionPorque/SectionPorque"));
 const SectionFooter = lazy(() => import("../components/SectionFooter/SectionFooter"));
@@ -21,9 +22,11 @@ export default function Residencial({valor, busquedaHome, setBusquedaHome, autoC
                {/*  <SectionEncuentra valor={valor} /> */}
                 <SectionComoComprar />
                 <SectionCTA />
+                <SectionDesarrolloDestacado />
                 <Testimonials/>
                 <SectionEquipo  propiedades={propiedades} />
                 <SectionFooter/>
+            
             </Suspense>
         </>
     );
