@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Permitir acceso al sitemap
+Sitemap: https://remaxcin.mx/sitemap.xml
+
+# Rutas principales
+Allow: /inicio
+Allow: /propiedades
+Allow: /NuestroEquipo
+Allow: /Polizas-de-renta
+Allow: /terminos-y-condiciones
+Allow: /codigo-de-etica
+Allow: /politica-de-privacidad
+
+# Rutas dinámicas
+Allow: /propiedades/seleccion/
+
+# Archivos y directorios a no indexar
+Disallow: /src/
+Disallow: /node_modules/
+Disallow: /.vscode/
+Disallow: /.git/

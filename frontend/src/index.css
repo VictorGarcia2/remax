@@ -1,0 +1,123 @@
+@import "tailwindcss";
+@theme {
+    --font-display: "Inter Variable";
+    --font-lato: "LAto";
+  }
+/* inter-latin-wght-normal */
+@font-face {
+    font-family: 'Inter Variable';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 100 900;
+    src: url(https://cdn.jsdelivr.net/fontsource/fonts/inter:vf@latest/latin-wght-normal.woff2) format('woff2-variations');
+    unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  }
+
+
+  /* inter-latin-wght-normal */
+@font-face {
+    font-family: 'Inter Variable';
+    font-style: italic;
+    font-display: swap;
+    font-weight: 100 900;
+    src: url(https://cdn.jsdelivr.net/fontsource/fonts/inter:vf@latest/latin-wght-italic.woff2) format('woff2-variations');
+    unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  }
+
+  /* lato-latin-900-italic */
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 900;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/lato@latest/latin-900-italic.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/lato@latest/latin-900-italic.woff) format('woff');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+
+@theme {
+  --color-blueRemax: #003DA4;
+  --color-redRemax: #DB1C2E;
+}
+.mapboxgl-popup-content {
+  background-color: #ffffff00 !important; /* gris oscuro */
+  border-radius: 0 !important;        /* bordes grandes */
+  padding: 0rem !important;
+  box-shadow: none !important;
+  border: 0px !important;  /* borde color verde tailwind */
+  justify-content: center!important;
+  
+}
+
+.mapboxgl-popup-close-button {
+  /* lo que ya tienes */
+  position: absolute !important;
+  top: 15px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  background-color: white !important;
+  color: #000e8f !important;
+  border: 0px !important;
+  border-radius: 9999px !important;
+  font-size: 16px !important;
+  width: 28px !important;
+  height: 28px !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  /* Estas líneas son clave */
+  font-family: sans-serif !important;
+  line-height: 1 !important;
+  padding: 0 !important;
+}
+
+
+@media (min-width: 1200px) {
+  .mapboxgl-popup-close-button {
+    top: 35px !important;
+    left: 255px !important;
+    width: 39px !important;
+    height: 39px !important;
+    font-size: 20px !important;
+    justify-content: center!important;
+    align-items: center!important;
+
+  }
+}
+
+@media (max-width: 480px) {
+  .mapboxgl-popup-close-button {
+    top: 35px !important;
+    left: 230px !important;
+    width: 20px !important;
+    height: 20px !important;
+    font-size: 12px !important;
+  }
+}
+
+.mapboxgl-popup-close-button:hover {
+  background-color: #000e8f !important; /* verde más oscuro al pasar el mouse */
+  color: white !important; /* verde tailwind */
+
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blueRemax to-redRemax;
+  }
+  
+  .card-hover {
+    @apply transition-transform duration-300 hover:scale-105 hover:shadow-xl;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-600 focus:border-transparent bg-white/50 backdrop-blur-sm transition-all duration-200;
+  }
+}
