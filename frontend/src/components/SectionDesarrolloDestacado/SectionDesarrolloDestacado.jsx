@@ -13,31 +13,31 @@ export default function SectionDesarrolloDestacado() {
 
   const images = [
     {
-      url: "../../../public/fotosdesarrollo/FACHADA.webp",
+      url: "/fotosdesarrollo/FACHADA.webp",
       title: "Fachada",
     },
     {
-      url: "../../../public/fotosdesarrollo/Patio interior - Trébol II.webp",
+      url: "/fotosdesarrollo/Patio interior - Trébol II.webp",
       title: "Patio Interior",
     },
     {
-      url: "../../../public/fotosdesarrollo/renders cocina_1 - Photo.webp",
+      url: "/fotosdesarrollo/renders cocina_1 - Photo.webp",
       title: "Cocina",
     },
     {
-      url: "../../../public/fotosdesarrollo/TREBOL 2.webp",
+      url: "/fotosdesarrollo/TREBOL 2.webp",
       title: "Exterior",
     },
     {
-      url: "../../../public/fotosdesarrollo/trebol 3.webp",
+      url: "/fotosdesarrollo/trebol 3.webp",
       title: "Exterior",
     },
     {
-      url: "../../../public/fotosdesarrollo/TREBOL 5.0.webp",
+      url: "/fotosdesarrollo/TREBOL 5.0.webp",
       title: "Exterior",
     },
     {
-      url: "../../../public/fotosdesarrollo/TREBOL RENDER FINAL DE NOCHE AMA copia.webp",
+      url: "/fotosdesarrollo/TREBOL RENDER FINAL DE NOCHE AMA copia.webp",
       title: "Fachada de Noche",
     },
   ];
