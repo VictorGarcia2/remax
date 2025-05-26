@@ -7,6 +7,8 @@ import CantidadPropiedades from "../../components/CantidadPropiedades";
 import CardResultado from "../../components/CardResultado";
 import MenuFilter from "../../components/MenuFilter";
 import FiltrosDesktop from "../../components/FiltrosDesktop";
+import { useEffect } from "react";
+import { useSearchContext } from "../../context/SearchContext";
 
 const ResultadosBusqueda = ({
   propiedades,
@@ -19,7 +21,6 @@ const ResultadosBusqueda = ({
   propiedadesVisibles,
   setPropiedadesVisibles,
   setAutoCompleteHome,
-  busquedaHome,
   setPropiedades,
   setSelectedOptions,
   nuevas,
@@ -32,19 +33,24 @@ const ResultadosBusqueda = ({
   aplicarFiltros,
   seleccion,
   setSeleccion,
-  setSelectedOptionsTipos,
-  selectedOptionsTipos,
-  setSelectedOptionsOperacion,
-  selectedOptionsOperacion,
   selectedOptions,
   valor,
 }) => {
-  console.log(valor);
-
+  // Usar el contexto para acceder a los estados compartidos
+  const { 
+    selectedOptionsTipos, 
+    setSelectedOptionsTipos,
+    busquedaHome,
+    selectedOptionsOperacion, 
+    setSelectedOptionsOperacion 
+  } = useSearchContext();
+  useEffect(() => {
+    console.log("selectedOptionsTipos desde resultados de busqueda:", selectedOptionsTipos);
+  }, [selectedOptionsTipos]);
   return (
     <>
       <MenuFilter
-      valor={valor}
+        valor={valor}
         setSelectedOptionsOperacion={setSelectedOptionsOperacion}
         precioMaximo={precioMaximo}
         setPrecioMaximo={setPrecioMaximo}
@@ -52,7 +58,7 @@ const ResultadosBusqueda = ({
         setPrecioMinimo={setPrecioMinimo}
         setBusqueda={setBusqueda}
         busqueda={busqueda}
-        setSelectedOptionsTipos={setSelectedOptionsTipos}
+     
         menuClose={menuClose}
         setMenuClose={setMenuClose}
         setSelectedOptions={setSelectedOptions}
@@ -63,7 +69,7 @@ const ResultadosBusqueda = ({
         <FiltrosDesktop
           valor={valor}
           setSelectedOptionsOperacion={setSelectedOptionsOperacion}
-          setSelectedOptionsTipos={setSelectedOptionsTipos}
+    
           setAplicarFiltros={setAplicarFiltros}
           precioMaximo={precioMaximo}
           setPrecioMaximo={setPrecioMaximo}
@@ -74,7 +80,7 @@ const ResultadosBusqueda = ({
           setManejoBusqueda={setManejoBusqueda}
           setSelectedOptions={setSelectedOptions}
           selectedOptions={selectedOptions}
-          selectedOptionsTipos={selectedOptionsTipos}
+         
         />
       </div>
       <SearchResultadosBusqueda

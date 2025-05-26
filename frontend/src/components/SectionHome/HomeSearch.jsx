@@ -1,18 +1,23 @@
 import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import Search from "./Search";
+import { useSearchContext } from "../../context/SearchContext";
 
 export default function HomeSearch({
-  busquedaHome,
-  setBusquedaHome,
   autoCompleteHome,
   setAutoCompleteHome,
   setBusqueda,
-  setSelectedOptionsTipos,
-  setSelectedOptionsOperacion,
-  valor,
-  selectedOptionsOperacion
+  valor
 }) {
+  // Usar el contexto para acceder a los estados compartidos
+  const { 
+    busquedaHome,
+    setBusquedaHome,
+    selectedOptionsTipos,
+    setSelectedOptionsTipos,
+    selectedOptionsOperacion, 
+    setSelectedOptionsOperacion 
+  } = useSearchContext();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [data, setData] = useState([]);
   const [selectedKey, setSelectedKey] = useState(null); // se inicializa vacío
@@ -106,15 +111,10 @@ export default function HomeSearch({
             {selectedContent.description}
           </p> */}
           <Search
-          valor={valor}
-          selectedOptionsOperacion={selectedOptionsOperacion}
-            setSelectedOptionsOperacion={setSelectedOptionsOperacion}
-            setSelectedOptionsTipos={setSelectedOptionsTipos}
+            valor={valor}
             data={data}
             setData={setData}
             setBusqueda={setBusqueda}
-            busquedaHome={busquedaHome}
-            setBusquedaHome={setBusquedaHome}
             autoCompleteHome={autoCompleteHome}
             setAutoCompleteHome={setAutoCompleteHome}
           />

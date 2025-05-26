@@ -14,14 +14,23 @@ import {
   faTreeCity,
   faWarehouse,
 } from "@fortawesome/free-solid-svg-icons";
+import { useSearchContext } from "../context/SearchContext";
 
-export default function Tipo({ selectedOptionsTipos, setSelectedOptionsTipos, selectedOptions, valor }) {
+export default function Tipo({selectedOptions, valor }) {
+  const { 
+    busquedaHome,
+    setBusquedaHome,
+    selectedOptionsTipos,
+    setSelectedOptionsTipos,
+    selectedOptionsOperacion, 
+    setSelectedOptionsOperacion 
+  } = useSearchContext();
   const [openModal, setOpenModal] = useState(true);
   
   // Determinar el sector actual basado en selectedOptions
   useEffect(() => {
     // Limpiar las selecciones cuando cambia el sector
-    setSelectedOptionsTipos([]);
+   
     
     // Si selectedOptions incluye "comercial" o "industrial", mostrar opciones comerciales
     const isComercial = selectedOptions.some(option => 
@@ -41,7 +50,7 @@ export default function Tipo({ selectedOptionsTipos, setSelectedOptionsTipos, se
   useEffect(() => {
     setSelectedSector(valor);
     // Limpiar las selecciones cuando cambia el sector
-    setSelectedOptionsTipos([]);
+    
   }, [valor]);
 
   
@@ -59,12 +68,12 @@ export default function Tipo({ selectedOptionsTipos, setSelectedOptionsTipos, se
     { icon: faBuilding, nombre: "Departamento", tipo_id: 3, sector: "residencial" },
     { icon: faPenRuler, nombre: "Desarrollo", tipo_id: 6, sector: "residencial" },
     { icon: faMap, nombre: "Terreno", tipo_id: 4, sector: "residencial" },
-    { icon: faMap, nombre: "Terreno - Comercial", tipo_id: 10, sector: "comercial" },
-    { icon: faMap, nombre: "Terreno - Residencial", tipo_id: 5, sector: "residencial" },
+    { icon: faMap, nombre: "Terreno", tipo_id: 10, sector: "comercial" },
+    { icon: faMap, nombre: "Terreno", tipo_id: 5, sector: "residencial" },
     { icon: faBuilding, nombre: "Edificio", tipo_id: 8, sector: "comercial" },
     { icon: faTreeCity, nombre: "Finca/Rancho", tipo_id: 14, sector: "residencial" },
-    { icon: faWarehouse, nombre: "Bodega - Comercial", tipo_id: 19, sector: "comercial" },
-    { icon: faIndustry, nombre: "Bodega - Industrial", tipo_id: 7, sector: "comercial" },
+    { icon: faWarehouse, nombre: "Bodega", tipo_id: 19, sector: "comercial" },
+    { icon: faIndustry, nombre: "Nave Industrial", tipo_id: 7, sector: "comercial" },
   ];
 
   const propiedadesFiltradas = lugares.filter(lugar => {

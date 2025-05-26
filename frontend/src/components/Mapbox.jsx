@@ -5,6 +5,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import { useSearchContext } from "../context/SearchContext";
 
 mapboxgl.accessToken =
   "pk.eyJ1IjoidmljdG9yZ2lhcHJ6IiwiYSI6ImNtNXZ3dW0wMjA2aHgyanE1M3ptczQ2azUifQ.ILrTXW_4c9_pbGC3Uj-wdg";
@@ -15,17 +16,24 @@ const MapboxConCards = ({
   setPropiedadesVisibles,
   propiedades,
   setAutoCompleteHome,
-  busquedaHome,
   selectedOptions,
   nuevas,
   setNuevas,
   precioMinimo,
   precioMaximo,
-  selectedOptionsTipos,
-  selectedOptionsOperacion,
   seleccion,
   setSeleccion
 }) => {
+
+  const { 
+    busquedaHome,
+    setBusquedaHome,
+    selectedOptionsTipos,
+    setSelectedOptionsTipos,
+    selectedOptionsOperacion, 
+    setSelectedOptionsOperacion 
+  } = useSearchContext();
+  console.log(selectedOptionsTipos)
   const [mapIsReady, setMapIsReady] = useState(false);
   const mapContainerRef = useRef(null);
   const mapRef = useRef(null);

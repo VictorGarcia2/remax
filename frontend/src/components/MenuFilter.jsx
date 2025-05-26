@@ -19,6 +19,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
+import { useSearchContext } from "../context/SearchContext";
 
 export default function MenuFilter({
   menuClose,
@@ -27,12 +28,19 @@ export default function MenuFilter({
   setPrecioMaximo,
   precioMinimo,
   precioMaximo,
-  setSelectedOptionsTipos,
-  setSelectedOptionsOperacion,
   setSelectedOptions,
   selectedOptions,
   valor,
 }) {
+
+  const { 
+    busquedaHome,
+    setBusquedaHome,
+    selectedOptionsTipos,
+    setSelectedOptionsTipos,
+    selectedOptionsOperacion, 
+    setSelectedOptionsOperacion 
+  } = useSearchContext();
   const [openSections, setOpenSections] = useState({
     "accordion-collapse-body-1": true,
     "accordion-collapse-body-2": true,
