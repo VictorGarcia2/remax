@@ -39,6 +39,22 @@
   --color-blueRemax: #003DA4;
   --color-redRemax: #DB1C2E;
 }
+
+/* Animaciones personalizadas para el Valuador */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
+}
 .mapboxgl-popup-content {
   background-color: #ffffff00 !important; /* gris oscuro */
   border-radius: 0 !important;        /* bordes grandes */

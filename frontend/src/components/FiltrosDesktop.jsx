@@ -3,11 +3,12 @@ import Tipo from "./Tipo.jsx";
 import RangoDePrecio from "./RangoDePrecio.jsx";
 import Operacion from "./Operacion.jsx";
 import Sector from "./Sector.jsx";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import mapboxgl from "mapbox-gl";
 import { faL, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import LimpiarFiltro from "./LimpiarFiltro.jsx";
+import { useSearchContext } from "../context/SearchContext.jsx";
 
 export default function FiltrosDesktop({
   busqueda,
@@ -19,12 +20,19 @@ export default function FiltrosDesktop({
   setPrecioMaximo,
   precioMaximo,
   setAplicarFiltros,
-  setSelectedOptionsTipos,
-  setSelectedOptionsOperacion,
   selectedOptions, 
-  selectedOptionsTipos,
   valor
 }) {
+
+  const { 
+    busquedaHome,
+    setBusquedaHome,
+    selectedOptionsTipos,
+    setSelectedOptionsTipos,
+    selectedOptionsOperacion, 
+    setSelectedOptionsOperacion 
+  } = useSearchContext(); 
+
   console.log(valor)
   mapboxgl.accessToken =
     "pk.eyJ1IjoidmljdG9yZ2FyY2lhcHJ6IiwiYSI6ImNtNXZ3dW0wMjA2aHgyanE1M3ptczQ2azUifQ.ILrTXW_4c9_pbGC3Uj-wdg";
@@ -111,7 +119,7 @@ export default function FiltrosDesktop({
         }
         <Operacion setSelectedOptionsOperacion={setSelectedOptionsOperacion} />
         <Sector setSelectedOptions={setSelectedOptions} selectedOptions={selectedOptions} />
-        <Tipo setSelectedOptionsTipos={setSelectedOptionsTipos} selectedOptionsTipos={selectedOptionsTipos} selectedOptions={selectedOptions} valor={valor} />
+        <Tipo  selectedOptions={selectedOptions} valor={valor} />
         <LimpiarFiltro setlimpiar={setlimpiar} />
       </div>
       <div className="flex gap-1 ">

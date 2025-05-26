@@ -15,7 +15,7 @@ import {
   Send,
   ArrowRight,
 } from "lucide-react";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 function Poliza() {
   const [formData, setFormData] = useState({

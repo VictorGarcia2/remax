@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 export default function SectionFooter() {
   return (
@@ -23,6 +23,11 @@ export default function SectionFooter() {
                   <li class="mb-4">
                     <Link to={'/NuestroEquipo'} class="hover:underline">
                       Nuestro Equipo
+                    </Link>
+                  </li>
+                  <li class="mb-4">
+                    <Link to={'/valuador'} class="hover:underline">
+                      Valuador de Propiedades
                     </Link>
                   </li>
                 </ul>

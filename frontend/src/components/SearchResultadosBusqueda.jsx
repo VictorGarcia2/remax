@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilter, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import mapboxgl from "mapbox-gl";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 mapboxgl.accessToken =
   "pk.eyJ1IjoidmljdG9yZ2lhcHJ6IiwiYSI6ImNtNXZ3dW0wMjA2aHgyanE1M3ptczQ2azUifQ.ILrTXW_4c9_pbGC3Uj-wdg";

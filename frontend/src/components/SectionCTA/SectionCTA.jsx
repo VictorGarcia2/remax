@@ -44,7 +44,7 @@ export default function () {
                   aria-label="Contactar por WhatsApp"
                   onClick={() => {
                     const whatsappLink = `https://wa.me/5212292696629?text=${encodeURIComponent(
-                      "Estoy interesado en vender mi inmueble."
+                      "Estoy interesado en vender mi propiedad y quiero asesoría para lograr una venta efectiva, segura y al mejor precio. ¿Podemos hablar?"
                     )}`;
                     window.open(whatsappLink, "_blank");
                   }}

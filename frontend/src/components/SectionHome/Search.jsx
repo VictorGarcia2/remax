@@ -1,21 +1,25 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot, faHouse, faHouseUser, faBuilding, faLandmark, faMapLocation, faBuildingCircleCheck, faWarehouse, faBuildingColumns, faStore, faTractor, faBoxOpen } from "@fortawesome/free-solid-svg-icons";
 import mapboxgl from "mapbox-gl";
+import { useSearchContext } from "../../context/SearchContext";
 export default function Search({
-  busquedaHome,
-  setBusquedaHome,
   autoCompleteHome,
   setAutoCompleteHome,
   setBusqueda,
-  setSelectedOptionsTipos,
-  setSelectedOptionsOperacion,
-  selectedOptionsOperacion,
   valor
 }) {
+  // Usar el contexto para acceder a los estados compartidos
+  const { 
+    busquedaHome,
+    setBusquedaHome,
+    selectedOptionsTipos,
+    setSelectedOptionsTipos,
+    selectedOptionsOperacion, 
+    setSelectedOptionsOperacion 
+  } = useSearchContext();
   const [selectedItem, setSelectedItem] = useState(null);
-  console.log(selectedItem)
   const [openTipo, setOpenTipo] = useState(true);
   const [direccion, setDireccion] = useState("");
   const [modalBusqueda, setModalBusqueda] = useState(true);
@@ -37,12 +41,10 @@ export default function Search({
   const handleTipos = (event) => {
     const value = event.target.id;
     if (event) {
-      console.log(typeof value);
+      console.log("Actualizando tipo desde Search.jsx:", value);
       setOpenTipo(true);
-      setSelectedOptionsTipos([value]);
-    } else {
-      setSelectedOptionsTipos((prev) => prev.filter((item) => item !== value));
-    }
+      setSelectedOptionsTipos([parseInt(value)]);
+    } 
   };
   const operacion = [
     { id: "1", operacion: "Venta" },
@@ -129,7 +131,7 @@ export default function Search({
     },
     {
       tipo_id: 7,
-      tipo_nombre: "Bodega - Industrial",
+      tipo_nombre: "Nave industrial",
       sector_nombre: "comercial",
       src: "/HomePageContent/bodega-industrial.svg",
       icon: faWarehouse
@@ -167,10 +169,15 @@ export default function Search({
 
   const navigate = useNavigate();
   const handleSearch = (e) => {
-    setBusqueda("");
+    // No limpiamos la búsqueda para mantener el estado
+    // setBusqueda("");
     setBusquedaHome(e.target.textContent);
-    navigate("/propiedades");
-    setModalBusqueda(true);
+    setModalBusqueda(true); 
+    // Aumentamos el tiempo de espera para asegurar que el estado se actualice antes de navegar
+    setTimeout(() => {
+      console.log("Navegando a /propiedades con selectedOptionsTipos:", selectedOptionsTipos);
+      navigate("/propiedades" );
+    }, 100);
   };
   const autoCompleteModal = (e) => {
     setBusquedaHome(e.target.value);
@@ -314,8 +321,8 @@ export default function Search({
               onClick={handleSearch}
               className="rounded-e-full cursor-pointer w-10 sm:w-14 lg:w-20 h-10 sm:h-12 lg:h-16 bg-[#003DA4] align-middle items-center flex shadow-[0_3px_1px] shadow-black/50"
             >
-              <Link to={"/propiedades"} className="mx-auto cursor-pointer">
-                <button className="items-center flex">
+             
+                <button className="items-center flex mx-auto cursor-pointer">
                   <img
                     loading="lazy"
                     className="mx-auto w-4 sm:w-6 lg:w-9 cursor-pointer"
@@ -323,7 +330,7 @@ export default function Search({
                     alt=""
                   />
                 </button>
-              </Link>
+              
             </div>
           </div>
         </form>

@@ -1,6 +1,9 @@
-import { Navigate, useNavigate } from "react-router";
+import { Navigate, useNavigate } from "react-router-dom";
+import { useSearchContext } from "../../context/SearchContext";
 
-export default function SectionVariedad({ setBusqueda, setSelectedOptionsTipos, valor }) {
+export default function SectionVariedad({ setBusqueda, valor }) {
+  // Usar el contexto para acceder a los estados compartidos
+  const { setSelectedOptionsTipos } = useSearchContext();
   const Navigate = useNavigate();
 
   const categorias = [
@@ -28,8 +31,12 @@ export default function SectionVariedad({ setBusqueda, setSelectedOptionsTipos, 
 
   const handleSearch = (e) => {
     const tipo = e.currentTarget.id;
+    console.log("Actualizando tipo desde SectionVariedad:", tipo);
     setSelectedOptionsTipos([tipo]);
-    Navigate("/propiedades");
+    // Pequeña pausa para asegurar que el estado se actualice antes de navegar
+    setTimeout(() => {
+      Navigate("/propiedades");
+    }, 100);
   };
 
   // Filtra la categoría que coincide con `valor`

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router"; // Asegúrate que sea "react-router-dom"
+import { Link } from "react-router-dom";
 
 // Button Component
 const Button = React.forwardRef(({ className, ...props }, ref) => {

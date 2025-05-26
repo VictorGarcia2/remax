@@ -19,6 +19,7 @@ export default function PropiedadSeleccion({ seleccion }) {
   const [fotoEscogida, setFotoEscogida] = useState();
   const [totalPaginas, setTotalPaginas] = useState(1);
   const [pagina, setPagina] = useState();
+
   const countPage = propiedadSeleccion?.imagenes
     ? propiedadSeleccion.imagenes.split(",").length
     : 0;
@@ -125,6 +126,8 @@ export default function PropiedadSeleccion({ seleccion }) {
       { nombre: "Departamento", tipo_id: 3 },
       { nombre: "Terreno", tipo_id: 4 },
       { nombre: "Desarrollo", tipo_id: 6 },
+      { nombre: "Nave Industrial", tipo_id: 7 },
+      { nombre: "Bodega", tipo_id: 19 },
     ],
     []
   );
@@ -149,12 +152,18 @@ export default function PropiedadSeleccion({ seleccion }) {
       { nombre: "Terreno en Renta", tipo_id: 4, operacion_id: "2" },
       { nombre: "Desarrollo en Venta", tipo_id: 6, operacion_id: "1" },
       { nombre: "Desarrollo en Renta", tipo_id: 6, operacion_id: "2" },
+      { nombre: "Nave Industrial en Renta", tipo_id: 7, operacion_id: "1" },
+      { nombre: "Bodega en Renta", tipo_id: 19, operacion_id: "2" },
     ],
     []
   );
+
   const imagenAgente = `https://cdn.remax.com.mx/agentes/${propiedadSeleccion?.agentes?.imagen}`;
 
   const [shareModalOpen, setShareModalOpen] = useState(true);
+
+  const m2Bodega = propiedadSeleccion?.propiedades_meta?.m2_bodega;
+  
 
   const share = () => {
     /* usa prev state */
@@ -177,45 +186,48 @@ export default function PropiedadSeleccion({ seleccion }) {
             "@context": "https://schema.org",
             "@type": "RealEstateListing",
             "@id": `https://remaxcin.mx/propiedades/seleccion/${propiedadSeleccion?.propiedad_id}`,
-            "identifier": propiedadSeleccion?.propiedad_id,
-            "name": propiedadSeleccion?.titulo,
-            "description": propiedadSeleccion?.descripcion_corta,
-            "url": `https://remaxcin.mx/propiedades/seleccion/${propiedadSeleccion?.propiedad_id}`,
-            "image": propiedadSeleccion?.imagenes.split(",").map(img => 
-              `https://cdn.remax.com.mx/properties/${propiedadSeleccion.propiedad_id}/${img}`
-            ),
-            "numberOfRooms": propiedadSeleccion?.recamaras,
-            "numberOfBathroomsTotal": propiedadSeleccion?.banos,
-            "floorSize": {
+            identifier: propiedadSeleccion?.propiedad_id,
+            name: propiedadSeleccion?.titulo,
+            description: propiedadSeleccion?.descripcion_corta,
+            url: `https://remaxcin.mx/propiedades/seleccion/${propiedadSeleccion?.propiedad_id}`,
+            image: propiedadSeleccion?.imagenes
+              .split(",")
+              .map(
+                (img) =>
+                  `https://cdn.remax.com.mx/properties/${propiedadSeleccion.propiedad_id}/${img}`
+              ),
+            numberOfRooms: propiedadSeleccion?.recamaras,
+            numberOfBathroomsTotal: propiedadSeleccion?.banos,
+            floorSize: {
               "@type": "QuantitativeValue",
-              "value": propiedadSeleccion?.propiedades_meta?.construccion,
-              "unitText": "m2"
+              value: propiedadSeleccion?.propiedades_meta?.construccion,
+              unitText: "m2",
             },
-            "address": {
+            address: {
               "@type": "PostalAddress",
-              "addressLocality": propiedadSeleccion?.ciudades?.ciudad_nombre,
-              "addressRegion": propiedadSeleccion?.estados?.estado_nombre,
-              "addressCountry": "MX",
-              "streetAddress": direccion
+              addressLocality: propiedadSeleccion?.ciudades?.ciudad_nombre,
+              addressRegion: propiedadSeleccion?.estados?.estado_nombre,
+              addressCountry: "MX",
+              streetAddress: direccion,
             },
-            "geo": {
+            geo: {
               "@type": "GeoCoordinates",
-              "latitude": propiedadSeleccion?.lat,
-              "longitude": propiedadSeleccion?.lng
+              latitude: propiedadSeleccion?.lat,
+              longitude: propiedadSeleccion?.lng,
             },
-            "offers": {
+            offers: {
               "@type": "Offer",
-              "price": propiedadSeleccion?.precio,
-              "priceCurrency": "MXN",
-              "availability": "https://schema.org/InStock",
-              "validFrom": new Date().toISOString()
+              price: propiedadSeleccion?.precio,
+              priceCurrency: "MXN",
+              availability: "https://schema.org/InStock",
+              validFrom: new Date().toISOString(),
             },
-            "broker": {
+            broker: {
               "@type": "RealEstateAgent",
-              "name": filtroagente[0]?.nombre || "RE/MAX CIN",
-              "image": imagenAgente,
-              "telephone": "+52 229 923 0000",
-              "email": "remax.cin.veracruz@gmail.com"
+              name: filtroagente[0]?.nombre || "RE/MAX CIN",
+              image: imagenAgente,
+              telephone: "+52 229 923 0000",
+              email: "remax.cin.veracruz@gmail.com",
             },
           })}
         </script>
@@ -254,8 +266,9 @@ export default function PropiedadSeleccion({ seleccion }) {
           openGallery && "invisible"
         } flex flex-col bg-black/70 mx-auto -mt-5 justify-center items-center  w-full h-full fixed   p-0 z-50 "`}
       >
-        <div className=" lg:w-3xl lg:max-h-10/12 relative pt-6 w-full h-full bg-white rounded-2xl flex flex-col justify-center items-center shadow-[0px_4px_5px_0px] shadow-black/40">
-          <div className="w-full flex flex-col absolute lg:static top-6 left-35  lg:items-end lg:px-12 lg:pt-5  ">
+        <div className="w-full max-w-6xl h-full max-h-[90vh] bg-white rounded-2xl flex flex-col justify-center items-center shadow-[0px_4px_5px_0px] shadow-black/40 relative p-4 md:p-6 lg:p-8">
+          {/* Botón de cierre */}
+          <div className="w-full flex justify-end absolute top-4 right-4 z-10">
             <FontAwesomeIcon
               onClick={handleCerrar}
               icon={faX}
@@ -263,15 +276,17 @@ export default function PropiedadSeleccion({ seleccion }) {
               className="cursor-pointer hover:text-blueRemax active:text-blueRemax"
             />
           </div>
-          <br />
-          <br />
+
+          {/* Imagen */}
           <img
             loading="lazy"
-            className=" lg:w-[90%] lg:h-130 object-cover w-80 "
+            className="w-11/12 max-w-4xl h-auto max-h-[65vh] object-cover rounded-md mt-12"
             src={fotoEscogida}
-            alt={fotoEscogida}
+            alt="Vista seleccionada"
           />
-          <div className="py-7 ">
+
+          {/* Paginación */}
+          <div className="py-6">
             <Paginacion setPagina={setPagina} totalPaginas={totalPaginas} />
           </div>
         </div>
@@ -373,9 +388,7 @@ export default function PropiedadSeleccion({ seleccion }) {
                     (item) =>
                       item.tipo_id === propiedadSeleccion?.tipos?.tipo_id && (
                         <p key={item.tipo_id} className="lg:text-3xl font-bold">
-                          {`${item.nombre} desde: ${Number(
-                            propiedadSeleccion.mxn_corriente
-                          ).toLocaleString("en-US")} MXN`}
+                          {`${item.nombre} desde: ${Number(propiedadSeleccion.mxn_corriente).toLocaleString("en-US")} MXN`}
                         </p>
                       )
                   )}
@@ -387,7 +400,7 @@ export default function PropiedadSeleccion({ seleccion }) {
                       alt="Icono de metros cuadrados"
                     />
                     <p className="lg:text-3xl">
-                      {propiedadSeleccion.m2_construccion}m²
+                      {propiedadSeleccion.m2_construccion === "0.00" ? m2Bodega : propiedadSeleccion.m2_construccion }m²
                     </p>
                   </div>
                 </>
