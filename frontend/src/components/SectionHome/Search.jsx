@@ -60,13 +60,6 @@ export default function Search({
       icon: faHouse
     },
     {
-      tipo_id: 1,
-      tipo_nombre: "Casa",
-      sector_nombre: "comercial",
-      src: "/HomePageContent/casa.svg",
-      icon: faBuilding
-    },
-    {
       tipo_id: 9,
       tipo_nombre: "Local",
       sector_nombre: "comercial",
@@ -82,25 +75,12 @@ export default function Search({
     },
     {
       tipo_id: 2,
-      tipo_nombre: "Condominio",
-      sector_nombre: "comercial", 
-      src: "/HomePageContent/casaencondominio.svg",
-      icon: faBuildingCircleCheck
-    },
-    {
-      tipo_id: 2,
       tipo_nombre: "Oficina",
       sector_nombre: "comercial", 
       src: "/HomePageContent/casaencondominio.svg",
       icon: faBuildingColumns
     },
-    {
-      tipo_id: 2,
-      tipo_nombre: "Plaza",
-      sector_nombre: "comercial", 
-      src: "/HomePageContent/casaencondominio.svg",
-      icon: faStore
-    },
+
     {
       tipo_id: 3,
       tipo_nombre: "Departamento",
@@ -108,16 +88,10 @@ export default function Search({
       src: "/HomePageContent/icondepartamento.svg",
       icon: faBuilding
     },
-    {
-      tipo_id: 4,
-      tipo_nombre: "Terreno",
-      sector_nombre: "residencial",
-      src: "/HomePageContent/terreno.svg",
-      icon: faMapLocation
-    },
+
     {
       tipo_id: 5,
-      tipo_nombre: "Terreno - Residencial",
+      tipo_nombre: "Terreno",
       sector_nombre: "residencial",
       src: "/HomePageContent/terreno-residencial.svg",
       icon: faMapLocation
@@ -322,7 +296,7 @@ export default function Search({
               className="rounded-e-full cursor-pointer w-10 sm:w-14 lg:w-20 h-10 sm:h-12 lg:h-16 bg-[#003DA4] align-middle items-center flex shadow-[0_3px_1px] shadow-black/50"
             >
              
-                <button className="items-center flex mx-auto cursor-pointer">
+                <button type="button" className="items-center flex mx-auto cursor-pointer">
                   <img
                     loading="lazy"
                     className="mx-auto w-4 sm:w-6 lg:w-9 cursor-pointer"
