@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import SectionFooter from "../../components/SectionFooter/SectionFooter.jsx";
 import HeaderPropiedadSeleccion from "./HeaderPropiedadSeleccion.jsx";
 import { Dropdown } from "../../components/Dropdown.jsx";
