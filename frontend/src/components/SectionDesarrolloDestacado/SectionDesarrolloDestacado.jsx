@@ -67,6 +67,7 @@ export default function SectionDesarrolloDestacado() {
           key={currentImageIndex}
           src={images[currentImageIndex].url}
           alt={images[currentImageIndex].title}
+          loading="lazy"
           initial={{ opacity: 1, scale: 1.1 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 1 }}
