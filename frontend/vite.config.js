@@ -10,6 +10,7 @@ export default defineConfig(({ command }) => {
   const isDev = command === 'serve';
 
   return {
+    base: '/',
     plugins: [
       react(),
       tailwindcss(),
@@ -71,5 +72,5 @@ export default defineConfig(({ command }) => {
           }
         }
       : undefined
-  }
-})
+  };
+});
