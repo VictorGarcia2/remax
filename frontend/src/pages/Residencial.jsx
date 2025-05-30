@@ -145,7 +145,7 @@ export default function Residencial({valor, autoCompleteHome, setAutoCompleteHom
          
             {/* Componentes prioritarios con su propio Suspense para carga independiente */}
             <Suspense fallback={<LoadingSpinner />}>
-                <AnimatedSection delay={200}>
+                <AnimatedSection>
                     <SectionPorque valor={valor}/>
                 </AnimatedSection>
             </Suspense>
