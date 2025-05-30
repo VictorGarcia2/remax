@@ -328,9 +328,9 @@ const ValuadorQuiz = ({ onComplete, address }) => {
   return (
     <>
       <Header />
-      <div className="flex items-center justify-center min-h-[calc(100vh-80px)]">
-        <div className="bg-white rounded-xl shadow-xl p-8 max-w-3xl w-full overflow-hidden">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#003da4] mb-6 text-center">
+      <div className="flex items-center justify-center py-8 px-4 sm:px-6 lg:px-8 min-h-[calc(100vh-80px)]">
+        <div className="bg-white rounded-xl mt-15 shadow-xl p-4 sm:p-6 md:p-8 max-w-3xl w-full overflow-hidden">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#003da4] mb-4 sm:mb-6 text-center">
             Valuador de Propiedades REMAX CIN
           </h2>
 
@@ -340,9 +340,9 @@ const ValuadorQuiz = ({ onComplete, address }) => {
             showResult={estimatedValue !== null}
           />
 
-          <div className="mt-8">{renderCurrentStep()}</div>
+          <div className="mt-6 sm:mt-8" id="valuador-form">{renderCurrentStep()}</div>
 
-          <div className="mt-8 pt-4 border-t border-gray-200 text-xs text-gray-500 text-center">
+          <div className="mt-6 sm:mt-8 pt-4 border-t border-gray-200 text-xs text-gray-500 text-center">
             <p>
               Tus datos están seguros. No compartiremos tu información con
               terceros sin tu consentimiento.

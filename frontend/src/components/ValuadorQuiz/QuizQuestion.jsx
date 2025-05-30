@@ -151,7 +151,7 @@ const QuizQuestion = ({
         return (
           <div className="mb-6">
             <select
-              className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white shadow-sm text-gray-700 text-lg transition-all"
+              className="w-full p-3 sm:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white shadow-sm text-gray-700 text-base sm:text-lg transition-all"
               value={answer}
               onChange={handleChange}
               disabled={loading}
@@ -172,7 +172,7 @@ const QuizQuestion = ({
           <div className="mb-6">
             <input
               type="number"
-              className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm text-gray-700 text-lg transition-all"
+              className="w-full p-3 sm:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm text-gray-700 text-base sm:text-lg transition-all"
               placeholder={question.placeholder || 'Ingresa un número'}
               value={answer}
               onChange={handleChange}
@@ -186,18 +186,18 @@ const QuizQuestion = ({
       case 'multiselect':
         return (
           <div className="mb-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
               {question.options.map(option => (
-                <div key={option.value} className="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
+                <div key={option.value} className="flex items-center p-2 sm:p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
                   <input
                     type="checkbox"
                     id={option.value}
                     checked={selectedOptions.includes(option.value)}
                     onChange={() => handleMultiSelectChange(option.value)}
-                    className="h-5 w-5 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                    className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                     disabled={loading}
                   />
-                  <label htmlFor={option.value} className="ml-3 block text-gray-700 cursor-pointer w-full">
+                  <label htmlFor={option.value} className="ml-2 sm:ml-3 block text-gray-700 text-sm sm:text-base cursor-pointer w-full">
                     {option.label}
                   </label>
                 </div>
@@ -209,10 +209,10 @@ const QuizQuestion = ({
       
       case 'contact':
         return (
-          <div className="space-y-5">
+          <div className="space-y-4 sm:space-y-5">
             {question.fields.map(field => (
-              <div key={field.id} className="mb-5">
-                <label htmlFor={field.id} className="block text-sm font-medium text-gray-700 mb-2">
+              <div key={field.id} className="mb-4 sm:mb-5">
+                <label htmlFor={field.id} className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                   {field.label}{field.required ? ' *' : ''}
                 </label>
                 <input
@@ -221,12 +221,12 @@ const QuizQuestion = ({
                   name={field.id}
                   value={contactInfo[field.id] || ''}
                   onChange={handleContactInfoChange}
-                  className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm text-gray-700 transition-all"
+                  className="w-full p-3 sm:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm text-gray-700 text-base sm:text-lg transition-all"
                   required={field.required}
                   disabled={loading}
                   placeholder={`Ingresa tu ${field.label.toLowerCase()}`}
                 />
-                {errors[field.id] && <p className="text-red-500 text-sm mt-2 font-medium">{errors[field.id]}</p>}
+                {errors[field.id] && <p className="text-red-500 text-xs sm:text-sm mt-1 sm:mt-2 font-medium">{errors[field.id]}</p>}
               </div>
             ))}
           </div>
@@ -239,39 +239,39 @@ const QuizQuestion = ({
 
   return (
     <form onSubmit={handleSubmit} id="valuador-form" className="animate-fadeIn">
-      <div className="mb-8">
-        <h3 className="text-2xl font-bold text-gray-800 mb-3">{question.question}</h3>
+      <div className="mb-6 sm:mb-8">
+        <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2 sm:mb-3">{question.question}</h3>
         {question.description && (
-          <p className="text-gray-600 mb-6">{question.description}</p>
+          <p className="text-gray-600 text-sm sm:text-base mb-4 sm:mb-6">{question.description}</p>
         )}
         {renderQuestionInput()}
       </div>
       
-      <div className="flex justify-between mt-10">
+      <div className="flex flex-col sm:flex-row justify-between gap-4 sm:gap-0 mt-6 sm:mt-10">
         {!isFirstStep ? (
           <button
             type="button"
             onClick={onBack}
-            className="px-8 py-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors font-medium flex items-center"
+            className="order-2 sm:order-1 w-full sm:w-auto px-4 sm:px-8 py-2 sm:py-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors font-medium flex items-center justify-center"
             disabled={loading}
           >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
             Anterior
           </button>
         ) : (
-          <div></div>
+          <div className="hidden sm:block"></div>
         )}
         
         <button
           type="submit"
-          className="px-8 py-3 bg-[#003da4] text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center font-medium shadow-md"
+          className="order-1 sm:order-2 w-full sm:w-auto px-4 sm:px-8 py-2 sm:py-3 bg-[#003da4] text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center font-medium shadow-md"
           disabled={loading}
         >
           {loading ? (
             <>
-              <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <svg className="animate-spin -ml-1 mr-2 sm:mr-3 h-4 w-4 sm:h-5 sm:w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
               </svg>
@@ -281,7 +281,7 @@ const QuizQuestion = ({
             <>
               {isLastStep ? 'Finalizar' : 'Siguiente'}
               {!isLastStep && (
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               )}
