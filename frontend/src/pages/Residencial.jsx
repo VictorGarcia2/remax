@@ -26,13 +26,18 @@ const AnimatedSection = ({ children, className = "", delay = 0 }) => {
     const sectionRef = React.useRef(null);
 
     useEffect(() => {
+        // Función para manejar la visibilidad
+        const handleVisibility = () => {
+            setTimeout(() => {
+                setIsVisible(true);
+            }, delay);
+        };
+        
         const observer = new IntersectionObserver(
             ([entry]) => {
                 // Cuando el elemento es visible en el viewport
                 if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        setIsVisible(true);
-                    }, delay);
+                    handleVisibility();
                     // Dejar de observar después de que se haga visible
                     observer.unobserve(entry.target);
                 }
@@ -42,6 +47,13 @@ const AnimatedSection = ({ children, className = "", delay = 0 }) => {
 
         if (sectionRef.current) {
             observer.observe(sectionRef.current);
+            
+            // Si el elemento ya está en el viewport al cargar la página
+            const rect = sectionRef.current.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                handleVisibility();
+                observer.unobserve(sectionRef.current);
+            }
         }
 
         return () => {
@@ -137,18 +149,21 @@ export default function Residencial({valor, autoCompleteHome, setAutoCompleteHom
     return (
         <>
             {/* Componente crítico para la interacción inicial del usuario */}
-            <Suspense fallback={<LoadingSpinner />}>
+            <div className="relative z-10 mb-8">
+                <Suspense fallback={<LoadingSpinner />}>
                     <HomeSearch valor={valor} setBusqueda={setBusqueda} autoCompleteHome={autoCompleteHome} setAutoCompleteHome={setAutoCompleteHome}/>
-
-            </Suspense>
+                </Suspense>
+            </div>
             
          
             {/* Componentes prioritarios con su propio Suspense para carga independiente */}
-            <Suspense fallback={<LoadingSpinner />}>
-                <AnimatedSection>
-                    <SectionPorque valor={valor}/>
-                </AnimatedSection>
-            </Suspense>
+            <div className="relative z-0 mt-16">
+                <Suspense fallback={<LoadingSpinner />}>
+                    <AnimatedSection delay={0}>
+                        <SectionPorque valor={valor}/>
+                    </AnimatedSection>
+                </Suspense>
+            </div>
             
             <Suspense fallback={<LoadingSpinner />}>
                 <AnimatedSection delay={200}>
