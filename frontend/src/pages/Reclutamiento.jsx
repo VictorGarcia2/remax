@@ -16,9 +16,8 @@ export default function Reclutamiento() {
     age: "",
     currentJob: "",
     availability: "completa",
-    message: ""
+    message: "" 
   });
-
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
