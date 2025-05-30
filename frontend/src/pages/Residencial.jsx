@@ -221,7 +221,7 @@ export default function Residencial({
   return (
     <>
       {/* Componente crítico para la interacción inicial del usuario */}
-      <div id="first-section" className="relative z-10">
+      <div  className="z-10">
         <HomeSearch
           valor={valor}
           setBusqueda={setBusqueda}
@@ -231,7 +231,7 @@ export default function Residencial({
       </div>
 
       {/* Componentes prioritarios con su propio Suspense para carga independiente */}
-      <div className="relative">
+      <div className="z-0">
         <Suspense fallback={<LoadingSpinner />}>
           <SectionPorque valor={valor} />
         </Suspense>
