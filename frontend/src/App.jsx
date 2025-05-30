@@ -32,6 +32,9 @@ const Poliza = lazy(() =>
 const Valuador = lazy(() =>
   import(/* webpackChunkName: "valuador" */ "./pages/Valuador")
 );
+const Reclutamiento = lazy(() =>
+  import(/* webpackChunkName: "reclutamiento" */ "./pages/Reclutamiento")
+);
 const TerminosyCondiciones = lazy(() =>
   import(/* webpackChunkName: "terminos" */ "./components/TerminosyCondiciones")
 );
@@ -175,6 +178,7 @@ const App = () => {
                 element={<NuestroEquipo propiedades={propiedades} />}
               />
               <Route path="/Polizas-de-renta" element={<Poliza />} />
+              <Route path="/reclutamiento" element={<Reclutamiento />} />
               <Route
                 path="/terminos-y-condiciones"
                 element={<TerminosyCondiciones />}

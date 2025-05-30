@@ -175,6 +175,15 @@ export default function Header({ setSelectedOptionsOperacion }) {
                 Nuestro equipo
               </Link>
             </li>
+            <li className="py-1">
+              <Link
+                to={"/reclutamiento"}
+                className="block py-2 px-3 text-gray-700 rounded-md hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
+                onClick={() => setIsOpen(false)}
+              >
+                Únete a nosotros
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
