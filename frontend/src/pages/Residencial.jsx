@@ -138,11 +138,7 @@ export default function Residencial({valor, autoCompleteHome, setAutoCompleteHom
             {/* Componente crítico para la interacción inicial del usuario */}
             <HomeSearch valor={valor} setBusqueda={setBusqueda} autoCompleteHome={autoCompleteHome} setAutoCompleteHome={setAutoCompleteHome}/>
             
-            {/* Componente crítico cargado inmediatamente */}
-            <AnimatedSection>
-                <SectionDesarrolloDestacado />
-            </AnimatedSection>
-            
+         
             {/* Componentes prioritarios con su propio Suspense para carga independiente */}
             <Suspense fallback={<LoadingSpinner />}>
                 <AnimatedSection delay={100}>
@@ -155,6 +151,11 @@ export default function Residencial({valor, autoCompleteHome, setAutoCompleteHom
                     <SectionVariedad valor={valor} setBusqueda={setBusqueda} />
                 </AnimatedSection>
             </Suspense>
+               {/* Componente crítico cargado inmediatamente */}
+            <AnimatedSection>
+                <SectionDesarrolloDestacado />
+            </AnimatedSection>
+            
             
             {/* Componentes secundarios agrupados en un Suspense separado */}
             <Suspense fallback={<LoadingSpinner />}>
