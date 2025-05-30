@@ -2,6 +2,7 @@ import React, { Suspense, lazy, useEffect, useState } from "react";
 import HomeSearch from "../components/SectionHome/HomeSearch";
 import LoadingSpinner from "../components/LoadingSpinner";
 import { useSearchContext } from "../context/SearchContext";
+import { motion } from "framer-motion";
 
 // Componente crítico cargado inmediatamente
 import SectionDesarrolloDestacado from "../components/SectionDesarrolloDestacado/SectionDesarrolloDestacado";
@@ -21,37 +22,33 @@ const SectionFooter = lazy(() => import("../components/SectionFooter/SectionFoot
 // const ValuadorButton = lazy(() => import("../components/ValuadorQuiz/ValuadorButton"));
 
 // Componente de animación para envolver secciones
+// Componente de animación mejorado con Framer Motion
 const AnimatedSection = ({ children, className = "", delay = 0 }) => {
     const [isVisible, setIsVisible] = useState(false);
     const sectionRef = React.useRef(null);
 
     useEffect(() => {
-        // Función para manejar la visibilidad
-        const handleVisibility = () => {
-            setTimeout(() => {
-                setIsVisible(true);
-            }, delay);
-        };
-        
+        // Usar IntersectionObserver para detectar cuando el elemento está en el viewport
         const observer = new IntersectionObserver(
             ([entry]) => {
-                // Cuando el elemento es visible en el viewport
                 if (entry.isIntersecting) {
-                    handleVisibility();
-                    // Dejar de observar después de que se haga visible
+                    setIsVisible(true);
                     observer.unobserve(entry.target);
                 }
             },
-            { threshold: 0.1 } // Activar cuando al menos 10% del elemento es visible
+            { 
+                threshold: 0.1,
+                rootMargin: "0px 0px -100px 0px" // Activa un poco antes de que el elemento sea visible
+            }
         );
 
         if (sectionRef.current) {
             observer.observe(sectionRef.current);
             
-            // Si el elemento ya está en el viewport al cargar la página
+            // Verificar si el elemento ya está visible al cargar
             const rect = sectionRef.current.getBoundingClientRect();
             if (rect.top < window.innerHeight && rect.bottom > 0) {
-                handleVisibility();
+                setIsVisible(true);
                 observer.unobserve(sectionRef.current);
             }
         }
@@ -61,18 +58,32 @@ const AnimatedSection = ({ children, className = "", delay = 0 }) => {
                 observer.unobserve(sectionRef.current);
             }
         };
-    }, [delay]);
+    }, []);
+
+    // Variantes de animación para Framer Motion
+    const variants = {
+        hidden: { opacity: 0, y: 30 },
+        visible: { 
+            opacity: 1, 
+            y: 0,
+            transition: { 
+                duration: 0.6,
+                ease: "easeOut",
+                delay: delay / 1000
+            }
+        }
+    };
 
     return (
-        <div 
-            ref={sectionRef} 
-            className={`transition-all duration-700 ease-out ${
-                isVisible 
-                    ? "opacity-100 translate-y-0" 
-                    : "opacity-0 translate-y-10"
-            } ${className}`}
-        >
-            {children}
+        <div ref={sectionRef} className={className}>
+            <motion.div
+                initial="hidden"
+                animate={isVisible ? "visible" : "hidden"}
+                variants={variants}
+                viewport={{ once: true }}
+            >
+                {children}
+            </motion.div>
         </div>
     );
 };
@@ -132,18 +143,44 @@ export default function Residencial({valor, autoCompleteHome, setAutoCompleteHom
         // Función para precargar componentes menos prioritarios después de que la página principal se haya cargado
         const preloadSecondaryComponents = () => {
             // Importar componentes secundarios después de que la página principal esté lista
-            import("../components/SectionComoComprar/SectionComoComprar");
-            import("../components/SectionCTA/SectionCTA");
-            import("../components/SectionOpiniones/SectionOpiniones");
+            const preloads = [
+                import("../components/SectionComoComprar/SectionComoComprar"),
+                import("../components/SectionCTA/SectionCTA"),
+                import("../components/SectionOpiniones/SectionOpiniones")
+            ];
+            
+            // Usar Promise.all para cargar en paralelo pero sin bloquear
+            Promise.all(preloads).catch(() => {
+                // Silenciar errores de precarga - no son críticos
+            });
         };
         
-        // Usar requestIdleCallback para cargar cuando el navegador esté inactivo
-        if ('requestIdleCallback' in window) {
-            window.requestIdleCallback(preloadSecondaryComponents, { timeout: 2000 });
+        // Usar Intersection Observer para detectar cuando el usuario ha scrolleado
+        // y precargar componentes solo cuando sea necesario
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (entries[0].isIntersecting) {
+                    if ('requestIdleCallback' in window) {
+                        window.requestIdleCallback(preloadSecondaryComponents, { timeout: 1500 });
+                    } else {
+                        setTimeout(preloadSecondaryComponents, 1500);
+                    }
+                    observer.disconnect();
+                }
+            },
+            { rootMargin: "0px 0px 500px 0px" } // Precargar cuando el usuario está a 500px de los componentes
+        );
+        
+        // Observar el primer componente visible
+        const firstSection = document.querySelector('#first-section');
+        if (firstSection) {
+            observer.observe(firstSection);
         } else {
-            // Fallback para navegadores que no soportan requestIdleCallback
+            // Si no se encuentra el elemento, usar el enfoque basado en tiempo
             setTimeout(preloadSecondaryComponents, 2000);
         }
+        
+        return () => observer.disconnect();
     }, []);
     
     return (
@@ -157,7 +194,7 @@ export default function Residencial({valor, autoCompleteHome, setAutoCompleteHom
             
          
             {/* Componentes prioritarios con su propio Suspense para carga independiente */}
-            <div className="relative z-0 mt-16">
+            <div id="first-section" className="relative z-0 mt-16">
                 <Suspense fallback={<LoadingSpinner />}>
                     <AnimatedSection delay={0}>
                         <SectionPorque valor={valor}/>
@@ -166,44 +203,50 @@ export default function Residencial({valor, autoCompleteHome, setAutoCompleteHom
             </div>
             
             <Suspense fallback={<LoadingSpinner />}>
-                <AnimatedSection delay={200}>
+                <AnimatedSection delay={0.2}>
                     <SectionVariedad valor={valor} setBusqueda={setBusqueda} />
                 </AnimatedSection>
             </Suspense>
             
             {/* Componente crítico cargado inmediatamente */}
-            <AnimatedSection>
+            <AnimatedSection delay={0}>
                 <SectionDesarrolloDestacado />
             </AnimatedSection>
             
             
             {/* Componentes secundarios con Suspense individual */}
-            <Suspense fallback={<LoadingSpinner />}>
-                <AnimatedSection delay={300}>
+            <Suspense fallback={<div className="h-20"></div>}>
+                <AnimatedSection delay={0.3}>
                     <SectionComoComprar />
                 </AnimatedSection>
             </Suspense>
             
-            <Suspense fallback={<LoadingSpinner />}>
-                <AnimatedSection delay={400}>
+            <Suspense fallback={<div className="h-20"></div>}>
+                <AnimatedSection delay={0.4}>
                     <SectionCTA />
                 </AnimatedSection>
             </Suspense>
             
-            <Suspense fallback={<LoadingSpinner />}>
-                <AnimatedSection delay={500}>
+            <Suspense fallback={<div className="h-20"></div>}>
+                <AnimatedSection delay={0.5}>
                     <Testimonials/>
                 </AnimatedSection>
             </Suspense>
             
-            <Suspense fallback={<LoadingSpinner />}>
-                <AnimatedSection delay={600}>
+            <Suspense fallback={<div className="h-20"></div>}>
+                <AnimatedSection delay={0.6}>
                     <SectionEquipo propiedades={propiedades} />
                 </AnimatedSection>
             </Suspense>
             
-            <Suspense fallback={<LoadingSpinner />}>
-                <SectionFooter/>
+            <Suspense fallback={<div className="h-10"></div>}>
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                >
+                    <SectionFooter/>
+                </motion.div>
             </Suspense>
             
             {/* Botón para volver al inicio */}
