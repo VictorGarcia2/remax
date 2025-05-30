@@ -149,7 +149,7 @@ const HomeSearch = memo(({
   }, [valor]);
 
   return (
-    <div className="w-full mt-18">
+    <div className="w-full">
       <div className="w-full absolute z-10">
         <Header setSelectedOptionsOperacion={setSelectedOptionsOperacion} />
         <div className="text-center w-[336px] 2xl:mt-70 font-display flex flex-col justify-content-center items-center text-white mx-auto mt-35 sm:mt-40">

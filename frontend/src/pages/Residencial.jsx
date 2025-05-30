@@ -16,8 +16,9 @@ const SectionCTA = lazy(() => import("../components/SectionCTA/SectionCTA"));
 const Testimonials = lazy(() => import("../components/SectionOpiniones/SectionOpiniones"));
 const SectionEquipo = lazy(() => import("../components/SectionEquipo/SectionEquipo"));
 const SectionFooter = lazy(() => import("../components/SectionFooter/SectionFooter"));
-const SectionEncuentra = lazy(() => import("../components/SectionEncuentra/SectionEncuentra"));
-/* const ValuadorButton = lazy(() => import("../components/ValuadorQuiz/ValuadorButton")); */
+// Componentes comentados pero aún importados - pueden causar errores
+// const SectionEncuentra = lazy(() => import("../components/SectionEncuentra/SectionEncuentra"));
+// const ValuadorButton = lazy(() => import("../components/ValuadorQuiz/ValuadorButton"));
 
 // Componente de animación para envolver secciones
 const AnimatedSection = ({ children, className = "", delay = 0 }) => {
@@ -138,7 +139,7 @@ export default function Residencial({valor, autoCompleteHome, setAutoCompleteHom
             {/* Componente crítico para la interacción inicial del usuario */}
             <Suspense fallback={<LoadingSpinner />}>
                 <AnimatedSection>
-            <HomeSearch valor={valor} setBusqueda={setBusqueda} autoCompleteHome={autoCompleteHome} setAutoCompleteHome={setAutoCompleteHome}/>
+                    <HomeSearch valor={valor} setBusqueda={setBusqueda} autoCompleteHome={autoCompleteHome} setAutoCompleteHome={setAutoCompleteHome}/>
                 </AnimatedSection>
             </Suspense>
             
@@ -155,32 +156,39 @@ export default function Residencial({valor, autoCompleteHome, setAutoCompleteHom
                     <SectionVariedad valor={valor} setBusqueda={setBusqueda} />
                 </AnimatedSection>
             </Suspense>
-               {/* Componente crítico cargado inmediatamente */}
+            
+            {/* Componente crítico cargado inmediatamente */}
             <AnimatedSection>
                 <SectionDesarrolloDestacado />
             </AnimatedSection>
             
             
-            {/* Componentes secundarios agrupados en un Suspense separado */}
+            {/* Componentes secundarios con Suspense individual */}
             <Suspense fallback={<LoadingSpinner />}>
-                {/* <ValuadorButton /> */}
-                {/* <SectionEncuentra valor={valor} /> */}
                 <AnimatedSection delay={300}>
                     <SectionComoComprar />
                 </AnimatedSection>
-                
+            </Suspense>
+            
+            <Suspense fallback={<LoadingSpinner />}>
                 <AnimatedSection delay={400}>
                     <SectionCTA />
                 </AnimatedSection>
-                
+            </Suspense>
+            
+            <Suspense fallback={<LoadingSpinner />}>
                 <AnimatedSection delay={500}>
                     <Testimonials/>
                 </AnimatedSection>
-                
+            </Suspense>
+            
+            <Suspense fallback={<LoadingSpinner />}>
                 <AnimatedSection delay={600}>
                     <SectionEquipo propiedades={propiedades} />
                 </AnimatedSection>
-                
+            </Suspense>
+            
+            <Suspense fallback={<LoadingSpinner />}>
                 <SectionFooter/>
             </Suspense>
             
