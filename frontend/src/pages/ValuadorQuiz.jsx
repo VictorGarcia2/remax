@@ -3,14 +3,15 @@ import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
 import ValuadorQuiz from '../components/ValuadorQuiz/ValuadorQuiz';
 import SectionFooter from '../components/SectionFooter/SectionFooter';
+import Header from '../components/SectionHome/Header';
+import { useSearchContext } from '../context/SearchContext';
 
 const ValuadorQuizPage = () => {
   const navigate = useNavigate();
+  const { setSelectedOptionsOperacion } = useSearchContext();
 
   // Función para manejar la finalización del quiz
   const handleQuizComplete = (answers, estimatedValue) => {
-    // Aquí se podría implementar lógica adicional como enviar los datos a un CRM
-    // o registrar la valuación en una base de datos
     console.log('Quiz completado:', { answers, estimatedValue });
   };
 
@@ -24,7 +25,9 @@ const ValuadorQuizPage = () => {
         />
       </Helmet>
 
-      <div className="bg-gradient-to-b from-gray-50 to-gray-100 min-h-screen">
+      <Header setSelectedOptionsOperacion={setSelectedOptionsOperacion} />
+      
+      <div className="bg-gradient-to-b from-gray-50 to-gray-100 min-h-screen pt-24">
         {/* Header con imagen de fondo */}
         <div className="relative bg-[#003da4] text-white py-16">
           <div className="absolute inset-0 bg-gradient-to-r from-[#003da4] to-[#002d7a] opacity-90"></div>

@@ -69,7 +69,7 @@ export default function Tipo({selectedOptions, valor }) {
     { icon: faPenRuler, nombre: "Desarrollo", tipo_id: 6, sector: "residencial" },
     { icon: faMap, nombre: "Terreno", tipo_id: 4, sector: "residencial" },
     { icon: faMap, nombre: "Terreno", tipo_id: 10, sector: "comercial" },
-    { icon: faMap, nombre: "Terreno", tipo_id: 5, sector: "residencial" },
+    /* { icon: faMap, nombre: "Terreno", tipo_id: 5, sector: "residencial" }, */
     { icon: faBuilding, nombre: "Edificio", tipo_id: 8, sector: "comercial" },
     { icon: faTreeCity, nombre: "Finca/Rancho", tipo_id: 14, sector: "residencial" },
     { icon: faWarehouse, nombre: "Bodega", tipo_id: 19, sector: "comercial" },

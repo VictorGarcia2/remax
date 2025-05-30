@@ -6,6 +6,7 @@ import ScrollToTop from "./components/ScrollTop";
 import LoadingSpinner from "./components/LoadingSpinner";
 import { SearchProvider } from "./context/SearchContext";
 import { ValuadorProvider } from "./context/ValuadorContext";
+import ValuadorQuiz from "./components/ValuadorQuiz/ValuadorQuiz";
 
 // Importaciones lazy para code splitting
 const Residencial = lazy(() => import("./pages/Residencial"));
@@ -111,83 +112,96 @@ const App = () => {
         </Helmet>
         <ScrollToTop />
         <SearchProvider>
-        
-            <Suspense fallback={<LoadingSpinner />}>
-              <Routes>
-                <Route path="/" element={<Eleccion setValor={setValor} />} />
-                <Route
-                  path="/inicio"
-                  element={
-                    <Residencial
-                      propiedades={propiedades}
-                      valor={valor}
-                      setSelectedOptions={setSelectedOptions}
-                      selectedOptions={selectedOptions}
-                      autoCompleteHome={autoCompleteHome}
-                      setAutoCompleteHome={setAutoCompleteHome}
-                      setBusqueda={setBusqueda}
-                    />
-                  }
-                />
-                <Route
-                  path="/propiedades"
-                  element={
-                    <ResultadosBusqueda
-                      valor={valor}
-                      aplicarFiltros={aplicarFiltros}
-                      setAplicarFiltros={setAplicarFiltros}
-                      precioMaximo={precioMaximo}
-                      setPrecioMaximo={setPrecioMaximo}
-                      precioMinimo={precioMinimo}
-                      setPrecioMinimo={setPrecioMinimo}
-                      setSelectedOptions={setSelectedOptions}
-                      selectedOptions={selectedOptions}
-                      menuClose={menuClose}
-                      setMenuClose={setMenuClose}
-                      propiedades={propiedades}
-                      setPropiedades={setPropiedades}
-                      busqueda={busqueda}
-                      setBusqueda={setBusqueda}
-                      manejoBusqueda={manejoBusqueda}
-                      setManejoBusqueda={setManejoBusqueda}
-                      propiedadesVisibles={propiedadesVisibles}
-                      setPropiedadesVisibles={setPropiedadesVisibles}
-                      setAutoCompleteHome={setAutoCompleteHome}
-                      nuevas={nuevas}
-                      setNuevas={setNuevas}
-                      seleccion={seleccion}
-                      setSeleccion={setSeleccion}
-                    />
-                  }
-                />
-                <Route
-                  path="/propiedades/seleccion/:id"
-                  element={
-                    <PropiedadSeleccion
-                      seleccion={seleccion}
-                      propiedades={propiedades}
-                      setPropiedades={setPropiedades}
-                    />
-                  }
-                />
-                <Route
-                  path="/NuestroEquipo"
-                  element={<NuestroEquipo propiedades={propiedades} />}
-                />
-                <Route path="/Polizas-de-renta" element={<Poliza />} />
-                <Route
-                  path="/terminos-y-condiciones"
-                  element={<TerminosyCondiciones />}
-                />
-                <Route path="/codigo-de-etica" element={<CodigodeEtica />} />
-                <Route
-                  path="/politica-de-privacidad"
-                  element={<PoliticadePrivacidad />}
-                />
-                <Route path="/valuador" element={<Valuador />} />
-              </Routes>
-            </Suspense>
-         
+          <Suspense fallback={<LoadingSpinner />}>
+            <Routes>
+              <Route path="/" element={<Eleccion setValor={setValor} />} />
+              <Route
+                path="/inicio"
+                element={
+                  <Residencial
+                    propiedades={propiedades}
+                    valor={valor}
+                    setSelectedOptions={setSelectedOptions}
+                    selectedOptions={selectedOptions}
+                    autoCompleteHome={autoCompleteHome}
+                    setAutoCompleteHome={setAutoCompleteHome}
+                    setBusqueda={setBusqueda}
+                  />
+                }
+              />
+              <Route
+                path="/propiedades"
+                element={
+                  <ResultadosBusqueda
+                    valor={valor}
+                    aplicarFiltros={aplicarFiltros}
+                    setAplicarFiltros={setAplicarFiltros}
+                    precioMaximo={precioMaximo}
+                    setPrecioMaximo={setPrecioMaximo}
+                    precioMinimo={precioMinimo}
+                    setPrecioMinimo={setPrecioMinimo}
+                    setSelectedOptions={setSelectedOptions}
+                    selectedOptions={selectedOptions}
+                    menuClose={menuClose}
+                    setMenuClose={setMenuClose}
+                    propiedades={propiedades}
+                    setPropiedades={setPropiedades}
+                    busqueda={busqueda}
+                    setBusqueda={setBusqueda}
+                    manejoBusqueda={manejoBusqueda}
+                    setManejoBusqueda={setManejoBusqueda}
+                    propiedadesVisibles={propiedadesVisibles}
+                    setPropiedadesVisibles={setPropiedadesVisibles}
+                    setAutoCompleteHome={setAutoCompleteHome}
+                    nuevas={nuevas}
+                    setNuevas={setNuevas}
+                    seleccion={seleccion}
+                    setSeleccion={setSeleccion}
+                  />
+                }
+              />
+              <Route
+                path="/propiedades/seleccion/:id"
+                element={
+                  <PropiedadSeleccion
+                    seleccion={seleccion}
+                    propiedades={propiedades}
+                    setPropiedades={setPropiedades}
+                  />
+                }
+              />
+              <Route
+                path="/NuestroEquipo"
+                element={<NuestroEquipo propiedades={propiedades} />}
+              />
+              <Route path="/Polizas-de-renta" element={<Poliza />} />
+              <Route
+                path="/terminos-y-condiciones"
+                element={<TerminosyCondiciones />}
+              />
+              <Route path="/codigo-de-etica" element={<CodigodeEtica />} />
+              <Route
+                path="/politica-de-privacidad"
+                element={<PoliticadePrivacidad />}
+              />
+              <Route
+                path="/valuador"
+                element={
+                  <ValuadorProvider>
+                    <Valuador />
+                  </ValuadorProvider>
+                }
+              />
+              <Route
+                path="/ValuadorQuiz"
+                element={
+                  <ValuadorProvider>
+                    <ValuadorQuiz />
+                  </ValuadorProvider>
+                }
+              />
+            </Routes>
+          </Suspense>
         </SearchProvider>
       </HelmetProvider>
     </>

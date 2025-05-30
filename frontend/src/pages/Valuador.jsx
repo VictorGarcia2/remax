@@ -4,27 +4,21 @@ import { useValuadorContext } from '../context/ValuadorContext';
 import SectionFooter from '../components/SectionFooter/SectionFooter';
 import ValuadorQuiz from '../components/ValuadorQuiz/ValuadorQuiz';
 import Header from '../components/SectionHome/Header';
+import { useNavigate } from 'react-router-dom';
 
 const Valuador = () => {
   const [showQuiz, setShowQuiz] = useState(false);
   const { quizCompleted, resetQuiz } = useValuadorContext();
+  const navigate = useNavigate();
   
   // Verificar si hay un parámetro en la URL que indique mostrar el quiz
   useEffect(() => {
-    // Verificar si la URL actual era anteriormente /valuador-quiz
-    const path = window.location.pathname;
     const searchParams = new URLSearchParams(window.location.search);
     const showQuizParam = searchParams.get('showQuiz');
     
-    if (path.includes('/valuador-quiz') || showQuizParam === 'true') {
-      // Redirigir a /valuador si estamos en /valuador-quiz
-      if (path.includes('/valuador-quiz')) {
-        window.history.replaceState({}, '', '/valuador?showQuiz=true');
-      }
-      // Iniciar el quiz automáticamente
+    if (showQuizParam === 'true') {
       resetQuiz();
       setShowQuiz(true);
-      // Dar tiempo para que el componente se monte antes de hacer scroll
       setTimeout(() => {
         const quizElement = document.getElementById('valuador-form');
         if (quizElement) {
@@ -32,18 +26,16 @@ const Valuador = () => {
         }
       }, 500);
     }
-  }, []); // Eliminar resetQuiz de las dependencias
+  }, []);
 
   // Función para manejar la finalización del quiz
   const handleQuizComplete = (answers, estimatedValue) => {
-    // Aquí se podría implementar lógica adicional como enviar los datos a un CRM
-    // o registrar la valuación en una base de datos
     console.log('Quiz completado:', { answers, estimatedValue });
   };
 
   // Función para iniciar el quiz
   const startQuiz = () => {
-    window.location.href = '/valuador-quiz';
+    navigate('/ValuadorQuiz');
   };
 
   return (

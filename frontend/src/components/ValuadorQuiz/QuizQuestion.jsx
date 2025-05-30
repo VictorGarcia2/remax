@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import MapboxAddressInput from './MapboxAddressInput';
 
 const QuizQuestion = ({
   question,
@@ -42,6 +43,12 @@ const QuizQuestion = ({
 
     if (question.type === 'select' && !answer) {
       newErrors.select = 'Por favor selecciona una opción';
+    } else if (question.type === 'mapbox') {
+      if (!answer || (typeof answer === 'object' && !answer.address)) {
+        newErrors.mapbox = 'Por favor ingresa una dirección';
+      } else if (typeof answer === 'object' && !answer.houseNumber) {
+        newErrors.houseNumber = 'Por favor ingresa el número exterior';
+      }
     } else if (question.type === 'number') {
       if (!answer) {
         newErrors.number = 'Por favor ingresa un valor';
@@ -99,6 +106,11 @@ const QuizQuestion = ({
     setAnswer(e.target.value);
   };
 
+  // Manejar cambios en el input de Mapbox
+  const handleMapboxChange = (value) => {
+    setAnswer(value);
+  };
+
   // Manejar cambios en inputs de tipo multiselect
   const handleMultiSelectChange = (option) => {
     setSelectedOptions(prev => {
@@ -122,6 +134,19 @@ const QuizQuestion = ({
   // Renderizar el input según el tipo de pregunta
   const renderQuestionInput = () => {
     switch (question.type) {
+      case 'mapbox':
+        return (
+          <div className="mb-6">
+            <MapboxAddressInput
+              value={answer}
+              onChange={handleMapboxChange}
+              disabled={loading}
+            />
+            {errors.mapbox && <p className="text-red-500 text-sm mt-2 font-medium">{errors.mapbox}</p>}
+            {errors.houseNumber && <p className="text-red-500 text-sm mt-2 font-medium">{errors.houseNumber}</p>}
+          </div>
+        );
+        
       case 'select':
         return (
           <div className="mb-6">
@@ -272,7 +297,7 @@ QuizQuestion.propTypes = {
   question: PropTypes.shape({
     id: PropTypes.string.isRequired,
     question: PropTypes.string.isRequired,
-    type: PropTypes.oneOf(['select', 'multiselect', 'number', 'contact']).isRequired,
+    type: PropTypes.oneOf(['select', 'multiselect', 'number', 'contact', 'mapbox']).isRequired,
     options: PropTypes.arrayOf(
       PropTypes.shape({
         value: PropTypes.string.isRequired,
