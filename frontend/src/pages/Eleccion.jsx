@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 // Button Component
 const Button = React.forwardRef(({ className, ...props }, ref) => {
@@ -24,13 +24,27 @@ CardContent.displayName = "CardContent";
 
 // Main App Component
 const Eleccion = ({ setValor }) => {
-  const handle = (value) => {
-    console.log(value.toLowerCase());
+  const navigate = useNavigate();
+  
+  // Precargar el componente Residencial para mejorar el rendimiento
+  useEffect(() => {
+    // Importación dinámica para precargar el componente
+    const preloadResidencial = async () => {
+      await import("./Residencial");
+    };
+    preloadResidencial();
+  }, []);
+  
+  const handleSelection = (value) => {
+    // Establecer el valor inmediatamente
     setValor(value.toLowerCase());
+    // Navegar programáticamente para mejor rendimiento
+    navigate("/inicio");
   };
+  
   const sectors = [
-    { id: 1, name: "Comercial / Industrial", color: "bg-[#db1c2e]", path: "/inicio", valor: "comercial" },
-    { id: 2, name: "Residencial", color: "bg-[#003da4]", path: "/inicio", valor: "residencial" },
+    { id: 1, name: "Comercial / Industrial", color: "bg-[#db1c2e]", valor: "comercial" },
+    { id: 2, name: "Residencial", color: "bg-[#003da4]", valor: "residencial" },
   ];
 
   return (
@@ -50,18 +64,13 @@ const Eleccion = ({ setValor }) => {
 
           <div className="flex flex-col sm:flex-row gap-4 w-full justify-center">
             {sectors.map((sector) => (
-              <Link
-                to={sector.path}
+              <Button
                 key={sector.id}
-                className="w-full sm:w-auto "
+                onClick={() => handleSelection(sector.valor)}
+                className={`${sector.color} w-full cursor-pointer text-white text-lg sm:text-xl md:text-2xl font-semibold py-3 px-6 rounded-lg shadow-[0px_4px_4px_#00000040]`}
               >
-                <Button
-                  onClick={() => handle(sector.valor)}
-                  className={`${sector.color} w-full cursor-pointer text-white text-lg sm:text-xl md:text-2xl font-semibold py-3 px-6 rounded-lg shadow-[0px_4px_4px_#00000040]`}
-                >
-                  {sector.name}
-                </Button>
-              </Link>
+                {sector.name}
+              </Button>
             ))}
           </div>
         </CardContent>
