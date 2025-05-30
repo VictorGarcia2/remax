@@ -231,7 +231,7 @@ export default function Residencial({
       </div>
 
       {/* Componentes prioritarios con su propio Suspense para carga independiente */}
-      <div className="relative z-0">
+      <div className="relative">
         <Suspense fallback={<LoadingSpinner />}>
           <SectionPorque valor={valor} />
         </Suspense>
