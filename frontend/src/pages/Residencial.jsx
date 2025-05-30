@@ -221,7 +221,7 @@ export default function Residencial({
   return (
     <>
       {/* Componente crítico para la interacción inicial del usuario */}
-      <div id="first-section" className="relative z-10 mb-8">
+      <div id="first-section" className="relative z-10">
         <HomeSearch
           valor={valor}
           setBusqueda={setBusqueda}

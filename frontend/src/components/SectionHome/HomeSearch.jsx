@@ -151,8 +151,10 @@ const HomeSearch = memo(({
   return (
     <div className="w-full">
       <div className="w-full absolute z-10">
+       
         <Header setSelectedOptionsOperacion={setSelectedOptionsOperacion} />
-        <div className="text-center w-[336px] 2xl:mt-70 font-display flex flex-col justify-content-center items-center text-white mx-auto mt-35 sm:mt-40">
+      
+        <div className=" text-center w-[336px] 2xl:mt-70 font-display flex flex-col justify-content-center items-center text-white mx-auto mt-35 sm:mt-60">
           <p className="text-4xl sm:text-3xl sm:w-[730px] md:text-6xl lg:w-[730px]">
             {selectedContent.tittle}
           </p>
@@ -166,11 +168,12 @@ const HomeSearch = memo(({
           />
         </div>
       </div>
-      <div className="h-[536px] sm:h-[680px] 2xl:h-[900px] w-full absolute z-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+      <div className="h-[536px]  sm:h-[680px] 2xl:h-[900px] w-full absolute z-0 bg-gradient-to-t from-black/60 to-transparent"></div>
       {imagesPreloaded && (
         <BackgroundImage 
           src={images[currentIndex]} 
           alt="Imagen de fondo" 
+          className=""
         />
       )}
     </div>
