@@ -1,25 +1,25 @@
-import React, { Suspense, lazy, useEffect, useState } from "react";
+import React, {
+  Suspense,
+  lazy,
+  useEffect,
+  useState,
+  useRef,
+} from "react";
 import HomeSearch from "../components/SectionHome/HomeSearch";
 import LoadingSpinner from "../components/LoadingSpinner";
 import { useSearchContext } from "../context/SearchContext";
 import { motion } from "framer-motion";
-
-// Componente crítico cargado inmediatamente
 import SectionDesarrolloDestacado from "../components/SectionDesarrolloDestacado/SectionDesarrolloDestacado";
 
-// Lazy loading con priorización
+// Lazy loaded components
 const SectionPorque = lazy(() =>
   import(
     /* webpackPrefetch: true */ "../components/SectionPorque/SectionPorque"
   )
 );
 const SectionVariedad = lazy(() =>
-  import(
-    /* webpackPrefetch: true */ "../components/SectionVariedad/SectionVariedad"
-  )
+  import("../components/SectionVariedad/SectionVariedad")
 );
-
-// Componentes secundarios con lazy loading normal
 const SectionComoComprar = lazy(() =>
   import("../components/SectionComoComprar/SectionComoComprar")
 );
@@ -33,18 +33,21 @@ const SectionEquipo = lazy(() =>
 const SectionFooter = lazy(() =>
   import("../components/SectionFooter/SectionFooter")
 );
-// Componentes comentados pero aún importados - pueden causar errores
-// const SectionEncuentra = lazy(() => import("../components/SectionEncuentra/SectionEncuentra"));
-// const ValuadorButton = lazy(() => import("../components/ValuadorQuiz/ValuadorButton"));
 
-// Componente de animación para envolver secciones
-// Componente de animación mejorado con Framer Motion
+// Placeholder component for fallbacks
+const Placeholder = ({ height = 20 }) => (
+  <div style={{ height: `${height}px` }} />
+);
+
+// AnimatedSection mejorado
 const AnimatedSection = ({ children, className = "", delay = 0 }) => {
   const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = React.useRef(null);
+  const sectionRef = useRef(null);
 
   useEffect(() => {
-    // Usar IntersectionObserver para detectar cuando el elemento está en el viewport
+    const currentRef = sectionRef.current;
+    if (!currentRef) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -54,29 +57,23 @@ const AnimatedSection = ({ children, className = "", delay = 0 }) => {
       },
       {
         threshold: 0.1,
-        rootMargin: "0px 0px -100px 0px", // Activa un poco antes de que el elemento sea visible
+        rootMargin: "0px 0px -100px 0px",
       }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    observer.observe(currentRef);
 
-      // Verificar si el elemento ya está visible al cargar
-      const rect = sectionRef.current.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom > 0) {
-        setIsVisible(true);
-        observer.unobserve(sectionRef.current);
-      }
+    const rect = currentRef.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      setIsVisible(true);
+      observer.unobserve(currentRef);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
+      if (currentRef) observer.unobserve(currentRef);
     };
   }, []);
 
-  // Variantes de animación para Framer Motion
   const variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
@@ -104,17 +101,12 @@ const AnimatedSection = ({ children, className = "", delay = 0 }) => {
   );
 };
 
-// Botón de regreso al inicio
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.pageYOffset > 500) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+      setIsVisible(window.pageYOffset > 500);
     };
 
     window.addEventListener("scroll", toggleVisibility);
@@ -122,10 +114,7 @@ const ScrollToTopButton = () => {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -161,7 +150,6 @@ export default function Residencial({
   setBusqueda,
   propiedades,
 }) {
-  // Usar el contexto para acceder a los estados compartidos
   const {
     busquedaHome,
     setBusquedaHome,
@@ -171,28 +159,21 @@ export default function Residencial({
     setSelectedOptionsOperacion,
   } = useSearchContext();
 
-  // Precarga de componentes secundarios cuando la página principal ya está visible
+  const firstSectionRef = useRef(null);
+
   useEffect(() => {
-    // Función para precargar componentes menos prioritarios después de que la página principal se haya cargado
     const preloadSecondaryComponents = () => {
-      // Importar componentes secundarios después de que la página principal esté lista
       const preloads = [
         import("../components/SectionComoComprar/SectionComoComprar"),
         import("../components/SectionCTA/SectionCTA"),
         import("../components/SectionOpiniones/SectionOpiniones"),
       ];
-
-      // Usar Promise.all para cargar en paralelo pero sin bloquear
-      Promise.all(preloads).catch(() => {
-        // Silenciar errores de precarga - no son críticos
-      });
+      Promise.all(preloads).catch(() => {});
     };
 
-    // Usar Intersection Observer para detectar cuando el usuario ha scrolleado
-    // y precargar componentes solo cuando sea necesario
     const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
+      ([entry]) => {
+        if (entry.isIntersecting) {
           if ("requestIdleCallback" in window) {
             window.requestIdleCallback(preloadSecondaryComponents, {
               timeout: 1500,
@@ -203,15 +184,12 @@ export default function Residencial({
           observer.disconnect();
         }
       },
-      { rootMargin: "0px 0px 500px 0px" } // Precargar cuando el usuario está a 500px de los componentes
+      { rootMargin: "0px 0px 500px 0px" }
     );
 
-    // Observar el primer componente visible
-    const firstSection = document.querySelector("#first-section");
-    if (firstSection) {
-      observer.observe(firstSection);
+    if (firstSectionRef.current) {
+      observer.observe(firstSectionRef.current);
     } else {
-      // Si no se encuentra el elemento, usar el enfoque basado en tiempo
       setTimeout(preloadSecondaryComponents, 2000);
     }
 
@@ -220,8 +198,7 @@ export default function Residencial({
 
   return (
     <>
-      {/* Componente crítico para la interacción inicial del usuario */}
-      <div  className="z-10">
+      <div ref={firstSectionRef} className="relative z-20">
         <HomeSearch
           valor={valor}
           setBusqueda={setBusqueda}
@@ -230,50 +207,47 @@ export default function Residencial({
         />
       </div>
 
-      {/* Componentes prioritarios con su propio Suspense para carga independiente */}
-      <div className="z-0">
+      <div className=" relative z-10">
         <Suspense fallback={<LoadingSpinner />}>
           <SectionPorque valor={valor} />
         </Suspense>
       </div>
 
-      <Suspense fallback={<LoadingSpinner />}>
+      <Suspense fallback={<Placeholder />}>
         <AnimatedSection delay={0.2}>
           <SectionVariedad valor={valor} setBusqueda={setBusqueda} />
         </AnimatedSection>
       </Suspense>
 
-      {/* Componente crítico cargado inmediatamente */}
       <AnimatedSection delay={0}>
         <SectionDesarrolloDestacado />
       </AnimatedSection>
 
-      {/* Componentes secundarios con Suspense individual */}
-      <Suspense fallback={<div className="h-20"></div>}>
+      <Suspense fallback={<Placeholder />}>
         <AnimatedSection delay={0.3}>
           <SectionComoComprar />
         </AnimatedSection>
       </Suspense>
 
-      <Suspense fallback={<div className="h-20"></div>}>
+      <Suspense fallback={<Placeholder />}>
         <AnimatedSection delay={0.4}>
           <SectionCTA />
         </AnimatedSection>
       </Suspense>
 
-      <Suspense fallback={<div className="h-20"></div>}>
+      <Suspense fallback={<Placeholder />}>
         <AnimatedSection delay={0.5}>
           <Testimonials />
         </AnimatedSection>
       </Suspense>
 
-      <Suspense fallback={<div className="h-20"></div>}>
+      <Suspense fallback={<Placeholder />}>
         <AnimatedSection delay={0.6}>
           <SectionEquipo propiedades={propiedades} />
         </AnimatedSection>
       </Suspense>
 
-      <Suspense fallback={<div className="h-10"></div>}>
+      <Suspense fallback={<Placeholder height={10} />}>
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -283,7 +257,6 @@ export default function Residencial({
         </motion.div>
       </Suspense>
 
-      {/* Botón para volver al inicio */}
       <ScrollToTopButton />
     </>
   );
