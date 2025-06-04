@@ -13,7 +13,7 @@ Allow: /terminos-y-condiciones
 Allow: /codigo-de-etica
 Allow: /politica-de-privacidad
 
-# Rutas dinámicas
+# Rutas dinámicas - Propiedades individuales
 Allow: /propiedades/seleccion/
 
 # Archivos y directorios a no indexar
@@ -21,3 +21,5 @@ Disallow: /src/
 Disallow: /node_modules/
 Disallow: /.vscode/
 Disallow: /.git/
+Disallow: /*.js$
+Disallow: /*.json$

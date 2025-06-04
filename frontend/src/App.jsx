@@ -77,7 +77,7 @@ const App = () => {
       })
       .catch(error => console.error("Error:", error));
   }, [busquedaHome]); */
-
+ console.log("Propiedades:", propiedades);
   useEffect(() => {
     const getData = async () => {
       try {
@@ -117,19 +117,25 @@ const App = () => {
         <SearchProvider>
           <Suspense fallback={<LoadingSpinner />}>
             <Routes>
-              <Route path="/" element={<Eleccion setValor={setValor} />} />
+              <Route path="/" element={
+                <Suspense fallback={<LoadingSpinner />}>
+                  <Eleccion setValor={setValor} />
+                </Suspense>
+              } />
               <Route
                 path="/inicio"
                 element={
-                  <Residencial
-                    propiedades={propiedades}
-                    valor={valor}
-                    setSelectedOptions={setSelectedOptions}
-                    selectedOptions={selectedOptions}
-                    autoCompleteHome={autoCompleteHome}
-                    setAutoCompleteHome={setAutoCompleteHome}
-                    setBusqueda={setBusqueda}
-                  />
+                  <Suspense fallback={<LoadingSpinner />}>
+                    <Residencial
+                      propiedades={propiedades}
+                      valor={valor}
+                      setSelectedOptions={setSelectedOptions}
+                      selectedOptions={selectedOptions}
+                      autoCompleteHome={autoCompleteHome}
+                      setAutoCompleteHome={setAutoCompleteHome}
+                      setBusqueda={setBusqueda}
+                    />
+                  </Suspense>
                 }
               />
               <Route

@@ -87,7 +87,7 @@ export default function Header({ setSelectedOptionsOperacion }) {
                 Comprar
               </Link>
             </li>
-            <li className="relative py-1 group" ref={dropdownRef}>
+            {/* <li className="relative py-1 group" ref={dropdownRef}>
               <div className="flex items-center">
                 <button
                   className="flex items-center w-full py-2 px-3 text-gray-700 rounded-md hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:w-auto"
@@ -112,7 +112,7 @@ export default function Header({ setSelectedOptionsOperacion }) {
                   </svg>
                 </button>
               </div>
-              {/* Dropdown menu */}
+            
               <div
                 className={`${
                   isVenderOpen ? "block" : "hidden"
@@ -147,7 +147,7 @@ export default function Header({ setSelectedOptionsOperacion }) {
                   </li>
                 </ul>
               </div>
-            </li>
+            </li> */}
             <li className="py-1">
               <a
                 href="#"
@@ -175,7 +175,7 @@ export default function Header({ setSelectedOptionsOperacion }) {
                 Nuestro equipo
               </Link>
             </li>
-            <li className="py-1">
+            {/* <li className="py-1">
               <Link
                 to={"/reclutamiento"}
                 className="block py-2 px-3 text-gray-700 rounded-md hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
@@ -183,7 +183,7 @@ export default function Header({ setSelectedOptionsOperacion }) {
               >
                 Únete a nosotros
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>

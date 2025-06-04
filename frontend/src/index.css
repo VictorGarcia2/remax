@@ -55,6 +55,62 @@
 .animate-fadeIn {
   animation: fadeIn 0.5s ease-out forwards;
 }
+
+/* Estilos para priorizar la carga de HomeSearch */
+.home-search-container {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 5000px;
+}
+
+/* Clase para indicar que HomeSearch está cargando */
+html.home-search-loading .section-porque-container {
+  content-visibility: hidden;
+  contain-intrinsic-size: 1px 200px;
+  visibility: hidden;
+}
+
+/* Asegurar que SectionPorque se cargue después */
+.section-porque-container {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 500px;
+}
+
+.home-search-priority {
+  display: block !important;
+}
+
+/* Prevenir layout shifts */
+.section-variedad-container,
+.section-como-comprar-container,
+.section-cta-container,
+.section-testimonials-container,
+.section-equipo-container,
+.section-footer-container {
+  min-height: var(--section-height, auto);
+  contain-intrinsic-size: auto var(--section-height, auto);
+  content-visibility: auto;
+}
+
+.section-variedad-container { --section-height: 600px; }
+.section-como-comprar-container { --section-height: 500px; }
+.section-cta-container { --section-height: 300px; }
+.section-testimonials-container { --section-height: 450px; }
+.section-equipo-container { --section-height: 550px; }
+.section-footer-container { --section-height: 200px; }
+
+@keyframes loading-bar {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-loading-bar {
+  animation: loading-bar 1.5s infinite;
+}
+
 .mapboxgl-popup-content {
   background-color: #ffffff00 !important; /* gris oscuro */
   border-radius: 0 !important;        /* bordes grandes */

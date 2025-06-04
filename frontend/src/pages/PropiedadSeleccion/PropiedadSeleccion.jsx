@@ -12,6 +12,7 @@ import { useParams } from "react-router";
 /* import propierties from "/src/APi/propiedades.json"; */
 import { ShareButtons } from "../../components/ShareButtons.jsx";
 import { Share2 } from "lucide-react";
+import { toast } from "react-toastify";
 export default function PropiedadSeleccion({ seleccion }) {
   const { id } = useParams();
   const [propiedades, setPropiedades] = useState([]);
@@ -19,6 +20,13 @@ export default function PropiedadSeleccion({ seleccion }) {
   const [fotoEscogida, setFotoEscogida] = useState();
   const [totalPaginas, setTotalPaginas] = useState(1);
   const [pagina, setPagina] = useState();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+  });
+  const [formLoading, setFormLoading] = useState(false);
+  const [showMobileForm, setShowMobileForm] = useState(false);
 
   const countPage = propiedadSeleccion?.imagenes
     ? propiedadSeleccion.imagenes.split(",").length
@@ -163,44 +171,157 @@ export default function PropiedadSeleccion({ seleccion }) {
   const [shareModalOpen, setShareModalOpen] = useState(true);
 
   const m2Bodega = propiedadSeleccion?.propiedades_meta?.m2_bodega;
-  
 
   const share = () => {
     /* usa prev state */
     setShareModalOpen((prevState) => !prevState);
   };
+  
+  const handleInputChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setFormLoading(true);
+    
+    try {
+      // API key para Tokko Broker
+      const apiKey = "df13ee781fa7b1c0033b621e2add20a094ab9eff";
+      
+      const payload = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone.startsWith("+52") ? formData.phone : "+52" + formData.phone,
+        message: formData.message || `Interesado en propiedad ${propiedadSeleccion?.propiedad_id} en ${direccion}`,
+        properties: String(propiedadSeleccion?.clave),
+        source: "website"
+      };
+      
+      console.log("Enviando datos:", payload);
+      
+      const response = await axios.post(
+        `https://www.tokkobroker.com/api/v1/webcontact/?format=json&key=${apiKey}&lang=es_ar`,
+        payload
+      );
+      
+      console.log("Respuesta:", response.data);
+      toast.success("Mensaje enviado correctamente");
+      setFormData({ name: "", email: "", phone: "", message: "" });
+    } catch (error) {
+      console.error("Error al enviar formulario:", error);
+      console.log("Detalles del error:", error.response?.data || "No hay detalles adicionales");
+      toast.error("Error al enviar el mensaje. Intente nuevamente.");
+    } finally {
+      setFormLoading(false);
+    }
+  };
   return (
     <>
       <Helmet>
+        <title>
+          {propiedadSeleccion
+            ? `${
+                tituloPro.find(
+                  (item) =>
+                    item.tipo_id === propiedadSeleccion?.tipos?.tipo_id &&
+                    item.operacion_id === propiedadSeleccion?.operacion
+                )?.nombre || "Propiedad"
+              } en ${direccion} | RE/MAX CIN`
+            : "Cargando propiedad | RE/MAX CIN"}
+        </title>
         <meta
           name="description"
-          content={`${propiedadSeleccion?.descripcion_corta} en ${direccion}`}
+          content={
+            propiedadSeleccion?.descripcion_corta
+              ? `${propiedadSeleccion.descripcion_corta.substring(
+                  0,
+                  155
+                )}... en ${direccion}. ${
+                  propiedadSeleccion.m2_construccion
+                }m², ${propiedadSeleccion.recamaras} recámaras. Contáctanos.`
+              : "Encuentra tu propiedad ideal con RE/MAX CIN Veracruz. Casas, departamentos y terrenos en venta y renta."
+          }
         />
+        <meta
+          property="og:title"
+          content={
+            propiedadSeleccion
+              ? `${
+                  tituloPro.find(
+                    (item) =>
+                      item.tipo_id === propiedadSeleccion?.tipos?.tipo_id &&
+                      item.operacion_id === propiedadSeleccion?.operacion
+                  )?.nombre || "Propiedad"
+                } en ${direccion}`
+              : "Propiedad RE/MAX CIN"
+          }
+        />
+        <meta
+          property="og:description"
+          content={
+            propiedadSeleccion?.descripcion_corta ||
+            "Encuentra tu propiedad ideal con RE/MAX CIN"
+          }
+        />
+        <meta
+          property="og:image"
+          content={
+            propiedadSeleccion?.imagenes
+              ? `https://cdn.remax.com.mx/properties/${
+                  propiedadSeleccion.propiedad_id
+                }/${propiedadSeleccion.imagenes.split(",")[0]}`
+              : ""
+          }
+        />
+        <meta
+          property="og:url"
+          content={`https://remaxcin.mx/propiedades/seleccion/${propiedadSeleccion?.propiedad_id}`}
+        />
+        <meta property="og:type" content="website" />
         <link
           rel="canonical"
-          href={`https://www.remax.com.mx/propiedades/seleccion/${propiedadSeleccion?.propiedad_id}`}
+          href={`https://remaxcin.mx/propiedades/seleccion/${propiedadSeleccion?.propiedad_id}`}
         />
-        // Schema actualizado con más detalles
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "RealEstateListing",
             "@id": `https://remaxcin.mx/propiedades/seleccion/${propiedadSeleccion?.propiedad_id}`,
             identifier: propiedadSeleccion?.propiedad_id,
-            name: propiedadSeleccion?.titulo,
+            name:
+              propiedadSeleccion?.titulo ||
+              (propiedadSeleccion
+                ? `${
+                    tituloPro.find(
+                      (item) =>
+                        item.tipo_id === propiedadSeleccion?.tipos?.tipo_id &&
+                        item.operacion_id === propiedadSeleccion?.operacion
+                    )?.nombre || "Propiedad"
+                  } en ${direccion}`
+                : "Propiedad"),
             description: propiedadSeleccion?.descripcion_corta,
             url: `https://remaxcin.mx/propiedades/seleccion/${propiedadSeleccion?.propiedad_id}`,
+            datePosted: new Date().toISOString(),
             image: propiedadSeleccion?.imagenes
-              .split(",")
-              .map(
-                (img) =>
-                  `https://cdn.remax.com.mx/properties/${propiedadSeleccion.propiedad_id}/${img}`
-              ),
+              ? propiedadSeleccion.imagenes
+                  .split(",")
+                  .map(
+                    (img) =>
+                      `https://cdn.remax.com.mx/properties/${propiedadSeleccion.propiedad_id}/${img}`
+                  )
+              : [],
             numberOfRooms: propiedadSeleccion?.recamaras,
             numberOfBathroomsTotal: propiedadSeleccion?.banos,
             floorSize: {
               "@type": "QuantitativeValue",
-              value: propiedadSeleccion?.propiedades_meta?.construccion,
+              value:
+                propiedadSeleccion?.m2_construccion === "0.00"
+                  ? propiedadSeleccion?.propiedades_meta?.m2_bodega
+                  : propiedadSeleccion?.m2_construccion,
               unitText: "m2",
             },
             address: {
@@ -226,12 +347,18 @@ export default function PropiedadSeleccion({ seleccion }) {
               "@type": "RealEstateAgent",
               name: filtroagente[0]?.nombre || "RE/MAX CIN",
               image: imagenAgente,
-              telephone: "+52 229 923 0000",
+              telephone: "+52 229 269 6629",
               email: "remax.cin.veracruz@gmail.com",
+              url: "https://remaxcin.mx",
+            },
+            mainEntityOfPage: {
+              "@type": "WebPage",
+              "@id": `https://remaxcin.mx/propiedades/seleccion/${propiedadSeleccion?.propiedad_id}`,
             },
           })}
         </script>
       </Helmet>
+
       <div
         className={`${
           shareModalOpen && "invisible"
@@ -293,7 +420,8 @@ export default function PropiedadSeleccion({ seleccion }) {
       </div>
       <HeaderPropiedadSeleccion />
       <div
-        className={`transition-all duration-[900ms]  lg:invisible  ease-in-out   bottom-4 right-4 bg-blueRemax rounded-full  fixed z-40  w-[217px] h-[50px] flex items-center justify-center ${
+        onClick={() => setShowMobileForm(true)}
+        className={`transition-all duration-[900ms] lg:invisible ease-in-out bottom-4 right-4 bg-blueRemax rounded-full fixed z-40 w-[217px] h-[50px] flex items-center justify-center cursor-pointer ${
           animation ? "translate-x-0 opacity-100 " : " opacity-0 translate-x-0 "
         }`}
       >
@@ -301,20 +429,17 @@ export default function PropiedadSeleccion({ seleccion }) {
           Contacta a un agente
         </p>
       </div>
-      <a
-        href={`https://wa.me/5212292696629?text=Hola, estoy interesado en la propiedad ${propiedadSeleccion?.propiedad_id} ubicada en ${direccion}`}
-        target="_blank"
-        rel="noopener noreferrer"
+      <div 
+        onClick={() => setShowMobileForm(true)} 
+        className="bottom-4 right-4 lg:invisible bg-blueRemax rounded-full fixed z-50 w-[50px] h-[50px] flex items-center justify-center cursor-pointer"
       >
-        <div className="bottom-4 right-4 lg:invisible  bg-blueRemax rounded-full  fixed z-50  w-[50px] h-[50px] flex items-center justify-center">
-          <img
-            loading="lazy"
-            className="w-8"
-            src="/HomePageContent/brand-whatsapp 1.svg"
-            alt=""
-          />
-        </div>
-      </a>
+        <img
+          loading="lazy"
+          className="w-8"
+          src="/HomePageContent/brand-whatsapp 1.svg"
+          alt=""
+        />
+      </div>
       <div className="flex flex-col  px-2 justify-center items-start">
         <div className="grid grid-cols-2 gap-2 w-full ">
           <div>
@@ -388,7 +513,9 @@ export default function PropiedadSeleccion({ seleccion }) {
                     (item) =>
                       item.tipo_id === propiedadSeleccion?.tipos?.tipo_id && (
                         <p key={item.tipo_id} className="lg:text-3xl font-bold">
-                          {`${item.nombre} desde: ${Number(propiedadSeleccion.mxn_corriente).toLocaleString("en-US")} MXN`}
+                          {`${item.nombre} desde: ${Number(
+                            propiedadSeleccion.mxn_corriente
+                          ).toLocaleString("en-US")} MXN`}
                         </p>
                       )
                   )}
@@ -400,7 +527,10 @@ export default function PropiedadSeleccion({ seleccion }) {
                       alt="Icono de metros cuadrados"
                     />
                     <p className="lg:text-3xl">
-                      {propiedadSeleccion.m2_construccion === "0.00" ? m2Bodega : propiedadSeleccion.m2_construccion }m²
+                      {propiedadSeleccion.m2_construccion === "0.00"
+                        ? m2Bodega
+                        : propiedadSeleccion.m2_construccion}
+                      m²
                     </p>
                   </div>
                 </>
@@ -417,11 +547,11 @@ export default function PropiedadSeleccion({ seleccion }) {
 
             <hr className="w-full my-2 text-[#7B7B7B]" />
             {/* Contacta a un agente móvil */}
-            <div className="w-[341px] lg:hidden h-[158px] p-3 text-center flex flex-col justify-between items-center shadow-[0px_4px_5px_0px] shadow-black/40 rounded-[10px] mx-auto my-5 bg-[#F9F9F9]">
+            <div className="w-[341px] lg:hidden p-3 text-center flex flex-col justify-between items-center shadow-[0px_4px_5px_0px] shadow-black/40 rounded-[10px] mx-auto my-5 bg-[#F9F9F9]">
               <div>
                 <p className="font-bold text-[18px]">Contacta al Agente</p>
               </div>
-              <div className="flex gap-15 items-center justify-between">
+              <div className="flex gap-15 items-center justify-between mb-3">
                 <div>
                   <p className="font-medium text-[16px]">
                     {filtroagente[0]?.nombre}
@@ -479,6 +609,76 @@ export default function PropiedadSeleccion({ seleccion }) {
                   />
                 </div>
               </div>
+              
+              {/* Formulario de contacto móvil */}
+              {!showMobileForm ? (
+                <button 
+                  onClick={() => setShowMobileForm(true)}
+                  className="bg-blueRemax h-[40px] rounded text-white w-full mt-2"
+                >
+                  Contactar ahora
+                </button>
+              ) : (
+                <form onSubmit={handleSubmit} className="w-full">
+                  <div className="flex flex-col w-full text-lg text-start gap-2">
+                    <label htmlFor="name-mobile">
+                      Nombre
+                      <input
+                        type="text"
+                        id="name-mobile"
+                        name="name"
+                        placeholder="Juan Martín"
+                        className="border border-gray-300 rounded-lg p-2 w-full"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        required
+                      />
+                    </label>
+                    <label htmlFor="phone-mobile">
+                      Teléfono
+                      <input
+                        type="tel"
+                        id="phone-mobile"
+                        name="phone"
+                        placeholder="9932402987"
+                        className="border border-gray-300 rounded-lg p-2 w-full"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        required
+                      />
+                    </label>
+                    <label htmlFor="email-mobile">
+                      Correo
+                      <input
+                        type="email"
+                        id="email-mobile"
+                        name="email"
+                        placeholder="example@gmail.com"
+                        className="border border-gray-300 rounded-lg p-2 w-full"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        required
+                      />
+                    </label>
+                    <div className="flex gap-2">
+                      <button 
+                        type="button" 
+                        onClick={() => setShowMobileForm(false)}
+                        className="bg-gray-300 h-[40px] rounded text-gray-700 mt-2 flex-1"
+                      >
+                        Cancelar
+                      </button>
+                      <button 
+                        type="submit" 
+                        className="bg-blueRemax h-[40px] rounded text-white mt-2 flex-1"
+                        disabled={formLoading}
+                      >
+                        {formLoading ? "Enviando..." : "Enviar"}
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              )}
             </div>
             {tipos && operaciones && propiedadSeleccion ? (
               tipos.map((tipo) =>
@@ -582,43 +782,61 @@ export default function PropiedadSeleccion({ seleccion }) {
                     Contáctanos
                   </p>
                 </div>
-                <div className="flex  ">
-                  <form action=" " className="w-full flex flex-col ">
-                    {/* Aquí va un formulario con nombres, teléfono y correo electrónico, con dos botones */}
+                <div className="flex">
+                  <form onSubmit={handleSubmit} className="w-full flex flex-col">
                     <div className="flex flex-col w-120 text-2xl text-start gap-3">
-                      <label htmlFor="">
+                      <label htmlFor="name">
                         Nombre(s)
                         <input
                           type="text"
+                          id="name"
+                          name="name"
                           placeholder="Juan Martín"
                           className="border border-gray-300 rounded-lg p-2 w-full"
+                          value={formData.name}
+                          onChange={handleInputChange}
+                          required
                         />
                       </label>
-                      <label htmlFor="">
+                      <label htmlFor="phone">
                         Teléfono
                         <input
-                          type="number"
+                          type="tel"
+                          id="phone"
+                          name="phone"
                           placeholder="9932402987"
                           className="border border-gray-300 rounded-lg p-2 w-full"
+                          value={formData.phone}
+                          onChange={handleInputChange}
+                          required
                         />
                       </label>
-                      <label htmlFor="">
+                      <label htmlFor="email">
                         Correo Electrónico
                         <input
                           type="email"
+                          id="email"
+                          name="email"
                           placeholder="example@gmail.com"
                           className="border border-gray-300 rounded-lg p-2 w-full"
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          required
                         />
                       </label>
+                     
                       <div className="flex flex-col py-4 justify-center gap-5">
-                        <button className="bg-blueRemax h-[50px] rounded">
-                          <FontAwesomeIcon
-                            icon={faWhatsapp}
-                            size="xl"
-                            style={{ color: "white" }}
-                          />
+                        <button 
+                          type="submit" 
+                          className="bg-blueRemax h-[50px] rounded text-white"
+                          disabled={formLoading}
+                        >
+                          {formLoading ? "Enviando..." : "Enviar consulta"}
                         </button>
-                        <button className="bg-redRemax h-[50px] text-white text-2xl rounded">
+                        <button 
+                          type="button" 
+                          className="bg-redRemax h-[50px] text-white text-2xl rounded"
+                        >
                           Calculadora de Hipotecas
                         </button>
                       </div>
