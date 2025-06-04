@@ -93,7 +93,7 @@ export default function PropiedadSeleccion({ seleccion }) {
         const resultado = `https://cdn.remax.com.mx/properties/${propiedadSeleccion.propiedad_id}/${imagenesArray[index]}`;
         setFotoEscogida(resultado);
       } else {
-        console.log("No hay imágenes válidas.");
+        
       }
     } else {
       console.log("No existe una propiedad seleccionada o no tiene imágenes.");

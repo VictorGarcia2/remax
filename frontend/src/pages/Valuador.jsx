@@ -30,7 +30,7 @@ const Valuador = () => {
 
   // Función para manejar la finalización del quiz
   const handleQuizComplete = (answers, estimatedValue) => {
-    console.log('Quiz completado:', { answers, estimatedValue });
+  
   };
 
   // Función para iniciar el quiz

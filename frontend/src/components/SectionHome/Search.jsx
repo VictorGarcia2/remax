@@ -41,7 +41,7 @@ export default function Search({
   const handleTipos = (event) => {
     const value = event.target.id;
     if (event) {
-      console.log("Actualizando tipo desde Search.jsx:", value);
+     
       setOpenTipo(true);
       setSelectedOptionsTipos([parseInt(value)]);
     } 
@@ -149,7 +149,7 @@ export default function Search({
     setModalBusqueda(true); 
     // Aumentamos el tiempo de espera para asegurar que el estado se actualice antes de navegar
     setTimeout(() => {
-      console.log("Navegando a /propiedades con selectedOptionsTipos:", selectedOptionsTipos);
+     
       navigate("/propiedades" );
     }, 100);
   };

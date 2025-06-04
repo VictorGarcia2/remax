@@ -290,7 +290,7 @@ export function Dropdown({ propiedadSeleccion }) {
   }
 
   // Resultado final (array de objetos con label e icono)
-  console.log(amenidadesDisponibles);
+  
   return (
     <>
       <Accordion open={openAcc1} icon={<Icon id={1} open={openAcc1} />}>

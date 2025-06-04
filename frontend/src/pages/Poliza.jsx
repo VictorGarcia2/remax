@@ -41,7 +41,7 @@ function Poliza() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+   
   };
 
   const faqs = [

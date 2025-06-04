@@ -1,7 +1,7 @@
 import React from "react";
 
 export const Equipo = ({ propiedades }) => {
-  console.log(propiedades);
+
   const todosLosAgentes = propiedades.map((p) => p.agentes).filter(Boolean);
 
   const agentesUnicos = Array.from(

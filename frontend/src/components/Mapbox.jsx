@@ -33,7 +33,7 @@ const MapboxConCards = ({
     selectedOptionsOperacion, 
     setSelectedOptionsOperacion 
   } = useSearchContext();
-  console.log(selectedOptionsTipos)
+  
   const [mapIsReady, setMapIsReady] = useState(false);
   const mapContainerRef = useRef(null);
   const mapRef = useRef(null);

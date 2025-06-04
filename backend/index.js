@@ -18,7 +18,7 @@ app.use(express.json());
 // Función para generar el sitemap
 async function updateSitemap() {
   try {
-    console.log('Iniciando actualización de sitemap...');
+   
     
     // Obtener todas las propiedades desde la API
     const response = await axios.get('https://us-central1-remax-api.cloudfunctions.net/api/propiedades', {
@@ -29,7 +29,7 @@ async function updateSitemap() {
     });
     
     const propiedades = response.data.data.rows;
-    console.log(`Se encontraron ${propiedades.length} propiedades para incluir en el sitemap`);
+  
 
     // Crear el encabezado del sitemap
     let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -89,12 +89,10 @@ async function updateSitemap() {
     // Guardar el sitemap en el directorio público
     const sitemapPath = path.join(__dirname, '../frontend/public/sitemap.xml');
     fs.writeFileSync(sitemapPath, sitemap);
-    
-    console.log(`Sitemap actualizado exitosamente en: ${sitemapPath}`);
-    console.log(`Total de propiedades indexadas: ${propiedades.length}`);
+ 
     return true;
   } catch (error) {
-    console.error('Error al actualizar el sitemap:', error);
+    
     return false;
   }
 }
@@ -140,9 +138,9 @@ updateSitemap().catch(error => {
 const SITEMAP_UPDATE_INTERVAL = 24 * 60 * 60 * 1000; // 24 horas en milisegundos
 setInterval(async () => {
   try {
-    console.log('Iniciando actualización programada del sitemap...');
+   
     await updateSitemap();
-    console.log('Actualización programada del sitemap completada');
+   
   } catch (error) {
     console.error('Error en la actualización programada del sitemap:', error);
   }

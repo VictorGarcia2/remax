@@ -77,7 +77,7 @@ const App = () => {
       })
       .catch(error => console.error("Error:", error));
   }, [busquedaHome]); */
- console.log("Propiedades:", propiedades);
+
   useEffect(() => {
     const getData = async () => {
       try {

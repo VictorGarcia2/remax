@@ -31,7 +31,7 @@ export default function SectionVariedad({ setBusqueda, valor }) {
 
   const handleSearch = (e) => {
     const tipo = e.currentTarget.id;
-    console.log("Actualizando tipo desde SectionVariedad:", tipo);
+  
     setSelectedOptionsTipos([tipo]);
     // Pequeña pausa para asegurar que el estado se actualice antes de navegar
     setTimeout(() => {

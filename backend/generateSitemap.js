@@ -5,13 +5,12 @@ const path = require('path');
 // Función para generar el sitemap
 async function generateSitemap() {
   try {
-    console.log('Iniciando generación de sitemap...');
+
     
     // Obtener todas las propiedades desde la API
     const response = await axios.get('https://remaxcin.com/api/propiedades');
     const propiedades = response.data.data.rows;
     
-    console.log(`Se encontraron ${propiedades.length} propiedades para incluir en el sitemap`);
 
     // Crear el encabezado del sitemap
     let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -71,9 +70,6 @@ async function generateSitemap() {
     // Guardar el sitemap en el directorio público
     const sitemapPath = path.join(__dirname, '../frontend/public/sitemap.xml');
     fs.writeFileSync(sitemapPath, sitemap);
-    
-    console.log(`Sitemap generado exitosamente en: ${sitemapPath}`);
-    console.log(`Total de propiedades indexadas: ${propiedades.length}`);
   } catch (error) {
     console.error('Error al generar el sitemap:', error);
   }

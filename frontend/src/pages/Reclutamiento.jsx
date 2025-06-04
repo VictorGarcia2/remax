@@ -20,7 +20,7 @@ export default function Reclutamiento() {
   });
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+   
     // Aquí iría la lógica para enviar el formulario
   };
 

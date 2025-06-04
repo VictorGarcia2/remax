@@ -33,7 +33,7 @@ export default function CardResultado({
   selectedOptionsTipos,
   selectedOptionsOperacion,
 }) {
-  console.log(selectedOptionsTipos)
+
 
   const [, updateState] = useState();
   const forceUpdate = useCallback(() => updateState({}), []);

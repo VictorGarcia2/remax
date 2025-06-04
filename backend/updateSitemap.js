@@ -5,13 +5,13 @@ const path = require('path');
 // Función para generar el sitemap
 async function updateSitemap() {
   try {
-    console.log('Iniciando actualización de sitemap...');
+  
     
     // Obtener todas las propiedades desde la API
     const response = await axios.get('https://remaxcin.com/api/propiedades');
     const propiedades = response.data.data.rows;
     
-    console.log(`Se encontraron ${propiedades.length} propiedades para incluir en el sitemap`);
+  
 
     // Crear el encabezado del sitemap
     let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
