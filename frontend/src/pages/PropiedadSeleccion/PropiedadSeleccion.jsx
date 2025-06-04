@@ -264,8 +264,7 @@ export default function PropiedadSeleccion({ seleccion }) {
           content={
             propiedadSeleccion?.descripcion_corta ||
             "Encuentra tu propiedad ideal con RE/MAX CIN"
-          }
-        />
+          } />
         <meta
           property="og:image"
           content={
