@@ -197,7 +197,7 @@ export default function PropiedadSeleccion({ seleccion }) {
         email: formData.email,
         phone: formData.phone.startsWith("+52") ? formData.phone : "+52" + formData.phone,
         message: formData.message || `Interesado en propiedad ${propiedadSeleccion?.propiedad_id} en ${direccion}`,
-        properties: String(propiedadSeleccion?.clave),
+        publication_id: String(propiedadSeleccion?.clave),
         source: "website"
       };
       
