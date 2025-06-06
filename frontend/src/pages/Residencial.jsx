@@ -187,7 +187,7 @@ const Residencial = ({
 
   return (
     <>
-      <div ref={firstSectionRef} className="relative z-20">
+      <div ref={firstSectionRef} className=" z-20">
         <HomeSearch
           valor={valor}
           setBusqueda={setBusqueda}
@@ -196,7 +196,7 @@ const Residencial = ({
         />
       </div>
 
-      <div className="relative z-10">
+      <div className=" z-10">
         <Suspense fallback={SectionPlaceholders.porQue}>
           {showSectionPorque ? <SectionPorque valor={valor} /> : <div style={{height: "400px"}} />}
         </Suspense>

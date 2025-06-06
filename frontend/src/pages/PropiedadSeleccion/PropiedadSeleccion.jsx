@@ -65,11 +65,6 @@ export default function PropiedadSeleccion({ seleccion }) {
         propiedadSeleccion.agentes.numeroasociado.includes(item.id)
       )
     : [];
-
-  /*  useEffect(() => {
-    const data = propierties.data.rows; // o como venga en tu JSON
-    setPropiedades(data);
-  }, []); */
   useEffect(() => {
     const selectedProperty = propiedades.find(
       (item) => item.propiedad_id === parseInt(id)

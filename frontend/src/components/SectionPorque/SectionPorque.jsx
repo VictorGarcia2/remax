@@ -66,7 +66,7 @@ export default function SectionPorque({ valor }) {
   const selectedContent = content.find((item) => item.key === valor) || content[0];
 
   return (
-    <div className="w-full bg-blueRemax/20 z-0 px-6 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+    <div className="w-full  bg-blueRemax/20 z-0 px-6 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
       <div className="md:grid md:grid-cols-2 md:items-center md:gap-12 xl:gap-32">
         <div>
           <img
