@@ -4,6 +4,7 @@ import SectionFooter from "../components/SectionFooter/SectionFooter";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGlobe, faAward, faChartLine, faUsers, faBriefcase, faGraduationCap } from "@fortawesome/free-solid-svg-icons";
+import { useSearchContext } from "../context/SearchContext";
 
 export default function Reclutamiento() {
   const [formData, setFormData] = useState({
@@ -23,6 +24,8 @@ export default function Reclutamiento() {
    
     // Aquí iría la lógica para enviar el formulario
   };
+
+  const { valor } = useSearchContext();
 
   return (
     <>
@@ -46,7 +49,9 @@ export default function Reclutamiento() {
               <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
                 <a 
                   href="#contacto" 
-                  className="inline-flex items-center bg-[#db1c2e] text-white px-8 py-3 rounded-lg font-medium hover:bg-[#c01828] transition-all duration-300 shadow-lg"
+                  className={`inline-flex items-center text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg ${
+                    valor === "comercial" ? "bg-redRemax hover:bg-redRemax/80" : "bg-blueRemax hover:bg-blueRemax/80"
+                  }`}
                 >
                   <span>Comienza hoy</span>
                   <FontAwesomeIcon icon={faChartLine} className="ml-2" />
@@ -390,12 +395,16 @@ export default function Reclutamiento() {
                 </div>
                 
                 <div className="pt-4">
-                  <button
-                    type="submit"
-                    className="w-full bg-[#db1c2e] text-white py-4 px-6 rounded-lg hover:bg-[#c01828] transition-all duration-300 font-bold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-                  >
-                    ENVIAR MI SOLICITUD
-                  </button>
+                  <div className="flex flex-col gap-4">
+                    <button 
+                      type="submit" 
+                      className={`w-full text-white py-4 px-6 rounded-lg transition-all duration-300 font-bold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 ${
+                        valor === "comercial" ? "bg-redRemax hover:bg-redRemax/80" : "bg-blueRemax hover:bg-blueRemax/80"
+                      }`}
+                    >
+                      Enviar mensaje
+                    </button>
+                  </div>
                 </div>
               </form>
               

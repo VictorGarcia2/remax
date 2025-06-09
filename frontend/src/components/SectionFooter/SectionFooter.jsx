@@ -1,7 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSearchContext } from "../../context/SearchContext";
 
 export default function SectionFooter() {
+  const { valor } = useSearchContext();
+
+  const linkClasses = `hover:underline ${valor === "comercial" ? "text-redRemax hover:text-red-700" : "text-blueRemax hover:text-blue-700"}`;
+
   return (
     <>
       <footer class="bg-blueRemax/10 text-[#2e2c2c]">
@@ -21,12 +26,12 @@ export default function SectionFooter() {
                 </h2>
                 <ul class="text-[#2e2c2c]  font-medium">
                   <li class="mb-4">
-                    <Link to={'/NuestroEquipo'} class="hover:underline">
+                    <Link to={'/NuestroEquipo'} class={linkClasses}>
                       Nuestro Equipo
                     </Link>
                   </li>
                   <li class="mb-4">
-                    <Link to={'/valuador'} class="hover:underline">
+                    <Link to={'/valuador'} class={linkClasses}>
                       Valuador de Propiedades
                     </Link>
                   </li>
@@ -39,17 +44,17 @@ export default function SectionFooter() {
                 </h2>
                 <ul class=" font-medium">
                   <li class="mb-4">
-                    <Link to={"/politica-de-privacidad"} class="hover:underline">
+                    <Link to={"/politica-de-privacidad"} class={linkClasses}>
                       Aviso de privacidad
                     </Link>
                   </li>
                   <li class="mb-4">
-                    <Link to={"/codigo-de-etica"} class="hover:underline">
+                    <Link to={"/codigo-de-etica"} class={linkClasses}>
                       Código de ética
                     </Link>
                   </li>
                   <li>
-                    <Link to={"/terminos-y-condiciones"} class="hover:underline">
+                    <Link to={"/terminos-y-condiciones"} class={linkClasses}>
                       Terminos &amp; Condiciones
                     </Link>
                   </li>

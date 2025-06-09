@@ -4,7 +4,6 @@ import RangoDePrecio from "./RangoDePrecio.jsx";
 import Operacion from "./Operacion.jsx";
 import Sector from "./Sector.jsx";
 import { Link } from "react-router-dom";
-import mapboxgl from "mapbox-gl";
 import { faL, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import LimpiarFiltro from "./LimpiarFiltro.jsx";
@@ -30,12 +29,11 @@ export default function FiltrosDesktop({
     selectedOptionsTipos,
     setSelectedOptionsTipos,
     selectedOptionsOperacion, 
-    setSelectedOptionsOperacion 
+    setSelectedOptionsOperacion,
+    valor: contextValor
   } = useSearchContext(); 
 
 
-  mapboxgl.accessToken =
-    "pk.eyJ1IjoidmljdG9yZ2FyY2lhcHJ6IiwiYSI6ImNtNXZ3dW0wMjA2aHgyanE1M3ptczQ2azUifQ.ILrTXW_4c9_pbGC3Uj-wdg";
   const [autoCompleteHome, setAutoCompleteHome] = useState([]);
   const [modalBusqueda, setModalBusqueda] = useState(true);
   const autoCompleteModal = (e) => {
@@ -49,12 +47,14 @@ export default function FiltrosDesktop({
   useEffect(() => {
     const manejarBusqueda = async () => {
       try {
+        const mapboxglModule = await import('mapbox-gl');
+        const mapboxgl = mapboxglModule.default;
+        const accessToken = "pk.eyJ1IjoidmljdG9yZ2FyY2lhcHJ6IiwiYSI6ImNtNXZ3dW0wMjA2aHgyanE1M3ptczQ2azUifQ.ILrTXW_4c9_pbGC3Uj-wdg";
+
         const response = await fetch(
           `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
             busqueda
-          )}.json?access_token=${
-            mapboxgl.accessToken
-          }&types=place,address&language=es&country=MX`
+          )}.json?access_token=${accessToken}&types=place,address&language=es&country=MX`
         );
         const data = await response.json();
         if (data.features && data.features.length > 0) {
@@ -181,7 +181,9 @@ export default function FiltrosDesktop({
         </div>
         <div
           onClick={() => setManejoBusqueda((prevState) => !prevState)}
-          className="rounded-e-full cursor-pointer  w-13 h-11 sm:h-11 sm:w-15 bg-[#003DA4] align-middle  items-center flex shadow-[0_3px_1px] shadow-black/50"
+          className={`rounded-e-full cursor-pointer w-13 h-11 sm:h-11 sm:w-15 shadow-[0_3px_1px] shadow-black/50 align-middle items-center flex ${
+            contextValor === "comercial" ? "bg-redRemax" : "bg-blueRemax"
+          }`}
         >
           <Link to={"/propiedades"} className="mx-auto">
             <button className="items-center flex cursor-pointer">

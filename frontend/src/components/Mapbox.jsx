@@ -1,14 +1,16 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useMemo, useCallback } from "react";
 import ReactDOMServer from "react-dom/server";
-import mapboxgl from "mapbox-gl";
-import "mapbox-gl/dist/mapbox-gl.css";
+// import mapboxgl from "mapbox-gl"; // Eliminamos la importación estática
+import "mapbox-gl/dist/mapbox-gl.css"; // Mantenemos la importación del CSS
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { useSearchContext } from "../context/SearchContext";
+import debounce from 'lodash/debounce';
+import ReactDOM from "react-dom";
 
-mapboxgl.accessToken =
-  "pk.eyJ1IjoidmljdG9yZ2lhcHJ6IiwiYSI6ImNtNXZ3dW0wMjA2aHgyanE1M3ptczQ2azUifQ.ILrTXW_4c9_pbGC3Uj-wdg";
+// mapboxgl.accessToken = // Eliminamos la configuración del token aquí
+//   "pk.eyJ1IjoidmljdGorefA.ILrTXW_4c9_pbGC3Uj-wdg";
 
 const MapboxConCards = ({
   busqueda,
@@ -31,7 +33,8 @@ const MapboxConCards = ({
     selectedOptionsTipos,
     setSelectedOptionsTipos,
     selectedOptionsOperacion, 
-    setSelectedOptionsOperacion 
+    setSelectedOptionsOperacion,
+    valor
   } = useSearchContext();
   
   const [mapIsReady, setMapIsReady] = useState(false);
@@ -40,7 +43,11 @@ const MapboxConCards = ({
   const markersRef = useRef([]);
   const mapLoadedRef = useRef(false);
   const [shareModalOpen, setShareModalOpen] = useState(true);
-  useEffect(() => {
+  const geocodingCache = useRef(new Map());
+  const [mapboxglInstance, setMapboxglInstance] = useState(null);
+
+  // Memoizar el filtrado de propiedades
+  const propiedadesFiltradas = useMemo(() => {
     const noHayFiltros =
       selectedOptionsTipos.length === 0 &&
       precioMinimo === 0 &&
@@ -48,10 +55,7 @@ const MapboxConCards = ({
       selectedOptionsOperacion.length === 0 &&
       selectedOptions.length === 0;
 
-    if (noHayFiltros) {
-      setNuevas(propiedades);
-      return;
-    }
+    if (noHayFiltros) return propiedades;
 
     const tiposSeleccionados = selectedOptionsTipos.map(Number);
     const sectoresSeleccionados = Array.isArray(selectedOptions)
@@ -61,7 +65,7 @@ const MapboxConCards = ({
       ? selectedOptionsOperacion.filter(Boolean).map(String)
       : [];
 
-    const filtered = propiedades.filter((item) => {
+    return propiedades.filter((item) => {
       const precio = parseFloat(item.mxn_corriente) || 0;
       const cumplePrecio = precio >= precioMinimo && precio <= precioMaximo;
       const numero = parseFloat(item.tipos?.tipo_id);
@@ -76,8 +80,6 @@ const MapboxConCards = ({
 
       return cumplePrecio && cumpleTipos && cumpleOperaciones && cumpleSector;
     });
-
-    setNuevas(filtered);
   }, [
     selectedOptionsTipos,
     selectedOptionsOperacion,
@@ -85,159 +87,255 @@ const MapboxConCards = ({
     propiedades,
     precioMinimo,
     precioMaximo,
-    setNuevas,
-    busqueda,
   ]);
 
+  // Efecto para cargar dinámicamente la librería mapboxgl
   useEffect(() => {
-    if (!mapContainerRef.current) return;
+    import('mapbox-gl').then((module) => {
+      const loadedMapboxgl = module.default;
+      loadedMapboxgl.accessToken = "pk.eyJ1IjoidmljdG9yZ2FyY2lhcHJ6IiwiYSI6ImNtNXZ3dW0wMjA2aHgyanE1M3ptczQ2azUifQ.ILrTXW_4c9_pbGC3Uj-wdg";
+      setMapboxglInstance(loadedMapboxgl);
+    });
+  }, []); // Se ejecuta solo una vez para cargar la librería
 
-    mapRef.current = new mapboxgl.Map({
+  // Efecto para inicializar el mapa una vez que mapboxglInstance y el contenedor estén listos
+  useEffect(() => {
+    if (!mapContainerRef.current || !mapboxglInstance) return;
+    if (mapRef.current) return; // Evitar la reinicialización si el mapa ya existe
+
+    mapRef.current = new mapboxglInstance.Map({
       container: mapContainerRef.current,
       style: "mapbox://styles/mapbox/streets-v11",
-      center: [-96.135744, 19.172264], // Veracruz
+      center: [-96.135744, 19.172264],
       zoom: 11,
+      maxZoom: 18,
+      minZoom: 5,
+      renderWorldCopies: false,
+      preserveDrawingBuffer: false,
+      antialias: false,
     });
 
-    mapRef.current.addControl(new mapboxgl.NavigationControl());
+    mapRef.current.addControl(new mapboxglInstance.NavigationControl());
 
     mapRef.current.on("load", () => {
       mapLoadedRef.current = true;
       setMapIsReady(true);
-
-      if (nuevas.length > 0) {
-        agregarMarkers(nuevas);
-        actualizarVisibles();
-      }
-    });
-
-    mapRef.current.on("moveend", () => {
+      // Los marcadores iniciales se añadirán en el siguiente useEffect
       actualizarVisibles();
     });
 
-    return () => {
-      mapRef.current.remove();
-    };
-  }, []);
+    const debouncedUpdateVisibles = debounce(() => {
+      actualizarVisibles();
+    }, 100);
 
+    mapRef.current.on("moveend", debouncedUpdateVisibles);
+
+    return () => {
+      if (mapRef.current) {
+        mapRef.current.remove();
+      }
+    };
+  }, [mapboxglInstance]); // Depende de mapboxglInstance para ejecutarse cuando esté cargado
+
+  // Actualizar markers cuando cambian las propiedades filtradas o el valor del contexto
   useEffect(() => {
-    if (!mapLoadedRef.current) return;
+    if (!mapLoadedRef.current || !mapboxglInstance) return;
 
     markersRef.current.forEach(({ marker }) => marker.remove());
     markersRef.current = [];
 
-    if (nuevas.length > 0) {
-      agregarMarkers(nuevas);
+    if (propiedadesFiltradas.length > 0) {
+      agregarMarkers(propiedadesFiltradas, mapboxglInstance);
     }
 
     actualizarVisibles();
-  }, [mapIsReady, nuevas]);
+  }, [mapIsReady, propiedadesFiltradas, mapboxglInstance, valor]); // Añadimos valor como dependencia
 
   const abreviarPrecio = (valor) => {
     if (valor >= 1_000_000) return `${(valor / 1_000_000).toFixed(1)}M`;
     if (valor >= 1_000) return `${(valor / 1_000).toFixed(0)}K`;
     return valor.toString();
   };
-  const PopupContent = ({ prop, seleccion }) => {
-    const [currentIndex, setCurrentIndex] = useState(0); // Usar useState para el índice de la imagen
-    const imagenesArray = prop.imagenes.split(","); // Convertir las imágenes en un array
-   
+
+  const PopupContent = React.memo(({ prop, seleccion }) => {
+    const [isLoading, setIsLoading] = useState(true);
+    const imagenesArray = prop.imagenes.split(",");
+    const popupRef = useRef(null);
+    const { valor } = useSearchContext();
+
     return (
-      <div className="w-[300px] flex flex-col mt-5 mb-30 lg:mb-20 justify-center items-center">
-        <div className="flex">
+      <div 
+        ref={popupRef}
+        className="w-[300px] flex flex-col justify-center items-center bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Contenedor de imagen */}
+        <div className="relative w-full">
           <img
             loading="lazy"
-            className=" w-[200px] h-[120px] lg:w-[280px] lg:h-[280px] object-cover rounded-t-2xl"
-            src={`https://cdn.remax.com.mx/properties/${prop.propiedad_id}/${imagenesArray[currentIndex]}`}
-            alt={`Imagen ${currentIndex + 1}`}
+            className="w-full h-[200px] object-cover"
+            src={`https://cdn.remax.com.mx/properties/${prop.propiedad_id}/${imagenesArray[0]}`}
+            alt={`Imagen de ${prop.calle}`}
+            onLoad={() => setIsLoading(false)}
+            width="300"
+            height="200"
           />
-        </div>
-        <a
-          href={`/propiedades/seleccion/${prop.propiedad_id}`}
-          style={{ textDecoration: "none" }}
-          className="w-[280px] h-[120px] lg:h-[120px] mt-[210px] 2xl:w-[280px] bg-white  absolute lg:mt-[200px] rounded-b-2xl shadow flex flex-col items-center px-2  font-display"
-        >
-          <p className="text-sm font-bold mt-2 text-[#7B7B7B]">
-            {Number(prop.mxn_corriente).toLocaleString("en-US")}MXN
-          </p>
-          <p className="text-sm md:text-base px-2 text-center w-[250px] font-[500] text-[#7B7B7B]">
-            {prop.calle}
-          </p>
-          <div className="flex text-[#7B7B7B] font-[500] text-[15px]">
-            <p className="text-sm md:text-base">
-              {prop.tipos?.tipo_nombre || "Tipo"} |{" "}
-            </p>
-            <p className="text-sm md:text-base">
-              {prop.operacion === "1"
-                ? "Venta"
-                : prop.operacion === "2"
-                ? "Renta"
-                : "N/A"}{" "}
-              |
-            </p>
-            <p className="text-sm md:text-base">{prop.m2_construccion}m²</p>
+          {/* Badge de operación */}
+          <div className={`absolute top-2 right-2 px-3 py-1 rounded-full text-sm font-semibold text-white ${
+            valor === "comercial" ? "bg-redRemax" : "bg-blueRemax"
+          }`}>
+            {prop.operacion === "1" ? "Venta" : prop.operacion === "2" ? "Renta" : "N/A"}
           </div>
-        </a>
+        </div>
+
+        {/* Contenido del popup */}
+        <div className="w-full p-4 space-y-2">
+          <h3 className="text-lg font-semibold text-gray-800">
+            {abreviarPrecio(prop.mxn_corriente)} MXN
+          </h3>
+          <p className="text-sm text-gray-600">{prop.calle}</p>
+
+          <div className="flex items-center gap-4 text-sm text-gray-500">
+            <div className="flex items-center gap-1">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
+              <span>{prop.tipos?.tipo_nombre || "Tipo"}</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+              </svg>
+              <span>{prop.m2_construccion}m²</span>
+            </div>
+          </div>
+
+          {/* Botón de acción */}
+          <div className="pt-2">
+            <a
+              href={`/propiedades/seleccion/${prop.propiedad_id}`}
+              className={`w-full text-white text-center py-2 px-4 rounded-lg transition-colors duration-200 block ${
+                valor === "comercial" ? "bg-redRemax hover:bg-red-700" : "bg-blueRemax hover:bg-blue-700"
+              }`}
+            >
+              Ver detalles
+            </a>
+          </div>
+        </div>
       </div>
     );
+  });
+
+  const updatePopupImage = (popupElement, prop, newIndex) => {
+    const imagenesArray = prop.imagenes.split(",");
+    const imgElement = popupElement.querySelector('img');
+    const counterElement = popupElement.querySelector('.image-counter');
+    
+    if (imgElement && counterElement) {
+      // Actualizar el contador
+      counterElement.textContent = `${newIndex + 1}/${imagenesArray.length}`;
+
+      // Crear una nueva imagen para precargar
+      const newImg = new Image();
+      newImg.onload = () => {
+        // Una vez que la nueva imagen está cargada, actualizar la imagen visible
+        imgElement.src = newImg.src;
+      };
+      newImg.onerror = () => {
+        console.error('Error al cargar la imagen:', newImg.src);
+      };
+      newImg.src = `https://cdn.remax.com.mx/properties/${prop.propiedad_id}/${imagenesArray[newIndex]}`;
+    }
   };
 
-  const agregarMarkers = (lista) => {
-    markersRef.current.forEach(({ marker }) => marker.remove());
-    markersRef.current = [];
+  const agregarMarkers = (lista, mapboxgl) => {
+    const fragment = document.createDocumentFragment();
+    const markers = [];
 
     for (const prop of lista) {
       if (!prop.longitud || !prop.latitud) continue;
 
-      const precio = prop.mxn_corriente || 0;
-
       const el = document.createElement("div");
-      el.style.background = "#e63946";
+      el.style.background = valor === "comercial" ? "#e63946" : "#0077ff";
       el.style.color = "#fff";
-      el.style.padding = "8px 8px";
+      el.style.padding = "8px 12px";
       el.style.borderRadius = "100px";
       el.style.fontSize = "14px";
       el.style.fontWeight = "bold";
       el.style.boxShadow = "0 2px 6px rgba(0,0,0,0.3)";
       el.style.cursor = "pointer";
-      el.dataset.valorOriginal = precio;
+      el.style.whiteSpace = "nowrap";
+      el.style.display = "flex";
+      el.style.alignItems = "center";
+      el.style.justifyContent = "center";
+      el.style.minWidth = "80px";
+      el.style.height = "32px";
+      el.textContent = `${abreviarPrecio(prop.mxn_corriente)} MXN`;
+      el.dataset.valorOriginal = prop.mxn_corriente;
 
-      const marker = new mapboxgl.Marker({ element: el })
+      const marker = new mapboxgl.Marker({ 
+        element: el,
+        anchor: 'bottom',
+        offset: [0, -10]
+      })
         .setLngLat([parseFloat(prop.longitud), parseFloat(prop.latitud)])
         .setPopup(
-          new mapboxgl.Popup({ closeButton: true, closeOnClick: true }).setHTML(
-            ReactDOMServer.renderToString(
-              <PopupContent prop={prop} seleccion={seleccion} />
-            )
-          )
-        )
-        .addTo(mapRef.current);
+          new mapboxgl.Popup({ 
+            closeButton: true, 
+            closeOnClick: true,
+            maxWidth: '300px',
+            offset: 25,
+            className: 'custom-popup'
+          })
+        );
 
-      markersRef.current.push({ marker, prop, el });
+      // Crear el contenido del popup
+      const popupContent = ReactDOMServer.renderToString(
+        <PopupContent prop={prop} seleccion={seleccion} />
+      );
+
+      // Agregar el contenido al popup
+      marker.getPopup().setHTML(popupContent);
+
+      markers.push({ marker, prop, el });
     }
 
-    mapRef.current.on("zoom", () => {
+    markersRef.current = markers;
+    markers.forEach(({ marker }) => marker.addTo(mapRef.current));
+
+    // Función para actualizar la visibilidad de los precios según el zoom
+    const updateMarkersVisibility = () => {
       const zoom = mapRef.current.getZoom();
+      const zoomThreshold = 12; // Nivel de zoom a partir del cual se muestran los precios
+
       markersRef.current.forEach(({ el }) => {
-        const valor = parseFloat(el.dataset.valorOriginal);
-        if (zoom < 10) {
-          el.innerText = "";
-          el.style.width = "10px";
-          el.style.height = "10px";
-          el.style.borderRadius = "50%";
+        if (zoom < zoomThreshold) {
+          el.style.minWidth = "16px";
+          el.style.width = "16px";
+          el.style.height = "16px";
           el.style.padding = "0";
+          el.style.borderRadius = "50%";
+          el.textContent = "";
         } else {
-          el.innerText = `$${abreviarPrecio(valor)}`;
+          el.style.minWidth = "80px";
           el.style.width = "auto";
-          el.style.height = "auto";
-          el.style.borderRadius = "6px";
-          el.style.padding = "4px 8px";
+          el.style.height = "32px";
+          el.style.padding = "8px 12px";
+          el.style.borderRadius = "100px";
+          el.textContent = `${abreviarPrecio(el.dataset.valorOriginal)} MXN`;
         }
       });
-    });
+    };
+
+    // Agregar listener para el evento zoom
+    mapRef.current.on('zoom', updateMarkersVisibility);
+    // Ejecutar una vez al inicio
+    updateMarkersVisibility();
   };
 
   const actualizarVisibles = () => {
+    if (!mapRef.current) return;
+    
     const bounds = mapRef.current.getBounds();
     const visibles = markersRef.current
       .filter(({ prop }) =>
@@ -247,19 +345,10 @@ const MapboxConCards = ({
     setPropiedadesVisibles(visibles);
   };
 
-  useEffect(() => {
-    const manejarBusqueda = async () => {
-      const lugar = busqueda || busquedaHome;
-      if (!lugar) return;
-      const response = await fetch(
-        `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
-          lugar
-        )}.json?access_token=${mapboxgl.accessToken}`
-      );
-      const data = await response.json();
-      setAutoCompleteHome(data.features);
-      if (data.features.length > 0) {
-        const feature = data.features[0];
+  // Definir actualizarMapaConFeature como una función regular (no un useCallback)
+  const actualizarMapaConFeature = (feature) => {
+    if (!mapRef.current) return;
+
         const [longitud, latitud] = feature.center;
         mapRef.current.flyTo({ center: [longitud, latitud], zoom: 13 });
 
@@ -308,60 +397,50 @@ const MapboxConCards = ({
             },
           });
         }
-      }
     };
-    manejarBusqueda();
-  }, [manejoBusqueda, busquedaHome]);
+
+  const manejarBusqueda = useCallback(async (lugar) => {
+    if (!lugar || !mapboxglInstance || !mapRef.current) return;
+
+    // Verificar caché
+    if (geocodingCache.current.has(lugar)) {
+      const data = geocodingCache.current.get(lugar);
+      setAutoCompleteHome(data.features);
+      if (data.features.length > 0) {
+        actualizarMapaConFeature(data.features[0]);
+      }
+      return;
+    }
+
+    try {
+      const response = await fetch(
+        `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
+          lugar
+        )}.json?access_token=${mapboxglInstance.accessToken}`
+      );
+      const data = await response.json();
+      
+      // Guardar en caché
+      geocodingCache.current.set(lugar, data);
+      
+      setAutoCompleteHome(data.features);
+      if (data.features.length > 0) {
+        actualizarMapaConFeature(data.features[0]);
+      }
+    } catch (error) {
+      console.error("Error en la búsqueda:", error);
+    }
+  }, [mapboxglInstance, setAutoCompleteHome, mapRef]); // Eliminar actualizarMapaConFeature de las dependencias
+
+  useEffect(() => {
+    const lugar = busqueda || busquedaHome;
+    if (lugar) {
+      manejarBusqueda(lugar);
+    }
+  }, [manejarBusqueda, busquedaHome, busqueda]);
 
   return (
     <>
-    <div
-            className={`${
-              shareModalOpen && "invisible"
-            } flex flex-col justify-center items-center fixed z-50 w-full h-full top-0 bg-white/70`}
-          >
-            <div className="min-h-screen  flex items-center justify-center p-4">
-              <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-8 space-y-6">
-                <div className="text-center space-y-2">
-                <div className="text-end   ">
-                  <FontAwesomeIcon icon={faXmark}  size="2xl" className="cursor-pointer"  onClick={()=> setShareModalOpen(true)}/>
-                </div>
-                  <div className="flex justify-center">
-                    <img
-                      className="max-w-[200px]"
-                      src="/logos/New_RMX_Mark_R4_RGB_dark.png"
-                      alt=""
-                    />
-                  </div>
-                  <h1 className="text-2xl font-bold text-gray-800">
-                    Envianos mensaje por WhatsApp
-                  </h1>
-                  <p className="text-gray-600">
-                    Si estas interesado en esta propiedad, envíanos un mensaje
-                  </p>
-                </div>
-    
-                <div className="flex justify-center">
-                  <button
-                    className="inline-flex items-center cursor-pointer gap-2 px-4 py-2 bg-blueRemax text-white rounded-lg shadow-sm hover:bg-blueRemax/80 transition-colors duration-200"
-                    aria-label="Contactar por WhatsApp"
-                    onClick={() => {
-                      const mensaje = `Estoy interesado en esta propiedad: ${window.location.origin}/propiedades/seleccion/${seleccion}`;
-                      const whatsappLink = `https://wa.me/5212292696629?text=${encodeURIComponent(
-                        mensaje
-                      )}`;
-                      window.open(whatsappLink, "_blank");
-                    }}
-                  >
-                    <FontAwesomeIcon icon={faWhatsapp} className="w-4 h-4" />
-                    <span className="text-sm sm:text-base md:text-lg">
-                      Contactar por WhatsApp
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
     <div className=" flex flex-col lg:flex-row gap-4">
       <div className=" w-full h-[400px] lg:h-[700px] relative">
         <div
@@ -375,4 +454,4 @@ const MapboxConCards = ({
   );
 };
 
-export default MapboxConCards;
+export default React.memo(MapboxConCards);

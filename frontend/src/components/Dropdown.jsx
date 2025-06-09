@@ -5,7 +5,7 @@ import {
   AccordionBody,
 } from "@material-tailwind/react";
 import { useState } from "react";
-import mapboxgl from "mapbox-gl";
+// import mapboxgl from "mapbox-gl"; // Eliminamos la importación estática
 import "mapbox-gl/dist/mapbox-gl.css";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { 
@@ -61,7 +61,7 @@ library.add(
   faChampagneGlasses, faSpa, faShieldHalved, faUmbrellaBeach,
   faShirt, faLock, faMountainSun, faTree, faCheck, faHouseChimney, faFire
 );
-mapboxgl.accessToken = "pk.eyJ1IjoidmljdG9yZ2FyY2lhcHJ6IiwiYSI6ImNtNXZ3dW0wMjA2aHgyanE1M3ptczQ2azUifQ.ILrTXW_4c9_pbGC3Uj-wdg";
+// mapboxgl.accessToken = "pk.eyJ1IjoidmljdG9yZ2FyY2lhcHJ6IiwiYSI6ImNtNXZ3dW0wMjA2aHgyanE1M3ptczQ2azUifQ.ILrTXW_4c9_pbGC3Uj-wdg";
 
 function Icon({ id, open }) {
   return (
@@ -100,6 +100,7 @@ export function Dropdown({ propiedadSeleccion }) {
   const mapRef = useRef(null);
   const mapLoadedRef = useRef(false);
   const [mapIsReady, setMapIsReady] = useState(false);
+  const [mapboxglInstance, setMapboxglInstance] = useState(null); // Nuevo estado para la instancia de mapboxgl
   const colonia = propiedadSeleccion?.colonias.colonia_nombre;
   const estado = propiedadSeleccion?.estados?.estado_nombre;
   const ciudad = propiedadSeleccion?.ciudades.ciudad_nombre;
@@ -162,23 +163,35 @@ export function Dropdown({ propiedadSeleccion }) {
   const longitud = propiedadSeleccion?.longitud;
 
   useEffect(() => {
-    if (mapIsReady && mapRef.current && latitud && longitud) {
-      new mapboxgl.Marker({ color: "#e63946" })
+    if (mapIsReady && mapRef.current && latitud && longitud && mapboxglInstance) {
+      new mapboxglInstance.Marker({ color: "#e63946" })
         .setLngLat([longitud, latitud])
         .addTo(mapRef.current);
       mapRef.current.setCenter([longitud, latitud]);
     }
-  }, [mapIsReady, latitud, longitud]);
+  }, [mapIsReady, latitud, longitud, mapboxglInstance]);
 
+  // Efecto para cargar dinámicamente la librería mapboxgl
   useEffect(() => {
-    if (!mapContainerRef.current) return;
-    mapRef.current = new mapboxgl.Map({
+    import('mapbox-gl').then((module) => {
+      const loadedMapboxgl = module.default;
+      loadedMapboxgl.accessToken = "pk.eyJ1IjoidmljdG9yZ2lhcHJ6IiwiYSI6ImNtNXZ3dW0wMjA2aHgyanE1M3ptczQ2azUifQ.ILrTXW_4c9_pbGC3Uj-wdg";
+      setMapboxglInstance(loadedMapboxgl);
+    });
+  }, []); // Se ejecuta solo una vez para cargar la librería
+
+  // Efecto para inicializar el mapa una vez que mapboxglInstance y el contenedor estén listos
+  useEffect(() => {
+    if (!mapContainerRef.current || !mapboxglInstance) return;
+    if (mapRef.current) return; // Evitar la reinicialización si el mapa ya existe
+
+    mapRef.current = new mapboxglInstance.Map({
       container: mapContainerRef.current,
       style: "mapbox://styles/mapbox/streets-v11",
       center: [-96.135744, 19.172264], // Veracruz
       zoom: 13,
     });
-    mapRef.current.addControl(new mapboxgl.NavigationControl());
+    mapRef.current.addControl(new mapboxglInstance.NavigationControl());
     mapRef.current.on("load", () => {
       mapLoadedRef.current = true;
       setMapIsReady(true);
@@ -186,9 +199,7 @@ export function Dropdown({ propiedadSeleccion }) {
     return () => {
       if (mapRef.current) mapRef.current.remove();
     };
-  }, []);
-
-
+  }, [mapboxglInstance]); // Depende de mapboxglInstance para ejecutarse cuando esté cargado
 
   const amenidadesFiltradas = {
     aire_acondicionado: "Aire acondicionado",

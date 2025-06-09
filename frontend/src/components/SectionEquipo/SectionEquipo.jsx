@@ -1,6 +1,9 @@
 import React from "react";
+import { useSearchContext } from "../../context/SearchContext";
 
 export default function SectionEquipo() {
+  const { valor } = useSearchContext();
+
   return (
     <>
       <div className="  sm:hidden mt-10 mb-10 px-5 font-display flex flex-col justify-center items-center text-center">
@@ -20,7 +23,7 @@ export default function SectionEquipo() {
             src="/HomePageContent/mujer-llamando.jpg"
             alt=""
           />
-          <button className=" z-10 shadow-[0_5px_5px] shadow-black/40 -mt-8 w-44 h-14 bg-[#003DA4] rounded-2xl text-white ">
+          <button className={`z-10 shadow-[0_5px_5px] shadow-black/40 -mt-8 w-44 h-14 rounded-2xl text-white ${valor === "comercial" ? "bg-redRemax" : "bg-blueRemax"}`}>
             Mas información
           </button>
         </div>
@@ -41,7 +44,7 @@ export default function SectionEquipo() {
             inmobiliario.
           </p>
 
-          <button className=" z-10 shadow-[0_5px_5px] shadow-black/40 w-44 h-14 bg-[#003DA4] rounded-2xl text-white ">
+          <button className={`z-10 shadow-[0_5px_5px] shadow-black/40 w-44 h-14 rounded-2xl text-white ${valor === "comercial" ? "bg-redRemax" : "bg-blueRemax"}`}>
             Mas información
           </button>
         </div>

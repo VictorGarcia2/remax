@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useSearchContext } from "../context/SearchContext";
 
 // Button Component
 const Button = React.forwardRef(({ className, ...props }, ref) => {
@@ -23,8 +24,9 @@ const CardContent = React.forwardRef(({ className, ...props }, ref) => (
 CardContent.displayName = "CardContent";
 
 // Main App Component
-const Eleccion = ({ setValor }) => {
+const Eleccion = () => {
   const navigate = useNavigate();
+  const { setValor } = useSearchContext();
   
   // Precargar el componente Residencial para mejorar el rendimiento
   useEffect(() => {
@@ -43,8 +45,8 @@ const Eleccion = ({ setValor }) => {
   };
   
   const sectors = [
-    { id: 1, name: "Comercial / Industrial", color: "bg-[#db1c2e]", valor: "comercial" },
-    { id: 2, name: "Residencial", color: "bg-[#003da4]", valor: "residencial" },
+    { id: 1, name: "Comercial / Industrial", valor: "comercial" },
+    { id: 2, name: "Residencial", valor: "residencial" },
   ];
 
   return (
@@ -67,7 +69,9 @@ const Eleccion = ({ setValor }) => {
               <Button
                 key={sector.id}
                 onClick={() => handleSelection(sector.valor)}
-                className={`${sector.color} w-full cursor-pointer text-white text-lg sm:text-xl md:text-2xl font-semibold py-3 px-6 rounded-lg shadow-[0px_4px_4px_#00000040]`}
+                className={`${
+                  sector.valor === "comercial" ? "bg-redRemax" : "bg-blueRemax"
+                } w-full cursor-pointer text-white text-lg sm:text-xl md:text-2xl font-semibold py-3 px-6 rounded-lg shadow-[0px_4px_4px_#00000040]`}
               >
                 {sector.name}
               </Button>

@@ -17,6 +17,8 @@ export const SearchProvider = ({ children }) => {
   const [selectedOptionsTipos, setSelectedOptionsTipos] = useState([]);
   const [busquedaHome, setBusquedaHome] = useState('');
   const [selectedOptionsOperacion, setSelectedOptionsOperacion] = useState([]);
+  const [valor, setValor] = useState("residencial");
+
   useEffect(() => {
     console.log("selectedOptionsTipos desde contexto:", selectedOptionsTipos);
   }, [selectedOptionsTipos]);
@@ -29,7 +31,9 @@ export const SearchProvider = ({ children }) => {
         busquedaHome,
         setBusquedaHome,
         selectedOptionsOperacion,
-        setSelectedOptionsOperacion
+        setSelectedOptionsOperacion,
+        valor,
+        setValor
       }}
     >
       {children}

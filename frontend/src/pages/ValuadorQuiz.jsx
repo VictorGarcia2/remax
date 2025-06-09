@@ -8,7 +8,7 @@ import { useSearchContext } from '../context/SearchContext';
 
 const ValuadorQuizPage = () => {
   const navigate = useNavigate();
-  const { setSelectedOptionsOperacion } = useSearchContext();
+  const { setSelectedOptionsOperacion, valor } = useSearchContext();
 
   // Función para manejar la finalización del quiz
   const handleQuizComplete = (answers, estimatedValue) => {
@@ -69,7 +69,9 @@ const ValuadorQuizPage = () => {
               <div className="mt-8 text-center">
                 <button 
                   onClick={() => navigate('/valuador')}
-                  className="px-8 py-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors font-medium flex items-center mx-auto"
+                  className={`px-8 py-3 rounded-lg hover:bg-opacity-80 transition-colors font-medium flex items-center mx-auto ${
+                    valor === "comercial" ? "bg-redRemax text-white" : "bg-blueRemax text-white"
+                  }`}
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 17l-5-5m0 0l5-5m-5 5h12" />

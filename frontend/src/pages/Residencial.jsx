@@ -90,6 +90,7 @@ const AnimatedSection = memo(({ children, className = "", delay = 0 }) => {
 // ScrollToTopButton optimizado
 const ScrollToTopButton = memo(() => {
   const [isVisible, setIsVisible] = useState(false);
+  const { valor } = useSearchContext();
 
   useEffect(() => {
     const toggleVisibility = () => setIsVisible(window.pageYOffset > 500);
@@ -100,7 +101,9 @@ const ScrollToTopButton = memo(() => {
   return (
     <button
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      className={`fixed bottom-6 right-6 bg-[#003da4] text-white p-3 rounded-full shadow-lg z-50 transition-all duration-300 ${
+      className={`fixed bottom-6 right-6 text-white p-3 rounded-full shadow-lg z-50 transition-all duration-300 ${
+        valor === "comercial" ? "bg-redRemax" : "bg-blueRemax"
+      } ${
         isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0"
       }`}
       aria-label="Volver al inicio"
@@ -134,6 +137,7 @@ const Residencial = ({
   const {
     selectedOptionsOperacion,
     setSelectedOptionsOperacion,
+    valor: contextValor,
   } = useSearchContext();
 
   const firstSectionRef = useRef(null);
@@ -212,9 +216,11 @@ const Residencial = ({
         </Suspense>
       </div>
 
-      <AnimatedSection delay={0}>
-        <SectionDesarrolloDestacado />
-      </AnimatedSection>
+      {contextValor === "residencial" && (
+        <AnimatedSection delay={0}>
+          <SectionDesarrolloDestacado />
+        </AnimatedSection>
+      )}
 
       <div className="section-como-comprar-container" data-section="comoComprar">
         <Suspense fallback={SectionPlaceholders.comoComprar}>

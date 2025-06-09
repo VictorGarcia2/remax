@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import MapboxAddressInput from './MapboxAddressInput';
+import { useSearchContext } from '../../context/SearchContext';
 
 const QuizQuestion = ({
   question,
@@ -16,6 +17,7 @@ const QuizQuestion = ({
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [contactInfo, setContactInfo] = useState({});
   const [errors, setErrors] = useState({});
+  const { valor } = useSearchContext();
 
   // Inicializar el estado con la respuesta actual si existe
   useEffect(() => {
@@ -151,7 +153,9 @@ const QuizQuestion = ({
         return (
           <div className="mb-6">
             <select
-              className="w-full p-3 sm:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white shadow-sm text-gray-700 text-base sm:text-lg transition-all"
+              className={`w-full p-3 sm:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 shadow-sm text-gray-700 text-base sm:text-lg transition-all ${
+                valor === "comercial" ? "focus:ring-red-500" : "focus:ring-blue-500"
+              }`}
               value={answer}
               onChange={handleChange}
               disabled={loading}
@@ -172,7 +176,9 @@ const QuizQuestion = ({
           <div className="mb-6">
             <input
               type="number"
-              className="w-full p-3 sm:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm text-gray-700 text-base sm:text-lg transition-all"
+              className={`w-full p-3 sm:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 shadow-sm text-gray-700 text-base sm:text-lg transition-all ${
+                valor === "comercial" ? "focus:ring-red-500" : "focus:ring-blue-500"
+              }`}
               placeholder={question.placeholder || 'Ingresa un número'}
               value={answer}
               onChange={handleChange}
@@ -194,7 +200,9 @@ const QuizQuestion = ({
                     id={option.value}
                     checked={selectedOptions.includes(option.value)}
                     onChange={() => handleMultiSelectChange(option.value)}
-                    className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                    className={`h-4 w-4 sm:h-5 sm:w-5 border-gray-300 rounded ${
+                      valor === "comercial" ? "text-red-600 focus:ring-red-500" : "text-blue-600 focus:ring-blue-500"
+                    }`}
                     disabled={loading}
                   />
                   <label htmlFor={option.value} className="ml-2 sm:ml-3 block text-gray-700 text-sm sm:text-base cursor-pointer w-full">
@@ -221,7 +229,9 @@ const QuizQuestion = ({
                   name={field.id}
                   value={contactInfo[field.id] || ''}
                   onChange={handleContactInfoChange}
-                  className="w-full p-3 sm:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm text-gray-700 text-base sm:text-lg transition-all"
+                  className={`w-full p-3 sm:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 shadow-sm text-gray-700 text-base sm:text-lg transition-all ${
+                    valor === "comercial" ? "focus:ring-red-500" : "focus:ring-blue-500"
+                  }`}
                   required={field.required}
                   disabled={loading}
                   placeholder={`Ingresa tu ${field.label.toLowerCase()}`}
@@ -266,7 +276,9 @@ const QuizQuestion = ({
         
         <button
           type="submit"
-          className="order-1 sm:order-2 w-full sm:w-auto px-4 sm:px-8 py-2 sm:py-3 bg-[#003da4] text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center font-medium shadow-md"
+          className={`order-1 sm:order-2 w-full sm:w-auto px-4 sm:px-8 py-2 sm:py-3 text-white rounded-lg hover:bg-opacity-80 transition-colors flex items-center justify-center font-medium shadow-md ${
+            valor === "comercial" ? "bg-redRemax" : "bg-blueRemax"
+          }`}
           disabled={loading}
         >
           {loading ? (

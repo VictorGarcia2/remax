@@ -5,11 +5,13 @@ import SectionFooter from '../components/SectionFooter/SectionFooter';
 import ValuadorQuiz from '../components/ValuadorQuiz/ValuadorQuiz';
 import Header from '../components/SectionHome/Header';
 import { useNavigate } from 'react-router-dom';
+import { useSearchContext } from '../context/SearchContext';
 
 const Valuador = () => {
   const [showQuiz, setShowQuiz] = useState(false);
   const { quizCompleted, resetQuiz } = useValuadorContext();
   const navigate = useNavigate();
+  const { valor } = useSearchContext();
   
   // Verificar si hay un parámetro en la URL que indique mostrar el quiz
   useEffect(() => {
@@ -93,7 +95,9 @@ const Valuador = () => {
                     <span className="text-lg">Asesoría personalizada de un experto inmobiliario</span>
                   </li>
                 </ul>
-                <button onClick={startQuiz} className="inline-block w-full py-4 px-6 bg-white text-[#003da4] font-bold rounded-lg hover:bg-gray-100 transition-all duration-300 text-center text-lg shadow-lg transform hover:-translate-y-1">
+                <button onClick={startQuiz} className={`inline-block w-full py-4 px-6 font-bold rounded-lg hover:bg-gray-100 transition-all duration-300 text-center text-lg shadow-lg transform hover:-translate-y-1 ${
+                  valor === "comercial" ? "bg-redRemax text-white" : "bg-blueRemax text-white"
+                }`}>
                   Valuar mi propiedad
                 </button>
               </div>
@@ -143,7 +147,9 @@ const Valuador = () => {
                 <p className="text-lg mb-8 max-w-2xl mx-auto">Nuestro valuador te dará una estimación precisa basada en datos reales del mercado inmobiliario.</p>
                 <button 
                   onClick={startQuiz} 
-                  className="inline-block py-4 px-8 bg-white text-[#003da4] font-bold rounded-lg hover:bg-gray-100 transition-all duration-300 text-lg shadow-lg transform hover:-translate-y-1"
+                  className={`inline-block py-4 px-8 font-bold rounded-lg hover:bg-gray-100 transition-all duration-300 text-lg shadow-lg transform hover:-translate-y-1 ${
+                    valor === "comercial" ? "bg-redRemax text-white" : "bg-blueRemax text-white"
+                  }`}
                 >
                   Iniciar valuación ahora
                 </button>
@@ -350,7 +356,9 @@ const Valuador = () => {
                     
                     <button 
                       onClick={startQuiz} 
-                      className="inline-block bg-gradient-to-r from-[#003da4] to-[#0052d4] text-white font-bold py-4 px-8 rounded-lg hover:shadow-lg transform hover:-translate-y-1 transition duration-300 text-center shadow-md w-full md:w-auto"
+                      className={`inline-block bg-gradient-to-r from-[#003da4] to-[#0052d4] text-white font-bold py-4 px-8 rounded-lg hover:shadow-lg transform hover:-translate-y-1 transition duration-300 text-center shadow-md w-full md:w-auto ${
+                        valor === "comercial" ? "bg-redRemax" : "bg-blueRemax"
+                      }`}
                     >
                       <div className="flex items-center justify-center">
                         <span>Iniciar Valuación Ahora</span>

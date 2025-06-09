@@ -39,7 +39,8 @@ export default function MenuFilter({
     selectedOptionsTipos,
     setSelectedOptionsTipos,
     selectedOptionsOperacion, 
-    setSelectedOptionsOperacion 
+    setSelectedOptionsOperacion,
+    valor: contextValor
   } = useSearchContext();
   const [openSections, setOpenSections] = useState({
     "accordion-collapse-body-1": true,
@@ -589,14 +590,16 @@ export default function MenuFilter({
           <div className="flex justify-evenly w-full bottom-10 mt-10 z-50">
             <button
               type="button"
-              className="w-20 h-10 text-[#DB1C2E] cursor-pointer rounded "
+              className={`w-20 h-10 ${
+                contextValor === "comercial" ? "text-redRemax" : "text-blueRemax"
+              } cursor-pointer rounded `}
               onClick={() => setMenuClose((prev) => !prev)}
             >
               Limpiar
             </button>
             <button
               type="button"
-              className="w-20 h-10 bg-[#DB1C2E] rounded cursor-pointer text-white"
+              className={`w-20 h-10 ${contextValor === "comercial" ? "bg-redRemax" : "bg-blueRemax"} rounded cursor-pointer text-white`}
               onClick={() => setMenuClose((prev) => !prev)}
             >
               Cerrar

@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useSearchContext } from "../../context/SearchContext";
 
 const QuizResult = ({ estimatedValue, contactInfo, onReset, onComplete }) => {
+  const { valor } = useSearchContext();
+
   // Función para formatear valores monetarios
   const formatCurrency = (value) => {
     return new Intl.NumberFormat('es-MX', {
@@ -88,7 +91,9 @@ const QuizResult = ({ estimatedValue, contactInfo, onReset, onComplete }) => {
       <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mt-6 sm:mt-8">
         <button
           onClick={onReset}
-          className="px-4 sm:px-8 py-2 sm:py-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors font-medium flex items-center justify-center text-sm sm:text-base"
+          className={`px-4 sm:px-8 py-2 sm:py-3 rounded-lg hover:bg-opacity-80 transition-colors font-medium flex items-center justify-center text-sm sm:text-base ${
+            valor === "comercial" ? "bg-redRemax text-white" : "bg-blueRemax text-white"
+          }`}
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5 mr-1 sm:mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -97,7 +102,9 @@ const QuizResult = ({ estimatedValue, contactInfo, onReset, onComplete }) => {
         </button>
         <button
           onClick={onComplete}
-          className="px-4 sm:px-8 py-2 sm:py-3 bg-[#003da4] text-white rounded-lg hover:bg-blue-700 transition-colors font-medium flex items-center justify-center shadow-md text-sm sm:text-base"
+          className={`px-4 sm:px-8 py-2 sm:py-3 rounded-lg hover:bg-opacity-80 transition-colors font-medium flex items-center justify-center shadow-md text-sm sm:text-base ${
+            valor === "comercial" ? "bg-redRemax text-white" : "bg-blueRemax text-white"
+          }`}
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5 mr-1 sm:mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />

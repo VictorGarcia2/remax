@@ -4,7 +4,7 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Route, Routes } from "react-router-dom";
 import ScrollToTop from "./components/ScrollTop";
 import LoadingSpinner from "./components/LoadingSpinner";
-import { SearchProvider } from "./context/SearchContext";
+import { SearchProvider, useSearchContext } from "./context/SearchContext";
 import { ValuadorProvider } from "./context/ValuadorContext";
 import ValuadorQuiz from "./components/ValuadorQuiz/ValuadorQuiz";
 
@@ -61,7 +61,9 @@ const App = () => {
   const [precioMaximo, setPrecioMaximo] = useState(Infinity);
   const [aplicarFiltros, setAplicarFiltros] = useState(Date.now());
   const [seleccion, setSeleccion] = useState();
-  const [valor, setValor] = useState("residencial");
+  // const [valor, setValor] = useState("residencial"); // Comentado o eliminado, ahora viene del contexto
+
+  const { valor, setValor } = useSearchContext(); // Obtener valor y setValor del contexto
 
   /*  useEffect(() => {
     fetch("https://us-central1-remax-api.cloudfunctions.net/api/propiedades", {
@@ -93,6 +95,7 @@ const App = () => {
     getData();
   }, []);
 
+  console.log(propiedades);
   /*   useEffect(() => {
     const data = propierties.data.rows; // o como venga en tu JSON
     setPropiedades(data);

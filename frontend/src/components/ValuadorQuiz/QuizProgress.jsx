@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useSearchContext } from '../../context/SearchContext';
 
 const QuizProgress = ({ currentStep, totalSteps, showResult }) => {
+  const { valor } = useSearchContext();
+
   // Calcular el porcentaje de progreso
   const progressPercentage = showResult ? 100 : Math.round((currentStep / totalSteps) * 100);
   
@@ -26,7 +29,7 @@ const QuizProgress = ({ currentStep, totalSteps, showResult }) => {
       {/* Barra de progreso principal */}
       <div className="w-full bg-gray-100 rounded-full h-3 shadow-inner">
         <div 
-          className="bg-[#003da4] h-3 rounded-full transition-all duration-500 ease-in-out shadow-sm" 
+          className={`${valor === "comercial" ? "bg-redRemax" : "bg-blueRemax"} h-3 rounded-full transition-all duration-500 ease-in-out shadow-sm`} 
           style={{ width: `${progressPercentage}%` }}
         ></div>
       </div>
@@ -36,12 +39,12 @@ const QuizProgress = ({ currentStep, totalSteps, showResult }) => {
         {steps.map((step) => (
           <div 
             key={step} 
-            className={`relative flex items-center justify-center w-8 h-8 rounded-full transition-all duration-300 ${step <= currentStep ? 'bg-[#003da4] text-white' : 'bg-gray-200 text-gray-500'} ${step === currentStep && !showResult ? 'ring-4 ring-blue-100' : ''}`}
+            className={`relative flex items-center justify-center w-8 h-8 rounded-full transition-all duration-300 ${step <= currentStep ? (valor === "comercial" ? "bg-redRemax text-white" : "bg-blueRemax text-white") : 'bg-gray-200 text-gray-500'} ${step === currentStep && !showResult ? (valor === "comercial" ? "ring-4 ring-red-100" : "ring-4 ring-blue-100") : ''}`}
           >
             <span className="text-xs font-medium">{step + 1}</span>
             {step < totalSteps - 1 && (
               <div 
-                className={`absolute top-1/2 left-full w-full h-0.5 -translate-y-1/2 ${step < currentStep ? 'bg-[#003da4]' : 'bg-gray-200'}`}
+                className={`absolute top-1/2 left-full w-full h-0.5 -translate-y-1/2 ${step < currentStep ? (valor === "comercial" ? "bg-redRemax" : "bg-blueRemax") : 'bg-gray-200'}`}
               ></div>
             )}
           </div>

@@ -1,10 +1,12 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useSearchContext } from "../../context/SearchContext";
 
 export default function Header({ setSelectedOptionsOperacion }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isVenderOpen, setIsVenderOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const { valor } = useSearchContext();
 
   // Cerrar dropdown al hacer clic fuera (solo en móvil)
   useEffect(() => {
@@ -36,7 +38,9 @@ export default function Header({ setSelectedOptionsOperacion }) {
           <button
             onClick={() => setIsOpen(!isOpen)}
             type="button"
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+            className={`inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 ${
+              valor === "comercial" ? "text-red-500 focus:ring-red-200" : "text-blue-500 focus:ring-blue-200"
+            }`}
             aria-controls="navbar-sticky"
             aria-expanded={isOpen}
           >
@@ -68,7 +72,9 @@ export default function Header({ setSelectedOptionsOperacion }) {
             <li className="py-1">
               <Link
                 to={"/"}
-                className="block py-2 px-3 text-white bg-blue-700 rounded-md md:bg-transparent md:text-blue-700 md:p-0 md:hover:text-blue-800"
+                className={`block py-2 px-3 rounded-md md:bg-transparent md:p-0 md:hover:text-current ${
+                  valor === "comercial" ? "text-red-700 md:text-red-700 md:hover:text-red-800" : "text-blue-700 md:text-blue-700 md:hover:text-blue-800"
+                }`}
                 aria-current="page"
                 onClick={() => setIsOpen(false)}
               >
@@ -82,7 +88,9 @@ export default function Header({ setSelectedOptionsOperacion }) {
                   setIsOpen(false);
                 }}
                 to={"/propiedades"}
-                className="block py-2 px-3 text-gray-700 rounded-md hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
+                className={`block py-2 px-3 text-gray-700 rounded-md hover:bg-gray-100 md:hover:bg-transparent md:p-0 ${
+                  valor === "comercial" ? "md:hover:text-red-700" : "md:hover:text-blue-700"
+                }`}
               >
                 Comprar
               </Link>
@@ -151,7 +159,9 @@ export default function Header({ setSelectedOptionsOperacion }) {
             <li className="py-1">
               <a
                 href="#"
-                className="block py-2 px-3 text-gray-700 rounded-md hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
+                className={`block py-2 px-3 text-gray-700 rounded-md hover:bg-gray-100 md:hover:bg-transparent md:p-0 ${
+                  valor === "comercial" ? "md:hover:text-red-700" : "md:hover:text-blue-700"
+                }`}
                 onClick={() => setIsOpen(false)}
               >
                 Tramita tu crédito
@@ -160,7 +170,9 @@ export default function Header({ setSelectedOptionsOperacion }) {
             <li className="py-1">
               <Link
                 to={"/Polizas-de-renta"}
-                className="block py-2 px-3 text-gray-700 rounded-md hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
+                className={`block py-2 px-3 text-gray-700 rounded-md hover:bg-gray-100 md:hover:bg-transparent md:p-0 ${
+                  valor === "comercial" ? "md:hover:text-red-700" : "md:hover:text-blue-700"
+                }`}
                 onClick={() => setIsOpen(false)}
               >
                 Pólizas de renta
@@ -169,7 +181,9 @@ export default function Header({ setSelectedOptionsOperacion }) {
             <li className="py-1">
               <Link
                 to={"/NuestroEquipo"}
-                className="block py-2 px-3 text-gray-700 rounded-md hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
+                className={`block py-2 px-3 text-gray-700 rounded-md hover:bg-gray-100 md:hover:bg-transparent md:p-0 ${
+                  valor === "comercial" ? "md:hover:text-red-700" : "md:hover:text-blue-700"
+                }`}
                 onClick={() => setIsOpen(false)}
               >
                 Nuestro equipo

@@ -13,6 +13,8 @@ import { useParams } from "react-router";
 import { ShareButtons } from "../../components/ShareButtons.jsx";
 import { Share2 } from "lucide-react";
 import { toast } from "react-toastify";
+import { useSearchContext } from "../../context/SearchContext";
+
 export default function PropiedadSeleccion({ seleccion }) {
   const { id } = useParams();
   const [propiedades, setPropiedades] = useState([]);
@@ -27,6 +29,7 @@ export default function PropiedadSeleccion({ seleccion }) {
   });
   const [formLoading, setFormLoading] = useState(false);
   const [showMobileForm, setShowMobileForm] = useState(false);
+  const { valor } = useSearchContext();
 
   const countPage = propiedadSeleccion?.imagenes
     ? propiedadSeleccion.imagenes.split(",").length
@@ -128,9 +131,13 @@ export default function PropiedadSeleccion({ seleccion }) {
       { nombre: "Casa en Condominio", tipo_id: 2 },
       { nombre: "Departamento", tipo_id: 3 },
       { nombre: "Terreno", tipo_id: 4 },
+      { nombre: "Terreno", tipo_id: 10 },
+      { nombre: "Terreno", tipo_id: 5 },
       { nombre: "Desarrollo", tipo_id: 6 },
       { nombre: "Nave Industrial", tipo_id: 7 },
       { nombre: "Bodega", tipo_id: 19 },
+      { nombre: "Finca/rancho", tipo_id: 14 },
+      { nombre: "Edificio", tipo_id: 13 },
     ],
     []
   );
@@ -153,10 +160,18 @@ export default function PropiedadSeleccion({ seleccion }) {
       { nombre: "Departamento en Renta", tipo_id: 3, operacion_id: "2" },
       { nombre: "Terreno en Venta", tipo_id: 4, operacion_id: "1" },
       { nombre: "Terreno en Renta", tipo_id: 4, operacion_id: "2" },
+      { nombre: "Terreno en Venta", tipo_id: 10, operacion_id: "1" },
+      { nombre: "Terreno en Renta", tipo_id: 10, operacion_id: "2" },
+      { nombre: "Terreno en Venta", tipo_id: 5, operacion_id: "1" },
+      { nombre: "Terreno en Renta", tipo_id: 5, operacion_id: "2" },
       { nombre: "Desarrollo en Venta", tipo_id: 6, operacion_id: "1" },
       { nombre: "Desarrollo en Renta", tipo_id: 6, operacion_id: "2" },
       { nombre: "Nave Industrial en Renta", tipo_id: 7, operacion_id: "1" },
       { nombre: "Bodega en Renta", tipo_id: 19, operacion_id: "2" },
+      { nombre: "Finca/rancho en Venta", tipo_id: 14, operacion_id: "1" },
+      { nombre: "Finca/rancho en Renta", tipo_id: 14, operacion_id: "2" },
+      { nombre: "Edificio en Venta", tipo_id: 13, operacion_id: "1" },
+      { nombre: "Edificio en Renta", tipo_id: 13, operacion_id: "2" },
     ],
     []
   );
@@ -414,7 +429,9 @@ export default function PropiedadSeleccion({ seleccion }) {
       <HeaderPropiedadSeleccion />
       <div
         onClick={() => setShowMobileForm(true)}
-        className={`transition-all duration-[900ms] lg:invisible ease-in-out bottom-4 right-4 bg-blueRemax rounded-full fixed z-40 w-[217px] h-[50px] flex items-center justify-center cursor-pointer ${
+        className={`transition-all duration-[900ms] lg:invisible ease-in-out bottom-4 right-4 rounded-full fixed z-40 w-[217px] h-[50px] flex items-center justify-center cursor-pointer ${
+          valor === "comercial" ? "bg-redRemax" : "bg-blueRemax"
+        } ${
           animation ? "translate-x-0 opacity-100 " : " opacity-0 translate-x-0 "
         }`}
       >
@@ -424,7 +441,9 @@ export default function PropiedadSeleccion({ seleccion }) {
       </div>
       <div 
         onClick={() => setShowMobileForm(true)} 
-        className="bottom-4 right-4 lg:invisible bg-blueRemax rounded-full fixed z-50 w-[50px] h-[50px] flex items-center justify-center cursor-pointer"
+        className={`bottom-4 right-4 lg:invisible rounded-full fixed z-50 w-[50px] h-[50px] flex items-center justify-center cursor-pointer ${
+          valor === "comercial" ? "bg-redRemax" : "bg-blueRemax"
+        }`}
       >
         <img
           loading="lazy"
@@ -607,7 +626,9 @@ export default function PropiedadSeleccion({ seleccion }) {
               {!showMobileForm ? (
                 <button 
                   onClick={() => setShowMobileForm(true)}
-                  className="bg-blueRemax h-[40px] rounded text-white w-full mt-2"
+                  className={`h-[40px] rounded text-white w-full mt-2 ${
+                    valor === "comercial" ? "bg-redRemax" : "bg-blueRemax"
+                  }`}
                 >
                   Contactar ahora
                 </button>
@@ -663,7 +684,9 @@ export default function PropiedadSeleccion({ seleccion }) {
                       </button>
                       <button 
                         type="submit" 
-                        className="bg-blueRemax h-[40px] rounded text-white mt-2 flex-1"
+                        className={`h-[40px] rounded text-white mt-2 flex-1 ${
+                          valor === "comercial" ? "bg-redRemax" : "bg-blueRemax"
+                        }`}
                         disabled={formLoading}
                       >
                         {formLoading ? "Enviando..." : "Enviar"}
@@ -693,7 +716,9 @@ export default function PropiedadSeleccion({ seleccion }) {
             <hr />
             {/* Calculadora de hipotecas móvil */}
             <div className="w-full flex justify-center">
-              <button className="mt-3 lg:hidden mx-auto bg-[#DB1C2E] w-[341px] text-[18px] font-bold h-[48px] text-white rounded-[10px]">
+              <button className={`mt-3 lg:hidden mx-auto w-[341px] text-[18px] font-bold h-[48px] text-white rounded-[10px] ${
+                valor === "comercial" ? "bg-redRemax" : "bg-blueRemax"
+              }`}>
                 Calculadora de hipotecas
               </button>
             </div>
@@ -821,14 +846,18 @@ export default function PropiedadSeleccion({ seleccion }) {
                       <div className="flex flex-col py-4 justify-center gap-5">
                         <button 
                           type="submit" 
-                          className="bg-blueRemax h-[50px] rounded text-white"
+                          className={`h-[50px] rounded text-white ${
+                            valor === "comercial" ? "bg-redRemax" : "bg-blueRemax"
+                          }`}
                           disabled={formLoading}
                         >
                           {formLoading ? "Enviando..." : "Enviar consulta"}
                         </button>
                         <button 
                           type="button" 
-                          className="bg-redRemax h-[50px] text-white text-2xl rounded"
+                          className={`h-[50px] text-white text-2xl rounded ${
+                            valor === "comercial" ? "bg-redRemax" : "bg-blueRemax"
+                          }`}
                         >
                           Calculadora de Hipotecas
                         </button>

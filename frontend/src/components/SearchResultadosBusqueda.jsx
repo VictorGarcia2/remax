@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilter, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import mapboxgl from "mapbox-gl";
 import { Link } from "react-router-dom";
+import { useSearchContext } from "../context/SearchContext";
 
 mapboxgl.accessToken =
   "pk.eyJ1IjoidmljdG9yZ2lhcHJ6IiwiYSI6ImNtNXZ3dW0wMjA2aHgyanE1M3ptczQ2azUifQ.ILrTXW_4c9_pbGC3Uj-wdg";
@@ -16,6 +17,7 @@ export default function SearchResultadosBusqueda({
 }) {
   const [autoCompleteHome, setAutoCompleteHome] = useState([]);
   const [modalBusqueda, setModalBusqueda] = useState(true);
+  const { valor } = useSearchContext();
 
   const handleCloseMenu = () => setMenuClose(false);
 
@@ -88,7 +90,9 @@ export default function SearchResultadosBusqueda({
         )}
         <div
           onClick={() => setManejoBusqueda((prevState) => !prevState)}
-          className="rounded-e-full cursor-pointer w-13 h-11 sm:h-11 sm:w-15 bg-[#003DA4] align-middle items-center flex shadow-[0_3px_1px] shadow-black/50"
+          className={`rounded-e-full cursor-pointer w-13 h-11 sm:h-11 sm:w-15 align-middle items-center flex shadow-[0_3px_1px] shadow-black/50 ${
+            valor === "comercial" ? "bg-redRemax" : "bg-blueRemax"
+          }`}
         >
           <Link to="/propiedades" className="mx-auto">
             <button className="items-center flex cursor-pointer">
