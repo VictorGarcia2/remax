@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 import Header from "../components/SectionHome/Header";
 import SectionFooter from "../components/SectionFooter/SectionFooter";
 import { Link } from "react-router-dom";
@@ -6,23 +7,602 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGlobe, faAward, faChartLine, faUsers, faBriefcase, faGraduationCap } from "@fortawesome/free-solid-svg-icons";
 import { useSearchContext } from "../context/SearchContext";
 
+// Constantes para Pipedrive
+const PIPEDRIVE_API_KEY = "02317c5467585c4251d802ab65e0c7b9f60541ee";
+const PIPEDRIVE_API_URL = "https://api.pipedrive.com/v1";
+
+// Definición de campos personalizados para Leads en Pipedrive
+const CUSTOM_FIELDS = {
+  EDAD: {
+    name: "Edad del Candidato",
+    field_type: "double",
+    validation: (value) => value >= 18 && value <= 80
+  },
+  NIVEL_EDUCATIVO: {
+    name: "Nivel Educativo",
+    field_type: "enum",
+    options: ["preparatoria", "tecnico", "licenciatura", "posgrado"],
+    validation: (value) => ["preparatoria", "tecnico", "licenciatura", "posgrado"].includes(value)
+  },
+  NIVEL_INGLES: {
+    name: "Nivel de Inglés",
+    field_type: "enum",
+    options: ["ninguno", "basico", "intermedio", "avanzado", "fluido"],
+    validation: (value) => ["ninguno", "basico", "intermedio", "avanzado", "fluido"].includes(value)
+  },
+  EXPERIENCIA_INMOBILIARIA: {
+    name: "Experiencia Inmobiliaria",
+    field_type: "enum",
+    options: ["ninguna", "menos1", "1a3", "mas3"],
+    validation: (value) => ["ninguna", "menos1", "1a3", "mas3"].includes(value)
+  },
+  OCUPACION_ACTUAL: {
+    name: "Ocupación Actual",
+    field_type: "varchar",
+    validation: (value) => value.length > 0 && value.length <= 100
+  },
+  DISPONIBILIDAD: {
+    name: "Disponibilidad",
+    field_type: "enum",
+    options: ["completa", "media", "parcial"],
+    validation: (value) => ["completa", "media", "parcial"].includes(value)
+  },
+  DIRECCION: {
+    name: "Dirección",
+    field_type: "varchar",
+    validation: (value) => value.length > 0
+  },
+  UBICACION_LAT: {
+    name: "Latitud",
+    field_type: "varchar",
+    validation: (value) => !isNaN(parseFloat(value))
+  },
+  UBICACION_LNG: {
+    name: "Longitud",
+    field_type: "varchar",
+    validation: (value) => !isNaN(parseFloat(value))
+  },
+  SKILL_OFFICE: {
+    name: "Nivel Office",
+    field_type: "double",
+    validation: (value) => value >= 1 && value <= 5
+  },
+  SKILL_REDES: {
+    name: "Nivel Redes Sociales",
+    field_type: "double",
+    validation: (value) => value >= 1 && value <= 5
+  },
+  SKILL_CRM: {
+    name: "Nivel CRM",
+    field_type: "double",
+    validation: (value) => value >= 1 && value <= 5
+  },
+  SKILL_VIDEOCONF: {
+    name: "Nivel Videoconferencias",
+    field_type: "double",
+    validation: (value) => value >= 1 && value <= 5
+  },
+  SKILL_MARKETING: {
+    name: "Nivel Marketing Digital",
+    field_type: "double",
+    validation: (value) => value >= 1 && value <= 5
+  },
+  TIENE_AUTO: {
+    name: "Tiene Automóvil",
+    field_type: "varchar",
+    validation: (value) => ["Sí", "No"].includes(value)
+  },
+  TIENE_LAPTOP: {
+    name: "Tiene Laptop",
+    field_type: "varchar",
+    validation: (value) => ["Sí", "No"].includes(value)
+  },
+  TIENE_SMARTPHONE: {
+    name: "Tiene Smartphone",
+    field_type: "varchar",
+    validation: (value) => ["Sí", "No"].includes(value)
+  }
+};
+
+// Función para asegurar que existan los campos personalizados
+const ensureCustomFields = async () => {
+  try {
+    const fieldsResponse = await fetch(
+      `${PIPEDRIVE_API_URL}/dealFields?api_token=${PIPEDRIVE_API_KEY}`
+    );
+
+    if (!fieldsResponse.ok) {
+      throw new Error('Error al obtener campos de Pipedrive');
+    }
+
+    const existingFields = await fieldsResponse.json();
+    const customFieldIds = {};
+
+    for (const [key, field] of Object.entries(CUSTOM_FIELDS)) {
+      const existingField = existingFields.data?.find(f => f.name === field.name);
+      
+      if (existingField) {
+        // Si el campo existe pero es de tipo enum y tiene opciones diferentes, actualizarlo
+        if (field.field_type === "enum" && field.options && 
+            (!existingField.options || !arraysEqual(existingField.options.map(o => o.label), field.options))) {
+          const updateResponse = await fetch(
+            `${PIPEDRIVE_API_URL}/dealFields/${existingField.id}?api_token=${PIPEDRIVE_API_KEY}`,
+            {
+              method: 'PUT',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                name: field.name,
+                options: field.options.map(opt => ({ label: opt }))
+              })
+            }
+          );
+          
+          if (!updateResponse.ok) {
+            console.warn(`No se pudo actualizar el campo ${field.name}, pero continuará con el existente`);
+          }
+        }
+        
+        customFieldIds[key] = existingField.key;
+      } else {
+        // Crear nuevo campo
+        const payload = {
+          name: field.name,
+          field_type: field.field_type
+        };
+
+        if (field.field_type === "enum" && field.options) {
+          payload.options = field.options.map(opt => ({ label: opt }));
+        }
+
+        const createResponse = await fetch(
+          `${PIPEDRIVE_API_URL}/dealFields?api_token=${PIPEDRIVE_API_KEY}`,
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+          }
+        );
+
+        if (!createResponse.ok) {
+          throw new Error(`Error al crear campo ${field.name}`);
+        }
+
+        const newField = await createResponse.json();
+        if (newField.success) {
+          customFieldIds[key] = newField.data.key;
+        } else {
+          throw new Error(`Error al crear campo ${field.name}: ${newField.error || 'Error desconocido'}`);
+        }
+      }
+    }
+
+    return customFieldIds;
+  } catch (error) {
+    console.error("Error al verificar/crear campos personalizados:", error);
+    throw error;
+  }
+};
+
+const arraysEqual = (arr1, arr2) => {
+  if (arr1.length !== arr2.length) return false;
+  return arr1.every((value, index) => value === arr2[index]);
+};
+
+// Lista de posibles propietarios
+const OWNER_MATCHES = [
+  { type: 'name', value: 'veronica' },
+  { type: 'name', value: 'verónica' },
+  { type: 'email', value: 'adm.remaxrna@gmail.com' },
+  { type: 'email', value: 'remaxcincoleccion@gmail.com' }
+];
+
+const findOwnerInPipedrive = async (apiKey) => {
+  try {
+    const usersResponse = await fetch(
+      `${PIPEDRIVE_API_URL}/users?api_token=${apiKey}`
+    );
+    
+    if (!usersResponse.ok) {
+      throw new Error('Error al obtener usuarios de Pipedrive');
+    }
+
+    const usersData = await usersResponse.json();
+    
+    // Primero intentar encontrar un usuario específico
+    let owner = null;
+    
+    // Buscar por coincidencias exactas primero
+    for (const match of OWNER_MATCHES) {
+      owner = usersData.data.find(user => {
+        if (match.type === 'email') {
+          return user.email?.toLowerCase() === match.value.toLowerCase();
+        } else {
+          return user.name?.toLowerCase().includes(match.value.toLowerCase());
+        }
+      });
+      
+      if (owner) break;
+    }
+
+    // Si no se encuentra ningún usuario específico, buscar un administrador activo
+    if (!owner) {
+      owner = usersData.data.find(user => 
+        user.active_flag && (user.role_id === 1 || user.is_admin) // role_id 1 suele ser admin
+      );
+    }
+
+    // Si aún no hay owner, tomar el primer usuario activo
+    if (!owner) {
+      owner = usersData.data.find(user => user.active_flag);
+    }
+
+    // Si todavía no hay owner, tomar el primer usuario
+    if (!owner && usersData.data.length > 0) {
+      owner = usersData.data[0];
+    }
+
+    return owner;
+  } catch (error) {
+    console.error('Error al buscar propietario:', error);
+    throw new Error('Error al buscar propietario en Pipedrive: ' + error.message);
+  }
+};
+
 export default function Reclutamiento() {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
     email: "",
+    address: "",
+    lat: null,
+    lng: null,
     experience: "ninguna",
     education: "licenciatura",
     english: "basico",
     age: "",
     currentJob: "",
     availability: "completa",
+    techSkills: {
+      officeTools: 1,
+      socialMedia: 1,
+      crm: 1,
+      videoConference: 1,
+      digitalMarketing: 1
+    },
+    equipment: {
+      hascar: false,
+      haslaptop: false,
+      hassmartphone: false
+    },
     message: "" 
   });
-  const handleSubmit = (e) => {
+  
+  const [addressSuggestions, setAddressSuggestions] = useState([]);
+  
+  // Función para buscar sugerencias de direcciones usando la API de Mapbox
+  const searchAddress = async (query) => {
+    if (!query) {
+      setAddressSuggestions([]);
+      return;
+    }
+    
+    try {
+      const response = await fetch(
+        `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(query)}.json?` +
+        `access_token=${"pk.eyJ1IjoidmljdG9yZ2FyY2lhcHJ6IiwiYSI6ImNtNXZ3dW0wMjA2aHgyanE1M3ptczQ2azUifQ.ILrTXW_4c9_pbGC3Uj-wdg"}&` +
+        'country=mx&' +
+        'types=address&' +
+        'language=es'
+      );
+      
+      const data = await response.json();
+      setAddressSuggestions(data.features);
+    } catch (error) {
+      console.error("Error buscando dirección:", error);
+    }
+  };
+
+  // Debounce para la búsqueda de direcciones
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (formData.address) {
+        searchAddress(formData.address);
+      }
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [formData.address]);  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+
+  // Modal de éxito
+  const SuccessModal = () => {
+    return (
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">
+        <div className="bg-white rounded-xl shadow-xl p-8 max-w-md w-full transform transition-all">
+          <div className="text-center">
+            <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100 mb-4">
+              <svg className="h-6 w-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">¡Solicitud enviada con éxito!</h3>
+            <p className="text-gray-600 mb-6">
+              Gracias por tu interés en unirte a RE/MAX CIN. Nos pondremos en contacto contigo muy pronto.
+            </p>
+            <button
+              onClick={() => setShowSuccessModal(false)}
+              className="w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-[#db1c2e] hover:bg-[#db1c2e]/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#db1c2e]"
+            >
+              Entendido
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  const validateFormData = (data) => {
+    const errors = {};
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^\d{10}$/;
+
+    // Validación de campos básicos
+    if (!data.name.trim()) {
+      errors.name = "El nombre es requerido";
+    }
+
+    if (!data.email.trim()) {
+      errors.email = "El correo electrónico es requerido";
+    } else if (!emailRegex.test(data.email)) {
+      errors.email = "Ingresa un correo electrónico válido";
+    }
+
+    if (!data.phone.trim()) {
+      errors.phone = "El teléfono es requerido";
+    } else if (!phoneRegex.test(data.phone.replace(/\D/g, ''))) {
+      errors.phone = "Ingresa un número de teléfono válido (10 dígitos)";
+    }
+
+    if (!data.address.trim()) {
+      errors.address = "La dirección es requerida";
+    }
+
+    if (!data.age || data.age < 18 || data.age > 80) {
+      errors.age = "La edad debe estar entre 18 y 80 años";
+    }
+
+    // Validación de campos personalizados usando las validaciones definidas
+    Object.entries(CUSTOM_FIELDS).forEach(([key, field]) => {
+      if (field.validation) {
+        let value;
+        switch (key) {
+          case 'NIVEL_EDUCATIVO':
+            value = data.education;
+            break;
+          case 'NIVEL_INGLES':
+            value = data.english;
+            break;
+          case 'EXPERIENCIA_INMOBILIARIA':
+            value = data.experience;
+            break;
+          case 'DISPONIBILIDAD':
+            value = data.availability;
+            break;
+          case 'SKILL_OFFICE':
+            value = data.techSkills.officeTools;
+            break;
+          case 'SKILL_REDES':
+            value = data.techSkills.socialMedia;
+            break;
+          case 'SKILL_CRM':
+            value = data.techSkills.crm;
+            break;
+          case 'SKILL_VIDEOCONF':
+            value = data.techSkills.videoConference;
+            break;
+          case 'SKILL_MARKETING':
+            value = data.techSkills.digitalMarketing;
+            break;
+          default:
+            return;
+        }
+
+        if (!field.validation(value)) {
+          errors[key.toLowerCase()] = `El campo ${field.name} no es válido`;
+        }
+      }
+    });
+
+    if (!data.message.trim()) {
+      errors.message = "Por favor, cuéntanos por qué quieres unirte a RE/MAX CIN";
+    }
+
+    return errors;
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-   
-    // Aquí iría la lógica para enviar el formulario
+    setIsSubmitting(true);
+
+    try {
+      // Validar datos del formulario
+      const validationErrors = validateFormData(formData);
+      if (Object.keys(validationErrors).length > 0) {
+        throw new Error('Por favor, verifica los campos marcados en rojo');
+      }
+
+      // 1. Asegurar que existan los campos personalizados
+      const customFields = await ensureCustomFields();
+
+      // 2. Crear o actualizar la persona en Pipedrive
+      const personPayload = {
+        name: formData.name,
+        email: [{ value: formData.email, primary: true }],
+        phone: [{ value: formData.phone, primary: true }],
+        visible_to: 3 // Visible para toda la compañía
+      };
+
+      const personResponse = await fetch(
+        `${PIPEDRIVE_API_URL}/persons?api_token=${PIPEDRIVE_API_KEY}`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(personPayload)
+        }
+      );
+
+      if (!personResponse.ok) {
+        const personError = await personResponse.json();
+        throw new Error(`Error al crear el contacto: ${personError.error || 'Error desconocido'}`);
+      }
+
+      const personData = await personResponse.json();
+
+      // 3. Obtener el owner adecuado utilizando la nueva función
+      let owner;
+      try {
+        owner = await findOwnerInPipedrive(PIPEDRIVE_API_KEY);
+        if (!owner) {
+          throw new Error('No se encontró ningún usuario disponible en Pipedrive');
+        }
+      } catch (error) {
+        console.error('Error al buscar el propietario:', error);
+        // Si no se encuentra un propietario específico, intentar crear el deal sin propietario
+        owner = { id: null };
+      }
+
+      // 4. Crear el deal con todos los campos personalizados
+      const dealPayload = {
+        title: `Candidato: ${formData.name}`,
+        person_id: personData.data.id,
+        ...(owner.id && { user_id: owner.id }),
+        stage_id: 1,
+        status: "open",
+        visible_to: 3,
+        [customFields.EDAD]: formData.age,
+        [customFields.NIVEL_EDUCATIVO]: formData.education,
+        [customFields.NIVEL_INGLES]: formData.english,
+        [customFields.EXPERIENCIA_INMOBILIARIA]: formData.experience,
+        [customFields.OCUPACION_ACTUAL]: formData.currentJob,
+        [customFields.DISPONIBILIDAD]: formData.availability,
+        [customFields.DIRECCION]: formData.address,
+        [customFields.UBICACION_LAT]: formData.lat?.toString() || "",
+        [customFields.UBICACION_LNG]: formData.lng?.toString() || "",
+        [customFields.SKILL_OFFICE]: formData.techSkills.officeTools,
+        [customFields.SKILL_REDES]: formData.techSkills.socialMedia,
+        [customFields.SKILL_CRM]: formData.techSkills.crm,
+        [customFields.SKILL_VIDEOCONF]: formData.techSkills.videoConference,
+        [customFields.SKILL_MARKETING]: formData.techSkills.digitalMarketing,
+        [customFields.TIENE_AUTO]: formData.equipment.hascar ? "Sí" : "No",
+        [customFields.TIENE_LAPTOP]: formData.equipment.haslaptop ? "Sí" : "No",
+        [customFields.TIENE_SMARTPHONE]: formData.equipment.hassmartphone ? "Sí" : "No"
+      };
+
+      const dealResponse = await fetch(
+        `${PIPEDRIVE_API_URL}/deals?api_token=${PIPEDRIVE_API_KEY}`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(dealPayload)
+        }
+      );
+
+      if (!dealResponse.ok) {
+        const dealError = await dealResponse.json();
+        throw new Error(`Error al crear la oportunidad: ${dealError.error || 'Error desconocido'}`);
+      }
+
+      const dealData = await dealResponse.json();
+
+      // 5. Crear una nota con información adicional
+      const noteContent = `
+Información detallada del candidato:
+- Edad: ${formData.age} años
+- Nivel educativo: ${formData.education}
+- Nivel de inglés: ${formData.english}
+- Experiencia inmobiliaria: ${formData.experience}
+- Ocupación actual: ${formData.currentJob}
+- Disponibilidad: ${formData.availability}
+- Dirección: ${formData.address}
+${formData.lat && formData.lng ? `- Ubicación: Lat ${formData.lat}, Lng ${formData.lng}` : ''}
+
+Habilidades tecnológicas (1=Básico, 5=Avanzado):
+- Office: ${formData.techSkills.officeTools}/5
+- Redes sociales: ${formData.techSkills.socialMedia}/5
+- CRM: ${formData.techSkills.crm}/5
+- Videoconferencias: ${formData.techSkills.videoConference}/5
+- Marketing digital: ${formData.techSkills.digitalMarketing}/5
+
+Equipo disponible:
+- Automóvil: ${formData.equipment.hascar ? 'Sí' : 'No'}
+- Laptop: ${formData.equipment.haslaptop ? 'Sí' : 'No'}
+- Smartphone: ${formData.equipment.hassmartphone ? 'Sí' : 'No'}
+
+Mensaje del candidato:
+${formData.message}`;
+
+      const noteResponse = await fetch(
+        `${PIPEDRIVE_API_URL}/notes?api_token=${PIPEDRIVE_API_KEY}`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            content: noteContent,
+            deal_id: dealData.data.id
+          })
+        }
+      );
+
+      if (!noteResponse.ok) {
+        console.warn("No se pudo crear la nota, pero el candidato fue registrado exitosamente");
+      }
+
+      // 6. Limpiar el formulario y mostrar mensaje de éxito
+      setShowSuccessModal(true);
+      setFormData({
+        name: "",
+        phone: "",
+        email: "",
+        address: "",
+        lat: null,
+        lng: null,
+        experience: "ninguna",
+        education: "licenciatura",
+        english: "basico",
+        age: "",
+        currentJob: "",
+        availability: "completa",
+        techSkills: {
+          officeTools: 1,
+          socialMedia: 1,
+          crm: 1,
+          videoConference: 1,
+          digitalMarketing: 1
+        },
+        equipment: {
+          hascar: false,
+          haslaptop: false,
+          hassmartphone: false
+        },
+        message: ""
+      });
+
+    } catch (error) {
+      console.error("Error al procesar la solicitud:", error);
+      toast.error(error.message || 'Hubo un error al enviar el formulario. Por favor, intenta de nuevo.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const { valor } = useSearchContext();
@@ -30,6 +610,7 @@ export default function Reclutamiento() {
   return (
     <>
       <Header />
+      {showSuccessModal && <SuccessModal />}
       {/* Hero Section */}
       <div className="relative pt-20 bg-cover bg-center" style={{backgroundImage: "linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')"}}>
         <div className="container mx-auto px-6 py-24">
@@ -257,8 +838,7 @@ export default function Reclutamiento() {
             <div className="bg-white rounded-xl shadow-lg p-8 border-t-4 border-[#db1c2e]">
               <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">Formulario de aplicación</h3>
               <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Datos personales */}
-                <div className="bg-gray-50 p-4 rounded-lg mb-6">
+                {/* Datos personales */}                <div className="bg-gray-50 p-4 rounded-lg mb-6">
                   <h4 className="font-semibold text-[#db1c2e] mb-4">Datos personales</h4>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
@@ -271,6 +851,38 @@ export default function Reclutamiento() {
                         required
                       />
                     </div>
+                    <div className="relative">
+                      <label className="block text-gray-700 mb-2 font-medium">Domicilio de residencia</label>
+                      <input
+                        type="text"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#db1c2e] focus:border-[#db1c2e]"
+                        value={formData.address}
+                        onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+                        placeholder="Ingresa tu dirección"
+                        required
+                      />
+                      {addressSuggestions.length > 0 && (
+                        <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-auto">
+                          {addressSuggestions.map((suggestion) => (
+                            <div
+                              key={suggestion.id}
+                              className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                              onClick={() => {
+                                setFormData({
+                                  ...formData,
+                                  address: suggestion.place_name,
+                                  lat: suggestion.center[1],
+                                  lng: suggestion.center[0]
+                                });
+                                setAddressSuggestions([]);
+                              }}
+                            >
+                              {suggestion.place_name}
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                     <div>
                       <label className="block text-gray-700 mb-2 font-medium">Edad</label>
                       <input
@@ -282,12 +894,19 @@ export default function Reclutamiento() {
                       />
                     </div>
                     <div>
-                      <label className="block text-gray-700 mb-2 font-medium">Teléfono</label>
-                      <input
+                      <label className="block text-gray-700 mb-2 font-medium">Teléfono</label>                      <input
                         type="tel"
                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#db1c2e] focus:border-[#db1c2e]"
                         value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        onChange={(e) => {
+                          const value = e.target.value.replace(/\D/g, '');
+                          if (value.length <= 10) {
+                            setFormData({ ...formData, phone: value });
+                          }
+                        }}
+                        placeholder="Ej: 2291234567"
+                        maxLength="10"
+                        pattern="[0-9]{10}"
                         required
                       />
                     </div>
@@ -394,15 +1013,271 @@ export default function Reclutamiento() {
                   </div>
                 </div>
                 
+                {/* Conocimientos tecnológicos */}
+                <div className="bg-gray-50 p-4 rounded-lg mb-6">
+                  <h4 className="font-semibold text-[#db1c2e] mb-4">Conocimientos tecnológicos</h4>
+                  <div className="grid grid-cols-1 gap-4">
+                    <div>
+                      <label className="block text-gray-700 mb-2 font-medium">Herramientas de Office (Word, Excel, etc.)</label>
+                      <div className="flex items-center gap-4">
+                        {[1, 2, 3, 4, 5].map((value) => (
+                          <label key={value} className="flex items-center">
+                            <input
+                              type="radio"
+                              name="officeTools"
+                              value={value}
+                              checked={formData.techSkills.officeTools === value}
+                              onChange={(e) => setFormData({
+                                ...formData,
+                                techSkills: {
+                                  ...formData.techSkills,
+                                  officeTools: parseInt(e.target.value)
+                                }
+                              })}
+                              className="hidden"
+                            />
+                            <div className={`w-8 h-8 flex items-center justify-center border rounded-lg cursor-pointer transition-all ${
+                              formData.techSkills.officeTools === value
+                                ? 'bg-[#db1c2e] text-white border-[#db1c2e]'
+                                : 'border-gray-300 hover:border-[#db1c2e]'
+                            }`}>
+                              {value}
+                            </div>
+                          </label>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <label className="block text-gray-700 mb-2 font-medium">Redes sociales profesionales</label>
+                      <div className="flex items-center gap-4">
+                        {[1, 2, 3, 4, 5].map((value) => (
+                          <label key={value} className="flex items-center">
+                            <input
+                              type="radio"
+                              name="socialMedia"
+                              value={value}
+                              checked={formData.techSkills.socialMedia === value}
+                              onChange={(e) => setFormData({
+                                ...formData,
+                                techSkills: {
+                                  ...formData.techSkills,
+                                  socialMedia: parseInt(e.target.value)
+                                }
+                              })}
+                              className="hidden"
+                            />
+                            <div className={`w-8 h-8 flex items-center justify-center border rounded-lg cursor-pointer transition-all ${
+                              formData.techSkills.socialMedia === value
+                                ? 'bg-[#db1c2e] text-white border-[#db1c2e]'
+                                : 'border-gray-300 hover:border-[#db1c2e]'
+                            }`}>
+                              {value}
+                            </div>
+                          </label>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-gray-700 mb-2 font-medium">CRM y herramientas de gestión</label>
+                      <div className="flex items-center gap-4">
+                        {[1, 2, 3, 4, 5].map((value) => (
+                          <label key={value} className="flex items-center">
+                            <input
+                              type="radio"
+                              name="crm"
+                              value={value}
+                              checked={formData.techSkills.crm === value}
+                              onChange={(e) => setFormData({
+                                ...formData,
+                                techSkills: {
+                                  ...formData.techSkills,
+                                  crm: parseInt(e.target.value)
+                                }
+                              })}
+                              className="hidden"
+                            />
+                            <div className={`w-8 h-8 flex items-center justify-center border rounded-lg cursor-pointer transition-all ${
+                              formData.techSkills.crm === value
+                                ? 'bg-[#db1c2e] text-white border-[#db1c2e]'
+                                : 'border-gray-300 hover:border-[#db1c2e]'
+                            }`}>
+                              {value}
+                            </div>
+                          </label>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-gray-700 mb-2 font-medium">Videoconferencias (Zoom, Meet, etc.)</label>
+                      <div className="flex items-center gap-4">
+                        {[1, 2, 3, 4, 5].map((value) => (
+                          <label key={value} className="flex items-center">
+                            <input
+                              type="radio"
+                              name="videoConference"
+                              value={value}
+                              checked={formData.techSkills.videoConference === value}
+                              onChange={(e) => setFormData({
+                                ...formData,
+                                techSkills: {
+                                  ...formData.techSkills,
+                                  videoConference: parseInt(e.target.value)
+                                }
+                              })}
+                              className="hidden"
+                            />
+                            <div className={`w-8 h-8 flex items-center justify-center border rounded-lg cursor-pointer transition-all ${
+                              formData.techSkills.videoConference === value
+                                ? 'bg-[#db1c2e] text-white border-[#db1c2e]'
+                                : 'border-gray-300 hover:border-[#db1c2e]'
+                            }`}>
+                              {value}
+                            </div>
+                          </label>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-gray-700 mb-2 font-medium">Marketing digital</label>
+                      <div className="flex items-center gap-4">
+                        {[1, 2, 3, 4, 5].map((value) => (
+                          <label key={value} className="flex items-center">
+                            <input
+                              type="radio"
+                              name="digitalMarketing"
+                              value={value}
+                              checked={formData.techSkills.digitalMarketing === value}
+                              onChange={(e) => setFormData({
+                                ...formData,
+                                techSkills: {
+                                  ...formData.techSkills,
+                                  digitalMarketing: parseInt(e.target.value)
+                                }
+                              })}
+                              className="hidden"
+                            />
+                            <div className={`w-8 h-8 flex items-center justify-center border rounded-lg cursor-pointer transition-all ${
+                              formData.techSkills.digitalMarketing === value
+                                ? 'bg-[#db1c2e] text-white border-[#db1c2e]'
+                                : 'border-gray-300 hover:border-[#db1c2e]'
+                            }`}>
+                              {value}
+                            </div>
+                          </label>
+                        ))}
+                      </div>
+                    </div>
+                    <p className="text-sm text-gray-500 mt-2">
+                      1: Básico, 2: Intermedio bajo, 3: Intermedio, 4: Intermedio alto, 5: Avanzado
+                    </p>
+                  </div>
+                </div>
+
+                {/* Equipo disponible */}
+                <div className="bg-gray-50 p-4 rounded-lg mb-6">
+                  <h4 className="font-semibold text-[#db1c2e] mb-4">Equipo disponible</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <label className="flex items-center p-4 border rounded-lg cursor-pointer transition-all hover:border-[#db1c2e]">
+                      <input
+                        type="checkbox"
+                        checked={formData.equipment.hascar}
+                        onChange={(e) => setFormData({
+                          ...formData,
+                          equipment: {
+                            ...formData.equipment,
+                            hascar: e.target.checked
+                          }
+                        })}
+                        className="hidden"
+                      />
+                      <div className={`w-6 h-6 border rounded mr-3 flex items-center justify-center transition-all ${
+                        formData.equipment.hascar
+                          ? 'bg-[#db1c2e] border-[#db1c2e]'
+                          : 'border-gray-300'
+                      }`}>
+                        {formData.equipment.hascar && (
+                          <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                          </svg>
+                        )}
+                      </div>
+                      <span className="text-gray-700">Automóvil propio</span>
+                    </label>
+
+                    <label className="flex items-center p-4 border rounded-lg cursor-pointer transition-all hover:border-[#db1c2e]">
+                      <input
+                        type="checkbox"
+                        checked={formData.equipment.haslaptop}
+                        onChange={(e) => setFormData({
+                          ...formData,
+                          equipment: {
+                            ...formData.equipment,
+                            haslaptop: e.target.checked
+                          }
+                        })}
+                        className="hidden"
+                      />
+                      <div className={`w-6 h-6 border rounded mr-3 flex items-center justify-center transition-all ${
+                        formData.equipment.haslaptop
+                          ? 'bg-[#db1c2e] border-[#db1c2e]'
+                          : 'border-gray-300'
+                      }`}>
+                        {formData.equipment.haslaptop && (
+                          <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                          </svg>
+                        )}
+                      </div>
+                      <span className="text-gray-700">Laptop</span>
+                    </label>
+
+                    <label className="flex items-center p-4 border rounded-lg cursor-pointer transition-all hover:border-[#db1c2e]">
+                      <input
+                        type="checkbox"
+                        checked={formData.equipment.hassmartphone}
+                        onChange={(e) => setFormData({
+                          ...formData,
+                          equipment: {
+                            ...formData.equipment,
+                            hassmartphone: e.target.checked
+                          }
+                        })}
+                        className="hidden"
+                      />
+                      <div className={`w-6 h-6 border rounded mr-3 flex items-center justify-center transition-all ${
+                        formData.equipment.hassmartphone
+                          ? 'bg-[#db1c2e] border-[#db1c2e]'
+                          : 'border-gray-300'
+                      }`}>
+                        {formData.equipment.hassmartphone && (
+                          <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                          </svg>
+                        )}
+                      </div>
+                      <span className="text-gray-700">Smartphone</span>
+                    </label>
+                  </div>
+                </div>
+                
                 <div className="pt-4">
-                  <div className="flex flex-col gap-4">
-                    <button 
+                  <div className="flex flex-col gap-4">                    <button 
                       type="submit" 
                       className={`w-full text-white py-4 px-6 rounded-lg transition-all duration-300 font-bold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 ${
                         valor === "comercial" ? "bg-redRemax hover:bg-redRemax/80" : "bg-blueRemax hover:bg-blueRemax/80"
-                      }`}
+                      } ${isSubmitting ? 'opacity-75 cursor-not-allowed' : ''}`}
+                      disabled={isSubmitting}
                     >
-                      Enviar mensaje
+                      {isSubmitting ? (
+                        <div className="flex items-center justify-center gap-2">
+                          <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"/>
+                          <span>Enviando...</span>
+                        </div>
+                      ) : "Enviar solicitud"}
                     </button>
                   </div>
                 </div>

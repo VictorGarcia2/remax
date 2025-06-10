@@ -15,6 +15,65 @@ import { Share2 } from "lucide-react";
 import { toast } from "react-toastify";
 import { useSearchContext } from "../../context/SearchContext";
 
+const CUSTOM_FIELDS = {
+  PROPIEDAD_ID: {
+    name: "ID Propiedad",
+    field_type: "text"
+  },
+  DIRECCION: {
+    name: "Dirección",
+    field_type: "text"
+  },
+  TIPO_PROPIEDAD: {
+    name: "Tipo de Propiedad",
+    field_type: "text"
+  },
+  PRECIO: {
+    name: "Precio",
+    field_type: "monetary"
+  }
+};
+
+// Función para verificar y crear campos personalizados
+const ensureCustomFields = async (apiKey) => {
+  try {
+    // 1. Obtener campos existentes
+    const fieldsResponse = await axios.get(
+      `https://api.pipedrive.com/v1/dealFields?api_token=${apiKey}`
+    );
+
+    const existingFields = fieldsResponse.data.data || [];
+    const customFieldIds = {};
+
+    // 2. Crear campos que no existen
+    for (const [key, field] of Object.entries(CUSTOM_FIELDS)) {
+      const existingField = existingFields.find(f => f.name === field.name);
+      
+      if (existingField) {
+        customFieldIds[key] = existingField.key;
+      } else {
+        // Crear nuevo campo
+        const createResponse = await axios.post(
+          `https://api.pipedrive.com/v1/dealFields?api_token=${apiKey}`,
+          {
+            name: field.name,
+            field_type: field.field_type
+          }
+        );
+        
+        if (createResponse.data.success) {
+          customFieldIds[key] = createResponse.data.data.key;
+        }
+      }
+    }
+
+    return customFieldIds;
+  } catch (error) {
+    console.error("Error al verificar/crear campos personalizados:", error);
+    throw error;
+  }
+};
+
 export default function PropiedadSeleccion({ seleccion }) {
   const { id } = useParams();
   const [propiedades, setPropiedades] = useState([]);
@@ -27,10 +86,40 @@ export default function PropiedadSeleccion({ seleccion }) {
     email: "",
     phone: "",
   });
+  const [formErrors, setFormErrors] = useState({});
   const [formLoading, setFormLoading] = useState(false);
   const [showMobileForm, setShowMobileForm] = useState(false);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const { valor } = useSearchContext();
 
+  const validateForm = () => {
+    const errors = {};
+    const nameRegex = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,50}$/;
+    const phoneRegex = /^\d{10}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!formData.name.trim()) {
+      errors.name = "El nombre es requerido";
+    } else if (!nameRegex.test(formData.name.trim())) {
+      errors.name = "Por favor ingresa un nombre válido";
+    }
+
+    if (!formData.phone.trim()) {
+      errors.phone = "El teléfono es requerido";
+    } else if (!phoneRegex.test(formData.phone.replace(/\D/g, ""))) {
+      errors.phone = "Por favor ingresa un número de teléfono válido (10 dígitos)";
+    }
+
+    if (!formData.email.trim()) {
+      errors.email = "El correo electrónico es requerido";
+    } else if (!emailRegex.test(formData.email.trim())) {
+      errors.email = "Por favor ingresa un correo electrónico válido";
+    }
+
+    setFormErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+  
   const countPage = propiedadSeleccion?.imagenes
     ? propiedadSeleccion.imagenes.split(",").length
     : 0;
@@ -192,38 +281,97 @@ export default function PropiedadSeleccion({ seleccion }) {
       ...formData,
       [e.target.name]: e.target.value
     });
-  };
-  
-  const handleSubmit = async (e) => {
+  };      const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    if (!validateForm()) {
+      // Los errores ya están establecidos en formErrors
+      return;
+    }
+    
     setFormLoading(true);
     
     try {
-      // API key para Tokko Broker
-      const apiKey = "df13ee781fa7b1c0033b621e2add20a094ab9eff";
+      const apiKey = "02317c5467585c4251d802ab65e0c7b9f60541ee";
       
-      const payload = {
+      // Asegurar que existan los campos personalizados
+      const customFieldIds = await ensureCustomFields(apiKey);
+      
+      // 1. Primero creamos la persona
+      const personPayload = {
         name: formData.name,
         email: formData.email,
         phone: formData.phone.startsWith("+52") ? formData.phone : "+52" + formData.phone,
-        message: formData.message || `Interesado en propiedad ${propiedadSeleccion?.propiedad_id} en ${direccion}`,
-        publication_id: String(propiedadSeleccion?.clave),
-        source: "website"
+        visible_to: 3
       };
       
-      console.log("Enviando datos:", payload);
-      
-      const response = await axios.post(
-        `https://www.tokkobroker.com/api/v1/webcontact/?format=json&key=${apiKey}&lang=es_ar`,
-        payload
+      const personResponse = await axios.post(
+        `https://api.pipedrive.com/v1/persons?api_token=${apiKey}`,
+        personPayload
       );
-      console.log("Respuesta:", response.data);
-      toast.success("Mensaje enviado correctamente");
-      setFormData({ name: "", email: "", phone: "", message: "" });
+      
+      if (!personResponse.data.success) {
+        throw new Error('Error al crear el contacto en PipeDrive');
+      }
+      
+      // 2. Luego creamos el deal con los campos personalizados
+      const dealPayload = {
+        title: `Lead propiedad ${propiedadSeleccion?.propiedad_id}`,
+        person_id: personResponse.data.data.id,
+        value: propiedadSeleccion?.mxn_corriente || 0,
+        currency: "MXN",
+        visible_to: 3,
+        stage_id: "1",
+        status: "open",
+        [customFieldIds.PROPIEDAD_ID]: propiedadSeleccion?.propiedad_id,
+        [customFieldIds.DIRECCION]: direccion,
+        [customFieldIds.TIPO_PROPIEDAD]: propiedadSeleccion?.tipos?.tipo_nombre || "No especificado",
+        [customFieldIds.PRECIO]: propiedadSeleccion?.mxn_corriente || 0
+      };
+
+      // Crear deal en PipeDrive
+      const dealResponse = await axios.post(
+        `https://api.pipedrive.com/v1/deals?api_token=${apiKey}`,
+        dealPayload
+      );
+      if (!dealResponse.data.success) {
+        throw new Error('Error al crear el lead en PipeDrive');
+      }
+
+      // Si todo fue exitoso
+      console.log("Lead creado en PipeDrive:", dealResponse.data);
+      
+      // Limpiar el formulario y cerrar el modal
+      setFormData({ name: "", email: "", phone: "" });
+      setFormErrors({});
+      setShowMobileForm(false);
+      setShowSuccessMessage(true);
+
+      // Mostrar mensaje de éxito
+      toast.success(
+        <>
+          <p className="font-bold">¡Gracias por tu interés!</p>
+          <p>Un asesor experto se pondrá en contacto contigo en breve para brindarte toda la información sobre esta propiedad.</p>
+        </>,
+        {
+          autoClose: 5000,
+          position: "top-center",
+        }
+      );
+
+      // Opcional: Crear una nota en el deal
+      await axios.post(
+        `https://api.pipedrive.com/v1/notes?api_token=${apiKey}`,
+        {
+          deal_id: dealResponse.data.data.id,
+          content: `Lead generado desde la web\nPropiedad: ${propiedadSeleccion?.propiedad_id}\nUbicación: ${direccion}\nPrecio: ${Number(propiedadSeleccion?.mxn_corriente).toLocaleString('es-MX', { style: 'currency', currency: 'MXN' })}`,
+        }
+      );
+
     } catch (error) {
-      console.error("Error al enviar formulario:", error);
+      console.error("Error al procesar el lead:", error);
       console.log("Detalles del error:", error.response?.data || "No hay detalles adicionales");
-      toast.error("Error al enviar el mensaje. Intente nuevamente.");
+      toast.error("Lo sentimos, hubo un problema al enviar tu solicitud. Por favor, intenta nuevamente o contáctanos directamente por WhatsApp.");
     } finally {
       setFormLoading(false);
     }
@@ -502,7 +650,7 @@ export default function PropiedadSeleccion({ seleccion }) {
               <div className="flex  justify-start items-center text-start ">
                 {tituloPro && propiedadSeleccion ? (
                   tituloPro.map((item) => (
-                    <p key={item.nombre} className="lg:text-3xl">
+                    <p key={`${item.tipo_id}-${item.operacion_id}`} className="lg:text-3xl">
                       {item.tipo_id === propiedadSeleccion?.tipos?.tipo_id &&
                       item.operacion_id === propiedadSeleccion?.operacion
                         ? item.nombre
@@ -633,67 +781,134 @@ export default function PropiedadSeleccion({ seleccion }) {
                   Contactar ahora
                 </button>
               ) : (
-                <form onSubmit={handleSubmit} className="w-full">
-                  <div className="flex flex-col w-full text-lg text-start gap-2">
-                    <label htmlFor="name-mobile">
-                      Nombre
-                      <input
-                        type="text"
-                        id="name-mobile"
-                        name="name"
-                        placeholder="Juan Martín"
-                        className="border border-gray-300 rounded-lg p-2 w-full"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        required
-                      />
-                    </label>
-                    <label htmlFor="phone-mobile">
-                      Teléfono
-                      <input
-                        type="tel"
-                        id="phone-mobile"
-                        name="phone"
-                        placeholder="9932402987"
-                        className="border border-gray-300 rounded-lg p-2 w-full"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        required
-                      />
-                    </label>
-                    <label htmlFor="email-mobile">
-                      Correo
-                      <input
-                        type="email"
-                        id="email-mobile"
-                        name="email"
-                        placeholder="example@gmail.com"
-                        className="border border-gray-300 rounded-lg p-2 w-full"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                      />
-                    </label>
-                    <div className="flex gap-2">
-                      <button 
-                        type="button" 
-                        onClick={() => setShowMobileForm(false)}
-                        className="bg-gray-300 h-[40px] rounded text-gray-700 mt-2 flex-1"
-                      >
-                        Cancelar
-                      </button>
-                      <button 
-                        type="submit" 
-                        className={`h-[40px] rounded text-white mt-2 flex-1 ${
-                          valor === "comercial" ? "bg-redRemax" : "bg-blueRemax"
-                        }`}
-                        disabled={formLoading}
-                      >
-                        {formLoading ? "Enviando..." : "Enviar"}
-                      </button>
+                <div className="relative w-full">
+                  {showSuccessMessage && (
+                    <div className="absolute inset-0 flex items-center justify-center z-10 bg-white/80">
+                      <div className={`bg-white p-6 rounded-lg shadow-lg text-center transform transition-all duration-300 ${
+                        showSuccessMessage ? 'scale-100 opacity-100' : 'scale-95 opacity-0'
+                      }`}>
+                        <div className="mb-4 text-green-500">
+                          <svg className="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/>
+                          </svg>
+                        </div>
+                        <h3 className="text-xl font-bold mb-2">¡Gracias por tu interés!</h3>
+                        <p className="text-gray-600">
+                          Un asesor experto se pondrá en contacto contigo en breve.
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </form>
+                  )}
+                  <form onSubmit={handleSubmit} className={`w-full transition-opacity duration-300 ${showSuccessMessage ? 'opacity-50' : 'opacity-100'}`}>
+                    <div className="flex flex-col w-full text-lg text-start gap-4">
+                      <div className="relative">
+                        <input
+                          type="text"
+                          id="name-mobile"
+                          name="name"
+                          placeholder=" "
+                          className={`peer w-full px-4 py-3 border-2 rounded-lg focus:outline-none transition-colors bg-white ${
+                            formErrors.name ? 'border-red-500' : 'border-gray-300 focus:border-blueRemax'
+                          }`}
+                          value={formData.name}
+                          onChange={handleInputChange}
+                          required
+                        />
+                        <label
+                          htmlFor="name-mobile"
+                          className={`absolute left-4 top-3 transition-all duration-200 peer-focus:-top-2.5 peer-focus:text-sm peer-focus:bg-white peer-focus:px-2
+                          peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:text-sm peer-[:not(:placeholder-shown)]:bg-white peer-[:not(:placeholder-shown)]:px-2
+                          ${formErrors.name ? 'text-red-500' : 'text-gray-500'}`}
+                        >
+                          Nombre completo
+                        </label>
+                        {formErrors.name && (
+                          <p className="mt-1 text-sm text-red-500">{formErrors.name}</p>
+                        )}
+                      </div>
+
+                      <div className="relative">
+                        <input
+                          type="tel"
+                          id="phone-mobile"
+                          name="phone"
+                          placeholder=" "
+                          className={`peer w-full px-4 py-3 border-2 rounded-lg focus:outline-none transition-colors bg-white ${
+                            formErrors.phone ? 'border-red-500' : 'border-gray-300 focus:border-blueRemax'
+                          }`}
+                          value={formData.phone}
+                          onChange={handleInputChange}
+                          required
+                        />
+                        <label
+                          htmlFor="phone-mobile"
+                          className={`absolute left-4 top-3 transition-all duration-200 peer-focus:-top-2.5 peer-focus:text-sm peer-focus:bg-white peer-focus:px-2
+                          peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:text-sm peer-[:not(:placeholder-shown)]:bg-white peer-[:not(:placeholder-shown)]:px-2
+                          ${formErrors.phone ? 'text-red-500' : 'text-gray-500'}`}
+                        >
+                          Teléfono
+                        </label>
+                        {formErrors.phone && (
+                          <p className="mt-1 text-sm text-red-500">{formErrors.phone}</p>
+                        )}
+                      </div>
+
+                      <div className="relative">
+                        <input
+                          type="email"
+                          id="email-mobile"
+                          name="email"
+                          placeholder=" "
+                          className={`peer w-full px-4 py-3 border-2 rounded-lg focus:outline-none transition-colors bg-white ${
+                            formErrors.email ? 'border-red-500' : 'border-gray-300 focus:border-blueRemax'
+                          }`}
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          required
+                        />
+                        <label
+                          htmlFor="email-mobile"
+                          className={`absolute left-4 top-3 transition-all duration-200 peer-focus:-top-2.5 peer-focus:text-sm peer-focus:bg-white peer-focus:px-2
+                          peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:text-sm peer-[:not(:placeholder-shown)]:bg-white peer-[:not(:placeholder-shown)]:px-2
+                          ${formErrors.email ? 'text-red-500' : 'text-gray-500'}`}
+                        >
+                          Correo electrónico
+                        </label>
+                        {formErrors.email && (
+                          <p className="mt-1 text-sm text-red-500">{formErrors.email}</p>
+                        )}
+                      </div>
+
+                      <p className="text-sm text-gray-500 mt-2">
+                        Uno de nuestros asesores expertos se pondrá en contacto contigo a la brevedad para brindarte toda la información sobre esta propiedad.
+                      </p>
+
+                      <div className="flex gap-3 mt-2">
+                        <button 
+                          type="button" 
+                          onClick={() => setShowMobileForm(false)}
+                          className="bg-gray-100 hover:bg-gray-200 h-12 rounded-lg text-gray-700 flex-1 transition-colors font-medium"
+                        >
+                          Cancelar
+                        </button>
+                        <button 
+                          type="submit" 
+                          className={`h-12 rounded-lg text-white flex-1 transition-all transform active:scale-[0.98] font-medium ${
+                            valor === "comercial" ? "bg-redRemax hover:bg-red-600" : "bg-blueRemax hover:bg-blue-600"
+                          } ${formLoading ? 'opacity-75 cursor-not-allowed' : ''}`}
+                          disabled={formLoading}
+                        >
+                          {formLoading ? (
+                            <div className="flex items-center justify-center gap-2">
+                              <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"/>
+                              <span>Enviando...</span>
+                            </div>
+                          ) : "Enviar"}
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
               )}
             </div>
             {tipos && operaciones && propiedadSeleccion ? (
@@ -715,13 +930,13 @@ export default function PropiedadSeleccion({ seleccion }) {
             )}
             <hr />
             {/* Calculadora de hipotecas móvil */}
-            <div className="w-full flex justify-center">
+            {/* <div className="w-full flex justify-center">
               <button className={`mt-3 lg:hidden mx-auto w-[341px] text-[18px] font-bold h-[48px] text-white rounded-[10px] ${
                 valor === "comercial" ? "bg-redRemax" : "bg-blueRemax"
               }`}>
                 Calculadora de hipotecas
               </button>
-            </div>
+            </div> */}
             <div className="px-5 mt-5">
               <Dropdown propiedadSeleccion={propiedadSeleccion} />
             </div>
@@ -794,73 +1009,137 @@ export default function PropiedadSeleccion({ seleccion }) {
                   </div>
                 </div>
               </div>
-              <div className="w-[551px]  gap-10  p-3 text-center flex flex-col justify-evenly items-center shadow-[0px_4px_5px_0px] shadow-black/40 rounded-[10px] mx-auto my-5 bg-[#F9F9F9]">
+              <div className="w-[551px] gap-10 p-3 text-center flex flex-col justify-evenly items-center shadow-[0px_4px_5px_0px] shadow-black/40 rounded-[10px] mx-auto my-5 bg-[#F9F9F9]">
                 <div className="text-start items-start w-full px-6">
-                  <p className="font-bold   text-[18px] lg:text-3xl pt-4">
+                  <p className="font-bold text-[18px] lg:text-3xl pt-4">
                     Contáctanos
                   </p>
                 </div>
-                <div className="flex">
-                  <form onSubmit={handleSubmit} className="w-full flex flex-col">
-                    <div className="flex flex-col w-120 text-2xl text-start gap-3">
-                      <label htmlFor="name">
-                        Nombre(s)
+                <div className="flex relative w-full">
+                  {showSuccessMessage && (
+                    <div className="absolute inset-0 flex items-center justify-center z-10 bg-white/80">
+                      <div className={`bg-white p-6 rounded-lg shadow-lg text-center transform transition-all duration-300 ${
+                        showSuccessMessage ? 'scale-100 opacity-100' : 'scale-95 opacity-0'
+                      }`}>
+                        <div className="mb-4 text-green-500">
+                          <svg className="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/>
+                          </svg>
+                        </div>
+                        <h3 className="text-xl font-bold mb-2">¡Gracias por tu interés!</h3>
+                        <p className="text-gray-600">
+                          Un asesor experto se pondrá en contacto contigo en breve.
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                  <form onSubmit={handleSubmit} className={`w-full flex flex-col transition-opacity duration-300 ${showSuccessMessage ? 'opacity-50' : 'opacity-100'}`}>
+                    <div className="flex flex-col w-full text-lg text-start gap-4">
+                      <div className="relative">
                         <input
                           type="text"
-                          id="name"
+                          id="name-desktop"
                           name="name"
-                          placeholder="Juan Martín"
-                          className="border border-gray-300 rounded-lg p-2 w-full"
+                          placeholder=" "
+                          className={`peer w-full px-4 py-3 border-2 rounded-lg focus:outline-none transition-colors bg-white ${
+                            formErrors.name ? 'border-red-500' : 'border-gray-300 focus:border-blueRemax'
+                          }`}
                           value={formData.name}
                           onChange={handleInputChange}
                           required
                         />
-                      </label>
-                      <label htmlFor="phone">
-                        Teléfono
+                        <label
+                          htmlFor="name-desktop"
+                          className={`absolute left-4 top-3 transition-all duration-200 peer-focus:-top-2.5 peer-focus:text-sm peer-focus:bg-white peer-focus:px-2
+                          peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:text-sm peer-[:not(:placeholder-shown)]:bg-white peer-[:not(:placeholder-shown)]:px-2
+                          ${formErrors.name ? 'text-red-500' : 'text-gray-500'}`}
+                        >
+                          Nombre completo
+                        </label>
+                        {formErrors.name && (
+                          <p className="mt-1 text-sm text-red-500">{formErrors.name}</p>
+                        )}
+                      </div>
+
+                      <div className="relative">
                         <input
                           type="tel"
-                          id="phone"
+                          id="phone-desktop"
                           name="phone"
-                          placeholder="9932402987"
-                          className="border border-gray-300 rounded-lg p-2 w-full"
+                          placeholder=" "
+                          className={`peer w-full px-4 py-3 border-2 rounded-lg focus:outline-none transition-colors bg-white ${
+                            formErrors.phone ? 'border-red-500' : 'border-gray-300 focus:border-blueRemax'
+                          }`}
                           value={formData.phone}
                           onChange={handleInputChange}
                           required
                         />
-                      </label>
-                      <label htmlFor="email">
-                        Correo Electrónico
+                        <label
+                          htmlFor="phone-desktop"
+                          className={`absolute left-4 top-3 transition-all duration-200 peer-focus:-top-2.5 peer-focus:text-sm peer-focus:bg-white peer-focus:px-2
+                          peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:text-sm peer-[:not(:placeholder-shown)]:bg-white peer-[:not(:placeholder-shown)]:px-2
+                          ${formErrors.phone ? 'text-red-500' : 'text-gray-500'}`}
+                        >
+                          Teléfono
+                        </label>
+                        {formErrors.phone && (
+                          <p className="mt-1 text-sm text-red-500">{formErrors.phone}</p>
+                        )}
+                      </div>
+
+                      <div className="relative">
                         <input
                           type="email"
-                          id="email"
+                          id="email-desktop"
                           name="email"
-                          placeholder="example@gmail.com"
-                          className="border border-gray-300 rounded-lg p-2 w-full"
+                          placeholder=" "
+                          className={`peer w-full px-4 py-3 border-2 rounded-lg focus:outline-none transition-colors bg-white ${
+                            formErrors.email ? 'border-red-500' : 'border-gray-300 focus:border-blueRemax'
+                          }`}
                           value={formData.email}
                           onChange={handleInputChange}
                           required
                         />
-                      </label>
-                     
+                        <label
+                          htmlFor="email-desktop"
+                          className={`absolute left-4 top-3 transition-all duration-200 peer-focus:-top-2.5 peer-focus:text-sm peer-focus:bg-white peer-focus:px-2
+                          peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:text-sm peer-[:not(:placeholder-shown)]:bg-white peer-[:not(:placeholder-shown)]:px-2
+                          ${formErrors.email ? 'text-red-500' : 'text-gray-500'}`}
+                        >
+                          Correo electrónico
+                        </label>
+                        {formErrors.email && (
+                          <p className="mt-1 text-sm text-red-500">{formErrors.email}</p>
+                        )}
+                      </div>
+
+                      <p className="text-sm text-gray-500 mt-2">
+                        Uno de nuestros asesores expertos se pondrá en contacto contigo a la brevedad para brindarte toda la información sobre esta propiedad.
+                      </p>
+
                       <div className="flex flex-col py-4 justify-center gap-5">
                         <button 
                           type="submit" 
-                          className={`h-[50px] rounded text-white ${
-                            valor === "comercial" ? "bg-redRemax" : "bg-blueRemax"
-                          }`}
+                          className={`h-[50px] rounded-lg text-white text-xl transition-all transform active:scale-[0.98] font-medium ${
+                            valor === "comercial" ? "bg-redRemax hover:bg-red-600" : "bg-blueRemax hover:bg-blue-600"
+                          } ${formLoading ? 'opacity-75 cursor-not-allowed' : ''}`}
                           disabled={formLoading}
                         >
-                          {formLoading ? "Enviando..." : "Enviar consulta"}
+                          {formLoading ? (
+                            <div className="flex items-center justify-center gap-2">
+                              <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"/>
+                              <span>Enviando...</span>
+                            </div>
+                          ) : "Enviar consulta"}
                         </button>
-                        <button 
+                        {/* <button 
                           type="button" 
                           className={`h-[50px] text-white text-2xl rounded ${
                             valor === "comercial" ? "bg-redRemax" : "bg-blueRemax"
                           }`}
                         >
                           Calculadora de Hipotecas
-                        </button>
+                        </button> */}
                       </div>
                     </div>
                   </form>

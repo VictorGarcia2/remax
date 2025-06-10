@@ -175,7 +175,7 @@ export function Dropdown({ propiedadSeleccion }) {
   useEffect(() => {
     import('mapbox-gl').then((module) => {
       const loadedMapboxgl = module.default;
-      loadedMapboxgl.accessToken = "pk.eyJ1IjoidmljdG9yZ2lhcHJ6IiwiYSI6ImNtNXZ3dW0wMjA2aHgyanE1M3ptczQ2azUifQ.ILrTXW_4c9_pbGC3Uj-wdg";
+      loadedMapboxgl.accessToken = "pk.eyJ1IjoidmljdG9yZ2FyY2lhcHJ6IiwiYSI6ImNtNXZ3dW0wMjA2aHgyanE1M3ptczQ2azUifQ.ILrTXW_4c9_pbGC3Uj-wdg";
       setMapboxglInstance(loadedMapboxgl);
     });
   }, []); // Se ejecuta solo una vez para cargar la librería

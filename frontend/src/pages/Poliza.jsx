@@ -16,6 +16,46 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+
+// Constantes para Pipedrive
+const PIPEDRIVE_API_KEY = "02317c5467585c4251d802ab65e0c7b9f60541ee";
+const PIPEDRIVE_API_URL = "https://api.pipedrive.com/v1";
+
+// Lista de posibles propietarios
+const OWNER_MATCHES = [
+  { type: 'name', value: 'veronica' },
+  { type: 'name', value: 'verónica' },
+  { type: 'email', value: 'adm.remaxrna@gmail.com' },
+  { type: 'email', value: 'remaxcincoleccion@gmail.com' }
+];
+
+const findOwnerInPipedrive = async (apiKey) => {
+  try {
+    const response = await fetch(`${PIPEDRIVE_API_URL}/users?api_token=${apiKey}`);
+    const data = await response.json();
+    
+    if (!data.success) {
+      throw new Error('Failed to fetch Pipedrive users');
+    }
+
+    const users = data.data;
+    for (const user of users) {
+      for (const match of OWNER_MATCHES) {
+        if (match.type === 'name' && user.name.toLowerCase().includes(match.value)) {
+          return user.id;
+        }
+        if (match.type === 'email' && user.email.toLowerCase() === match.value) {
+          return user.id;
+        }
+      }
+    }
+    return null;
+  } catch (error) {
+    console.error('Error finding owner in Pipedrive:', error);
+    return null;
+  }
+};
 
 function Poliza() {
   const [formData, setFormData] = useState({
@@ -27,6 +67,8 @@ function Poliza() {
     phone: "",
     email: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   const [activeAccordion, setActiveAccordion] = useState(null);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -39,9 +81,145 @@ function Poliza() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleSubmit = (e) => {
+  // Modal de éxito
+  const SuccessModal = () => {
+    return (
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">
+        <div className="bg-white rounded-lg p-8 max-w-md w-full">
+          <div className="text-center">
+            <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
+              <svg
+                className="h-6 w-6 text-green-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+            </div>
+            <h3 className="mt-2 text-lg font-medium text-gray-900">
+              ¡Formulario enviado con éxito!
+            </h3>
+            <p className="mt-2 text-sm text-gray-500">
+              Gracias por enviar la información. Nos pondremos en contacto contigo pronto.
+            </p>
+            <div className="mt-4">
+              <button
+                type="button"
+                className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                onClick={() => setShowSuccessModal(false)}
+              >
+                Cerrar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+  const handleSubmit = async (e) => {
     e.preventDefault();
-   
+    setIsSubmitting(true);
+
+    try {
+      // 1. Encontrar el owner en Pipedrive
+      const owner = await findOwnerInPipedrive(PIPEDRIVE_API_KEY);
+
+      // 2. Crear la persona en Pipedrive
+      const personResponse = await fetch(`${PIPEDRIVE_API_URL}/persons?api_token=${PIPEDRIVE_API_KEY}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: [{ value: formData.email, primary: true }],
+          phone: [{ value: formData.phone, primary: true }],
+          owner_id: owner?.id || null,
+        }),
+      });
+
+      if (!personResponse.ok) {
+        throw new Error('Error al crear el contacto en Pipedrive');
+      }
+
+      const personData = await personResponse.json();      // 3. Crear el deal en Pipedrive
+      const dealResponse = await fetch(`${PIPEDRIVE_API_URL}/deals?api_token=${PIPEDRIVE_API_KEY}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },          body: JSON.stringify({
+            title: `Póliza - ${formData.name}`,
+            person_id: personData.data.id,
+            user_id: owner?.id || null,
+            stage_id: 1,
+            pipeline_id: 1,
+            status: "open",
+            value: formData.rentPrice ? parseFloat(formData.rentPrice) : 0,
+            currency: "MXN",
+            visible_to: 3
+          }),
+      });      if (!dealResponse.ok) {
+        const dealError = await dealResponse.json();
+        throw new Error(`Error al crear el trato en Pipedrive: ${dealError.error || 'Error desconocido'}`);
+      }
+
+      const dealData = await dealResponse.json();
+      if (!dealData.success) {
+        throw new Error(`Error al crear el trato: ${dealData.error || 'Error desconocido'}`);
+      }
+
+      // 4. Agregar una nota con los detalles del formulario
+      const noteContent = `
+        Detalles de la solicitud de Póliza:
+        
+        Información general:
+        - Nombre: ${formData.name}
+        - Ubicación del inmueble: ${formData.location}
+        - Tipo de inmueble: ${formData.propertyType}
+        - Precio estimado de renta: ${formData.rentPrice}
+        - Prefiere llamada: ${formData.preferCall}
+        - Teléfono: ${formData.phone}
+        - Email: ${formData.email}
+
+        La persona está interesada en contratar una póliza de rentas para su propiedad.
+      `;
+
+      const noteResponse = await fetch(`${PIPEDRIVE_API_URL}/notes?api_token=${PIPEDRIVE_API_KEY}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          content: noteContent,
+          deal_id: dealData.data.id,
+          person_id: personData.data.id,
+        }),
+      });
+
+      setShowSuccessModal(true);
+      setFormData({
+        name: "",
+        location: "",
+        propertyType: "Casa",
+        rentPrice: "",
+        preferCall: "No",
+        phone: "",
+        email: "",
+      });
+
+    } catch (error) {
+      console.error("Error al procesar la solicitud:", error);
+      toast.error(error.message || 'Hubo un error al enviar el formulario. Por favor, intenta de nuevo.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const faqs = [
@@ -463,6 +641,47 @@ function Poliza() {
           </div>
         </div>
       </section>
+
+      {/* Success Modal */}
+      {showSuccessModal && (
+  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+    <div className="bg-white rounded-lg p-8 max-w-md w-full">
+      <div className="text-center">
+        <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
+          <svg
+            className="h-6 w-6 text-green-600"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M5 13l4 4L19 7"
+            />
+          </svg>
+        </div>
+        <h3 className="mt-2 text-lg font-medium text-gray-900">
+          ¡Formulario enviado con éxito!
+        </h3>
+        <p className="mt-2 text-sm text-gray-500">
+          Gracias por enviar la información. Nos pondremos en contacto contigo pronto.
+        </p>
+        <div className="mt-4">
+          <button
+            type="button"
+            className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+            onClick={() => setShowSuccessModal(false)}
+          >
+            Cerrar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+)}
     </div>
   );
 }
