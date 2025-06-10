@@ -4,7 +4,7 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Route, Routes } from "react-router-dom";
 import ScrollToTop from "./components/ScrollTop";
 import LoadingSpinner from "./components/LoadingSpinner";
-import { SearchProvider, useSearchContext } from "./context/SearchContext";
+import { SearchProvider } from "./context/SearchContext";
 import { ValuadorProvider } from "./context/ValuadorContext";
 import ValuadorQuiz from "./components/ValuadorQuiz/ValuadorQuiz";
 
@@ -61,9 +61,7 @@ const App = () => {
   const [precioMaximo, setPrecioMaximo] = useState(Infinity);
   const [aplicarFiltros, setAplicarFiltros] = useState(Date.now());
   const [seleccion, setSeleccion] = useState();
-  // const [valor, setValor] = useState("residencial"); // Comentado o eliminado, ahora viene del contexto
-
-  const { valor, setValor } = useSearchContext(); // Obtener valor y setValor del contexto
+  const [valor, setValor] = useState("residencial");
 
   /*  useEffect(() => {
     fetch("https://us-central1-remax-api.cloudfunctions.net/api/propiedades", {
@@ -95,7 +93,6 @@ const App = () => {
     getData();
   }, []);
 
-  console.log(propiedades);
   /*   useEffect(() => {
     const data = propierties.data.rows; // o como venga en tu JSON
     setPropiedades(data);
@@ -120,25 +117,19 @@ const App = () => {
         <SearchProvider>
           <Suspense fallback={<LoadingSpinner />}>
             <Routes>
-              <Route path="/" element={
-                <Suspense fallback={<LoadingSpinner />}>
-                  <Eleccion setValor={setValor} />
-                </Suspense>
-              } />
+              <Route path="/" element={<Eleccion setValor={setValor} />} />
               <Route
                 path="/inicio"
                 element={
-                  <Suspense fallback={<LoadingSpinner />}>
-                    <Residencial
-                      propiedades={propiedades}
-                      valor={valor}
-                      setSelectedOptions={setSelectedOptions}
-                      selectedOptions={selectedOptions}
-                      autoCompleteHome={autoCompleteHome}
-                      setAutoCompleteHome={setAutoCompleteHome}
-                      setBusqueda={setBusqueda}
-                    />
-                  </Suspense>
+                  <Residencial
+                    propiedades={propiedades}
+                    valor={valor}
+                    setSelectedOptions={setSelectedOptions}
+                    selectedOptions={selectedOptions}
+                    autoCompleteHome={autoCompleteHome}
+                    setAutoCompleteHome={setAutoCompleteHome}
+                    setBusqueda={setBusqueda}
+                  />
                 }
               />
               <Route

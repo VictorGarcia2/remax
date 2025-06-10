@@ -157,11 +157,10 @@ const MapboxConCards = ({
     return valor.toString();
   };
 
-  const PopupContent = React.memo(({ prop, seleccion }) => {
+  const PopupContent = React.memo(({ prop, seleccion, valor }) => {
     const [isLoading, setIsLoading] = useState(true);
     const imagenesArray = prop.imagenes.split(",");
     const popupRef = useRef(null);
-    const { valor } = useSearchContext();
 
     return (
       <div 
@@ -291,7 +290,7 @@ const MapboxConCards = ({
 
       // Crear el contenido del popup
       const popupContent = ReactDOMServer.renderToString(
-        <PopupContent prop={prop} seleccion={seleccion} />
+        <PopupContent prop={prop} seleccion={seleccion} valor={valor} />
       );
 
       // Agregar el contenido al popup

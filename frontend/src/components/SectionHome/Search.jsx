@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot, faHouse, faHouseUser, faBuilding, faLandmark, faMapLocation, faBuildingCircleCheck, faWarehouse, faBuildingColumns, faStore, faTractor, faBoxOpen } from "@fortawesome/free-solid-svg-icons";
+import mapboxgl from "mapbox-gl";
 import { useSearchContext } from "../../context/SearchContext";
 export default function Search({
   autoCompleteHome,
   setAutoCompleteHome,
   setBusqueda,
+  valor
 }) {
   // Usar el contexto para acceder a los estados compartidos
   const { 
@@ -15,13 +17,14 @@ export default function Search({
     selectedOptionsTipos,
     setSelectedOptionsTipos,
     selectedOptionsOperacion, 
-    setSelectedOptionsOperacion,
-    valor
+    setSelectedOptionsOperacion 
   } = useSearchContext();
   const [selectedItem, setSelectedItem] = useState(null);
   const [openTipo, setOpenTipo] = useState(true);
   const [direccion, setDireccion] = useState("");
   const [modalBusqueda, setModalBusqueda] = useState(true);
+  mapboxgl.accessToken =
+    "pk.eyJ1IjoidmljdG9yZ2FyY2lhcHJ6IiwiYSI6ImNtNXZ3dW0wMjA2aHgyanE1M3ptczQ2azUifQ.ILrTXW_4c9_pbGC3Uj-wdg";
   const handleOperacion = (event) => {
     const value = event.target.id;
     if (event) {
@@ -38,7 +41,7 @@ export default function Search({
   const handleTipos = (event) => {
     const value = event.target.id;
     if (event) {
-     
+      console.log("Actualizando tipo desde Search.jsx:", value);
       setOpenTipo(true);
       setSelectedOptionsTipos([parseInt(value)]);
     } 
@@ -146,7 +149,7 @@ export default function Search({
     setModalBusqueda(true); 
     // Aumentamos el tiempo de espera para asegurar que el estado se actualice antes de navegar
     setTimeout(() => {
-     
+      console.log("Navegando a /propiedades con selectedOptionsTipos:", selectedOptionsTipos);
       navigate("/propiedades" );
     }, 100);
   };
@@ -161,15 +164,12 @@ export default function Search({
   useEffect(() => {
     const manejarBusqueda = async () => {
       try {
-        // Importar mapboxgl dinámicamente aquí
-        const mapboxglModule = await import('mapbox-gl');
-        const mapboxgl = mapboxglModule.default;
-        const accessToken = "pk.eyJ1IjoidmljdG9yZ2lhcHJ6IiwiYSI6ImNtNXZ3dW0wMjA2aHgyanE1M3ptczQ2azUifQ.ILrTXW_4c9_pbGC3Uj-wdg";
-
         const response = await fetch(
           `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
             busquedaHome
-          )}.json?access_token=${accessToken}&types=address,neighborhood,place&language=es&country=MX`
+          )}.json?access_token=${
+            mapboxgl.accessToken
+          }&types=place,address&language=es&country=MX`
         );
         const data = await response.json();
         if (data.features && data.features.length > 0) {
@@ -208,9 +208,9 @@ export default function Search({
                   key={item.id}
                   className={`text-sm sm:text-sm lg:text-base cursor-pointer ${
                     selectedItem === item.id
-                      ? (valor === "comercial" ? "bg-redRemax text-white" : "bg-blueRemax text-white")
+                      ? "bg-blueRemax text-white"
                       : "bg-white text-[#414141]"
-                  } ${valor === "comercial" ? "hover:bg-redRemax" : "hover:bg-blueRemax"} hover:text-white w-12 sm:w-20 lg:w-28 sm:h-8 lg:h-9 rounded flex justify-center items-center h-7 font-normal text-center`}
+                  } hover:bg-blueRemax hover:text-white w-12 sm:w-20 lg:w-28 sm:h-8 lg:h-9 rounded flex justify-center items-center h-7 font-normal text-center`}
                 >
                   <input
                     type="checkbox"
@@ -225,11 +225,9 @@ export default function Search({
           <div className="flex gap-1 pb-1">
             <div
               onClick={() => setOpenTipo((prevState) => !prevState)}
-              className={`cursor-pointer hover:text-white rounded-s-2xl w-12  sm:w-20 lg:w-[116px] sm:h-12 lg:h-16 h-10 shadow-[0_3px_1px] shadow-black/50 align-middle text-center items-center flex ${
-                openTipo 
-                  ? "bg-white text-[#414141]"
-                  : (valor === "comercial" ? "bg-redRemax text-white" : "bg-blueRemax text-white")
-              } ${valor === "comercial" ? "hover:bg-redRemax" : "hover:bg-blueRemax"}`}
+              className={`${
+                openTipo ? "bg-white text-[#414141]" : "bg-[#003DA4] text-white"
+              } cursor-pointer hover:bg-blueRemax hover:text-white rounded-s-2xl w-12  sm:w-20 lg:w-[116px] sm:h-12 lg:h-16 h-10 shadow-[0_3px_1px] shadow-black/50 align-middle text-center items-center flex`}
             >
               <p className="text-sm sm:text-sm lg:text-2xl text-center w-full">
                 Tipo
@@ -295,9 +293,7 @@ export default function Search({
             </div>
             <div
               onClick={handleSearch}
-              className={`rounded-e-full cursor-pointer w-10 sm:w-14 lg:w-20 h-10 sm:h-12 lg:h-16 align-middle items-center flex shadow-[0_3px_1px] shadow-black/50 ${
-                valor === "comercial" ? "bg-redRemax" : "bg-blueRemax"
-              }`}
+              className="rounded-e-full cursor-pointer w-10 sm:w-14 lg:w-20 h-10 sm:h-12 lg:h-16 bg-[#003DA4] align-middle items-center flex shadow-[0_3px_1px] shadow-black/50"
             >
              
                 <button type="button" className="items-center flex mx-auto cursor-pointer">

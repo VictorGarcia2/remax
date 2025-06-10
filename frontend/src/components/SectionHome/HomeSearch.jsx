@@ -151,6 +151,9 @@ const HomeSearch = memo(
               que tu negocio necesita
             </>
           ),
+          description: "Locales, oficinas, bodegas y más para tu empresa",
+          buttonText: "Ver propiedades comerciales",
+          iconClass: "icon-commercial"
         },
         {
           key: "residencial",
@@ -162,6 +165,9 @@ const HomeSearch = memo(
               <span className="font-extrabold italic"> soñado </span>
             </p>
           ),
+          description: "Casas, departamentos y terrenos para vivir",
+          buttonText: "Ver propiedades residenciales",
+          iconClass: "icon-residential"
         },
       ];
 
