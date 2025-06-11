@@ -9,7 +9,6 @@ import HomeSearch from "../components/SectionHome/HomeSearch";
 import LoadingSpinner from "../components/LoadingSpinner";
 import { useSearchContext } from "../context/SearchContext";
 import { motion } from "framer-motion";
-import SectionDesarrolloDestacado from "../components/SectionDesarrolloDestacado/SectionDesarrolloDestacado";
 
 // Lazy loaded components
 const SectionPorque = lazy(() =>
@@ -32,6 +31,9 @@ const SectionEquipo = lazy(() =>
 );
 const SectionFooter = lazy(() =>
   import("../components/SectionFooter/SectionFooter")
+);
+const SectionDesarrolloDestacado = lazy(() =>
+  import("../components/SectionDesarrolloDestacado/SectionDesarrolloDestacado")
 );
 
 // Placeholder component for fallbacks
@@ -208,9 +210,9 @@ export default function Residencial({
       </div>
 
       <div className=" relative z-10">
-        <Suspense fallback={<LoadingSpinner />}>
+        
           <SectionPorque valor={valor} />
-        </Suspense>
+  
       </div>
 
       <Suspense fallback={<Placeholder />}>
@@ -219,9 +221,14 @@ export default function Residencial({
         </AnimatedSection>
       </Suspense>
 
-      <AnimatedSection delay={0}>
-        <SectionDesarrolloDestacado />
-      </AnimatedSection>
+      {/* Aplicar carga diferida a SectionDesarrolloDestacado solo si valor es "residencial" */}
+      {valor === "residencial" && (
+        <Suspense fallback={<Placeholder height={300} />}>
+          <AnimatedSection delay={0}>
+            <SectionDesarrolloDestacado />
+          </AnimatedSection>
+        </Suspense>
+      )}
 
       <Suspense fallback={<Placeholder />}>
         <AnimatedSection delay={0.3}>
@@ -243,7 +250,8 @@ export default function Residencial({
 
       <Suspense fallback={<Placeholder />}>
         <AnimatedSection delay={0.6}>
-          <SectionEquipo propiedades={propiedades} />
+          {/* Pasar la prop valor a SectionEquipo */}
+          <SectionEquipo propiedades={propiedades} valor={valor} />
         </AnimatedSection>
       </Suspense>
 

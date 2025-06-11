@@ -240,10 +240,16 @@ export default function CardResultado({
   // Efecto para simular la carga
   useEffect(() => {
     if (propiedadesVisibles) {
+      // Si quieres que las tarjetas se muestren inmediatamente cuando propiedadesVisibles está listo,
+      // puedes eliminar el setTimeout o ponerlo a 0.
+      // Para este ejemplo, lo estableceremos a 0 para una actualización más rápida.
       const timer = setTimeout(() => {
         setIsLoading(false);
-      }, 1000);
+      }, 0); // Reducido de 200ms a 0ms
       return () => clearTimeout(timer);
+    } else {
+      // Si propiedadesVisibles es null o undefined inicialmente, mantener isLoading en true
+      setIsLoading(true);
     }
   }, [propiedadesVisibles]);
 
@@ -404,8 +410,8 @@ export default function CardResultado({
       </div>
 
       {/* Mapa */}
-      <div className={`${mapa ? "" : "invisible"} mt-0 xl:visible`}>
-        <Suspense fallback={<div>Cargando mapa...</div>}>
+      <div className={`${mapa ? "" : "invisible lg:visible"} mt-0 xl:visible w-full lg:h-[700px] lg:sticky lg:top-[calc(var(--header-height)_+_1rem)]`}>
+        <Suspense fallback={<div className="w-full h-[400px] lg:h-full bg-gray-200 rounded-lg animate-pulse"></div>}> {/* Fallback para la carga del CÓDIGO de LazyMapbox */}
           <LazyMapbox
             setSeleccion={setSeleccion}
             seleccion={seleccion}

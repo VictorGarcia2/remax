@@ -165,22 +165,22 @@ const MapboxConCards = ({
     return (
       <div 
         ref={popupRef}
-        className="w-[300px] flex flex-col justify-center items-center bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl"
+        className="w-64 md:w-[300px] flex flex-col justify-center items-center bg-white rounded-lg md:rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Contenedor de imagen */}
         <div className="relative w-full">
           <img
             loading="lazy"
-            className="w-full h-[200px] object-cover"
+            className="w-full h-40 md:h-[200px] object-cover"
             src={`https://cdn.remax.com.mx/properties/${prop.propiedad_id}/${imagenesArray[0]}`}
             alt={`Imagen de ${prop.calle}`}
             onLoad={() => setIsLoading(false)}
-            width="300"
-            height="200"
+            width="300" // Mantener para aspect ratio, pero Tailwind controla el tamaño
+            height="200" // Mantener para aspect ratio, pero Tailwind controla el tamaño
           />
           {/* Badge de operación */}
-          <div className={`absolute top-2 right-2 px-3 py-1 rounded-full text-sm font-semibold text-white ${
+          <div className={`absolute top-2 right-2 px-2 py-0.5 md:px-3 md:py-1 rounded-full text-xs md:text-sm font-semibold text-white ${
             valor === "comercial" ? "bg-redRemax" : "bg-blueRemax"
           }`}>
             {prop.operacion === "1" ? "Venta" : prop.operacion === "2" ? "Renta" : "N/A"}
@@ -188,38 +188,40 @@ const MapboxConCards = ({
         </div>
 
         {/* Contenido del popup */}
-        <div className="w-full p-4 space-y-2">
-          <h3 className="text-lg font-semibold text-gray-800">
+        <div className="w-full p-3 md:p-4 space-y-1 md:space-y-2">
+          <h3 className="text-base md:text-lg font-semibold text-gray-800">
             {abreviarPrecio(prop.mxn_corriente)} MXN
           </h3>
-          <p className="text-sm text-gray-600">{prop.calle}</p>
+          
+          <p className="text-xs md:text-sm text-gray-600">{prop.calle}</p>
 
-          <div className="flex items-center gap-4 text-sm text-gray-500">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4 text-xs md:text-sm text-gray-500">
             <div className="flex items-center gap-1">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 md:h-4 md:w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
               </svg>
               <span>{prop.tipos?.tipo_nombre || "Tipo"}</span>
             </div>
             <div className="flex items-center gap-1">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 md:h-4 md:w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
               </svg>
               <span>{prop.m2_construccion}m²</span>
             </div>
           </div>
+          {/* El badge de operación se movió dentro del contenedor de la imagen para mejor control de posición */}
+        </div>
 
-          {/* Botón de acción */}
-          <div className="pt-2">
-            <a
-              href={`/propiedades/seleccion/${prop.propiedad_id}`}
-              className={`w-full text-white text-center py-2 px-4 rounded-lg transition-colors duration-200 block ${
-                valor === "comercial" ? "bg-redRemax hover:bg-red-700" : "bg-blueRemax hover:bg-blue-700"
-              }`}
-            >
-              Ver detalles
-            </a>
-          </div>
+        {/* Botón de acción */}
+        <div className="w-full p-3 md:p-4 pt-1 md:pt-2">
+          <a
+            href={`/propiedades/seleccion/${prop.propiedad_id}`}
+            className={`w-full text-white text-center py-1.5 md:py-2 px-3 md:px-4 text-sm md:text-base rounded-lg transition-colors duration-200 block ${
+              valor === "comercial" ? "bg-redRemax hover:bg-red-700" : "bg-blueRemax hover:bg-blue-700"
+            }`}
+          >
+            Ver detalles
+          </a>
         </div>
       </div>
     );

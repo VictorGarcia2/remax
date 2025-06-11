@@ -4,29 +4,38 @@ import Search from "./Search";
 import { useSearchContext } from "../../context/SearchContext";
 
 // Componente de imagen optimizado con carga perezosa
-const BackgroundImage = memo(({ src, alt }) => {
+const BackgroundImage = memo(({ src, alt, loading, fetchPriority, onLoad, decoding }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const imgRef = useRef(null);
 
-  useEffect(() => {
-    if (imgRef.current?.complete) {
-      setImageLoaded(true);
+  const handleLoad = useCallback(() => {
+    setImageLoaded(true);
+    if (onLoad) {
+      onLoad();
     }
-  }, []);
+  }, [onLoad]);
+
+  useEffect(() => {
+    // Si la imagen ya está en caché y completa, activa el estado cargado.
+    if (imgRef.current?.complete) {
+      handleLoad();
+    }
+  }, [handleLoad]);
 
   return (
     <>
       <img
         ref={imgRef}
-        className={`object-cover h-[536px] w-full sm:h-[680px] 2xl:h-[900px] transition-opacity duration-500 ${
+        key={src} // Añadir key para forzar el re-renderizado si cambia el src
+        className={`object-cover h-[536px] w-full sm:h-[680px] 2xl:h-[900px] transition-opacity duration-500 absolute inset-0 ${
           imageLoaded ? "opacity-100" : "opacity-0"
         }`}
         src={src}
         alt={alt}
-        loading="eager"
-        fetchPriority="high"
-        onLoad={() => setImageLoaded(true)}
-        decoding="async"
+        loading={loading || "lazy"} // Default a lazy si no se provee
+        fetchPriority={fetchPriority || "auto"} // Default a auto
+        onLoad={handleLoad}
+        decoding={decoding || "async"} // Default a async
       />
       {!imageLoaded && (
         <div className="absolute inset-0 bg-gray-200 animate-pulse" />
@@ -43,73 +52,69 @@ const HomeSearch = memo(
     const { selectedOptionsOperacion, setSelectedOptionsOperacion } =
       useSearchContext();
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [data, setData] = useState([]);
+    const [data, setData] = useState([]); // Considerar si este estado es realmente necesario aquí o puede ser levantado/contextualizado
     const [selectedKey, setSelectedKey] = useState(null);
-    const [imagesPreloaded, setImagesPreloaded] = useState(false);
+    const [lcpImageLoaded, setLcpImageLoaded] = useState(false); // Nuevo estado para la imagen LCP
     const intervalRef = useRef(null);
-    const preloadedImagesRef = useRef(new Set());
+    const preloadedImagesRef = useRef(new Set()); // Para rastrear imágenes ya precargadas (no LCP)
 
     // Optimizar la definición de imágenes con memoización
     const images = React.useMemo(() => {
       const imagesByValor = {
         comercial: [
-          "/HomePageContent/comercial/Comercial-oficina2.webp",
+          "/HomePageContent/comercial/Comercial-oficina2.webp", // LCP para comercial
           "/HomePageContent/comercial/Comercial-rancho.webp",
           "/HomePageContent/comercial/Comercial-nave.webp",
           "/HomePageContent/comercial/Comercial-local.webp",
         ],
         residencial: [
+          "/HomePageContent/residencial/residencial-condominio.webp", // LCP para residencial
           "/HomePageContent/residencial/3.webp",
           "/fotosdesarrollo/TREBOL 5.0.webp",
           "/HomePageContent/residencial/residencial-interiordepa.webp",
-          "/HomePageContent/residencial/residencial-condominio.webp",
           "/HomePageContent/residencial/residencial-casa2.webp",
         ],
       };
-
-      return (
-        imagesByValor[valor] || [
-          "/HomePageContent/comercial/Comercial-bodega.webp",
-          "/HomePageContent/comercial/Comercial-terreno2.webp",
-        ]
-      );
+      // Asegurarse de que siempre haya un array, incluso si 'valor' no es esperado.
+      return imagesByValor[valor] || imagesByValor.residencial;
     }, [valor]);
 
-    // Precargar imágenes de manera optimizada
+    // Efecto para precargar imágenes no LCP después de que LCP haya cargado
     useEffect(() => {
-      if (!imagesPreloaded) {
-        const preloadImage = (src) => {
-          if (preloadedImagesRef.current.has(src)) return;
-          
-          const img = new Image();
-          img.src = src;
-          img.onload = () => {
-            preloadedImagesRef.current.add(src);
-            if (preloadedImagesRef.current.size === 1) {
-              setImagesPreloaded(true);
+      if (lcpImageLoaded && images.length > 1) {
+        const preloadRemainingImages = () => {
+          images.slice(1).forEach(src => {
+            if (!preloadedImagesRef.current.has(src)) {
+              const img = new Image();
+              img.src = src;
+              img.onload = () => {
+                preloadedImagesRef.current.add(src);
+              };
+              // Opcional: manejar errores de carga de precarga
+              // img.onerror = () => { console.error("Failed to preload image:", src); };
             }
-          };
+          });
         };
 
-        // Precargar primera imagen inmediatamente
-        preloadImage(images[0]);
-
-        // Precargar resto de imágenes en segundo plano
-        const preloadRemaining = () => {
-          images.slice(1).forEach(preloadImage);
-        };
-
-        if ("requestIdleCallback" in window) {
-          window.requestIdleCallback(preloadRemaining);
+        if ('requestIdleCallback' in window) {
+          window.requestIdleCallback(preloadRemainingImages, { timeout: 2000 });
         } else {
-          setTimeout(preloadRemaining, 1000);
+          setTimeout(preloadRemainingImages, 1500); // Un retraso razonable
         }
       }
-    }, [images, imagesPreloaded]);
+    }, [lcpImageLoaded, images]);
 
-    // Control de slides optimizado
+
+    // Control de slides optimizado: Iniciar solo después de que LCP cargue y si hay múltiples imágenes
     useEffect(() => {
-      if (!imagesPreloaded) return;
+      if (!lcpImageLoaded || images.length <= 1) {
+        // Si LCP no ha cargado o solo hay una imagen, no iniciar el carrusel.
+        // Limpiar intervalo si existiera (ej. si 'valor' cambia y detiene el carrusel)
+        if (intervalRef.current) {
+          clearInterval(intervalRef.current);
+        }
+        return;
+      }
 
       intervalRef.current = setInterval(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -120,7 +125,7 @@ const HomeSearch = memo(
           clearInterval(intervalRef.current);
         }
       };
-    }, [images, imagesPreloaded]);
+    }, [images, lcpImageLoaded]); // Depender de images.length y lcpImageLoaded
 
     // Sincronizar selectedKey desde localStorage (optimizado)
     useEffect(() => {
@@ -192,7 +197,7 @@ const HomeSearch = memo(
     ), [valor, data, setBusqueda, autoCompleteHome, setAutoCompleteHome]);
 
     return (
-      <div className="w-full relative">
+      <div className="w-full relative h-[536px] sm:h-[680px] 2xl:h-[900px]"> {/* Asegurar altura del contenedor principal */}
         <div className="w-full absolute z-10">
           {headerContent}
           <div className="text-center static w-[336px] 2xl:mt-70 font-display flex flex-col justify-content-center items-center text-white mx-auto mt-35 sm:mt-60">
@@ -202,12 +207,37 @@ const HomeSearch = memo(
             {searchContent}
           </div>
         </div>
-        <div className="h-[536px] sm:h-[680px] 2xl:h-[900px] w-full absolute z-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-        {imagesPreloaded && (
+        <div className="h-full w-full absolute z-0 bg-gradient-to-t from-black/60 to-transparent"></div> {/* Usar h-full */}
+        
+        {/* Renderizar la primera imagen (LCP) siempre, con alta prioridad */}
+        {images.length > 0 && (
           <BackgroundImage
-            src={images[currentIndex]}
-            alt="Imagen de fondo"
+            key={images[0] + "-lcp"} // Key única para la imagen LCP
+            src={images[0]}
+            alt="Imagen de fondo principal"
+            loading="eager"
+            fetchPriority="high"
+            onLoad={() => setLcpImageLoaded(true)}
+            decoding="async"
           />
+        )}
+
+        {/* Renderizar la imagen actual del carrusel (si es diferente de la LCP y LCP ya cargó) */}
+        {/* Se muestra solo si LCP ha cargado, hay más de una imagen, y el índice actual no es la LCP (0) O si es la LCP pero ya está cargada */}
+        {lcpImageLoaded && images.length > 1 && images[currentIndex] !== images[0] && (
+          <BackgroundImage
+            key={images[currentIndex] + "-carousel"} // Key única para la imagen del carrusel
+            src={images[currentIndex]}
+            alt={`Imagen de fondo ${currentIndex + 1}`}
+            loading="lazy" // Carga perezosa para imágenes del carrusel
+            fetchPriority="auto"
+            decoding="async"
+          />
+        )}
+        
+        {/* Placeholder visual mientras la LCP carga, solo si hay imágenes y LCP no ha cargado */}
+        {images.length > 0 && !lcpImageLoaded && (
+             <div className="absolute inset-0 bg-gray-300 animate-pulse" /> // Placeholder más simple
         )}
       </div>
     );
