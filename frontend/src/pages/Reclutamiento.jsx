@@ -282,6 +282,7 @@ export default function Reclutamiento() {
   });
   
   const [addressSuggestions, setAddressSuggestions] = useState([]);
+  const [messageCharCount, setMessageCharCount] = useState(0); // Asegurar que este estado exista
   
   // Función para buscar sugerencias de direcciones usando la API de Mapbox
   const searchAddress = async (query) => {
@@ -419,6 +420,8 @@ export default function Reclutamiento() {
 
     if (!data.message.trim()) {
       errors.message = "Por favor, cuéntanos por qué quieres unirte a RE/MAX CIN";
+    } else if (data.message.trim().length > 250) {
+      errors.message = "El mensaje no puede exceder los 250 caracteres.";
     }
 
     return errors;
@@ -605,7 +608,44 @@ ${formData.message}`;
     }
   };
 
-  const { valor } = useSearchContext();
+  const { valor } = useSearchContext(); // Esto puede o no ser necesario aquí, dependiendo de si se usa.
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+
+    if (name === "message") {
+      if (value.length <= 250) {
+        setFormData((prev) => ({ ...prev, [name]: value }));
+        setMessageCharCount(value.length);
+      }
+      // Si se excede, no se actualiza el estado,
+      // y el atributo maxLength del textarea también ayuda a prevenir la entrada.
+    } else if (name.startsWith("techSkills.")) {
+      const skillName = name.split(".")[1];
+      setFormData((prev) => ({
+        ...prev,
+        techSkills: {
+          ...prev.techSkills,
+          [skillName]: parseInt(value, 10),
+        },
+      }));
+    } else if (name.startsWith("equipment.")) {
+      const equipmentName = name.split(".")[1];
+      setFormData((prev) => ({
+        ...prev,
+        equipment: {
+          ...prev.equipment,
+          [equipmentName]: checked,
+        },
+      }));
+    } else {
+      // Manejo para otros campos del formulario
+      setFormData((prev) => ({
+        ...prev,
+        [name]: type === "checkbox" ? checked : value,
+      }));
+    }
+  };
 
   return (
     <>
@@ -656,35 +696,20 @@ ${formData.message}`;
                 <div className="p-8">
                   <div className="grid grid-cols-2 gap-6">
                     <div className="text-center">
-                      <div className="text-[#db1c2e] text-4xl font-bold mb-1">10+</div>
-                      <p className="text-gray-600 text-sm">Años en Veracruz</p>
+                      <div className="text-[#db1c2e] text-4xl font-bold mb-1">+25</div>
+                      <p className="text-gray-600 text-sm">Años de experiencia en la industria inmobiliaria</p>
                     </div>
                     <div className="text-center">
-                      <div className="text-[#db1c2e] text-4xl font-bold mb-1">20+</div>
-                      <p className="text-gray-600 text-sm">Agentes locales</p>
+                      <div className="text-[#db1c2e] text-4xl font-bold mb-1">+15</div>
+                      <p className="text-gray-600 text-sm">Agentes en TODO Veracruz.</p>
                     </div>
                     <div className="text-center">
-                      <div className="text-[#db1c2e] text-4xl font-bold mb-1">500+</div>
-                      <p className="text-gray-600 text-sm">Propiedades</p>
+                      <div className="text-[#db1c2e] text-4xl font-bold mb-1">+35,00</div>
+                      <p className="text-gray-600 text-sm">Inmuebles en red compartida.</p>
                     </div>
                     <div className="text-center">
                       <div className="text-[#db1c2e] text-4xl font-bold mb-1">#1</div>
-                      <p className="text-gray-600 text-sm">En Veracruz</p>
-                    </div>
-                  </div>
-                  
-                  <div className="mt-8 pt-6 border-t border-gray-200">
-                    <div className="flex items-center mb-4">
-                      <FontAwesomeIcon icon={faUsers} className="text-[#db1c2e] mr-3 text-xl" />
-                      <span className="font-medium">Equipo de élite local</span>
-                    </div>
-                    <div className="flex items-center mb-4">
-                      <FontAwesomeIcon icon={faChartLine} className="text-[#db1c2e] mr-3 text-xl" />
-                      <span className="font-medium">Oportunidades en el mercado veracruzano</span>
-                    </div>
-                    <div className="flex items-center">
-                      <FontAwesomeIcon icon={faAward} className="text-[#db1c2e] mr-3 text-xl" />
-                      <span className="font-medium">Capacitación personalizada</span>
+                      <p className="text-gray-600 text-sm">Inmobiliaria mejor posicionada y de mayor prestigio.</p>
                     </div>
                   </div>
                 </div>
@@ -710,7 +735,7 @@ ${formData.message}`;
                 <FontAwesomeIcon icon={faGlobe} />
               </div>
               <h3 className="text-xl font-semibold mb-3">Marca global</h3>
-              <p className="text-gray-600">Respaldo de la marca inmobiliaria #1 del mundo presente en más de 110 países.</p>
+              <p className="text-gray-600"> Respaldo de la marca inmobiliaria #1 del mundo presente en más de 110 países y con más de 140,000 agentes en todo el mundo.</p>
             </div>
             
             <div className="bg-gray-50 rounded-xl shadow-md p-8 hover:shadow-lg transition-shadow duration-300">
@@ -741,8 +766,8 @@ ${formData.message}`;
               <div className="text-[#db1c2e] text-3xl mb-4">
                 <FontAwesomeIcon icon={faUsers} />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Red de contactos</h3>
-              <p className="text-gray-600">Conecta con más de 140,000 agentes en todo el mundo y amplía tus oportunidades.</p>
+              <h3 className="text-xl font-semibold mb-3">Propiedades Exclusivas</h3>
+              <p className="text-gray-600">Acceso a inmuebles exclusivos de alto valor en todo el mercado de Veracruzano, con el esquema de comisiones más competitivo del mercado.</p>
             </div>
             
             <div className="bg-gray-50 rounded-xl shadow-md p-8 hover:shadow-lg transition-shadow duration-300">
@@ -773,7 +798,7 @@ ${formData.message}`;
                 <div className="flex-1 bg-white rounded-xl shadow-md p-8 text-center relative z-10">
                   <div className="w-12 h-12 bg-[#db1c2e] rounded-full flex items-center justify-center text-white font-bold mx-auto mb-4">1</div>
                   <h3 className="text-xl font-semibold mb-3">Entrevista inicial</h3>
-                  <p className="text-gray-600">Conoce nuestro modelo de negocio y resuelve todas tus dudas.</p>
+                  <p className="text-gray-600">Queremos conocerte y resolver todas tus dudas de nuestro modelo de negocio, preparate para la entrevista!</p>
                 </div>
                 
                 <div className="flex-1 bg-white rounded-xl shadow-md p-8 text-center relative z-10">
@@ -794,7 +819,7 @@ ${formData.message}`;
       </section>
 
       {/* Testimonial */}
-      <section className="py-20 bg-white">
+   {/*    <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto bg-[#db1c2e] rounded-xl p-10 text-white relative overflow-hidden">
             <div className="absolute inset-0 opacity-10"></div>
@@ -809,7 +834,7 @@ ${formData.message}`;
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Formulario */}
       <section id="contacto" className="py-20 bg-gray-50">
@@ -819,7 +844,7 @@ ${formData.message}`;
             <div className="bg-gradient-to-r from-[#db1c2e] to-[#e84c59] rounded-xl p-8 mb-12 text-center text-white shadow-xl transform hover:scale-[1.01] transition-transform duration-300">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">¡TU OPORTUNIDAD ESTÁ AQUÍ!</h2>
               <p className="text-xl mb-6">Completa el formulario y comienza tu carrera profesional en el sector inmobiliario con el respaldo de la marca #1</p>
-              <div className="flex flex-wrap justify-center gap-4">
+        {/*       <div className="flex flex-wrap justify-center gap-4">
                 <div className="flex items-center bg-white/20 px-4 py-2 rounded-lg">
                   <FontAwesomeIcon icon={faChartLine} className="text-2xl mr-2" />
                   <span className="font-medium">Ingresos ilimitados</span>
@@ -832,7 +857,7 @@ ${formData.message}`;
                   <FontAwesomeIcon icon={faGraduationCap} className="text-2xl mr-2" />
                   <span className="font-medium">Capacitación continua</span>
                 </div>
-              </div>
+              </div> */}
             </div>
             
             <div className="bg-white rounded-xl shadow-lg p-8 border-t-4 border-[#db1c2e]">
@@ -1004,12 +1029,16 @@ ${formData.message}`;
                     <label className="block text-gray-700 mb-2 font-medium">¿Por qué quieres unirte a RE/MAX CIN Veracruz?</label>
                     <textarea
                       rows="4"
+                      name="message"
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#db1c2e] focus:border-[#db1c2e]"
                       value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      onChange={handleChange}
                       placeholder="Cuéntanos sobre ti y tus objetivos profesionales..."
                       required
                     ></textarea>
+                    <p className="text-xs text-gray-500 mt-1 text-right">
+                      {messageCharCount}/250 caracteres
+                    </p>
                   </div>
                 </div>
                 
@@ -1285,7 +1314,7 @@ ${formData.message}`;
               
               <div className="mt-8 text-center">
                 <p className="text-gray-600">También puedes contactarnos directamente:</p>
-                <p className="font-medium mt-2 text-[#db1c2e]">reclutamiento@remaxcin.com | (229) 269-6629</p>
+                <p className="font-medium mt-2 text-[#db1c2e]">remax.cin.veracruz@gmail.com | (229) 269-6629</p>
               </div>
             </div>
           </div>

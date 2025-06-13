@@ -65,7 +65,7 @@ const Valuador = () => {
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fadeIn">Valuador de Propiedades</h1>
               <p className="text-xl md:text-2xl font-light mb-10 animate-fadeIn" style={{animationDelay: '0.2s'}}>
-                Conoce el valor de tu casa o departamento en minutos con nuestro simulador de avalúos
+                Conoce <span className='text-redRemax font-extrabold italic'>gratis</span>  el valor de tu casa o departamento en minutos con nuestro simulador de avalúos
               </p>
               <div className="max-w-lg mx-auto bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20 shadow-xl animate-fadeIn" style={{animationDelay: '0.3s'}}>
                 <p className="text-xl font-medium mb-6">Ingresa tus datos y obtén:</p>
@@ -116,24 +116,24 @@ const Valuador = () => {
               </h2>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-                <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
-                  <div className="w-16 h-16 bg-gradient-to-r from-[#003da4] to-[#0052d4] text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 shadow-md">
+                <div className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                  <div className="w-16 h-16 bg-gradient-to-r from-[#003da4] to-[#0052d4] text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
                     1
                   </div>
                   <h3 className="font-bold text-xl mb-4 text-gray-800">Cuéntanos sobre el inmueble</h3>
                   <p className="text-gray-600 leading-relaxed">Son varios los factores que nuestro sistema debe tomar en cuenta para realizar un avalúo preciso de tu propiedad.</p>
                 </div>
                 
-                <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
-                  <div className="w-16 h-16 bg-gradient-to-r from-[#003da4] to-[#0052d4] text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 shadow-md">
+                <div className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                  <div className="w-16 h-16 bg-gradient-to-r from-[#003da4] to-[#0052d4] text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
                     2
                   </div>
                   <h3 className="font-bold text-xl mb-4 text-gray-800">Análisis de datos profundos</h3>
                   <p className="text-gray-600 leading-relaxed">Nuestro sistema compara los datos de tu propiedad con miles de transacciones realizadas en tu zona.</p>
                 </div>
                 
-                <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
-                  <div className="w-16 h-16 bg-gradient-to-r from-[#003da4] to-[#0052d4] text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 shadow-md">
+                <div className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                  <div className="w-16 h-16 bg-gradient-to-r from-[#003da4] to-[#0052d4] text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
                     3
                   </div>
                   <h3 className="font-bold text-xl mb-4 text-gray-800">Recibe el avalúo al instante</h3>
@@ -147,7 +147,7 @@ const Valuador = () => {
                 <p className="text-lg mb-8 max-w-2xl mx-auto">Nuestro valuador te dará una estimación precisa basada en datos reales del mercado inmobiliario.</p>
                 <button 
                   onClick={startQuiz} 
-                  className={`inline-block py-4 px-8 font-bold rounded-lg hover:bg-gray-100 transition-all duration-300 text-lg shadow-lg transform hover:-translate-y-1 ${
+                  className={`inline-block py-4 px-8 font-bold rounded-lg  transition-all duration-300 text-lg shadow-lg transform hover:-translate-y-1 ${
                     valor === "comercial" ? "bg-redRemax text-white" : "bg-blueRemax text-white"
                   }`}
                 >

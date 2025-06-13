@@ -295,7 +295,6 @@ const ValuadorQuiz = ({ onComplete, address }) => {
     if (onComplete) {
       onComplete(answers, estimatedValue);
     }
-    navigate("/inicio");
   };
 
   // Renderizar el componente actual según el paso
@@ -305,6 +304,7 @@ const ValuadorQuiz = ({ onComplete, address }) => {
         <QuizResult
           estimatedValue={estimatedValue}
           contactInfo={answers.contactInfo}
+          quizAnswers={answers} // Añadir esta línea
           onReset={handleReset}
           onComplete={handleComplete}
         />

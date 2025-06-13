@@ -1,9 +1,121 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useSearchContext } from "../../context/SearchContext";
 
-const QuizResult = ({ estimatedValue, contactInfo, onReset, onComplete }) => {
+// Constantes para Pipedrive (Idealmente, mover a un archivo de configuración o variables de entorno)
+const PIPEDRIVE_API_KEY = "02317c5467585c4251d802ab65e0c7b9f60541ee";
+const PIPEDRIVE_API_URL = "https://api.pipedrive.com/v1";
+
+// Definición de campos personalizados para Valuador en Pipedrive
+const VALUATOR_CUSTOM_FIELDS = {
+  VAL_TIPO_PROPIEDAD: { name: "Tipo de Propiedad Valuada", field_type: "enum", options: ["Casa", "Departamento", "Terreno", "Otro"] },
+  VAL_TAMANO_M2: { name: "Tamaño Estimado m2", field_type: "double" },
+  VAL_ESTIMADO_BAJO: { name: "Valor Estimado Bajo", field_type: "double" },
+  VAL_ESTIMADO_ALTO: { name: "Valor Estimado Alto", field_type: "double" },
+  VAL_ESTIMADO_PROMEDIO: { name: "Valor Estimado Promedio", field_type: "double" },
+  VAL_POR_M2_ESTIMADO: { name: "Valor por m2 Estimado", field_type: "double" },
+  VAL_DIRECCION: { name: "Dirección Propiedad Valuada", field_type: "varchar" },
+  VAL_ANTIGUEDAD: { name: "Antigüedad Estimada", field_type: "enum", options: ["Nueva", "Hasta 5 años", "5-10 años", "10-20 años", "Más de 20 años"] },
+  VAL_CONDICION: { name: "Condición Estimada", field_type: "enum", options: ["Excelente", "Buena", "Regular", "Para remodelar"] },
+  VAL_AMENIDADES: { name: "Amenidades Seleccionadas", field_type: "varchar" }, // Texto largo para un resumen
+};
+
+// Helper para comparar arrays (usado en ensureCustomFields)
+const arraysEqual = (arr1, arr2) => {
+  if (!arr1 || !arr2 || arr1.length !== arr2.length) return false;
+  return arr1.every((value, index) => value === arr2[index]);
+};
+
+// Función para asegurar que existan los campos personalizados en Pipedrive
+const ensureCustomFields = async (fieldsDefinition) => {
+  try {
+    const fieldsResponse = await fetch(
+      `${PIPEDRIVE_API_URL}/dealFields?api_token=${PIPEDRIVE_API_KEY}`
+    );
+    if (!fieldsResponse.ok) {
+      const errorData = await fieldsResponse.json();
+      console.error('Error al obtener campos de Pipedrive:', errorData);
+      throw new Error(`Error al obtener campos de Pipedrive: ${errorData.error || fieldsResponse.statusText}`);
+    }
+    const existingFields = await fieldsResponse.json();
+    const customFieldIds = {};
+
+    for (const [key, field] of Object.entries(fieldsDefinition)) {
+      const existingField = existingFields.data?.find(f => f.name === field.name);
+      if (existingField) {
+        if (field.field_type === "enum" && field.options &&
+            (!existingField.options || !arraysEqual(existingField.options.map(o => o.label), field.options))) {
+          // Opcional: Actualizar opciones si difieren. Por simplicidad, se omite aquí pero se puede agregar.
+          console.warn(`Campo enum ${field.name} existe pero las opciones pueden diferir. Usando campo existente.`);
+        }
+        customFieldIds[key] = existingField.key;
+      } else {
+        const payload = { name: field.name, field_type: field.field_type };
+        if (field.field_type === "enum" && field.options) {
+          payload.options = field.options.map(opt => ({ label: opt }));
+        }
+        const createResponse = await fetch(
+          `${PIPEDRIVE_API_URL}/dealFields?api_token=${PIPEDRIVE_API_KEY}`,
+          { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }
+        );
+        if (!createResponse.ok) {
+          const errorData = await createResponse.json();
+          console.error(`Error al crear campo ${field.name}:`, errorData);
+          throw new Error(`Error al crear campo ${field.name}: ${errorData.error || createResponse.statusText}`);
+        }
+        const newField = await createResponse.json();
+        if (newField.success) {
+          customFieldIds[key] = newField.data.key;
+        } else {
+          throw new Error(`Error al crear campo ${field.name}: ${newField.error || 'Error desconocido'}`);
+        }
+      }
+    }
+    return customFieldIds;
+  } catch (error) {
+    console.error("Error al verificar/crear campos personalizados para valuador:", error);
+    toast.error("Error configurando campos en Pipedrive. Intente más tarde.");
+    throw error;
+  }
+};
+
+// Lista de posibles propietarios (copiada de Reclutamiento.jsx, idealmente en un util)
+const OWNER_MATCHES = [
+  { type: 'name', value: 'veronica' },
+  { type: 'name', value: 'verónica' },
+  { type: 'email', value: 'adm.remaxrna@gmail.com' },
+  { type: 'email', value: 'remaxcincoleccion@gmail.com' }
+];
+
+const findOwnerInPipedrive = async (apiKey) => {
+  try {
+    const usersResponse = await fetch(`${PIPEDRIVE_API_URL}/users?api_token=${apiKey}`);
+    if (!usersResponse.ok) throw new Error('Error al obtener usuarios de Pipedrive');
+    const usersData = await usersResponse.json();
+    let owner = null;
+    for (const match of OWNER_MATCHES) {
+      owner = usersData.data.find(user => 
+        match.type === 'email' ? user.email?.toLowerCase() === match.value.toLowerCase() : user.name?.toLowerCase().includes(match.value.toLowerCase())
+      );
+      if (owner) break;
+    }
+    if (!owner) owner = usersData.data.find(user => user.active_flag && (user.role_id === 1 || user.is_admin));
+    if (!owner) owner = usersData.data.find(user => user.active_flag);
+    if (!owner && usersData.data.length > 0) owner = usersData.data[0];
+    return owner;
+  } catch (error) {
+    console.error('Error al buscar propietario en Pipedrive:', error);
+    // No lanzar error aquí, permitir que el deal se cree sin owner si es necesario
+    return null; 
+  }
+};
+
+
+const QuizResult = ({ estimatedValue, contactInfo, quizAnswers, onReset, onComplete: originalOnComplete }) => {
   const { valor } = useSearchContext();
+  const [hasSentToPipedrive, setHasSentToPipedrive] = useState(false); // Nuevo estado
 
   // Función para formatear valores monetarios
   const formatCurrency = (value) => {
@@ -13,6 +125,151 @@ const QuizResult = ({ estimatedValue, contactInfo, onReset, onComplete }) => {
       minimumFractionDigits: 0,
       maximumFractionDigits: 0,
     }).format(value);
+  };
+
+  const sendValuationToPipedrive = async () => {
+    if (!quizAnswers) {
+      toast.error("No hay datos del cuestionario para enviar.");
+      return;
+    }
+    if (hasSentToPipedrive) { 
+        toast.info("La información ya fue enviada previamente.");
+        if(originalOnComplete) originalOnComplete();
+        return;
+    }
+
+    const toastId = toast.loading("Enviando información a Pipedrive...");
+
+    try {
+      // 1. Asegurar campos personalizados
+      const customFields = await ensureCustomFields(VALUATOR_CUSTOM_FIELDS);
+
+      // 2. Crear o encontrar persona
+      let personId;
+      // Intenta buscar por email primero
+      const searchPersonResponse = await fetch(
+        `${PIPEDRIVE_API_URL}/persons/search?term=${encodeURIComponent(contactInfo.email)}&fields=email&exact_match=true&api_token=${PIPEDRIVE_API_KEY}`
+      );
+      
+      if (searchPersonResponse.ok) {
+        const searchResult = await searchPersonResponse.json();
+        if (searchResult.data && searchResult.data.items.length > 0) {
+          personId = searchResult.data.items[0].item.id;
+        }
+      }
+
+      if (!personId) {
+        const personPayload = {
+          name: contactInfo.name,
+          email: [{ value: contactInfo.email, primary: true }],
+          phone: [{ value: contactInfo.phone, primary: true }],
+          visible_to: 3 
+        };
+        const personResponse = await fetch(
+          `${PIPEDRIVE_API_URL}/persons?api_token=${PIPEDRIVE_API_KEY}`,
+          { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(personPayload) }
+        );
+        if (!personResponse.ok) {
+          const errorData = await personResponse.json();
+          throw new Error(`Error al crear persona: ${errorData.error || 'Error desconocido'}`);
+        }
+        const personData = await personResponse.json();
+        personId = personData.data.id;
+      }
+
+      // 3. Encontrar propietario del Deal
+      const owner = await findOwnerInPipedrive(PIPEDRIVE_API_KEY);
+
+      // 4. Crear Deal
+      const dealPayload = {
+        title: `Valuación de Propiedad para ${contactInfo.name}`,
+        person_id: personId,
+        ...(owner && owner.id && { user_id: owner.id }), // Asignar owner si se encontró
+        stage_id: 1, // ID del primer stage del pipeline (ajustar si es necesario)
+        status: "open",
+        visible_to: 3,
+        [customFields.VAL_TIPO_PROPIEDAD]: quizAnswers.propertyType,
+        [customFields.VAL_TAMANO_M2]: estimatedValue.size,
+        [customFields.VAL_ESTIMADO_BAJO]: estimatedValue.low,
+        [customFields.VAL_ESTIMADO_ALTO]: estimatedValue.high,
+        [customFields.VAL_ESTIMADO_PROMEDIO]: estimatedValue.average,
+        [customFields.VAL_POR_M2_ESTIMADO]: estimatedValue.valuePerSqMeter,
+        [customFields.VAL_DIRECCION]: quizAnswers.address || 'No especificada',
+        [customFields.VAL_ANTIGUEDAD]: quizAnswers.age,
+        [customFields.VAL_CONDICION]: quizAnswers.condition,
+        [customFields.VAL_AMENIDADES]: quizAnswers.amenities ? quizAnswers.amenities.join(', ') : 'Ninguna',
+      };
+
+      const dealResponse = await fetch(
+        `${PIPEDRIVE_API_URL}/deals?api_token=${PIPEDRIVE_API_KEY}`,
+        { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(dealPayload) }
+      );
+
+      if (!dealResponse.ok) {
+        const errorData = await dealResponse.json();
+        throw new Error(`Error al crear deal: ${errorData.error || 'Error desconocido'}`);
+      }
+      const dealData = await dealResponse.json();
+
+      // 5. Crear Nota con todos los detalles
+      let noteContent = "Resumen de Valuación:\n";
+      noteContent += `Tipo de Propiedad: ${quizAnswers.propertyType}\n`;
+      noteContent += `Tamaño Estimado: ${estimatedValue.size} m²\n`;
+      noteContent += `Antigüedad: ${quizAnswers.age}\n`;
+      noteContent += `Condición: ${quizAnswers.condition}\n`;
+      noteContent += `Dirección: ${quizAnswers.address || 'No especificada'}\n`;
+      if (quizAnswers.bedrooms) noteContent += `Recámaras: ${quizAnswers.bedrooms}\n`;
+      if (quizAnswers.bathrooms) noteContent += `Baños: ${quizAnswers.bathrooms}\n`;
+      if (quizAnswers.parkingSpaces) noteContent += `Estacionamientos: ${quizAnswers.parkingSpaces}\n`;
+      if (quizAnswers.amenities && quizAnswers.amenities.length > 0) {
+        noteContent += `Amenidades: ${quizAnswers.amenities.join(', ')}\n`;
+      }
+      noteContent += `\n--- Estimación de Valor ---\n`;
+      noteContent += `Rango: ${formatCurrency(estimatedValue.low)} - ${formatCurrency(estimatedValue.high)}\n`;
+      noteContent += `Promedio: ${formatCurrency(estimatedValue.average)}\n`;
+      noteContent += `Valor por m²: ${formatCurrency(estimatedValue.valuePerSqMeter)}\n`;
+      noteContent += `\n--- Información de Contacto ---\n`;
+      noteContent += `Nombre: ${contactInfo.name}\n`;
+      noteContent += `Email: ${contactInfo.email}\n`;
+      noteContent += `Teléfono: ${contactInfo.phone}\n`;
+      
+      const notePayload = {
+        content: noteContent,
+        deal_id: dealData.data.id,
+      };
+
+      await fetch(
+        `${PIPEDRIVE_API_URL}/notes?api_token=${PIPEDRIVE_API_KEY}`,
+        { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(notePayload) }
+      );
+      // No se maneja error de nota críticamente para no fallar todo el proceso si solo la nota falla.
+
+      toast.update(toastId, { render: "¡Información enviada a Pipedrive con éxito!", type: "success", isLoading: false, autoClose: 5000 });
+      setHasSentToPipedrive(true); // Marcar como enviado con éxito
+      if(originalOnComplete) originalOnComplete(); 
+
+    } catch (error) {
+      console.error("Error enviando a Pipedrive:", error);
+      toast.update(toastId, { render: `Error al enviar a Pipedrive: ${error.message}`, type: "error", isLoading: false, autoClose: 7000 });
+      // No se resetea hasSentToPipedrive a false aquí para evitar bucles de reintento automático con useEffect.
+      // El usuario puede reintentar manualmente con el botón.
+    }
+  };
+  
+  useEffect(() => {
+    if (quizAnswers && estimatedValue && contactInfo && !hasSentToPipedrive) {
+      sendValuationToPipedrive(); 
+    }
+  }, [quizAnswers, estimatedValue, contactInfo, hasSentToPipedrive]); // Dependencias actualizadas
+
+
+  const handleContactAdvisor = () => {
+    if (!hasSentToPipedrive) {
+        sendValuationToPipedrive(); 
+    } else {
+        toast.info("La información ya fue enviada. Un asesor se pondrá en contacto.");
+        if(originalOnComplete) originalOnComplete();
+    }
   };
 
   return (
@@ -29,11 +286,8 @@ const QuizResult = ({ estimatedValue, contactInfo, onReset, onComplete }) => {
       
       <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-4 sm:p-8 rounded-xl shadow-sm mb-6 sm:mb-8">
         <p className="text-gray-700 mb-2 sm:mb-3 font-medium text-sm sm:text-base">El valor estimado de tu propiedad es:</p>
-        <div className="text-3xl sm:text-4xl font-bold text-[#003da4] mb-2 sm:mb-3">
-          {formatCurrency(estimatedValue.average)}
-        </div>
-        <p className="text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4">
-          Rango estimado: {formatCurrency(estimatedValue.low)} - {formatCurrency(estimatedValue.high)}
+        <p className="text-3xl sm:text-4xl font-bold text-[#003da4] mb-2 sm:mb-3">
+        {formatCurrency(estimatedValue.low)} - {formatCurrency(estimatedValue.high)}
         </p>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-4 sm:mt-6 text-left">
@@ -101,7 +355,7 @@ const QuizResult = ({ estimatedValue, contactInfo, onReset, onComplete }) => {
           Reiniciar Valuación
         </button>
         <button
-          onClick={onComplete}
+          onClick={handleContactAdvisor} // Modificado para llamar a la nueva función wrapper
           className={`px-4 sm:px-8 py-2 sm:py-3 rounded-lg hover:bg-opacity-80 transition-colors font-medium flex items-center justify-center shadow-md text-sm sm:text-base ${
             valor === "comercial" ? "bg-redRemax text-white" : "bg-blueRemax text-white"
           }`}
@@ -125,6 +379,7 @@ QuizResult.propTypes = {
     size: PropTypes.number.isRequired
   }).isRequired,
   contactInfo: PropTypes.object.isRequired,
+  quizAnswers: PropTypes.object.isRequired, // Asegúrate de que esto se pase como prop desde ValuadorQuiz.jsx
   onReset: PropTypes.func.isRequired,
   onComplete: PropTypes.func.isRequired,
 };

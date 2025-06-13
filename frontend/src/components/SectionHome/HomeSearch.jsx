@@ -68,9 +68,9 @@ const HomeSearch = memo(
           "/HomePageContent/comercial/Comercial-local.webp",
         ],
         residencial: [
+          "/fotosdesarrollo/trebol 3.webp",
           "/HomePageContent/residencial/residencial-condominio.webp", // LCP para residencial
           "/HomePageContent/residencial/3.webp",
-          "/fotosdesarrollo/TREBOL 5.0.webp",
           "/HomePageContent/residencial/residencial-interiordepa.webp",
           "/HomePageContent/residencial/residencial-casa2.webp",
         ],
