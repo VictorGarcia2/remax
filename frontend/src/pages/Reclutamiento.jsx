@@ -10,6 +10,7 @@ import { useSearchContext } from "../context/SearchContext";
 // Constantes para Pipedrive
 const PIPEDRIVE_API_KEY = "02317c5467585c4251d802ab65e0c7b9f60541ee";
 const PIPEDRIVE_API_URL = "https://api.pipedrive.com/v1";
+const PIPELINE_ID_RECLUTAMIENTO = 2; // EJEMPLO: Reemplaza esto con el ID real de tu pipeline de reclutamiento
 
 // Definición de campos personalizados para Leads en Pipedrive
 const CUSTOM_FIELDS = {
@@ -485,6 +486,7 @@ export default function Reclutamiento() {
         title: `Candidato: ${formData.name}`,
         person_id: personData.data.id,
         ...(owner.id && { user_id: owner.id }),
+        pipeline_id: PIPELINE_ID_RECLUTAMIENTO, // <--- Línea añadida
         stage_id: 1,
         status: "open",
         visible_to: 3,
