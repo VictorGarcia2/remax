@@ -7,8 +7,11 @@ import CantidadPropiedades from "../../components/CantidadPropiedades";
 import CardResultado from "../../components/CardResultado";
 import MenuFilter from "../../components/MenuFilter";
 import FiltrosDesktop from "../../components/FiltrosDesktop";
+import ActiveFilters from "../../components/ActiveFilters";
 import { useEffect } from "react";
 import { useSearchContext } from "../../context/SearchContext";
+import Breadcrumbs from "../../components/Breadcrumbs";
+
 
 const ResultadosBusqueda = ({
   propiedades,
@@ -65,6 +68,7 @@ const ResultadosBusqueda = ({
         selectedOptions={selectedOptions}
       />
       <HeaderResultadoBusqueda />
+      <Breadcrumbs propiedades={propiedades} />
       <div className="hidden lg:block">
         <FiltrosDesktop
           valor={valor}
@@ -93,6 +97,14 @@ const ResultadosBusqueda = ({
         setManejoBusqueda={setManejoBusqueda}
       />
       <CantidadPropiedades propiedadesVisibles={propiedadesVisibles} />
+      <ActiveFilters 
+        selectedOptions={selectedOptions}
+        setSelectedOptions={setSelectedOptions}
+        precioMinimo={precioMinimo}
+        precioMaximo={precioMaximo}
+        setPrecioMinimo={setPrecioMinimo}
+        setPrecioMaximo={setPrecioMaximo}
+      />
       <CardResultado
         selectedOptionsOperacion={selectedOptionsOperacion}
         selectedOptionsTipos={selectedOptionsTipos}

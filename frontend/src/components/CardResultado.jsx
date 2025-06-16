@@ -245,7 +245,7 @@ export default function CardResultado({
       // Para este ejemplo, lo estableceremos a 0 para una actualización más rápida.
       const timer = setTimeout(() => {
         setIsLoading(false);
-      }, 0); // Reducido de 200ms a 0ms
+      }, 1000); // Reducido de 200ms a 0ms
       return () => clearTimeout(timer);
     } else {
       // Si propiedadesVisibles es null o undefined inicialmente, mantener isLoading en true

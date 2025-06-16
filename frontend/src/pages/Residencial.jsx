@@ -9,6 +9,7 @@ import HomeSearch from "../components/SectionHome/HomeSearch";
 import LoadingSpinner from "../components/LoadingSpinner";
 import { useSearchContext } from "../context/SearchContext";
 import { motion } from "framer-motion";
+import ResidencialSkeleton from "../components/ResidencialSkeleton";
 
 // Lazy loaded components
 const SectionPorque = lazy(() =>
@@ -152,6 +153,31 @@ export default function Residencial({
   setBusqueda,
   propiedades,
 }) {
+  const [isLoading, setIsLoading] = useState(() => {
+    // Verificar si ya se ha cargado antes usando sessionStorage
+    const hasLoadedBefore = sessionStorage.getItem('residencial-loaded');
+    return !hasLoadedBefore;
+  });
+
+  useEffect(() => {
+    // Solo mostrar skeleton si no se ha cargado antes
+    const hasLoadedBefore = sessionStorage.getItem('residencial-loaded');
+    
+    if (!hasLoadedBefore) {
+      // Simula un tiempo de carga para que el contenido y las imágenes se asienten.
+      const timer = setTimeout(() => {
+        setIsLoading(false);
+        // Marcar como cargado en sessionStorage
+        sessionStorage.setItem('residencial-loaded', 'true');
+      }, 1800); // Puedes ajustar este valor si es necesario
+
+      return () => clearTimeout(timer);
+    } else {
+      // Si ya se cargó antes, no mostrar skeleton
+      setIsLoading(false);
+    }
+  }, []);
+
   const {
     busquedaHome,
     setBusquedaHome,
@@ -197,6 +223,10 @@ export default function Residencial({
 
     return () => observer.disconnect();
   }, []);
+
+  if (isLoading) {
+    return <ResidencialSkeleton />;
+  }
 
   return (
     <>

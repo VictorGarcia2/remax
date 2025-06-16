@@ -121,11 +121,11 @@ const ensureCustomFields = async () => {
 
     for (const [key, field] of Object.entries(CUSTOM_FIELDS)) {
       const existingField = existingFields.data?.find(f => f.name === field.name);
-      
+
       if (existingField) {
         // Si el campo existe pero es de tipo enum y tiene opciones diferentes, actualizarlo
-        if (field.field_type === "enum" && field.options && 
-            (!existingField.options || !arraysEqual(existingField.options.map(o => o.label), field.options))) {
+        if (field.field_type === "enum" && field.options &&
+          (!existingField.options || !arraysEqual(existingField.options.map(o => o.label), field.options))) {
           const updateResponse = await fetch(
             `${PIPEDRIVE_API_URL}/dealFields/${existingField.id}?api_token=${PIPEDRIVE_API_KEY}`,
             {
@@ -139,12 +139,12 @@ const ensureCustomFields = async () => {
               })
             }
           );
-          
+
           if (!updateResponse.ok) {
             console.warn(`No se pudo actualizar el campo ${field.name}, pero continuará con el existente`);
           }
         }
-        
+
         customFieldIds[key] = existingField.key;
       } else {
         // Crear nuevo campo
@@ -206,16 +206,16 @@ const findOwnerInPipedrive = async (apiKey) => {
     const usersResponse = await fetch(
       `${PIPEDRIVE_API_URL}/users?api_token=${apiKey}`
     );
-    
+
     if (!usersResponse.ok) {
       throw new Error('Error al obtener usuarios de Pipedrive');
     }
 
     const usersData = await usersResponse.json();
-    
+
     // Primero intentar encontrar un usuario específico
     let owner = null;
-    
+
     // Buscar por coincidencias exactas primero
     for (const match of OWNER_MATCHES) {
       owner = usersData.data.find(user => {
@@ -225,13 +225,13 @@ const findOwnerInPipedrive = async (apiKey) => {
           return user.name?.toLowerCase().includes(match.value.toLowerCase());
         }
       });
-      
+
       if (owner) break;
     }
 
     // Si no se encuentra ningún usuario específico, buscar un administrador activo
     if (!owner) {
-      owner = usersData.data.find(user => 
+      owner = usersData.data.find(user =>
         user.active_flag && (user.role_id === 1 || user.is_admin) // role_id 1 suele ser admin
       );
     }
@@ -279,19 +279,19 @@ export default function Reclutamiento() {
       haslaptop: false,
       hassmartphone: false
     },
-    message: "" 
+    message: ""
   });
-  
+
   const [addressSuggestions, setAddressSuggestions] = useState([]);
   const [messageCharCount, setMessageCharCount] = useState(0); // Asegurar que este estado exista
-  
+
   // Función para buscar sugerencias de direcciones usando la API de Mapbox
   const searchAddress = async (query) => {
     if (!query) {
       setAddressSuggestions([]);
       return;
     }
-    
+
     try {
       const response = await fetch(
         `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(query)}.json?` +
@@ -300,7 +300,7 @@ export default function Reclutamiento() {
         'types=address&' +
         'language=es'
       );
-      
+
       const data = await response.json();
       setAddressSuggestions(data.features);
     } catch (error) {
@@ -317,7 +317,7 @@ export default function Reclutamiento() {
     }, 500);
 
     return () => clearTimeout(timer);
-  }, [formData.address]);  const [isSubmitting, setIsSubmitting] = useState(false);
+  }, [formData.address]); const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   // Modal de éxito
@@ -328,7 +328,7 @@ export default function Reclutamiento() {
           <div className="text-center">
             <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100 mb-4">
               <svg className="h-6 w-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/>
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
               </svg>
             </div>
             <h3 className="text-xl font-semibold text-gray-900 mb-2">¡Solicitud enviada con éxito!</h3>
@@ -654,7 +654,7 @@ ${formData.message}`;
       <Header />
       {showSuccessModal && <SuccessModal />}
       {/* Hero Section */}
-      <div className="relative pt-20 bg-cover bg-center" style={{backgroundImage: "linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')"}}>
+      <div className="relative pt-20 bg-cover bg-center" style={{ backgroundImage: "linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')" }}>
         <div className="container mx-auto px-6 py-24">
           <div className="flex flex-col lg:flex-row items-center">
             {/* Contenido principal */}
@@ -670,17 +670,16 @@ ${formData.message}`;
                 Únete al equipo líder en bienes raíces en Veracruz y desarrolla una carrera exitosa con el respaldo de RE/MAX.
               </p>
               <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
-                <a 
-                  href="#contacto" 
-                  className={`inline-flex items-center text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg ${
-                    valor === "comercial" ? "bg-redRemax hover:bg-redRemax/80" : "bg-blueRemax hover:bg-blueRemax/80"
-                  }`}
+                <a
+                  href="#contacto"
+                  className={`inline-flex items-center text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg ${valor === "comercial" ? "bg-redRemax hover:bg-redRemax/80" : "bg-blueRemax hover:bg-blueRemax/80"
+                    }`}
                 >
                   <span>Comienza hoy</span>
                   <FontAwesomeIcon icon={faChartLine} className="ml-2" />
                 </a>
-                <a 
-                  href="#beneficios" 
+                <a
+                  href="#beneficios"
                   className="inline-flex items-center bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-medium hover:bg-white/10 transition-all duration-300"
                 >
                   <span>Conocer más</span>
@@ -688,7 +687,7 @@ ${formData.message}`;
                 </a>
               </div>
             </div>
-            
+
             {/* Tarjeta destacada */}
             <div className="w-full lg:w-1/2 lg:pl-12">
               <div className="bg-white rounded-xl shadow-2xl overflow-hidden transform lg:translate-y-6">
@@ -730,7 +729,7 @@ ${formData.message}`;
             <h2 className="text-3xl md:text-4xl font-bold mb-4">¿Por qué elegir <span className="text-[#db1c2e]">RE/MAX CIN</span>?</h2>
             <div className="w-24 h-1 bg-[#db1c2e] mx-auto"></div>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-gray-50 rounded-xl shadow-md p-8 hover:shadow-lg transition-shadow duration-300">
               <div className="text-[#db1c2e] text-3xl mb-4">
@@ -739,7 +738,7 @@ ${formData.message}`;
               <h3 className="text-xl font-semibold mb-3">Marca global</h3>
               <p className="text-gray-600"> Respaldo de la marca inmobiliaria #1 del mundo presente en más de 110 países y con más de 140,000 agentes en todo el mundo.</p>
             </div>
-            
+
             <div className="bg-gray-50 rounded-xl shadow-md p-8 hover:shadow-lg transition-shadow duration-300">
               <div className="text-[#db1c2e] text-3xl mb-4">
                 <FontAwesomeIcon icon={faAward} />
@@ -747,7 +746,7 @@ ${formData.message}`;
               <h3 className="text-xl font-semibold mb-3">Prestigio profesional</h3>
               <p className="text-gray-600">Posiciónate como un asesor inmobiliario de élite en tu mercado local.</p>
             </div>
-            
+
             <div className="bg-gray-50 rounded-xl shadow-md p-8 hover:shadow-lg transition-shadow duration-300">
               <div className="text-[#db1c2e] text-3xl mb-4">
                 <FontAwesomeIcon icon={faGraduationCap} />
@@ -755,7 +754,7 @@ ${formData.message}`;
               <h3 className="text-xl font-semibold mb-3">Capacitación continua</h3>
               <p className="text-gray-600">Acceso a programas de formación especializados y certificaciones internacionales.</p>
             </div>
-            
+
             <div className="bg-gray-50 rounded-xl shadow-md p-8 hover:shadow-lg transition-shadow duration-300">
               <div className="text-[#db1c2e] text-3xl mb-4">
                 <FontAwesomeIcon icon={faChartLine} />
@@ -763,7 +762,7 @@ ${formData.message}`;
               <h3 className="text-xl font-semibold mb-3">Crecimiento profesional</h3>
               <p className="text-gray-600">Desarrollo de carrera con posibilidades de ingresos superiores al promedio.</p>
             </div>
-            
+
             <div className="bg-gray-50 rounded-xl shadow-md p-8 hover:shadow-lg transition-shadow duration-300">
               <div className="text-[#db1c2e] text-3xl mb-4">
                 <FontAwesomeIcon icon={faUsers} />
@@ -771,7 +770,7 @@ ${formData.message}`;
               <h3 className="text-xl font-semibold mb-3">Propiedades Exclusivas</h3>
               <p className="text-gray-600">Acceso a inmuebles exclusivos de alto valor en todo el mercado de Veracruzano, con el esquema de comisiones más competitivo del mercado.</p>
             </div>
-            
+
             <div className="bg-gray-50 rounded-xl shadow-md p-8 hover:shadow-lg transition-shadow duration-300">
               <div className="text-[#db1c2e] text-3xl mb-4">
                 <FontAwesomeIcon icon={faBriefcase} />
@@ -790,25 +789,25 @@ ${formData.message}`;
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Tu camino al <span className="text-[#db1c2e]">éxito</span></h2>
             <div className="w-24 h-1 bg-[#db1c2e] mx-auto"></div>
           </div>
-          
+
           <div className="max-w-4xl mx-auto">
             <div className="relative">
               {/* Línea conectora (visible en desktop) */}
               <div className="hidden md:block absolute top-24 left-[calc(16.67%+1rem)] right-[calc(16.67%+1rem)] h-1 bg-[#db1c2e] z-0"></div>
-              
+
               <div className="flex flex-col md:flex-row gap-8">
                 <div className="flex-1 bg-white rounded-xl shadow-md p-8 text-center relative z-10">
                   <div className="w-12 h-12 bg-[#db1c2e] rounded-full flex items-center justify-center text-white font-bold mx-auto mb-4">1</div>
                   <h3 className="text-xl font-semibold mb-3">Entrevista inicial</h3>
                   <p className="text-gray-600">Queremos conocerte y resolver todas tus dudas de nuestro modelo de negocio, preparate para la entrevista!</p>
                 </div>
-                
+
                 <div className="flex-1 bg-white rounded-xl shadow-md p-8 text-center relative z-10">
                   <div className="w-12 h-12 bg-[#db1c2e] rounded-full flex items-center justify-center text-white font-bold mx-auto mb-4">2</div>
                   <h3 className="text-xl font-semibold mb-3">Capacitación especializada</h3>
                   <p className="text-gray-600">Recibe entrenamiento en ventas, marketing y estrategias inmobiliarias.</p>
                 </div>
-                
+
                 <div className="flex-1 bg-white rounded-xl shadow-md p-8 text-center relative z-10">
                   <div className="w-12 h-12 bg-[#db1c2e] rounded-full flex items-center justify-center text-white font-bold mx-auto mb-4">3</div>
                   <h3 className="text-xl font-semibold mb-3">Desarrollo profesional</h3>
@@ -821,7 +820,7 @@ ${formData.message}`;
       </section>
 
       {/* Testimonial */}
-   {/*    <section className="py-20 bg-white">
+      {/*    <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto bg-[#db1c2e] rounded-xl p-10 text-white relative overflow-hidden">
             <div className="absolute inset-0 opacity-10"></div>
@@ -846,7 +845,7 @@ ${formData.message}`;
             <div className="bg-gradient-to-r from-[#db1c2e] to-[#e84c59] rounded-xl p-8 mb-12 text-center text-white shadow-xl transform hover:scale-[1.01] transition-transform duration-300">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">¡TU OPORTUNIDAD ESTÁ AQUÍ!</h2>
               <p className="text-xl mb-6">Completa el formulario y comienza tu carrera profesional en el sector inmobiliario con el respaldo de la marca #1</p>
-        {/*       <div className="flex flex-wrap justify-center gap-4">
+              {/*       <div className="flex flex-wrap justify-center gap-4">
                 <div className="flex items-center bg-white/20 px-4 py-2 rounded-lg">
                   <FontAwesomeIcon icon={faChartLine} className="text-2xl mr-2" />
                   <span className="font-medium">Ingresos ilimitados</span>
@@ -861,7 +860,7 @@ ${formData.message}`;
                 </div>
               </div> */}
             </div>
-            
+
             <div className="bg-white rounded-xl shadow-lg p-8 border-t-4 border-[#db1c2e]">
               <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">Formulario de aplicación</h3>
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -949,7 +948,7 @@ ${formData.message}`;
                     </div>
                   </div>
                 </div>
-                
+
                 {/* Formación y experiencia */}
                 <div className="bg-gray-50 p-4 rounded-lg mb-6">
                   <h4 className="font-semibold text-[#db1c2e] mb-4">Formación y experiencia</h4>
@@ -1006,7 +1005,7 @@ ${formData.message}`;
                     </div>
                   </div>
                 </div>
-                
+
                 {/* Disponibilidad */}
                 <div className="bg-gray-50 p-4 rounded-lg mb-6">
                   <h4 className="font-semibold text-[#db1c2e] mb-4">Disponibilidad</h4>
@@ -1023,7 +1022,7 @@ ${formData.message}`;
                     </select>
                   </div>
                 </div>
-                
+
                 {/* Motivación */}
                 <div className="bg-gray-50 p-4 rounded-lg mb-6">
                   <h4 className="font-semibold text-[#db1c2e] mb-4">Motivación</h4>
@@ -1043,7 +1042,7 @@ ${formData.message}`;
                     </p>
                   </div>
                 </div>
-                
+
                 {/* Conocimientos tecnológicos */}
                 <div className="bg-gray-50 p-4 rounded-lg mb-6">
                   <h4 className="font-semibold text-[#db1c2e] mb-4">Conocimientos tecnológicos</h4>
@@ -1067,18 +1066,17 @@ ${formData.message}`;
                               })}
                               className="hidden"
                             />
-                            <div className={`w-8 h-8 flex items-center justify-center border rounded-lg cursor-pointer transition-all ${
-                              formData.techSkills.officeTools === value
-                                ? 'bg-[#db1c2e] text-white border-[#db1c2e]'
-                                : 'border-gray-300 hover:border-[#db1c2e]'
-                            }`}>
+                            <div className={`w-8 h-8 flex items-center justify-center border rounded-lg cursor-pointer transition-all ${formData.techSkills.officeTools === value
+                              ? 'bg-[#db1c2e] text-white border-[#db1c2e]'
+                              : 'border-gray-300 hover:border-[#db1c2e]'
+                              }`}>
                               {value}
                             </div>
                           </label>
                         ))}
                       </div>
                     </div>
-                    
+
                     <div>
                       <label className="block text-gray-700 mb-2 font-medium">Redes sociales profesionales</label>
                       <div className="flex items-center gap-4">
@@ -1098,11 +1096,10 @@ ${formData.message}`;
                               })}
                               className="hidden"
                             />
-                            <div className={`w-8 h-8 flex items-center justify-center border rounded-lg cursor-pointer transition-all ${
-                              formData.techSkills.socialMedia === value
-                                ? 'bg-[#db1c2e] text-white border-[#db1c2e]'
-                                : 'border-gray-300 hover:border-[#db1c2e]'
-                            }`}>
+                            <div className={`w-8 h-8 flex items-center justify-center border rounded-lg cursor-pointer transition-all ${formData.techSkills.socialMedia === value
+                              ? 'bg-[#db1c2e] text-white border-[#db1c2e]'
+                              : 'border-gray-300 hover:border-[#db1c2e]'
+                              }`}>
                               {value}
                             </div>
                           </label>
@@ -1129,11 +1126,10 @@ ${formData.message}`;
                               })}
                               className="hidden"
                             />
-                            <div className={`w-8 h-8 flex items-center justify-center border rounded-lg cursor-pointer transition-all ${
-                              formData.techSkills.crm === value
-                                ? 'bg-[#db1c2e] text-white border-[#db1c2e]'
-                                : 'border-gray-300 hover:border-[#db1c2e]'
-                            }`}>
+                            <div className={`w-8 h-8 flex items-center justify-center border rounded-lg cursor-pointer transition-all ${formData.techSkills.crm === value
+                              ? 'bg-[#db1c2e] text-white border-[#db1c2e]'
+                              : 'border-gray-300 hover:border-[#db1c2e]'
+                              }`}>
                               {value}
                             </div>
                           </label>
@@ -1160,11 +1156,10 @@ ${formData.message}`;
                               })}
                               className="hidden"
                             />
-                            <div className={`w-8 h-8 flex items-center justify-center border rounded-lg cursor-pointer transition-all ${
-                              formData.techSkills.videoConference === value
-                                ? 'bg-[#db1c2e] text-white border-[#db1c2e]'
-                                : 'border-gray-300 hover:border-[#db1c2e]'
-                            }`}>
+                            <div className={`w-8 h-8 flex items-center justify-center border rounded-lg cursor-pointer transition-all ${formData.techSkills.videoConference === value
+                              ? 'bg-[#db1c2e] text-white border-[#db1c2e]'
+                              : 'border-gray-300 hover:border-[#db1c2e]'
+                              }`}>
                               {value}
                             </div>
                           </label>
@@ -1191,11 +1186,10 @@ ${formData.message}`;
                               })}
                               className="hidden"
                             />
-                            <div className={`w-8 h-8 flex items-center justify-center border rounded-lg cursor-pointer transition-all ${
-                              formData.techSkills.digitalMarketing === value
-                                ? 'bg-[#db1c2e] text-white border-[#db1c2e]'
-                                : 'border-gray-300 hover:border-[#db1c2e]'
-                            }`}>
+                            <div className={`w-8 h-8 flex items-center justify-center border rounded-lg cursor-pointer transition-all ${formData.techSkills.digitalMarketing === value
+                              ? 'bg-[#db1c2e] text-white border-[#db1c2e]'
+                              : 'border-gray-300 hover:border-[#db1c2e]'
+                              }`}>
                               {value}
                             </div>
                           </label>
@@ -1225,11 +1219,10 @@ ${formData.message}`;
                         })}
                         className="hidden"
                       />
-                      <div className={`w-6 h-6 border rounded mr-3 flex items-center justify-center transition-all ${
-                        formData.equipment.hascar
-                          ? 'bg-[#db1c2e] border-[#db1c2e]'
-                          : 'border-gray-300'
-                      }`}>
+                      <div className={`w-6 h-6 border rounded mr-3 flex items-center justify-center transition-all ${formData.equipment.hascar
+                        ? 'bg-[#db1c2e] border-[#db1c2e]'
+                        : 'border-gray-300'
+                        }`}>
                         {formData.equipment.hascar && (
                           <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
@@ -1252,11 +1245,10 @@ ${formData.message}`;
                         })}
                         className="hidden"
                       />
-                      <div className={`w-6 h-6 border rounded mr-3 flex items-center justify-center transition-all ${
-                        formData.equipment.haslaptop
-                          ? 'bg-[#db1c2e] border-[#db1c2e]'
-                          : 'border-gray-300'
-                      }`}>
+                      <div className={`w-6 h-6 border rounded mr-3 flex items-center justify-center transition-all ${formData.equipment.haslaptop
+                        ? 'bg-[#db1c2e] border-[#db1c2e]'
+                        : 'border-gray-300'
+                        }`}>
                         {formData.equipment.haslaptop && (
                           <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
@@ -1279,11 +1271,10 @@ ${formData.message}`;
                         })}
                         className="hidden"
                       />
-                      <div className={`w-6 h-6 border rounded mr-3 flex items-center justify-center transition-all ${
-                        formData.equipment.hassmartphone
-                          ? 'bg-[#db1c2e] border-[#db1c2e]'
-                          : 'border-gray-300'
-                      }`}>
+                      <div className={`w-6 h-6 border rounded mr-3 flex items-center justify-center transition-all ${formData.equipment.hassmartphone
+                        ? 'bg-[#db1c2e] border-[#db1c2e]'
+                        : 'border-gray-300'
+                        }`}>
                         {formData.equipment.hassmartphone && (
                           <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
@@ -1294,26 +1285,25 @@ ${formData.message}`;
                     </label>
                   </div>
                 </div>
-                
+
                 <div className="pt-4">
-                  <div className="flex flex-col gap-4">                    <button 
-                      type="submit" 
-                      className={`w-full text-white py-4 px-6 rounded-lg transition-all duration-300 font-bold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 ${
-                        valor === "comercial" ? "bg-redRemax hover:bg-redRemax/80" : "bg-blueRemax hover:bg-blueRemax/80"
+                  <div className="flex flex-col gap-4">                    <button
+                    type="submit"
+                    className={`w-full text-white py-4 px-6 rounded-lg transition-all duration-300 font-bold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 ${valor === "comercial" ? "bg-redRemax hover:bg-redRemax/80" : "bg-blueRemax hover:bg-blueRemax/80"
                       } ${isSubmitting ? 'opacity-75 cursor-not-allowed' : ''}`}
-                      disabled={isSubmitting}
-                    >
-                      {isSubmitting ? (
-                        <div className="flex items-center justify-center gap-2">
-                          <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"/>
-                          <span>Enviando...</span>
-                        </div>
-                      ) : "Enviar solicitud"}
-                    </button>
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? (
+                      <div className="flex items-center justify-center gap-2">
+                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                        <span>Enviando...</span>
+                      </div>
+                    ) : "Enviar solicitud"}
+                  </button>
                   </div>
                 </div>
               </form>
-              
+
               <div className="mt-8 text-center">
                 <p className="text-gray-600">También puedes contactarnos directamente:</p>
                 <p className="font-medium mt-2 text-[#db1c2e]">remax.cin.veracruz@gmail.com | (229) 269-6629</p>
@@ -1341,7 +1331,7 @@ ${formData.message}`;
           </div>
         </div>
       </section>
-      
+
       <SectionFooter />
     </>
   );

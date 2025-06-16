@@ -14,6 +14,7 @@ import { ShareButtons } from "../../components/ShareButtons.jsx";
 import { Share2 } from "lucide-react";
 import { toast } from "react-toastify";
 import { useSearchContext } from "../../context/SearchContext";
+import Breadcrumbs from "../../components/Breadcrumbs.jsx";
 
 const CUSTOM_FIELDS = {
   PROPIEDAD_ID: {
@@ -575,6 +576,7 @@ export default function PropiedadSeleccion({ seleccion }) {
         </div>
       </div>
       <HeaderPropiedadSeleccion />
+      <Breadcrumbs propiedades={propiedades} />
       <div
         onClick={() => setShowMobileForm(true)}
         className={`transition-all duration-[900ms] lg:invisible ease-in-out bottom-4 right-4 rounded-full fixed z-40 w-[217px] h-[50px] flex items-center justify-center cursor-pointer ${

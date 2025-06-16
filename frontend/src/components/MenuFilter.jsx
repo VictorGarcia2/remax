@@ -247,11 +247,25 @@ export default function MenuFilter({
     // Si no hay ningún sector seleccionado, mostrar todas las propiedades
     return true;
   });
-
   const operation = [
     { icon: faBuildingUser, nombre: 1, titulo: "Venta" },
     { icon: faCity, nombre: 2, titulo: "Renta" },
   ];
+
+  const handleLimpiarFiltros = () => {
+    // Limpiar todos los filtros
+    setPrecioMinimo(0);
+    setPrecioMaximo(Infinity);
+    setSelectedOptions([]);
+    setSelectedOptionsTipos([]);
+    setSelectedOptionsOperacion([]);
+    
+    // Desmarcar todos los checkboxes
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+      checkbox.checked = false;
+    });
+  };
 
   return (
     //Mobile
@@ -586,14 +600,13 @@ export default function MenuFilter({
               </form>
               <hr className="w-full static text-[#7b7b7b7b]" />
             </div>
-          </div>
-          <div className="flex justify-evenly w-full bottom-10 mt-10 z-50">
+          </div>          <div className="flex justify-evenly w-full bottom-10 mt-10 z-50">
             <button
               type="button"
               className={`w-20 h-10 ${
                 contextValor === "comercial" ? "text-redRemax" : "text-blueRemax"
               } cursor-pointer rounded `}
-              onClick={() => setMenuClose((prev) => !prev)}
+              onClick={handleLimpiarFiltros}
             >
               Limpiar
             </button>

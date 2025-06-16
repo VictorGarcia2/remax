@@ -7,6 +7,8 @@ import LoadingSpinner from "./components/LoadingSpinner";
 import { SearchProvider } from "./context/SearchContext";
 import { ValuadorProvider } from "./context/ValuadorContext";
 import ValuadorQuiz from "./components/ValuadorQuiz/ValuadorQuiz";
+import ResidencialSkeleton from "./components/ResidencialSkeleton";
+import Breadcrumbs from "./components/Breadcrumbs";
 
 // Importaciones lazy para code splitting
 const Residencial = lazy(() => import("./pages/Residencial"));
@@ -125,7 +127,7 @@ const App = () => {
               <Route
                 path="/inicio"
                 element={
-                  <Suspense fallback={<LoadingSpinner />}>
+                  <Suspense fallback={<ResidencialSkeleton />}>
                     <Residencial
                       propiedades={propiedades}
                       valor={valor}
