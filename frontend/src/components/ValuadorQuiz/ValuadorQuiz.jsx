@@ -6,6 +6,8 @@ import QuizProgress from "./QuizProgress";
 import QuizResult from "./QuizResult";
 import Header from "../SectionHome/Header";
 import SectionFooter from "../SectionFooter/SectionFooter";
+import { db } from '../../utils/firebase';
+import { collection, query, where, getDocs } from 'firebase/firestore';
 
 const ValuadorQuiz = ({ onComplete, address }) => {
   const navigate = useNavigate();
@@ -256,6 +258,95 @@ const ValuadorQuiz = ({ onComplete, address }) => {
     }, 2000);
   };
 
+  // Nueva función para obtener comparables de Firestore y calcular el valor estimado
+  const calcularValorConComparables = async () => {
+    setLoading(true);
+    try {
+      // Extraer datos clave
+      const locationData = answers.location || {};
+      const address = typeof locationData === 'object'
+        ? locationData.fullAddress || locationData.address || ''
+        : locationData;
+      const propertyType = answers.propertyType || 'casa';
+      const size = parseInt(answers.size) || 100;
+
+      // Extraer ciudad y estado de la dirección completa
+      let ciudad = '';
+      let estado = '';
+      if (address) {
+        const partes = address.split(',');
+        // Asume formato: 'Colonia, Ciudad, Estado' o 'Calle, Colonia, Ciudad, Estado'
+        if (partes.length >= 3) {
+          ciudad = partes[partes.length - 2].trim().toLowerCase();
+          estado = partes[partes.length - 1].trim().toLowerCase();
+        } else if (partes.length === 2) {
+          ciudad = partes[0].trim().toLowerCase();
+          estado = partes[1].trim().toLowerCase();
+        }
+      }
+      const tipoLower = propertyType.toLowerCase();
+
+      // Consulta a Firestore: propiedades similares por ciudad, estado y tipo (flexible a mayúsculas/minúsculas)
+      const propiedadesRef = collection(db, 'propiedades');
+      const q = query(
+        propiedadesRef,
+        where('ciudad', '==', ciudad),
+        where('estado', '==', estado),
+        where('tipo', '==', tipoLower)
+      );
+      const querySnapshot = await getDocs(q);
+      const comparables = [];
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        // Normaliza los campos a minúsculas para comparar
+        const ciudadDoc = (data.ciudad || '').toLowerCase();
+        const estadoDoc = (data.estado || '').toLowerCase();
+        const tipoDoc = (data.tipo || '').toLowerCase();
+        if (ciudadDoc === ciudad && estadoDoc === estado && tipoDoc === tipoLower) {
+          comparables.push({
+            ...data,
+            metros: Number(String(data.metros).replace(/[^0-9.]/g, "")),
+            precio: Number(String(data.precio).replace(/[^0-9.]/g, "")),
+            banos: Number(data.banos),
+            recamaras: Number(data.recamaras),
+          });
+        }
+      });
+
+      // Manejo de éxito
+      if (comparables.length === 0) {
+        console.warn('No se encontraron comparables en Firestore. Se usará el cálculo estático.');
+        alert('No se encontraron comparables en la base de datos. Se usará el cálculo estimado.');
+        calculateEstimatedValue();
+        return;
+      } else {
+        console.log('Comparables encontrados en Firestore:', comparables);
+        alert('¡Consulta a Firestore exitosa! Se encontraron comparables.');
+      }
+
+      // Calcular precio por m2 de cada comparable
+      const preciosPorM2 = comparables.map(p => p.precio / p.metros);
+      const promedioM2 = preciosPorM2.reduce((a, b) => a + b, 0) / preciosPorM2.length;
+      const valorEstimado = promedioM2 * size;
+      const lowerRange = Math.floor(valorEstimado * 0.9);
+      const upperRange = Math.ceil(valorEstimado * 1.1);
+
+      setEstimatedValue({
+        low: lowerRange,
+        high: upperRange,
+        valuePerSqMeter: Math.floor(promedioM2),
+        comparables: comparables.slice(0, 5), // Muestra hasta 5 comparables
+      });
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      console.error('Error al consultar Firestore:', error);
+      alert('Error al consultar Firestore. Revisa la consola para más detalles. Se usará el cálculo estimado.');
+      // Si hay error, usar el cálculo estático como fallback
+      calculateEstimatedValue();
+    }
+  };
+
   // Manejar el avance al siguiente paso
   const handleNext = (stepAnswers) => {
     const updatedAnswers = { ...answers, ...stepAnswers };
@@ -268,7 +359,7 @@ const ValuadorQuiz = ({ onComplete, address }) => {
         behavior: "smooth",
       });
     } else {
-      calculateEstimatedValue();
+      calcularValorConComparables();
     }
   };
 

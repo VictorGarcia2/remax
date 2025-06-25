@@ -366,6 +366,27 @@ const QuizResult = ({ estimatedValue, contactInfo, quizAnswers, onReset, onCompl
           Contactar Asesor
         </button>
       </div>
+
+      {/* Mostrar comparables si existen */}
+      {estimatedValue.comparables && estimatedValue.comparables.length > 0 && (
+        <div className="comparables-section mt-8">
+          <h3 className="text-lg font-bold mb-4">Propiedades comparables en tu zona</h3>
+          <ul className="space-y-4">
+            {estimatedValue.comparables.map((comp, idx) => (
+              <li key={idx} className="border rounded-lg p-4 bg-gray-50">
+                <div><strong>{comp.titulo || 'Propiedad comparable'}</strong></div>
+                <div>Dirección: {comp.direccion}</div>
+                <div>Metros cuadrados: {comp.metros} m²</div>
+                <div>Precio: {formatCurrency(comp.precio)}</div>
+                <div>Recámaras: {comp.recamaras} | Baños: {comp.banos}</div>
+                {comp.url && (
+                  <a href={comp.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">Ver detalle</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 };

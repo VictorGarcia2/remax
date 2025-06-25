@@ -36,7 +36,7 @@ export const SearchProvider = ({ children }) => {
   useEffect(() => {
     const fetchPropiedades = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/propiedades');
+        const response = await axios.get('https://remaxcin.com/api/propiedades');
         setPropiedades(response.data);
       } catch (error) {
         console.error('Error al obtener las propiedades:', error);

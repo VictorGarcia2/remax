@@ -23,10 +23,10 @@ export default function Header({ setSelectedOptionsOperacion }) {
 
   return (
     <nav className="bg-white fixed w-full z-50 top-0 start-0 shadow-sm">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3">
+      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto h-16 md:h-20 px-3 md:px-6">
         <Link
           to={"/inicio"}
-          className="flex items-center space-x-3 rtl:space-x-reverse"
+          className="flex items-center space-x-3 rtl:space-x-reverse h-full"
         >
           <img
             src="logos/New_RMX_Mark_R4_RGB_dark.png"
@@ -34,7 +34,7 @@ export default function Header({ setSelectedOptionsOperacion }) {
             alt="REMAX Logo"
           />
         </Link>
-        <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+        <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse items-center h-full">
           <button
             onClick={() => setIsOpen(!isOpen)}
             type="button"
@@ -65,16 +65,14 @@ export default function Header({ setSelectedOptionsOperacion }) {
         <div
           className={`${
             isOpen ? "block" : "hidden"
-          } items-center justify-between w-full md:flex md:w-auto md:order-1 transition-all duration-300 ease-in-out`}
+          } items-center justify-between w-full md:flex md:w-auto md:order-1 transition-all duration-300 ease-in-out h-full`}
           id="navbar-sticky"
         >
-          <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-6 lg:space-x-8 md:mt-0 md:border-0 md:bg-white">
+          <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-6 lg:space-x-8 md:mt-0 md:border-0 md:bg-white h-full items-center">
             <li className="py-1">
               <Link
-                to={"/"}
-                className={`block py-2 px-3 rounded-md md:bg-transparent md:p-0 md:hover:text-current ${
-                  valor === "comercial" ? "text-red-700 md:text-red-700 md:hover:text-red-800" : "text-blue-700 md:text-blue-700 md:hover:text-blue-800"
-                }`}
+                to="/"
+                className={`block py-2 px-3 rounded-md md:bg-transparent md:p-0 md:hover:text-current ${valor === "comercial" ? "text-red-700 md:text-red-700 md:hover:text-red-800" : "text-blue-700 md:text-blue-700 md:hover:text-blue-800"}`}
                 aria-current="page"
                 onClick={() => setIsOpen(false)}
               >
@@ -87,10 +85,8 @@ export default function Header({ setSelectedOptionsOperacion }) {
                   setSelectedOptionsOperacion([1]);
                   setIsOpen(false);
                 }}
-                to={"/propiedades"}
-                className={`block py-2 px-3 text-gray-700 rounded-md hover:bg-gray-100 md:hover:bg-transparent md:p-0 ${
-                  valor === "comercial" ? "md:hover:text-red-700" : "md:hover:text-blue-700"
-                }`}
+                to="/propiedades"
+                className={`block py-2 px-3 text-gray-700 rounded-md hover:bg-gray-100 md:hover:bg-transparent md:p-0 ${valor === "comercial" ? "md:hover:text-red-700" : "md:hover:text-blue-700"}`}
               >
                 Comprar
               </Link>
@@ -148,9 +144,7 @@ export default function Header({ setSelectedOptionsOperacion }) {
             <li className="py-1">
               <a
                 href="#"
-                className={`block py-2 px-3 text-gray-700 rounded-md hover:bg-gray-100 md:hover:bg-transparent md:p-0 ${
-                  valor === "comercial" ? "md:hover:text-red-700" : "md:hover:text-blue-700"
-                }`}
+                className={`block py-2 px-3 text-gray-700 rounded-md hover:bg-gray-100 md:hover:bg-transparent md:p-0 ${valor === "comercial" ? "md:hover:text-red-700" : "md:hover:text-blue-700"}`}
                 onClick={() => setIsOpen(false)}
               >
                 Tramita tu crédito
@@ -158,10 +152,8 @@ export default function Header({ setSelectedOptionsOperacion }) {
             </li>
             <li className="py-1">
               <Link
-                to={"/Polizas-de-renta"}
-                className={`block py-2 px-3 text-gray-700 rounded-md hover:bg-gray-100 md:hover:bg-transparent md:p-0 ${
-                  valor === "comercial" ? "md:hover:text-red-700" : "md:hover:text-blue-700"
-                }`}
+                to="/Polizas-de-renta"
+                className={`block py-2 px-3 text-gray-700 rounded-md hover:bg-gray-100 md:hover:bg-transparent md:p-0 ${valor === "comercial" ? "md:hover:text-red-700" : "md:hover:text-blue-700"}`}
                 onClick={() => setIsOpen(false)}
               >
                 Pólizas de renta
@@ -169,10 +161,8 @@ export default function Header({ setSelectedOptionsOperacion }) {
             </li>
             <li className="py-1">
               <Link
-                to={"/NuestroEquipo"}
-                className={`block py-2 px-3 text-gray-700 rounded-md hover:bg-gray-100 md:hover:bg-transparent md:p-0 ${
-                  valor === "comercial" ? "md:hover:text-red-700" : "md:hover:text-blue-700"
-                }`}
+                to="/NuestroEquipo"
+                className={`block py-2 px-3 text-gray-700 rounded-md hover:bg-gray-100 md:hover:bg-transparent md:p-0 ${valor === "comercial" ? "md:hover:text-red-700" : "md:hover:text-blue-700"}`}
                 onClick={() => setIsOpen(false)}
               >
                 Nuestro equipo
@@ -180,11 +170,22 @@ export default function Header({ setSelectedOptionsOperacion }) {
             </li>
             <li className="py-1">
               <Link
-                to={"/reclutamiento"}
+                to="/reclutamiento"
                 className="block py-2 px-3 text-gray-700 rounded-md hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
                 onClick={() => setIsOpen(false)}
               >
                 Únete a nosotros
+              </Link>
+            </li>
+            <li className="hidden md:block mx-2 border-l border-gray-300 h-8 self-center"></li>
+            <li className="py-1 md:ml-4 mt-2 md:mt-0">
+              <Link
+                to="/desarrollo-trebol-ii"
+                className="block py-2 px-3 rounded-md bg-[#db1c2e] text-white font-bold shadow-md border border-[#db1c2e] hover:bg-red-700 transition flex items-center gap-2 relative"
+                onClick={() => setIsOpen(false)}
+              >
+                Trébol II
+                <span className="ml-2 bg-white text-[#db1c2e] text-[10px] font-bold px-2 py-0.5 rounded-full shadow border border-[#db1c2e]">Nuevo</span>
               </Link>
             </li>
           </ul>

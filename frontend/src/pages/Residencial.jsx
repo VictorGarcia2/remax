@@ -10,6 +10,7 @@ import LoadingSpinner from "../components/LoadingSpinner";
 import { useSearchContext } from "../context/SearchContext";
 import { motion } from "framer-motion";
 import ResidencialSkeleton from "../components/ResidencialSkeleton";
+import PropuestaFormularioDirecto from "../components/SectionDesarrolloDestacado/PropuestaFormularioDirecto";
 
 // Lazy loaded components
 const SectionPorque = lazy(() =>

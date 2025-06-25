@@ -9,6 +9,7 @@ import { ValuadorProvider } from "./context/ValuadorContext";
 import ValuadorQuiz from "./components/ValuadorQuiz/ValuadorQuiz";
 import ResidencialSkeleton from "./components/ResidencialSkeleton";
 import Breadcrumbs from "./components/Breadcrumbs";
+import DesarrolloTrebolII from "./pages/DesarrolloTrebolII";
 
 // Importaciones lazy para code splitting
 const Residencial = lazy(() => import("./pages/Residencial"));
@@ -211,6 +212,10 @@ const App = () => {
                     <ValuadorQuiz />
                   </ValuadorProvider>
                 }
+              />
+              <Route
+                path="/desarrollo-trebol-ii"
+                element={<DesarrolloTrebolII />}
               />
             </Routes>
           </Suspense>
