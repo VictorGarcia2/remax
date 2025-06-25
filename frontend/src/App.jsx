@@ -114,7 +114,7 @@ const App = () => {
             REMAX CIN Veracruz - Propiedades Residenciales, Comerciales e
             Industriales
           </title>
-          <link rel="canonical" href="https://www.remax.com.mx" />
+          <link rel="canonical" href="https://www.remaxcin.com" />
         </Helmet>
         <ScrollToTop />
         <SearchProvider>

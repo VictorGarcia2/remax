@@ -18,37 +18,37 @@ async function updateSitemap() {
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Páginas Principales -->
   <url>
-    <loc>https://remaxcin.mx/</loc>
+    <loc>https://remaxcin.com/</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://remaxcin.mx/inicio</loc>
+    <loc>https://remaxcin.com/inicio</loc>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://remaxcin.mx/propiedades</loc>
+    <loc>https://remaxcin.com/propiedades</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://remaxcin.mx/NuestroEquipo</loc>
+    <loc>https://remaxcin.com/NuestroEquipo</loc>
     <priority>0.7</priority>
   </url>
   
   <!-- Páginas Legales -->
   <url>
-    <loc>https://remaxcin.mx/Polizas-de-renta</loc>
+    <loc>https://remaxcin.com/Polizas-de-renta</loc>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://remaxcin.mx/terminos-y-condiciones</loc>
+    <loc>https://remaxcin.com/terminos-y-condiciones</loc>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://remaxcin.mx/codigo-de-etica</loc>
+    <loc>https://remaxcin.com/codigo-de-etica</loc>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://remaxcin.mx/politica-de-privacidad</loc>
+    <loc>https://remaxcin.com/politica-de-privacidad</loc>
     <priority>0.5</priority>
   </url>
 
@@ -58,7 +58,7 @@ async function updateSitemap() {
     propiedades.forEach(propiedad => {
       sitemap += `
   <url>
-    <loc>https://remaxcin.mx/propiedades/seleccion/${propiedad.propiedad_id}</loc>
+    <loc>https://remaxcin.com/propiedades/seleccion/${propiedad.propiedad_id}</loc>
     <priority>0.8</priority>
     <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
   </url>`;
