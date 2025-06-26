@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Permitir acceso al sitemap
-Sitemap: https://remaxcin.mx/sitemap.xml
+Sitemap: https://remaxcin.com/sitemap.xml
 
 # Rutas principales
 Allow: /inicio

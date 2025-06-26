@@ -1,6 +1,11 @@
-const fs = require('fs');
-const axios = require('axios');
-const path = require('path');
+import fs from 'fs';
+import axios from 'axios';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+// Recrear __dirname para ES Modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Función para generar el sitemap
 async function generateSitemap() {
@@ -31,6 +36,10 @@ async function generateSitemap() {
   <url>
     <loc>https://remaxcin.com/NuestroEquipo</loc>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://remaxcin.com/desarrollo-trebol-ii</loc>
+    <priority>0.9</priority>
   </url>
   
   <!-- Páginas Legales -->
@@ -78,4 +87,4 @@ async function generateSitemap() {
 // Ejecutar la función
 generateSitemap();
 
-module.exports = { generateSitemap };
+export { generateSitemap };

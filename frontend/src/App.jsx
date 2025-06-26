@@ -9,6 +9,8 @@ import { ValuadorProvider } from "./context/ValuadorContext";
 import ValuadorQuiz from "./components/ValuadorQuiz/ValuadorQuiz";
 import ResidencialSkeleton from "./components/ResidencialSkeleton";
 import Breadcrumbs from "./components/Breadcrumbs";
+
+
 import DesarrolloTrebolII from "./pages/DesarrolloTrebolII";
 
 // Importaciones lazy para code splitting
@@ -105,26 +107,29 @@ const App = () => {
     <>
       <HelmetProvider>
         <Helmet>
-          <title>REMAX CIN - Bienes Raíces y Propiedades</title>
-          <meta
-            name="description"
-            content="REMAX CIN Veracruz - Expertos en propiedades residenciales, comerciales e industriales. Encuentra tu espacio ideal con amplio catálogo de bienes raíces en venta y renta."
-          />
           <title>
             REMAX CIN Veracruz - Propiedades Residenciales, Comerciales e
             Industriales
           </title>
+          <meta
+            name="description"
+            content="REMAX CIN Veracruz - Expertos en propiedades residenciales, comerciales e industriales. Encuentra tu espacio ideal con amplio catálogo de bienes raíces en venta y renta."
+          />
+
           <link rel="canonical" href="https://www.remaxcin.com" />
         </Helmet>
         <ScrollToTop />
         <SearchProvider>
           <Suspense fallback={<LoadingSpinner />}>
             <Routes>
-              <Route path="/" element={
-                <Suspense fallback={<LoadingSpinner />}>
-                  <Eleccion setValor={setValor} />
-                </Suspense>
-              } />
+              <Route
+                path="/"
+                element={
+                  <Suspense fallback={<LoadingSpinner />}>
+                    <Eleccion setValor={setValor} />
+                  </Suspense>
+                }
+              />
               <Route
                 path="/inicio"
                 element={

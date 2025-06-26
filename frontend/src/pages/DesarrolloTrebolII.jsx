@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaCheckCircle, FaShieldAlt, FaMapMarkerAlt, FaHome, FaKey, FaCar, FaUserShield, FaLock, FaMapMarkedAlt } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 import Header from "../components/SectionHome/Header";
 import SectionFooter from "../components/SectionFooter/SectionFooter";
 
@@ -75,8 +76,34 @@ export default function DesarrolloTrebolII() {
   };
   const isValid = form.nombre && emailRegex.test(form.email) && phoneRegex.test(form.telefono);
 
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Departamentos en venta en Boca del Rio, Veracruz",
+    "description": "Departamentos en Veracruz desde 1.3 millones con cocina integral y estacionamiento. Excelente ubicación, a 15 min de centros comerciales y del centro histórico.",
+    "image": "/fotosdesarrollo/FACHADA.webp",
+    "brand": {
+      "@type": "Brand",
+      "name": "RE/MAX CIN"
+    },
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "MXN",
+      "price": "1300000",
+      "availability": "https://schema.org/InStock",
+      "url": "https://remaxcin.com/desarrollo-trebol-ii"
+    }
+  };
+
   return (
     <main className="w-full min-h-screen bg-gradient-to-br from-white via-blue-50 to-blue-100 font-sans tracking-wide overflow-x-hidden">
+      <Helmet>
+        <title>Departamentos en Venta en Boca del Río, Veracruz | TRÉBOL II</title>
+        <meta name="description" content="Departamentos en preventa en Veracruz desde $1.3 millones. Ubicación privilegiada, amenidades premium y seguridad. ¡Agenda tu visita gratis hoy!" />
+        <script type="application/ld+json">
+          {JSON.stringify(schemaData)}
+        </script>
+      </Helmet>
       <Header  />
       {/* 3. HERO/INTRO */}
       <section className="relative mt-20 min-h-[60vh] flex flex-col justify-center items-center text-center py-20 px-4 overflow-hidden">
