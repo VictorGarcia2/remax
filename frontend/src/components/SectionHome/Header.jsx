@@ -22,8 +22,8 @@ export default function Header({ setSelectedOptionsOperacion }) {
   }, []);
 
   return (
-    <nav className="bg-white fixed w-full z-50 top-0 start-0 shadow-sm">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto h-16 md:h-20 px-3 md:px-6">
+    <nav className="bg-white fixed w-full z-100 top-0 start-0 shadow-sm">
+      <div className="max-w-screen-xl  flex flex-wrap items-center justify-between mx-auto h-16 md:h-20 px-3 md:px-6">
         <Link
           to={"/inicio"}
           className="flex items-center space-x-3 rtl:space-x-reverse h-full"
@@ -34,7 +34,7 @@ export default function Header({ setSelectedOptionsOperacion }) {
             alt="REMAX Logo"
           />
         </Link>
-        <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse items-center h-full">
+        <div className="flex  md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse items-center h-full">
           <button
             onClick={() => setIsOpen(!isOpen)}
             type="button"
@@ -65,10 +65,97 @@ export default function Header({ setSelectedOptionsOperacion }) {
         <div
           className={`${
             isOpen ? "block" : "hidden"
-          } items-center justify-between w-full md:flex md:w-auto md:order-1 transition-all duration-300 ease-in-out h-full`}
+          } items-center  justify-between w-full md:flex md:w-auto md:order-1 transition-all duration-300 ease-in-out h-full`}
           id="navbar-sticky"
         >
-          <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-6 lg:space-x-8 md:mt-0 md:border-0 md:bg-white h-full items-center">
+          {/* Overlay para menú hamburguesa en móvil */}
+          {isOpen && (
+            <div className="fixed mt-1 z-50 flex items-center justify-center md:hidden">
+              <div className="w-[90vw] max-h-[50vh] min-h-fit bg-white rounded-2xl shadow-2xl flex flex-col items-center p-6 border border-gray-200 overflow-y-auto justify-center">
+                <ul className="flex flex-col w-full font-medium space-y-2 items-center justify-center">
+                  <li className="py-1 w-full">
+                    <Link
+                      to="/"
+                      className={`block py-2 px-3 rounded-md w-full text-center md:bg-transparent md:p-0 md:hover:text-current ${valor === "comercial" ? "text-red-700 md:text-red-700 md:hover:text-red-800" : "text-blue-700 md:text-blue-700 md:hover:text-blue-800"}`}
+                      aria-current="page"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Inicio
+                    </Link>
+                  </li>
+                  <li className="py-1 w-full">
+                    <Link
+                      onClick={() => {
+                        setSelectedOptionsOperacion([1]);
+                        setIsOpen(false);
+                      }}
+                      to="/propiedades"
+                      className={`block py-2 px-3 text-gray-700 rounded-md w-full text-center hover:bg-gray-100 md:hover:bg-transparent md:p-0 ${valor === "comercial" ? "md:hover:text-red-700" : "md:hover:text-blue-700"}`}
+                    >
+                      Comprar
+                    </Link>
+                  </li>
+                  <li className="py-1 w-full">
+                    <Link
+                      to="/valuador"
+                      className="block py-2 px-3 text-gray-700 rounded-md w-full text-center hover:bg-gray-100 md:hover:bg-transparent md:p-0"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Valuar mi propiedad
+                    </Link>
+                  </li>
+                  <li className="py-1 w-full">
+                    <a
+                      href="#"
+                      className={`block py-2 px-3 text-gray-700 rounded-md w-full text-center hover:bg-gray-100 md:hover:bg-transparent md:p-0 ${valor === "comercial" ? "md:hover:text-red-700" : "md:hover:text-blue-700"}`}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Tramita tu crédito
+                    </a>
+                  </li>
+                  <li className="py-1 w-full">
+                    <Link
+                      to="/Polizas-de-renta"
+                      className={`block py-2 px-3 text-gray-700 rounded-md w-full text-center hover:bg-gray-100 md:hover:bg-transparent md:p-0 ${valor === "comercial" ? "md:hover:text-red-700" : "md:hover:text-blue-700"}`}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Pólizas de renta
+                    </Link>
+                  </li>
+                  <li className="py-1 w-full">
+                    <Link
+                      to="/NuestroEquipo"
+                      className={`block py-2 px-3 text-gray-700 rounded-md w-full text-center hover:bg-gray-100 md:hover:bg-transparent md:p-0 ${valor === "comercial" ? "md:hover:text-red-700" : "md:hover:text-blue-700"}`}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Nuestro equipo
+                    </Link>
+                  </li>
+                  <li className="py-1 w-full">
+                    <Link
+                      to="/reclutamiento"
+                      className="block py-2 px-3 text-gray-700 rounded-md w-full text-center hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Únete a nosotros
+                    </Link>
+                  </li>
+                  <li className="py-1 w-full">
+                    <Link
+                      to="/desarrollo-trebol-ii"
+                      className="py-2 px-3 rounded-md bg-[#db1c2e] text-white font-bold shadow-md border border-[#db1c2e] hover:bg-red-700 transition flex items-center gap-2 relative w-full justify-center"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Trébol II
+                      <span className="ml-2 bg-white text-[#db1c2e] text-[10px] font-bold px-2 py-0.5 rounded-full shadow border border-[#db1c2e]">Nuevo</span>
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          )}
+          {/* Menú normal en desktop */}
+          <ul className="hidden md:flex flex-row p-0 mt-0 font-medium md:space-x-6 lg:space-x-8 md:mt-0 md:border-0 md:bg-white h-full items-center">
             <li className="py-1">
               <Link
                 to="/"
@@ -181,7 +268,7 @@ export default function Header({ setSelectedOptionsOperacion }) {
             <li className="py-1 md:ml-4 mt-2 md:mt-0">
               <Link
                 to="/desarrollo-trebol-ii"
-                className="block py-2 px-3 rounded-md bg-[#db1c2e] text-white font-bold shadow-md border border-[#db1c2e] hover:bg-red-700 transition flex items-center gap-2 relative"
+                className=" py-2 px-3 rounded-md bg-[#db1c2e] text-white font-bold shadow-md border border-[#db1c2e] hover:bg-red-700 transition flex items-center gap-2 relative"
                 onClick={() => setIsOpen(false)}
               >
                 Trébol II
