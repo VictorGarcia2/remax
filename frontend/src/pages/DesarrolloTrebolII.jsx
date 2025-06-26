@@ -4,6 +4,9 @@ import { FaCheckCircle, FaShieldAlt, FaMapMarkerAlt, FaHome, FaKey, FaCar, FaUse
 import Header from "../components/SectionHome/Header";
 import SectionFooter from "../components/SectionFooter/SectionFooter";
 
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const phoneRegex = /^\d{10}$/;
+
 const datosClave = [
   { icon: <FaMapMarkerAlt className="text-blueRemax text-xl" />, label: "Dirección", value: "Av. Ejemplo 123, Veracruz, Ver." },
   { icon: <FaHome className="text-blueRemax text-xl" />, label: "A 15 min de", value: "Centro Histórico y playas" },
@@ -70,7 +73,7 @@ export default function DesarrolloTrebolII() {
       setTouched({});
     }, 2500);
   };
-  const isValid = form.nombre && form.email && form.telefono;
+  const isValid = form.nombre && emailRegex.test(form.email) && phoneRegex.test(form.telefono);
 
   return (
     <main className="w-full min-h-screen bg-gradient-to-br from-white via-blue-50 to-blue-100 font-sans tracking-wide overflow-x-hidden">
@@ -133,7 +136,7 @@ export default function DesarrolloTrebolII() {
               }
             }}
           >
-            <FaCheckCircle className="text-white" /> Solicita información
+            <FaHome className="text-white" /> Agendar visita gratis
           </motion.button>
           <div className="text-xs text-blue-100 mt-2">Sin compromiso. Un asesor certificado te contactará en minutos.</div>
         </motion.div>
@@ -260,37 +263,40 @@ export default function DesarrolloTrebolII() {
           </div>
           {/* Formulario */}
           <div className="bg-blue-50 rounded-2xl shadow-2xl p-10 flex flex-col justify-center border-t-8 border-[#db1c2e] max-w-md w-full mx-auto" id="contacto">
-            <h4 className="text-2xl font-bold text-blueRemax mb-4 text-center">Solicita información</h4>
+            <h4 className="text-2xl font-bold text-blueRemax mb-4 text-center">Agenda una visita gratis</h4>
             {enviado ? (
               <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 className="bg-green-100 text-green-800 p-6 rounded-xl text-center font-semibold shadow-lg"
               >
-                ¡Gracias! Un asesor te contactará en menos de 24h.
+                ¡Visita agendada! Un asesor confirmará los detalles contigo.
               </motion.div>
             ) : (
-              <form className="space-y-4" onSubmit={handleSubmit} autoComplete="off">
-                <div className="flex flex-col gap-2">
+              <form className="space-y-4" onSubmit={handleSubmit} autoComplete="off" noValidate>
+                <div className="relative flex flex-col gap-2">
                   <label htmlFor="nombre" className="text-blueRemax font-semibold">Nombre completo</label>
                   <input name="nombre" id="nombre" type="text" required placeholder="Nombre completo" className={`w-full p-3 rounded-lg border ${touched.nombre && !form.nombre ? 'border-red-400' : 'border-blueRemax/30'} focus:border-[#db1c2e] focus:ring-2 focus:ring-[#db1c2e]/20 transition bg-white text-base`} value={form.nombre} onChange={handleChange} onBlur={handleBlur} />
-                  {touched.nombre && !form.nombre && <span className="text-xs text-red-500">Este campo es obligatorio</span>}
+                  {touched.nombre && !form.nombre && <span className="text-xs text-red-500 absolute -bottom-5 left-1">Este campo es obligatorio</span>}
                 </div>
-                <div className="flex flex-col gap-2">
+                <div className="relative flex flex-col gap-2">
                   <label htmlFor="email" className="text-blueRemax font-semibold">Correo electrónico</label>
-                  <input name="email" id="email" type="email" required placeholder="Correo electrónico" className={`w-full p-3 rounded-lg border ${touched.email && !form.email ? 'border-red-400' : 'border-blueRemax/30'} focus:border-[#db1c2e] focus:ring-2 focus:ring-[#db1c2e]/20 transition bg-white text-base`} value={form.email} onChange={handleChange} onBlur={handleBlur} />
-                  {touched.email && !form.email && <span className="text-xs text-red-500">Este campo es obligatorio</span>}
+                  <input name="email" id="email" type="email" required placeholder="Correo electrónico" className={`w-full p-3 rounded-lg border ${touched.email && !emailRegex.test(form.email) ? 'border-red-400' : 'border-blueRemax/30'} focus:border-[#db1c2e] focus:ring-2 focus:ring-[#db1c2e]/20 transition bg-white text-base`} value={form.email} onChange={handleChange} onBlur={handleBlur} />
+                  {touched.email && !form.email && <span className="text-xs text-red-500 absolute -bottom-5 left-1">Este campo es obligatorio</span>}
+                  {touched.email && form.email && !emailRegex.test(form.email) && <span className="text-xs text-red-500 absolute -bottom-5 left-1">Formato de correo inválido</span>}
                 </div>
-                <div className="flex flex-col gap-2">
-                  <label htmlFor="telefono" className="text-blueRemax font-semibold">Teléfono</label>
-                  <input name="telefono" id="telefono" type="tel" required placeholder="Teléfono" className={`w-full p-3 rounded-lg border ${touched.telefono && !form.telefono ? 'border-red-400' : 'border-blueRemax/30'} focus:border-[#db1c2e] focus:ring-2 focus:ring-[#db1c2e]/20 transition bg-white text-base`} value={form.telefono} onChange={handleChange} onBlur={handleBlur} />
-                  {touched.telefono && !form.telefono && <span className="text-xs text-red-500">Este campo es obligatorio</span>}
+                <div className="relative flex flex-col gap-2">
+                  <label htmlFor="telefono" className="text-blueRemax font-semibold">Teléfono (10 dígitos)</label>
+                  <input name="telefono" id="telefono" type="tel" required placeholder="Ej: 2291234567" className={`w-full p-3 rounded-lg border ${touched.telefono && !phoneRegex.test(form.telefono) ? 'border-red-400' : 'border-blueRemax/30'} focus:border-[#db1c2e] focus:ring-2 focus:ring-[#db1c2e]/20 transition bg-white text-base`} value={form.telefono} onChange={handleChange} onBlur={handleBlur} maxLength="10" />
+                  {touched.telefono && !form.telefono && <span className="text-xs text-red-500 absolute -bottom-5 left-1">Este campo es obligatorio</span>}
+                  {touched.telefono && form.telefono && !phoneRegex.test(form.telefono) && <span className="text-xs text-red-500 absolute -bottom-5 left-1">El teléfono debe tener 10 dígitos.</span>}
                 </div>
-                <div className="flex flex-col gap-2">
-                  <label htmlFor="mensaje" className="text-blueRemax font-semibold">¿Qué te interesa saber?</label>
-                  <textarea name="mensaje" id="mensaje" placeholder="¿Qué te interesa saber?" className="w-full p-3 rounded-lg border border-blueRemax/30 focus:border-[#db1c2e] focus:ring-2 focus:ring-[#db1c2e]/20 transition bg-white min-h-[80px] text-base" value={form.mensaje} onChange={handleChange} />
+                <div className="relative flex flex-col gap-2">
+                  <label htmlFor="mensaje" className="text-blueRemax font-semibold">Mensaje (Opcional)</label>
+                  <textarea name="mensaje" id="mensaje" placeholder="Ej: Quisiera visitar el departamento muestra el sábado por la tarde." rows="3" className="w-full p-3 rounded-lg border border-blueRemax/30 focus:border-[#db1c2e] focus:ring-2 focus:ring-[#db1c2e]/20 transition bg-white text-base" value={form.mensaje} onChange={handleChange}></textarea>
                 </div>
-                <button type="submit" disabled={!isValid} className={`w-full bg-[#db1c2e] text-white font-bold py-3 rounded-lg mt-2 shadow-lg transition-transform duration-200 hover:scale-105 text-lg focus:outline-none focus:ring-2 focus:ring-blueRemax/40 ${!isValid ? 'opacity-60 cursor-not-allowed' : ''}`}>¡Quiero más información!</button>
+             
+                <button type="submit" disabled={!isValid} className={`w-full bg-[#db1c2e] text-white font-bold py-3 rounded-lg mt-4 shadow-lg transition-transform duration-200 hover:scale-105 text-lg focus:outline-none focus:ring-2 focus:ring-blueRemax/40 ${!isValid ? 'opacity-60 cursor-not-allowed' : ''}`}>¡Agendar mi visita gratis!</button>
                 <div className="text-xs text-blueRemax text-center mt-2 flex items-center gap-1 justify-center bg-blue-100/60 px-2 py-1 rounded"><FaLock className="inline-block mr-1 text-[#db1c2e]" />No compartimos tus datos con terceros.</div>
               </form>
             )}
@@ -366,4 +372,4 @@ export default function DesarrolloTrebolII() {
       <SectionFooter />
     </main>
   );
-} 
+}
