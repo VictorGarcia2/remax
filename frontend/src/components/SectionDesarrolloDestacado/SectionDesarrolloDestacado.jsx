@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaPhoneAlt, FaMapMarkerAlt, FaStar, FaShieldAlt, FaCheckCircle, FaInfoCircle, FaCalendarCheck } from "react-icons/fa";
+import { FaPhoneAlt, FaMapMarkerAlt, FaStar, FaShieldAlt, FaCheckCircle, FaInfoCircle, FaCalendarCheck, FaBed, FaUtensils, FaChild, FaCar } from "react-icons/fa";
 import PropuestaModalLeadMagnet from "./PropuestaModalLeadMagnet";
 
 export default function SectionDesarrolloDestacado() {
@@ -13,58 +13,109 @@ export default function SectionDesarrolloDestacado() {
   ];
   const [selectedImage, setSelectedImage] = useState(images[0]);
 
-
   return (
-    <section className="w-full flex flex-col items-center justify-center bg-gradient-to-br from-blueRemax via-blue-900 to-blue-800 py-0 md:py-14 px-2">
+    <section className="w-full flex flex-col items-center justify-center bg-[#f2efe2] py-0 md:py-14 px-2">
       {/* Caja principal con sombra y bordes redondeados */}
-      <div className="relative w-full max-w-6xl mx-auto rounded-3xl shadow-2xl overflow-visible bg-white flex flex-col transition-shadow duration-300 hover:shadow-3xl">
+      <div className="relative w-full max-w-6xl mx-auto rounded-3xl shadow-2xl overflow-visible bg-[#005156] flex flex-col transition-shadow duration-300 hover:shadow-3xl">
         {/* Logo y texto central superior */}
-        <div className="absolute left-1/2 -top-12 -translate-x-1/2 z-20 flex flex-col items-center">
-          <img src="/logos/New_RMX_Mark_R4_RGB_cream.png" alt="Logo Remax" className="w-24 h-24 rounded-full shadow-lg border-4 border-white bg-blueRemax object-contain" />
-          <div className="bg-white px-8 py-2 rounded-b-2xl shadow text-blueRemax font-extrabold text-xl -mt-2 tracking-wide uppercase">TRÉBOL II</div>
+        <div className="absolute left-1/2 -top-12 -translate-x-1/2 z-0 flex flex-col items-center">
+          <img src="/logos/New_RMX_Mark_R4_RGB_cream.png" alt="Logo Remax" className="w-24 h-24 rounded-full shadow-lg border-4 border-[#005156] bg-[#005156] object-contain" />
+          <div className="bg-[#005156] px-8 py-2 rounded-b-2xl shadow text-[#f2efe2] font-extrabold text-xl -mt-2 tracking-wide uppercase">TRÉBOL II</div>
         </div>
         {/* Layout principal */}
         <div className="flex flex-col md:flex-row w-full pt-24 pb-0 gap-2 md:gap-0">
-          {/* Columna izquierda: fondo azul, textos y contacto */}
-          <div className="bg-blueRemax md:w-1/3 w-full flex flex-col justify-between p-8 text-white min-h-[400px] rounded-t-3xl md:rounded-tr-none md:rounded-l-3xl">
+          {/* Columna izquierda: fondo, textos y contacto */}
+          <div className="bg-[#f2efe2] md:w-1/3 w-full flex flex-col justify-between p-8 text-[#005156] min-h-[400px] rounded-t-3xl md:rounded-tr-none md:rounded-l-3xl">
             <div>
-              <h2 className="text-4xl font-black mb-2 leading-tight drop-shadow-lg">ENCUENTRA TU HOGAR</h2>
-              <h3 className="text-xl font-semibold mb-6 text-blue-100">Vive en el corazón de Veracruz</h3>
-              <div className="flex items-center gap-2 bg-blue-900/80 px-4 py-2 rounded-lg text-white text-lg mb-4 w-fit shadow-md">
+              <h2 className="text-4xl font-black mb-2 leading-tight drop-shadow-lg">Departamentos en Boca del Río</h2>
+              <h3 className="text-xl font-semibold mb-6 text-[#005156]/80">Vive en el corazón de Veracruz</h3>
+              <div className="flex items-center gap-2 bg-black/10 px-4 py-2 rounded-lg text-[#005156] text-lg mb-4 w-fit shadow-md">
                 <FaPhoneAlt /> <span className="font-bold tracking-wide">229 123 4567</span>
               </div>
-              <a href="https://www.remaxcin.com" className="underline text-blue-200 text-base block mb-6 hover:text-white transition">www.remaxcin.com</a>
-              <ul className="text-white/90 mb-4 space-y-3 text-base">
-                <li className="flex items-center gap-3"><FaMapMarkerAlt className="text-blue-300 text-xl" /><span>Ubicación privilegiada</span></li>
-                <li className="flex items-center gap-3"><FaStar className="text-blue-300 text-xl" /><span>Amenidades exclusivas</span></li>
-                <li className="flex items-center gap-3"><FaShieldAlt className="text-blue-300 text-xl" /><span>Seguridad 24/7</span></li>
-                <li className="flex items-center gap-3"><FaCheckCircle className="text-blue-300 text-xl" /><span>Calidad RE/MAX CIN</span></li>
+              <ul className="text-[#005156]/90 mb-4 space-y-3 text-base">
+                <li className="flex items-center gap-3"><FaInfoCircle className="text-[#005156]/60 text-xl" /><span>Departamentos de 2 a 3 recámaras desde $1,250,000</span></li>
+                <li className="flex items-center gap-3"><FaMapMarkerAlt className="text-[#005156]/60 text-xl" /><span>Ubicación privilegiada</span></li>
+                <li className="flex items-center gap-3"><FaStar className="text-[#005156]/60 text-xl" /><span>Amenidades exclusivas</span></li>
+                <li className="flex items-center gap-3"><FaShieldAlt className="text-[#005156]/60 text-xl" /><span>Seguridad 24/7</span></li>
+                <li className="flex items-center gap-3"><FaCheckCircle className="text-[#005156]/60 text-xl" /><span>Calidad RE/MAX CIN</span></li>
               </ul>
             </div>
           </div>
           {/* Columna derecha: imagen principal y galería */}
-          <div className="relative md:w-2/3 w-full flex flex-col justify-between bg-white rounded-b-3xl md:rounded-bl-none md:rounded-r-3xl">
+          <div className="relative md:w-2/3 w-full flex flex-col justify-between bg-[#005156] rounded-b-3xl md:rounded-bl-none md:rounded-r-3xl">
             <div className="relative w-full h-56 md:h-80 rounded-tr-3xl overflow-hidden group">
               <img src={selectedImage.src} alt={selectedImage.alt} className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-300"></div>
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-300"></div>
             </div>
             {/* Galería de imágenes */}
-            <div className="flex justify-center items-center gap-4 bg-white py-4 px-2 md:px-8 -mt-12 z-10 relative rounded-2xl shadow-lg mx-auto border border-blue-100 w-fit">
+            <div className="flex justify-center items-center gap-4 bg-[#005156] py-4 px-2 md:px-8 -mt-12 z-10 relative rounded-2xl shadow-lg mx-auto border border-[#f2efe2] w-fit">
               {images.map((img) => (
-                <img
+                <button
                   key={img.id}
-                  src={img.src}
-                  alt={img.alt}
-                  className={`w-20 h-16 md:w-24 md:h-20 object-cover rounded-xl border-2 transition-all duration-300 hover:shadow-2xl cursor-pointer ${selectedImage.id === img.id ? 'border-blueRemax scale-110 shadow-xl' : 'border-transparent hover:scale-105'}`}
                   onClick={() => setSelectedImage(img)}
-                  tabIndex={0}
-                />
+                  className={`w-20 h-16 md:w-24 md:h-20 object-cover rounded-xl transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f2efe2] ${
+                    selectedImage.id === img.id ? 'ring-2 ring-[#f2efe2] shadow-xl' : 'ring-2 ring-transparent hover:scale-105'
+                  }`}>
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    className="w-full h-full object-cover rounded-lg"
+                  />
+                </button>
               ))}
             </div>
           </div>
         </div>
+        {/* Características principales y amenidades */}
+        <div className="w-full flex flex-col items-center justify-center bg-[#005156] py-8 px-2 border-t border-[#f2efe2]/10">
+          {/* Características principales */}
+          <div className="w-full max-w-4xl flex flex-col md:flex-row justify-center items-stretch gap-8 mb-8">
+            {/* 90 m² con 3 recámaras */}
+            <div className="flex-1 flex flex-col items-center bg-[#f2efe2] rounded-2xl p-6 shadow-md min-w-[250px]">
+              <div className="flex gap-2 mb-2">
+                <FaBed className="text-4xl text-[#005156]" />
+                <FaBed className="text-4xl text-[#005156]" />
+                <FaBed className="text-4xl text-[#005156]" />
+              </div>
+              <div className="text-[#005156] text-xl font-bold mb-1">90 m² con 3 recámaras:</div>
+              <div className="text-[#005156]/80 text-base text-center">Perfecto para familias que buscan espacio y confort.</div>
+            </div>
+            {/* 70 m² con 2 recámaras */}
+            <div className="flex-1 flex flex-col items-center bg-[#f2efe2] rounded-2xl p-6 shadow-md min-w-[250px]">
+              <div className="flex gap-2 mb-2">
+                <FaBed className="text-4xl text-[#005156]" />
+                <FaBed className="text-4xl text-[#005156]" />
+              </div>
+              <div className="text-[#005156] text-xl font-bold mb-1">70 m² con 2 recámaras:</div>
+              <div className="text-[#005156]/80 text-base text-center">Ideal para parejas o familias pequeñas.</div>
+            </div>
+          </div>
+          {/* Amenidades */}
+          <div className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-4 gap-6 mt-2">
+            {/* Sala-comedor amplios */}
+            <div className="flex flex-col items-center text-center">
+              <FaUtensils className="text-3xl text-[#f2efe2] mb-2" />
+              <span className="text-[#f2efe2] text-base">Sala-comedor amplios.</span>
+            </div>
+            {/* Recámara principal con clóset y baño completo */}
+            <div className="flex flex-col items-center text-center">
+              <FaBed className="text-3xl text-[#f2efe2] mb-2" />
+              <span className="text-[#f2efe2] text-base">Recámara principal con clóset y baño completo.</span>
+            </div>
+            {/* Área de juegos */}
+            <div className="flex flex-col items-center text-center">
+              <FaChild className="text-3xl text-[#f2efe2] mb-2" />
+              <span className="text-[#f2efe2] text-base">Área de juegos</span>
+            </div>
+            {/* Cajón de estacionamiento incluido */}
+            <div className="flex flex-col items-center text-center">
+              <FaCar className="text-3xl text-[#f2efe2] mb-2" />
+              <span className="text-[#f2efe2] text-base">Cajón de estacionamiento incluido</span>
+            </div>
+          </div>
+        </div>
         {/* Barra inferior: correos, categorías y botones */}
-        <div className="flex flex-col md:flex-row items-center justify-between bg-white py-4 px-4 md:px-8 border-t border-blue-100 text-blue-900 text-base gap-4 rounded-b-3xl shadow-inner mt-2">
+        <div className="flex flex-col md:flex-row items-center justify-between bg-[#005156] py-4 px-4 md:px-8 border-t border-[#f2efe2]/10 text-[#f2efe2] text-base gap-4 rounded-b-3xl shadow-inner mt-2">
           <div className="flex-1 flex flex-col md:flex-row md:items-center gap-2 md:gap-6 text-center md:text-left text-sm">
             <span className="font-semibold">E-mail:</span>
             <a href="mailto:remax.cin.veracruz@gmail.com" className="hover:underline cursor-pointer">remax.cin.veracruz@gmail.com</a>           
@@ -72,11 +123,11 @@ export default function SectionDesarrolloDestacado() {
             <span>Desarrollo Residencial</span>
           </div>
           <div className="flex gap-2 mt-2 md:mt-0">
-            <a href="/desarrollo-trebol-ii" className="bg-gradient-to-r from-blueRemax to-blue-700 hover:from-blue-800 hover:to-blueRemax text-white font-bold py-3 px-6 rounded-lg shadow-md transition-all text-base focus:outline-none focus:ring-2 focus:ring-blueRemax/40 flex items-center justify-center">
+            <a href="/desarrollo-trebol-ii" className="bg-[#f2efe2] hover:bg-[#e5e1d1] text-[#005156] font-bold py-3 px-6 rounded-lg shadow-md transition-all text-base focus:outline-none focus:ring-2 focus:ring-[#f2efe2]/40 flex items-center justify-center">
               <FaInfoCircle className="mr-2" />
               Más información
             </a>
-            <button onClick={() => setShowModal(true)} className="bg-white border-2 border-blueRemax text-blueRemax hover:bg-blueRemax hover:text-white font-bold py-3 px-6 rounded-lg shadow-md transition-all text-base focus:outline-none focus:ring-2 focus:ring-blueRemax/40 flex items-center justify-center">
+            <button onClick={() => setShowModal(true)} className="bg-[#005156] border-2 border-[#f2efe2] text-[#f2efe2] hover:bg-[#f2efe2] hover:text-[#005156] font-bold py-3 px-6 rounded-lg shadow-md transition-all text-base focus:outline-none focus:ring-2 focus:ring-[#f2efe2]/40 flex items-center justify-center">
               <FaCalendarCheck className="mr-2" />
               Visita Gratis
             </button>

@@ -230,73 +230,92 @@ export default function Residencial({
   }
 
   return (
-    <>
-      <div ref={firstSectionRef} className="relative z-20">
+    <main className="min-h-screen bg-white">
+      <section ref={firstSectionRef} className="relative z-20" aria-labelledby="busqueda-title">
+        <h1 id="busqueda-title" className="sr-only">Búsqueda de propiedades residenciales</h1>
         <HomeSearch
           valor={valor}
           setBusqueda={setBusqueda}
           autoCompleteHome={autoCompleteHome}
           setAutoCompleteHome={setAutoCompleteHome}
         />
-      </div>
+      </section>
 
-      <div className=" relative z-10">
-        
-          <SectionPorque valor={valor} />
-  
-      </div>
+      <section className="relative z-10" aria-labelledby="porque-title">
+        <h2 id="porque-title" className="sr-only">¿Por qué elegir residencial?</h2>
+        <SectionPorque valor={valor} />
+      </section>
 
       <Suspense fallback={<Placeholder />}>
-        <AnimatedSection delay={0.2}>
-          <SectionVariedad valor={valor} setBusqueda={setBusqueda} />
-        </AnimatedSection>
+        <section aria-labelledby="variedad-title">
+          <h2 id="variedad-title" className="sr-only">Variedad de propiedades residenciales</h2>
+          <AnimatedSection delay={0.2}>
+            <SectionVariedad valor={valor} setBusqueda={setBusqueda} />
+          </AnimatedSection>
+        </section>
       </Suspense>
 
       {/* Aplicar carga diferida a SectionDesarrolloDestacado solo si valor es "residencial" */}
       {valor === "residencial" && (
         <Suspense fallback={<Placeholder height={300} />}>
-          <AnimatedSection delay={0}>
-            <SectionDesarrolloDestacado />
-          </AnimatedSection>
+          <section aria-labelledby="destacado-title">
+            <h2 id="destacado-title" className="sr-only">Desarrollo destacado</h2>
+            <AnimatedSection delay={0}>
+              <SectionDesarrolloDestacado />
+            </AnimatedSection>
+          </section>
         </Suspense>
       )}
 
       <Suspense fallback={<Placeholder />}>
-        <AnimatedSection delay={0.3}>
-          <SectionComoComprar />
-        </AnimatedSection>
+        <section aria-labelledby="como-comprar-title">
+          <h2 id="como-comprar-title" className="sr-only">Cómo comprar una propiedad residencial</h2>
+          <AnimatedSection delay={0.3}>
+            <SectionComoComprar />
+          </AnimatedSection>
+        </section>
       </Suspense>
 
       <Suspense fallback={<Placeholder />}>
-        <AnimatedSection delay={0.4}>
-          <SectionCTA />
-        </AnimatedSection>
+        <section aria-labelledby="cta-title">
+          <h2 id="cta-title" className="sr-only">Llamado a la acción</h2>
+          <AnimatedSection delay={0.4}>
+            <SectionCTA />
+          </AnimatedSection>
+        </section>
       </Suspense>
 
       <Suspense fallback={<Placeholder />}>
-        <AnimatedSection delay={0.5}>
-          <Testimonials />
-        </AnimatedSection>
+        <section aria-labelledby="testimonios-title">
+          <h2 id="testimonios-title" className="sr-only">Testimonios de clientes</h2>
+          <AnimatedSection delay={0.5}>
+            <Testimonials />
+          </AnimatedSection>
+        </section>
       </Suspense>
 
       <Suspense fallback={<Placeholder />}>
-        <AnimatedSection delay={0.6}>
-          {/* Pasar la prop valor a SectionEquipo */}
-          <SectionEquipo propiedades={propiedades} valor={valor} />
-        </AnimatedSection>
+        <section aria-labelledby="equipo-title">
+          <h2 id="equipo-title" className="sr-only">Nuestro equipo</h2>
+          <AnimatedSection delay={0.6}>
+            <SectionEquipo propiedades={propiedades} valor={valor} />
+          </AnimatedSection>
+        </section>
       </Suspense>
 
       <Suspense fallback={<Placeholder height={10} />}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <SectionFooter />
-        </motion.div>
+        <footer>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <SectionFooter />
+          </motion.div>
+        </footer>
       </Suspense>
 
       <ScrollToTopButton />
-    </>
+    </main>
   );
 }
