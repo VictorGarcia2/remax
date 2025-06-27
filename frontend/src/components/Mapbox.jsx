@@ -180,7 +180,7 @@ const MapboxConCards = ({
             height="200" // Mantener para aspect ratio, pero Tailwind controla el tamaño
           />
           {/* Badge de operación */}
-          <div className={`absolute top-2 right-2 px-2 py-0.5 md:px-3 md:py-1 rounded-full text-xs md:text-sm font-semibold text-white ${
+          <div className={`absolute top-53 right-2 px-2 py-0.5 md:px-3 md:py-1 rounded-full text-xs md:text-sm font-semibold text-white ${
             valor === "comercial" ? "bg-redRemax" : "bg-blueRemax"
           }`}>
             {prop.operacion === "1" ? "Venta" : prop.operacion === "2" ? "Renta" : "N/A"}

@@ -104,7 +104,7 @@ export default function Header({ setSelectedOptionsOperacion }) {
                       Valuar mi propiedad
                     </Link>
                   </li>
-                  <li className="py-1 w-full">
+                {/*   <li className="py-1 w-full">
                     <a
                       href="#"
                       className={`block py-2 px-3 text-gray-700 rounded-md w-full text-center hover:bg-gray-100 md:hover:bg-transparent md:p-0 ${valor === "comercial" ? "md:hover:text-red-700" : "md:hover:text-blue-700"}`}
@@ -112,7 +112,7 @@ export default function Header({ setSelectedOptionsOperacion }) {
                     >
                       Tramita tu crédito
                     </a>
-                  </li>
+                  </li> */}
                   <li className="py-1 w-full">
                     <Link
                       to="/Polizas-de-renta"
@@ -228,7 +228,7 @@ export default function Header({ setSelectedOptionsOperacion }) {
                 </ul>
               </div>
             </li>
-            <li className="py-1">
+         {/*    <li className="py-1">
               <a
                 href="#"
                 className={`block py-2 px-3 text-gray-700 rounded-md hover:bg-gray-100 md:hover:bg-transparent md:p-0 ${valor === "comercial" ? "md:hover:text-red-700" : "md:hover:text-blue-700"}`}
@@ -236,7 +236,7 @@ export default function Header({ setSelectedOptionsOperacion }) {
               >
                 Tramita tu crédito
               </a>
-            </li>
+            </li> */}
             <li className="py-1">
               <Link
                 to="/Polizas-de-renta"
