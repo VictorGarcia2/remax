@@ -20,7 +20,6 @@ export default function Header({ setSelectedOptionsOperacion }) {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-
   return (
     <nav className="bg-white fixed w-full z-100 top-0 start-0 shadow-sm">
       <div className="max-w-screen-xl  flex flex-wrap items-center justify-between mx-auto h-16 md:h-20 px-3 md:px-6">
