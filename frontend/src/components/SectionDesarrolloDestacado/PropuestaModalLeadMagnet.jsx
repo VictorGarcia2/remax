@@ -3,6 +3,113 @@ import React, { useState, useEffect } from "react";
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const phoneRegex = /^\d{10}$/;
 
+// --- INICIO: Funciones y constantes para integración robusta con Pipedrive ---
+const PIPEDRIVE_API_KEY = "02317c5467585c4251d802ab65e0c7b9f60541ee";
+const PIPEDRIVE_API_URL = "https://api.pipedrive.com/v1";
+const PIPELINE_ID_DESARROLLO = 2; // Cambia este valor por el ID del pipeline que desees
+const STAGE_ID_DESARROLLO = 1;   // Cambia este valor por el ID de la etapa de ese pipeline
+
+const CUSTOM_FIELDS_DESARROLLO = {
+  INTERES: {
+    name: "Interés del Lead",
+    field_type: "varchar",
+    validation: (value) => value.length > 0
+  }
+};
+
+const ensureCustomFieldsDesarrollo = async () => {
+  try {
+    const fieldsResponse = await fetch(
+      `${PIPEDRIVE_API_URL}/dealFields?api_token=${PIPEDRIVE_API_KEY}`
+    );
+    if (!fieldsResponse.ok) {
+      throw new Error('Error al obtener campos de Pipedrive');
+    }
+    const existingFields = await fieldsResponse.json();
+    const customFieldIds = {};
+    for (const [key, field] of Object.entries(CUSTOM_FIELDS_DESARROLLO)) {
+      const existingField = existingFields.data?.find(f => f.name === field.name);
+      if (existingField) {
+        customFieldIds[key] = existingField.key;
+      } else {
+        const payload = {
+          name: field.name,
+          field_type: field.field_type
+        };
+        const createResponse = await fetch(
+          `${PIPEDRIVE_API_URL}/dealFields?api_token=${PIPEDRIVE_API_KEY}`,
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+          }
+        );
+        if (!createResponse.ok) {
+          throw new Error(`Error al crear campo ${field.name}`);
+        }
+        const newField = await createResponse.json();
+        if (newField.success) {
+          customFieldIds[key] = newField.data.key;
+        } else {
+          throw new Error(`Error al crear campo ${field.name}: ${newField.error || 'Error desconocido'}`);
+        }
+      }
+    }
+    return customFieldIds;
+  } catch (error) {
+    console.error("Error al verificar/crear campos personalizados:", error);
+    throw error;
+  }
+};
+
+const OWNER_MATCHES = [
+  { type: 'name', value: 'veronica' },
+  { type: 'name', value: 'verónica' },
+  { type: 'email', value: 'adm.remaxrna@gmail.com' },
+  { type: 'email', value: 'remaxcincoleccion@gmail.com' }
+];
+
+const findOwnerInPipedrive = async (apiKey) => {
+  try {
+    const usersResponse = await fetch(
+      `${PIPEDRIVE_API_URL}/users?api_token=${apiKey}`
+    );
+    if (!usersResponse.ok) {
+      throw new Error('Error al obtener usuarios de Pipedrive');
+    }
+    const usersData = await usersResponse.json();
+    let owner = null;
+    for (const match of OWNER_MATCHES) {
+      owner = usersData.data.find(user => {
+        if (match.type === 'email') {
+          return user.email?.toLowerCase() === match.value.toLowerCase();
+        } else {
+          return user.name?.toLowerCase().includes(match.value.toLowerCase());
+        }
+      });
+      if (owner) break;
+    }
+    if (!owner) {
+      owner = usersData.data.find(user =>
+        user.active_flag && (user.role_id === 1 || user.is_admin)
+      );
+    }
+    if (!owner) {
+      owner = usersData.data.find(user => user.active_flag);
+    }
+    if (!owner && usersData.data.length > 0) {
+      owner = usersData.data[0];
+    }
+    return owner;
+  } catch (error) {
+    console.error('Error al buscar propietario:', error);
+    throw new Error('Error al buscar propietario en Pipedrive: ' + error.message);
+  }
+};
+// --- FIN: Funciones y constantes para integración robusta con Pipedrive ---
+
 export default function PropuestaModalLeadMagnet({ show, setShow }) {
   const [form, setForm] = useState({ nombre: "", email: "", telefono: "" });
   const [enviado, setEnviado] = useState(false);
@@ -30,19 +137,93 @@ export default function PropuestaModalLeadMagnet({ show, setShow }) {
       setTouched({ nombre: true, email: true, telefono: true });
       return;
     }
-    // Aquí puedes conectar con tu CRM:
-    // await fetch('https://tu-crm.com/api/leads', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(form)
-    // });
-    setEnviado(true);
-    setTimeout(() => {
-      setShow(false);
+    try {
+      // 1. Asegurar que existan los campos personalizados
+      const customFields = await ensureCustomFieldsDesarrollo();
+      // 2. Crear o actualizar la persona en Pipedrive
+      const personPayload = {
+        name: form.nombre,
+        email: [{ value: form.email, primary: true }],
+        phone: [{ value: form.telefono, primary: true }],
+        visible_to: 3
+      };
+      const personResponse = await fetch(
+        `${PIPEDRIVE_API_URL}/persons?api_token=${PIPEDRIVE_API_KEY}`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(personPayload)
+        }
+      );
+      if (!personResponse.ok) {
+        throw new Error('Error al crear el contacto en Pipedrive');
+      }
+      const personData = await personResponse.json();
+      // 3. Obtener el owner adecuado
+      let owner;
+      try {
+        owner = await findOwnerInPipedrive(PIPEDRIVE_API_KEY);
+        if (!owner) {
+          throw new Error('No se encontró ningún usuario disponible en Pipedrive');
+        }
+      } catch (error) {
+        console.error('Error al buscar el propietario:', error);
+        owner = { id: null };
+      }
+      // 4. Crear el deal con campos personalizados
+      const dealPayload = {
+        title: `Lead Desarrollo Trébol II - ${form.nombre}`,
+        person_id: personData.data.id,
+        ...(owner.id && { user_id: owner.id }),
+        pipeline_id: PIPELINE_ID_DESARROLLO,
+        stage_id: STAGE_ID_DESARROLLO,
+        status: "open",
+        visible_to: 3,
+        [customFields.INTERES]: "Desarrollo Trébol II"
+      };
+      const dealResponse = await fetch(
+        `${PIPEDRIVE_API_URL}/deals?api_token=${PIPEDRIVE_API_KEY}`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(dealPayload)
+        }
+      );
+      if (!dealResponse.ok) {
+        throw new Error('Error al crear la oportunidad en Pipedrive');
+      }
+      const dealData = await dealResponse.json();
+      // 5. Crear una nota con los detalles del formulario
+      const noteContent = `Lead generado desde la web (Desarrollo Trébol II):\n\nNombre: ${form.nombre}\nEmail: ${form.email}\nTeléfono: ${form.telefono}`;
+      await fetch(
+        `${PIPEDRIVE_API_URL}/notes?api_token=${PIPEDRIVE_API_KEY}`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            content: noteContent,
+            deal_id: dealData.data.id,
+            person_id: personData.data.id
+          })
+        }
+      );
+      setEnviado(true);
+      setTimeout(() => {
+        setShow(false);
+        setEnviado(false);
+        setForm({ nombre: "", email: "", telefono: "" });
+        setTouched({});
+      }, 3000);
+    } catch (error) {
       setEnviado(false);
-      setForm({ nombre: "", email: "", telefono: "" });
-      setTouched({});
-    }, 3000);
+      alert(error.message || 'Hubo un error al enviar el formulario. Por favor, intenta de nuevo.');
+    }
   };
 
   useEffect(() => {
