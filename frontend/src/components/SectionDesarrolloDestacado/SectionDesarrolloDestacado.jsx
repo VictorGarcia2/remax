@@ -14,7 +14,7 @@ export default function SectionDesarrolloDestacado() {
   const [selectedImage, setSelectedImage] = useState(images[0]);
 
   return (
-    <section className="w-full flex flex-col items-center justify-center bg-[#f2efe2] py-0 md:py-14 px-2">
+    <section className="w-full flex flex-col items-center justify-center bg-[#f2efe2] py-10 md:py-14 px-2">
       {/* Caja principal con sombra y bordes redondeados */}
       <div className="relative w-full max-w-6xl mx-auto rounded-3xl shadow-2xl overflow-visible bg-[#005156] flex flex-col transition-shadow duration-300 hover:shadow-3xl">
         {/* Logo y texto central superior */}
@@ -30,7 +30,7 @@ export default function SectionDesarrolloDestacado() {
               <h2 className="text-4xl font-black mb-2 leading-tight drop-shadow-lg">Departamentos en Boca del Río</h2>
               <h3 className="text-xl font-semibold mb-6 text-[#005156]/80">Vive en el corazón de Veracruz</h3>
               <div className="flex items-center gap-2 bg-black/10 px-4 py-2 rounded-lg text-[#005156] text-lg mb-4 w-fit shadow-md">
-                <FaPhoneAlt /> <span className="font-bold tracking-wide">229 123 4567</span>
+                <FaPhoneAlt /> <span className="font-bold tracking-wide">22 92 696 629</span>
               </div>
               <ul className="text-[#005156]/90 mb-4 space-y-3 text-base">
                 <li className="flex items-center gap-3"><FaInfoCircle className="text-[#005156]/60 text-xl" /><span>Departamentos de 2 a 3 recámaras desde $1,250,000</span></li>

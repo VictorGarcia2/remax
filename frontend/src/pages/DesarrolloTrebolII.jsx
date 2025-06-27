@@ -209,6 +209,13 @@ export default function DesarrolloTrebolII() {
         </motion.div>
       </section>
 
+      {/* PRECIO DESTACADO */}
+      <section className="w-full flex justify-center items-center mt-5 py-4">
+        <div className="bg-[#db1c2e] text-white text-2xl md:text-3xl font-extrabold px-8 py-4 rounded-2xl shadow-lg border-4 border-[#005156]">
+          $1,250,000 MXN
+        </div>
+      </section>
+
       {/* SLIDER REDISEÑADO */}
       <section className="relative z-10 w-full flex flex-col items-center gap-8 py-12 px-0 bg-transparent mt-4" aria-labelledby="galeria-title">
         <h2 id="galeria-title" className="text-2xl font-bold text-[#005156] mb-6 tracking-wide text-center w-full">Galería del desarrollo</h2>
@@ -294,7 +301,7 @@ export default function DesarrolloTrebolII() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               <article className="bg-white rounded-2xl p-7 text-[#005156] flex flex-col gap-3 shadow-2xl border-b-4 border-[#005156]" aria-label="Ubicación privilegiada">
                 <div className="flex items-center gap-3 mb-1"><FaMapMarkerAlt className="text-[#db1c2e] text-3xl" /><span className="font-bold text-lg">Ubicación privilegiada</span></div>
-                <div className="text-xs text-[#db1c2e] mb-2">Cerca de todo <span className="ml-2 bg-[#005156] text-white px-2 py-0.5 rounded-full text-[10px] font-bold">Premium</span></div>
+                <div className="text-xs text-[#db1c2e] mb-2">Cerca de todo</div>
                 <ul className="list-disc ml-6 text-base text-[#005156]/90">
                   <li>A 15 minutos de Centro Histórico</li>
                   <li>Playas de Veracruz</li>
@@ -304,7 +311,7 @@ export default function DesarrolloTrebolII() {
               </article>
               <article className="bg-white rounded-2xl p-7 text-[#005156] flex flex-col gap-3 shadow-2xl border-b-4 border-[#db1c2e]" aria-label="Vida a tu alrededor">
                 <div className="flex items-center gap-3 mb-1"><FaHome className="text-[#db1c2e] text-3xl" /><span className="font-bold text-lg">Vida a tu alrededor</span></div>
-                <div className="text-xs text-[#005156] mb-2">Comodidad total <span className="ml-2 bg-[#db1c2e] text-white px-2 py-0.5 rounded-full text-[10px] font-bold">Nuevo</span></div>
+                <div className="text-xs text-[#005156] mb-2">Comodidad total </div>
                 <ul className="list-disc ml-6 text-base text-[#005156]/90">
                   <li>Supermercados (Soriana, Chedraui)</li>
                   <li>Escuelas y universidades</li>
@@ -339,7 +346,7 @@ export default function DesarrolloTrebolII() {
           </section>
           {/* Formulario */}
           <section className="bg-white rounded-2xl shadow-2xl p-8 md:p-10 flex flex-col justify-center border-t-8 border-[#db1c2e] max-w-md w-full mx-auto" id="contacto" aria-labelledby="form-title">
-            <h2 id="form-title" className="text-2xl font-bold text-[#005156] mb-6 text-center">Agenda una visita gratis</h2>
+            <h2 id="form-title" className="text-2xl font-bold text-[#005156] mb-6 text-center">Agenda una visita</h2>
             {enviado ? (
               <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
@@ -367,7 +374,7 @@ export default function DesarrolloTrebolII() {
                   {touched.telefono && !form.telefono && <span className="text-xs text-red-600 bg-red-50 px-2 py-1 rounded absolute -bottom-6 left-1">Este campo es obligatorio</span>}
                   {touched.telefono && form.telefono && !phoneRegex.test(form.telefono) && <span className="text-xs text-red-600 bg-red-50 px-2 py-1 rounded absolute -bottom-6 left-1">El teléfono debe tener 10 dígitos.</span>}
                 </div>
-                <button type="submit" disabled={!isValid} className={`w-full bg-[#db1c2e] text-white font-bold py-3 rounded-lg mt-2 shadow-lg transition-transform duration-200 hover:scale-105 text-lg focus:outline-none focus:ring-2 focus:ring-[#005156]/40 ${!isValid ? 'opacity-60 cursor-not-allowed' : ''}`}>¡Agendar mi visita gratis!</button>
+                <button type="submit" disabled={!isValid} className={`w-full bg-[#db1c2e] text-white font-bold py-3 rounded-lg mt-2 shadow-lg transition-transform duration-200 hover:scale-105 text-lg focus:outline-none focus:ring-2 focus:ring-[#005156]/40 ${!isValid ? 'opacity-60 cursor-not-allowed' : ''}`}>¡Agendar mi visita!</button>
                 <div className="text-xs text-[#005156] text-center mt-2 flex items-center gap-1 justify-center bg-[#f2efe2]/60 px-2 py-1 rounded"><FaLock className="inline-block mr-1 text-[#db1c2e]" />No compartimos tus datos con terceros.</div>
               </form>
             )}
