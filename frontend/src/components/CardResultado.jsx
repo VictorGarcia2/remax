@@ -54,7 +54,7 @@ const PropertyCard = React.memo(({
   setSeleccion,
   index 
 }) => {
-  const imagenesArray = useMemo(() => item.imagenes.split(","), [item.imagenes]);
+  const imagenesArray = useMemo(() => (item.imagenes || '').split(","), [item.imagenes]);
   const { valor } = useSearchContext(); // Obtener el valor del contexto
   
   return (
@@ -227,7 +227,7 @@ export default function CardResultado({
   useEffect(() => {
     if (propiedadesVisibles) {
       propiedadesVisibles.forEach(item => {
-        const imagenesArray = item.imagenes.split(",");
+        const imagenesArray = (item.imagenes || '').split(",");
         imagenesArray.forEach(imagen => {
           const img = new Image();
           img.src = `https://cdn.remax.com.mx/properties/${item.propiedad_id}/${imagen}`;

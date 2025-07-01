@@ -363,7 +363,7 @@ export default function DesarrolloTrebolII() {
             transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
             className="inline-block bg-[#db1c2e] text-white text-xs font-bold px-4 py-1 rounded-full mb-1 shadow animate-pulse"
           >
-            ¡Preventa exclusiva!
+            ¡Departamentos en venta!
           </motion.span>
           <motion.h1
             id="hero-title"
@@ -388,7 +388,7 @@ export default function DesarrolloTrebolII() {
             transition={{ delay: 0.5 }}
             className="text-base md:text-lg text-[#005156]/80 mb-2"
           >
-            Descubre tu próximo hogar con espacios únicos diseñados para tu familia. Vive cerca de todo, con amenidades premium y la seguridad que tu familia merece.
+            Descubre tu próximo departamento con espacios únicos diseñados para tu familia. Vive cerca de todo con la comodidad de tener un hogar cómodo, con amenidades hechas para ti.
           </motion.p>
           <motion.button
             whileHover={{ scale: 1.07 }}
@@ -400,7 +400,7 @@ export default function DesarrolloTrebolII() {
               }
             }}
           >
-            <FaHome className="text-white" /> Agendar visita gratis
+            <FaHome className="text-white" /> Haz clic ¡Visítanos hoy mismo!
           </motion.button>
           <div className="text-xs text-[#005156]/80 mt-2">Sin compromiso. Un asesor certificado te contactará en minutos.</div>
         </motion.div>
@@ -409,7 +409,7 @@ export default function DesarrolloTrebolII() {
       {/* PRECIO DESTACADO */}
       <section className="w-full flex justify-center items-center mt-5 py-4">
         <div className="bg-[#db1c2e] text-white text-2xl md:text-3xl font-extrabold px-8 py-4 rounded-2xl shadow-lg border-4 border-[#005156]">
-          $1,250,000 MXN
+        Venta de departamentos desde 1,250,000 MXN
         </div>
       </section>
 

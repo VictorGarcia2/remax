@@ -27,8 +27,8 @@ export default function SectionDesarrolloDestacado() {
           {/* Columna izquierda: fondo, textos y contacto */}
           <div className="bg-[#f2efe2] md:w-1/3 w-full flex flex-col justify-between p-8 text-[#005156] min-h-[400px] rounded-t-3xl md:rounded-tr-none md:rounded-l-3xl">
             <div>
-              <h2 className="text-4xl font-black mb-2 leading-tight drop-shadow-lg">Departamentos en Boca del Río</h2>
-              <h3 className="text-xl font-semibold mb-6 text-[#005156]/80">Vive en el corazón de Veracruz</h3>
+              <h2 className="text-4xl font-black mb-2 leading-tight drop-shadow-lg">Departamentos en venta en Veracruz</h2>
+              <h3 className="text-xl font-semibold mb-6 text-[#005156]/80">Vive en el corazón de la ciudad </h3>
               <div className="flex items-center gap-2 bg-black/10 px-4 py-2 rounded-lg text-[#005156] text-lg mb-4 w-fit shadow-md">
                 <FaPhoneAlt /> <span className="font-bold tracking-wide">22 92 696 629</span>
               </div>

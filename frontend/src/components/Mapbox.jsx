@@ -159,7 +159,7 @@ const MapboxConCards = ({
 
   const PopupContent = React.memo(({ prop, seleccion, valor }) => {
     const [isLoading, setIsLoading] = useState(true);
-    const imagenesArray = prop.imagenes.split(",");
+    const imagenesArray = (prop.imagenes || '').split(",");
     const popupRef = useRef(null);
 
     return (
@@ -228,7 +228,7 @@ const MapboxConCards = ({
   });
 
   const updatePopupImage = (popupElement, prop, newIndex) => {
-    const imagenesArray = prop.imagenes.split(",");
+    const imagenesArray = (prop.imagenes || '').split(",");
     const imgElement = popupElement.querySelector('img');
     const counterElement = popupElement.querySelector('.image-counter');
     
