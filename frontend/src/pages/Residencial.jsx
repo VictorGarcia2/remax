@@ -9,7 +9,6 @@ import HomeSearch from "../components/SectionHome/HomeSearch";
 import LoadingSpinner from "../components/LoadingSpinner";
 import { useSearchContext } from "../context/SearchContext";
 import { motion } from "framer-motion";
-import ResidencialSkeleton from "../components/ResidencialSkeleton";
 import PropuestaFormularioDirecto from "../components/SectionDesarrolloDestacado/PropuestaFormularioDirecto";
 
 // Lazy loaded components
@@ -154,31 +153,6 @@ export default function Residencial({
   setBusqueda,
   propiedades,
 }) {
-  const [isLoading, setIsLoading] = useState(() => {
-    // Verificar si ya se ha cargado antes usando sessionStorage
-    const hasLoadedBefore = sessionStorage.getItem('residencial-loaded');
-    return !hasLoadedBefore;
-  });
-
-  useEffect(() => {
-    // Solo mostrar skeleton si no se ha cargado antes
-    const hasLoadedBefore = sessionStorage.getItem('residencial-loaded');
-    
-    if (!hasLoadedBefore) {
-      // Simula un tiempo de carga para que el contenido y las imágenes se asienten.
-      const timer = setTimeout(() => {
-        setIsLoading(false);
-        // Marcar como cargado en sessionStorage
-        sessionStorage.setItem('residencial-loaded', 'true');
-      }, 1800); // Puedes ajustar este valor si es necesario
-
-      return () => clearTimeout(timer);
-    } else {
-      // Si ya se cargó antes, no mostrar skeleton
-      setIsLoading(false);
-    }
-  }, []);
-
   const {
     busquedaHome,
     setBusquedaHome,
@@ -199,35 +173,8 @@ export default function Residencial({
       ];
       Promise.all(preloads).catch(() => {});
     };
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          if ("requestIdleCallback" in window) {
-            window.requestIdleCallback(preloadSecondaryComponents, {
-              timeout: 1500,
-            });
-          } else {
-            setTimeout(preloadSecondaryComponents, 1500);
-          }
-          observer.disconnect();
-        }
-      },
-      { rootMargin: "0px 0px 500px 0px" }
-    );
-
-    if (firstSectionRef.current) {
-      observer.observe(firstSectionRef.current);
-    } else {
-      setTimeout(preloadSecondaryComponents, 2000);
-    }
-
-    return () => observer.disconnect();
+    preloadSecondaryComponents();
   }, []);
-
-  if (isLoading) {
-    return <ResidencialSkeleton />;
-  }
 
   return (
     <main className="min-h-screen bg-white">

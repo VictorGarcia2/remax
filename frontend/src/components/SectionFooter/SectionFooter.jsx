@@ -1,6 +1,6 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { useSearchContext } from "../../context/SearchContext";
+import { FaTiktok } from "react-icons/fa";
 
 export default function SectionFooter() {
   const { valor } = useSearchContext();
@@ -9,29 +9,29 @@ export default function SectionFooter() {
 
   return (
     <>
-      <footer class="bg-blueRemax/10 text-[#2e2c2c]">
-        <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-          <div class="md:flex md:justify-between">
-            <div class="mb-6 md:mb-0">
+      <footer className="bg-blueRemax/10 text-[#2e2c2c]">
+        <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+          <div className="md:flex md:justify-between">
+            <div className="mb-6 md:mb-0">
               <img
                 className="w-30"
                 src="/logos/New_RMX_Mark_R4_RGB_dark.png"
                 alt=""
               />
             </div>
-            <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+            <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
               <div>
-                <h2 class="mb-6 text-sm font-semibold text-[#2e2c2c] uppercase ">
+                <h2 className="mb-6 text-sm font-semibold text-[#2e2c2c] uppercase ">
                   Empresa
                 </h2>
-                <ul class="text-[#2e2c2c]  font-medium">
-                  <li class="mb-4">
-                    <Link to={'/NuestroEquipo'} class={linkClasses}>
+                <ul className="text-[#2e2c2c]  font-medium">
+                  <li className="mb-4">
+                    <Link to={'/NuestroEquipo'} className={linkClasses}>
                       Nuestro Equipo
                     </Link>
                   </li>
-                  <li class="mb-4">
-                    <Link to={'/valuador'} class={linkClasses}>
+                  <li className="mb-4">
+                    <Link to={'/valuador'} className={linkClasses}>
                       Valuador de Propiedades
                     </Link>
                   </li>
@@ -39,46 +39,46 @@ export default function SectionFooter() {
               </div>
 
               <div>
-                <h2 class="mb-6 text-sm font-semibold text-[#2e2c2c] uppercase ">
+                <h2 className="mb-6 text-sm font-semibold text-[#2e2c2c] uppercase ">
                   Legal
                 </h2>
-                <ul class=" font-medium">
-                  <li class="mb-4">
-                    <Link to={"/politica-de-privacidad"} class={linkClasses}>
+                <ul className=" font-medium">
+                  <li className="mb-4">
+                    <Link to={"/politica-de-privacidad"} className={linkClasses}>
                       Aviso de privacidad
                     </Link>
                   </li>
-                  <li class="mb-4">
-                    <Link to={"/codigo-de-etica"} class={linkClasses}>
+                  <li className="mb-4">
+                    <Link to={"/codigo-de-etica"} className={linkClasses}>
                       Código de ética
                     </Link>
                   </li>
                   <li>
-                    <Link to={"/terminos-y-condiciones"} class={linkClasses}>
-                      Terminos &amp; Condiciones
+                    <Link to={"/terminos-y-condiciones"} className={linkClasses}>
+                      Terminos & Condiciones
                     </Link>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
-          <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-          <div class="sm:flex sm:items-center sm:justify-between">
-            <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+          <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+          <div className="sm:flex sm:items-center sm:justify-between">
+            <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
               © 2025{" "}
-              <a href="https://flowbite.com/" class="hover:underline">
+              <a href="https://flowbite.com/" className="hover:underline">
                 RE/MAX
               </a>
               .
             </span>
-            <div class="flex mt-4 sm:justify-center gap-10 sm:mt-0">
+            <div className="flex mt-4 sm:justify-center gap-10 sm:mt-0">
               <a
-                href="https://www.facebook.com/share/1E4AQv6USq/?mibextid=wwXIfr" 
+                href="https://www.facebook.com/remaxcinveracruz/" 
                 target="_blank"
-                class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+                className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
               >
                 <svg
-                  class="w-5 h-5"
+                  className="w-5 h-5"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -90,14 +90,18 @@ export default function SectionFooter() {
                     clipRule="evenodd"
                   />
                 </svg>
-                <span class="sr-only">Facebook page</span>
+                <span className="sr-only">Facebook page</span>
               </a>
               <a href="https://www.instagram.com/remaxcin.veracruz?igsh=bG96MG53a2V4eGp6" target="_blank">
                 <img
                   className="w-5 h-5"
                   src="/HomePageContent/Instagram.svg"
-                  alt=""
+                  alt="Instagram"
                 />
+              </a>
+              <a href="https://www.tiktok.com/@remax.cin?_t=ZS-8xfVVLQz56d&_r=1" target="_blank" rel="noopener noreferrer">
+                <FaTiktok className="w-5 h-5 text-gray-500 hover:text-gray-900 dark:hover:text-white" />
+                <span className="sr-only">TikTok</span>
               </a>
             </div>
           </div>

@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLocationDot, faHouse, faHouseUser, faBuilding, faLandmark, faMapLocation, faBuildingCircleCheck, faWarehouse, faBuildingColumns, faStore, faTractor, faBoxOpen } from "@fortawesome/free-solid-svg-icons";
+import { faLocationDot, faHouse, faHouseUser, faBuilding, faMapLocation, faBuildingCircleCheck, faWarehouse, faBuildingColumns, faStore, faTractor } from "@fortawesome/free-solid-svg-icons";
 import mapboxgl from "mapbox-gl";
 import { useSearchContext } from "../../context/SearchContext";
 export default function Search({
   autoCompleteHome,
   setAutoCompleteHome,
-  setBusqueda,
   valor
 }) {
   // Usar el contexto para acceder a los estados compartidos
@@ -16,13 +15,13 @@ export default function Search({
     setBusquedaHome,
     selectedOptionsTipos,
     setSelectedOptionsTipos,
-    selectedOptionsOperacion, 
     setSelectedOptionsOperacion 
   } = useSearchContext();
   const [selectedItem, setSelectedItem] = useState(null);
-  const [openTipo, setOpenTipo] = useState(true);
-  const [direccion, setDireccion] = useState("");
+  const [openTipo, setOpenTipo] = useState(false);
   const [modalBusqueda, setModalBusqueda] = useState(true);
+  const modalRef = useRef(null);
+  const [highlightedTipo, setHighlightedTipo] = useState(-1);
   mapboxgl.accessToken =
     "pk.eyJ1IjoidmljdG9yZ2FyY2lhcHJ6IiwiYSI6ImNtNXZ3dW0wMjA2aHgyanE1M3ptczQ2azUifQ.ILrTXW_4c9_pbGC3Uj-wdg";
   const handleOperacion = (event) => {
@@ -41,10 +40,10 @@ export default function Search({
   const handleTipos = (event) => {
     const value = event.target.id;
     if (event) {
-      console.log("Actualizando tipo desde Search.jsx:", value);
-      setOpenTipo(true);
+      setOpenTipo(false);
+      setHighlightedTipo(-1);
       setSelectedOptionsTipos([parseInt(value)]);
-    } 
+    }
   };
   const operacion = [
     { id: "1", operacion: "Venta" },
@@ -197,6 +196,42 @@ export default function Search({
     }
   }, [busquedaHome]);
 
+  // Cerrar modal al hacer clic fuera
+  useEffect(() => {
+    if (!openTipo) return;
+    const handleClickOutside = (event) => {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        setOpenTipo(false);
+        setHighlightedTipo(-1);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [openTipo]);
+
+  // Navegación con teclado en el modal de tipos
+  const handleTipoKeyDown = (e) => {
+    if (!openTipo) return;
+    const tiposFiltrados = tiposPropiedad.filter(item => item.sector_nombre === valor);
+    if (e.key === "ArrowDown") {
+      setHighlightedTipo((prev) => (prev + 1) % tiposFiltrados.length);
+    } else if (e.key === "ArrowUp") {
+      setHighlightedTipo((prev) => (prev - 1 + tiposFiltrados.length) % tiposFiltrados.length);
+    } else if (e.key === "Enter" && highlightedTipo >= 0) {
+      const tipo = tiposFiltrados[highlightedTipo];
+      if (tipo) {
+        setOpenTipo(false);
+        setHighlightedTipo(-1);
+        setSelectedOptionsTipos([tipo.tipo_id]);
+      }
+    } else if (e.key === "Escape") {
+      setOpenTipo(false);
+      setHighlightedTipo(-1);
+    }
+  };
+
   return (
     <>
       <div className="mt-10 flex flex-col gap-1 pb-1 font-display">
@@ -309,27 +344,30 @@ export default function Search({
           </div>
         </form>
         <div
-          className={`${
-            openTipo && "hidden"
-          } w-40 sm:w-60 lg:w-80 h-auto bg-white mt-1 rounded shadow-[0_3px_1px] flex flex-col justify-center align-middle items-center shadow-black/50`}
+          ref={modalRef}
+          tabIndex={0}
+          onKeyDown={handleTipoKeyDown}
+          className={`${!openTipo ? "hidden" : ""} w-40 sm:w-60 lg:w-80 h-auto bg-white mt-1 rounded shadow-[0_3px_1px] flex flex-col justify-center align-middle items-center shadow-black/50`}
         >
           <ol className="font-display text-start py-4 text-sm sm:text-base lg:text-2xl text-[#414141]">
             {tiposPropiedad &&
               tiposPropiedad
-              .filter(item => item.sector_nombre === valor)
-              .map((item) => (
-                <li
-                  key={item.tipo_id}
-                  onClick={handleTipos}
-                  className="hover:bg-gray-200 py-2 px-5 w-full flex items-center cursor-pointer gap-1"
-                >
-                  <FontAwesomeIcon
-                    icon={item.icon}
-                    className="w-4 sm:w-6 lg:w-8 text-[#414141]"
-                  />
-                  <p id={item.tipo_id.toString()}>{item.tipo_nombre}</p>
-                </li>
-              ))}
+                .filter(item => item.sector_nombre === valor)
+                .map((item, idx) => (
+                  <li
+                    key={item.tipo_id}
+                    onClick={(e) => handleTipos(e)}
+                    onMouseEnter={() => setHighlightedTipo(idx)}
+                    className={`py-2 px-5 w-full flex items-center cursor-pointer gap-1
+                      ${(highlightedTipo === idx || selectedOptionsTipos.includes(item.tipo_id)) ? 'bg-gray-200' : ''}`}
+                  >
+                    <FontAwesomeIcon
+                      icon={item.icon}
+                      className="w-4 sm:w-6 lg:w-8 text-[#414141]"
+                    />
+                    <p id={item.tipo_id.toString()}>{item.tipo_nombre}</p>
+                  </li>
+                ))}
           </ol>
         </div>
       </div>

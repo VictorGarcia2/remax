@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Tipo from "./Tipo.jsx";
 import RangoDePrecio from "./RangoDePrecio.jsx";
 import Operacion from "./Operacion.jsx";
@@ -36,29 +36,29 @@ export default function FiltrosDesktop({
 
   const [autoCompleteHome, setAutoCompleteHome] = useState([]);
   const [modalBusqueda, setModalBusqueda] = useState(true);
-  const autoCompleteModal = (e) => {
-    setBusqueda(e.target.value);
-    if (e.target.value) {
-      setModalBusqueda(false); // Se cierra cuando hay valor
-    } else {
-      setModalBusqueda(true); // Se abre cuando no hay valor
-    }
-  };
+  const [inputValue, setInputValue] = useState(busqueda || "");
+  const inputRef = useRef(null);
+  const [highlightedIndex, setHighlightedIndex] = useState(-1);
+
+  // Petición a Mapbox en cada cambio de texto para autocompletar
   useEffect(() => {
-    const manejarBusqueda = async () => {
+    if (!inputValue) {
+      setAutoCompleteHome([]);
+      setModalBusqueda(true);
+      return;
+    }
+    const fetchAutocompleteResults = async () => {
       try {
         const mapboxglModule = await import('mapbox-gl');
         const mapboxgl = mapboxglModule.default;
         const accessToken = "pk.eyJ1IjoidmljdG9yZ2FyY2lhcHJ6IiwiYSI6ImNtNXZ3dW0wMjA2aHgyanE1M3ptczQ2azUifQ.ILrTXW_4c9_pbGC3Uj-wdg";
-
         const response = await fetch(
           `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
-            busqueda
+            inputValue
           )}.json?access_token=${accessToken}&types=place,address&language=es&country=MX`
         );
         const data = await response.json();
         if (data.features && data.features.length > 0) {
-          // Filtramos y etiquetamos los resultados
           const filteredData = data.features.map((item) => {
             if (item.place_type.includes("place")) {
               return { ...item, category: "ciudad" };
@@ -68,20 +68,80 @@ export default function FiltrosDesktop({
             return item;
           });
           setAutoCompleteHome(filteredData);
+          setModalBusqueda(false);
         } else {
           setAutoCompleteHome([]);
+          setModalBusqueda(true);
         }
       } catch (error) {
-        console.error("Error al buscar lugar:", error);
         setAutoCompleteHome([]);
+        setModalBusqueda(true);
       }
     };
+    fetchAutocompleteResults();
+  }, [inputValue]);
 
-    if (busqueda) {
-      manejarBusqueda();
+  // Cerrar sugerencias al perder foco
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (inputRef.current && !inputRef.current.contains(event.target)) {
+        setModalBusqueda(true);
+        setHighlightedIndex(-1);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  // Navegación con teclado
+  const handleInputKeyDown = (e) => {
+    if (!autoCompleteHome.length) return;
+    if (e.key === "ArrowDown") {
+      setHighlightedIndex((prev) => (prev + 1) % autoCompleteHome.length);
+    } else if (e.key === "ArrowUp") {
+      setHighlightedIndex((prev) => (prev - 1 + autoCompleteHome.length) % autoCompleteHome.length);
+    } else if (e.key === "Enter") {
+      if (highlightedIndex >= 0) {
+        handleSuggestionClick(autoCompleteHome[highlightedIndex].place_name);
+      } else if (inputValue.trim() !== "") {
+        setBusqueda(inputValue);
+        setManejoBusqueda((prevState) => !prevState);
+        setModalBusqueda(true);
+        setInputValue("");
+        setAutoCompleteHome([]);
+        setHighlightedIndex(-1);
+        setTimeout(() => setBusqueda(""), 1000);
+      }
     }
-  }, [busqueda]);
+  };
 
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+    setHighlightedIndex(-1);
+  };
+
+  const handleSearchButton = () => {
+    if (inputValue.trim() === "") return;
+    setBusqueda(inputValue);
+    setManejoBusqueda((prevState) => !prevState);
+    setModalBusqueda(true);
+    setInputValue("");
+    setAutoCompleteHome([]);
+    setHighlightedIndex(-1);
+    setTimeout(() => setBusqueda(""), 1000);
+  };
+
+  const handleSuggestionClick = (placeName) => {
+    setInputValue("");
+    setBusqueda(placeName);
+    setManejoBusqueda((prevState) => !prevState);
+    setModalBusqueda(true);
+    setAutoCompleteHome([]);
+    setHighlightedIndex(-1);
+    setTimeout(() => setBusqueda(""), 1000);
+  };
 
   const handleSearch = (e) => {
     setManejoBusqueda((prevState) => !prevState);
@@ -124,9 +184,11 @@ export default function FiltrosDesktop({
       </div>
       <div className="flex gap-1 ">
         <input
+          ref={inputRef}
           autoComplete="off"
-          value={busqueda}
-          onChange={autoCompleteModal}
+          value={inputValue}
+          onChange={handleInputChange}
+          onKeyDown={handleInputKeyDown}
           name="searchs"
           type="text"
           className="bg-white text-[#414141] text-sm sm:text-2xl px-3 rounded h-11 rounded-s-3xl w-60 shadow-[0_3px_1px] shadow-black/50 sm:h-11 sm:w-[465px] align-middle items-center flex"
@@ -137,53 +199,55 @@ export default function FiltrosDesktop({
             modalBusqueda && "hidden"
           } mt-13 z-50 absolute bg-white px-2 flex flex-col py-4 items-start  gap-2 rounded shadow-[0_3px_1px] shadow-black/50`}
         >
+          {autoCompleteHome.length === 0 && (
+            <div className="text-gray-400 text-sm px-2 py-1">No se encontraron resultados</div>
+          )}
           <p className="font-bold text-start px-2 text-xs sm:text-sm lg:text-base text-[#7b7b7b]">
-                           Ciudades
-                         </p>
-                         {autoCompleteHome
-                           .filter((item) => item.category === "ciudad")
-                           .map((item) => (
-                             <div
-                               key={item.id} // Asegúrate de poner key
-                               onClick={handleSearch}
-                               className="flex items-center gap-1 py-1 hover:bg-gray-200 rounded w-full px-1 cursor-pointer"
-                             >
-                               <FontAwesomeIcon
-                                 icon={faLocationDot}
-                                 className="text-[#7b7b7b]"
-                               />
-                               <p className="text-start text-xs sm:text-sm lg:text-base text-[#7b7b7b]">
-                                 {item.place_name}
-                               </p>
-                             </div>
-                           ))}
-         
-                         <p className="text-start font-bold px-2 text-xs sm:text-sm lg:text-base text-[#7b7b7b]">
-                           Direcciones
-                         </p>
-                         {autoCompleteHome
-                           .filter((item) => item.category === "direccion")
-                           .map((item) => (
-                             <div
-                               key={item.id}
-                               onClick={handleSearch}
-                               className="flex items-center gap-1 py-1 hover:bg-gray-200 rounded w-full px-1 cursor-pointer"
-                             >
-                               <FontAwesomeIcon
-                                 icon={faLocationDot}
-                                 className="text-[#7b7b7b]"
-                               />
-                               <p className="text-start text-xs sm:text-sm lg:text-base text-[#7b7b7b]">
-                                 {item.place_name}
-                               </p>
-                             </div>
-                           ))}
+            Ciudades
+          </p>
+          {autoCompleteHome
+            .filter((item) => item.category === "ciudad")
+            .map((item, idx) => (
+              <div
+                key={item.id}
+                onClick={() => handleSuggestionClick(item.place_name)}
+                className={`flex items-center gap-1 py-1 hover:bg-gray-200 rounded w-full px-1 cursor-pointer ${highlightedIndex === idx ? 'bg-gray-200' : ''}`}
+              >
+                <FontAwesomeIcon
+                  icon={faLocationDot}
+                  className="text-[#7b7b7b]"
+                />
+                <p className="text-start text-xs sm:text-sm lg:text-base text-[#7b7b7b]">
+                  {item.place_name}
+                </p>
+              </div>
+            ))}
+          <p className="text-start font-bold px-2 text-xs sm:text-sm lg:text-base text-[#7b7b7b]">
+            Direcciones
+          </p>
+          {autoCompleteHome
+            .filter((item) => item.category === "direccion")
+            .map((item, idx) => (
+              <div
+                key={item.id}
+                onClick={() => handleSuggestionClick(item.place_name)}
+                className={`flex items-center gap-1 py-1 hover:bg-gray-200 rounded w-full px-1 cursor-pointer ${highlightedIndex === idx + autoCompleteHome.filter(i => i.category === 'ciudad').length ? 'bg-gray-200' : ''}`}
+              >
+                <FontAwesomeIcon
+                  icon={faLocationDot}
+                  className="text-[#7b7b7b]"
+                />
+                <p className="text-start text-xs sm:text-sm lg:text-base text-[#7b7b7b]">
+                  {item.place_name}
+                </p>
+              </div>
+            ))}
         </div>
         <div
-          onClick={() => setManejoBusqueda((prevState) => !prevState)}
+          onClick={handleSearchButton}
           className={`rounded-e-full cursor-pointer w-13 h-11 sm:h-11 sm:w-15 shadow-[0_3px_1px] shadow-black/50 align-middle items-center flex ${
             contextValor === "comercial" ? "bg-redRemax" : "bg-blueRemax"
-          }`}
+          } ${inputValue.trim() === "" ? 'opacity-50 pointer-events-none' : ''}`}
         >
           <Link to={"/propiedades"} className="mx-auto">
             <button className="items-center flex cursor-pointer">
