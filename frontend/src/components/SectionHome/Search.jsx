@@ -4,6 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot, faHouse, faHouseUser, faBuilding, faLandmark, faMapLocation, faBuildingCircleCheck, faWarehouse, faBuildingColumns, faStore, faTractor, faBoxOpen } from "@fortawesome/free-solid-svg-icons";
 import mapboxgl from "mapbox-gl";
 import { useSearchContext } from "../../context/SearchContext";
+import { useGooglePlacesAutocomplete } from '../../hooks/useGooglePlacesAutocomplete';
+import { useJsApiLoader } from "@react-google-maps/api";
+
 export default function Search({
   autoCompleteHome,
   setAutoCompleteHome,
@@ -17,7 +20,8 @@ export default function Search({
     selectedOptionsTipos,
     setSelectedOptionsTipos,
     selectedOptionsOperacion, 
-    setSelectedOptionsOperacion 
+    setSelectedOptionsOperacion,
+    setSeleccion
   } = useSearchContext();
   const [selectedItem, setSelectedItem] = useState(null);
   const [openTipo, setOpenTipo] = useState(true);
@@ -25,6 +29,11 @@ export default function Search({
   const [modalBusqueda, setModalBusqueda] = useState(true);
   mapboxgl.accessToken =
     "pk.eyJ1IjoidmljdG9yZ2FyY2lhcHJ6IiwiYSI6ImNtNXZ3dW0wMjA2aHgyanE1M3ptczQ2azUifQ.ILrTXW_4c9_pbGC3Uj-wdg";
+  const { isLoaded } = useJsApiLoader({
+    googleMapsApiKey: "AIzaSyDoBmSoAPraNNjNS2NQAu-Vs85trnJuJVI",
+    libraries: ["places"],
+  });
+  const { suggestions, getPlacePredictions } = useGooglePlacesAutocomplete(isLoaded);
   const handleOperacion = (event) => {
     const value = event.target.id;
     if (event) {
@@ -156,46 +165,20 @@ export default function Search({
   const autoCompleteModal = (e) => {
     setBusquedaHome(e.target.value);
     if (e.target.value) {
-      setModalBusqueda(false); // Se cierra cuando hay valor
+      setModalBusqueda(false);
     } else {
-      setModalBusqueda(true); // Se abre cuando no hay valor
+      setModalBusqueda(true);
     }
   };
   useEffect(() => {
-    const manejarBusqueda = async () => {
-      try {
-        const response = await fetch(
-          `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
-            busquedaHome
-          )}.json?access_token=${
-            mapboxgl.accessToken
-          }&types=place,address&language=es&country=MX`
-        );
-        const data = await response.json();
-        if (data.features && data.features.length > 0) {
-          // Filtramos y etiquetamos los resultados
-          const filteredData = data.features.map((item) => {
-            if (item.place_type.includes("place")) {
-              return { ...item, category: "ciudad" };
-            } else if (item.place_type.includes("address")) {
-              return { ...item, category: "direccion" };
-            }
-            return item;
-          });
-          setAutoCompleteHome(filteredData);
-        } else {
-          setAutoCompleteHome([]);
-        }
-      } catch (error) {
-        console.error("Error al buscar lugar:", error);
-        setAutoCompleteHome([]);
-      }
-    };
-
-    if (busquedaHome) {
-      manejarBusqueda();
+    if (isLoaded && busquedaHome) {
+      getPlacePredictions(busquedaHome);
     }
-  }, [busquedaHome]);
+  }, [busquedaHome, isLoaded, getPlacePredictions]);
+
+  if (!isLoaded) {
+    return <div className="text-center py-8">Cargando Google Maps...</div>;
+  }
 
   return (
     <>
@@ -244,51 +227,71 @@ export default function Search({
                 placeholder="Busca una zona..."
               />
               <div
-                className={`${
-                  modalBusqueda && "invisible"
-                } top-12 sm:top-14 lg:top-19 absolute bg-white px-2 flex flex-col py-4 items-start gap-2 rounded shadow-[0_3px_1px] shadow-black/50`}
+                className={`${modalBusqueda && "invisible"} top-12 sm:top-14 lg:top-19 absolute bg-white px-2 flex flex-col py-4 items-start gap-2 rounded shadow-[0_3px_1px] shadow-black/50`}
               >
-                <p className="text-start font-bold px-2 text-sm sm:text-sm lg:text-base text-[#7b7b7b]">
-                  Ciudades
-                </p>
-                {autoCompleteHome
-                  .filter((item) => item.category === "ciudad")
-                  .map((item) => (
-                    <div
-                      key={item.id} // Asegúrate de poner key
-                      onClick={handleSearch}
-                      className="flex items-center gap-1 py-1 hover:bg-gray-200 rounded w-full px-1 cursor-pointer"
-                    >
-                      <FontAwesomeIcon
-                        icon={faLocationDot}
-                        className="text-[#7b7b7b]"
-                      />
-                      <p className="text-start text-sm sm:text-sm lg:text-base text-[#7b7b7b]">
-                        {item.place_name}
-                      </p>
-                    </div>
-                  ))}
-
-                <p className="text-start px-2 font-bold text-sm sm:text-sm lg:text-base text-[#7b7b7b]">
-                  Direcciones
-                </p>
-                {autoCompleteHome
-                  .filter((item) => item.category === "direccion")
-                  .map((item) => (
-                    <div
-                      key={item.id}
-                      onClick={handleSearch}
-                      className="flex items-center gap-1 py-1 hover:bg-gray-200 rounded w-full px-1 cursor-pointer"
-                    >
-                      <FontAwesomeIcon
-                        icon={faLocationDot}
-                        className="text-[#7b7b7b]"
-                      />
-                      <p className="text-start text-sm sm:text-sm lg:text-base text-[#7b7b7b]">
-                        {item.place_name}
-                      </p>
-                    </div>
-                  ))}
+                {(() => {
+                  // Función para resaltar coincidencias
+                  function highlightMatch(text, query) {
+                    if (!query) return text;
+                    const regex = new RegExp(`(${query})`, 'ig');
+                    return text.replace(regex, '<b>$1</b>');
+                  }
+                  // Clasificar sugerencias
+                  const colonias = suggestions.filter(s => (s.types || []).some(t => ["neighborhood","sublocality","route"].includes(t)));
+                  const ciudades = suggestions.filter(s => (s.types || []).some(t => ["locality","administrative_area_level_3","administrative_area_level_2"].includes(t)));
+                  const estados = suggestions.filter(s => (s.types || []).some(t => ["administrative_area_level_1"].includes(t)));
+                  // Para evitar duplicados
+                  const ids = new Set();
+                  function renderGroup(title, arr) {
+                    if (!arr.length) return null;
+                    return <>
+                      <p className="font-bold text-[#7b7b7b] text-xs sm:text-sm lg:text-base mt-2 mb-1">{title}</p>
+                      {arr.map(item => {
+                        if (ids.has(item.place_id)) return null;
+                        ids.add(item.place_id);
+                        return (
+                          <div
+                            key={item.place_id}
+                            onClick={async () => {
+                              setBusquedaHome(item.description);
+                              setModalBusqueda(true);
+                              if (window.google && window.google.maps) {
+                                const geocoder = new window.google.maps.Geocoder();
+                                geocoder.geocode({ placeId: item.place_id }, (results, status) => {
+                                  if (status === 'OK' && results[0]) {
+                                    const location = results[0].geometry.location;
+                                    setSeleccion({
+                                      description: item.description,
+                                      lat: location.lat(),
+                                      lng: location.lng(),
+                                    });
+                                    setTimeout(() => navigate("/propiedades"), 0);
+                                  } else {
+                                    setSeleccion({ description: item.description });
+                                    setTimeout(() => navigate("/propiedades"), 0);
+                                  }
+                                });
+                              } else {
+                                setSeleccion({ description: item.description });
+                                setTimeout(() => navigate("/propiedades"), 0);
+                              }
+                              setTimeout(() => setBusquedaHome(''), 100);
+                            }}
+                            className="flex items-center gap-1 py-1 hover:bg-gray-200 rounded w-full px-1 cursor-pointer"
+                          >
+                            <FontAwesomeIcon icon={faLocationDot} className="text-[#7b7b7b]" />
+                            <span className="text-start text-sm sm:text-sm lg:text-base text-[#7b7b7b]" dangerouslySetInnerHTML={{__html: highlightMatch(item.description, busquedaHome)}} />
+                          </div>
+                        );
+                      })}
+                    </>;
+                  }
+                  return <>
+                    {renderGroup('Colonias', colonias)}
+                    {renderGroup('Ciudades', ciudades)}
+                    {renderGroup('Estados', estados)}
+                  </>;
+                })()}
               </div>
             </div>
             <div

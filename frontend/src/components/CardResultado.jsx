@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Share2 } from "lucide-react";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { useSearchContext } from "../context/SearchContext"; // Importar useSearchContext
+import GoogleMapsConCards from "./GoogleMapsConCards";
 
 // Función de utilidad para truncar texto
 const truncateByCharacters = (text, maxLength) => {
@@ -212,7 +213,6 @@ export default function CardResultado({
   precioMaximo,
   aplicarFiltros,
   setSeleccion,
-  seleccion,
   selectedOptionsTipos,
   selectedOptionsOperacion,
 }) {
@@ -220,7 +220,7 @@ export default function CardResultado({
   const forceUpdate = useCallback(() => updateState({}), []);
   const currentImageIndices = useRef({});
   const imageCache = useRef(new Map());
-  const { valor } = useSearchContext(); // Obtener el valor del contexto
+  const { valor, seleccion } = useSearchContext(); // Obtener seleccion del contexto
   const [isLoading, setIsLoading] = useState(true);
 
   // Precargar imágenes
@@ -287,6 +287,66 @@ export default function CardResultado({
   const handle = useCallback(() => {
     setMapa(prevState => !prevState);
   }, []);
+
+  // FILTRADO CENTRALIZADO
+  const propiedadesFiltradas = useMemo(() => {
+    return (propiedades || [])
+      .filter((item) => {
+        // Filtro por sector
+        if (selectedOptions && selectedOptions.length > 0) {
+          return selectedOptions.includes(item.sector);
+        }
+        return true;
+      })
+      .filter((item) => {
+        // Filtro por tipo
+        if (selectedOptionsTipos && selectedOptionsTipos.length > 0) {
+          return selectedOptionsTipos.includes(Number(item.tipos?.tipo_id));
+        }
+        return true;
+      })
+      .filter((item) => {
+        // Filtro por operación
+        if (selectedOptionsOperacion && selectedOptionsOperacion.length > 0) {
+          return selectedOptionsOperacion.includes(Number(item.operacion));
+        }
+        return true;
+      })
+      .filter((item) => {
+        // Filtro por precio
+        const precio = parseFloat(item.mxn_corriente) || 0;
+        if (precioMinimo && precio < precioMinimo) return false;
+        if (precioMaximo && precioMaximo !== Infinity && precio > precioMaximo) return false;
+        return true;
+      })
+      .filter((item) => {
+        // Filtro por búsqueda de zona
+        if (busquedaHome && busquedaHome.length > 0) {
+          const texto = `${item.calle} ${item.colonia} ${item.ciudad} ${item.estado}`.toLowerCase();
+          return texto.includes(busquedaHome.toLowerCase());
+        }
+        return true;
+      });
+  }, [propiedades, selectedOptions, selectedOptionsTipos, selectedOptionsOperacion, precioMinimo, precioMaximo, busquedaHome]);
+
+  // Estado para guardar las propiedades visibles en el mapa
+  const [visiblesEnMapa, setVisiblesEnMapa] = useState(null);
+
+  // Cuando cambia el área visible del mapa, actualizar el estado
+  const handleSetPropiedadesVisibles = (visibles) => {
+    setVisiblesEnMapa(visibles);
+    if (setPropiedadesVisibles) setPropiedadesVisibles(visibles);
+  };
+
+  // Determinar qué propiedades mostrar en la lista
+  const propiedadesParaLista = useMemo(() => {
+    // En móvil, si hay propiedades visibles en el mapa, mostrar solo esas
+    if (typeof window !== 'undefined' && window.innerWidth < 1024 && visiblesEnMapa && visiblesEnMapa.length > 0) {
+      return visiblesEnMapa;
+    }
+    // Si no, mostrar todas las filtradas
+    return propiedadesFiltradas;
+  }, [visiblesEnMapa, propiedadesFiltradas]);
 
   return (
     <div className="grid grid-cols-1 xl:grid-cols-2 justify-center z-10 items-start">
@@ -378,8 +438,8 @@ export default function CardResultado({
               <CardSkeleton key={index} />
             ))
           ) : (
-            propiedadesVisibles && propiedadesVisibles.length > 0 ? (
-              propiedadesVisibles.map((item, index) => (
+            propiedadesParaLista && propiedadesParaLista.length > 0 ? (
+              propiedadesParaLista.map((item, index) => (
                 <PropertyCard
                   key={item.propiedad_id}
                   item={item}
@@ -411,31 +471,30 @@ export default function CardResultado({
 
       {/* Mapa */}
       <div className={`${mapa ? "" : "invisible lg:visible"} mt-0 xl:visible w-full lg:h-[700px] lg:sticky lg:top-[calc(var(--header-height)_+_1rem)]`}>
-        <Suspense fallback={<div className="w-full h-[400px] lg:h-full bg-gray-200 rounded-lg animate-pulse"></div>}> {/* Fallback para la carga del CÓDIGO de LazyMapbox */}
-          <LazyMapbox
-            setSeleccion={setSeleccion}
-            seleccion={seleccion}
-            selectedOptionsOperacion={selectedOptionsOperacion}
-            aplicarFiltros={aplicarFiltros}
-            precioMaximo={precioMaximo}
-            setPrecioMaximo={setPrecioMaximo}
-            precioMinimo={precioMinimo}
-            setPrecioMinimo={setPrecioMinimo}
-            setNuevas={setNuevas}
-            nuevas={nuevas}
-            setSelectedOptions={setSelectedOptions}
-            selectedOptions={selectedOptions}
-            propiedades={propiedades}
-            setBusqueda={setBusqueda}
-            busqueda={busqueda}
-            manejoBusqueda={manejoBusqueda}
-            setPropiedadesVisibles={setPropiedadesVisibles}
-            propiedadesVisibles={propiedadesVisibles}
-            setAutoCompleteHome={setAutoCompleteHome}
-            busquedaHome={busquedaHome}
-            selectedOptionsTipos={selectedOptionsTipos}
-          />
-        </Suspense>
+        <GoogleMapsConCards
+          setSeleccion={setSeleccion}
+          seleccion={seleccion}
+          selectedOptionsOperacion={selectedOptionsOperacion}
+          aplicarFiltros={aplicarFiltros}
+          precioMaximo={precioMaximo}
+          setPrecioMaximo={setPrecioMaximo}
+          precioMinimo={precioMinimo}
+          setPrecioMinimo={setPrecioMinimo}
+          setNuevas={setNuevas}
+          nuevas={nuevas}
+          setSelectedOptions={setSelectedOptions}
+          selectedOptions={selectedOptions}
+          propiedades={propiedadesFiltradas}
+          setBusqueda={setBusqueda}
+          busqueda={busqueda}
+          manejoBusqueda={manejoBusqueda}
+          setPropiedadesVisibles={handleSetPropiedadesVisibles}
+          propiedadesVisibles={propiedadesFiltradas}
+          setAutoCompleteHome={setAutoCompleteHome}
+          busquedaHome={busquedaHome}
+          selectedOptionsTipos={selectedOptionsTipos}
+          valor={valor}
+        />
       </div>
     </div>
   );

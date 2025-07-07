@@ -26,7 +26,6 @@ const MapboxConCards = ({
   seleccion,
   setSeleccion
 }) => {
-
   const { 
     busquedaHome,
     setBusquedaHome,

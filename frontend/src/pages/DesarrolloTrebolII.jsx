@@ -4,15 +4,12 @@ import { FaCheckCircle, FaShieldAlt, FaMapMarkerAlt, FaHome, FaKey, FaCar, FaUse
 import { Helmet } from "react-helmet-async";
 import Header from "../components/SectionHome/Header";
 import SectionFooter from "../components/SectionFooter/SectionFooter";
-
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const phoneRegex = /^\d{10}$/;
-
 const PIPEDRIVE_API_KEY = "02317c5467585c4251d802ab65e0c7b9f60541ee";
 const PIPEDRIVE_API_URL = "https://api.pipedrive.com/v1";
 const PIPELINE_ID_DESARROLLO = 1;
 const STAGE_ID_DESARROLLO = 1;
-
 const datosClave = [
   { icon: <FaMapMarkerAlt className="text-blueRemax text-xl" />, label: "Dirección", value: "Av. Ejemplo 123, Veracruz, Ver." },
   { icon: <FaHome className="text-blueRemax text-xl" />, label: "A 15 min de", value: "Centro Histórico y playas" },
@@ -32,7 +29,6 @@ const CUSTOM_FIELDS_DESARROLLO = {
     validation: (value) => value.length > 0
   }
 };
-
 const ensureCustomFieldsDesarrollo = async () => {
   try {
     const fieldsResponse = await fetch(
