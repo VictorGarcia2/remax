@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLocationDot, faHouse, faHouseUser, faBuilding, faLandmark, faMapLocation, faBuildingCircleCheck, faWarehouse, faBuildingColumns, faStore, faTractor, faBoxOpen } from "@fortawesome/free-solid-svg-icons";
+import { faLocationDot, faHouse, faHouseUser, faBuilding, faMapLocation, faBuildingCircleCheck, faWarehouse, faBuildingColumns, faStore, faTractor } from "@fortawesome/free-solid-svg-icons";
 import mapboxgl from "mapbox-gl";
 import { useSearchContext } from "../../context/SearchContext";
 import { useGooglePlacesAutocomplete } from '../../hooks/useGooglePlacesAutocomplete';
@@ -10,7 +10,6 @@ import { useJsApiLoader } from "@react-google-maps/api";
 export default function Search({
   autoCompleteHome,
   setAutoCompleteHome,
-  setBusqueda,
   valor
 }) {
   // Usar el contexto para acceder a los estados compartidos
@@ -24,9 +23,10 @@ export default function Search({
     setSeleccion
   } = useSearchContext();
   const [selectedItem, setSelectedItem] = useState(null);
-  const [openTipo, setOpenTipo] = useState(true);
-  const [direccion, setDireccion] = useState("");
+  const [openTipo, setOpenTipo] = useState(false);
   const [modalBusqueda, setModalBusqueda] = useState(true);
+  const modalRef = useRef(null);
+  const [highlightedTipo, setHighlightedTipo] = useState(-1);
   mapboxgl.accessToken =
     "pk.eyJ1IjoidmljdG9yZ2FyY2lhcHJ6IiwiYSI6ImNtNXZ3dW0wMjA2aHgyanE1M3ptczQ2azUifQ.ILrTXW_4c9_pbGC3Uj-wdg";
   const { isLoaded } = useJsApiLoader({
@@ -50,10 +50,10 @@ export default function Search({
   const handleTipos = (event) => {
     const value = event.target.id;
     if (event) {
-      console.log("Actualizando tipo desde Search.jsx:", value);
-      setOpenTipo(true);
+      setOpenTipo(false);
+      setHighlightedTipo(-1);
       setSelectedOptionsTipos([parseInt(value)]);
-    } 
+    }
   };
   const operacion = [
     { id: "1", operacion: "Venta" },
@@ -312,27 +312,30 @@ export default function Search({
           </div>
         </form>
         <div
-          className={`${
-            openTipo && "hidden"
-          } w-40 sm:w-60 lg:w-80 h-auto bg-white mt-1 rounded shadow-[0_3px_1px] flex flex-col justify-center align-middle items-center shadow-black/50`}
+          ref={modalRef}
+          tabIndex={0}
+          onKeyDown={handleTipoKeyDown}
+          className={`${!openTipo ? "hidden" : ""} w-40 sm:w-60 lg:w-80 h-auto bg-white mt-1 rounded shadow-[0_3px_1px] flex flex-col justify-center align-middle items-center shadow-black/50`}
         >
           <ol className="font-display text-start py-4 text-sm sm:text-base lg:text-2xl text-[#414141]">
             {tiposPropiedad &&
               tiposPropiedad
-              .filter(item => item.sector_nombre === valor)
-              .map((item) => (
-                <li
-                  key={item.tipo_id}
-                  onClick={handleTipos}
-                  className="hover:bg-gray-200 py-2 px-5 w-full flex items-center cursor-pointer gap-1"
-                >
-                  <FontAwesomeIcon
-                    icon={item.icon}
-                    className="w-4 sm:w-6 lg:w-8 text-[#414141]"
-                  />
-                  <p id={item.tipo_id.toString()}>{item.tipo_nombre}</p>
-                </li>
-              ))}
+                .filter(item => item.sector_nombre === valor)
+                .map((item, idx) => (
+                  <li
+                    key={item.tipo_id}
+                    onClick={(e) => handleTipos(e)}
+                    onMouseEnter={() => setHighlightedTipo(idx)}
+                    className={`py-2 px-5 w-full flex items-center cursor-pointer gap-1
+                      ${(highlightedTipo === idx || selectedOptionsTipos.includes(item.tipo_id)) ? 'bg-gray-200' : ''}`}
+                  >
+                    <FontAwesomeIcon
+                      icon={item.icon}
+                      className="w-4 sm:w-6 lg:w-8 text-[#414141]"
+                    />
+                    <p id={item.tipo_id.toString()}>{item.tipo_nombre}</p>
+                  </li>
+                ))}
           </ol>
         </div>
       </div>

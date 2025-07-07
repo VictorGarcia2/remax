@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Tipo from "./Tipo.jsx";
 import RangoDePrecio from "./RangoDePrecio.jsx";
 import Operacion from "./Operacion.jsx";
@@ -60,12 +60,16 @@ export default function FiltrosDesktop({
     }
   };
   useEffect(() => {
-    const manejarBusqueda = async () => {
+    if (!inputValue) {
+      setAutoCompleteHome([]);
+      setModalBusqueda(true);
+      return;
+    }
+    const fetchAutocompleteResults = async () => {
       try {
         const mapboxglModule = await import('mapbox-gl');
         const mapboxgl = mapboxglModule.default;
         const accessToken = "pk.eyJ1IjoidmljdG9yZ2FyY2lhcHJ6IiwiYSI6ImNtNXZ3dW0wMjA2aHgyanE1M3ptczQ2azUifQ.ILrTXW_4c9_pbGC3Uj-wdg";
-
         const response = await fetch(
           `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
             busquedaHome
@@ -73,7 +77,6 @@ export default function FiltrosDesktop({
         );
         const data = await response.json();
         if (data.features && data.features.length > 0) {
-          // Filtramos y etiquetamos los resultados
           const filteredData = data.features.map((item) => {
             if (item.place_type.includes("place")) {
               return { ...item, category: "ciudad" };
@@ -83,12 +86,14 @@ export default function FiltrosDesktop({
             return item;
           });
           setAutoCompleteHome(filteredData);
+          setModalBusqueda(false);
         } else {
           setAutoCompleteHome([]);
+          setModalBusqueda(true);
         }
       } catch (error) {
-        console.error("Error al buscar lugar:", error);
         setAutoCompleteHome([]);
+        setModalBusqueda(true);
       }
     };
 
@@ -185,6 +190,7 @@ export default function FiltrosDesktop({
       </div>
       <div className="flex gap-1 ">
         <input
+          ref={inputRef}
           autoComplete="off"
           value={busquedaHome}
           onChange={autoCompleteModal}
@@ -203,10 +209,10 @@ export default function FiltrosDesktop({
           {renderGroup('Estados', estados)}
         </div>
         <div
-          onClick={() => setManejoBusqueda((prevState) => !prevState)}
+          onClick={handleSearchButton}
           className={`rounded-e-full cursor-pointer w-13 h-11 sm:h-11 sm:w-15 shadow-[0_3px_1px] shadow-black/50 align-middle items-center flex ${
             contextValor === "comercial" ? "bg-redRemax" : "bg-blueRemax"
-          }`}
+          } ${inputValue.trim() === "" ? 'opacity-50 pointer-events-none' : ''}`}
         >
           <Link to={"/propiedades"} className="mx-auto">
             <button className="items-center flex cursor-pointer">

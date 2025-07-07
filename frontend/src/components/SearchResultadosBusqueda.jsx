@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilter, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
@@ -100,9 +100,11 @@ export default function SearchResultadosBusqueda({
     <div className="flex justify-center items-center px-5 gap-4 lg:hidden">
       <div className="flex gap-1">
         <input
+          ref={inputRef}
           autoComplete="off"
           value={busquedaHome}
           onChange={handleInputChange}
+          onKeyDown={handleInputKeyDown}
           name="searchs"
           type="text"
           className="bg-white text-[#414141] text-sm sm:text-2xl px-3 rounded h-11 rounded-s-3xl w-60 shadow-[0_3px_1px] shadow-black/50 sm:h-11 sm:w-[465px] align-middle items-center flex"
@@ -116,13 +118,13 @@ export default function SearchResultadosBusqueda({
           </div>
         )}
         <div
-          onClick={() => setManejoBusqueda((prevState) => !prevState)}
+          onClick={handleSearchButton}
           className={`rounded-e-full cursor-pointer w-13 h-11 sm:h-11 sm:w-15 align-middle items-center flex shadow-[0_3px_1px] shadow-black/50 ${
             valor === "comercial" ? "bg-redRemax" : "bg-blueRemax"
-          }`}
+          } ${inputValue.trim() === "" ? 'opacity-50 pointer-events-none' : ''}`}
         >
           <Link to="/propiedades" className="mx-auto">
-            <button className="items-center flex cursor-pointer">
+            <button className="items-center flex cursor-pointer" type="button">
               <img
                 loading="lazy"
                 className="mx-auto w-4.8 sm:w-6"
