@@ -6,6 +6,7 @@ from valuador import buscar_comparables, calcular_estadisticas
 from fastapi.middleware.cors import CORSMiddleware
 from weasyprint import HTML
 from fastapi.responses import Response
+import requests
 
 app = FastAPI()
 
@@ -22,6 +23,32 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+GOOGLE_MAPS_API_KEY = "AIzaSyDoBmSoAPraNNjNS2NQAu-Vs85trnJuJVI"  # Reemplaza por tu API Key real
+
+def geocode_address(address):
+    url = "https://maps.googleapis.com/maps/api/geocode/json"
+    params = {
+        "address": address,
+        "key": GOOGLE_MAPS_API_KEY,
+        "language": "es"
+    }
+    response = requests.get(url, params=params)
+    data = response.json()
+    if data["status"] == "OK":
+        components = data["results"][0]["address_components"]
+        colonia = ciudad = estado = ""
+        for comp in components:
+            if "sublocality" in comp["types"] or "neighborhood" in comp["types"]:
+                colonia = comp["long_name"].lower()
+            if "locality" in comp["types"]:
+                ciudad = comp["long_name"].lower()
+            if "administrative_area_level_1" in comp["types"]:
+                estado = comp["long_name"].lower()
+        return colonia, ciudad, estado
+    else:
+        print(f"[DEBUG] Geocoding error: {data['status']}")
+        return "", "", ""
 
 @app.get("/")
 def root():
@@ -43,25 +70,11 @@ class ValuacionRequest(BaseModel):
 
 @app.post("/valuar")
 def valuar_propiedad(data: ValuacionRequest):
-    # Extraer colonia, ciudad y estado de la dirección
-    partes = [p.strip().lower() for p in data.direccion.split(",")]
-    colonia = ''
-    ciudad = ''
-    estado = ''
-    if len(partes) >= 4:
-        colonia = partes[-4]
-        ciudad = partes[-3]
-        estado = partes[-2]
-    elif len(partes) == 3:
-        ciudad = partes[-3]
-        estado = partes[-2]
-    elif len(partes) == 2:
-        ciudad = partes[0]
-        estado = partes[1]
+    # Extraer colonia, ciudad y estado usando Google Maps Geocoding
+    colonia, ciudad, estado = geocode_address(data.direccion)
+    print(f"[DEBUG] Google Maps: colonia='{colonia}', ciudad='{ciudad}', estado='{estado}'")
     tipo = data.tipo.lower()
     metros = data.metros
-
-    print(f"[DEBUG] Extracción: colonia='{colonia}', ciudad='{ciudad}', estado='{estado}'")
 
     comparables, nivel = buscar_comparables(db, ciudad, estado, tipo, colonia)
     if not comparables:

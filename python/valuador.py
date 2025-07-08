@@ -1,47 +1,86 @@
 from firebase_admin import firestore
 from typing import List, Dict, Any
 import numpy as np
+import unidecode
+from rapidfuzz import process
+import re
+
+def normalizar_texto(texto):
+    if not texto:
+        return ""
+    texto = unidecode.unidecode(texto.lower())
+    texto = re.sub(r'fracc\.?|colonia|col\.?|fraccionamiento|barrio|cp|c\.p\.', '', texto)
+    texto = re.sub(r'[^a-z0-9 ]', '', texto)
+    texto = re.sub(r'\s+', ' ', texto).strip()
+    return texto
+
+def mejor_coincidencia(valor, lista_opciones):
+    valor_norm = normalizar_texto(valor)
+    opciones_norm = [normalizar_texto(x) for x in lista_opciones]
+    resultado = process.extractOne(valor_norm, opciones_norm, score_cutoff=80)
+    if resultado:
+        idx = opciones_norm.index(resultado[0])
+        return lista_opciones[idx]
+    return None
 
 def buscar_comparables(db, ciudad, estado, tipo, colonia=None):
     print(f"[DEBUG] Entrando a buscar_comparables con colonia='{colonia}', ciudad='{ciudad}', estado='{estado}', tipo='{tipo}'")
     propiedades_ref = db.collection('propiedades')
     comparables = []
     nivel = ''
+    colonia_norm = normalizar_texto(colonia)
+    ciudad_norm = normalizar_texto(ciudad)
+    estado_norm = normalizar_texto(estado)
+    tipo_norm = normalizar_texto(tipo)
 
-    # 0. colonia+ciudad+estado+tipo
-    if colonia and ciudad and estado:
-        docs = propiedades_ref.where('colonia', '==', colonia).where('ciudad', '==', ciudad).where('estado', '==', estado).where('tipo', '==', tipo).stream()
+    # 1. Coincidencia exacta
+    if colonia_norm and ciudad_norm and estado_norm:
+        docs = propiedades_ref.where('colonia', '==', colonia_norm).where('ciudad', '==', ciudad_norm).where('estado', '==', estado_norm).where('tipo', '==', tipo_norm).stream()
         comparables = [doc.to_dict() for doc in docs]
-        print(f"[DEBUG] colonia+ciudad+estado+tipo: {colonia}, {ciudad}, {estado}, {tipo} -> {len(comparables)} encontrados")
+        print(f"[DEBUG] colonia+ciudad+estado+tipo: {colonia_norm}, {ciudad_norm}, {estado_norm}, {tipo_norm} -> {len(comparables)} encontrados")
         if comparables:
             nivel = 'colonia+ciudad+estado+tipo'
             precios_m2 = [c['precio']/c['metros'] for c in comparables if c.get('precio') and c.get('metros') and c['metros'] > 0]
             print(f"[DEBUG] Precios por m2 (colonia+ciudad+estado+tipo): {precios_m2}")
             return comparables, nivel
-    # 1. ciudad+estado+tipo
-    if ciudad and estado:
-        docs = propiedades_ref.where('ciudad', '==', ciudad).where('estado', '==', estado).where('tipo', '==', tipo).stream()
+    # 2. Coincidencia difusa de colonia
+    if ciudad_norm and estado_norm and colonia_norm:
+        docs = propiedades_ref.where('ciudad', '==', ciudad_norm).where('estado', '==', estado_norm).where('tipo', '==', tipo_norm).stream()
+        propiedades = [doc.to_dict() for doc in docs]
+        colonias_bd = list(set([normalizar_texto(p.get('colonia', '')) for p in propiedades]))
+        mejor_col = mejor_coincidencia(colonia, colonias_bd)
+        if mejor_col:
+            comparables = [p for p in propiedades if normalizar_texto(p.get('colonia', '')) == normalizar_texto(mejor_col)]
+            print(f"[DEBUG] colonia_fuzzy+ciudad+estado+tipo: {mejor_col}, {ciudad_norm}, {estado_norm}, {tipo_norm} -> {len(comparables)} encontrados")
+            if comparables:
+                nivel = 'colonia_fuzzy+ciudad+estado+tipo'
+                precios_m2 = [c['precio']/c['metros'] for c in comparables if c.get('precio') and c.get('metros') and c['metros'] > 0]
+                print(f"[DEBUG] Precios por m2 (colonia_fuzzy+ciudad+estado+tipo): {precios_m2}")
+                return comparables, nivel
+    # 3. ciudad+estado+tipo
+    if ciudad_norm and estado_norm:
+        docs = propiedades_ref.where('ciudad', '==', ciudad_norm).where('estado', '==', estado_norm).where('tipo', '==', tipo_norm).stream()
         comparables = [doc.to_dict() for doc in docs]
-        print(f"[DEBUG] ciudad+estado+tipo: {ciudad}, {estado}, {tipo} -> {len(comparables)} encontrados")
+        print(f"[DEBUG] ciudad+estado+tipo: {ciudad_norm}, {estado_norm}, {tipo_norm} -> {len(comparables)} encontrados")
         if comparables:
             nivel = 'ciudad+estado+tipo'
             precios_m2 = [c['precio']/c['metros'] for c in comparables if c.get('precio') and c.get('metros') and c['metros'] > 0]
             print(f"[DEBUG] Precios por m2 (ciudad+estado+tipo): {precios_m2}")
             return comparables, nivel
-    # 2. estado+tipo
-    if estado:
-        docs = propiedades_ref.where('estado', '==', estado).where('tipo', '==', tipo).stream()
+    # 4. estado+tipo
+    if estado_norm:
+        docs = propiedades_ref.where('estado', '==', estado_norm).where('tipo', '==', tipo_norm).stream()
         comparables = [doc.to_dict() for doc in docs]
-        print(f"[DEBUG] estado+tipo: {estado}, {tipo} -> {len(comparables)} encontrados")
+        print(f"[DEBUG] estado+tipo: {estado_norm}, {tipo_norm} -> {len(comparables)} encontrados")
         if comparables:
             nivel = 'estado+tipo'
             precios_m2 = [c['precio']/c['metros'] for c in comparables if c.get('precio') and c.get('metros') and c['metros'] > 0]
             print(f"[DEBUG] Precios por m2 (estado+tipo): {precios_m2}")
             return comparables, nivel
-    # 3. solo tipo
-    docs = propiedades_ref.where('tipo', '==', tipo).stream()
+    # 5. solo tipo
+    docs = propiedades_ref.where('tipo', '==', tipo_norm).stream()
     comparables = [doc.to_dict() for doc in docs]
-    print(f"[DEBUG] solo tipo: {tipo} -> {len(comparables)} encontrados")
+    print(f"[DEBUG] solo tipo: {tipo_norm} -> {len(comparables)} encontrados")
     if comparables:
         nivel = 'tipo'
         precios_m2 = [c['precio']/c['metros'] for c in comparables if c.get('precio') and c.get('metros') and c['metros'] > 0]
