@@ -448,57 +448,80 @@ def clean_text(text):
     
     return clean
 
+def normalizar_propiedad(item):
+    ciudad = "veracruz"
+    estado = "veracruz llave"
+    tipo = "casa"
+    direccion = item.get("Dirección", "No disponible")
+    titulo = item.get("Título", "No disponible")
+    url = item.get("URL", "No disponible")
+    # Extraer colonia (ahora como el primer elemento del split por coma)
+    partes = [p.strip().lower() for p in direccion.split(",")]
+    colonia = partes[0] if len(partes) >= 1 else ""
+    metros_str = item.get("Metros cuadrados", "0")
+    metros_match = re.search(r"(\d+(?:[\.,]\d+)?)", metros_str.replace(",", "."))
+    metros = float(metros_match.group(1)) if metros_match else 0
+    precio_str = item.get("Precio", "0")
+    precio_match = re.search(r"(\d+[\d,.]*)", precio_str.replace(",", ""))
+    precio = int(precio_match.group(1)) if precio_match else 0
+    banos_str = item.get("Baños", "0")
+    banos_match = re.search(r"(\d+)", str(banos_str))
+    banos = int(banos_match.group(1)) if banos_match else 0
+    recamaras_str = item.get("Recámaras", "0")
+    recamaras_match = re.search(r"(\d+)", str(recamaras_str))
+    recamaras = int(recamaras_match.group(1)) if recamaras_match else 0
+    return {
+        "colonia": colonia,
+        "ciudad": ciudad.lower(),
+        "estado": estado.lower(),
+        "tipo": tipo.lower(),
+        "direccion": direccion,
+        "titulo": titulo,
+        "url": url,
+        "metros": metros,
+        "precio": precio,
+        "banos": banos,
+        "recamaras": recamaras
+    }
+
 def save_to_firestore(data, collection_name='propiedades'):
     """Guarda una lista de diccionarios en una colección de Firestore."""
     if not db:
         print("No se pueden guardar los datos en Firestore porque la conexión no fue establecida.")
         return
-    
     if not data:
         print("No hay datos para guardar en Firestore.")
         return
-
     print(f"\n{'='*60}")
     print(f"GUARDANDO DATOS EN FIRESTORE")
     print(f"Colección: {collection_name}")
     print(f"{'='*60}")
-
     batch = db.batch()
     operations_in_batch = 0
     total_saved = 0
-    
     for item in data:
+        # Normalizar el item antes de guardar
+        norm_item = normalizar_propiedad(item)
         # Usamos la URL como ID del documento para evitar duplicados
-        doc_id = item.get("URL")
+        doc_id = norm_item.get("url")
         if not doc_id or doc_id == "No disponible":
-            # Si no hay URL, generamos un ID automático
             doc_ref = db.collection(collection_name).document()
         else:
-            # Limpiamos la URL para que sea un ID de documento válido
-            # Firestore no permite / en los IDs
             clean_id = re.sub(r'[\/*?:"<>|]', '_', doc_id)
-            # Los IDs no pueden tener más de 1500 bytes. Asumimos que la URL es más corta.
             doc_ref = db.collection(collection_name).document(clean_id)
-        
-        batch.set(doc_ref, item)
+        batch.set(doc_ref, norm_item)
         operations_in_batch += 1
-        
-        # Firestore permite un máximo de 500 operaciones por batch
         if operations_in_batch == 499:
             print(f"Enviando batch de {operations_in_batch} documentos a Firestore...")
             batch.commit()
             total_saved += operations_in_batch
-            batch = db.batch() # Iniciar un nuevo batch
-            operations_in_batch = 0 # Resetear el contador
-
-    # Enviar el último batch si contiene operaciones
+            batch = db.batch()
+            operations_in_batch = 0
     if operations_in_batch > 0:
         print(f"Enviando batch final de {operations_in_batch} documentos a Firestore...")
         batch.commit()
         total_saved += operations_in_batch
-
     print(f"\nSe han guardado un total de {total_saved} propiedades en la colección '{collection_name}' de Firestore.")
-
 
 try:
         

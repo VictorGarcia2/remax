@@ -117,6 +117,10 @@ const QuizResult = ({ estimatedValue, contactInfo, quizAnswers, onReset, onCompl
   const { valor } = useSearchContext();
   const [hasSentToPipedrive, setHasSentToPipedrive] = useState(false); // Nuevo estado
 
+  if (!estimatedValue) {
+    return <div className="text-center py-8">Cargando resultado de la valuación...</div>;
+  }
+
   // Función para formatear valores monetarios
   const formatCurrency = (value) => {
     return new Intl.NumberFormat('es-MX', {
@@ -272,17 +276,64 @@ const QuizResult = ({ estimatedValue, contactInfo, quizAnswers, onReset, onCompl
     }
   };
 
+  // Función para descargar el PDF
+  const descargarPDF = async () => {
+    // Construir el payload asegurando todos los campos requeridos
+    const locationData = quizAnswers.location || {};
+    const address =
+      typeof locationData === "object"
+        ? locationData.fullAddress || locationData.address || ""
+        : locationData;
+    const payload = {
+      direccion: address,
+      tipo: quizAnswers.propertyType || "",
+      metros: Number(quizAnswers.size) || 0,
+      bedrooms: Number(quizAnswers.bedrooms) || 0,
+      bathrooms: Number(quizAnswers.bathrooms) || 0,
+      age: quizAnswers.age || "",
+      condition: quizAnswers.condition || "",
+      amenities: quizAnswers.amenities || [],
+      contact_info: quizAnswers.contactInfo || {},
+      valor_estimado: estimatedValue.average || 0,
+      valor_m2: estimatedValue.valuePerSqMeter || 0
+    };
+    const response = await fetch('http://127.0.0.1:8000/reporte_pdf', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'reporte_inmueble.pdf';
+    a.click();
+  };
+
   return (
     <div className="text-center animate-fadeIn">
-      <div className="mb-6 sm:mb-8">
-        <div className="inline-block p-2 sm:p-3 bg-green-100 rounded-full mb-3 sm:mb-4">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 sm:h-10 sm:w-10 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-          </svg>
+      {/* Mensaje destacado según si hay comparables */}
+      {estimatedValue.comparables && estimatedValue.comparables.length > 0 ? (
+        <div className="mb-6 sm:mb-8">
+          <div className="inline-block p-2 sm:p-3 bg-green-100 rounded-full mb-3 sm:mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 sm:h-10 sm:w-10 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-green-800 mb-2">¡Valuación basada en datos reales de tu zona!</h3>
+          <p className="text-sm sm:text-base text-green-700">El cálculo se realizó usando propiedades similares de la base de datos.</p>
         </div>
-        <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-2">¡Valuación Completada!</h3>
-        <p className="text-sm sm:text-base text-gray-600">Basado en la información proporcionada, hemos estimado el valor de tu propiedad.</p>
-      </div>
+      ) : (
+        <div className="mb-6 sm:mb-8">
+          <div className="inline-block p-2 sm:p-3 bg-yellow-100 rounded-full mb-3 sm:mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 sm:h-10 sm:w-10 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-yellow-800 mb-2">Estimación aproximada</h3>
+          <p className="text-sm sm:text-base text-yellow-700">No se encontraron suficientes comparables en la base de datos para tu zona. El valor mostrado es una estimación basada en promedios generales.</p>
+        </div>
+      )}
       
       <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-4 sm:p-8 rounded-xl shadow-sm mb-6 sm:mb-8">
         <p className="text-gray-700 mb-2 sm:mb-3 font-medium text-sm sm:text-base">El valor estimado de tu propiedad es:</p>
@@ -370,23 +421,27 @@ const QuizResult = ({ estimatedValue, contactInfo, quizAnswers, onReset, onCompl
       {/* Mostrar comparables si existen */}
       {estimatedValue.comparables && estimatedValue.comparables.length > 0 && (
         <div className="comparables-section mt-8">
-          <h3 className="text-lg font-bold mb-4">Propiedades comparables en tu zona</h3>
+          <h3 className="text-lg font-bold mb-4 text-blue-900">Propiedades comparables en tu zona</h3>
           <ul className="space-y-4">
             {estimatedValue.comparables.map((comp, idx) => (
-              <li key={idx} className="border rounded-lg p-4 bg-gray-50">
-                <div><strong>{comp.titulo || 'Propiedad comparable'}</strong></div>
-                <div>Dirección: {comp.direccion}</div>
-                <div>Metros cuadrados: {comp.metros} m²</div>
-                <div>Precio: {formatCurrency(comp.precio)}</div>
-                <div>Recámaras: {comp.recamaras} | Baños: {comp.banos}</div>
+              <li key={idx} className="border rounded-lg p-4 bg-gray-50 shadow-sm">
+                <div className="font-semibold text-gray-800 mb-1">{comp.titulo || 'Propiedad comparable'}</div>
+                <div className="text-sm text-gray-600 mb-1">Dirección: <span className="font-medium text-gray-700">{comp.direccion}</span></div>
+                <div className="text-sm text-gray-600 mb-1">Metros cuadrados: <span className="font-medium text-gray-700">{comp.metros} m²</span></div>
+                <div className="text-sm text-gray-600 mb-1">Precio: <span className="font-medium text-gray-700">{formatCurrency(comp.precio)}</span></div>
+                <div className="text-sm text-gray-600 mb-1">Recámaras: <span className="font-medium text-gray-700">{comp.recamaras}</span> | Baños: <span className="font-medium text-gray-700">{comp.banos}</span></div>
                 {comp.url && (
-                  <a href={comp.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">Ver detalle</a>
+                  <a href={comp.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline text-sm">Ver detalle</a>
                 )}
               </li>
             ))}
           </ul>
         </div>
       )}
+
+      <button onClick={descargarPDF} className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+        Descargar PDF del reporte premium
+      </button>
     </div>
   );
 };

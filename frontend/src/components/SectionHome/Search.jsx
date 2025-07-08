@@ -314,7 +314,6 @@ export default function Search({
         <div
           ref={modalRef}
           tabIndex={0}
-          onKeyDown={handleTipoKeyDown}
           className={`${!openTipo ? "hidden" : ""} w-40 sm:w-60 lg:w-80 h-auto bg-white mt-1 rounded shadow-[0_3px_1px] flex flex-col justify-center align-middle items-center shadow-black/50`}
         >
           <ol className="font-display text-start py-4 text-sm sm:text-base lg:text-2xl text-[#414141]">

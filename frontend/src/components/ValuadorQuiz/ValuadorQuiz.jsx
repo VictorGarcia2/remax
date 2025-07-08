@@ -9,6 +9,37 @@ import SectionFooter from "../SectionFooter/SectionFooter";
 import { db } from '../../utils/firebase';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 
+async function obtenerValuacionPython(answers) {
+  const locationData = answers.location || {};
+  const address =
+    typeof locationData === "object"
+      ? locationData.fullAddress || locationData.address || ""
+      : locationData;
+
+  const payload = {
+    direccion: address,
+    tipo: answers.propertyType,
+    metros: Number(answers.size),
+    bedrooms: Number(answers.bedrooms) || null,
+    bathrooms: Number(answers.bathrooms) || null,
+    age: answers.age || null,
+    condition: answers.condition || null,
+    amenities: answers.amenities || [],
+    contact_info: answers.contactInfo || null
+  };
+
+  const response = await fetch("http://127.0.0.1:8000/valuar", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  });
+
+  if (!response.ok) {
+    throw new Error("No se pudo obtener la valuación del backend");
+  }
+  return await response.json();
+}
+
 const ValuadorQuiz = ({ onComplete, address }) => {
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(0);
@@ -275,7 +306,6 @@ const ValuadorQuiz = ({ onComplete, address }) => {
       let estado = '';
       if (address) {
         const partes = address.split(',');
-        // Asume formato: 'Colonia, Ciudad, Estado' o 'Calle, Colonia, Ciudad, Estado'
         if (partes.length >= 3) {
           ciudad = partes[partes.length - 2].trim().toLowerCase();
           estado = partes[partes.length - 1].trim().toLowerCase();
@@ -286,23 +316,21 @@ const ValuadorQuiz = ({ onComplete, address }) => {
       }
       const tipoLower = propertyType.toLowerCase();
 
-      // Consulta a Firestore: propiedades similares por ciudad, estado y tipo (flexible a mayúsculas/minúsculas)
       const propiedadesRef = collection(db, 'propiedades');
-      const q = query(
-        propiedadesRef,
-        where('ciudad', '==', ciudad),
-        where('estado', '==', estado),
-        where('tipo', '==', tipoLower)
-      );
-      const querySnapshot = await getDocs(q);
-      const comparables = [];
-      querySnapshot.forEach((doc) => {
-        const data = doc.data();
-        // Normaliza los campos a minúsculas para comparar
-        const ciudadDoc = (data.ciudad || '').toLowerCase();
-        const estadoDoc = (data.estado || '').toLowerCase();
-        const tipoDoc = (data.tipo || '').toLowerCase();
-        if (ciudadDoc === ciudad && estadoDoc === estado && tipoDoc === tipoLower) {
+      let comparables = [];
+      let nivelCoincidencia = '';
+
+      // 1. Buscar por ciudad+estado+tipo
+      if (ciudad && estado) {
+        const q1 = query(
+          propiedadesRef,
+          where('ciudad', '==', ciudad),
+          where('estado', '==', estado),
+          where('tipo', '==', tipoLower)
+        );
+        const qs1 = await getDocs(q1);
+        qs1.forEach((doc) => {
+          const data = doc.data();
           comparables.push({
             ...data,
             metros: Number(String(data.metros).replace(/[^0-9.]/g, "")),
@@ -310,8 +338,50 @@ const ValuadorQuiz = ({ onComplete, address }) => {
             banos: Number(data.banos),
             recamaras: Number(data.recamaras),
           });
-        }
-      });
+        });
+        if (comparables.length > 0) nivelCoincidencia = 'ciudad+estado+tipo';
+      }
+
+      // 2. Si no hay, buscar por estado+tipo
+      if (comparables.length === 0 && estado) {
+        const q2 = query(
+          propiedadesRef,
+          where('estado', '==', estado),
+          where('tipo', '==', tipoLower)
+        );
+        const qs2 = await getDocs(q2);
+        qs2.forEach((doc) => {
+          const data = doc.data();
+          comparables.push({
+            ...data,
+            metros: Number(String(data.metros).replace(/[^0-9.]/g, "")),
+            precio: Number(String(data.precio).replace(/[^0-9.]/g, "")),
+            banos: Number(data.banos),
+            recamaras: Number(data.recamaras),
+          });
+        });
+        if (comparables.length > 0) nivelCoincidencia = 'estado+tipo';
+      }
+
+      // 3. Si no hay, buscar solo por tipo
+      if (comparables.length === 0) {
+        const q3 = query(
+          propiedadesRef,
+          where('tipo', '==', tipoLower)
+        );
+        const qs3 = await getDocs(q3);
+        qs3.forEach((doc) => {
+          const data = doc.data();
+          comparables.push({
+            ...data,
+            metros: Number(String(data.metros).replace(/[^0-9.]/g, "")),
+            precio: Number(String(data.precio).replace(/[^0-9.]/g, "")),
+            banos: Number(data.banos),
+            recamaras: Number(data.recamaras),
+          });
+        });
+        if (comparables.length > 0) nivelCoincidencia = 'tipo';
+      }
 
       // Manejo de éxito
       if (comparables.length === 0) {
@@ -320,8 +390,11 @@ const ValuadorQuiz = ({ onComplete, address }) => {
         calculateEstimatedValue();
         return;
       } else {
-        console.log('Comparables encontrados en Firestore:', comparables);
-        alert('¡Consulta a Firestore exitosa! Se encontraron comparables.');
+        let mensaje = '¡Consulta a Firestore exitosa! Se encontraron comparables';
+        if (nivelCoincidencia === 'ciudad+estado+tipo') mensaje += ' (misma ciudad, estado y tipo)';
+        else if (nivelCoincidencia === 'estado+tipo') mensaje += ' (mismo estado y tipo)';
+        else if (nivelCoincidencia === 'tipo') mensaje += ' (solo mismo tipo)';
+        alert(mensaje);
       }
 
       // Calcular precio por m2 de cada comparable
@@ -336,6 +409,7 @@ const ValuadorQuiz = ({ onComplete, address }) => {
         high: upperRange,
         valuePerSqMeter: Math.floor(promedioM2),
         comparables: comparables.slice(0, 5), // Muestra hasta 5 comparables
+        nivelCoincidencia: nivelCoincidencia,
       });
       setLoading(false);
     } catch (error) {
@@ -347,8 +421,8 @@ const ValuadorQuiz = ({ onComplete, address }) => {
     }
   };
 
-  // Manejar el avance al siguiente paso
-  const handleNext = (stepAnswers) => {
+  // Reemplaza handleNext para usar la API de Python al finalizar el quiz
+  const handleNext = async (stepAnswers) => {
     const updatedAnswers = { ...answers, ...stepAnswers };
     setAnswers(updatedAnswers);
 
@@ -359,7 +433,14 @@ const ValuadorQuiz = ({ onComplete, address }) => {
         behavior: "smooth",
       });
     } else {
-      calcularValorConComparables();
+      setLoading(true);
+      try {
+        const resultado = await obtenerValuacionPython(updatedAnswers);
+        setEstimatedValue(resultado.estadisticas); // O resultado, según lo que quieras mostrar
+      } catch (error) {
+        alert(error.message);
+      }
+      setLoading(false);
     }
   };
 
