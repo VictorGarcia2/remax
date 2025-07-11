@@ -150,9 +150,13 @@ export default function FiltrosDesktop({
   }, [limpiar]);
 
   // Agrupación y resaltado
+  function escapeRegExp(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
   function highlightMatch(text, query) {
     if (!query) return text;
-    const regex = new RegExp(`(${query})`, 'ig');
+    const safeQuery = escapeRegExp(query);
+    const regex = new RegExp(`(${safeQuery})`, 'ig');
     return text.replace(regex, '<b>$1</b>');
   }
   const colonias = suggestions.filter(s => (s.types || []).some(t => ["neighborhood","sublocality","route"].includes(t)));
