@@ -66,58 +66,43 @@ const MapboxAddressInput = ({ value, onChange, disabled }) => {
     updateValue(address, houseNumber);
   };
 
+  // Render
   return (
-    <div className="space-y-4 w-full" ref={wrapperRef}>
-      <div className="relative w-full">
-        <input
-          type="text"
-          className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm text-gray-700 text-lg transition-all"
-          placeholder="Ingresa la dirección de tu propiedad"
-          value={inputValue}
-          onChange={handleInputChange}
-          disabled={disabled}
-          autoComplete="off"
-        />
-        
-        {showSuggestions && suggestions.length > 0 && (
-          <ul className="absolute z-10 w-full bg-white border border-gray-200 rounded-lg mt-1 shadow-lg max-h-60 overflow-y-auto">
-            {suggestions.map((suggestion) => (
-              <li
-                key={suggestion.id}
-                className="px-4 py-3 hover:bg-gray-100 cursor-pointer border-b border-gray-100 last:border-b-0"
-                onClick={() => handleSelectSuggestion(suggestion)}
-              >
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 pt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                  </div>
-                  <div className="ml-3">
-                    <p className="text-sm font-medium text-gray-900">{suggestion.place_name}</p>
-                    <p className="text-xs text-gray-500">
-                      {suggestion.category === "ciudad" ? "Ciudad" : "Dirección"}
-                    </p>
-                  </div>
-                </div>
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-
-      <div>
-        <input
-          type="text"
-          className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm text-gray-700 text-lg transition-all"
-          placeholder="Número exterior *"
-          value={houseNumber}
-          onChange={handleHouseNumberChange}
-          disabled={disabled}
-          required
-        />
-      </div>
+    <div ref={wrapperRef} className="relative">
+      <input
+        type="text"
+        className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blueRemax"
+        placeholder="Ejemplo: Calle 123, Piso 2, Referencia... (opcional)"
+        value={inputValue}
+        onChange={handleInputChange}
+        disabled={disabled}
+      />
+      <input
+        type="text"
+        className="w-full border border-gray-300 rounded-lg px-4 py-2 mt-2 focus:outline-none focus:ring-2 focus:ring-blueRemax"
+        placeholder="Número exterior (opcional)"
+        value={houseNumber}
+        onChange={handleHouseNumberChange}
+        disabled={disabled}
+      />
+      {/* Sugerencias de Mapbox */}
+      {showSuggestions && suggestions.length > 0 && (
+        <ul className="absolute z-10 bg-white border border-gray-300 rounded-lg mt-1 w-full max-h-48 overflow-y-auto shadow-lg">
+          {suggestions.map((suggestion, idx) => (
+            <li
+              key={idx}
+              className="px-4 py-2 cursor-pointer hover:bg-blue-100"
+              onClick={() => {
+                setInputValue(suggestion.place_name);
+                setShowSuggestions(false);
+                updateValue(suggestion.place_name, houseNumber);
+              }}
+            >
+              {suggestion.place_name}
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };

@@ -53,13 +53,13 @@ export default function SectionDesarrolloDestacado() {
                 <button
                   key={img.id}
                   onClick={() => setSelectedImage(img)}
-                  className={`w-20 h-16 md:w-24 md:h-20 object-cover rounded-xl transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f2efe2] ${
+                  className={`w-14 h-16 md:w-24 md:h-20 object-cover rounded-xl transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f2efe2] ${
                     selectedImage.id === img.id ? 'ring-2 ring-[#f2efe2] shadow-xl' : 'ring-2 ring-transparent hover:scale-105'
                   }`}>
                   <img
                     src={img.src}
                     alt={img.alt}
-                    className="w-full h-full object-cover rounded-lg"
+                    className=" w-full h-full object-cover rounded-lg"
                   />
                 </button>
               ))}

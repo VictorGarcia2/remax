@@ -50,7 +50,7 @@ const Valuador = () => {
         />
       </Helmet>
       <Header/>
-      <div className="bg-gradient-to-b from-gray-50 to-gray-100 min-h-screen">
+      <div className="bg-gradient-to-b from-gray-50 to-gray-100 min-h-screen w-full">
         {/* Header con imagen de fondo */}
         <div className="relative bg-[#003da4] text-white py-24 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-[#003da4] to-[#002d7a] opacity-90"></div>

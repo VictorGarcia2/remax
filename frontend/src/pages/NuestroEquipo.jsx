@@ -7,8 +7,10 @@ export default function NuestroEquipo({propiedades}) {
   return (
     <>
     <Header/>
+    <div className="w-full">
       <Equipo propiedades={propiedades} />
       <SectionFooter/>
+    </div>
     </>
   );
 }

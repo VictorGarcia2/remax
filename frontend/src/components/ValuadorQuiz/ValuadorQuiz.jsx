@@ -25,7 +25,10 @@ async function obtenerValuacionPython(answers) {
     age: answers.age || null,
     condition: answers.condition || null,
     amenities: answers.amenities || [],
-    contact_info: answers.contactInfo || null
+    contact_info: answers.contactInfo || null,
+    colonia: answers.colonia || null,
+    ciudad: answers.ciudad || null,
+    estado: answers.estado || null,
   };
 
   const response = await fetch("http://127.0.0.1:8000/valuar", {
@@ -46,6 +49,10 @@ const ValuadorQuiz = ({ onComplete, address }) => {
   const [answers, setAnswers] = useState({});
   const [estimatedValue, setEstimatedValue] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [ciudades, setCiudades] = useState([]);
+  const [colonias, setColonias] = useState([]);
+  const [estados, setEstados] = useState([]);
+  const [filteredColonias, setFilteredColonias] = useState([]);
 
   // Efecto para establecer la dirección si se proporciona
   useEffect(() => {
@@ -57,14 +64,68 @@ const ValuadorQuiz = ({ onComplete, address }) => {
     }
   }, [address]);
 
+  // Cargar ciudades, colonias y estados desde Firestore al montar
+  useEffect(() => {
+    async function fetchUbicaciones() {
+      const snapshot = await getDocs(collection(db, 'propiedades'));
+      const ciudadesSet = new Set();
+      const coloniasSet = new Set();
+      const estadosSet = new Set();
+      snapshot.forEach(doc => {
+        const data = doc.data();
+        if (data.ciudad) ciudadesSet.add(data.ciudad);
+        if (data.colonia) coloniasSet.add(data.colonia);
+        if (data.estado) estadosSet.add(data.estado);
+      });
+      setCiudades(Array.from(ciudadesSet).sort());
+      setColonias(Array.from(coloniasSet).sort());
+      setEstados(Array.from(estadosSet).sort());
+    }
+    fetchUbicaciones();
+  }, []);
+
+  // Filtrar colonias según la ciudad seleccionada
+  useEffect(() => {
+    if (answers.ciudad) {
+      async function fetchColoniasPorCiudad() {
+        const snapshot = await getDocs(collection(db, 'propiedades'));
+        const coloniasSet = new Set();
+        snapshot.forEach(doc => {
+          const data = doc.data();
+          if (data.ciudad === answers.ciudad && data.colonia) {
+            coloniasSet.add(data.colonia);
+          }
+        });
+        setFilteredColonias(Array.from(coloniasSet).sort());
+      }
+      fetchColoniasPorCiudad();
+    } else {
+      setFilteredColonias([]);
+    }
+  }, [answers.ciudad]);
+
   // Preguntas del quiz
   const questions = [
     {
-      id: "location",
-      question: "¿Cuál es la dirección de tu propiedad?",
-      description:
-        "La ubicación es uno de los factores más importantes para determinar el valor de una propiedad.",
-      type: "mapbox",
+      id: "estado",
+      question: "¿En qué estado se encuentra la propiedad?",
+      type: "select",
+      options: estados.map(e => ({ value: e, label: e })),
+      description: "Selecciona el estado donde está ubicada la propiedad.",
+    },
+    {
+      id: "ciudad",
+      question: "¿En qué ciudad se encuentra la propiedad?",
+      type: "select",
+      options: ciudades.map(c => ({ value: c, label: c })),
+      description: "Selecciona la ciudad donde está ubicada la propiedad.",
+    },
+    {
+      id: "colonia",
+      question: "¿En qué colonia se encuentra la propiedad?",
+      type: "select",
+      options: filteredColonias.map(col => ({ value: col, label: col })),
+      description: "Selecciona la colonia donde está ubicada la propiedad.",
     },
     {
       id: "propertyType",

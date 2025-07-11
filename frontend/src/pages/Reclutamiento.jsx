@@ -652,6 +652,7 @@ ${formData.message}`;
   return (
     <>
       <Header />
+      <div className="w-full">
       {showSuccessModal && <SuccessModal />}
       {/* Hero Section */}
       <div className="relative pt-20 bg-cover bg-center" style={{ backgroundImage: "linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')" }}>
@@ -1333,6 +1334,7 @@ ${formData.message}`;
       </section>
 
       <SectionFooter />
+      </div>
     </>
   );
 }

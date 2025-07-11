@@ -135,6 +135,26 @@ const QuizQuestion = ({
 
   // Renderizar el input según el tipo de pregunta
   const renderQuestionInput = () => {
+    if (question.type === 'select') {
+      return (
+        <div>
+          <select
+            className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blueRemax"
+            value={answer}
+            onChange={handleChange}
+            disabled={loading}
+          >
+            <option value="">Selecciona una opción</option>
+            {question.options && question.options.map(opt => (
+              <option key={opt.value} value={opt.value}>{opt.label}</option>
+            ))}
+          </select>
+          {errors.select && (
+            <div className="text-red-500 text-xs mt-1">{errors.select}</div>
+          )}
+        </div>
+      );
+    }
     switch (question.type) {
       case 'mapbox':
         return (
@@ -146,28 +166,6 @@ const QuizQuestion = ({
             />
             {errors.mapbox && <p className="text-red-500 text-sm mt-2 font-medium">{errors.mapbox}</p>}
             {errors.houseNumber && <p className="text-red-500 text-sm mt-2 font-medium">{errors.houseNumber}</p>}
-          </div>
-        );
-        
-      case 'select':
-        return (
-          <div className="mb-6">
-            <select
-              className={`w-full p-3 sm:p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 shadow-sm text-gray-700 text-base sm:text-lg transition-all ${
-                valor === "comercial" ? "focus:ring-red-500" : "focus:ring-blue-500"
-              }`}
-              value={answer}
-              onChange={handleChange}
-              disabled={loading}
-            >
-              <option value="">Selecciona una opción</option>
-              {question.options.map(option => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-            {errors.select && <p className="text-red-500 text-sm mt-2 font-medium">{errors.select}</p>}
           </div>
         );
       

@@ -38,7 +38,7 @@ except Exception as e:
 # ---------------------------------
 
 # URL base de la página de Lamudi
-base_url = "https://www.lamudi.com.mx/veracruz-llave/veracruz/casa/for-sale/"
+base_url = "https://www.lamudi.com.mx/veracruz-llave/casa/for-sale/"
 headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
     "Accept-Language": "es-ES,es;q=0.9",
@@ -455,7 +455,6 @@ def normalizar_propiedad(item):
     direccion = item.get("Dirección", "No disponible")
     titulo = item.get("Título", "No disponible")
     url = item.get("URL", "No disponible")
-    # Extraer colonia (ahora como el primer elemento del split por coma)
     partes = [p.strip().lower() for p in direccion.split(",")]
     colonia = partes[0] if len(partes) >= 1 else ""
     metros_str = item.get("Metros cuadrados", "0")
@@ -470,6 +469,14 @@ def normalizar_propiedad(item):
     recamaras_str = item.get("Recámaras", "0")
     recamaras_match = re.search(r"(\d+)", str(recamaras_str))
     recamaras = int(recamaras_match.group(1)) if recamaras_match else 0
+    # Validación de outliers
+    if metros == 0 or precio == 0:
+        print(f"[DESCARTADO] Sin metros o precio válido: {direccion}")
+        return None
+    precio_m2 = precio / metros
+    if precio_m2 < 5000 or precio_m2 > 100000:
+        print(f"[DESCARTADO] Outlier precio/m²={precio_m2:.2f}: {direccion}")
+        return None
     return {
         "colonia": colonia,
         "ciudad": ciudad.lower(),

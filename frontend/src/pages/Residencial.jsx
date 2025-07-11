@@ -10,6 +10,7 @@ import LoadingSpinner from "../components/LoadingSpinner";
 import { useSearchContext } from "../context/SearchContext";
 import { motion } from "framer-motion";
 import PropuestaFormularioDirecto from "../components/SectionDesarrolloDestacado/PropuestaFormularioDirecto";
+import Header from "../components/SectionHome/Header";
 
 // Lazy loaded components
 const SectionPorque = lazy(() =>
@@ -177,8 +178,9 @@ export default function Residencial({
   }, []);
 
   return (
-    <main className="min-h-screen bg-white">
-      <section ref={firstSectionRef} className="relative z-20" aria-labelledby="busqueda-title">
+    <main className="min-h-screen bg-white w-full">
+      <Header setSelectedOptionsOperacion={setSelectedOptionsOperacion} />
+      <section ref={firstSectionRef} className="relative z-20 w-full" aria-labelledby="busqueda-title">
         <h1 id="busqueda-title" className="sr-only">Búsqueda de propiedades residenciales</h1>
         <HomeSearch
           valor={valor}
@@ -188,7 +190,7 @@ export default function Residencial({
         />
       </section>
 
-      <section className="relative z-10" aria-labelledby="porque-title">
+      <section className="relative z-10 w-full" aria-labelledby="porque-title">
         <h2 id="porque-title" className="sr-only">¿Por qué elegir residencial?</h2>
         <SectionPorque valor={valor} />
       </section>

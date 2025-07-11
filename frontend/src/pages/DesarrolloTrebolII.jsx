@@ -128,6 +128,7 @@ export default function DesarrolloTrebolII() {
   const [enviado, setEnviado] = useState(false);
   const [touched, setTouched] = useState({});
   const [showModal, setShowModal] = useState(false);
+  const [aceptaTerminos, setAceptaTerminos] = useState(false);
 
   const images = [
     { url: "/fotosdesarrollo/FACHADA.webp", title: "Fachada" },
@@ -355,8 +356,15 @@ export default function DesarrolloTrebolII() {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
               className="inline-block bg-[#db1c2e] text-white text-xs font-bold px-4 py-1 rounded-full mb-1 shadow "
+              onClick={() => {
+                const formSection = document.getElementById('formulario-hero');
+              if (formSection) {
+                formSection.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+          
           >
-            ¡Departamentos en venta!
+            ¡Entrega innmediata!
           </motion.span>
           <motion.h1
             id="hero-title"
@@ -381,7 +389,7 @@ export default function DesarrolloTrebolII() {
             transition={{ delay: 0.5 }}
               className="text-sm md:text-lg text-[#005156]/80 mb-2 text-center md:text-left"
           >
-            Descubre tu próximo departamento con espacios únicos diseñados para tu familia. Vive cerca de todo con la comodidad de tener un hogar cómodo, con amenidades hechas para ti.
+            Descubre tu próximo departamento con espacios únicos diseñados para tu familia. Vive cerca de todo con la comodidad de tener un hogar, con amenidades hechas para ti.
           </motion.p>
           <motion.button
             whileHover={{ scale: 1.07 }}
@@ -426,12 +434,64 @@ export default function DesarrolloTrebolII() {
                   <input name="email" id="email" type="email" placeholder="Correo electrónico" className={`w-full p-3 rounded-lg border ${touched.email && form.email && !emailRegex.test(form.email) ? 'border-red-400' : 'border-[#005156]/40'} focus:border-[#005156] focus:ring-2 focus:ring-[#db1c2e]/20 transition bg-white text-base placeholder-gray-400`} value={form.email} onChange={handleChange} onBlur={handleBlur} />
                   {touched.email && form.email && !emailRegex.test(form.email) && <span className="text-xs text-red-600 bg-red-50 px-2 py-1 rounded absolute -bottom-6 left-1">Formato de correo inválido</span>}
                 </div>
-                <button type="submit" disabled={!isValid} className={`w-full bg-[#db1c2e] text-white font-bold py-3 rounded-lg mt-2 shadow-lg transition-transform duration-200 hover:scale-105 text-lg focus:outline-none focus:ring-2 focus:ring-[#005156]/40 ${!isValid ? 'opacity-60 cursor-not-allowed' : ''}`}>¡Agendar mi visita!</button>
+                <div className="flex items-center gap-2 mt-2">
+                  <input type="checkbox" id="aceptaTerminos" checked={aceptaTerminos} onChange={e => setAceptaTerminos(e.target.checked)} required className="accent-[#db1c2e] w-4 h-4" />
+                  <label htmlFor="aceptaTerminos" className="text-xs text-[#005156]">Acepto los <a href="/terminos-y-condiciones" target="_blank" rel="noopener noreferrer" className="underline text-[#db1c2e]">Términos y Condiciones</a></label>
+                </div>
+                <button type="submit" disabled={!isValid || !aceptaTerminos} className={`w-full bg-[#db1c2e] text-white font-bold py-3 rounded-lg mt-2 shadow-lg transition-transform duration-200 hover:scale-105 text-lg focus:outline-none focus:ring-2 focus:ring-[#005156]/40 ${!isValid || !aceptaTerminos ? 'opacity-60 cursor-not-allowed' : ''}`}>¡Agendar mi visita!</button>
                 <div className="text-xs text-[#005156] text-center mt-2 flex items-center gap-1 justify-center bg-[#f2efe2]/60 px-2 py-1 rounded"><FaLock className="inline-block mr-1 text-[#db1c2e]" />No compartimos tus datos con terceros.</div>
               </form>
             )}
           </section>
         </div>
+      </section>
+
+      {/* VIDEO TOUR */}
+      <section className="w-full flex flex-col items-center py-8 px-2 bg-[#f2efe2]">
+        <h2 className="text-xl md:text-2xl font-bold text-[#005156] mb-4 text-center">Conoce TRÉBOL II en video</h2>
+        <div className="w-full max-w-2xl aspect-[9/16] md:aspect-video rounded-2xl overflow-hidden shadow-xl border border-[#005156]/30 bg-black flex items-center justify-center relative">
+          {/* Overlay de play */}
+          {typeof window !== 'undefined' && !window.__videoPlayed && (
+            <button
+              type="button"
+              aria-label="Reproducir video"
+              className="absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition-colors z-20 group"
+              style={{ pointerEvents: 'auto' }}
+              onClick={() => {
+                const iframe = document.getElementById('video-tour-trebol');
+                if (iframe) {
+                  // Intenta reproducir el video si es posible (solo funciona en YouTube, no Facebook)
+                  // iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+                }
+                if (typeof window !== 'undefined') window.__videoPlayed = true;
+                const overlay = document.getElementById('video-overlay-trebol');
+                if (overlay) overlay.style.display = 'none';
+              }}
+              id="video-overlay-trebol"
+            >
+              <span className="bg-white/90 rounded-full p-5 md:p-7 shadow-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                <svg className="w-10 h-10 md:w-16 md:h-16 text-[#db1c2e]" fill="currentColor" viewBox="0 0 60 60">
+                  <circle cx="30" cy="30" r="28" fill="white" stroke="#db1c2e" strokeWidth="3" />
+                  <polygon points="25,20 45,30 25,40" fill="#db1c2e" />
+                </svg>
+              </span>
+            </button>
+          )}
+          <iframe
+            id="video-tour-trebol"
+            src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1242575930981064%2F&show_text=false&width=267&t=0"
+            width="100%"
+            height="100%"
+            style={{ border: "none", overflow: "hidden" }}
+            scrolling="no"
+            frameBorder="0"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            allowFullScreen={true}
+            title="Video tour Trébol II"
+            className="w-full h-full"
+          />
+        </div>
+        <p className="text-sm text-[#005156]/80 mt-3 text-center max-w-md">Descubre los espacios, amenidades y el entorno de Trébol II en este video. ¡Dale play!</p>
       </section>
 
       {/* PRECIO DESTACADO */}
@@ -515,13 +575,14 @@ export default function DesarrolloTrebolII() {
       </section>
 
       {/* 5. BENEFICIOS Y AMENIDADES */}
-      <section className="w-full bg-white py-16 px-2 md:px-8" aria-labelledby="beneficios-title">
+      <section className="w-full bg-white py-12 px-2 md:px-8" aria-labelledby="beneficios-title">
         <div className="max-w-5xl mx-auto flex flex-col items-center">
-          <h2 id="beneficios-title" className="text-3xl md:text-4xl font-extrabold text-[#005156] mb-4 text-center flex items-center gap-3">
-            ¿Por qué elegir <span className="text-[#db1c2e]">TRÉBOL II</span>?
-              <span className="inline-block bg-[#db1c2e] text-white text-xs font-bold px-3 py-1 rounded-full shadow ml-2">RE/MAX CIN</span>
-            </h2>
-          <p className="text-lg text-[#005156]/80 mb-10 text-center max-w-2xl">Descubre los beneficios y amenidades que hacen de TRÉBOL II la mejor opción para tu nuevo hogar en Veracruz.</p>
+          <h2 id="beneficios-title" className="text-2xl xs:text-3xl md:text-4xl font-extrabold text-[#005156] mb-4 text-center flex flex-col xs:flex-row items-center gap-2 xs:gap-3">
+            <span className="block leading-tight">¿Por qué elegir</span>
+            <span className="text-[#db1c2e] text-3xl xs:text-4xl md:text-5xl font-extrabold block leading-tight">TRÉBOL II</span>
+            <span className="inline-block bg-[#db1c2e] text-white text-xs font-bold px-3 py-1 rounded-full shadow mt-2 xs:mt-0 xs:ml-2">RE/MAX CIN</span>
+          </h2>
+          <p className="text-base xs:text-lg text-[#005156]/80 mb-8 text-center max-w-2xl">Descubre los beneficios y amenidades que hacen de TRÉBOL II la mejor opción para tu nuevo hogar en Veracruz.</p>
           <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Card 1 */}
             <article className="bg-white rounded-2xl p-8 text-[#005156] flex flex-col gap-3 shadow-xl border-l-8 border-[#005156] hover:shadow-2xl transition-all duration-300 relative">

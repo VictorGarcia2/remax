@@ -295,7 +295,10 @@ const QuizResult = ({ estimatedValue, contactInfo, quizAnswers, onReset, onCompl
       amenities: quizAnswers.amenities || [],
       contact_info: quizAnswers.contactInfo || {},
       valor_estimado: estimatedValue.average || 0,
-      valor_m2: estimatedValue.valuePerSqMeter || 0
+      valor_m2: estimatedValue.valuePerSqMeter || 0,
+      colonia: quizAnswers.colonia || "",
+      ciudad: quizAnswers.ciudad || "",
+      estado: quizAnswers.estado || ""
     };
     const response = await fetch('http://127.0.0.1:8000/reporte_pdf', {
       method: 'POST',
@@ -330,8 +333,8 @@ const QuizResult = ({ estimatedValue, contactInfo, quizAnswers, onReset, onCompl
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
-          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-yellow-800 mb-2">Estimación aproximada</h3>
-          <p className="text-sm sm:text-base text-yellow-700">No se encontraron suficientes comparables en la base de datos para tu zona. El valor mostrado es una estimación basada en promedios generales.</p>
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-yellow-800 mb-2">Estimación basada en comparables reales de tu zona.</h3>
+          <p className="text-sm sm:text-base text-yellow-700">El valor mostrado es una estimación basada en promedios generales.</p>
         </div>
       )}
       

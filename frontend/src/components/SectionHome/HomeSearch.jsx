@@ -1,5 +1,4 @@
 import React, { useEffect, useState, memo, useCallback, useRef, useMemo } from "react";
-import Header from "./Header";
 import Search from "./Search";
 import { useSearchContext } from "../../context/SearchContext";
 
@@ -180,9 +179,9 @@ const HomeSearch = memo(
     }, [valor]);
 
     // Memoizar el contenido del header
-    const headerContent = useMemo(() => (
-      <Header setSelectedOptionsOperacion={setSelectedOptionsOperacion} />
-    ), [setSelectedOptionsOperacion]);
+    // const headerContent = useMemo(() => (
+    //   <Header setSelectedOptionsOperacion={setSelectedOptionsOperacion} />
+    // ), [setSelectedOptionsOperacion]);
 
     // Memoizar el contenido del search
     const searchContent = useMemo(() => (
@@ -199,7 +198,7 @@ const HomeSearch = memo(
     return (
       <div className="w-full relative h-[536px] sm:h-[680px] 2xl:h-[900px]"> {/* Asegurar altura del contenedor principal */}
         <div className="w-full absolute z-10">
-          {headerContent}
+          {/* headerContent eliminado */}
           <div className="text-center static w-[336px] 2xl:mt-70 font-display flex flex-col justify-content-center items-center text-white mx-auto mt-35 sm:mt-60">
             <p className="text-4xl sm:text-3xl sm:w-[730px] md:text-6xl lg:w-[730px]">
               {selectedContent.tittle}

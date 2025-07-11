@@ -20,9 +20,21 @@ export default function Header({ setSelectedOptionsOperacion }) {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+  // Bloquear scroll del body cuando el menú está abierto
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
   return (
     <nav className="bg-white fixed w-full z-100 top-0 left-0 shadow-sm overflow-x-hidden">
-      <div className="w-full flex flex-wrap items-center justify-between h-16 md:h-20 px-2 sm:px-4 md:px-6 md:max-w-screen-xl md:mx-auto">
+      <div className="w-full flex flex-wrap items-center justify-between h-16 md:h-20 px-2 sm:px-4 md:px-6">
         <Link
           to={"/inicio"}
           className="flex items-center space-x-3 rtl:space-x-reverse h-full min-w-0"
@@ -69,84 +81,79 @@ export default function Header({ setSelectedOptionsOperacion }) {
         >
           {/* Overlay para menú hamburguesa en móvil */}
           {isOpen && (
-            <div className="fixed inset-0 z-50 flex items-start justify-center md:hidden bg-black/30">
-              <div className="w-[95vw] max-w-sm max-h-[80vh] min-h-fit bg-white rounded-2xl shadow-2xl flex flex-col items-center p-6 border border-gray-200 overflow-y-auto justify-center mt-4">
-                <ul className="flex flex-col w-full font-medium space-y-2 items-center justify-center">
-                  <li className="py-1 w-full">
+            <div className="fixed inset-0 z-50 flex items-start justify-center md:hidden bg-black/60 transition-opacity duration-300 animate-fadeIn" onClick={() => setIsOpen(false)}>
+              <div className="w-[95vw] max-w-sm max-h-[80vh] min-h-fit bg-white rounded-2xl shadow-2xl flex flex-col items-center p-6 border border-gray-200 overflow-y-auto justify-center mt-4 relative animate-slideDown" onClick={e => e.stopPropagation()}>
+                {/* Botón de cerrar (X) */}
+                <button className="absolute top-3 right-3 text-3xl text-gray-500 hover:text-red-500 focus:outline-none" onClick={() => setIsOpen(false)} aria-label="Cerrar menú">
+                  &times;
+                </button>
+                <ul className="flex flex-col w-full font-medium space-y-3 items-center justify-center">
+                  <li className="py-2 w-full">
                     <Link
                       to="/"
-                      className={`block py-2 px-3 rounded-md w-full text-center md:bg-transparent md:p-0 md:hover:text-current ${valor === "comercial" ? "text-red-700 md:text-red-700 md:hover:text-red-800" : "text-blue-700 md:text-blue-700 md:hover:text-blue-800"}`}
+                      className={`block py-4 px-3 rounded-md w-full text-center text-lg md:bg-transparent md:p-0 md:hover:text-current ${valor === "comercial" ? "text-red-700 md:text-red-700 md:hover:text-red-800" : "text-blue-700 md:text-blue-700 md:hover:text-blue-800"}`}
                       aria-current="page"
                       onClick={() => setIsOpen(false)}
                     >
                       Inicio
                     </Link>
                   </li>
-                  <li className="py-1 w-full">
+                  <li className="py-2 w-full">
                     <Link
                       onClick={() => {
                         setSelectedOptionsOperacion([1]);
                         setIsOpen(false);
                       }}
                       to="/propiedades"
-                      className={`block py-2 px-3 text-gray-700 rounded-md w-full text-center hover:bg-gray-100 md:hover:bg-transparent md:p-0 ${valor === "comercial" ? "md:hover:text-red-700" : "md:hover:text-blue-700"}`}
+                      className={`block py-4 px-3 text-gray-700 rounded-md w-full text-center text-lg hover:bg-gray-100 md:hover:bg-transparent md:p-0 ${valor === "comercial" ? "md:hover:text-red-700" : "md:hover:text-blue-700"}`}
                     >
                       Comprar
                     </Link>
                   </li>
-                  <li className="py-1 w-full">
+                  <li className="py-2 w-full">
                     <Link
                       to="/valuador"
-                      className="block py-2 px-3 text-gray-700 rounded-md w-full text-center hover:bg-gray-100 md:hover:bg-transparent md:p-0"
+                      className="block py-4 px-3 text-gray-700 rounded-md w-full text-center text-lg hover:bg-gray-100 md:hover:bg-transparent md:p-0"
                       onClick={() => setIsOpen(false)}
                     >
                       Valuar mi propiedad
                     </Link>
                   </li>
-                {/*   <li className="py-1 w-full">
-                    <a
-                      href="#"
-                      className={`block py-2 px-3 text-gray-700 rounded-md w-full text-center hover:bg-gray-100 md:hover:bg-transparent md:p-0 ${valor === "comercial" ? "md:hover:text-red-700" : "md:hover:text-blue-700"}`}
-                      onClick={() => setIsOpen(false)}
-                    >
-                      Tramita tu crédito
-                    </a>
-                  </li> */}
-                  <li className="py-1 w-full">
+                  <li className="py-2 w-full">
                     <Link
                       to="/Polizas-de-renta"
-                      className={`block py-2 px-3 text-gray-700 rounded-md w-full text-center hover:bg-gray-100 md:hover:bg-transparent md:p-0 ${valor === "comercial" ? "md:hover:text-red-700" : "md:hover:text-blue-700"}`}
+                      className={`block py-4 px-3 text-gray-700 rounded-md w-full text-center text-lg hover:bg-gray-100 md:hover:bg-transparent md:p-0 ${valor === "comercial" ? "md:hover:text-red-700" : "md:hover:text-blue-700"}`}
                       onClick={() => setIsOpen(false)}
                     >
                       Pólizas de renta
                     </Link>
                   </li>
-                  <li className="py-1 w-full">
+                  <li className="py-2 w-full">
                     <Link
                       to="/NuestroEquipo"
-                      className={`block py-2 px-3 text-gray-700 rounded-md w-full text-center hover:bg-gray-100 md:hover:bg-transparent md:p-0 ${valor === "comercial" ? "md:hover:text-red-700" : "md:hover:text-blue-700"}`}
+                      className={`block py-4 px-3 text-gray-700 rounded-md w-full text-center text-lg hover:bg-gray-100 md:hover:bg-transparent md:p-0 ${valor === "comercial" ? "md:hover:text-red-700" : "md:hover:text-blue-700"}`}
                       onClick={() => setIsOpen(false)}
                     >
                       Nuestro equipo
                     </Link>
                   </li>
-                  <li className="py-1 w-full">
+                  <li className="py-2 w-full">
                     <Link
                       to="/reclutamiento"
-                      className="block py-2 px-3 text-gray-700 rounded-md w-full text-center hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
+                      className="block py-4 px-3 text-gray-700 rounded-md w-full text-center text-lg hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
                       onClick={() => setIsOpen(false)}
                     >
                       Únete a nosotros
                     </Link>
                   </li>
-                  <li className="py-1 w-full">
+                  <li className="py-2 w-full">
                     <Link
                       to="/desarrollo-trebol-ii"
-                      className="py-2 px-3 rounded-md bg-[#db1c2e] text-white font-bold shadow-md border border-[#db1c2e] hover:bg-red-700 transition flex items-center gap-2 relative w-full justify-center"
+                      className="py-4 px-3 rounded-md bg-[#db1c2e] text-white font-bold shadow-md border border-[#db1c2e] hover:bg-red-700 transition flex items-center gap-2 relative w-full justify-center text-lg"
                       onClick={() => setIsOpen(false)}
                     >
                       Departamentos Trébol II
-                      <span className="ml-2 bg-white text-[#db1c2e] text-[10px] font-bold px-2 py-0.5 rounded-full shadow border border-[#db1c2e]">Nuevo</span>
+                      <span className="ml-2 bg-white text-[#db1c2e] text-[12px] font-bold px-2 py-0.5 rounded-full shadow border border-[#db1c2e]">Nuevo</span>
                     </Link>
                   </li>
                 </ul>
