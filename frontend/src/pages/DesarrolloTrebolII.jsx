@@ -216,8 +216,8 @@ export default function DesarrolloTrebolII() {
     setEnviado(true);
     try {
       // Validación básica
-      if (!form.nombre || !emailRegex.test(form.email) || !phoneRegex.test(form.telefono)) {
-        throw new Error('Por favor, completa todos los campos correctamente.');
+      if (!form.nombre || !phoneRegex.test(form.telefono)) {
+        throw new Error('Por favor, completa todos los campos obligatorios correctamente.');
       }
       // 1. Asegurar que existan los campos personalizados
       const customFields = await ensureCustomFieldsDesarrollo();
@@ -306,7 +306,7 @@ export default function DesarrolloTrebolII() {
       alert(error.message || 'Hubo un error al enviar el formulario. Por favor, intenta de nuevo.');
     }
   };
-  const isValid = form.nombre && emailRegex.test(form.email) && phoneRegex.test(form.telefono);
+  const isValid = form.nombre && phoneRegex.test(form.telefono);
 
   const schemaData = {
     "@context": "https://schema.org",
@@ -337,18 +337,15 @@ export default function DesarrolloTrebolII() {
         </script>
       </Helmet>
       <Header  />
-      {/* HERO/INTRO */}
-      <section className="relative mt-20 min-h-[60vh] flex flex-col justify-center items-center text-center py-20 px-4 overflow-hidden" aria-labelledby="hero-title">
+      {/* HERO/INTRO + FORMULARIO */}
+      <section className="relative mt-20 min-h-[60vh] flex flex-col justify-center items-center text-center py-10 md:py-20 px-2 md:px-4 overflow-hidden" aria-labelledby="hero-title">
         <div className="absolute inset-0 z-0">
           <img src="/fotosdesarrollo/FACHADA.webp" alt="Fachada" className="w-full h-full object-cover opacity-60 scale-105 blur-[1px]" />
-          <div className="absolute inset-0 bg-gradient-to-br from-[#005156]/10 via-[#003d3d]/20 to-[#003d3d]/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-[#005156]/20 via-[#003d3d]/40 to-[#003d3d]/60"></div>
         </div>
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="relative z-10 max-w-xl mx-auto flex flex-col items-center gap-4 bg-[#f2efe2]/80 backdrop-blur-lg rounded-2xl px-8 py-8 shadow-xl border border-[#005156]/30"
-        >
+        <div className="relative z-10 w-full max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-8 items-center bg-[#f2efe2]/90 md:bg-[#f2efe2]/80 backdrop-blur-lg rounded-2xl px-2 md:px-8 py-6 md:py-8 shadow-xl border border-[#005156]/30 text-center md:text-left">
+          {/* Columna izquierda: texto */}
+          <div className="flex flex-col items-center md:items-start gap-6 md:gap-4">
           <div className="flex items-center gap-2 mb-1">
             <FaShieldAlt className="text-[#005156] text-xl" />
             <span className="text-xs text-[#005156] font-semibold tracking-wide">Asesoría certificada RE/MAX CIN</span>
@@ -357,7 +354,7 @@ export default function DesarrolloTrebolII() {
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
-            className="inline-block bg-[#db1c2e] text-white text-xs font-bold px-4 py-1 rounded-full mb-1 shadow animate-pulse"
+              className="inline-block bg-[#db1c2e] text-white text-xs font-bold px-4 py-1 rounded-full mb-1 shadow "
           >
             ¡Departamentos en venta!
           </motion.span>
@@ -366,7 +363,7 @@ export default function DesarrolloTrebolII() {
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="text-4xl md:text-5xl font-extrabold text-[#005156] mb-1 drop-shadow-lg leading-tight"
+              className="text-4xl md:text-5xl font-extrabold text-[#005156] mb-1 drop-shadow-lg leading-tight text-center md:text-left"
           >
             TRÉBOL II
           </motion.h1>
@@ -374,7 +371,7 @@ export default function DesarrolloTrebolII() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-xl md:text-2xl font-semibold text-[#005156]/80 mb-1"
+              className="text-base md:text-2xl font-semibold text-[#005156]/80 mb-1 text-center md:text-left"
           >
             Tu hogar en el corazón de Veracruz
           </motion.h2>
@@ -382,29 +379,64 @@ export default function DesarrolloTrebolII() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="text-base md:text-lg text-[#005156]/80 mb-2"
+              className="text-sm md:text-lg text-[#005156]/80 mb-2 text-center md:text-left"
           >
             Descubre tu próximo departamento con espacios únicos diseñados para tu familia. Vive cerca de todo con la comodidad de tener un hogar cómodo, con amenidades hechas para ti.
           </motion.p>
           <motion.button
             whileHover={{ scale: 1.07 }}
-            className="inline-flex items-center gap-2 bg-[#db1c2e] text-white font-bold py-3 px-8 rounded-xl shadow-lg hover:bg-red-700 transition text-lg mt-2 focus:outline-none focus:ring-2 focus:ring-[#005156]/40"
+              className="flex md:hidden items-center justify-center gap-2 bg-[#db1c2e] text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:bg-red-700 transition text-lg mt-4 w-full focus:outline-none focus:ring-2 focus:ring-[#005156]/40"
             onClick={() => {
-              const formSection = document.getElementById('contacto');
+                const formSection = document.getElementById('formulario-hero');
               if (formSection) {
                 formSection.scrollIntoView({ behavior: 'smooth' });
               }
             }}
           >
-            <FaHome className="text-white" /> Haz clic ¡Visítanos hoy mismo!
+              <FaHome className="text-white text-2xl" /> Haz clic ¡Visítanos hoy mismo!
           </motion.button>
-          <div className="text-xs text-[#005156]/80 mt-2">Sin compromiso. Un asesor certificado te contactará en minutos.</div>
+            <div className="text-xs md:hidden text-[#005156]/80 mt-2 text-center">Sin compromiso. Un asesor certificado te contactará en minutos.</div>
+          </div>
+          {/* Columna derecha: formulario */}
+          <section className="bg-white rounded-2xl shadow-2xl p-6 md:p-8 flex flex-col justify-center border-t-8 border-[#db1c2e] max-w-md w-full mx-auto" id="formulario-hero" aria-labelledby="form-title">
+            <h2 id="form-title" className="text-2xl font-bold text-[#005156] mb-6 text-center">Agenda una visita</h2>
+            {enviado ? (
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                className="bg-green-50 text-green-800 p-6 rounded-xl text-center font-semibold shadow-lg border border-green-200"
+              >
+                ¡Visita agendada! Un asesor confirmará los detalles contigo.
         </motion.div>
+            ) : (
+              <form className="space-y-6" onSubmit={handleSubmit} autoComplete="off" noValidate>
+                <div className="relative flex flex-col gap-2">
+                  <label htmlFor="nombre" className="text-[#005156] font-semibold">Nombre completo</label>
+                  <input name="nombre" id="nombre" type="text" required placeholder="Nombre completo" className={`w-full p-3 rounded-lg border ${touched.nombre && !form.nombre ? 'border-red-400' : 'border-[#005156]/40'} focus:border-[#005156] focus:ring-2 focus:ring-[#db1c2e]/20 transition bg-white text-base placeholder-gray-400`} value={form.nombre} onChange={handleChange} onBlur={handleBlur} />
+                  {touched.nombre && !form.nombre && <span className="text-xs text-red-600 bg-red-50 px-2 py-1 rounded absolute -bottom-6 left-1">Este campo es obligatorio</span>}
+                </div>
+                <div className="relative flex flex-col gap-2">
+                  <label htmlFor="telefono" className="text-[#005156] font-semibold">Teléfono (10 dígitos)</label>
+                  <input name="telefono" id="telefono" type="tel" required placeholder="Ej: 2291234567" className={`w-full p-3 rounded-lg border ${touched.telefono && !phoneRegex.test(form.telefono) ? 'border-red-400' : 'border-[#005156]/40'} focus:border-[#005156] focus:ring-2 focus:ring-[#db1c2e]/20 transition bg-white text-base placeholder-gray-400`} value={form.telefono} onChange={handleChange} onBlur={handleBlur} maxLength="10" />
+                  {touched.telefono && !form.telefono && <span className="text-xs text-red-600 bg-red-50 px-2 py-1 rounded absolute -bottom-6 left-1">Este campo es obligatorio</span>}
+                  {touched.telefono && form.telefono && !phoneRegex.test(form.telefono) && <span className="text-xs text-red-600 bg-red-50 px-2 py-1 rounded absolute -bottom-6 left-1">El teléfono debe tener 10 dígitos.</span>}
+                </div>
+                <div className="relative flex flex-col gap-2">
+                  <label htmlFor="email" className="text-[#005156] font-semibold">Correo electrónico <span className='text-[#db1c2e]'>(opcional)</span></label>
+                  <input name="email" id="email" type="email" placeholder="Correo electrónico" className={`w-full p-3 rounded-lg border ${touched.email && form.email && !emailRegex.test(form.email) ? 'border-red-400' : 'border-[#005156]/40'} focus:border-[#005156] focus:ring-2 focus:ring-[#db1c2e]/20 transition bg-white text-base placeholder-gray-400`} value={form.email} onChange={handleChange} onBlur={handleBlur} />
+                  {touched.email && form.email && !emailRegex.test(form.email) && <span className="text-xs text-red-600 bg-red-50 px-2 py-1 rounded absolute -bottom-6 left-1">Formato de correo inválido</span>}
+                </div>
+                <button type="submit" disabled={!isValid} className={`w-full bg-[#db1c2e] text-white font-bold py-3 rounded-lg mt-2 shadow-lg transition-transform duration-200 hover:scale-105 text-lg focus:outline-none focus:ring-2 focus:ring-[#005156]/40 ${!isValid ? 'opacity-60 cursor-not-allowed' : ''}`}>¡Agendar mi visita!</button>
+                <div className="text-xs text-[#005156] text-center mt-2 flex items-center gap-1 justify-center bg-[#f2efe2]/60 px-2 py-1 rounded"><FaLock className="inline-block mr-1 text-[#db1c2e]" />No compartimos tus datos con terceros.</div>
+              </form>
+            )}
+          </section>
+        </div>
       </section>
 
       {/* PRECIO DESTACADO */}
-      <section className="w-full flex justify-center items-center mt-5 py-4">
-        <div className="bg-[#db1c2e] text-white text-2xl md:text-3xl font-extrabold px-8 py-4 rounded-2xl shadow-lg border-4 border-[#005156]">
+      <section className="w-full flex justify-center items-center my-4 md:mt-5 py-3">
+        <div className="bg-[#db1c2e] text-white text-lg md:text-xl font-extrabold px-4 py-3 md:px-8 md:py-4 rounded-xl md:rounded-2xl shadow-lg border-2 md:border-4 border-[#005156] max-w-xs md:max-w-md w-full text-center">
         Venta de departamentos desde 1,250,000 MXN
         </div>
       </section>
@@ -484,37 +516,42 @@ export default function DesarrolloTrebolII() {
 
       {/* 5. BENEFICIOS Y AMENIDADES */}
       <section className="w-full bg-white py-16 px-2 md:px-8" aria-labelledby="beneficios-title">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-start">
-          {/* Beneficios */}
-          <section className="flex flex-col gap-8" aria-labelledby="beneficios-title">
-            <h2 id="beneficios-title" className="text-3xl font-bold text-[#005156] mb-2 flex items-center gap-3">
-              ¿Por qué elegir TRÉBOL II?
+        <div className="max-w-5xl mx-auto flex flex-col items-center">
+          <h2 id="beneficios-title" className="text-3xl md:text-4xl font-extrabold text-[#005156] mb-4 text-center flex items-center gap-3">
+            ¿Por qué elegir <span className="text-[#db1c2e]">TRÉBOL II</span>?
               <span className="inline-block bg-[#db1c2e] text-white text-xs font-bold px-3 py-1 rounded-full shadow ml-2">RE/MAX CIN</span>
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-              <article className="bg-white rounded-2xl p-7 text-[#005156] flex flex-col gap-3 shadow-2xl border-b-4 border-[#005156]" aria-label="Ubicación privilegiada">
-                <div className="flex items-center gap-3 mb-1"><FaMapMarkerAlt className="text-[#db1c2e] text-3xl" /><span className="font-bold text-lg">Ubicación privilegiada</span></div>
+          <p className="text-lg text-[#005156]/80 mb-10 text-center max-w-2xl">Descubre los beneficios y amenidades que hacen de TRÉBOL II la mejor opción para tu nuevo hogar en Veracruz.</p>
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Card 1 */}
+            <article className="bg-white rounded-2xl p-8 text-[#005156] flex flex-col gap-3 shadow-xl border-l-8 border-[#005156] hover:shadow-2xl transition-all duration-300 relative">
+              <span className="absolute -top-3 left-4 bg-[#db1c2e] text-white text-xs font-bold px-3 py-1 rounded-full shadow">Ubicación</span>
+              <div className="flex items-center gap-3 mb-1"><FaMapMarkerAlt className="text-[#db1c2e] text-4xl" /><span className="font-bold text-xl">Ubicación privilegiada</span></div>
                 <div className="text-xs text-[#db1c2e] mb-2">Cerca de todo</div>
-                <ul className="list-disc ml-6 text-base text-[#005156]/90">
+              <ul className="list-disc ml-6 text-base text-[#005156]/90 space-y-1">
                   <li>A 15 minutos de Centro Histórico</li>
                   <li>Playas de Veracruz</li>
                   <li>Ciudad Industrial</li>
                   <li>Centros comerciales</li>
                 </ul>
               </article>
-              <article className="bg-white rounded-2xl p-7 text-[#005156] flex flex-col gap-3 shadow-2xl border-b-4 border-[#db1c2e]" aria-label="Vida a tu alrededor">
-                <div className="flex items-center gap-3 mb-1"><FaHome className="text-[#db1c2e] text-3xl" /><span className="font-bold text-lg">Vida a tu alrededor</span></div>
-                <div className="text-xs text-[#005156] mb-2">Comodidad total </div>
-                <ul className="list-disc ml-6 text-base text-[#005156]/90">
+            {/* Card 2 */}
+            <article className="bg-white rounded-2xl p-8 text-[#005156] flex flex-col gap-3 shadow-xl border-l-8 border-[#db1c2e] hover:shadow-2xl transition-all duration-300 relative">
+              <span className="absolute -top-3 left-4 bg-[#005156] text-white text-xs font-bold px-3 py-1 rounded-full shadow">Comodidad</span>
+              <div className="flex items-center gap-3 mb-1"><FaHome className="text-[#db1c2e] text-4xl" /><span className="font-bold text-xl">Vida a tu alrededor</span></div>
+              <div className="text-xs text-[#005156] mb-2">Comodidad total</div>
+              <ul className="list-disc ml-6 text-base text-[#005156]/90 space-y-1">
                   <li>Supermercados (Soriana, Chedraui)</li>
                   <li>Escuelas y universidades</li>
                   <li>Clínicas y servicios médicos</li>
                 </ul>
               </article>
-              <article className="bg-white rounded-2xl p-7 text-[#005156] flex flex-col gap-3 shadow-2xl border-b-4 border-[#005156]" aria-label="Todos incluyen">
-                <div className="flex items-center gap-3 mb-1"><FaKey className="text-[#db1c2e] text-3xl" /><span className="font-bold text-lg">Todos incluyen</span></div>
+            {/* Card 3 */}
+            <article className="bg-white rounded-2xl p-8 text-[#005156] flex flex-col gap-3 shadow-xl border-l-8 border-[#005156] hover:shadow-2xl transition-all duration-300 relative">
+              <span className="absolute -top-3 left-4 bg-[#db1c2e] text-white text-xs font-bold px-3 py-1 rounded-full shadow">Equipamiento</span>
+              <div className="flex items-center gap-3 mb-1"><FaKey className="text-[#db1c2e] text-4xl" /><span className="font-bold text-xl">Todos incluyen</span></div>
                 <div className="text-xs text-[#005156] mb-2">Equipamiento premium</div>
-                <ul className="list-disc ml-6 text-base text-[#005156]/90">
+              <ul className="list-disc ml-6 text-base text-[#005156]/90 space-y-1">
                   <li>Cocina integral</li>
                   <li>Sala-comedor</li>
                   <li>Cuarto de lavado</li>
@@ -522,56 +559,19 @@ export default function DesarrolloTrebolII() {
                   <li>Estacionamiento</li>
                 </ul>
               </article>
-              <article className="bg-white rounded-2xl p-7 text-[#005156] flex flex-col gap-3 shadow-2xl border-b-4 border-[#db1c2e]" aria-label="Estacionamiento">
-                <div className="flex items-center gap-3 mb-1"><FaCar className="text-[#db1c2e] text-3xl" /><span className="font-bold text-lg">Estacionamiento</span></div>
+            {/* Card 4 */}
+            <article className="bg-white rounded-2xl p-8 text-[#005156] flex flex-col gap-3 shadow-xl border-l-8 border-[#db1c2e] hover:shadow-2xl transition-all duration-300 relative">
+              <span className="absolute -top-3 left-4 bg-[#005156] text-white text-xs font-bold px-3 py-1 rounded-full shadow">Estacionamiento</span>
+              <div className="flex items-center gap-3 mb-1"><FaCar className="text-[#db1c2e] text-4xl" /><span className="font-bold text-xl">Estacionamiento</span></div>
                 <div className="text-xs text-[#005156] mb-2">Acceso seguro</div>
-                <ul className="list-disc ml-6 text-base text-[#005156]/90">
+              <ul className="list-disc ml-6 text-base text-[#005156]/90 space-y-1">
                   <li>1 o 2 cajones por departamento</li>
                   <li>Acceso controlado</li>
                   <li>Visitas</li>
                 </ul>
               </article>
             </div>
-            <div className="flex items-center gap-2 mt-4">
-              <FaUserShield className="text-[#005156] text-lg" />
-              <span className="text-xs text-gray-700 font-semibold bg-[#f2efe2] px-2 py-1 rounded flex items-center gap-1"><FaLock className="inline-block mr-1 text-[#db1c2e]" />Tus datos están protegidos y solo los usaremos para contactarte.</span>
-            </div>
-          </section>
-          {/* Formulario */}
-          <section className="bg-white rounded-2xl shadow-2xl p-8 md:p-10 flex flex-col justify-center border-t-8 border-[#db1c2e] max-w-md w-full mx-auto" id="contacto" aria-labelledby="form-title">
-            <h2 id="form-title" className="text-2xl font-bold text-[#005156] mb-6 text-center">Agenda una visita</h2>
-            {enviado ? (
-              <motion.div
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                className="bg-green-50 text-green-800 p-6 rounded-xl text-center font-semibold shadow-lg border border-green-200"
-              >
-                ¡Visita agendada! Un asesor confirmará los detalles contigo.
-              </motion.div>
-            ) : (
-              <form className="space-y-6" onSubmit={handleSubmit} autoComplete="off" noValidate>
-                <div className="relative flex flex-col gap-2">
-                  <label htmlFor="nombre" className="text-[#005156] font-semibold">Nombre completo</label>
-                  <input name="nombre" id="nombre" type="text" required placeholder="Nombre completo" className={`w-full p-3 rounded-lg border ${touched.nombre && !form.nombre ? 'border-red-400' : 'border-[#005156]/40'} focus:border-[#005156] focus:ring-2 focus:ring-[#db1c2e]/20 transition bg-white text-base placeholder-gray-400`} value={form.nombre} onChange={handleChange} onBlur={handleBlur} />
-                  {touched.nombre && !form.nombre && <span className="text-xs text-red-600 bg-red-50 px-2 py-1 rounded absolute -bottom-6 left-1">Este campo es obligatorio</span>}
-                </div>
-                <div className="relative flex flex-col gap-2">
-                  <label htmlFor="email" className="text-[#005156] font-semibold">Correo electrónico</label>
-                  <input name="email" id="email" type="email" required placeholder="Correo electrónico" className={`w-full p-3 rounded-lg border ${touched.email && !emailRegex.test(form.email) ? 'border-red-400' : 'border-[#005156]/40'} focus:border-[#005156] focus:ring-2 focus:ring-[#db1c2e]/20 transition bg-white text-base placeholder-gray-400`} value={form.email} onChange={handleChange} onBlur={handleBlur} />
-                  {touched.email && !form.email && <span className="text-xs text-red-600 bg-red-50 px-2 py-1 rounded absolute -bottom-6 left-1">Este campo es obligatorio</span>}
-                  {touched.email && form.email && !emailRegex.test(form.email) && <span className="text-xs text-red-600 bg-red-50 px-2 py-1 rounded absolute -bottom-6 left-1">Formato de correo inválido</span>}
-                </div>
-                <div className="relative flex flex-col gap-2">
-                  <label htmlFor="telefono" className="text-[#005156] font-semibold">Teléfono (10 dígitos)</label>
-                  <input name="telefono" id="telefono" type="tel" required placeholder="Ej: 2291234567" className={`w-full p-3 rounded-lg border ${touched.telefono && !phoneRegex.test(form.telefono) ? 'border-red-400' : 'border-[#005156]/40'} focus:border-[#005156] focus:ring-2 focus:ring-[#db1c2e]/20 transition bg-white text-base placeholder-gray-400`} value={form.telefono} onChange={handleChange} onBlur={handleBlur} maxLength="10" />
-                  {touched.telefono && !form.telefono && <span className="text-xs text-red-600 bg-red-50 px-2 py-1 rounded absolute -bottom-6 left-1">Este campo es obligatorio</span>}
-                  {touched.telefono && form.telefono && !phoneRegex.test(form.telefono) && <span className="text-xs text-red-600 bg-red-50 px-2 py-1 rounded absolute -bottom-6 left-1">El teléfono debe tener 10 dígitos.</span>}
-                </div>
-                <button type="submit" disabled={!isValid} className={`w-full bg-[#db1c2e] text-white font-bold py-3 rounded-lg mt-2 shadow-lg transition-transform duration-200 hover:scale-105 text-lg focus:outline-none focus:ring-2 focus:ring-[#005156]/40 ${!isValid ? 'opacity-60 cursor-not-allowed' : ''}`}>¡Agendar mi visita!</button>
-                <div className="text-xs text-[#005156] text-center mt-2 flex items-center gap-1 justify-center bg-[#f2efe2]/60 px-2 py-1 rounded"><FaLock className="inline-block mr-1 text-[#db1c2e]" />No compartimos tus datos con terceros.</div>
-              </form>
-            )}
-          </section>
+        
         </div>
       </section>
 

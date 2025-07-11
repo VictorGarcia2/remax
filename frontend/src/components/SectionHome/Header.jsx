@@ -22,7 +22,7 @@ export default function Header({ setSelectedOptionsOperacion }) {
   }, []);
   return (
     <nav className="bg-white fixed w-full z-100 top-0 start-0 shadow-sm">
-      <div className="max-w-screen-xl  flex flex-wrap items-center justify-between mx-auto h-16 md:h-20 px-3 md:px-6">
+      <div className="w-full flex flex-wrap items-center justify-between mx-auto h-16 md:h-20 px-3 md:px-6">
         <Link
           to={"/inicio"}
           className="flex items-center space-x-3 rtl:space-x-reverse h-full"
@@ -145,7 +145,7 @@ export default function Header({ setSelectedOptionsOperacion }) {
                       className="py-2 px-3 rounded-md bg-[#db1c2e] text-white font-bold shadow-md border border-[#db1c2e] hover:bg-red-700 transition flex items-center gap-2 relative w-full justify-center"
                       onClick={() => setIsOpen(false)}
                     >
-                      Trébol II
+                      Departamentos Trébol II
                       <span className="ml-2 bg-white text-[#db1c2e] text-[10px] font-bold px-2 py-0.5 rounded-full shadow border border-[#db1c2e]">Nuevo</span>
                     </Link>
                   </li>
@@ -270,7 +270,7 @@ export default function Header({ setSelectedOptionsOperacion }) {
                 className=" py-2 px-3 rounded-md bg-[#db1c2e] text-white font-bold shadow-md border border-[#db1c2e] hover:bg-red-700 transition flex items-center gap-2 relative"
                 onClick={() => setIsOpen(false)}
               >
-                Trébol II
+                Departamentos Trébol II
                 <span className="ml-2 bg-white text-[#db1c2e] text-[10px] font-bold px-2 py-0.5 rounded-full shadow border border-[#db1c2e]">Nuevo</span>
               </Link>
             </li>
