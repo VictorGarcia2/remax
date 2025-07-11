@@ -20,6 +20,24 @@ export default function SearchResultadosBusqueda({
     setSeleccion
   } = useSearchContext();
 
+  // Solución al error: declarar el ref
+  const inputRef = useRef(null);
+
+  // Solución al error: declarar la función handleSearchButton
+  const handleSearchButton = () => {
+    if (busquedaHome && busquedaHome.trim() !== "") {
+      setBusquedaHome(busquedaHome);
+      setModalBusqueda(true);
+    }
+  };
+
+  // Solución al error: declarar la función handleInputKeyDown
+  const handleInputKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      handleSearchButton();
+    }
+  };
+
   // Google Places Autocomplete
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: "AIzaSyDoBmSoAPraNNjNS2NQAu-Vs85trnJuJVI",
@@ -121,7 +139,7 @@ export default function SearchResultadosBusqueda({
           onClick={handleSearchButton}
           className={`rounded-e-full cursor-pointer w-13 h-11 sm:h-11 sm:w-15 align-middle items-center flex shadow-[0_3px_1px] shadow-black/50 ${
             valor === "comercial" ? "bg-redRemax" : "bg-blueRemax"
-          } ${inputValue.trim() === "" ? 'opacity-50 pointer-events-none' : ''}`}
+          } ${busquedaHome.trim() === "" ? 'opacity-50 pointer-events-none' : ''}`}
         >
           <Link to="/propiedades" className="mx-auto">
             <button className="items-center flex cursor-pointer" type="button">

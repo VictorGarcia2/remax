@@ -21,23 +21,23 @@ export default function Header({ setSelectedOptionsOperacion }) {
     };
   }, []);
   return (
-    <nav className="bg-white fixed w-full z-100 top-0 start-0 shadow-sm">
-      <div className="w-full flex flex-wrap items-center justify-between mx-auto h-16 md:h-20 px-3 md:px-6">
+    <nav className="bg-white fixed w-full z-100 top-0 left-0 shadow-sm overflow-x-hidden">
+      <div className="w-full flex flex-wrap items-center justify-between h-16 md:h-20 px-2 sm:px-4 md:px-6 md:max-w-screen-xl md:mx-auto">
         <Link
           to={"/inicio"}
-          className="flex items-center space-x-3 rtl:space-x-reverse h-full"
+          className="flex items-center space-x-3 rtl:space-x-reverse h-full min-w-0"
         >
           <img
             src="logos/New_RMX_Mark_R4_RGB_dark.png"
-            className="h-10 md:h-14"
+            className="h-10 md:h-14 max-w-[120px] w-auto object-contain"
             alt="REMAX Logo"
           />
         </Link>
-        <div className="flex  md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse items-center h-full">
+        <div className="flex md:order-2 items-center h-full min-w-0">
           <button
             onClick={() => setIsOpen(!isOpen)}
             type="button"
-            className={`inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 ${
+            className={`inline-flex items-center justify-center p-2 w-10 h-10 text-sm rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 flex-shrink-0 transition-colors duration-200 ${
               valor === "comercial" ? "text-red-500 focus:ring-red-200" : "text-blue-500 focus:ring-blue-200"
             }`}
             aria-controls="navbar-sticky"
@@ -64,13 +64,13 @@ export default function Header({ setSelectedOptionsOperacion }) {
         <div
           className={`${
             isOpen ? "block" : "hidden"
-          } items-center  justify-between w-full md:flex md:w-auto md:order-1 transition-all duration-300 ease-in-out h-full`}
+          } items-center justify-between w-full md:flex md:w-auto md:order-1 transition-all duration-300 ease-in-out h-full`}
           id="navbar-sticky"
         >
           {/* Overlay para menú hamburguesa en móvil */}
           {isOpen && (
-            <div className="fixed mt-1 z-50 flex items-center justify-center md:hidden">
-              <div className="w-[90vw] max-h-[50vh] min-h-fit bg-white rounded-2xl shadow-2xl flex flex-col items-center p-6 border border-gray-200 overflow-y-auto justify-center">
+            <div className="fixed inset-0 z-50 flex items-start justify-center md:hidden bg-black/30">
+              <div className="w-[95vw] max-w-sm max-h-[80vh] min-h-fit bg-white rounded-2xl shadow-2xl flex flex-col items-center p-6 border border-gray-200 overflow-y-auto justify-center mt-4">
                 <ul className="flex flex-col w-full font-medium space-y-2 items-center justify-center">
                   <li className="py-1 w-full">
                     <Link
@@ -154,7 +154,7 @@ export default function Header({ setSelectedOptionsOperacion }) {
             </div>
           )}
           {/* Menú normal en desktop */}
-          <ul className="hidden md:flex flex-row p-0 mt-0 font-medium md:space-x-6 lg:space-x-8 md:mt-0 md:border-0 md:bg-white h-full items-center">
+          <ul className="hidden md:flex flex-row p-0 mt-0 font-medium md:space-x-6 lg:space-x-8 md:mt-0 md:border-0 md:bg-white h-full items-center min-w-0">
             <li className="py-1">
               <Link
                 to="/"

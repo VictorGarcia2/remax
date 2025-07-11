@@ -60,7 +60,7 @@ export default function FiltrosDesktop({
     }
   };
   useEffect(() => {
-    if (!inputValue) {
+    if (!busquedaHome) {
       setAutoCompleteHome([]);
       setModalBusqueda(true);
       return;
@@ -97,9 +97,6 @@ export default function FiltrosDesktop({
       }
     };
 
-    if (busquedaHome) {
-      manejarBusqueda();
-    }
   }, [busquedaHome]);
 
 
@@ -126,6 +123,18 @@ export default function FiltrosDesktop({
     setTimeout(() => setBusquedaHome(''), 100);
   };
   const [limpiar, setlimpiar] = useState(false);
+
+  // Solución al error: declarar el ref
+  const inputRef = useRef(null);
+
+  // Solución al error: declarar la función handleSearchButton
+  const handleSearchButton = () => {
+    if (busquedaHome && busquedaHome.trim() !== "") {
+      setBusquedaHome(busquedaHome);
+      setModalBusqueda(true);
+      // Aquí puedes agregar lógica adicional si es necesario
+    }
+  };
 
   useEffect(() => {
     if (limpiar) {
@@ -183,7 +192,7 @@ export default function FiltrosDesktop({
             setPrecioMaximo={setPrecioMaximo}
           />
         }
-        <Operacion setSelectedOptionsOperacion={setSelectedOptionsOperacion} />
+        <Operacion selectedOptionsOperacion={selectedOptionsOperacion} setSelectedOptionsOperacion={setSelectedOptionsOperacion} />
         <Sector setSelectedOptions={setSelectedOptions} selectedOptions={selectedOptions} />
         <Tipo  selectedOptions={selectedOptions} valor={valor} />
         <LimpiarFiltro setlimpiar={setlimpiar} />
@@ -212,7 +221,7 @@ export default function FiltrosDesktop({
           onClick={handleSearchButton}
           className={`rounded-e-full cursor-pointer w-13 h-11 sm:h-11 sm:w-15 shadow-[0_3px_1px] shadow-black/50 align-middle items-center flex ${
             contextValor === "comercial" ? "bg-redRemax" : "bg-blueRemax"
-          } ${inputValue.trim() === "" ? 'opacity-50 pointer-events-none' : ''}`}
+          } ${busquedaHome.trim() === "" ? 'opacity-50 pointer-events-none' : ''}`}
         >
           <Link to={"/propiedades"} className="mx-auto">
             <button className="items-center flex cursor-pointer">

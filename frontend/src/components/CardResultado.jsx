@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState, useMemo, lazy, Suspense } from "react";
+import React, { useCallback, useEffect, useState, useMemo, lazy, Suspense, useRef } from "react";
 import { Link } from "react-router-dom";
 // import Mapbox from "./Mapbox"; // Comentamos la importación directa
 import {
@@ -216,9 +216,8 @@ export default function CardResultado({
   selectedOptionsTipos,
   selectedOptionsOperacion,
 }) {
-  const [, updateState] = useState();
-  const forceUpdate = useCallback(() => updateState({}), []);
-  const currentImageIndices = useRef({});
+  // Estado estructurado para los índices de imagen por propiedad
+  const [imageIndices, setImageIndices] = useState({});
   const imageCache = useRef(new Map());
   const { valor, seleccion } = useSearchContext(); // Obtener seleccion del contexto
   const [isLoading, setIsLoading] = useState(true);
@@ -240,35 +239,34 @@ export default function CardResultado({
   // Efecto para simular la carga
   useEffect(() => {
     if (propiedadesVisibles) {
-      // Si quieres que las tarjetas se muestren inmediatamente cuando propiedadesVisibles está listo,
-      // puedes eliminar el setTimeout o ponerlo a 0.
-      // Para este ejemplo, lo estableceremos a 0 para una actualización más rápida.
       const timer = setTimeout(() => {
         setIsLoading(false);
-      }, 1000); // Reducido de 200ms a 0ms
+      }, 1000);
       return () => clearTimeout(timer);
     } else {
-      // Si propiedadesVisibles es null o undefined inicialmente, mantener isLoading en true
       setIsLoading(true);
     }
   }, [propiedadesVisibles]);
 
   const goToNext = useCallback((index) => {
     const propiedadId = propiedadesVisibles[index].propiedad_id;
-    const totalImages = propiedadesVisibles[index].imagenes.split(",").length;
-    currentImageIndices.current[propiedadId] =
-      ((currentImageIndices.current[propiedadId] || 0) + 1) % totalImages;
-    forceUpdate();
-  }, [propiedadesVisibles, forceUpdate]);
+    const imagenesArray = (propiedadesVisibles[index].imagenes || '').split(",").filter(Boolean);
+    const totalImages = imagenesArray.length;
+    setImageIndices(prev => ({
+      ...prev,
+      [propiedadId]: ((prev[propiedadId] || 0) + 1) % totalImages
+    }));
+  }, [propiedadesVisibles]);
 
   const goToPrevious = useCallback((index) => {
     const propiedadId = propiedadesVisibles[index].propiedad_id;
-    const totalImages = propiedadesVisibles[index].imagenes.split(",").length;
-    currentImageIndices.current[propiedadId] =
-      ((currentImageIndices.current[propiedadId] || 0) - 1 + totalImages) %
-      totalImages;
-    forceUpdate();
-  }, [propiedadesVisibles, forceUpdate]);
+    const imagenesArray = (propiedadesVisibles[index].imagenes || '').split(",").filter(Boolean);
+    const totalImages = imagenesArray.length;
+    setImageIndices(prev => ({
+      ...prev,
+      [propiedadId]: ((prev[propiedadId] || 0) - 1 + totalImages) % totalImages
+    }));
+  }, [propiedadesVisibles]);
 
   const handleShare = useCallback((propiedadId) => {
     setShareModalOpen(false);
@@ -290,7 +288,7 @@ export default function CardResultado({
 
   // FILTRADO CENTRALIZADO
   const propiedadesFiltradas = useMemo(() => {
-    return (propiedades || [])
+    let filtradas = (propiedades || [])
       .filter((item) => {
         // Filtro por sector
         if (selectedOptions && selectedOptions.length > 0) {
@@ -318,15 +316,18 @@ export default function CardResultado({
         if (precioMinimo && precio < precioMinimo) return false;
         if (precioMaximo && precioMaximo !== Infinity && precio > precioMaximo) return false;
         return true;
-      })
-      .filter((item) => {
-        // Filtro por búsqueda de zona
-        if (busquedaHome && busquedaHome.length > 0) {
-          const texto = `${item.calle} ${item.colonia} ${item.ciudad} ${item.estado}`.toLowerCase();
-          return texto.includes(busquedaHome.toLowerCase());
-        }
-        return true;
       });
+    // Filtro flexible por búsqueda de zona
+    if (busquedaHome && busquedaHome.length > 0) {
+      const textoBusqueda = busquedaHome.normalize('NFD').replace(/[ -]/g, '').toLowerCase();
+      const resultado = filtradas.filter((item) => {
+        const texto = `${item.calle} ${item.colonia} ${item.ciudad} ${item.estado}`.normalize('NFD').replace(/[ -]/g, '').toLowerCase();
+        return texto.includes(textoBusqueda);
+      });
+      // Si no hay coincidencias, muestra todas (o puedes mostrar un mensaje especial si prefieres)
+      return resultado.length > 0 ? resultado : filtradas;
+    }
+    return filtradas;
   }, [propiedades, selectedOptions, selectedOptionsTipos, selectedOptionsOperacion, precioMinimo, precioMaximo, busquedaHome]);
 
   // Estado para guardar las propiedades visibles en el mapa
@@ -340,9 +341,15 @@ export default function CardResultado({
 
   // Determinar qué propiedades mostrar en la lista
   const propiedadesParaLista = useMemo(() => {
-    // En móvil, si hay propiedades visibles en el mapa, mostrar solo esas
-    if (typeof window !== 'undefined' && window.innerWidth < 1024 && visiblesEnMapa && visiblesEnMapa.length > 0) {
-      return visiblesEnMapa;
+    if (visiblesEnMapa && Array.isArray(visiblesEnMapa)) {
+      // Si el mapa está filtrando y no hay propiedades visibles, no mostrar nada
+      if (visiblesEnMapa.length === 0) {
+        return [];
+      }
+      // Si hay propiedades visibles en el mapa, mostrar solo esas
+      if (visiblesEnMapa.length > 0) {
+        return visiblesEnMapa;
+      }
     }
     // Si no, mostrar todas las filtradas
     return propiedadesFiltradas;
@@ -420,8 +427,8 @@ export default function CardResultado({
               : "bg-blueRemax border-blueRemax hover:bg-blueRemax focus:bg-blueRemax focus:ring-blueRemax"
           }`}
         >
-          <FontAwesomeIcon icon={mostrarMapa === 0 ? faList : faMap} />
-          {mostrarMapa === 0 ? mostrar[0].nombre : mostrar[1].nombre}
+          <FontAwesomeIcon icon={mostrarMapa === 0 ? faMap :  faList} />
+          {mostrarMapa === 0 ? mostrar[1].nombre : mostrar[0].nombre}
         </button>
       </div>
 
@@ -443,7 +450,7 @@ export default function CardResultado({
                 <PropertyCard
                   key={item.propiedad_id}
                   item={item}
-                  currentIndex={currentImageIndices.current[item.propiedad_id] || 0}
+                  currentIndex={imageIndices[item.propiedad_id] || 0}
                   onPrevious={goToPrevious}
                   onNext={goToNext}
                   onShare={handleShare}
@@ -452,18 +459,7 @@ export default function CardResultado({
                 />
               ))
             ) : (
-              <div className="mt-[70px] h-full mx-auto my-auto w-full px-9 flex flex-col absolute">
-                <div className="items-center my-55 flex flex-col justify-center">
-                  <FontAwesomeIcon
-                    icon={faCircleExclamation}
-                    className="text-[#7b7b7b]"
-                    size="2xl"
-                  />
-                  <p className="text-2xl text-[#7b7b7b] text-center">
-                    Estamos en busca de propiedades por aquí. ¡Vuelve pronto!
-                  </p>
-                </div>
-              </div>
+              null
             )
           )}
         </div>

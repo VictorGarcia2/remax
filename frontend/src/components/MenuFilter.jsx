@@ -63,9 +63,9 @@ export default function MenuFilter({
   };
   const handleCheckboxChangeOperacion = (event) => {
     const { value, checked } = event.target;
-    console.log(value);
+    const numericValue = parseInt(value, 10);
     setSelectedOptionsOperacion((prev) =>
-      checked ? [...prev, value] : prev.filter((item) => item !== value)
+      checked ? [...prev, numericValue] : prev.filter((item) => item !== numericValue)
     );
   };
   const handleCheckboxChangeSector = (event) => {
@@ -433,6 +433,7 @@ export default function MenuFilter({
                       type="checkbox"
                       value={nombre}
                       onChange={handleCheckboxChangeOperacion}
+                      checked={selectedOptionsOperacion.includes(nombre)}
                       className="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-red-600"
                     />
                   </div>

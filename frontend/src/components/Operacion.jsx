@@ -2,18 +2,16 @@ import { faChevronDown, faCity, faHouse } from "@fortawesome/free-solid-svg-icon
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 
-export default function Operacion({ setSelectedOptionsOperacion }) {
+export default function Operacion({ selectedOptionsOperacion, setSelectedOptionsOperacion }) {
   const [openModal, setOpenModal] = useState(true);
 
   const toggleModal = () => setOpenModal((prevState) => !prevState);
 
-  const [selectedOptions, setSelectedOptions] = useState([]);
+  // Eliminar el estado local de selectedOptions
+  // const [selectedOptions, setSelectedOptions] = useState([]);
 
   const handleCheckboxChange = ({ target: { value, checked } }) => {
     const numericValue = parseInt(value, 10); // Asegúrate de que el valor sea un número
-    setSelectedOptions((prev) =>
-      checked ? [...prev, numericValue] : prev.filter((item) => item !== numericValue)
-    );
     setSelectedOptionsOperacion((prev) =>
       checked ? [...prev, numericValue] : prev.filter((item) => item !== numericValue)
     );
@@ -66,7 +64,7 @@ export default function Operacion({ setSelectedOptionsOperacion }) {
                   id={`checkbox-${index}`}
                   type="checkbox"
                   value={nombre}
-                  checked={selectedOptions.includes(nombre)}
+                  checked={selectedOptionsOperacion.includes(nombre)}
                   onChange={handleCheckboxChange}
                   className="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-red-600"
                 />
