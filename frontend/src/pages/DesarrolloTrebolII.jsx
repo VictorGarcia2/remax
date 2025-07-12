@@ -450,33 +450,6 @@ export default function DesarrolloTrebolII() {
       <section className="w-full flex flex-col items-center py-8 px-2 bg-[#f2efe2]">
         <h2 className="text-xl md:text-2xl font-bold text-[#005156] mb-4 text-center">Conoce TRÉBOL II en video</h2>
         <div className="w-full max-w-2xl aspect-[9/16] md:aspect-video rounded-2xl overflow-hidden shadow-xl border border-[#005156]/30 bg-black flex items-center justify-center relative">
-          {/* Overlay de play */}
-          {typeof window !== 'undefined' && !window.__videoPlayed && (
-            <button
-              type="button"
-              aria-label="Reproducir video"
-              className="absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition-colors z-20 group"
-              style={{ pointerEvents: 'auto' }}
-              onClick={() => {
-                const iframe = document.getElementById('video-tour-trebol');
-                if (iframe) {
-                  // Intenta reproducir el video si es posible (solo funciona en YouTube, no Facebook)
-                  // iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-                }
-                if (typeof window !== 'undefined') window.__videoPlayed = true;
-                const overlay = document.getElementById('video-overlay-trebol');
-                if (overlay) overlay.style.display = 'none';
-              }}
-              id="video-overlay-trebol"
-            >
-              <span className="bg-white/90 rounded-full p-5 md:p-7 shadow-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                <svg className="w-10 h-10 md:w-16 md:h-16 text-[#db1c2e]" fill="currentColor" viewBox="0 0 60 60">
-                  <circle cx="30" cy="30" r="28" fill="white" stroke="#db1c2e" strokeWidth="3" />
-                  <polygon points="25,20 45,30 25,40" fill="#db1c2e" />
-                </svg>
-              </span>
-            </button>
-          )}
           <iframe
             id="video-tour-trebol"
             src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1242575930981064%2F&show_text=false&width=267&t=0"
@@ -491,7 +464,7 @@ export default function DesarrolloTrebolII() {
             className="w-full h-full"
           />
         </div>
-        <p className="text-sm text-[#005156]/80 mt-3 text-center max-w-md">Descubre los espacios, amenidades y el entorno de Trébol II en este video. ¡Dale play!</p>
+        <p className="text-sm text-[#005156]/80 mt-3 text-center max-w-md">Descubre los espacios, amenidades y el entorno de Trébol II en este video.</p>
       </section>
 
       {/* PRECIO DESTACADO */}
