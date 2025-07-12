@@ -179,8 +179,11 @@ export default function Residencial({
 
   return (
     <main className="min-h-screen bg-white w-full">
+      <section className="z-50">
+
       <Header setSelectedOptionsOperacion={setSelectedOptionsOperacion} />
-      <section ref={firstSectionRef} className="relative z-20 w-full" aria-labelledby="busqueda-title">
+      </section>
+      <section ref={firstSectionRef} className="relative z-0 w-full" aria-labelledby="busqueda-title">
         <h1 id="busqueda-title" className="sr-only">Búsqueda de propiedades residenciales</h1>
         <HomeSearch
           valor={valor}

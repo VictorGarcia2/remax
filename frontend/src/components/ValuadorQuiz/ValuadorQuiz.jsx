@@ -31,7 +31,7 @@ async function obtenerValuacionPython(answers) {
     estado: answers.estado || null,
   };
 
-  const response = await fetch("https://api.remaxcin.com/api/valuar", {
+  const response = await fetch("https://api.remaxcin.com/valuar", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload)

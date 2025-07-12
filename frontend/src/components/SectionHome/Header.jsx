@@ -21,6 +21,21 @@ export default function Header({ setSelectedOptionsOperacion }) {
     };
   }, []);
 
+  // Cerrar dropdown cuando se abre un modal o se cambia de página
+  useEffect(() => {
+    const handleRouteChange = () => {
+      setIsVenderOpen(false);
+      setIsOpen(false);
+    };
+
+    // Escuchar cambios de ruta
+    window.addEventListener('popstate', handleRouteChange);
+    
+    return () => {
+      window.removeEventListener('popstate', handleRouteChange);
+    };
+  }, []);
+
   // Bloquear scroll del body cuando el menú está abierto
   useEffect(() => {
     if (isOpen) {
@@ -32,9 +47,29 @@ export default function Header({ setSelectedOptionsOperacion }) {
       document.body.style.overflow = '';
     };
   }, [isOpen]);
+
+  // Función para cerrar dropdowns cuando se abre un modal
+  const closeDropdowns = () => {
+    setIsVenderOpen(false);
+    setIsOpen(false);
+  };
+
+  // Escuchar eventos de modal
+  useEffect(() => {
+    const handleModalOpen = () => {
+      closeDropdowns();
+    };
+
+    // Escuchar eventos personalizados de modal
+    document.addEventListener('modal:open', handleModalOpen);
+    
+    return () => {
+      document.removeEventListener('modal:open', handleModalOpen);
+    };
+  }, []);
   return (
-    <nav className="bg-white fixed w-full z-100 top-0 left-0 shadow-sm overflow-x-hidden">
-      <div className="w-full flex flex-wrap items-center justify-between h-16 md:h-20 px-2 sm:px-4 md:px-6">
+    <nav className="bg-white fixed w-full z-[9999] top-0 left-0 shadow-sm">
+      <div className="w-full flex flex-wrap items-center justify-between h-16 md:h-20 px-2 sm:px-4 md:px-6 max-w-full">
         <Link
           to={"/inicio"}
           className="flex items-center space-x-3 rtl:space-x-reverse h-full min-w-0"
@@ -81,8 +116,8 @@ export default function Header({ setSelectedOptionsOperacion }) {
         >
           {/* Overlay para menú hamburguesa en móvil */}
           {isOpen && (
-            <div className="fixed inset-0 z-50 flex items-start justify-center md:hidden bg-black/60 transition-opacity duration-300 animate-fadeIn" onClick={() => setIsOpen(false)}>
-              <div className="w-[95vw] max-w-sm max-h-[80vh] min-h-fit bg-white rounded-2xl shadow-2xl flex flex-col items-center p-6 border border-gray-200 overflow-y-auto justify-center mt-4 relative animate-slideDown" onClick={e => e.stopPropagation()}>
+            <div className="fixed inset-0 z-[9997] flex items-start justify-center md:hidden bg-black/60 transition-opacity duration-300 animate-fadeIn" onClick={() => setIsOpen(false)}>
+              <div className="w-[95vw] max-w-sm max-h-[80vh] min-h-fit bg-white rounded-2xl shadow-2xl flex flex-col items-center p-6 border border-gray-200 overflow-y-auto justify-center mt-4 relative animate-slideDown z-[9998]" onClick={e => e.stopPropagation()}>
                 {/* Botón de cerrar (X) */}
                 <button className="absolute top-3 right-3 text-3xl text-gray-500 hover:text-red-500 focus:outline-none" onClick={() => setIsOpen(false)} aria-label="Cerrar menú">
                   &times;
@@ -161,7 +196,7 @@ export default function Header({ setSelectedOptionsOperacion }) {
             </div>
           )}
           {/* Menú normal en desktop */}
-          <ul className="hidden md:flex flex-row p-0 mt-0 font-medium md:space-x-6 lg:space-x-8 md:mt-0 md:border-0 md:bg-white h-full items-center min-w-0">
+          <ul className="hidden md:flex flex-row p-0 mt-0 font-medium md:space-x-6 lg:space-x-8 md:mt-0 md:border-0 md:bg-white h-full items-center min-w-0 flex-shrink-0">
             <li className="py-1">
               <Link
                 to="/"
@@ -184,16 +219,17 @@ export default function Header({ setSelectedOptionsOperacion }) {
                 Comprar
               </Link>
             </li>
-            <li className="relative py-1 group" ref={dropdownRef}>
+            <li className="relative z-70 py-1 group" ref={dropdownRef}>
               <div className="flex items-center">
                 <button
-                  className="flex items-center w-full py-2 px-3 text-gray-700 rounded-md hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:w-auto"
+                  className="flex items-center w-full py-2 px-3 text-gray-700 rounded-md hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:w-auto transition-colors duration-200"
                   onMouseEnter={() => setIsVenderOpen(true)}
+                  onMouseLeave={() => setTimeout(() => setIsVenderOpen(false), 100)}
                   onClick={() => setIsVenderOpen(!isVenderOpen)}
                 >
                   Vender
                   <svg
-                    className={`w-2.5 h-2.5 ml-2.5 transition-transform ${isVenderOpen ? 'rotate-180' : ''}`}
+                    className={`w-2.5 h-2.5 ml-2.5 transition-transform duration-200 ${isVenderOpen ? 'rotate-180' : ''}`}
                     aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -212,8 +248,9 @@ export default function Header({ setSelectedOptionsOperacion }) {
             
               <div
                 className={`${
-                  isVenderOpen ? "block" : "hidden"
-                } md:group-hover:block absolute z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 md:w-48 mt-1`}
+                  isVenderOpen ? "block opacity-100" : "hidden opacity-0"
+                } md:group-hover:block absolute z-50 bg-white divide-y divide-gray-100 rounded-lg shadow-lg w-44 md:w-48 mt-1 border border-gray-200 transition-all duration-200`}
+                onMouseEnter={() => setIsVenderOpen(true)}
                 onMouseLeave={() => setIsVenderOpen(false)}
               >
                 <ul className="py-2 text-sm text-gray-700">

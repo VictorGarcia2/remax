@@ -196,7 +196,7 @@ const HomeSearch = memo(
     ), [valor, data, setBusqueda, autoCompleteHome, setAutoCompleteHome]);
 
     return (
-      <div className="w-full relative h-[536px] sm:h-[680px] 2xl:h-[900px]"> {/* Asegurar altura del contenedor principal */}
+      <div className="w-full relative h-[536px] sm:h-[680px] 2xl:h-[900px] z-10"> {/* Asegurar altura del contenedor principal */}
         <div className="w-full absolute z-10">
           {/* headerContent eliminado */}
           <div className="text-center static w-[336px] 2xl:mt-70 font-display flex flex-col justify-content-center items-center text-white mx-auto mt-35 sm:mt-60">
