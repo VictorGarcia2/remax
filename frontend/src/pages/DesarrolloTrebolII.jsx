@@ -581,7 +581,7 @@ export default function DesarrolloTrebolII() {
             <span className="block leading-tight">¿Por qué elegir</span>
             <span className="text-[#db1c2e] text-3xl xs:text-4xl md:text-5xl font-extrabold block leading-tight">TRÉBOL II</span>
             <span className="inline-block bg-[#db1c2e] text-white text-xs font-bold px-3 py-1 rounded-full shadow mt-2 xs:mt-0 xs:ml-2">RE/MAX CIN</span>
-          </h2>
+            </h2>
           <p className="text-base xs:text-lg text-[#005156]/80 mb-8 text-center max-w-2xl">Descubre los beneficios y amenidades que hacen de TRÉBOL II la mejor opción para tu nuevo hogar en Veracruz.</p>
           <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Card 1 */}

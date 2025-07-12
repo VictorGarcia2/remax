@@ -300,7 +300,7 @@ const QuizResult = ({ estimatedValue, contactInfo, quizAnswers, onReset, onCompl
       ciudad: quizAnswers.ciudad || "",
       estado: quizAnswers.estado || ""
     };
-    const response = await fetch('http://127.0.0.1:8000/reporte_pdf', {
+    const response = await fetch('https://api.remaxcin.com/api/reporte_pdf', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
