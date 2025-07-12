@@ -10,11 +10,21 @@ import { db } from '../../utils/firebase';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 
 async function obtenerValuacionPython(answers) {
+  // Validar datos requeridos
+  if (!answers.propertyType || !answers.size) {
+    throw new Error("Faltan datos requeridos: tipo de propiedad y tamaño");
+  }
+
   const locationData = answers.location || {};
   const address =
     typeof locationData === "object"
       ? locationData.fullAddress || locationData.address || ""
       : locationData;
+
+  // Validar que al menos tengamos una dirección
+  if (!address && !answers.ciudad && !answers.estado) {
+    throw new Error("Se requiere al menos una dirección o ubicación");
+  }
 
   const payload = {
     direccion: address,
@@ -31,16 +41,34 @@ async function obtenerValuacionPython(answers) {
     estado: answers.estado || null,
   };
 
-  const response = await fetch("https://api.remaxcin.com/valuar", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload)
-  });
+  try {
+    console.log("Enviando petición a la API:", payload);
+    console.log("URL de la API:", "https://api.remaxcin.com/valuar");
+    
+    const response = await fetch("https://api.remaxcin.com/valuar", {
+      method: "POST",
+      headers: { 
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(payload)
+    });
 
-  if (!response.ok) {
-    throw new Error("No se pudo obtener la valuación del backend");
+    console.log("Respuesta de la API:", response.status, response.statusText);
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error("Error de la API:", errorText);
+      throw new Error(`Error del servidor: ${response.status} ${response.statusText}`);
+    }
+    
+    const data = await response.json();
+    console.log("Datos recibidos:", data);
+    return data;
+  } catch (error) {
+    console.error("Error completo:", error);
+    throw new Error(`No se pudo obtener la valuación del backend: ${error.message}`);
   }
-  return await response.json();
 }
 
 const ValuadorQuiz = ({ onComplete, address }) => {
@@ -497,11 +525,27 @@ const ValuadorQuiz = ({ onComplete, address }) => {
       setLoading(true);
       try {
         const resultado = await obtenerValuacionPython(updatedAnswers);
-        setEstimatedValue(resultado.estadisticas); // O resultado, según lo que quieras mostrar
+        console.log("Resultado de la API:", resultado);
+        
+        // Usar el resultado completo de la API
+        setEstimatedValue({
+          low: resultado.rango?.[0] || resultado.valor_estimado * 0.9,
+          high: resultado.rango?.[1] || resultado.valor_estimado * 1.1,
+          average: resultado.valor_estimado,
+          valuePerSqMeter: resultado.estadisticas?.average_per_sqm || resultado.valor_estimado / (updatedAnswers.size || 100),
+          size: updatedAnswers.size,
+          address: updatedAnswers.address,
+          comparables: resultado.comparables || [],
+          nivelCoincidencia: resultado.nivel_coincidencia || 'API'
+        });
       } catch (error) {
-        alert(error.message);
+        console.error("Error en valuación:", error);
+        alert(`Error en la valuación: ${error.message}`);
+        // Usar cálculo estático como fallback
+        calculateEstimatedValue();
+      } finally {
+        setLoading(false);
       }
-      setLoading(false);
     }
   };
 

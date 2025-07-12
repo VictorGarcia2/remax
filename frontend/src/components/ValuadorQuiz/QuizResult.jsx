@@ -278,39 +278,98 @@ const QuizResult = ({ estimatedValue, contactInfo, quizAnswers, onReset, onCompl
 
   // Función para descargar el PDF
   const descargarPDF = async () => {
-    // Construir el payload asegurando todos los campos requeridos
-    const locationData = quizAnswers.location || {};
-    const address =
-      typeof locationData === "object"
-        ? locationData.fullAddress || locationData.address || ""
-        : locationData;
-    const payload = {
-      direccion: address,
-      tipo: quizAnswers.propertyType || "",
-      metros: Number(quizAnswers.size) || 0,
-      bedrooms: Number(quizAnswers.bedrooms) || 0,
-      bathrooms: Number(quizAnswers.bathrooms) || 0,
-      age: quizAnswers.age || "",
-      condition: quizAnswers.condition || "",
-      amenities: quizAnswers.amenities || [],
-      contact_info: quizAnswers.contactInfo || {},
-      valor_estimado: estimatedValue.average || 0,
-      valor_m2: estimatedValue.valuePerSqMeter || 0,
-      colonia: quizAnswers.colonia || "",
-      ciudad: quizAnswers.ciudad || "",
-      estado: quizAnswers.estado || ""
-    };
-    const response = await fetch('https://api.remaxcin.com/api/reporte_pdf', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    });
-    const blob = await response.blob();
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'reporte_inmueble.pdf';
-    a.click();
+    try {
+      // Validar datos requeridos
+      if (!quizAnswers.propertyType || !quizAnswers.size) {
+        throw new Error("Faltan datos requeridos para generar el PDF");
+      }
+
+      // Construir el payload asegurando todos los campos requeridos
+      const locationData = quizAnswers.location || {};
+      const address =
+        typeof locationData === "object"
+          ? locationData.fullAddress || locationData.address || ""
+          : locationData;
+      const payload = {
+        direccion: address,
+        tipo: quizAnswers.propertyType || "",
+        metros: Number(quizAnswers.size) || 0,
+        bedrooms: Number(quizAnswers.bedrooms) || 0,
+        bathrooms: Number(quizAnswers.bathrooms) || 0,
+        age: quizAnswers.age || "",
+        condition: quizAnswers.condition || "",
+        amenities: quizAnswers.amenities || [],
+        contact_info: quizAnswers.contactInfo || {},
+        valor_estimado: estimatedValue.average || 0,
+        valor_m2: estimatedValue.valuePerSqMeter || 0,
+        colonia: quizAnswers.colonia || "",
+        ciudad: quizAnswers.ciudad || "",
+        estado: quizAnswers.estado || ""
+      };
+      
+      console.log("Enviando petición para PDF:", payload);
+      console.log("URL del PDF:", 'https://api.remaxcin.com/reporte_pdf');
+      
+      // Probar diferentes URLs para el PDF
+      const pdfUrls = [
+        'https://api.remaxcin.com/reporte_pdf',
+        'https://api.remaxcin.com/api/reporte_pdf',
+        'https://api.remaxcin.com/reporte_pdf/'
+      ];
+      
+      let response = null;
+      let lastError = null;
+      
+      for (const url of pdfUrls) {
+        try {
+          console.log("Probando URL:", url);
+          response = await fetch(url, {
+            method: 'POST',
+            headers: { 
+              'Content-Type': 'application/json',
+              'Accept': 'application/pdf'
+            },
+            body: JSON.stringify(payload)
+          });
+          
+          console.log("Respuesta PDF:", response.status, response.statusText, "para URL:", url);
+          
+          if (response.ok) {
+            console.log("¡URL exitosa:", url);
+            break;
+          } else {
+            lastError = `Error ${response.status} para URL: ${url}`;
+          }
+        } catch (error) {
+          console.error("Error para URL:", url, error);
+          lastError = `Error de red para URL: ${url} - ${error.message}`;
+        }
+      }
+      
+      if (!response || !response.ok) {
+        throw new Error(`No se pudo generar PDF. Último error: ${lastError}`);
+      }
+      
+      const blob = await response.blob();
+      
+      // Verificar que el blob no esté vacío
+      if (blob.size === 0) {
+        throw new Error("El PDF generado está vacío");
+      }
+      
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'reporte_inmueble.pdf';
+      a.click();
+      
+      // Limpiar el URL creado
+      window.URL.revokeObjectURL(url);
+      
+    } catch (error) {
+      console.error("Error completo al generar PDF:", error);
+      alert(`Error al generar el PDF: ${error.message}`);
+    }
   };
 
   return (
