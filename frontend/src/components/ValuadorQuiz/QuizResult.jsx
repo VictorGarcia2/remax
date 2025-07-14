@@ -116,6 +116,7 @@ const findOwnerInPipedrive = async (apiKey) => {
 const QuizResult = ({ estimatedValue, contactInfo, quizAnswers, onReset, onComplete: originalOnComplete }) => {
   const { valor } = useSearchContext();
   const [hasSentToPipedrive, setHasSentToPipedrive] = useState(false); // Nuevo estado
+  const [downloadProgress, setDownloadProgress] = useState(0); // Progreso de descarga PDF
 
   if (!estimatedValue) {
     return <div className="text-center py-8">Cargando resultado de la valuación...</div>;
@@ -278,6 +279,7 @@ const QuizResult = ({ estimatedValue, contactInfo, quizAnswers, onReset, onCompl
 
   // Función para descargar el PDF
   const descargarPDF = async () => {
+    setDownloadProgress(0);
     try {
       // Validar datos requeridos
       if (!quizAnswers.propertyType || !quizAnswers.size) {
@@ -313,8 +315,8 @@ const QuizResult = ({ estimatedValue, contactInfo, quizAnswers, onReset, onCompl
       // Probar diferentes URLs para el PDF
       const pdfUrls = [
         'https://api.remaxcin.com/reporte_pdf',
-        'https://api.remaxcin.com/api/reporte_pdf',
-        'https://api.remaxcin.com/reporte_pdf'
+        'https://api.remaxcin.com/reporte_pdf',
+        'https://api.remaxcin.com/reporte_pdf/'
       ];
       
       let response = null;
@@ -350,23 +352,33 @@ const QuizResult = ({ estimatedValue, contactInfo, quizAnswers, onReset, onCompl
         throw new Error(`No se pudo generar PDF. Último error: ${lastError}`);
       }
       
-      const blob = await response.blob();
-      
-      // Verificar que el blob no esté vacío
+      // --- Progreso de descarga ---
+      const contentLength = response.headers.get('Content-Length');
+      const total = contentLength ? parseInt(contentLength, 10) : 0;
+      const reader = response.body.getReader();
+      let received = 0;
+      let chunks = [];
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        chunks.push(value);
+        received += value.length;
+        if (total) setDownloadProgress(Math.round((received / total) * 100));
+      }
+      const blob = new Blob(chunks, { type: 'application/pdf' });
       if (blob.size === 0) {
         throw new Error("El PDF generado está vacío");
       }
-      
+      setDownloadProgress(100);
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
       a.download = 'reporte_inmueble.pdf';
       a.click();
-      
-      // Limpiar el URL creado
       window.URL.revokeObjectURL(url);
       
     } catch (error) {
+      setDownloadProgress(0);
       console.error("Error completo al generar PDF:", error);
       alert(`Error al generar el PDF: ${error.message}`);
     }
@@ -481,31 +493,19 @@ const QuizResult = ({ estimatedValue, contactInfo, quizAnswers, onReset, onCompl
           Contactar Asesor
         </button>
       </div>
-
-      {/* Mostrar comparables si existen */}
-      {estimatedValue.comparables && estimatedValue.comparables.length > 0 && (
-        <div className="comparables-section mt-8">
-          <h3 className="text-lg font-bold mb-4 text-blue-900">Propiedades comparables en tu zona</h3>
-          <ul className="space-y-4">
-            {estimatedValue.comparables.map((comp, idx) => (
-              <li key={idx} className="border rounded-lg p-4 bg-gray-50 shadow-sm">
-                <div className="font-semibold text-gray-800 mb-1">{comp.titulo || 'Propiedad comparable'}</div>
-                <div className="text-sm text-gray-600 mb-1">Dirección: <span className="font-medium text-gray-700">{comp.direccion}</span></div>
-                <div className="text-sm text-gray-600 mb-1">Metros cuadrados: <span className="font-medium text-gray-700">{comp.metros} m²</span></div>
-                <div className="text-sm text-gray-600 mb-1">Precio: <span className="font-medium text-gray-700">{formatCurrency(comp.precio)}</span></div>
-                <div className="text-sm text-gray-600 mb-1">Recámaras: <span className="font-medium text-gray-700">{comp.recamaras}</span> | Baños: <span className="font-medium text-gray-700">{comp.banos}</span></div>
-                {comp.url && (
-                  <a href={comp.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline text-sm">Ver detalle</a>
-                )}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      <button onClick={descargarPDF} className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+      <button onClick={descargarPDF} className="mt-4 rounded-lg px-4 py-2 bg-blue-600 text-white  hover:bg-blue-700">
         Descargar PDF del reporte premium
       </button>
+      {/* Barra de progreso de descarga PDF */}
+      {downloadProgress > 0 && downloadProgress < 100 && (
+        <div className="w-full bg-gray-200 rounded-full h-3 mb-4">
+          <div
+            className="bg-blue-600 h-3 rounded-full transition-all"
+            style={{ width: `${downloadProgress}%` }}
+          ></div>
+          <span className="text-xs text-gray-700">{downloadProgress}%</span>
+        </div>
+      )}
     </div>
   );
 };

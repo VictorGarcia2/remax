@@ -19,6 +19,18 @@ const QuizQuestion = ({
   const [errors, setErrors] = useState({});
   const { valor } = useSearchContext();
 
+  // Al inicio del componente QuizQuestion
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const [inputValue, setInputValue] = useState('');
+
+  useEffect(() => {
+    if (currentAnswer) {
+      setInputValue(currentAnswer);
+    } else {
+      setInputValue('');
+    }
+  }, [currentAnswer]);
+
   // Inicializar el estado con la respuesta actual si existe
   useEffect(() => {
     if (currentAnswer) {
@@ -87,19 +99,30 @@ const QuizQuestion = ({
   // Manejar el envío del formulario
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+    // Validar que ciudad o colonia exista en sugerencias si aplica
+    if ((question.id === 'ciudad' || question.id === 'colonia')) {
+      const suggestions = (question.options || []).map(opt => opt.label.toLowerCase());
+      if (!suggestions.includes(inputValue.toLowerCase())) {
+        setErrors({ select: `Por favor selecciona una ${question.id} válida de la lista.` });
+        return;
+      }
+    }
     if (validateForm()) {
       let answerToSubmit;
-      
       if (question.type === 'multiselect') {
         answerToSubmit = selectedOptions;
       } else if (question.type === 'contact') {
         answerToSubmit = contactInfo;
+      } else if (question.id === 'ciudad' || question.id === 'colonia') {
+        answerToSubmit = inputValue;
       } else {
         answerToSubmit = answer;
       }
-      
       onNext({ [question.id]: answerToSubmit });
+      // Limpiar input solo después de avanzar
+      if (question.id === 'ciudad' || question.id === 'colonia') {
+        setInputValue('');
+      }
     }
   };
 
@@ -135,6 +158,50 @@ const QuizQuestion = ({
 
   // Renderizar el input según el tipo de pregunta
   const renderQuestionInput = () => {
+    if (question.id === 'ciudad' || question.id === 'colonia') {
+      const suggestions = (question.options || []).filter(opt =>
+        opt.label.toLowerCase().includes(inputValue.toLowerCase())
+      );
+      return (
+        <div className="relative">
+          <input
+            type="text"
+            className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blueRemax"
+            placeholder={`Escribe o selecciona ${question.id}`}
+            value={inputValue}
+            onChange={e => {
+              setInputValue(e.target.value);
+              setAnswer(e.target.value);
+              setShowSuggestions(true);
+              setErrors({});
+            }}
+            onFocus={() => setShowSuggestions(true)}
+            onBlur={() => setTimeout(() => setShowSuggestions(false), 150)}
+            disabled={loading}
+          />
+          {showSuggestions && suggestions.length > 0 && (
+            <ul className="absolute z-10 bg-white border border-gray-300 rounded-lg mt-1 w-full max-h-48 overflow-y-auto shadow-lg">
+              {suggestions.map(opt => (
+                <li
+                  key={opt.value}
+                  className="px-4 py-2 cursor-pointer hover:bg-blue-100"
+                  onMouseDown={() => {
+                    setInputValue(opt.label);
+                    setAnswer(opt.label);
+                    setShowSuggestions(false);
+                  }}
+                >
+                  {opt.label}
+                </li>
+              ))}
+            </ul>
+          )}
+          {errors.select && (
+            <div className="text-red-500 text-xs mt-1">{errors.select}</div>
+          )}
+        </div>
+      );
+    }
     if (question.type === 'select') {
       return (
         <div>

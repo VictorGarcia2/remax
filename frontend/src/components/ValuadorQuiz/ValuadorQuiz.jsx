@@ -526,8 +526,6 @@ const ValuadorQuiz = ({ onComplete, address }) => {
       try {
         const resultado = await obtenerValuacionPython(updatedAnswers);
         console.log("Resultado de la API:", resultado);
-        
-        // Usar el resultado completo de la API
         setEstimatedValue({
           low: resultado.rango?.[0] || resultado.valor_estimado * 0.9,
           high: resultado.rango?.[1] || resultado.valor_estimado * 1.1,
@@ -540,9 +538,8 @@ const ValuadorQuiz = ({ onComplete, address }) => {
         });
       } catch (error) {
         console.error("Error en valuación:", error);
-        alert(`Error en la valuación: ${error.message}`);
-        // Usar cálculo estático como fallback
-        calculateEstimatedValue();
+        setEstimatedValue(null);
+        alert("No se pudo obtener una valuación automática. Por favor, inténtalo más tarde o contacta a un asesor para una valuación personalizada.");
       } finally {
         setLoading(false);
       }

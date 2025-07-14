@@ -449,14 +449,14 @@ def clean_text(text):
     return clean
 
 def normalizar_propiedad(item):
-    ciudad = "veracruz"
-    estado = "veracruz llave"
-    tipo = "casa"
     direccion = item.get("Dirección", "No disponible")
     titulo = item.get("Título", "No disponible")
     url = item.get("URL", "No disponible")
-    partes = [p.strip().lower() for p in direccion.split(",")]
+    partes = [p.strip() for p in direccion.split(",") if p.strip()]
     colonia = partes[0] if len(partes) >= 1 else ""
+    ciudad = partes[1] if len(partes) >= 2 else ""
+    estado = partes[2] if len(partes) >= 3 else ""
+    tipo = "casa"
     metros_str = item.get("Metros cuadrados", "0")
     metros_match = re.search(r"(\d+(?:[\.,]\d+)?)", metros_str.replace(",", "."))
     metros = float(metros_match.group(1)) if metros_match else 0
@@ -479,8 +479,8 @@ def normalizar_propiedad(item):
         return None
     return {
         "colonia": colonia,
-        "ciudad": ciudad.lower(),
-        "estado": estado.lower(),
+        "ciudad": ciudad,
+        "estado": estado,
         "tipo": tipo.lower(),
         "direccion": direccion,
         "titulo": titulo,
@@ -506,9 +506,9 @@ def save_to_firestore(data, collection_name='propiedades'):
     batch = db.batch()
     operations_in_batch = 0
     total_saved = 0
-    for item in data:
-        # Normalizar el item antes de guardar
-        norm_item = normalizar_propiedad(item)
+    for norm_item in data:
+        if not norm_item:
+            continue
         # Usamos la URL como ID del documento para evitar duplicados
         doc_id = norm_item.get("url")
         if not doc_id or doc_id == "No disponible":
@@ -645,7 +645,13 @@ try:
     print(f"Propiedades únicas restantes: {len(unique_data)}")
 
     # Guardar en Firestore
-    save_to_firestore(unique_data)
+    # Filtrar propiedades normalizadas válidas (no None)
+    normalizadas_validas = []
+    for item in unique_data:
+        norm_item = normalizar_propiedad(item)
+        if norm_item:
+            normalizadas_validas.append(norm_item)
+    save_to_firestore(normalizadas_validas)
 
     # --- El código para guardar en CSV y Excel se mantiene por si se necesita como respaldo ---
     # Exportar a CSV

@@ -465,4 +465,11 @@ def reporte_pdf(data: ValuacionRequest):
     pdf = HTML(string=html).write_pdf()
     t5 = time.time()
     print(f"[PERF] Tiempo total: {t5-t0:.2f}s | Consulta: {t2-t1:.2f}s | HTML: {t4-t3:.2f}s | PDF: {t5-t4:.2f}s")
-    return Response(content=pdf, media_type="application/pdf", headers={"Content-Disposition": "attachment; filename=reporte_inmueble.pdf"}) 
+    return Response(
+        content=pdf,
+        media_type="application/pdf",
+        headers={
+            "Content-Disposition": "attachment; filename=reporte_inmueble.pdf",
+            "Content-Length": str(len(pdf))
+        }
+    ) 
