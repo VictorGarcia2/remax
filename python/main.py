@@ -153,6 +153,67 @@ def reporte_pdf(data: ValuacionRequest):
     )
     comparables = comparables[:5] if comparables else []
     t2 = time.time()
+    # Calcular estadísticas para los valores de la tabla resumen
+    stats = None
+    try:
+        from valuador import calcular_estadisticas
+        stats = calcular_estadisticas(
+            comparables,
+            size=data.metros,
+            address=data.direccion,
+            property_type=tipo,
+            bedrooms=data.bedrooms,
+            bathrooms=data.bathrooms,
+            age=data.age,
+            condition=data.condition,
+            amenities=data.amenities,
+            contact_info=data.contact_info
+        )
+    except Exception as e:
+        stats = None
+
+    # Valores para la tabla resumen
+    valor_total_low = stats['low'] if stats else 0
+    valor_total_avg = stats['average'] if stats else 0
+    valor_total_high = stats['high'] if stats else 0
+    valor_m2_avg = stats['promedio_m2'] if stats else 0
+    valor_m2_low = valor_m2_avg * 0.9 if stats else 0
+    valor_m2_high = valor_m2_avg * 1.1 if stats else 0
+
+    resumen_html = f'''
+    <div class="section-title">2. RESUMEN DE VALORACIÓN</div>
+    <table style="width:100%; border-collapse:collapse; margin-bottom:24px; font-size:1.1em;">
+      <thead>
+        <tr style="background:#0033a0; color:#fff;">
+          <th style="padding:10px; border:1px solid #ccc;"> </th>
+          <th style="padding:10px; border:1px solid #ccc;">Límite inferior</th>
+          <th style="padding:10px; border:1px solid #ccc;">Estimado</th>
+          <th style="padding:10px; border:1px solid #ccc;">Límite superior</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:10px; border:1px solid #ccc; font-weight:600;">Valor total</td>
+          <td style="padding:10px; border:1px solid #ccc;">${valor_total_low:,.2f}</td>
+          <td style="padding:10px; border:1px solid #ccc; color:#0033a0; font-weight:700;">${valor_total_avg:,.2f}</td>
+          <td style="padding:10px; border:1px solid #ccc;">${valor_total_high:,.2f}</td>
+        </tr>
+        <tr>
+          <td style="padding:10px; border:1px solid #ccc; font-weight:600;">Valor por m²</td>
+          <td style="padding:10px; border:1px solid #ccc;">${valor_m2_low:,.2f}</td>
+          <td style="padding:10px; border:1px solid #ccc; color:#e11b22; font-weight:700;">${valor_m2_avg:,.2f}</td>
+          <td style="padding:10px; border:1px solid #ccc;">${valor_m2_high:,.2f}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="font-size:0.95em; color:#555; margin-bottom:32px;">
+      <b>Notas aclaratorias:</b><br>
+      1. El valor mostrado es un estimado basado en propiedades similares en la zona y puede variar.<br>
+      2. El rango representa una estimación considerando posibles variaciones del mercado.<br>
+      3. Este reporte es informativo y no constituye una valuación oficial.<br>
+    </div>
+    '''
+
     # Logo (base64)
     logo_path = os.path.join(os.path.dirname(__file__), '../frontend/public/logos/New_RMX_Mark_R4_RGB_dark.png')
     logo_b64 = ''
@@ -199,7 +260,7 @@ def reporte_pdf(data: ValuacionRequest):
                 margin: 32px 24px 32px 24px;
             }}
             body {{
-                font-family: 'Inter', Arial, sans-serif;
+                font-family: 'Inter', Arial, 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
                 background: #f5f7fb;
                 margin: 0;
                 padding: 0;
@@ -391,18 +452,7 @@ def reporte_pdf(data: ValuacionRequest):
             </div>
         </div>
 
-        <div class='section-title'>2. ESTIMADO DE VALOR</div>
-        <div class='valor-box'>
-            <div>
-                <div class='valor-label'>El valor estimado de tu propiedad es:</div>
-                <div class='valor-main'>${getattr(data, 'valor_estimado', 'N/A'):,}</div>
-                <div class='valor-label'>Rango: ${int(getattr(data, 'valor_estimado', 0)*0.9):,} - ${int(getattr(data, 'valor_estimado', 0)*1.1):,}</div>
-            </div>
-            <div>
-                <div class='valor-label'>Valor por m²</div>
-                <div class='valor-m2'>${'{:,.2f}'.format(getattr(data, 'valor_m2', 0)) if getattr(data, 'valor_m2', None) is not None else 'N/A'}</div>
-            </div>
-        </div>
+        {resumen_html}
 
         {comparables_html}
         {precio_oferta_html}
