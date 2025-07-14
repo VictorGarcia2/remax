@@ -107,6 +107,14 @@ def valuar_propiedad(data: ValuacionRequest):
     metros = data.metros
 
     comparables, nivel = buscar_comparables(db, ciudad, estado, tipo, colonia)
+    # --- FILTRADO ROBUSTO ---
+    comparables = filtrar_comparables_por_caracteristicas(
+        comparables,
+        data.metros,
+        data.bedrooms,
+        data.bathrooms
+    )
+    comparables = comparables[:5] if comparables else []
     if not comparables:
         raise HTTPException(status_code=404, detail="No se encontraron comparables")
     stats = calcular_estadisticas(
@@ -129,7 +137,7 @@ def valuar_propiedad(data: ValuacionRequest):
         "rango": [stats['low'], stats['high']],
         "nivel_coincidencia": nivel,
         "estadisticas": stats,
-        "comparables": comparables[:5]  # Solo los 5 primeros para mostrar
+        "comparables": comparables  # Ya está limitado a 5
     }
 
 @app.post("/reporte_pdf")
