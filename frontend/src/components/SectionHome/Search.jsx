@@ -307,7 +307,6 @@ export default function Search({
                     alt=""
                   />
                 </button>
-              
             </div>
           </div>
         </form>
