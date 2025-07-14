@@ -501,13 +501,13 @@ export default function DesarrolloTrebolII() {
                       key={video.src}
                       className={`absolute top-0 left-0 w-full h-full transition-all duration-500 ${idx === current ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'}`}
                     >
-                      <iframe
+          <iframe
                         src={video.src}
                         title={video.title}
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowFullScreen
                         className="w-full h-full"
-                        frameBorder="0"
+            frameBorder="0"
                       />
                     </div>
                   ))}
@@ -553,10 +553,10 @@ export default function DesarrolloTrebolII() {
                     title={video.title}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen
-                    className="w-full h-full"
+            className="w-full h-full"
                     frameBorder="0"
-                  />
-                </div>
+          />
+        </div>
               ))}
             </div>
           );
