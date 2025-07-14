@@ -153,6 +153,9 @@ def reporte_pdf(data: ValuacionRequest):
     )
     comparables = comparables[:5] if comparables else []
     t2 = time.time()
+    # Redondear valor_m2 a 2 decimales antes de usarlo en el PDF
+    if hasattr(data, 'valor_m2') and data.valor_m2 is not None:
+        data.valor_m2 = round(float(data.valor_m2), 2)
     # Logo (base64)
     logo_path = os.path.join(os.path.dirname(__file__), '../frontend/public/logos/New_RMX_Mark_R4_RGB_dark.png')
     logo_b64 = ''
@@ -400,7 +403,7 @@ def reporte_pdf(data: ValuacionRequest):
             </div>
             <div>
                 <div class='valor-label'>Valor por m²</div>
-                <div class='valor-m2'>${getattr(data, 'valor_m2', 'N/A'):,}</div>
+                <div class='valor-m2'>${'{:,.2f}'.format(getattr(data, 'valor_m2', 0)) if getattr(data, 'valor_m2', None) is not None else 'N/A'}</div>
             </div>
         </div>
 

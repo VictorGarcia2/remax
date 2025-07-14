@@ -314,7 +314,7 @@ const QuizResult = ({ estimatedValue, contactInfo, quizAnswers, onReset, onCompl
       const pdfUrls = [
         'https://api.remaxcin.com/reporte_pdf',
         'https://api.remaxcin.com/api/reporte_pdf',
-        'https://api.remaxcin.com/reporte_pdf/'
+        'https://api.remaxcin.com/reporte_pdf'
       ];
       
       let response = null;
@@ -406,7 +406,9 @@ const QuizResult = ({ estimatedValue, contactInfo, quizAnswers, onReset, onCompl
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-4 sm:mt-6 text-left">
           <div className="bg-white p-3 sm:p-4 rounded-lg shadow-sm">
             <p className="text-xs sm:text-sm text-gray-500 mb-1">Valor por m²</p>
-            <p className="text-lg sm:text-xl font-semibold text-gray-800">{formatCurrency(estimatedValue.valuePerSqMeter)}</p>
+            <p className="text-lg sm:text-xl font-semibold text-gray-800">
+              {estimatedValue.valuePerSqMeter.toLocaleString('es-MX', { style: 'currency', currency: 'MXN', minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+            </p>
           </div>
           <div className="bg-white p-3 sm:p-4 rounded-lg shadow-sm">
             <p className="text-xs sm:text-sm text-gray-500 mb-1">Superficie</p>

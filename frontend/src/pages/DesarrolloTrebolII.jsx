@@ -130,10 +130,10 @@ export default function DesarrolloTrebolII() {
   const [showModal, setShowModal] = useState(false);
   const [aceptaTerminos, setAceptaTerminos] = useState(false);
   const images = [
-    { url: "/frontend/public/fotosdesarrollo/1 (1)_compressed.webp", title: "" },
-    { url: "/frontend/public/fotosdesarrollo/2 (1)_compressed.webp", title: "" },
-    { url: "/frontend/public/fotosdesarrollo/3_compressed.webp", title: "" },
-    { url: "/frontend/public/fotosdesarrollo//6 (1)_compressed.webp", title: "" },
+    { url: "/fotosdesarrollo/1 (1)_compressed.webp", title: "" },
+    { url: "/fotosdesarrollo/2 (1)_compressed.webp", title: "" },
+    { url: "/fotosdesarrollo/3_compressed.webp", title: "" },
+    { url: "/fotosdesarrollo//6 (1)_compressed.webp", title: "" },
     { url: "/fotosdesarrollo/FACHADA.webp", title: "Fachada" },
     { url: "/fotosdesarrollo/Patio interior - Trébol II.webp", title: "Patio Interior" },
     { url: "/fotosdesarrollo/renders cocina_1 - Photo.webp", title: "Cocina" },
@@ -449,25 +449,119 @@ export default function DesarrolloTrebolII() {
         </div>
       </section>
 
-      {/* VIDEO TOUR */}
+      {/* VIDEO TOUR - Slider para móvil, grid para desktop */}
       <section className="w-full flex flex-col items-center py-8 px-2 bg-[#f2efe2]">
         <h2 className="text-xl md:text-2xl font-bold text-[#005156] mb-4 text-center">Conoce TRÉBOL II en video</h2>
-        <div className="w-full max-w-2xl aspect-[9/16] md:aspect-video rounded-2xl overflow-hidden shadow-xl border border-[#005156]/30 bg-black flex items-center justify-center relative">
-          <iframe
-            id="video-tour-trebol"
-            src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1242575930981064%2F&show_text=false&width=267&t=0"
-            width="100%"
-            height="100%"
-            style={{ border: "none", overflow: "hidden" }}
-            scrolling="no"
-            frameBorder="0"
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-            allowFullScreen={true}
-            title="Video tour Trébol II"
-            className="w-full h-full"
-          />
-        </div>
-        <p className="text-sm text-[#005156]/80 mt-3 text-center max-w-md">Descubre los espacios, amenidades y el entorno de Trébol II en este video.</p>
+        {(() => {
+          const videos = [
+            {
+              src: "https://www.youtube.com/embed/jKgTUdj7uSM",
+              title: "YouTube Short 1",
+              type: "youtube"
+            },
+            {
+              src: "https://www.youtube.com/embed/moWPKn3vJIo",
+              title: "YouTube Short 2",
+              type: "youtube"
+            }
+          ];
+          const [current, setCurrent] = React.useState(0);
+          // Detectar si es móvil (menos de 768px)
+          const [isMobile, setIsMobile] = React.useState(() => typeof window !== 'undefined' ? window.innerWidth < 768 : true);
+          React.useEffect(() => {
+            const onResize = () => setIsMobile(window.innerWidth < 768);
+            window.addEventListener('resize', onResize);
+            return () => window.removeEventListener('resize', onResize);
+          }, []);
+
+          // Slider sólo en móvil
+          if (isMobile) {
+            const goTo = idx => setCurrent(idx);
+            const prev = () => setCurrent(c => (c === 0 ? videos.length - 1 : c - 1));
+            const next = () => setCurrent(c => (c === videos.length - 1 ? 0 : c + 1));
+            // Swipe handlers para móvil
+            const touchStartX = React.useRef(null);
+            const handleTouchStart = e => { touchStartX.current = e.touches[0].clientX; };
+            const handleTouchEnd = e => {
+              if (touchStartX.current === null) return;
+              const diff = e.changedTouches[0].clientX - touchStartX.current;
+              if (diff > 50) prev();
+              else if (diff < -50) next();
+              touchStartX.current = null;
+            };
+            return (
+              <div className="w-full flex flex-col items-center">
+                <div
+                  className="relative w-full max-w-xs sm:max-w-sm md:max-w-md aspect-[9/16] rounded-2xl overflow-hidden shadow-xl border border-[#005156]/30 bg-black flex items-center justify-center mb-4"
+                  onTouchStart={handleTouchStart}
+                  onTouchEnd={handleTouchEnd}
+                >
+                  {videos.map((video, idx) => (
+                    <div
+                      key={video.src}
+                      className={`absolute top-0 left-0 w-full h-full transition-all duration-500 ${idx === current ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'}`}
+                    >
+                      <iframe
+                        src={video.src}
+                        title={video.title}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                        className="w-full h-full"
+                        frameBorder="0"
+                      />
+                    </div>
+                  ))}
+                  {/* Flechas solo en móvil */}
+                  <button
+                    onClick={prev}
+                    className="absolute left-2 top-1/2 -translate-y-1/2 bg-[#005156]/80 hover:bg-[#003d3d]/80 text-white p-2 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-[#db1c2e]/40 z-20 md:hidden"
+                    aria-label="Anterior"
+                    style={{ opacity: 0.8 }}
+                  >
+                    <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+                  </button>
+                  <button
+                    onClick={next}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-[#005156]/80 hover:bg-[#003d3d]/80 text-white p-2 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-[#db1c2e]/40 z-20 md:hidden"
+                    aria-label="Siguiente"
+                    style={{ opacity: 0.8 }}
+                  >
+                    <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                  </button>
+                </div>
+                {/* Dots de navegación */}
+                <div className="flex gap-2 justify-center mt-2 mb-2">
+                  {videos.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => goTo(idx)}
+                      className={`w-3 h-3 rounded-full ${idx === current ? 'bg-[#db1c2e]' : 'bg-[#005156]/30'} transition-all`}
+                      aria-label={`Ir al video ${idx + 1}`}
+                    />
+                  ))}
+                </div>
+              </div>
+            );
+          }
+          // En desktop: grid de 3 videos
+          return (
+            <div className="w-full flex flex-row gap-6 justify-center items-center max-w-4xl">
+              {videos.map((video, idx) => (
+                <div key={video.src} className="aspect-[9/16] w-full max-w-xs rounded-2xl overflow-hidden shadow-xl border border-[#005156]/30 bg-black flex items-center justify-center">
+                  <iframe
+                    src={video.src}
+                    title={video.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    className="w-full h-full"
+                    frameBorder="0"
+                  />
+                </div>
+              ))}
+            </div>
+          );
+        })()}
+        <p className="text-sm text-[#005156]/80 mt-3 text-center max-w-md">Descubre los espacios, amenidades y el entorno de Trébol II en estos videos.</p>
       </section>
 
       {/* PRECIO DESTACADO */}
