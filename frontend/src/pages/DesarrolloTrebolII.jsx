@@ -129,8 +129,11 @@ export default function DesarrolloTrebolII() {
   const [touched, setTouched] = useState({});
   const [showModal, setShowModal] = useState(false);
   const [aceptaTerminos, setAceptaTerminos] = useState(false);
-
   const images = [
+    { url: "/frontend/public/fotosdesarrollo/1 (1)_compressed.webp", title: "" },
+    { url: "/frontend/public/fotosdesarrollo/2 (1)_compressed.webp", title: "" },
+    { url: "/frontend/public/fotosdesarrollo/3_compressed.webp", title: "" },
+    { url: "/frontend/public/fotosdesarrollo//6 (1)_compressed.webp", title: "" },
     { url: "/fotosdesarrollo/FACHADA.webp", title: "Fachada" },
     { url: "/fotosdesarrollo/Patio interior - Trébol II.webp", title: "Patio Interior" },
     { url: "/fotosdesarrollo/renders cocina_1 - Photo.webp", title: "Cocina" },
