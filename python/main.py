@@ -2,7 +2,7 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import firebase_admin
 from firebase_admin import credentials, firestore
-from valuador import buscar_comparables, calcular_estadisticas
+from valuador import buscar_comparables, calcular_estadisticas, normalizar_texto
 from fastapi.middleware.cors import CORSMiddleware
 from weasyprint import HTML
 from fastapi.responses import Response
@@ -96,14 +96,17 @@ class ValuacionRequest(BaseModel):
 def valuar_propiedad(data: ValuacionRequest):
     # Usar colonia, ciudad y estado enviados si existen, si no, usar geocodificación
     if data.colonia and data.ciudad and data.estado:
-        colonia = data.colonia.lower().strip()
-        ciudad = data.ciudad.lower().strip()
-        estado = data.estado.lower().strip()
+        colonia = normalizar_texto(data.colonia)
+        ciudad = normalizar_texto(data.ciudad)
+        estado = normalizar_texto(data.estado)
         print(f"[DEBUG] Usando datos enviados por el usuario: colonia='{colonia}', ciudad='{ciudad}', estado='{estado}'")
     else:
         colonia, ciudad, estado = geocode_address(data.direccion)
+        colonia = normalizar_texto(colonia)
+        ciudad = normalizar_texto(ciudad)
+        estado = normalizar_texto(estado)
         print(f"[DEBUG] Google Maps: colonia='{colonia}', ciudad='{ciudad}', estado='{estado}'")
-    tipo = data.tipo.lower()
+    tipo = normalizar_texto(data.tipo)
     metros = data.metros
 
     comparables, nivel = buscar_comparables(db, ciudad, estado, tipo, colonia)
@@ -145,12 +148,15 @@ def reporte_pdf(data: ValuacionRequest):
     t0 = time.time()
     # Obtener comparables para la propiedad
     if data.colonia and data.ciudad and data.estado:
-        colonia = data.colonia.lower().strip()
-        ciudad = data.ciudad.lower().strip()
-        estado = data.estado.lower().strip()
+        colonia = normalizar_texto(data.colonia)
+        ciudad = normalizar_texto(data.ciudad)
+        estado = normalizar_texto(data.estado)
     else:
         colonia, ciudad, estado = geocode_address(data.direccion)
-    tipo = data.tipo.lower()
+        colonia = normalizar_texto(colonia)
+        ciudad = normalizar_texto(ciudad)
+        estado = normalizar_texto(estado)
+    tipo = normalizar_texto(data.tipo)
     t1 = time.time()
     comparables, _ = buscar_comparables(db, ciudad, estado, tipo, colonia)
     comparables = filtrar_comparables_por_caracteristicas(
