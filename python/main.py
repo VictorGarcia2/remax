@@ -215,7 +215,7 @@ def reporte_pdf(data: ValuacionRequest):
     '''
 
     # Logo (base64)
-    logo_path = os.path.join(os.path.dirname(__file__), '../frontend/public/logos/New_RMX_Mark_R4_RGB_dark.png')
+    logo_path = os.path.join(os.path.dirname(__file__), '../frontend/public/logos/New_RMX_Mark_R4_RGB_cream.png')
     logo_b64 = ''
     try:
         with open(logo_path, 'rb') as f:

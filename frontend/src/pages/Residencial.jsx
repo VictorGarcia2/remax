@@ -193,7 +193,7 @@ export default function Residencial({
         />
       </section>
 
-      <section className="relative z-10 w-full" aria-labelledby="porque-title">
+      <section className="relative  w-full" aria-labelledby="porque-title">
         <h2 id="porque-title" className="sr-only">¿Por qué elegir residencial?</h2>
         <SectionPorque valor={valor} />
       </section>

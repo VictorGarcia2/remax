@@ -75,13 +75,13 @@ function getZoomLevel(description = "") {
   // Dirección exacta: contiene número después de palabra o al inicio
   if (/\b\d+\b/.test(description) || /[a-zA-Z]+\s+\d+/.test(description)) return 17;
   // Calle (sin número explícito)
-  if (/calle|av\.|avenida/i.test(description)) return 16;
+  if (/calle|av\.|avenida/i.test(description)) return 17;
   // Colonia, barrio, fraccionamiento
   if (/colonia|barrio|fracc|fraccionamiento/i.test(description)) return 15;
   // Municipio, localidad, pueblo, villa
   if (/municipio|localidad|pueblo|villa/i.test(description)) return 15;
   // Ciudad, estado, país
-  if (/ciudad|estado|mx|méxico|mexico/i.test(description)) return 11;
+  if (/ciudad|estado|mx|méxico|mexico/i.test(description)) return 15;
   return 13; // Default general
 }
 

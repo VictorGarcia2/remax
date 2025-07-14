@@ -35,7 +35,7 @@ export default function Search({
   });
   const { suggestions, getPlacePredictions } = useGooglePlacesAutocomplete(isLoaded);
   const handleOperacion = (event) => {
-    const value = event.target.id;
+    const value = parseInt(event.target.id, 10); // Siempre número
     if (event) {
       setSelectedItem(value);
       // Si está marcado, añadirlo al array y mantener solo el último elemento
@@ -48,11 +48,11 @@ export default function Search({
     }
   };
   const handleTipos = (event) => {
-    const value = event.target.id;
+    const value = parseInt(event.target.id, 10); // Siempre número
     if (event) {
       setOpenTipo(false);
       setHighlightedTipo(-1);
-      setSelectedOptionsTipos([parseInt(value)]);
+      setSelectedOptionsTipos([value]);
     }
   };
   const operacion = [
@@ -190,7 +190,7 @@ export default function Search({
                 <label
                   key={item.id}
                   className={`text-sm sm:text-sm lg:text-base cursor-pointer ${
-                    selectedItem === item.id
+                    selectedItem === parseInt(item.id, 10)
                       ? "bg-blueRemax text-white"
                       : "bg-white text-[#414141]"
                   } hover:bg-blueRemax hover:text-white w-12 sm:w-20 lg:w-28 sm:h-8 lg:h-9 rounded flex justify-center items-center h-7 font-normal text-center`}
@@ -314,9 +314,9 @@ export default function Search({
         <div
           ref={modalRef}
           tabIndex={0}
-          className={`${!openTipo ? "hidden" : ""} w-40 sm:w-60 lg:w-80 h-auto bg-white mt-1 rounded shadow-[0_3px_1px] flex flex-col justify-center align-middle items-center shadow-black/50`}
+          className={`${!openTipo ? "hidden" : ""} w-40 z-50 sm:w-60 lg:w-80 h-auto bg-white mt-1 rounded shadow-[0_3px_1px] flex flex-col justify-center align-middle items-center shadow-black/50`}
         >
-          <ol className="font-display text-start py-4 text-sm sm:text-base lg:text-2xl text-[#414141]">
+          <ol className="font-display text-start py-4 text-sm sm:text-base  lg:text-2xl text-[#414141]">
             {tiposPropiedad &&
               tiposPropiedad
                 .filter(item => item.sector_nombre === valor)
