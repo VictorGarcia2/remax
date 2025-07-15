@@ -81,3 +81,7 @@ Para potenciar aún más la utilidad y precisión del valuador, proponemos las s
 ## ¿Quieres una demo?
 
 ¡Solicítala y te mostraremos cómo puede ayudarte a agilizar y profesionalizar tu proceso de valuación inmobiliaria! 
+
+# Notas sobre la base de datos de propiedades
+
+Actualmente hay **3722 propiedades** en Firebase, de las cuales se obtiene la información para hacer el valuador. 

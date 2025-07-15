@@ -79,6 +79,65 @@ class ValuacionRequest(BaseModel):
     ciudad: str = None  # Nuevo campo opcional
     estado: str = None  # Nuevo campo opcional
     precio_oferta: float = None # Nuevo campo opcional para el precio de oferta
+    enviar_pipedrive: bool = False  # Nuevo campo opcional
+
+# --- INICIO: Funciones para integración con Pipedrive ---
+PIPEDRIVE_API_KEY = "02317c5467585c4251d802ab65e0c7b9f60541ee"
+PIPEDRIVE_API_URL = "https://api.pipedrive.com/v1"
+
+# Puedes personalizar los campos según tu configuración de Pipedrive
+VALUATOR_CUSTOM_FIELDS = {
+    "VAL_TIPO_PROPIEDAD": "Tipo de Propiedad Valuada",
+    "VAL_TAMANO_M2": "Tamaño Estimado m2",
+    "VAL_ESTIMADO_BAJO": "Valor Estimado Bajo",
+    "VAL_ESTIMADO_ALTO": "Valor Estimado Alto",
+    "VAL_ESTIMADO_PROMEDIO": "Valor Estimado Promedio",
+    "VAL_POR_M2_ESTIMADO": "Valor por m2 Estimado",
+    "VAL_DIRECCION": "Dirección Propiedad Valuada",
+    "VAL_ANTIGUEDAD": "Antigüedad Estimada",
+    "VAL_CONDICION": "Condición Estimada",
+    "VAL_AMENIDADES": "Amenidades Seleccionadas",
+}
+
+def enviar_a_pipedrive(valuacion, contact_info, stats):
+    try:
+        # 1. Crear o buscar persona
+        person_payload = {
+            "name": contact_info.get("name", "Sin nombre"),
+            "email": [{"value": contact_info.get("email", ""), "primary": True}],
+            "phone": [{"value": contact_info.get("phone", ""), "primary": True}],
+            "visible_to": 3
+        }
+        person_resp = requests.post(f"{PIPEDRIVE_API_URL}/persons?api_token={PIPEDRIVE_API_KEY}", json=person_payload)
+        person_data = person_resp.json()
+        person_id = person_data.get("data", {}).get("id")
+        if not person_id:
+            return False, "No se pudo crear persona en Pipedrive"
+        # 2. Crear deal
+        deal_payload = {
+            "title": f"Valuación de Propiedad para {contact_info.get('name', 'Sin nombre')}",
+            "person_id": person_id,
+            "stage_id": 1,
+            "status": "open",
+            "visible_to": 3,
+            # Campos personalizados (ajusta los keys según tu Pipedrive)
+            # Aquí puedes mapear los campos personalizados si tienes los IDs
+        }
+        # Ejemplo de agregar valores personalizados
+        deal_payload["b7e1b2e1b2e1b2e1b2e1b2e1"] = valuacion.tipo  # Reemplaza por el key real de tu campo
+        # ... agrega más campos personalizados si tienes los keys ...
+        deal_resp = requests.post(f"{PIPEDRIVE_API_URL}/deals?api_token={PIPEDRIVE_API_KEY}", json=deal_payload)
+        deal_data = deal_resp.json()
+        deal_id = deal_data.get("data", {}).get("id")
+        if not deal_id:
+            return False, "No se pudo crear deal en Pipedrive"
+        # 3. Crear nota
+        note_content = f"Resumen de Valuación:\nTipo: {valuacion.tipo}\nTamaño: {valuacion.metros} m2\nDirección: {valuacion.direccion}\nValor estimado: {stats.get('average', 0)}\nContacto: {contact_info.get('name', '')}, {contact_info.get('email', '')}, {contact_info.get('phone', '')}"
+        note_payload = {"content": note_content, "deal_id": deal_id}
+        requests.post(f"{PIPEDRIVE_API_URL}/notes?api_token={PIPEDRIVE_API_KEY}", json=note_payload)
+        return True, "Enviado a Pipedrive"
+    except Exception as e:
+        return False, str(e)
 
 @app.post("/valuar")
 def valuar_propiedad(data: ValuacionRequest):
@@ -127,12 +186,18 @@ def valuar_propiedad(data: ValuacionRequest):
     if not stats:
         raise HTTPException(status_code=400, detail="No se pudo calcular estadísticas")
     valor_estimado = stats['average']
+    # --- INTEGRACIÓN PIPEDRIVE ---
+    pipedrive_result = None
+    if data.enviar_pipedrive and data.contact_info:
+        ok, msg = enviar_a_pipedrive(data, data.contact_info, stats)
+        pipedrive_result = {"ok": ok, "msg": msg}
     return {
         "valor_estimado": valor_estimado,
         "rango": [stats['low'], stats['high']],
         "nivel_coincidencia": nivel,
         "estadisticas": stats,
-        "comparables": comparables  # Ya está limitado a 5
+        "comparables": comparables,  # Ya está limitado a 5
+        "pipedrive": pipedrive_result
     }
 
 @app.post("/reporte_pdf")
