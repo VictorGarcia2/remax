@@ -56,20 +56,8 @@ def geocode_address(address):
         print(f"[DEBUG] Geocoding error: {data['status']}")
         return "", "", ""
 
-def filtrar_comparables_por_caracteristicas(comparables, metros, recamaras, banos):
-    comparables_filtrados = []
-    for c in comparables:
-        if c.get('metros') and metros:
-            if not (0.8 * metros <= c['metros'] <= 1.2 * metros):
-                continue
-        if c.get('recamaras') and recamaras:
-            if abs(c['recamaras'] - recamaras) > 1:
-                continue
-        if c.get('banos') and banos:
-            if abs(c['banos'] - banos) > 1:
-                continue
-        comparables_filtrados.append(c)
-    return comparables_filtrados
+# Importar la función desde valuador.py
+from valuador import filtrar_comparables_por_caracteristicas
 
 @app.get("/")
 def root():
@@ -111,11 +99,15 @@ def valuar_propiedad(data: ValuacionRequest):
 
     comparables, nivel = buscar_comparables(db, ciudad, estado, tipo, colonia)
     # --- FILTRADO ROBUSTO ---
+    # Mapear campos del frontend a campos de la BD
+    recamaras = data.bedrooms  # bedrooms -> recamaras
+    banos = data.bathrooms     # bathrooms -> banos
+    
     comparables = filtrar_comparables_por_caracteristicas(
         comparables,
         data.metros,
-        data.bedrooms,
-        data.bathrooms
+        recamaras,
+        banos
     )
     comparables = comparables[:5] if comparables else []
     if not comparables:
@@ -159,11 +151,15 @@ def reporte_pdf(data: ValuacionRequest):
     tipo = normalizar_texto(data.tipo)
     t1 = time.time()
     comparables, _ = buscar_comparables(db, ciudad, estado, tipo, colonia)
+    # Mapear campos del frontend a campos de la BD
+    recamaras = data.bedrooms  # bedrooms -> recamaras
+    banos = data.bathrooms     # bathrooms -> banos
+    
     comparables = filtrar_comparables_por_caracteristicas(
         comparables,
         data.metros,
-        data.bedrooms,
-        data.bathrooms
+        recamaras,
+        banos
     )
     comparables = comparables[:5] if comparables else []
     t2 = time.time()

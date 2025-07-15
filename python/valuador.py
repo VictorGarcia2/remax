@@ -94,6 +94,31 @@ def buscar_comparables(db, ciudad, estado, tipo, colonia=None):
     print("[DEBUG] No se encontraron comparables")
     return [], ''
 
+def filtrar_comparables_por_caracteristicas(comparables, metros, recamaras, banos):
+    """
+    Filtra comparables por características similares (metros, recámaras, baños)
+    """
+    comparables_filtrados = []
+    for c in comparables:
+        # Filtrar por metros (±20% de tolerancia)
+        if c.get('metros') and metros:
+            if not (0.8 * metros <= c['metros'] <= 1.2 * metros):
+                continue
+        
+        # Filtrar por recámaras (±1 de tolerancia)
+        if c.get('recamaras') and recamaras:
+            if abs(c['recamaras'] - recamaras) > 1:
+                continue
+        
+        # Filtrar por baños (±1 de tolerancia)
+        if c.get('banos') and banos:
+            if abs(c['banos'] - banos) > 1:
+                continue
+        
+        comparables_filtrados.append(c)
+    
+    return comparables_filtrados
+
 def calcular_estadisticas(comparables: List[Dict[str, Any]],
                         size: float = None,
                         address: str = None,

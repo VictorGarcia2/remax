@@ -21,6 +21,7 @@ import time
 import traceback
 import firebase_admin
 from firebase_admin import credentials, firestore
+from valuador import normalizar_texto  # Importar la función de normalización
 
 # --- CONFIGURACIÓN DE FIREBASE ---
 # (Desactivado para solo guardar en Excel/CSV)
@@ -78,11 +79,23 @@ def normalizar_propiedad(item):
     if precio_m2 < 5000 or precio_m2 > 100000:
         print(f"[DESCARTADO] Outlier precio/m²={precio_m2:.2f}: {direccion}")
         return None
+    
+    # Normalizar campos usando la función robusta de valuador.py
+    colonia_norm = normalizar_texto(colonia)
+    ciudad_norm = normalizar_texto(ciudad)
+    estado_norm = normalizar_texto(estado)
+    tipo_norm = normalizar_texto(tipo)
+    
+    # Guardar también los valores originales como backup
     return {
-        "colonia": colonia,
-        "ciudad": ciudad,
-        "estado": estado,
-        "tipo": tipo.lower(),
+        "colonia": colonia_norm,
+        "ciudad": ciudad_norm,
+        "estado": estado_norm,
+        "tipo": tipo_norm,
+        "colonia_original": colonia,  # Backup del valor original
+        "ciudad_original": ciudad,    # Backup del valor original
+        "estado_original": estado,    # Backup del valor original
+        "tipo_original": tipo,        # Backup del valor original
         "direccion": direccion,
         "titulo": titulo,
         "url": url,

@@ -9,6 +9,37 @@ import SectionFooter from "../SectionFooter/SectionFooter";
 import { db } from '../../utils/firebase';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 
+// Función para normalizar texto (similar a la del backend)
+function normalizarTexto(texto) {
+  if (!texto) return "";
+  
+  // Convertir a minúsculas
+  let normalizado = texto.toLowerCase();
+  
+  // Remover acentos (mapping básico)
+  const acentos = {
+    'á': 'a', 'é': 'e', 'í': 'i', 'ó': 'o', 'ú': 'u', 'ü': 'u', 'ñ': 'n',
+    'à': 'a', 'è': 'e', 'ì': 'i', 'ò': 'o', 'ù': 'u',
+    'â': 'a', 'ê': 'e', 'î': 'i', 'ô': 'o', 'û': 'u',
+    'ã': 'a', 'õ': 'o', 'ç': 'c'
+  };
+  
+  for (const [acento, letra] of Object.entries(acentos)) {
+    normalizado = normalizado.replace(new RegExp(acento, 'g'), letra);
+  }
+  
+  // Remover palabras comunes de direcciones
+  normalizado = normalizado.replace(/\b(fracc\.?|colonia|col\.?|fraccionamiento|barrio|cp|c\.p\.)\b/g, '');
+  
+  // Remover caracteres especiales excepto espacios y números
+  normalizado = normalizado.replace(/[^a-z0-9 ]/g, '');
+  
+  // Remover espacios múltiples y trim
+  normalizado = normalizado.replace(/\s+/g, ' ').trim();
+  
+  return normalizado;
+}
+
 async function obtenerValuacionPython(answers) {
   // Validar datos requeridos
   if (!answers.propertyType || !answers.size) {
@@ -26,9 +57,10 @@ async function obtenerValuacionPython(answers) {
     throw new Error("Se requiere al menos una dirección o ubicación");
   }
 
+  // Normalizar los valores antes de enviar al backend
   const payload = {
     direccion: address,
-    tipo: answers.propertyType,
+    tipo: normalizarTexto(answers.propertyType),
     metros: Number(answers.size),
     bedrooms: Number(answers.bedrooms) || null,
     bathrooms: Number(answers.bathrooms) || null,
@@ -36,9 +68,9 @@ async function obtenerValuacionPython(answers) {
     condition: answers.condition || null,
     amenities: answers.amenities || [],
     contact_info: answers.contactInfo || null,
-    colonia: answers.colonia || null,
-    ciudad: answers.ciudad || null,
-    estado: answers.estado || null,
+    colonia: normalizarTexto(answers.colonia) || null,
+    ciudad: normalizarTexto(answers.ciudad) || null,
+    estado: normalizarTexto(answers.estado) || null,
   };
 
   try {
@@ -101,9 +133,14 @@ const ValuadorQuiz = ({ onComplete, address }) => {
       const estadosSet = new Set();
       snapshot.forEach(doc => {
         const data = doc.data();
-        if (data.ciudad) ciudadesSet.add(data.ciudad);
-        if (data.colonia) coloniasSet.add(data.colonia);
-        if (data.estado) estadosSet.add(data.estado);
+        // Usar campos originales si están disponibles, sino usar los normalizados
+        const ciudad = data.ciudad_original || data.ciudad || '';
+        const colonia = data.colonia_original || data.colonia || '';
+        const estado = data.estado_original || data.estado || '';
+        
+        if (ciudad) ciudadesSet.add(ciudad);
+        if (colonia) coloniasSet.add(colonia);
+        if (estado) estadosSet.add(estado);
       });
       setCiudades(Array.from(ciudadesSet).sort());
       setColonias(Array.from(coloniasSet).sort());
@@ -120,8 +157,12 @@ const ValuadorQuiz = ({ onComplete, address }) => {
         const coloniasSet = new Set();
         snapshot.forEach(doc => {
           const data = doc.data();
-          if (data.ciudad === answers.ciudad && data.colonia) {
-            coloniasSet.add(data.colonia);
+          // Usar campos originales si están disponibles, sino usar los normalizados
+          const ciudad = data.ciudad_original || data.ciudad || '';
+          const colonia = data.colonia_original || data.colonia || '';
+          
+          if (ciudad === answers.ciudad && colonia) {
+            coloniasSet.add(colonia);
           }
         });
         setFilteredColonias(Array.from(coloniasSet).sort());
