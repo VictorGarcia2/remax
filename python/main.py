@@ -259,6 +259,18 @@ def reporte_pdf(data: ValuacionRequest):
     if hasattr(data, 'precio_oferta') and data.precio_oferta:
         precio_oferta_html = f"<div class='section-title'>Precio de oferta de la propiedad</div><div class='box'><b>${data.precio_oferta:,}</b></div>"
     t3 = time.time()
+    # Leer SVGs de iconos antes de construir el HTML
+    iconos_path = os.path.join(os.path.dirname(__file__), '../frontend/public/icons/')
+    def leer_svg(nombre):
+        try:
+            with open(os.path.join(iconos_path, nombre), 'r', encoding='utf-8') as f:
+                return f.read()
+        except Exception as e:
+            return ''
+    svg_casa = leer_svg('home-svgrepo-com.svg')
+    svg_cama = leer_svg('bedroom-3-svgrepo-com.svg')
+    svg_bano = leer_svg('bathtub-2-svgrepo-com.svg')
+    svg_regla = leer_svg('ruler-svgrepo-com.svg')
     html = f"""
     <html>
     <head>
@@ -360,6 +372,14 @@ def reporte_pdf(data: ValuacionRequest):
                 font-size: 1.8em;
                 margin-bottom: 4px;
             }}
+            .caract-item svg {{
+                width: 32px;
+                height: 32px;
+                max-width: 32px;
+                max-height: 32px;
+                display: block;
+                margin-bottom: 4px;
+            }}
             .valor-box {{
                 background: #fff;
                 border-left: 6px solid #e11b22;
@@ -454,10 +474,22 @@ def reporte_pdf(data: ValuacionRequest):
             </div>
             <div class='caracteristicas-icones'>
                 <div class='caract-list'>
-                    <div class='caract-item'><span class='emoji'>🏠</span>Casa</div>
-                    <div class='caract-item'><span class='emoji'>🛏️</span>{getattr(data, 'bedrooms', '')} Cuartos</div>
-                    <div class='caract-item'><span class='emoji'>🛁</span>{getattr(data, 'bathrooms', '')} Baños</div>
-                    <div class='caract-item'><span class='emoji'>📏</span>{data.metros} m²</div>
+                    <div class='caract-item'>
+                        {svg_casa}
+                        Casa
+                    </div>
+                    <div class='caract-item'>
+                        {svg_cama}
+                        {getattr(data, 'bedrooms', '')} Cuartos
+                    </div>
+                    <div class='caract-item'>
+                        {svg_bano}
+                        {getattr(data, 'bathrooms', '')} Baños
+                    </div>
+                    <div class='caract-item'>
+                        {svg_regla}
+                        {data.metros} m²
+                    </div>
                 </div>
             </div>
         </div>

@@ -306,17 +306,19 @@ const QuizResult = ({ estimatedValue, contactInfo, quizAnswers, onReset, onCompl
         valor_m2: estimatedValue.valuePerSqMeter || 0,
         colonia: quizAnswers.colonia || "",
         ciudad: quizAnswers.ciudad || "",
-        estado: quizAnswers.estado || ""
+        estado: quizAnswers.estado || "",
+        comparables: estimatedValue.comparables || [],
+        estadisticas: estimatedValue || {}
       };
       
       console.log("Enviando petición para PDF:", payload);
-      console.log("URL del PDF:", 'https://api.remaxcin.com/reporte_pdf');
+      console.log("URL del PDF:", 'http://127.0.0.1:8000/reporte_pdf');
       
       // Probar diferentes URLs para el PDF
       const pdfUrls = [
-        'https://api.remaxcin.com/reporte_pdf',
-        'https://api.remaxcin.com/reporte_pdf',
-        'https://api.remaxcin.com/reporte_pdf/'
+        'http://127.0.0.1:8000/reporte_pdf',
+        'http://127.0.0.1:8000/reporte_pdf',
+        'http://127.0.0.1:8000/reporte_pdf'
       ];
       
       let response = null;
