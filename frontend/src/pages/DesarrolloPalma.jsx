@@ -1,0 +1,1299 @@
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaCheckCircle, FaShieldAlt, FaMapMarkerAlt, FaHome, FaKey, FaCar, FaUserShield, FaLock, FaMapMarkedAlt, FaLeaf, FaCalendarAlt, FaPhone, FaTimes, FaExpand, FaCompress } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
+import Header from "../components/SectionHome/Header";
+import SectionFooter from "../components/SectionFooter/SectionFooter";
+
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const phoneRegex = /^\d{10}$/;
+
+const datosClave = [
+  { icon: <FaMapMarkerAlt className="text-[#4f634b] text-xl" />, label: "Dirección", value: "Av. Palma Real 456, Veracruz, Ver." },
+  { icon: <FaHome className="text-[#4f634b] text-xl" />, label: "A 10 min de", value: "Playas y centro comercial" },
+  { icon: <FaCar className="text-[#4f634b] text-xl" />, label: "Estacionamiento", value: "1 o 2 cajones por depa" },
+];
+
+export default function DesarrolloPalma() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [form, setForm] = useState({ nombre: "", email: "", telefono: "", mensaje: "" });
+  const [enviado, setEnviado] = useState(false);
+  const [touched, setTouched] = useState({});
+  const [showModal, setShowModal] = useState(false);
+  const [isZoomed, setIsZoomed] = useState(false);
+  const [zoomImageIndex, setZoomImageIndex] = useState(0);
+
+  const images = [
+    { url: "/DesarrolloPalma/PALMA-SALA-COMEDOR.jpeg", title: "Sala-Comedor" },
+    { url: "/DesarrolloPalma/PALMA-COCINA.jpeg", title: "Cocina Integral" },
+    { url: "/DesarrolloPalma/PALMA- REC 1.jpeg", title: "Recámara Principal" },
+    { url: "/DesarrolloPalma/PALMA-REC 2.jpeg", title: "Segunda Recámara" },
+    { url: "/DesarrolloPalma/PALMA-BAÑO.jpeg", title: "Baño Completo" },
+    { url: "/DesarrolloPalma/PALMA-ESTUDIO.jpeg", title: "Área de Estudio" },
+    { url: "/DesarrolloPalma/PALMA-ROOF TOP.jpeg", title: "Roof Top" },
+    { url: "/DesarrolloPalma/PALMA-PLANTA AZOTEA.jpeg", title: "Nivel 1" },
+  ];
+
+  const intervalRef = useRef(null);
+
+  const nextImage = useCallback(() => {
+    setCurrentImageIndex(prev => (prev + 1) % images.length);
+  }, [images.length]);
+
+  const prevImage = useCallback(() => {
+    setCurrentImageIndex(prev => (prev - 1 + images.length) % images.length);
+  }, [images.length]);
+
+  const resetAutoplay = useCallback(() => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    intervalRef.current = setInterval(nextImage, 5000);
+  }, [nextImage]);
+
+  useEffect(() => {
+    resetAutoplay();
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [resetAutoplay]);
+
+  const handlePrev = () => {
+    prevImage();
+    resetAutoplay();
+  };
+
+  const handleNext = () => {
+    nextImage();
+    resetAutoplay();
+  };
+
+  const handleThumbClick = (index) => {
+    setCurrentImageIndex(index);
+    resetAutoplay();
+  };
+
+  // Swipe en mobile
+  const touchStartX = useRef(null);
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+    if (intervalRef.current) clearInterval(intervalRef.current);
+  };
+  const handleTouchEnd = (e) => {
+    if (touchStartX.current === null) return;
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchEndX - touchStartX.current;
+    if (diff > 50) {
+      prevImage();
+    } else if (diff < -50) {
+      nextImage();
+    }
+    touchStartX.current = null;
+    resetAutoplay();
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      handleNext();
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      handlePrev();
+    } else if (e.key === 'Escape' && isZoomed) {
+      closeZoom();
+    }
+  };
+
+  // Funciones para el zoom modal
+  const openZoom = (index = currentImageIndex) => {
+    setZoomImageIndex(index);
+    setIsZoomed(true);
+    document.body.style.overflow = 'hidden'; // Prevenir scroll del body
+  };
+
+  const closeZoom = () => {
+    setIsZoomed(false);
+    document.body.style.overflow = 'unset';
+  };
+
+  const nextZoomImage = () => {
+    setZoomImageIndex(prev => (prev + 1) % images.length);
+  };
+
+  const prevZoomImage = () => {
+    setZoomImageIndex(prev => (prev - 1 + images.length) % images.length);
+  };
+
+  // Manejo de swipe en zoom modal
+  const touchStartXZoom = useRef(null);
+  const handleZoomTouchStart = (e) => {
+    touchStartXZoom.current = e.touches[0].clientX;
+  };
+  
+  const handleZoomTouchEnd = (e) => {
+    if (touchStartXZoom.current === null) return;
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchEndX - touchStartXZoom.current;
+    if (diff > 50) {
+      prevZoomImage();
+    } else if (diff < -50) {
+      nextZoomImage();
+    }
+    touchStartXZoom.current = null;
+  };
+
+  // Cleanup del overflow cuando se desmonta el componente
+  useEffect(() => {
+    const handleKeyPress = (e) => {
+      if (!isZoomed) return;
+      
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        nextZoomImage();
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        prevZoomImage();
+      } else if (e.key === 'Escape') {
+        e.preventDefault();
+        closeZoom();
+      }
+    };
+
+    if (isZoomed) {
+      document.addEventListener('keydown', handleKeyPress);
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+      document.removeEventListener('keydown', handleKeyPress);
+    };
+  }, [isZoomed]);
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+  const handleBlur = (e) => {
+    setTouched({ ...touched, [e.target.name]: true });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setEnviado(true);
+    setTimeout(() => {
+      setEnviado(false);
+      setShowModal(false);
+      setForm({ nombre: "", email: "", telefono: "", mensaje: "" });
+      setTouched({});
+    }, 2500);
+  };
+  const isValid = form.nombre && phoneRegex.test(form.telefono);
+
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Torre Palma 347 Departamentos en venta en Veracruz",
+    "description": "Torre Palma 347 departamentos en Veracruz desde 1.7 millones. 1-2 recámaras con estacionamiento incluido en ubicación premium.",
+    "image": "/DesarrolloPalma/PALMA-SALA-COMEDOR.jpeg",
+    "brand": {
+      "@type": "Brand",
+      "name": "RE/MAX CIN"
+    },
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "MXN",
+      "price": "1700000",
+      "availability": "https://schema.org/InStock",
+      "url": "https://remaxcin.com/desarrollo-palma"
+    }
+  };
+
+  return (
+    <main className="w-full min-h-screen bg-white font-sans tracking-wide overflow-x-hidden scroll-pt-20">
+      <Helmet>
+        <title>Torre Palma 347 Departamentos en Venta en Veracruz | Desarrollo Exclusivo</title>
+        <meta name="description" content="Torre Palma 347 departamentos en Veracruz desde $1.7 millones. 1-2 recámaras, estacionamiento incluido, ubicación premium. ¡Agenda tu visita!" />
+        <script type="application/ld+json">
+          {JSON.stringify(schemaData)}
+        </script>
+      </Helmet>
+      <Header />
+      
+      {/* HERO LUXURY MINIMALISTA CON IMAGEN DE FONDO */}
+      <section className="relative min-h-screen flex items-center overflow-hidden pt-16 sm:pt-20 lg:pt-24">
+        {/* Imagen de fondo principal */}
+        <div className="absolute inset-0 bg-[url('/DesarrolloPalma/PALMA-SALA-COMEDOR.jpeg')] bg-cover bg-center sm:bg-center"></div>
+        <div className="absolute inset-0 bg-[#4f634b]/60"></div>
+        
+        {/* Líneas geométricas minimalistas - responsive */}
+        <div className="absolute top-20 sm:top-24 lg:top-32 left-4 sm:left-8 lg:left-20 w-12 sm:w-16 lg:w-24 h-px bg-white/30"></div>
+        <div className="absolute top-20 sm:top-24 lg:top-32 left-4 sm:left-8 lg:left-20 w-px h-12 sm:h-16 lg:h-24 bg-white/30"></div>
+        <div className="hidden sm:block absolute bottom-12 lg:bottom-20 right-8 lg:right-20 w-16 lg:w-24 h-px bg-white/20"></div>
+        <div className="hidden sm:block absolute bottom-12 lg:bottom-20 right-24 lg:right-44 w-px h-16 lg:h-24 bg-white/20"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-12 sm:py-16 lg:py-20 w-full relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-20 items-center">
+            
+            {/* Contenido principal minimalista - 3 columnas */}
+            <div className="lg:col-span-3 space-y-8 lg:space-y-12">
+              
+         
+
+              {/* Título minimalista */}
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.2 }}
+              >
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-thin text-white leading-none mb-4 sm:mb-6 lg:mb-8 tracking-tight">
+                  TORRE
+                  <br />
+                  <span className="text-[#d2c8b3] font-light italic text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl">
+                    Palma 347
+                  </span>
+                </h1>
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-white/90 font-light leading-relaxed max-w-3xl">
+                  Arquitectura <span className="font-medium text-[#d2c8b3]">contemporánea</span> en armonía con la naturaleza
+                  <br className="hidden sm:block" />
+                  <span className="text-sm sm:text-base md:text-lg lg:text-xl text-[#d2c8b3]/90 mt-2 lg:mt-4 block">Desde $1,700,000 MXN</span>
+                </p>
+              </motion.div>
+
+              {/* Stats minimalistas */}
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.4 }}
+                className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 lg:gap-8"
+              >
+                <div className="bg-white/10 backdrop-blur-sm border border-white/20 p-4 sm:p-5 lg:p-8 text-center shadow-sm hover:shadow-md hover:bg-white/15 transition-all duration-300">
+                  <div className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-light text-white mb-2 lg:mb-3">57—86</div>
+                  <div className="text-xs font-medium text-[#d2c8b3] uppercase tracking-widest">m² construidos</div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm border border-white/20 p-4 sm:p-5 lg:p-8 text-center shadow-sm hover:shadow-md hover:bg-white/15 transition-all duration-300">
+                  <div className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-light text-white mb-2 lg:mb-3">1—2</div>
+                  <div className="text-xs font-medium text-[#d2c8b3] uppercase tracking-widest">recámaras</div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm border border-white/20 p-4 sm:p-5 lg:p-8 text-center shadow-sm hover:shadow-md hover:bg-white/15 transition-all duration-300">
+                  <div className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-light text-white mb-2 lg:mb-3">6</div>
+                  <div className="text-xs font-medium text-[#d2c8b3] uppercase tracking-widest">departamentos</div>
+                </div>
+              </motion.div>
+
+              {/* Amenidades minimalistas */}
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.6 }}
+                className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-white/20"
+              >
+                <div className="flex items-center gap-3 lg:gap-4 bg-white/10 backdrop-blur-sm p-3 sm:p-4 lg:p-6 hover:bg-white/15 transition-all duration-300">
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 border border-white/60 flex items-center justify-center flex-shrink-0">
+                    <FaMapMarkerAlt className="text-white text-xs sm:text-sm" />
+                  </div>
+                  <span className="font-light text-white text-xs sm:text-sm tracking-wide">Ubicación Premium</span>
+                </div>
+                <div className="flex items-center gap-3 lg:gap-4 bg-white/10 backdrop-blur-sm p-3 sm:p-4 lg:p-6 hover:bg-white/15 transition-all duration-300">
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 border border-white/60 flex items-center justify-center flex-shrink-0">
+                    <FaCar className="text-white text-xs sm:text-sm" />
+                  </div>
+                  <span className="font-light text-white text-xs sm:text-sm tracking-wide">1 Cajón Estacionamiento</span>
+                </div>
+                <div className="flex items-center gap-3 lg:gap-4 bg-white/10 backdrop-blur-sm p-3 sm:p-4 lg:p-6 hover:bg-white/15 transition-all duration-300">
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 border border-white/60 flex items-center justify-center flex-shrink-0">
+                    <FaHome className="text-white text-xs sm:text-sm" />
+                  </div>
+                  <span className="font-light text-white text-xs sm:text-sm tracking-wide">1-2 Rec / 1-2 Baños</span>
+                </div>
+                <div className="flex items-center gap-3 lg:gap-4 bg-white/10 backdrop-blur-sm p-3 sm:p-4 lg:p-6 hover:bg-white/15 transition-all duration-300">
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 border border-white/60 flex items-center justify-center flex-shrink-0">
+                    <FaShieldAlt className="text-white text-xs sm:text-sm" />
+                  </div>
+                  <span className="font-light text-white text-xs sm:text-sm tracking-wide">Área de Patio/Terraza</span>
+                </div>
+              </motion.div>
+
+              {/* Imagen principal en mobile - ahora oculta porque tenemos fondo */}
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1, delay: 0.8 }}
+                className="hidden"
+              >
+                <img 
+                  src="/DesarrolloPalma/PALMA-COCINA.jpeg" 
+                  alt="Palma Residences" 
+                  className="w-full h-[400px] object-cover"
+                />
+              </motion.div>
+            </div>
+
+            {/* Formulario minimalista - 2 columnas */}
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, delay: 0.4 }}
+              className="lg:col-span-2 mt-8 lg:mt-0 pt-4 sm:pt-0"
+              id="contacto"
+            >
+              <div className="bg-white border border-[#d2c8b3]/30 shadow-lg p-4 sm:p-6 lg:p-10 sticky top-20 sm:top-24 lg:top-32 max-w-md mx-auto lg:max-w-none">
+                {enviado ? (
+                  <motion.div
+                    initial={{ scale: 0.9, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    className="text-center py-6 sm:py-8 lg:py-12"
+                  >
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 border border-[#7a8d77] rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 lg:mb-8">
+                      <FaCheckCircle className="text-[#7a8d77] text-base sm:text-lg lg:text-2xl" />
+                    </div>
+                    <h3 className="text-lg sm:text-xl lg:text-2xl font-light text-[#4f634b] mb-3 sm:mb-4 lg:mb-6 tracking-wide">Experiencia Reservada</h3>
+                    <p className="text-sm sm:text-base text-[#4f634b]/80 font-light">Su asesor personal lo contactará en las próximas horas para coordinar su visita privada.</p>
+                  </motion.div>
+                ) : (
+                  <>
+                    <div className="text-center mb-6 sm:mb-8 lg:mb-10">
+                      <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 border border-[#4f634b] flex items-center justify-center mx-auto mb-3 sm:mb-4 lg:mb-6">
+                        <FaHome className="text-[#4f634b] text-sm sm:text-base lg:text-lg" />
+                      </div>
+                      <h3 className="text-xl sm:text-2xl lg:text-3xl font-light text-[#4f634b] mb-2 sm:mb-3 lg:mb-4 tracking-wide">
+                        Experiencia <span className="font-medium text-[#7a8d77]">Privada</span>
+                      </h3>
+                      <p className="text-sm sm:text-base text-[#4f634b]/80 font-light leading-relaxed px-2">
+                        Reserve su visita exclusiva con nuestro especialista en propiedades de lujo
+                      </p>
+                      
+                    </div>
+
+                    <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6 lg:space-y-8">
+                      <div className="relative">
+                        <label htmlFor="nombre" className="block text-[#4f634b] font-medium mb-2 lg:mb-3 text-xs sm:text-sm tracking-wide uppercase">Nombre Completo</label>
+                        <input 
+                          name="nombre" 
+                          id="nombre" 
+                          type="text" 
+                          required 
+                          placeholder="Su nombre completo" 
+                          className={`w-full p-3 sm:p-4 border ${touched.nombre && !form.nombre ? 'border-red-400' : 'border-[#d2c8b3]/50'} focus:border-[#7a8d77] focus:outline-none transition-all duration-300 bg-white text-sm font-light tracking-wide shadow-sm hover:shadow-md`} 
+                          value={form.nombre} 
+                          onChange={handleChange} 
+                          onBlur={handleBlur} 
+                        />
+                        {touched.nombre && !form.nombre && <span className="text-xs text-red-500 absolute -bottom-5 left-0 font-light">Campo requerido</span>}
+                      </div>
+
+                      <div className="grid grid-cols-1 gap-4 sm:gap-6">
+                        <div className="relative">
+                          <label htmlFor="telefono" className="block text-[#4f634b] font-medium mb-2 lg:mb-3 text-xs sm:text-sm tracking-wide uppercase">Teléfono</label>
+                          <input 
+                            name="telefono" 
+                            id="telefono" 
+                            type="tel" 
+                            required 
+                            placeholder="229 123 4567" 
+                            className={`w-full p-3 sm:p-4 border ${touched.telefono && !phoneRegex.test(form.telefono) ? 'border-red-400' : 'border-[#d2c8b3]/50'} focus:border-[#7a8d77] focus:outline-none transition-all duration-300 bg-white text-sm font-light tracking-wide shadow-sm hover:shadow-md`} 
+                            value={form.telefono} 
+                            onChange={handleChange} 
+                            onBlur={handleBlur} 
+                            maxLength="10" 
+                          />
+                          {touched.telefono && !form.telefono && <span className="text-xs text-red-500 absolute -bottom-5 left-0 font-light">Requerido</span>}
+                          {touched.telefono && form.telefono && !phoneRegex.test(form.telefono) && <span className="text-xs text-red-500 absolute -bottom-5 left-0 font-light">10 dígitos</span>}
+                        </div>
+
+                        <div className="relative">
+                          <label htmlFor="email" className="block text-[#4f634b] font-medium mb-2 lg:mb-3 text-xs sm:text-sm tracking-wide uppercase">Correo Electrónico (Opcional)</label>
+                          <input 
+                            name="email" 
+                            id="email" 
+                            type="email" 
+                            placeholder="su@email.com" 
+                            className={`w-full p-3 sm:p-4 border ${touched.email && form.email && !emailRegex.test(form.email) ? 'border-red-400' : 'border-[#d2c8b3]/50'} focus:border-[#7a8d77] focus:outline-none transition-all duration-300 bg-white text-sm font-light tracking-wide shadow-sm hover:shadow-md`} 
+                            value={form.email} 
+                            onChange={handleChange} 
+                            onBlur={handleBlur} 
+                          />
+                          {touched.email && form.email && !emailRegex.test(form.email) && <span className="text-xs text-red-500 absolute -bottom-5 left-0 font-light">Email inválido</span>}
+                        </div>
+                      </div>
+
+                      <button 
+                        type="submit" 
+                        disabled={!isValid} 
+                        className={`w-full bg-[#4f634b] text-white font-medium py-3 sm:py-4 px-4 sm:px-6 lg:px-8 text-xs sm:text-sm transition-all duration-300 flex items-center justify-center gap-2 sm:gap-3 tracking-wide uppercase shadow-sm hover:shadow-md ${
+                          !isValid ? 'opacity-60 cursor-not-allowed' : 'hover:bg-[#7a8d77] transform hover:translate-y-[-1px]'
+                        }`}
+                      >
+                        <FaCalendarAlt className="text-xs sm:text-sm" />
+                        <span className="hidden sm:inline">Reservar Experiencia Privada</span>
+                        <span className="sm:hidden">Reservar Visita</span>
+                      </button>
+
+                      <div className="text-center pt-3 sm:pt-4 lg:pt-6 space-y-2 sm:space-y-3 lg:space-y-4">
+                        <p className="text-xs text-[#4f634b]/60 flex items-center justify-center gap-2 font-light tracking-wide">
+                          <FaLock className="text-[#7a8d77]" />
+                          Información 100% confidencial
+                        </p>
+                        <p className="text-xs text-[#4f634b]/60 font-light tracking-wide max-w-xs mx-auto leading-relaxed text-center px-2">
+                          Al enviar la información, acepta automáticamente nuestros{' '}
+                          <a 
+                            href="/terminos-y-condiciones" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="text-[#7a8d77] hover:text-[#4f634b] underline transition-colors duration-300"
+                          >
+                            términos y condiciones
+                          </a>
+                        </p>
+                      </div>
+                    </form>
+                  </>
+                )}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* GALERÍA MINIMALISTA LUXURY */}
+      <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-12 bg-[#fafafa]">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="inline-flex items-center gap-3 sm:gap-4 border border-[#4f634b] text-[#4f634b] px-6 sm:px-8 py-2 sm:py-3 mb-6 sm:mb-8 tracking-wider uppercase text-xs font-medium"
+            >
+              <FaHome className="text-xs sm:text-sm" />
+              <span>Torre Palma 347</span>
+            </motion.div>
+            
+            <motion.h2 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-4xl sm:text-5xl lg:text-6xl xl:text-8xl font-thin text-[#4f634b] mb-6 sm:mb-8 leading-none tracking-tight"
+            >
+              Vivir en
+              <br />
+              <span className="text-[#7a8d77] font-light italic">
+                Torre Palma
+              </span>
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-lg sm:text-xl lg:text-2xl text-[#4f634b]/70 max-w-4xl mx-auto leading-relaxed font-light px-4"
+            >
+              Un desarrollo de 6 departamentos exclusivos con características únicas para el estilo de vida moderno
+            </motion.p>
+          </div>
+
+          {/* Grid de características principales */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-[#d2c8b3]/30 mb-16 sm:mb-20 lg:mb-24">
+            {/* Característica 1 - Diversidad de Espacios */}
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="group relative"
+            >
+              <div className="bg-white p-8 sm:p-10 lg:p-12 h-full hover:bg-[#fafafa] transition-all duration-300 relative">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 border border-[#4f634b] flex items-center justify-center mb-6 sm:mb-8 group-hover:border-[#7a8d77] transition-all duration-300">
+                  <FaHome className="text-[#4f634b] text-lg sm:text-xl lg:text-2xl group-hover:text-[#7a8d77] transition-colors duration-300" />
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-light text-[#4f634b] mb-4 sm:mb-6 tracking-wide">Diversidad de Espacios</h3>
+                <p className="text-[#4f634b]/70 leading-relaxed mb-6 sm:mb-8 font-light text-sm sm:text-base">
+                  6 departamentos únicos con diferentes configuraciones: desde estudios compactos hasta amplias residencias de 2 recámaras.
+                </p>
+                <div className="space-y-3 sm:space-y-4">
+                  <div className="flex items-center gap-3 sm:gap-4 py-2">
+                    <div className="w-2 h-px bg-[#7a8d77]"></div>
+                    <span className="text-xs sm:text-sm text-[#4f634b] font-light">57m² a 86.95m² totales</span>
+                  </div>
+                  <div className="flex items-center gap-3 sm:gap-4 py-2">
+                    <div className="w-2 h-px bg-[#7a8d77]"></div>
+                    <span className="text-xs sm:text-sm text-[#4f634b] font-light">Opciones de 1-2 recámaras</span>
+                  </div>
+                  <div className="flex items-center gap-3 sm:gap-4 py-2">
+                    <div className="w-2 h-px bg-[#7a8d77]"></div>
+                    <span className="text-xs sm:text-sm text-[#4f634b] font-light">Estudio + recámara disponible</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Característica 2 - Ubicación Estratégica */}
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="group relative"
+            >
+              <div className="bg-white p-8 sm:p-10 lg:p-12 h-full hover:bg-[#fafafa] transition-all duration-300 relative">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 border border-[#4f634b] flex items-center justify-center mb-6 sm:mb-8 group-hover:border-[#7a8d77] transition-all duration-300">
+                  <FaMapMarkerAlt className="text-[#4f634b] text-lg sm:text-xl lg:text-2xl group-hover:text-[#7a8d77] transition-colors duration-300" />
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-light text-[#4f634b] mb-4 sm:mb-6 tracking-wide">Ubicación Estratégica</h3>
+                <p className="text-[#4f634b]/70 leading-relaxed mb-6 sm:mb-8 font-light text-sm sm:text-base">
+                  Torre de 3 niveles en una de las zonas más valoradas de Veracruz, con fácil acceso a servicios y comercios.
+                </p>
+                <div className="space-y-3 sm:space-y-4">
+                  <div className="flex items-center gap-3 sm:gap-4 py-2">
+                    <div className="w-2 h-px bg-[#7a8d77]"></div>
+                    <span className="text-xs sm:text-sm text-[#4f634b] font-light">Planta baja y pisos superiores</span>
+                  </div>
+                  <div className="flex items-center gap-3 sm:gap-4 py-2">
+                    <div className="w-2 h-px bg-[#7a8d77]"></div>
+                    <span className="text-xs sm:text-sm text-[#4f634b] font-light">Zona residencial consolidada</span>
+                  </div>
+                  <div className="flex items-center gap-3 sm:gap-4 py-2">
+                    <div className="w-2 h-px bg-[#7a8d77]"></div>
+                    <span className="text-xs sm:text-sm text-[#4f634b] font-light">Excelente conectividad urbana</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Característica 3 - Comodidades Incluidas */}
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="group relative"
+            >
+              <div className="bg-white p-8 sm:p-10 lg:p-12 h-full hover:bg-[#fafafa] transition-all duration-300 relative">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 border border-[#4f634b] flex items-center justify-center mb-6 sm:mb-8 group-hover:border-[#7a8d77] transition-all duration-300">
+                  <FaCar className="text-[#4f634b] text-lg sm:text-xl lg:text-2xl group-hover:text-[#7a8d77] transition-colors duration-300" />
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-light text-[#4f634b] mb-4 sm:mb-6 tracking-wide">Comodidades Incluidas</h3>
+                <p className="text-[#4f634b]/70 leading-relaxed mb-6 sm:mb-8 font-light text-sm sm:text-base">
+                  Cada departamento incluye estacionamiento privado y espacios adicionales como patios o terrazas.
+                </p>
+                <div className="space-y-3 sm:space-y-4">
+                  <div className="flex items-center gap-3 sm:gap-4 py-2">
+                    <div className="w-2 h-px bg-[#7a8d77]"></div>
+                    <span className="text-xs sm:text-sm text-[#4f634b] font-light">1 cajón de estacionamiento</span>
+                  </div>
+                  <div className="flex items-center gap-3 sm:gap-4 py-2">
+                    <div className="w-2 h-px bg-[#7a8d77]"></div>
+                    <span className="text-xs sm:text-sm text-[#4f634b] font-light">Áreas de patio o terraza</span>
+                  </div>
+                  <div className="flex items-center gap-3 sm:gap-4 py-2">
+                    <div className="w-2 h-px bg-[#7a8d77]"></div>
+                    <span className="text-xs sm:text-sm text-[#4f634b] font-light">Distribuciones funcionales</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Galería minimalista */}
+          <div className="relative">
+            <div className="text-center mb-6 sm:mb-8 lg:mb-12">
+              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light text-[#4f634b] mb-2 sm:mb-3 lg:mb-4 tracking-wide">Portfolio Visual</h3>
+              <p className="text-[#4f634b]/70 font-light text-sm sm:text-base">Cada espacio refleja nuestra filosofía de elegancia discreta</p>
+            </div>
+            
+            {/* Marco minimalista para la imagen principal */}
+            <div className="relative border border-[#d2c8b3]/50 overflow-hidden shadow-sm mb-3 sm:mb-6 lg:mb-10" 
+                 onKeyDown={handleKeyDown} 
+                 tabIndex={0}
+                 onTouchStart={handleTouchStart} 
+                 onTouchEnd={handleTouchEnd}>
+              
+              <div className="relative h-[320px] sm:h-[380px] md:h-[480px] lg:h-[600px] xl:h-[700px] bg-white">
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={currentImageIndex}
+                    src={images[currentImageIndex].url}
+                    alt={images[currentImageIndex].title}
+                    className="w-full h-full object-cover cursor-pointer"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                    onClick={() => openZoom(currentImageIndex)}
+                  />
+                </AnimatePresence>
+                
+                {/* Overlay minimalista */}
+                <div className="absolute inset-0 bg-black/20"></div>
+                
+                {/* Botón de zoom - solo visible en mobile */}
+                <button
+                  onClick={() => openZoom(currentImageIndex)}
+                  className="absolute top-3 right-3 sm:top-4 sm:right-4 w-8 h-8 sm:w-10 sm:h-10 bg-white/90 hover:bg-white border border-white/30 flex items-center justify-center transition-all duration-300 text-[#4f634b] lg:hidden"
+                  aria-label="Ampliar imagen"
+                >
+                  <FaExpand className="w-3 h-3 sm:w-4 sm:h-4" />
+                </button>
+                
+                {/* Información minimalista */}
+                <div className="absolute bottom-3 sm:bottom-4 lg:bottom-8 left-3 sm:left-4 lg:left-8 text-white">
+                  <div className="bg-white/90 backdrop-blur-sm p-3 sm:p-4 lg:p-6 text-[#4f634b] max-w-xs sm:max-w-sm lg:max-w-md">
+                    <h4 className="text-base sm:text-lg lg:text-xl xl:text-2xl font-light mb-1 sm:mb-2 tracking-wide">{images[currentImageIndex].title}</h4>
+                    <p className="text-xs sm:text-sm font-light mb-1 sm:mb-2 lg:mb-3 opacity-80">
+                      Diseño arquitectónico contemporáneo
+                    </p>
+                    <div className="flex items-center gap-2 sm:gap-3 lg:gap-4 text-xs font-medium tracking-wider uppercase">
+                      <span>
+                        {currentImageIndex + 1} / {images.length}
+                      </span>
+                      <div className="w-4 sm:w-6 lg:w-8 h-px bg-[#7a8d77]"></div>
+                      <span className="hidden sm:inline">Palma Residences</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Controles minimalistas */}
+                <button
+                  onClick={handlePrev}
+                  className="absolute left-2 sm:left-3 lg:left-6 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 border border-white/30 hover:border-white/60 bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300 text-white group"
+                  aria-label="Imagen anterior"
+                >
+                  <svg className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                
+                <button
+                  onClick={handleNext}
+                  className="absolute right-2 sm:right-3 lg:right-6 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 border border-white/30 hover:border-white/60 bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300 text-white group"
+                  aria-label="Siguiente imagen"
+                >
+                  <svg className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+
+                {/* Indicadores minimalistas */}
+                <div className="absolute bottom-2 sm:bottom-3 lg:bottom-8 right-2 sm:right-3 lg:right-8">
+                  <div className="bg-white/90 backdrop-blur-sm p-1 sm:p-1.5 lg:p-3">
+                    <div className="flex gap-0.5 sm:gap-1 lg:gap-2">
+                      {images.map((_, index) => (
+                        <button
+                          key={index}
+                          onClick={() => handleThumbClick(index)}
+                          className={`w-1 h-1 sm:w-1.5 sm:h-1.5 lg:w-2 lg:h-2 transition-all duration-300 ${
+                            index === currentImageIndex 
+                              ? 'bg-[#4f634b]' 
+                              : 'bg-[#d2c8b3] hover:bg-[#7a8d77]'
+                          }`}
+                          aria-label={`Ver imagen ${index + 1}`}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Thumbnails minimalistas */}
+            <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-7 xl:grid-cols-8 gap-1 sm:gap-2">
+              {images.map((image, index) => (
+                <motion.button
+                  key={index}
+                  onClick={() => {
+                    handleThumbClick(index);
+                    // En móvil, abrir zoom directamente
+                    if (window.innerWidth < 1024) {
+                      setTimeout(() => openZoom(index), 100);
+                    }
+                  }}
+                  onDoubleClick={() => openZoom(index)} // Doble clic en desktop
+                  className={`relative overflow-hidden aspect-square transition-all duration-300 border ${
+                    index === currentImageIndex 
+                      ? 'border-[#4f634b] opacity-100' 
+                      : 'border-[#d2c8b3]/50 opacity-70 hover:opacity-90 hover:border-[#7a8d77]'
+                  }`}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <img
+                    src={image.url}
+                    alt={image.title}
+                    className="w-full h-full object-cover"
+                  />
+                  
+                  {/* Overlay simple */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-white/90 p-0.5 sm:p-1 lg:p-2">
+                    <span className="text-[#4f634b] text-xs font-light truncate block">
+                      {image.title}
+                    </span>
+                  </div>
+                </motion.button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* MODAL DE ZOOM PARA GALERÍA */}
+      <AnimatePresence>
+        {isZoomed && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-gradient-to-br from-black/90 via-black/95 to-black/90 z-[100] flex items-center justify-center p-4 pt-20 sm:pt-24 lg:pt-4 backdrop-blur-sm"
+            onClick={closeZoom}
+            onTouchStart={handleZoomTouchStart}
+            onTouchEnd={handleZoomTouchEnd}
+          >
+            <div className="relative w-full h-full max-w-6xl max-h-full flex items-center justify-center pb-4">
+              {/* Imagen ampliada mejorada */}
+              <motion.div
+                key={zoomImageIndex}
+                initial={{ scale: 0.8, opacity: 0, y: 20 }}
+                animate={{ scale: 1, opacity: 1, y: 0 }}
+                exit={{ scale: 0.8, opacity: 0, y: -20 }}
+                transition={{ duration: 0.4, type: "spring", damping: 25, stiffness: 200 }}
+                className="relative"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <img
+                  src={images[zoomImageIndex].url}
+                  alt={images[zoomImageIndex].title}
+                  className="max-w-full max-h-[70vh] sm:max-h-[80vh] lg:max-h-full object-contain rounded-lg shadow-2xl"
+                />
+                
+                {/* Efecto de brillo */}
+                <div className="absolute inset-0 rounded-lg bg-gradient-to-tr from-transparent via-white/5 to-transparent pointer-events-none"></div>
+              </motion.div>
+
+              {/* Botón cerrar mejorado */}
+              <motion.button
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3, delay: 0.1 }}
+                onClick={closeZoom}
+                className="absolute top-4 sm:top-4 lg:top-4 right-4 w-12 h-12 bg-gradient-to-br from-white/95 to-white/85 hover:from-white hover:to-white/95 border border-white/30 rounded-full flex items-center justify-center transition-all duration-300 text-[#4f634b] shadow-lg backdrop-blur-sm z-10 group"
+                aria-label="Cerrar zoom"
+              >
+                <FaTimes className="w-4 h-4 group-hover:scale-110 transition-transform duration-200" />
+              </motion.button>
+
+              {/* Controles de navegación mejorados */}
+              {images.length > 1 && (
+                <>
+                  <motion.button
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: 0.2 }}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      prevZoomImage();
+                    }}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 w-14 h-14 bg-gradient-to-br from-white/95 to-white/85 hover:from-white hover:to-white/95 border border-white/30 rounded-full flex items-center justify-center transition-all duration-300 text-[#4f634b] shadow-lg backdrop-blur-sm group"
+                    aria-label="Imagen anterior"
+                  >
+                    <svg className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </motion.button>
+
+                  <motion.button
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: 0.2 }}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      nextZoomImage();
+                    }}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 w-14 h-14 bg-gradient-to-br from-white/95 to-white/85 hover:from-white hover:to-white/95 border border-white/30 rounded-full flex items-center justify-center transition-all duration-300 text-[#4f634b] shadow-lg backdrop-blur-sm group"
+                    aria-label="Siguiente imagen"
+                  >
+                    <svg className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </motion.button>
+                </>
+              )}
+
+              {/* Información simplificada */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ duration: 0.4, delay: 0.2 }}
+                className="absolute bottom-4 left-4 right-4 bg-gradient-to-t from-white/95 via-white/90 to-white/85 backdrop-blur-lg p-4 text-[#4f634b] rounded-lg shadow-lg border border-white/20"
+              >
+                {/* Título e indicador */}
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h4 className="text-lg sm:text-xl font-light tracking-wide text-[#4f634b] mb-1">
+                      {images[zoomImageIndex].title}
+                    </h4>
+                    <p className="text-sm text-[#7a8d77] font-light">Torre Palma 347</p>
+                  </div>
+                  
+                  <div className="flex items-center gap-3">
+                    <div className="bg-[#4f634b]/10 rounded-full px-3 py-1">
+                      <span className="text-xs font-medium tracking-wider">
+                        {zoomImageIndex + 1} de {images.length}
+                      </span>
+                    </div>
+                    <div className="flex gap-1">
+                      {images.map((_, index) => (
+                        <button
+                          key={index}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setZoomImageIndex(index);
+                          }}
+                          className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                            index === zoomImageIndex 
+                              ? 'bg-[#4f634b] scale-125' 
+                              : 'bg-[#d2c8b3] hover:bg-[#7a8d77] hover:scale-110'
+                          }`}
+                          aria-label={`Ver imagen ${index + 1}`}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* SECCIÓN DE DEPARTAMENTOS DISPONIBLES */}
+      <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-12 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+            <motion.h2 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-4xl sm:text-5xl lg:text-6xl xl:text-8xl font-thin text-[#4f634b] mb-6 sm:mb-8 leading-none tracking-tight"
+            >
+              Disponibilidad
+              <br />
+              <span className="text-[#7a8d77] font-light italic">Exclusiva</span>
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-lg sm:text-xl lg:text-2xl text-[#4f634b]/70 max-w-4xl mx-auto leading-relaxed font-light px-4"
+            >
+              Cada departamento ha sido diseñado con atención al detalle y acabados de primera calidad
+            </motion.p>
+          </div>
+
+          {/* Grid de departamentos */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+            {/* Departamento 101 */}
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="bg-white border border-[#d2c8b3]/30 p-4 sm:p-6 lg:p-8 hover:shadow-lg transition-all duration-300 group"
+            >
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-4 sm:mb-6">
+                <div className="mb-3 sm:mb-0">
+                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-light text-[#4f634b] mb-1 sm:mb-2">Depto 101</h3>
+                  <p className="text-xs sm:text-sm text-[#7a8d77] font-medium uppercase tracking-wide">Planta Baja</p>
+                </div>
+                <div className="text-left sm:text-right">
+                  <div className="text-lg sm:text-xl lg:text-2xl font-light text-[#4f634b] mb-1">$1,900,000</div>
+                  <div className="text-xs text-[#7a8d77] uppercase tracking-wide">MXN</div>
+                </div>
+              </div>
+              
+              <div className="space-y-2 sm:space-y-3 lg:space-y-4 mb-4 sm:mb-6">
+                <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
+                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Interior:</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">73.20 m²</span>
+                </div>
+                <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
+                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Con estacionamiento:</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">86.95 m²</span>
+                </div>
+                <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
+                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Distribución:</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">2 rec / 2 baños / patio</span>
+                </div>
+                <div className="flex justify-between py-1 sm:py-2">
+                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Estacionamiento:</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">1 cajón incluido</span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Departamento 102 */}
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="bg-white border border-[#d2c8b3]/30 p-6 sm:p-8 hover:shadow-lg transition-all duration-300 group"
+            >
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-4 sm:mb-6">
+                <div className="mb-3 sm:mb-0">
+                  <h3 className="text-2xl sm:text-3xl font-light text-[#4f634b] mb-1 sm:mb-2">Depto 102</h3>
+                  <p className="text-xs sm:text-sm text-[#7a8d77] font-medium uppercase tracking-wide">Planta Baja</p>
+                </div>
+                <div className="text-left sm:text-right">
+                  <div className="text-xl sm:text-2xl font-light text-[#4f634b] mb-1">$1,700,000</div>
+                  <div className="text-xs text-[#7a8d77] uppercase tracking-wide">MXN</div>
+                </div>
+              </div>
+              
+              <div className="space-y-3 sm:space-y-4 mb-6">
+                <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
+                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Interior:</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">57.00 m²</span>
+                </div>
+                <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
+                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Con estacionamiento:</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">70.75 m²</span>
+                </div>
+                <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
+                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Distribución:</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">1 rec / 1 estudio / 1 1/2 baño</span>
+                </div>
+                <div className="flex justify-between py-1 sm:py-2">
+                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Estacionamiento:</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">1 cajón incluido</span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Departamento 201 */}
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="bg-white border border-[#d2c8b3]/30 p-6 sm:p-8 hover:shadow-lg transition-all duration-300 group"
+            >
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-4 sm:mb-6">
+                <div className="mb-3 sm:mb-0">
+                  <h3 className="text-2xl sm:text-3xl font-light text-[#4f634b] mb-1 sm:mb-2">Depto 201</h3>
+                  <p className="text-xs sm:text-sm text-[#7a8d77] font-medium uppercase tracking-wide">Segundo Piso</p>
+                </div>
+                <div className="text-left sm:text-right">
+                  <div className="text-xl sm:text-2xl font-light text-[#4f634b] mb-1">$1,870,000</div>
+                  <div className="text-xs text-[#7a8d77] uppercase tracking-wide">MXN</div>
+                </div>
+              </div>
+              
+              <div className="space-y-3 sm:space-y-4 mb-6">
+                <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
+                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Interior:</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">70.50 m²</span>
+                </div>
+                <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
+                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Con estacionamiento:</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">84.25 m²</span>
+                </div>
+                <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
+                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Distribución:</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">2 rec / 2 baños</span>
+                </div>
+                <div className="flex justify-between py-1 sm:py-2">
+                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Estacionamiento:</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">1 cajón incluido</span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Departamento 202 */}
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="bg-white border border-[#d2c8b3]/30 p-6 sm:p-8 hover:shadow-lg transition-all duration-300 group"
+            >
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-4 sm:mb-6">
+                <div className="mb-3 sm:mb-0">
+                  <h3 className="text-2xl sm:text-3xl font-light text-[#4f634b] mb-1 sm:mb-2">Depto 202</h3>
+                  <p className="text-xs sm:text-sm text-[#7a8d77] font-medium uppercase tracking-wide">Segundo Piso</p>
+                </div>
+                <div className="text-left sm:text-right">
+                  <div className="text-xl sm:text-2xl font-light text-[#4f634b] mb-1">$1,760,000</div>
+                  <div className="text-xs text-[#7a8d77] uppercase tracking-wide">MXN</div>
+                </div>
+              </div>
+              
+              <div className="space-y-3 sm:space-y-4 mb-6">
+                <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
+                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Interior:</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">62.75 m²</span>
+                </div>
+                <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
+                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Con estacionamiento:</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">76.5 m²</span>
+                </div>
+                <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
+                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Distribución:</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">2 rec / 2 baños</span>
+                </div>
+                <div className="flex justify-between py-1 sm:py-2">
+                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Estacionamiento:</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">1 cajón incluido</span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Departamento 301 */}
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="bg-white border border-[#d2c8b3]/30 p-6 sm:p-8 hover:shadow-lg transition-all duration-300 group"
+            >
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-4 sm:mb-6">
+                <div className="mb-3 sm:mb-0">
+                  <h3 className="text-2xl sm:text-3xl font-light text-[#4f634b] mb-1 sm:mb-2">Depto 301</h3>
+                  <p className="text-xs sm:text-sm text-[#7a8d77] font-medium uppercase tracking-wide">Tercer Piso</p>
+                </div>
+                <div className="text-left sm:text-right">
+                  <div className="text-xl sm:text-2xl font-light text-[#4f634b] mb-1">$1,870,000</div>
+                  <div className="text-xs text-[#7a8d77] uppercase tracking-wide">MXN</div>
+                </div>
+              </div>
+              
+              <div className="space-y-3 sm:space-y-4 mb-6">
+                <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
+                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Interior:</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">70.50 m²</span>
+                </div>
+                <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
+                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Con estacionamiento:</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">84.25 m²</span>
+                </div>
+                <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
+                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Distribución:</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">2 rec / 2 baños</span>
+                </div>
+                <div className="flex justify-between py-1 sm:py-2">
+                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Estacionamiento:</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">1 cajón incluido</span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Departamento 302 */}
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="bg-white border border-[#d2c8b3]/30 p-6 sm:p-8 hover:shadow-lg transition-all duration-300 group"
+            >
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-4 sm:mb-6">
+                <div className="mb-3 sm:mb-0">
+                  <h3 className="text-2xl sm:text-3xl font-light text-[#4f634b] mb-1 sm:mb-2">Depto 302</h3>
+                  <p className="text-xs sm:text-sm text-[#7a8d77] font-medium uppercase tracking-wide">Tercer Piso</p>
+                </div>
+                <div className="text-left sm:text-right">
+                  <div className="text-xl sm:text-2xl font-light text-[#4f634b] mb-1">$1,760,000</div>
+                  <div className="text-xs text-[#7a8d77] uppercase tracking-wide">MXN</div>
+                </div>
+              </div>
+              
+              <div className="space-y-3 sm:space-y-4 mb-6">
+                <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
+                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Interior:</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">62.75 m²</span>
+                </div>
+                <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
+                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Con estacionamiento:</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">76.5 m²</span>
+                </div>
+                <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
+                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Distribución:</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">2 rec / 2 baños</span>
+                </div>
+                <div className="flex justify-between py-1 sm:py-2">
+                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Estacionamiento:</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">1 cajón incluido</span>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Nota importante */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="text-center mt-12 sm:mt-16 p-6 sm:p-8 bg-[#fafafa] border border-[#d2c8b3]/30"
+          >
+            <p className="text-[#4f634b]/80 text-xs sm:text-sm font-light leading-relaxed">
+              <span className="font-medium">Nota importante:</span> Todos los departamentos incluyen 1 cajón de estacionamiento. 
+              Los precios están sujetos a disponibilidad y pueden modificarse sin previo aviso. 
+              Consulte condiciones especiales de financiamiento disponibles.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* SECCIÓN DE UBICACIÓN MINIMALISTA */}
+      <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-12 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+            <motion.h2 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-4xl sm:text-5xl lg:text-6xl xl:text-8xl font-thin text-[#4f634b] mb-6 sm:mb-8 leading-none tracking-tight"
+            >
+              Ubicación
+              <br />
+              <span className="text-[#7a8d77] font-light italic">Privilegiada</span>
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-lg sm:text-xl lg:text-2xl text-[#4f634b]/70 max-w-4xl mx-auto leading-relaxed font-light px-4"
+            >
+              En el corazón de Veracruz, donde cada destino está al alcance
+            </motion.p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-20 items-start mb-12 sm:mb-16 lg:mb-20">
+            {/* Contenido de ubicación minimalista */}
+            <motion.div 
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="space-y-8 sm:space-y-10 lg:space-y-12"
+            >
+              <div className="space-y-6 sm:space-y-8">
+                <div className="border-l border-[#d2c8b3] pl-6 sm:pl-8 py-4 sm:py-6 hover:border-[#7a8d77] transition-colors duration-300">
+                  <div className="flex items-start gap-4 sm:gap-6">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 border border-[#4f634b] flex items-center justify-center flex-shrink-0 mt-1 sm:mt-2">
+                      <FaMapMarkerAlt className="text-[#4f634b] text-base sm:text-lg" />
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-lg sm:text-xl text-[#4f634b] mb-3 sm:mb-4 tracking-wide">Conectividad Absoluta</h4>
+                      <p className="text-[#4f634b]/70 leading-relaxed font-light text-sm sm:text-base">
+                        A 10 minutos de las mejores playas de Veracruz, centros comerciales y principales avenidas de la ciudad.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="border-l border-[#d2c8b3] pl-6 sm:pl-8 py-4 sm:py-6 hover:border-[#7a8d77] transition-colors duration-300">
+                  <div className="flex items-start gap-4 sm:gap-6">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 border border-[#4f634b] flex items-center justify-center flex-shrink-0 mt-1 sm:mt-2">
+                      <FaHome className="text-[#4f634b] text-base sm:text-lg" />
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-lg sm:text-xl text-[#4f634b] mb-3 sm:mb-4 tracking-wide">Servicios Exclusivos</h4>
+                      <p className="text-[#4f634b]/70 leading-relaxed font-light text-sm sm:text-base">
+                        Escuelas de prestigio, hospitales especializados, supermercados gourmet y restaurantes de autor en un radio de 5 km.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="border-l border-[#d2c8b3] pl-6 sm:pl-8 py-4 sm:py-6 hover:border-[#7a8d77] transition-colors duration-300">
+                  <div className="flex items-start gap-4 sm:gap-6">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 border border-[#4f634b] flex items-center justify-center flex-shrink-0 mt-1 sm:mt-2">
+                      <FaCar className="text-[#4f634b] text-base sm:text-lg" />
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-lg sm:text-xl text-[#4f634b] mb-3 sm:mb-4 tracking-wide">Movilidad Inteligente</h4>
+                      <p className="text-[#4f634b]/70 leading-relaxed font-light text-sm sm:text-base">
+                        Conectividad vial excepcional, transporte público de calidad y acceso directo a autopistas principales.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button className="w-full sm:w-auto border border-[#4f634b] text-[#4f634b] px-6 sm:px-8 py-3 sm:py-4 hover:bg-[#4f634b] hover:text-white transition-all duration-300 flex items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm font-medium tracking-wide uppercase">
+                <FaMapMarkedAlt />
+                Ver en Google Maps
+              </button>
+            </motion.div>
+
+            {/* Mapa minimalista */}
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="relative order-first lg:order-last"
+            >
+              <div className="border border-[#d2c8b3]/50 overflow-hidden shadow-sm h-[300px] sm:h-[400px] lg:h-[600px] relative">
+                <iframe
+                  title="Ubicación PALMA RESIDENCES"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.123456789!2d-96.1345678!3d19.1901234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85c34a123456789%3A0xabcdef123456789!2sPalma%20Departamentos%2C%20Veracruz!5e0!3m2!1ses-419!2smx!4v1710000000000!5m2!1ses-419!2smx"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full h-full grayscale contrast-125"
+                ></iframe>
+                
+                {/* Pin minimalista */}
+                <motion.div 
+                  initial={{ y: -20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ type: 'spring', stiffness: 200, damping: 10 }}
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-10"
+                >
+                  <div className="relative">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 border-2 border-[#4f634b] bg-white flex items-center justify-center shadow-lg">
+                      <FaLeaf className="text-[#4f634b] text-base sm:text-lg" />
+                    </div>
+                    <div className="absolute -bottom-5 sm:-bottom-6 left-1/2 -translate-x-1/2 bg-white border border-[#d2c8b3] px-1.5 sm:px-2 py-0.5 sm:py-1 shadow-sm">
+                      <span className="text-xs font-medium text-[#4f634b] whitespace-nowrap tracking-wide">PALMA</span>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+
+              {/* Información de ubicación */}
+              <div className="absolute top-3 sm:top-4 left-3 sm:left-4 space-y-2">
+                <div className="bg-white/95 border border-[#d2c8b3]/50 px-3 sm:px-4 py-1.5 sm:py-2 shadow-sm">
+                  <div className="flex items-center gap-2">
+                    <FaCheckCircle className="text-[#7a8d77] text-xs sm:text-sm" />
+                    <span className="text-xs font-medium text-[#4f634b] tracking-wide uppercase">Ubicación Verificada</span>
+                  </div>
+                </div>
+                <div className="bg-[#4f634b] text-white px-3 sm:px-4 py-1.5 sm:py-2 shadow-sm">
+                  <div className="flex items-center gap-2">
+                    <FaLeaf className="text-xs sm:text-sm" />
+                    <span className="text-xs font-medium tracking-wide uppercase">Zona Ecológica</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Grid de distancias minimalista */}
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-[#d2c8b3]/30"
+          >
+            <div className="bg-white p-6 sm:p-8 text-center hover:bg-[#fafafa] transition-all duration-300">
+              <div className="text-2xl sm:text-3xl font-light text-[#4f634b] mb-2 sm:mb-3">10min</div>
+              <div className="text-xs font-medium text-[#7a8d77] uppercase tracking-widest">a las playas</div>
+            </div>
+            <div className="bg-white p-6 sm:p-8 text-center hover:bg-[#fafafa] transition-all duration-300">
+              <div className="text-2xl sm:text-3xl font-light text-[#4f634b] mb-2 sm:mb-3">5km</div>
+              <div className="text-xs font-medium text-[#7a8d77] uppercase tracking-widest">centro histórico</div>
+            </div>
+            <div className="bg-white p-6 sm:p-8 text-center hover:bg-[#fafafa] transition-all duration-300">
+              <div className="text-2xl sm:text-3xl font-light text-[#4f634b] mb-2 sm:mb-3">3min</div>
+              <div className="text-xs font-medium text-[#7a8d77] uppercase tracking-widest">plaza comercial</div>
+            </div>
+            <div className="bg-white p-6 sm:p-8 text-center hover:bg-[#fafafa] transition-all duration-300">
+              <div className="text-2xl sm:text-3xl font-light text-[#4f634b] mb-2 sm:mb-3">24/7</div>
+              <div className="text-xs font-medium text-[#7a8d77] uppercase tracking-widest">conectividad</div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <SectionFooter />
+    </main>
+  );
+}

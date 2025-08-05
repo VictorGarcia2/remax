@@ -12,6 +12,7 @@ import Breadcrumbs from "./components/Breadcrumbs";
 
 
 import DesarrolloTrebolII from "./pages/DesarrolloTrebolII";
+import DesarrolloPalma from "./pages/DesarrolloPalma";
 
 // Importaciones lazy para code splitting
 const Residencial = lazy(() => import("./pages/Residencial"));
@@ -221,6 +222,10 @@ const App = () => {
               <Route
                 path="/desarrollo-trebol-ii"
                 element={<DesarrolloTrebolII />}
+              />
+              <Route
+                path="/desarrollo-palma"
+                element={<DesarrolloPalma />}
               />
             </Routes>
           </Suspense>

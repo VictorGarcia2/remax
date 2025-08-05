@@ -4,6 +4,8 @@ import React, {
   useEffect,
   useState,
   useRef,
+  useMemo,
+  useCallback,
 } from "react";
 import HomeSearch from "../components/SectionHome/HomeSearch";
 import LoadingSpinner from "../components/LoadingSpinner";
@@ -12,38 +14,52 @@ import { motion } from "framer-motion";
 import PropuestaFormularioDirecto from "../components/SectionDesarrolloDestacado/PropuestaFormularioDirecto";
 import Header from "../components/SectionHome/Header";
 
-// Lazy loaded components
+// Lazy loaded components con preload hints
 const SectionPorque = lazy(() =>
   import(
-    /* webpackPrefetch: true */ "../components/SectionPorque/SectionPorque"
+    /* webpackPrefetch: true, webpackChunkName: "section-porque" */ "../components/SectionPorque/SectionPorque"
   )
 );
 const SectionVariedad = lazy(() =>
-  import("../components/SectionVariedad/SectionVariedad")
+  import(/* webpackChunkName: "section-variedad" */ "../components/SectionVariedad/SectionVariedad")
 );
 const SectionComoComprar = lazy(() =>
-  import("../components/SectionComoComprar/SectionComoComprar")
+  import(/* webpackChunkName: "section-como-comprar" */ "../components/SectionComoComprar/SectionComoComprar")
 );
-const SectionCTA = lazy(() => import("../components/SectionCTA/SectionCTA"));
+const SectionCTA = lazy(() => 
+  import(/* webpackChunkName: "section-cta" */ "../components/SectionCTA/SectionCTA")
+);
 const Testimonials = lazy(() =>
-  import("../components/SectionOpiniones/SectionOpiniones")
+  import(/* webpackChunkName: "testimonials" */ "../components/SectionOpiniones/SectionOpiniones")
 );
 const SectionEquipo = lazy(() =>
-  import("../components/SectionEquipo/SectionEquipo")
+  import(/* webpackChunkName: "section-equipo" */ "../components/SectionEquipo/SectionEquipo")
 );
 const SectionFooter = lazy(() =>
-  import("../components/SectionFooter/SectionFooter")
+  import(/* webpackChunkName: "section-footer" */ "../components/SectionFooter/SectionFooter")
 );
 const SectionDesarrolloDestacado = lazy(() =>
-  import("../components/SectionDesarrolloDestacado/SectionDesarrolloDestacado")
+  import(/* webpackChunkName: "section-desarrollo" */ "../components/SectionDesarrolloDestacado/SectionDesarrolloDestacado")
 );
 
-// Placeholder component for fallbacks
-const Placeholder = ({ height = 20 }) => (
-  <div style={{ height: `${height}px` }} />
+// Placeholder component optimizado para evitar layout shifts
+const Placeholder = ({ height = 200 }) => (
+  <div 
+    style={{ 
+      height: `${height}px`,
+      minHeight: `${height}px`,
+      backgroundColor: 'transparent',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center'
+    }}
+    aria-hidden="true"
+  >
+    <LoadingSpinner />
+  </div>
 );
 
-// AnimatedSection mejorado
+// AnimatedSection optimizado para evitar forced reflow
 const AnimatedSection = ({ children, className = "", delay = 0 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
@@ -61,17 +77,11 @@ const AnimatedSection = ({ children, className = "", delay = 0 }) => {
       },
       {
         threshold: 0.1,
-        rootMargin: "0px 0px -100px 0px",
+        rootMargin: "0px 0px -50px 0px",
       }
     );
 
     observer.observe(currentRef);
-
-    const rect = currentRef.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
-      setIsVisible(true);
-      observer.unobserve(currentRef);
-    }
 
     return () => {
       if (currentRef) observer.unobserve(currentRef);
@@ -79,10 +89,13 @@ const AnimatedSection = ({ children, className = "", delay = 0 }) => {
   }, []);
 
   const variants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { 
+      opacity: 0, 
+      transform: "translateY(30px)",
+    },
     visible: {
       opacity: 1,
-      y: 0,
+      transform: "translateY(0px)",
       transition: {
         duration: 0.6,
         ease: "easeOut",
@@ -97,7 +110,7 @@ const AnimatedSection = ({ children, className = "", delay = 0 }) => {
         initial="hidden"
         animate={isVisible ? "visible" : "hidden"}
         variants={variants}
-        viewport={{ once: true }}
+        style={{ willChange: 'transform, opacity' }}
       >
         {children}
       </motion.div>
@@ -109,24 +122,40 @@ const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
+    
     const toggleVisibility = () => {
-      setIsVisible(window.pageYOffset > 500);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setIsVisible(window.pageYOffset > 500);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
+    const throttledToggleVisibility = () => {
+      toggleVisibility();
+    };
+
+    window.addEventListener("scroll", throttledToggleVisibility, { passive: true });
+    return () => window.removeEventListener("scroll", throttledToggleVisibility);
   }, []);
 
-  const scrollToTop = () => {
+  const scrollToTop = useCallback(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  }, []);
 
   return (
     <button
       onClick={scrollToTop}
       className={`fixed bottom-6 right-6 bg-[#003da4] text-white p-3 rounded-full shadow-lg z-50 transition-all duration-300 ${
-        isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0"
+        isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
+      style={{ 
+        transform: isVisible ? 'scale(1)' : 'scale(0)',
+        willChange: 'transform, opacity'
+      }}
       aria-label="Volver al inicio"
     >
       <svg
@@ -147,7 +176,7 @@ const ScrollToTopButton = () => {
   );
 };
 
-export default function Residencial({
+export default React.memo(function Residencial({
   valor,
   autoCompleteHome,
   setAutoCompleteHome,
@@ -166,31 +195,49 @@ export default function Residencial({
   const firstSectionRef = useRef(null);
 
   useEffect(() => {
+    // Preload componentes críticos con timeout para no bloquear el hilo principal
     const preloadSecondaryComponents = () => {
-      const preloads = [
-        import("../components/SectionComoComprar/SectionComoComprar"),
-        import("../components/SectionCTA/SectionCTA"),
-        import("../components/SectionOpiniones/SectionOpiniones"),
-      ];
-      Promise.all(preloads).catch(() => {});
+      setTimeout(() => {
+        const preloads = [
+          import("../components/SectionComoComprar/SectionComoComprar"),
+          import("../components/SectionCTA/SectionCTA"),
+          import("../components/SectionOpiniones/SectionOpiniones"),
+          import("../components/SectionEquipo/SectionEquipo"),
+        ];
+        Promise.all(preloads).catch(() => {
+          console.warn('Some components failed to preload');
+        });
+      }, 100);
     };
-    preloadSecondaryComponents();
+    
+    // Usar requestIdleCallback si está disponible
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(preloadSecondaryComponents);
+    } else {
+      preloadSecondaryComponents();
+    }
   }, []);
+
+  // Memoizar props estáticas para evitar re-renders
+  const homeSearchProps = useMemo(() => ({
+    valor,
+    setBusqueda,
+    autoCompleteHome,
+    setAutoCompleteHome,
+  }), [valor, setBusqueda, autoCompleteHome, setAutoCompleteHome]);
+
+  const headerProps = useMemo(() => ({
+    setSelectedOptionsOperacion,
+  }), [setSelectedOptionsOperacion]);
 
   return (
     <main className="min-h-screen bg-white w-full">
       <section className="z-50">
-
-      <Header setSelectedOptionsOperacion={setSelectedOptionsOperacion} />
+        <Header {...headerProps} />
       </section>
       <section ref={firstSectionRef} className="relative z-0 w-full" aria-labelledby="busqueda-title">
         <h1 id="busqueda-title" className="sr-only">Búsqueda de propiedades residenciales</h1>
-        <HomeSearch
-          valor={valor}
-          setBusqueda={setBusqueda}
-          autoCompleteHome={autoCompleteHome}
-          setAutoCompleteHome={setAutoCompleteHome}
-        />
+        <HomeSearch {...homeSearchProps} />
       </section>
 
       <section className="relative  w-full" aria-labelledby="porque-title">
@@ -198,7 +245,7 @@ export default function Residencial({
         <SectionPorque valor={valor} />
       </section>
 
-      <Suspense fallback={<Placeholder />}>
+      <Suspense fallback={<Placeholder height={400} />}>
         <section aria-labelledby="variedad-title">
           <h2 id="variedad-title" className="sr-only">Variedad de propiedades residenciales</h2>
           <AnimatedSection delay={0.2}>
@@ -219,7 +266,7 @@ export default function Residencial({
         </Suspense>
       )}
 
-      <Suspense fallback={<Placeholder />}>
+      <Suspense fallback={<Placeholder height={500} />}>
         <section aria-labelledby="como-comprar-title">
           <h2 id="como-comprar-title" className="sr-only">Cómo comprar una propiedad residencial</h2>
           <AnimatedSection delay={0.3}>
@@ -228,7 +275,7 @@ export default function Residencial({
         </section>
       </Suspense>
 
-      <Suspense fallback={<Placeholder />}>
+      <Suspense fallback={<Placeholder height={250} />}>
         <section aria-labelledby="cta-title">
           <h2 id="cta-title" className="sr-only">Llamado a la acción</h2>
           <AnimatedSection delay={0.4}>
@@ -237,7 +284,7 @@ export default function Residencial({
         </section>
       </Suspense>
 
-      <Suspense fallback={<Placeholder />}>
+      <Suspense fallback={<Placeholder height={400} />}>
         <section aria-labelledby="testimonios-title">
           <h2 id="testimonios-title" className="sr-only">Testimonios de clientes</h2>
           <AnimatedSection delay={0.5}>
@@ -246,7 +293,7 @@ export default function Residencial({
         </section>
       </Suspense>
 
-      <Suspense fallback={<Placeholder />}>
+      <Suspense fallback={<Placeholder height={350} />}>
         <section aria-labelledby="equipo-title">
           <h2 id="equipo-title" className="sr-only">Nuestro equipo</h2>
           <AnimatedSection delay={0.6}>
@@ -255,12 +302,13 @@ export default function Residencial({
         </section>
       </Suspense>
 
-      <Suspense fallback={<Placeholder height={10} />}>
+      <Suspense fallback={<Placeholder height={300} />}>
         <footer>
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
+            style={{ willChange: 'opacity' }}
           >
             <SectionFooter />
           </motion.div>
@@ -270,4 +318,4 @@ export default function Residencial({
       <ScrollToTopButton />
     </main>
   );
-}
+});
