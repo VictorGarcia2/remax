@@ -38,8 +38,8 @@ const SectionEquipo = lazy(() =>
 const SectionFooter = lazy(() =>
   import(/* webpackChunkName: "section-footer" */ "../components/SectionFooter/SectionFooter")
 );
-const SectionDesarrolloDestacado = lazy(() =>
-  import(/* webpackChunkName: "section-desarrollo" */ "../components/SectionDesarrolloDestacado/SectionDesarrolloDestacado")
+const SectionDesarrollosSlider = lazy(() =>
+  import(/* webpackChunkName: "section-desarrollos-slider" */ "../components/SectionDesarrolloDestacado/SectionDesarrollosSlider")
 );
 
 // Placeholder component optimizado para evitar layout shifts
@@ -254,13 +254,13 @@ export default React.memo(function Residencial({
         </section>
       </Suspense>
 
-      {/* Aplicar carga diferida a SectionDesarrolloDestacado solo si valor es "residencial" */}
+      {/* Aplicar carga diferida a SectionDesarrollosSlider solo si valor es "residencial" */}
       {valor === "residencial" && (
-        <Suspense fallback={<Placeholder height={300} />}>
-          <section aria-labelledby="destacado-title">
-            <h2 id="destacado-title" className="sr-only">Desarrollo destacado</h2>
+        <Suspense fallback={<Placeholder height={400} />}>
+          <section id="desarrollos-section" aria-labelledby="desarrollos-title">
+            <h2 id="desarrollos-title" className="sr-only">Desarrollos destacados</h2>
             <AnimatedSection delay={0}>
-              <SectionDesarrolloDestacado />
+              <SectionDesarrollosSlider />
             </AnimatedSection>
           </section>
         </Suspense>
