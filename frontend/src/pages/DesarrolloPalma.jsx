@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaCheckCircle, FaShieldAlt, FaMapMarkerAlt, FaHome, FaKey, FaCar, FaUserShield, FaLock, FaMapMarkedAlt, FaLeaf, FaCalendarAlt, FaPhone, FaTimes, FaExpand, FaCompress } from "react-icons/fa";
+import { FaCheckCircle, FaShieldAlt, FaMapMarkerAlt, FaHome, FaKey, FaCar, FaUserShield, FaLock, FaMapMarkedAlt, FaLeaf, FaCalendarAlt, FaPhone, FaTimes, FaExpand, FaCompress, FaUtensils, FaTree } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
 import Header from "../components/SectionHome/Header";
 import SectionFooter from "../components/SectionFooter/SectionFooter";
@@ -474,14 +474,14 @@ export default function DesarrolloPalma() {
                 transition={{ duration: 1, delay: 0.2 }}
               >
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-thin text-white leading-none mb-4 sm:mb-6 lg:mb-8 tracking-tight">
-                  TORRE
+                  PALMA
                   <br />
                   <span className="text-[#d2c8b3] font-light italic text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl">
-                    Palma 347
+                    Departamentos
                   </span>
                 </h1>
                 <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-white/90 font-light leading-relaxed max-w-3xl">
-                  Arquitectura <span className="font-medium text-[#d2c8b3]">contemporánea</span> en armonía con la naturaleza
+                  Espacios <span className="font-medium text-[#d2c8b3]">contemporáneos</span> diseñados para tu comodidad
                   <br className="hidden sm:block" />
                   <span className="text-sm sm:text-base md:text-lg lg:text-xl text-[#d2c8b3]/90 mt-2 lg:mt-4 block">Desde $1,700,000 MXN</span>
                 </p>
@@ -517,27 +517,27 @@ export default function DesarrolloPalma() {
               >
                 <div className="flex items-center gap-3 lg:gap-4 bg-white/10 backdrop-blur-sm p-3 sm:p-4 lg:p-6 hover:bg-white/15 transition-all duration-300">
                   <div className="w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 border border-white/60 flex items-center justify-center flex-shrink-0">
-                    <FaMapMarkerAlt className="text-white text-xs sm:text-sm" />
-                  </div>
-                  <span className="font-light text-white text-xs sm:text-sm tracking-wide">Ubicación Premium</span>
-                </div>
-                <div className="flex items-center gap-3 lg:gap-4 bg-white/10 backdrop-blur-sm p-3 sm:p-4 lg:p-6 hover:bg-white/15 transition-all duration-300">
-                  <div className="w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 border border-white/60 flex items-center justify-center flex-shrink-0">
-                    <FaCar className="text-white text-xs sm:text-sm" />
-                  </div>
-                  <span className="font-light text-white text-xs sm:text-sm tracking-wide">1 Cajón Estacionamiento</span>
-                </div>
-                <div className="flex items-center gap-3 lg:gap-4 bg-white/10 backdrop-blur-sm p-3 sm:p-4 lg:p-6 hover:bg-white/15 transition-all duration-300">
-                  <div className="w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 border border-white/60 flex items-center justify-center flex-shrink-0">
                     <FaHome className="text-white text-xs sm:text-sm" />
                   </div>
-                  <span className="font-light text-white text-xs sm:text-sm tracking-wide">1-2 Rec / 1-2 Baños</span>
+                  <span className="font-light text-white text-xs sm:text-sm tracking-wide">Espacios contemporáneos diseñados para tu comodidad</span>
                 </div>
                 <div className="flex items-center gap-3 lg:gap-4 bg-white/10 backdrop-blur-sm p-3 sm:p-4 lg:p-6 hover:bg-white/15 transition-all duration-300">
                   <div className="w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 border border-white/60 flex items-center justify-center flex-shrink-0">
-                    <FaShieldAlt className="text-white text-xs sm:text-sm" />
+                    <FaMapMarkerAlt className="text-white text-xs sm:text-sm" />
                   </div>
-                  <span className="font-light text-white text-xs sm:text-sm tracking-wide">Área de Patio/Terraza</span>
+                  <span className="font-light text-white text-xs sm:text-sm tracking-wide">Ubicación estratégica</span>
+                </div>
+                <div className="flex items-center gap-3 lg:gap-4 bg-white/10 backdrop-blur-sm p-3 sm:p-4 lg:p-6 hover:bg-white/15 transition-all duration-300">
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 border border-white/60 flex items-center justify-center flex-shrink-0">
+                    <FaUtensils className="text-white text-xs sm:text-sm" />
+                  </div>
+                  <span className="font-light text-white text-xs sm:text-sm tracking-wide">Cocina integral</span>
+                </div>
+                <div className="flex items-center gap-3 lg:gap-4 bg-white/10 backdrop-blur-sm p-3 sm:p-4 lg:p-6 hover:bg-white/15 transition-all duration-300">
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 border border-white/60 flex items-center justify-center flex-shrink-0">
+                    <FaTree className="text-white text-xs sm:text-sm" />
+                  </div>
+                  <span className="font-light text-white text-xs sm:text-sm tracking-wide">Área común: Roof Garden</span>
                 </div>
               </motion.div>
 
@@ -596,10 +596,10 @@ export default function DesarrolloPalma() {
                         <FaHome className="text-[#4f634b] text-sm sm:text-base lg:text-lg" />
                       </div>
                       <h3 className="text-xl sm:text-2xl lg:text-3xl font-light text-[#4f634b] mb-2 sm:mb-3 lg:mb-4 tracking-wide">
-                        Experiencia <span className="font-medium text-[#7a8d77]">Privada</span>
+                        Agenda <span className="font-medium text-[#7a8d77]">Tu Visita</span>
                       </h3>
                       <p className="text-sm sm:text-base text-[#4f634b]/80 font-light leading-relaxed px-2">
-                        Reserve su visita exclusiva con nuestro especialista en propiedades de lujo
+                       Descubre tu próximo departamento de la mano de nuestros especialistas
                       </p>
                       
                     </div>
@@ -664,7 +664,7 @@ export default function DesarrolloPalma() {
                         }`}
                       >
                         <FaCalendarAlt className="text-xs sm:text-sm" />
-                        <span className="hidden sm:inline">Reservar Experiencia Privada</span>
+                        <span className="hidden sm:inline">Enviar</span>
                         <span className="sm:hidden">Reservar Visita</span>
                       </button>
 
@@ -717,7 +717,7 @@ export default function DesarrolloPalma() {
               Vivir en
               <br />
               <span className="text-[#7a8d77] font-light italic">
-                Torre Palma
+                 Palma
               </span>
             </motion.h2>
             <motion.p 
@@ -726,109 +726,139 @@ export default function DesarrolloPalma() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-lg sm:text-xl lg:text-2xl text-[#4f634b]/70 max-w-4xl mx-auto leading-relaxed font-light px-4"
             >
-              Un desarrollo de 6 departamentos exclusivos con características únicas para el estilo de vida moderno
+             Tu estilo de vida debe tener un lugar exclusivo en una de las mejores zonas de Boca del Río.
             </motion.p>
           </div>
 
           {/* Grid de características principales */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-[#d2c8b3]/30 mb-16 sm:mb-20 lg:mb-24">
-            {/* Característica 1 - Diversidad de Espacios */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 mb-16 sm:mb-20 lg:mb-24">
+            
+            {/* Característica 1 - Roof Garden */}
             <motion.div 
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               className="group relative"
             >
-              <div className="bg-white p-8 sm:p-10 lg:p-12 h-full hover:bg-[#fafafa] transition-all duration-300 relative">
+              <div className="bg-white p-8 sm:p-10 lg:p-12 border border-[#d2c8b3]/30 hover:shadow-lg transition-all duration-300 relative">
                 <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 border border-[#4f634b] flex items-center justify-center mb-6 sm:mb-8 group-hover:border-[#7a8d77] transition-all duration-300">
-                  <FaHome className="text-[#4f634b] text-lg sm:text-xl lg:text-2xl group-hover:text-[#7a8d77] transition-colors duration-300" />
+                  <FaTree className="text-[#4f634b] text-lg sm:text-xl lg:text-2xl group-hover:text-[#7a8d77] transition-colors duration-300" />
                 </div>
-                <h3 className="text-2xl sm:text-3xl font-light text-[#4f634b] mb-4 sm:mb-6 tracking-wide">Diversidad de Espacios</h3>
+                <h3 className="text-2xl sm:text-3xl font-light text-[#4f634b] mb-4 sm:mb-6 tracking-wide">Roof Garden</h3>
                 <p className="text-[#4f634b]/70 leading-relaxed mb-6 sm:mb-8 font-light text-sm sm:text-base">
-                  6 departamentos únicos con diferentes configuraciones: desde estudios compactos hasta amplias residencias de 2 recámaras.
+                  Disfruta con familia y amigos en el área común donde podrás crear tus momentos especiales.
                 </p>
                 <div className="space-y-3 sm:space-y-4">
-                  <div className="flex items-center gap-3 sm:gap-4 py-2">
+                  <h4 className="text-base font-medium text-[#4f634b] mb-3">Esta área cuenta con:</h4>
+                  <div className="flex items-center gap-3 sm:gap-4 py-1">
                     <div className="w-2 h-px bg-[#7a8d77]"></div>
-                    <span className="text-xs sm:text-sm text-[#4f634b] font-light">57m² a 86.95m² totales</span>
+                    <span className="text-xs sm:text-sm text-[#4f634b] font-light">Asador</span>
                   </div>
-                  <div className="flex items-center gap-3 sm:gap-4 py-2">
+                  <div className="flex items-center gap-3 sm:gap-4 py-1">
                     <div className="w-2 h-px bg-[#7a8d77]"></div>
-                    <span className="text-xs sm:text-sm text-[#4f634b] font-light">Opciones de 1-2 recámaras</span>
+                    <span className="text-xs sm:text-sm text-[#4f634b] font-light">Mesas y sillas cómodas</span>
                   </div>
-                  <div className="flex items-center gap-3 sm:gap-4 py-2">
+                  <div className="flex items-center gap-3 sm:gap-4 py-1">
                     <div className="w-2 h-px bg-[#7a8d77]"></div>
-                    <span className="text-xs sm:text-sm text-[#4f634b] font-light">Estudio + recámara disponible</span>
+                    <span className="text-xs sm:text-sm text-[#4f634b] font-light">Barra con tarja</span>
                   </div>
                 </div>
               </div>
             </motion.div>
 
-            {/* Característica 2 - Ubicación Estratégica */}
+            {/* Característica 2 - Diseñado para ti */}
             <motion.div 
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="group relative"
             >
-              <div className="bg-white p-8 sm:p-10 lg:p-12 h-full hover:bg-[#fafafa] transition-all duration-300 relative">
+              <div className="bg-white p-8 sm:p-10 lg:p-12 border border-[#d2c8b3]/30 hover:shadow-lg transition-all duration-300 relative">
                 <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 border border-[#4f634b] flex items-center justify-center mb-6 sm:mb-8 group-hover:border-[#7a8d77] transition-all duration-300">
-                  <FaMapMarkerAlt className="text-[#4f634b] text-lg sm:text-xl lg:text-2xl group-hover:text-[#7a8d77] transition-colors duration-300" />
+                  <FaHome className="text-[#4f634b] text-lg sm:text-xl lg:text-2xl group-hover:text-[#7a8d77] transition-colors duration-300" />
                 </div>
-                <h3 className="text-2xl sm:text-3xl font-light text-[#4f634b] mb-4 sm:mb-6 tracking-wide">Ubicación Estratégica</h3>
+                <h3 className="text-2xl sm:text-3xl font-light text-[#4f634b] mb-4 sm:mb-6 tracking-wide">Diseñado para ti</h3>
                 <p className="text-[#4f634b]/70 leading-relaxed mb-6 sm:mb-8 font-light text-sm sm:text-base">
-                  Torre de 3 niveles en una de las zonas más valoradas de Veracruz, con fácil acceso a servicios y comercios.
+                  Todos nuestros departamentos cuentan con espacios funcionales y acabados de calidad.
                 </p>
                 <div className="space-y-3 sm:space-y-4">
-                  <div className="flex items-center gap-3 sm:gap-4 py-2">
+                  <h4 className="text-base font-medium text-[#4f634b] mb-3">Todos nuestros departamentos cuentan con:</h4>
+                  <div className="flex items-center gap-3 sm:gap-4 py-1">
                     <div className="w-2 h-px bg-[#7a8d77]"></div>
-                    <span className="text-xs sm:text-sm text-[#4f634b] font-light">Planta baja y pisos superiores</span>
+                    <span className="text-xs sm:text-sm text-[#4f634b] font-light">Cocina integral</span>
                   </div>
-                  <div className="flex items-center gap-3 sm:gap-4 py-2">
+                  <div className="flex items-center gap-3 sm:gap-4 py-1">
                     <div className="w-2 h-px bg-[#7a8d77]"></div>
-                    <span className="text-xs sm:text-sm text-[#4f634b] font-light">Zona residencial consolidada</span>
+                    <span className="text-xs sm:text-sm text-[#4f634b] font-light">Sala - Comedor</span>
                   </div>
-                  <div className="flex items-center gap-3 sm:gap-4 py-2">
+                  <div className="flex items-center gap-3 sm:gap-4 py-1">
                     <div className="w-2 h-px bg-[#7a8d77]"></div>
-                    <span className="text-xs sm:text-sm text-[#4f634b] font-light">Excelente conectividad urbana</span>
+                    <span className="text-xs sm:text-sm text-[#4f634b] font-light">Cuarto de lavado</span>
+                  </div>
+                  <div className="flex items-center gap-3 sm:gap-4 py-1">
+                    <div className="w-2 h-px bg-[#7a8d77]"></div>
+                    <span className="text-xs sm:text-sm text-[#4f634b] font-light">Baño</span>
+                  </div>
+                  <div className="flex items-center gap-3 sm:gap-4 py-1">
+                    <div className="w-2 h-px bg-[#7a8d77]"></div>
+                    <span className="text-xs sm:text-sm text-[#4f634b] font-light">Cajón de estacionamiento</span>
                   </div>
                 </div>
               </div>
             </motion.div>
 
-            {/* Característica 3 - Comodidades Incluidas */}
+            {/* Característica 3 - Diversifica tu espacio */}
             <motion.div 
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               className="group relative"
             >
-              <div className="bg-white p-8 sm:p-10 lg:p-12 h-full hover:bg-[#fafafa] transition-all duration-300 relative">
+              <div className="bg-white p-8 sm:p-10 lg:p-12 border border-[#d2c8b3]/30 hover:shadow-lg transition-all duration-300 relative">
                 <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 border border-[#4f634b] flex items-center justify-center mb-6 sm:mb-8 group-hover:border-[#7a8d77] transition-all duration-300">
-                  <FaCar className="text-[#4f634b] text-lg sm:text-xl lg:text-2xl group-hover:text-[#7a8d77] transition-colors duration-300" />
+                  <FaKey className="text-[#4f634b] text-lg sm:text-xl lg:text-2xl group-hover:text-[#7a8d77] transition-colors duration-300" />
                 </div>
-                <h3 className="text-2xl sm:text-3xl font-light text-[#4f634b] mb-4 sm:mb-6 tracking-wide">Comodidades Incluidas</h3>
+                <h3 className="text-2xl sm:text-3xl font-light text-[#4f634b] mb-4 sm:mb-6 tracking-wide">Diversifica tu espacio</h3>
                 <p className="text-[#4f634b]/70 leading-relaxed mb-6 sm:mb-8 font-light text-sm sm:text-base">
-                  Cada departamento incluye estacionamiento privado y espacios adicionales como patios o terrazas.
+                  2 Modelos de departamentos que puedes configurar de acuerdo a tu estilo.
                 </p>
-                <div className="space-y-3 sm:space-y-4">
-                  <div className="flex items-center gap-3 sm:gap-4 py-2">
-                    <div className="w-2 h-px bg-[#7a8d77]"></div>
-                    <span className="text-xs sm:text-sm text-[#4f634b] font-light">1 cajón de estacionamiento</span>
+                <div className="space-y-4 sm:space-y-6">
+                  <div>
+                    <h4 className="text-base font-medium text-[#4f634b] mb-2">Palma Mallorca:</h4>
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-3 sm:gap-4 py-1">
+                        <div className="w-2 h-px bg-[#7a8d77]"></div>
+                        <span className="text-xs sm:text-sm text-[#4f634b] font-light">1 recámara principal + baño completo</span>
+                      </div>
+                      <div className="flex items-center gap-3 sm:gap-4 py-1">
+                        <div className="w-2 h-px bg-[#7a8d77]"></div>
+                        <span className="text-xs sm:text-sm text-[#4f634b] font-light">1 cuarto de estudio</span>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-3 sm:gap-4 py-2">
-                    <div className="w-2 h-px bg-[#7a8d77]"></div>
-                    <span className="text-xs sm:text-sm text-[#4f634b] font-light">Áreas de patio o terraza</span>
+                  <div>
+                    <h4 className="text-base font-medium text-[#4f634b] mb-2">Palma Real:</h4>
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-3 sm:gap-4 py-1">
+                        <div className="w-2 h-px bg-[#7a8d77]"></div>
+                        <span className="text-xs sm:text-sm text-[#4f634b] font-light">1 recámara principal + baño completo</span>
+                      </div>
+                      <div className="flex items-center gap-3 sm:gap-4 py-1">
+                        <div className="w-2 h-px bg-[#7a8d77]"></div>
+                        <span className="text-xs sm:text-sm text-[#4f634b] font-light">1 recámara adicional</span>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-3 sm:gap-4 py-2">
-                    <div className="w-2 h-px bg-[#7a8d77]"></div>
-                    <span className="text-xs sm:text-sm text-[#4f634b] font-light">Distribuciones funcionales</span>
+                  <div className="pt-2 border-t border-[#d2c8b3]/30">
+                    <div className="flex items-center gap-3 sm:gap-4 py-1">
+                      <div className="w-2 h-px bg-[#7a8d77]"></div>
+                      <span className="text-xs sm:text-sm text-[#4f634b] font-light">Las recámaras incluyen clósets</span>
+                    </div>
                   </div>
                 </div>
               </div>
             </motion.div>
           </div>
-
           {/* Galería minimalista */}
           <div className="relative">
             <div className="text-center mb-6 sm:mb-8 lg:mb-12">
@@ -1382,9 +1412,9 @@ export default function DesarrolloPalma() {
               transition={{ duration: 0.8 }}
               className="text-4xl sm:text-5xl lg:text-6xl xl:text-8xl font-thin text-[#4f634b] mb-6 sm:mb-8 leading-none tracking-tight"
             >
-              Ubicación
+              Departamentos en Boca del Río,
               <br />
-              <span className="text-[#7a8d77] font-light italic">Privilegiada</span>
+              <span className="text-[#7a8d77] font-light italic"> donde cada destino está a tu alcance</span>
             </motion.h2>
             <motion.p 
               initial={{ opacity: 0, y: 30 }}
@@ -1413,7 +1443,7 @@ export default function DesarrolloPalma() {
                     <div>
                       <h4 className="font-medium text-lg sm:text-xl text-[#4f634b] mb-3 sm:mb-4 tracking-wide">Conectividad Absoluta</h4>
                       <p className="text-[#4f634b]/70 leading-relaxed font-light text-sm sm:text-base">
-                        A 10 minutos de las mejores playas de Veracruz, centros comerciales y principales avenidas de la ciudad.
+                        A tan sólo 10 minutos de las mejores playas y centros comerciales
                       </p>
                     </div>
                   </div>
@@ -1425,9 +1455,9 @@ export default function DesarrolloPalma() {
                       <FaHome className="text-[#4f634b] text-base sm:text-lg" />
                     </div>
                     <div>
-                      <h4 className="font-medium text-lg sm:text-xl text-[#4f634b] mb-3 sm:mb-4 tracking-wide">Servicios Exclusivos</h4>
+                      <h4 className="font-medium text-lg sm:text-xl text-[#4f634b] mb-3 sm:mb-4 tracking-wide">Rodeado de servicios</h4>
                       <p className="text-[#4f634b]/70 leading-relaxed font-light text-sm sm:text-base">
-                        Escuelas de prestigio, hospitales especializados, supermercados gourmet y restaurantes de autor en un radio de 5 km.
+                        Escuelas, hospitales, supermercados y restaurantes exclusivos en un radio de 5 km
                       </p>
                     </div>
                   </div>
@@ -1441,7 +1471,7 @@ export default function DesarrolloPalma() {
                     <div>
                       <h4 className="font-medium text-lg sm:text-xl text-[#4f634b] mb-3 sm:mb-4 tracking-wide">Movilidad Inteligente</h4>
                       <p className="text-[#4f634b]/70 leading-relaxed font-light text-sm sm:text-base">
-                        Conectividad vial excepcional, transporte público de calidad y acceso directo a autopistas principales.
+                        Acceso directo a las principales avenidas y calles
                       </p>
                     </div>
                   </div>
@@ -1513,11 +1543,11 @@ export default function DesarrolloPalma() {
             className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-[#d2c8b3]/30"
           >
             <div className="bg-white p-6 sm:p-8 text-center hover:bg-[#fafafa] transition-all duration-300">
-              <div className="text-2xl sm:text-3xl font-light text-[#4f634b] mb-2 sm:mb-3">10min</div>
+              <div className="text-2xl sm:text-3xl font-light text-[#4f634b] mb-2 sm:mb-3">5min</div>
               <div className="text-xs font-medium text-[#7a8d77] uppercase tracking-widest">a las playas</div>
             </div>
             <div className="bg-white p-6 sm:p-8 text-center hover:bg-[#fafafa] transition-all duration-300">
-              <div className="text-2xl sm:text-3xl font-light text-[#4f634b] mb-2 sm:mb-3">3min</div>
+              <div className="text-2xl sm:text-3xl font-light text-[#4f634b] mb-2 sm:mb-3">8min</div>
               <div className="text-xs font-medium text-[#7a8d77] uppercase tracking-widest">plaza comercial</div>
             </div>
             <div className="bg-white p-6 sm:p-8 text-center hover:bg-[#fafafa] transition-all duration-300">
