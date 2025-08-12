@@ -439,7 +439,7 @@ export default function DesarrolloPalma() {
   return (
     <main className="w-full min-h-screen bg-white font-sans tracking-wide overflow-x-hidden scroll-pt-20">
       <Helmet>
-        <title>Torre Palma 347 Departamentos en Venta en Veracruz | Desarrollo Exclusivo</title>
+        <title>Palma Departamentos en Venta en Veracruz | Desarrollo Exclusivo</title>
         <meta name="description" content="Torre Palma 347 departamentos en Veracruz desde $1.7 millones. 1-2 recámaras, estacionamiento incluido, ubicación premium. ¡Agenda tu visita!" />
         <script type="application/ld+json">
           {JSON.stringify(schemaData)}
@@ -450,7 +450,7 @@ export default function DesarrolloPalma() {
       {/* HERO LUXURY MINIMALISTA CON IMAGEN DE FONDO */}
       <section className="relative min-h-screen flex items-center overflow-hidden pt-16 sm:pt-20 lg:pt-24">
         {/* Imagen de fondo principal */}
-        <div className="absolute inset-0 bg-[url('/DesarrolloPalma/PALMA-SALA-COMEDOR.jpeg')] bg-cover bg-center sm:bg-center"></div>
+        <div className="absolute inset-0 bg-[url('/DesarrolloPalma/FACHADA.webp')] bg-cover bg-center sm:bg-center"></div>
         <div className="absolute inset-0 bg-[#4f634b]/60"></div>
         
         {/* Líneas geométricas minimalistas - responsive */}
@@ -1141,9 +1141,9 @@ export default function DesarrolloPalma() {
               transition={{ duration: 0.8 }}
               className="text-4xl sm:text-5xl lg:text-6xl xl:text-8xl font-thin text-[#4f634b] mb-6 sm:mb-8 leading-none tracking-tight"
             >
-              Disponibilidad
+              Conoce nuestros
               <br />
-              <span className="text-[#7a8d77] font-light italic">Exclusiva</span>
+              <span className="text-[#7a8d77] font-light italic">Modelos</span>
             </motion.h2>
             <motion.p 
               initial={{ opacity: 0, y: 30 }}
@@ -1177,12 +1177,8 @@ export default function DesarrolloPalma() {
               
               <div className="space-y-2 sm:space-y-3 lg:space-y-4 mb-4 sm:mb-6">
                 <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
-                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Interior:</span>
-                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">73.20 m²</span>
-                </div>
-                <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
-                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Con estacionamiento:</span>
-                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">86.95 m²</span>
+                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Tamaño:</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">90 m²</span>
                 </div>
                 <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
                   <span className="text-xs sm:text-sm text-[#4f634b]/70">Distribución:</span>
@@ -1190,7 +1186,7 @@ export default function DesarrolloPalma() {
                 </div>
                 <div className="flex justify-between py-1 sm:py-2">
                   <span className="text-xs sm:text-sm text-[#4f634b]/70">Estacionamiento:</span>
-                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">1 cajón incluido</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">Con cajón de estacionamiento</span>
                 </div>
               </div>
             </motion.div>
@@ -1215,12 +1211,8 @@ export default function DesarrolloPalma() {
               
               <div className="space-y-3 sm:space-y-4 mb-6">
                 <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
-                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Interior:</span>
-                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">57.00 m²</span>
-                </div>
-                <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
-                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Con estacionamiento:</span>
-                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">70.75 m²</span>
+                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Tamaño:</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">70 m²</span>
                 </div>
                 <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
                   <span className="text-xs sm:text-sm text-[#4f634b]/70">Distribución:</span>
@@ -1228,7 +1220,7 @@ export default function DesarrolloPalma() {
                 </div>
                 <div className="flex justify-between py-1 sm:py-2">
                   <span className="text-xs sm:text-sm text-[#4f634b]/70">Estacionamiento:</span>
-                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">1 cajón incluido</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">Con cajón de estacionamiento</span>
                 </div>
               </div>
             </motion.div>
@@ -1253,12 +1245,8 @@ export default function DesarrolloPalma() {
               
               <div className="space-y-3 sm:space-y-4 mb-6">
                 <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
-                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Interior:</span>
-                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">70.50 m²</span>
-                </div>
-                <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
-                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Con estacionamiento:</span>
-                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">84.25 m²</span>
+                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Tamaño:</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">84 m²</span>
                 </div>
                 <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
                   <span className="text-xs sm:text-sm text-[#4f634b]/70">Distribución:</span>
@@ -1266,7 +1254,7 @@ export default function DesarrolloPalma() {
                 </div>
                 <div className="flex justify-between py-1 sm:py-2">
                   <span className="text-xs sm:text-sm text-[#4f634b]/70">Estacionamiento:</span>
-                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">1 cajón incluido</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">Con cajón de estacionamiento</span>
                 </div>
               </div>
             </motion.div>
@@ -1291,12 +1279,8 @@ export default function DesarrolloPalma() {
               
               <div className="space-y-3 sm:space-y-4 mb-6">
                 <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
-                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Interior:</span>
-                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">62.75 m²</span>
-                </div>
-                <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
-                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Con estacionamiento:</span>
-                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">76.5 m²</span>
+                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Tamaño:</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">76 m²</span>
                 </div>
                 <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
                   <span className="text-xs sm:text-sm text-[#4f634b]/70">Distribución:</span>
@@ -1304,7 +1288,7 @@ export default function DesarrolloPalma() {
                 </div>
                 <div className="flex justify-between py-1 sm:py-2">
                   <span className="text-xs sm:text-sm text-[#4f634b]/70">Estacionamiento:</span>
-                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">1 cajón incluido</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">Con cajón de estacionamiento</span>
                 </div>
               </div>
             </motion.div>
@@ -1329,12 +1313,8 @@ export default function DesarrolloPalma() {
               
               <div className="space-y-3 sm:space-y-4 mb-6">
                 <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
-                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Interior:</span>
-                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">70.50 m²</span>
-                </div>
-                <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
-                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Con estacionamiento:</span>
-                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">84.25 m²</span>
+                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Tamaño:</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">84 m²</span>
                 </div>
                 <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
                   <span className="text-xs sm:text-sm text-[#4f634b]/70">Distribución:</span>
@@ -1342,7 +1322,7 @@ export default function DesarrolloPalma() {
                 </div>
                 <div className="flex justify-between py-1 sm:py-2">
                   <span className="text-xs sm:text-sm text-[#4f634b]/70">Estacionamiento:</span>
-                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">1 cajón incluido</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">Con cajón de estacionamiento</span>
                 </div>
               </div>
             </motion.div>
@@ -1367,12 +1347,8 @@ export default function DesarrolloPalma() {
               
               <div className="space-y-3 sm:space-y-4 mb-6">
                 <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
-                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Interior:</span>
-                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">62.75 m²</span>
-                </div>
-                <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
-                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Con estacionamiento:</span>
-                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">76.5 m²</span>
+                  <span className="text-xs sm:text-sm text-[#4f634b]/70">Tamaño:</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">76 m²</span>
                 </div>
                 <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
                   <span className="text-xs sm:text-sm text-[#4f634b]/70">Distribución:</span>
@@ -1380,7 +1356,7 @@ export default function DesarrolloPalma() {
                 </div>
                 <div className="flex justify-between py-1 sm:py-2">
                   <span className="text-xs sm:text-sm text-[#4f634b]/70">Estacionamiento:</span>
-                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">1 cajón incluido</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">Con cajón de estacionamiento</span>
                 </div>
               </div>
             </motion.div>
@@ -1410,20 +1386,12 @@ export default function DesarrolloPalma() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-4xl sm:text-5xl lg:text-6xl xl:text-8xl font-thin text-[#4f634b] mb-6 sm:mb-8 leading-none tracking-tight"
+              className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-thin text-[#4f634b] mb-6 sm:mb-8 leading-tight tracking-tight"
             >
               Departamentos en Boca del Río,
               <br />
               <span className="text-[#7a8d77] font-light italic"> donde cada destino está a tu alcance</span>
             </motion.h2>
-            <motion.p 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-lg sm:text-xl lg:text-2xl text-[#4f634b]/70 max-w-4xl mx-auto leading-relaxed font-light px-4"
-            >
-              En el corazón de Veracruz, donde cada destino está al alcance
-            </motion.p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-20 items-start mb-12 sm:mb-16 lg:mb-20">
@@ -1512,8 +1480,12 @@ export default function DesarrolloPalma() {
                   className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-10"
                 >
                   <div className="relative">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 border-2 border-[#4f634b] bg-white flex items-center justify-center shadow-lg">
-                      <FaLeaf className="text-[#4f634b] text-base sm:text-lg" />
+                    <div className=" border-2 border-[#4f634b] bg-white rounded-full flex items-center justify-center shadow-lg overflow-hidden">
+                      <img 
+                        src="/DesarrolloPalma/LOGO-DEPAR.webp" 
+                        alt="Palma Departamentos"
+                        className="w-8 h-8 sm:w-20 sm:h-20 object-contain"
+                      />
                     </div>
                     <div className="absolute -bottom-5 sm:-bottom-6 left-1/2 -translate-x-1/2 bg-white border border-[#d2c8b3] px-1.5 sm:px-2 py-0.5 sm:py-1 shadow-sm">
                       <span className="text-xs font-medium text-[#4f634b] whitespace-nowrap tracking-wide">PALMA</span>
@@ -1540,7 +1512,7 @@ export default function DesarrolloPalma() {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-[#d2c8b3]/30"
+            className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-[#d2c8b3]/30"
           >
             <div className="bg-white p-6 sm:p-8 text-center hover:bg-[#fafafa] transition-all duration-300">
               <div className="text-2xl sm:text-3xl font-light text-[#4f634b] mb-2 sm:mb-3">5min</div>
