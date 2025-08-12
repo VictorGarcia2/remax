@@ -126,7 +126,7 @@ const findOwnerInPipedrive = async (apiKey) => {
 };
 
 const datosClave = [
-  { icon: <FaMapMarkerAlt className="text-[#4f634b] text-xl" />, label: "Dirección", value: "Av. Palma Real 456, Veracruz, Ver." },
+  { icon: <FaMapMarkerAlt className="text-[#4f634b] text-xl" />, label: "Dirección", value: "Punta Roca Partida 205, Graciano Sánchez, 94293 Veracruz, Ver.." },
   { icon: <FaHome className="text-[#4f634b] text-xl" />, label: "A 10 min de", value: "Playas y centro comercial" },
   { icon: <FaCar className="text-[#4f634b] text-xl" />, label: "Estacionamiento", value: "1 o 2 cajones por depa" },
 ];
@@ -495,7 +495,7 @@ export default function DesarrolloPalma() {
                 className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 lg:gap-8"
               >
                 <div className="bg-white/10 backdrop-blur-sm border border-white/20 p-4 sm:p-5 lg:p-8 text-center shadow-sm hover:shadow-md hover:bg-white/15 transition-all duration-300">
-                  <div className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-light text-white mb-2 lg:mb-3">57—86</div>
+                  <div className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-light text-white mb-2 lg:mb-3">60—90</div>
                   <div className="text-xs font-medium text-[#d2c8b3] uppercase tracking-widest">m² construidos</div>
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm border border-white/20 p-4 sm:p-5 lg:p-8 text-center shadow-sm hover:shadow-md hover:bg-white/15 transition-all duration-300">
@@ -702,10 +702,13 @@ export default function DesarrolloPalma() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="inline-flex items-center gap-3 sm:gap-4 border border-[#4f634b] text-[#4f634b] px-6 sm:px-8 py-2 sm:py-3 mb-6 sm:mb-8 tracking-wider uppercase text-xs font-medium"
+              className="inline-flex items-center justify-center gap-3 sm:gap-4 text-[#4f634b] px-6 sm:px-8 py-4 sm:py-6 mb-6 sm:mb-8 tracking-wider uppercase text-xs font-medium"
             >
-              <FaHome className="text-xs sm:text-sm" />
-              <span>Torre Palma 347</span>
+              <img 
+                src="/DesarrolloPalma/LOGO-DEPAR.webp" 
+                alt="Palma Departamentos"
+                className="w-16 h-16 sm:w-24 sm:h-24 md:w-48 md:h-48 object-contain"
+              />
             </motion.div>
             
             <motion.h2 
@@ -1446,10 +1449,15 @@ export default function DesarrolloPalma() {
                 </div>
               </div>
 
-              <button className="w-full sm:w-auto border border-[#4f634b] text-[#4f634b] px-6 sm:px-8 py-3 sm:py-4 hover:bg-[#4f634b] hover:text-white transition-all duration-300 flex items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm font-medium tracking-wide uppercase">
+              <a 
+                href="https://www.google.com/maps/place/P.%C2%BA+Puerto+Banderas,+La+Tampiquera,+94293+Boca+del+R%C3%ADo,+Ver./@19.1122402,-96.1127698,19z/data=!3m1!4b1!4m15!1m8!3m7!1s0x85c341b5153fd133:0x7e5457c869c627ff!2sC.+Acayucan,+Veracruz!3b1!8m2!3d19.1121642!4d-96.1115465!16s%2Fg%2F1tf_1dkz!3m5!1s0x85c341b53e323de5:0xb925b5ab199153d!8m2!3d19.1122389!4d-96.1115521!16s%2Fg%2F11g6457fyv?entry=ttu&g_ep=EgoyMDI1MDgwNi4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto border border-[#4f634b] text-[#4f634b] px-6 sm:px-8 py-3 sm:py-4 hover:bg-[#4f634b] hover:text-white transition-all duration-300 flex items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm font-medium tracking-wide uppercase"
+              >
                 <FaMapMarkedAlt />
                 Ver en Google Maps
-              </button>
+              </a>
             </motion.div>
 
             {/* Mapa minimalista */}
