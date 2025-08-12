@@ -1470,7 +1470,7 @@ export default function DesarrolloPalma() {
               <div className="border border-[#d2c8b3]/50 overflow-hidden shadow-sm h-[300px] sm:h-[400px] lg:h-[600px] relative">
                 <iframe
                   title="Ubicación PALMA RESIDENCES"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.123456789!2d-96.1345678!3d19.1901234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85c34a123456789%3A0xabcdef123456789!2sPalma%20Departamentos%2C%20Veracruz!5e0!3m2!1ses-419!2smx!4v1710000000000!5m2!1ses-419!2smx"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d937.0320400000001!2d-96.110806!3d19.112801!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDA2JzQ2LjEiTiA5NsKwMDYnMzguOSJX!5e0!3m2!1ses-419!2smx!4v1691234567890!5m2!1ses-419!2smx"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -1480,26 +1480,53 @@ export default function DesarrolloPalma() {
                   className="w-full h-full grayscale contrast-125"
                 ></iframe>
                 
-                {/* Pin minimalista */}
-                <motion.div 
-                  initial={{ y: -20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ type: 'spring', stiffness: 200, damping: 10 }}
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-10"
-                >
-                  <div className="relative">
-                    <div className=" border-2 border-[#4f634b] bg-white rounded-full flex items-center justify-center shadow-lg overflow-hidden">
-                      <img 
-                        src="/DesarrolloPalma/LOGO-DEPAR.webp" 
-                        alt="Palma Departamentos"
-                        className="w-8 h-8 sm:w-20 sm:h-20 object-contain"
-                      />
+                {/* Pin mejorado */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-10">
+                  <motion.div 
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ 
+                      type: 'spring', 
+                      stiffness: 300, 
+                      damping: 20,
+                      delay: 0.5 
+                    }}
+                    className="relative flex flex-col items-center"
+                  >
+                    {/* Pin principal con logo */}
+                    <div className="relative">
+                      <div className="w-14 h-14 sm:w-16 sm:h-16 border-3 border-[#4f634b] bg-white rounded-full flex items-center justify-center shadow-xl">
+                        <img 
+                          src="/DesarrolloPalma/LOGO-DEPAR.webp" 
+                          alt="Palma Departamentos"
+                          className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
+                        />
+                      </div>
+                      
+                      {/* Punto de anclaje del pin */}
+                      <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[8px] border-r-[8px] border-t-[12px] border-l-transparent border-r-transparent border-t-[#4f634b]"></div>
                     </div>
-                    <div className="absolute -bottom-5 sm:-bottom-6 left-1/2 -translate-x-1/2 bg-white border border-[#d2c8b3] px-1.5 sm:px-2 py-0.5 sm:py-1 shadow-sm">
-                      <span className="text-xs font-medium text-[#4f634b] whitespace-nowrap tracking-wide">PALMA</span>
+                    
+                    {/* Etiqueta del pin */}
+                    <div className="mt-2 bg-[#4f634b] text-white px-3 py-1 rounded-full shadow-lg">
+                      <span className="text-xs font-bold tracking-wide uppercase">Torre Palma 347</span>
                     </div>
-                  </div>
-                </motion.div>
+                    
+                    {/* Efecto de pulso */}
+                    <motion.div
+                      animate={{ 
+                        scale: [1, 1.4, 1],
+                        opacity: [0.7, 0, 0.7]
+                      }}
+                      transition={{ 
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                      className="absolute top-0 w-14 h-14 sm:w-16 sm:h-16 border-2 border-[#4f634b] rounded-full"
+                    ></motion.div>
+                  </motion.div>
+                </div>
               </div>
 
               {/* Información de ubicación */}

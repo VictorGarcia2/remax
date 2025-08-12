@@ -89,11 +89,12 @@ export default function SectionDesarrollosSlider() {
         { icon: FaCheckCircle, text: 'Cocina Integral' }
       ],
       images: [
-        { id: 1, src: '/DesarrolloPalma/PALMA-SALA-COMEDOR.jpeg', alt: 'Sala-Comedor' },
-        { id: 2, src: '/DesarrolloPalma/PALMA-COCINA.jpeg', alt: 'Cocina Integral' },
-        { id: 3, src: '/DesarrolloPalma/PALMA- REC 1.jpeg', alt: 'Recámara Principal' },
-        { id: 4, src: '/DesarrolloPalma/PALMA-REC 2.jpeg', alt: 'Segunda Recámara' },
-        { id: 5, src: '/DesarrolloPalma/PALMA-ROOF TOP.jpeg', alt: 'Roof Top' }
+        { id: 1, src: '/DesarrolloPalma/FACHADA.webp', alt: 'Fachada Torre Palma 347' },
+        { id: 2, src: '/DesarrolloPalma/PALMA-SALA-COMEDOR.jpeg', alt: 'Sala-Comedor' },
+        { id: 3, src: '/DesarrolloPalma/PALMA-COCINA.jpeg', alt: 'Cocina Integral' },
+        { id: 4, src: '/DesarrolloPalma/PALMA- REC 1.jpeg', alt: 'Recámara Principal' },
+        { id: 5, src: '/DesarrolloPalma/PALMA-REC 2.jpeg', alt: 'Segunda Recámara' },
+        { id: 6, src: '/DesarrolloPalma/PALMA-ROOF TOP.jpeg', alt: 'Roof Top' }
       ],
       units: [
         {
