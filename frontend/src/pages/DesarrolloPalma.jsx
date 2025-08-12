@@ -11,8 +11,8 @@ const phoneRegex = /^\d{10}$/;
 // --- CONFIGURACIÓN PIPEDRIVE ---
 const PIPEDRIVE_API_KEY = "02317c5467585c4251d802ab65e0c7b9f60541ee";
 const PIPEDRIVE_API_URL = "https://api.pipedrive.com/v1";
-const PIPELINE_ID_DESARROLLO = 1;
-const STAGE_ID_DESARROLLO = 1;
+const PIPELINE_ID_DESARROLLO = 4;
+const STAGE_ID_DESARROLLO = 19; // Stage "Cualificado" (primer stage del Pipeline 4)
 
 // --- CAMPOS PERSONALIZADOS PARA PIPEDRIVE ---
 const CUSTOM_FIELDS_DESARROLLO = {
@@ -355,6 +355,12 @@ export default function DesarrolloPalma() {
         [customFields.MENSAJE]: form.mensaje || "Sin mensaje"
       };
 
+      // 🔍 DEBUG: Verificar qué pipeline se está enviando
+      console.log('🎯 ENVIANDO LEAD TORRE PALMA 347');
+      console.log('PIPELINE_ID_DESARROLLO:', PIPELINE_ID_DESARROLLO);
+      console.log('dealPayload.pipeline_id:', dealPayload.pipeline_id);
+      console.log('Deal completo:', dealPayload);
+
       const dealResponse = await fetch(
         `${PIPEDRIVE_API_URL}/deals?api_token=${PIPEDRIVE_API_KEY}`,
         {
@@ -371,6 +377,11 @@ export default function DesarrolloPalma() {
       }
 
       const dealData = await dealResponse.json();
+
+      // 🔍 DEBUG: Verificar la respuesta de Pipedrive
+      console.log('✅ RESPUESTA DE PIPEDRIVE:', dealData);
+      console.log('🎯 Deal creado en pipeline:', dealData.data?.pipeline_id);
+      console.log('📍 URL del deal:', `https://remaxcin.pipedrive.com/deal/${dealData.data?.id}`);
 
       // 5. Crear una nota con los detalles del formulario
       const noteContent = `Lead generado desde la web (Torre Palma 347):\n\nNombre: ${form.nombre}\nEmail: ${form.email}\nTeléfono: ${form.telefono}\nMensaje: ${form.mensaje}`;
