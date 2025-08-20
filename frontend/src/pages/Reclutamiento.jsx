@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import { toast } from "react-toastify";
 import Header from "../components/SectionHome/Header";
 import SectionFooter from "../components/SectionFooter/SectionFooter";
@@ -651,6 +652,16 @@ ${formData.message}`;
 
   return (
     <>
+      <Helmet>
+        <title>Únete al Equipo RE/MAX CIN Veracruz | Reclutamiento Agentes Inmobiliarios</title>
+        <meta name="description" content="Forma parte del equipo líder en bienes raíces de Veracruz. RE/MAX CIN busca agentes inmobiliarios comprometidos con el éxito. ¡Postúlate hoy!" />
+        <link rel="canonical" href="https://remaxcin.com/reclutamiento" />
+        <meta property="og:url" content="https://remaxcin.com/reclutamiento" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Únete al Equipo RE/MAX CIN Veracruz | Reclutamiento Agentes Inmobiliarios" />
+        <meta property="og:description" content="Forma parte del equipo líder en bienes raíces de Veracruz. RE/MAX CIN busca agentes inmobiliarios comprometidos con el éxito. ¡Postúlate hoy!" />
+        <meta property="og:image" content="https://remaxcin.com/logos/New_RMX_Mark_R4_RGB_cream.png" />
+      </Helmet>
       <Header />
       <div className="w-full">
       {showSuccessModal && <SuccessModal />}

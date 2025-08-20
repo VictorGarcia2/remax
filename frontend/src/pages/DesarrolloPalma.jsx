@@ -452,6 +452,12 @@ export default function DesarrolloPalma() {
       <Helmet>
         <title>Palma Departamentos en Venta en Veracruz | Desarrollo Exclusivo</title>
         <meta name="description" content="Torre Palma 347 departamentos en Veracruz desde $1.7 millones. 1-2 recámaras, estacionamiento incluido, ubicación premium. ¡Agenda tu visita!" />
+        <link rel="canonical" href="https://remaxcin.com/desarrollo-palma" />
+        <meta property="og:url" content="https://remaxcin.com/desarrollo-palma" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Palma Departamentos en Venta en Veracruz | Desarrollo Exclusivo" />
+        <meta property="og:description" content="Torre Palma 347 departamentos en Veracruz desde $1.7 millones. 1-2 recámaras, estacionamiento incluido, ubicación premium. ¡Agenda tu visita!" />
+        <meta property="og:image" content="https://remaxcin.com/DesarrolloPalma/FACHADA.webp" />
         <script type="application/ld+json">
           {JSON.stringify(schemaData)}
         </script>

@@ -116,8 +116,12 @@ const App = () => {
             name="description"
             content="REMAX CIN Veracruz - Expertos en propiedades residenciales, comerciales e industriales. Encuentra tu espacio ideal con amplio catálogo de bienes raíces en venta y renta."
           />
-
-          <link rel="canonical" href="https://www.remaxcin.com" />
+          <link rel="canonical" href="https://remaxcin.com/" />
+          <meta property="og:site_name" content="RE/MAX CIN Veracruz" />
+          <meta property="og:type" content="website" />
+          <meta property="og:locale" content="es_MX" />
+          <meta name="robots" content="index, follow" />
+          <meta name="googlebot" content="index, follow" />
         </Helmet>
         <ScrollToTop />
         <SearchProvider>

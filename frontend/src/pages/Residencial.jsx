@@ -7,6 +7,7 @@ import React, {
   useMemo,
   useCallback,
 } from "react";
+import { Helmet } from "react-helmet-async";
 import HomeSearch from "../components/SectionHome/HomeSearch";
 import LoadingSpinner from "../components/LoadingSpinner";
 import { useSearchContext } from "../context/SearchContext";
@@ -232,6 +233,16 @@ export default React.memo(function Residencial({
 
   return (
     <main className="min-h-screen bg-white w-full">
+      <Helmet>
+        <title>Propiedades Residenciales en Venta Veracruz | RE/MAX CIN</title>
+        <meta name="description" content="Encuentra casas y departamentos en venta en Veracruz. RE/MAX CIN te ofrece las mejores propiedades residenciales con ubicación privilegiada y precios competitivos." />
+        <link rel="canonical" href="https://remaxcin.com/residencial" />
+        <meta property="og:url" content="https://remaxcin.com/residencial" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Propiedades Residenciales en Venta Veracruz | RE/MAX CIN" />
+        <meta property="og:description" content="Encuentra casas y departamentos en venta en Veracruz. RE/MAX CIN te ofrece las mejores propiedades residenciales con ubicación privilegiada y precios competitivos." />
+        <meta property="og:image" content="https://remaxcin.com/HomePageContent/optim.webp" />
+      </Helmet>
       <section className="z-50">
         <Header {...headerProps} />
       </section>
