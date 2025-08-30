@@ -35,6 +35,16 @@ export default function SectionFooter() {
                       Valuador de Propiedades
                     </Link>
                   </li>
+                  <li className="mb-4">
+                    <a 
+                      href="https://blog.remaxcin.com/" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className={linkClasses}
+                    >
+                      Blog
+                    </a>
+                  </li>
                 </ul>
               </div>
 

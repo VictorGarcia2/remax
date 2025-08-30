@@ -1,374 +1,452 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Páginas Principales -->
+  <!-- Página Principal -->
   <url>
     <loc>https://remaxcin.com/</loc>
+    <priority>1.0</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
+  </url>
+  
+  <!-- Páginas de Búsqueda -->
+  <url>
+    <loc>https://remaxcin.com/residencial</loc>
     <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/inicio</loc>
-    <priority>1.0</priority>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades</loc>
     <priority>0.8</priority>
+    <changefreq>daily</changefreq>
+    <lastmod>2025-08-20</lastmod>
+  </url>
+  
+  <!-- Desarrollos -->
+  <url>
+    <loc>https://remaxcin.com/desarrollo-trebol-ii</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2025-08-20</lastmod>
+  </url>
+  <url>
+    <loc>https://remaxcin.com/desarrollo-palma</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2025-08-20</lastmod>
+  </url>
+  
+  <!-- Servicios -->
+  <url>
+    <loc>https://remaxcin.com/reclutamiento</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2025-08-20</lastmod>
+  </url>
+  <url>
+    <loc>https://remaxcin.com/valuador</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/NuestroEquipo</loc>
     <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://remaxcin.com/desarrollo-trebol-ii</loc>
-    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   
   <!-- Páginas Legales -->
   <url>
     <loc>https://remaxcin.com/Polizas-de-renta</loc>
     <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/terminos-y-condiciones</loc>
     <priority>0.5</priority>
+    <changefreq>yearly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/codigo-de-etica</loc>
     <priority>0.5</priority>
+    <changefreq>yearly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/politica-de-privacidad</loc>
     <priority>0.5</priority>
+    <changefreq>yearly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
 
   <!-- Propiedades Dinámicas -->
   <url>
-    <loc>https://remaxcin.com/propiedades/seleccion/565681</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
-  </url>
-  <url>
-    <loc>https://remaxcin.com/propiedades/seleccion/567757</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
-  </url>
-  <url>
     <loc>https://remaxcin.com/propiedades/seleccion/568035</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/571590</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/573035</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/574783</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/580800</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/580858</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/581181</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
-  </url>
-  <url>
-    <loc>https://remaxcin.com/propiedades/seleccion/581546</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
-  </url>
-  <url>
-    <loc>https://remaxcin.com/propiedades/seleccion/581550</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/581552</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/586952</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/594564</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/595447</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/595932</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
-  </url>
-  <url>
-    <loc>https://remaxcin.com/propiedades/seleccion/596136</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/598335</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
-    <loc>https://remaxcin.com/propiedades/seleccion/603718</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
-  </url>
-  <url>
-    <loc>https://remaxcin.com/propiedades/seleccion/603725</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <loc>https://remaxcin.com/propiedades/seleccion/598645</loc>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/609282</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/609874</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
-  </url>
-  <url>
-    <loc>https://remaxcin.com/propiedades/seleccion/610578</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
-  </url>
-  <url>
-    <loc>https://remaxcin.com/propiedades/seleccion/614383</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
-  </url>
-  <url>
-    <loc>https://remaxcin.com/propiedades/seleccion/614800</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
-  </url>
-  <url>
-    <loc>https://remaxcin.com/propiedades/seleccion/614818</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
-  </url>
-  <url>
-    <loc>https://remaxcin.com/propiedades/seleccion/615594</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
-  </url>
-  <url>
-    <loc>https://remaxcin.com/propiedades/seleccion/615643</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/616598</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
-  </url>
-  <url>
-    <loc>https://remaxcin.com/propiedades/seleccion/618319</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/618449</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/619192</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
-  </url>
-  <url>
-    <loc>https://remaxcin.com/propiedades/seleccion/620990</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
-  </url>
-  <url>
-    <loc>https://remaxcin.com/propiedades/seleccion/623953</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/626746</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/627516</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/627521</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/627558</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
-  </url>
-  <url>
-    <loc>https://remaxcin.com/propiedades/seleccion/629402</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/630039</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/632372</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/633456</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/633460</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/633804</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/633931</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/636027</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/636053</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/636597</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/636601</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/637036</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/639166</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
-  </url>
-  <url>
-    <loc>https://remaxcin.com/propiedades/seleccion/639655</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/639994</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
-  </url>
-  <url>
-    <loc>https://remaxcin.com/propiedades/seleccion/640195</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/640196</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/640339</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/640546</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/642155</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/642794</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
-  </url>
-  <url>
-    <loc>https://remaxcin.com/propiedades/seleccion/642797</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/643377</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/643819</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/644112</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/644290</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/644828</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
   <url>
     <loc>https://remaxcin.com/propiedades/seleccion/645483</loc>
-    <priority>0.8</priority>
-    <lastmod>2025-06-26</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
+  </url>
+  <url>
+    <loc>https://remaxcin.com/propiedades/seleccion/646723</loc>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
+  </url>
+  <url>
+    <loc>https://remaxcin.com/propiedades/seleccion/647167</loc>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
+  </url>
+  <url>
+    <loc>https://remaxcin.com/propiedades/seleccion/647174</loc>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
+  </url>
+  <url>
+    <loc>https://remaxcin.com/propiedades/seleccion/647183</loc>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
+  </url>
+  <url>
+    <loc>https://remaxcin.com/propiedades/seleccion/647356</loc>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
+  </url>
+  <url>
+    <loc>https://remaxcin.com/propiedades/seleccion/648171</loc>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
+  </url>
+  <url>
+    <loc>https://remaxcin.com/propiedades/seleccion/648366</loc>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
+  </url>
+  <url>
+    <loc>https://remaxcin.com/propiedades/seleccion/648461</loc>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
+  </url>
+  <url>
+    <loc>https://remaxcin.com/propiedades/seleccion/649030</loc>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
+  </url>
+  <url>
+    <loc>https://remaxcin.com/propiedades/seleccion/649265</loc>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
+  </url>
+  <url>
+    <loc>https://remaxcin.com/propiedades/seleccion/649272</loc>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
+  </url>
+  <url>
+    <loc>https://remaxcin.com/propiedades/seleccion/650549</loc>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
+  </url>
+  <url>
+    <loc>https://remaxcin.com/propiedades/seleccion/651144</loc>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-08-20</lastmod>
   </url>
 </urlset>

@@ -312,13 +312,13 @@ const QuizResult = ({ estimatedValue, contactInfo, quizAnswers, onReset, onCompl
       };
       
       console.log("Enviando petición para PDF:", payload);
-      console.log("URL del PDF:", 'http://127.0.0.1:8000/reporte_pdf');
+      console.log("URL del PDF:", 'https://api.remaxcin.com//reporte_pdf');
       
       // Probar diferentes URLs para el PDF
       const pdfUrls = [
-        'http://127.0.0.1:8000/reporte_pdf',
-        'http://127.0.0.1:8000/reporte_pdf',
-        'http://127.0.0.1:8000/reporte_pdf'
+        'https://api.remaxcin.com//reporte_pdf',
+        'https://api.remaxcin.com//reporte_pdf',
+        'https://api.remaxcin.com//reporte_pdf'
       ];
       
       let response = null;

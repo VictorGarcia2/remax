@@ -5,8 +5,15 @@ Allow: /
 Sitemap: https://remaxcin.com/sitemap.xml
 
 # Rutas principales
+Allow: /
 Allow: /inicio
+Allow: /residencial
+Allow: /comercial
 Allow: /propiedades
+Allow: /desarrollo-palma
+Allow: /desarrollo-trebol-ii
+Allow: /reclutamiento
+Allow: /valuador
 Allow: /NuestroEquipo
 Allow: /Polizas-de-renta
 Allow: /terminos-y-condiciones
@@ -15,6 +22,7 @@ Allow: /politica-de-privacidad
 
 # Rutas dinámicas - Propiedades individuales
 Allow: /propiedades/seleccion/
+Allow: /resultados-busqueda/
 
 # Archivos y directorios a no indexar
 Disallow: /src/
@@ -23,3 +31,6 @@ Disallow: /.vscode/
 Disallow: /.git/
 Disallow: /*.js$
 Disallow: /*.json$
+Disallow: /debug_pipelines.js
+Disallow: /check_pipelines.js
+Disallow: /check_stages.js

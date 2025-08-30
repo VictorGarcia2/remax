@@ -336,6 +336,12 @@ export default function DesarrolloTrebolII() {
       <Helmet>
         <title>Departamentos en Venta en Boca del Río, Veracruz | TRÉBOL II</title>
         <meta name="description" content="Departamentos en preventa en Veracruz desde $1.3 millones. Ubicación privilegiada, amenidades premium y seguridad. ¡Agenda tu visita gratis hoy!" />
+        <link rel="canonical" href="https://remaxcin.com/desarrollo-trebol-ii" />
+        <meta property="og:url" content="https://remaxcin.com/desarrollo-trebol-ii" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Departamentos en Venta en Boca del Río, Veracruz | TRÉBOL II" />
+        <meta property="og:description" content="Departamentos en preventa en Veracruz desde $1.3 millones. Ubicación privilegiada, amenidades premium y seguridad. ¡Agenda tu visita gratis hoy!" />
+        <meta property="og:image" content="https://remaxcin.com/fotosdesarrollo/FACHADA.webp" />
         <script type="application/ld+json">
           {JSON.stringify(schemaData)}
         </script>

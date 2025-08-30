@@ -8,6 +8,28 @@ export default function Header({ setSelectedOptionsOperacion }) {
   const dropdownRef = useRef(null);
   const { valor } = useSearchContext();
 
+  // Función para scroll suave a sección de desarrollos
+  const scrollToDesarrollos = (e) => {
+    e.preventDefault();
+    setIsOpen(false);
+    
+    // Si no estamos en la página de inicio, navegar primero
+    if (window.location.pathname !== '/' && window.location.pathname !== '/inicio') {
+      window.location.href = '/#desarrollos-section';
+      return;
+    }
+    
+    // Scroll suave a la sección
+    const elemento = document.getElementById('desarrollos-section');
+    if (elemento) {
+      elemento.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest'
+      });
+    }
+  };
+
   // Cerrar dropdown al hacer clic fuera (solo en móvil)
   useEffect(() => {
     function handleClickOutside(event) {
@@ -182,14 +204,13 @@ export default function Header({ setSelectedOptionsOperacion }) {
                     </Link>
                   </li>
                   <li className="py-2 w-full">
-                    <Link
-                      to="/desarrollo-trebol-ii"
+                    <button
+                      onClick={scrollToDesarrollos}
                       className="py-4 px-3 rounded-md bg-[#db1c2e] text-white font-bold shadow-md border border-[#db1c2e] hover:bg-red-700 transition flex items-center gap-2 relative w-full justify-center text-lg"
-                      onClick={() => setIsOpen(false)}
                     >
-                      Departamentos Trébol II
+                      Nuestros Desarrollos
                       <span className="ml-2 bg-white text-[#db1c2e] text-[12px] font-bold px-2 py-0.5 rounded-full shadow border border-[#db1c2e]">Nuevo</span>
-                    </Link>
+                    </button>
                   </li>
                 </ul>
               </div>
@@ -309,14 +330,13 @@ export default function Header({ setSelectedOptionsOperacion }) {
             </li>
             <li className="hidden md:block mx-2 border-l border-gray-300 h-8 self-center"></li>
             <li className="py-1 md:ml-4 mt-2 md:mt-0">
-              <Link
-                to="/desarrollo-trebol-ii"
+              <button
+                onClick={scrollToDesarrollos}
                 className=" py-2 px-3 rounded-md bg-[#db1c2e] text-white font-bold shadow-md border border-[#db1c2e] hover:bg-red-700 transition flex items-center gap-2 relative"
-                onClick={() => setIsOpen(false)}
               >
-                Departamentos Trébol II
+                Nuestros Desarrollos
                 <span className="ml-2 bg-white text-[#db1c2e] text-[10px] font-bold px-2 py-0.5 rounded-full shadow border border-[#db1c2e]">Nuevo</span>
-              </Link>
+              </button>
             </li>
           </ul>
         </div>
