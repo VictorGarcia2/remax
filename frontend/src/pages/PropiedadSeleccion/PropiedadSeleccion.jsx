@@ -128,7 +128,7 @@ export default function PropiedadSeleccion({ seleccion }) {
 
   useEffect(() => {
     axios
-      .get("https://remaxcin.com/api/propiedades")
+      .get("http://localhost:3000/api/propiedades")
       .then((res) => {
         setPropiedades(res.data.data.rows);
       })

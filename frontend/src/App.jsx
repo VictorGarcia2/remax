@@ -88,7 +88,7 @@ const App = () => {
     const getData = async () => {
       try {
         const response = await axios.get(
-          "https://remaxcin.com/api/propiedades"
+          "http://localhost:3000/api/propiedades"
         );
         const data = response.data.data.rows;
         setPropiedades(data);

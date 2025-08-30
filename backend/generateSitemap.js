@@ -14,7 +14,7 @@ async function generateSitemap() {
     
     // Obtener todas las propiedades desde la API
     console.log('📡 Obteniendo propiedades desde la API...');
-    const response = await axios.get('https://remaxcin.com/api/propiedades');
+    const response = await axios.get('hhttp://localhost:3000/api/propiedades');
     const propiedades = response.data.data.rows;
     console.log(`📦 ${propiedades.length} propiedades encontradas`);
 
