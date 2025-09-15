@@ -236,8 +236,8 @@ export default React.memo(function Residencial({
       <Helmet>
         <title>Propiedades Residenciales en Venta Veracruz | RE/MAX CIN</title>
         <meta name="description" content="Encuentra casas y departamentos en venta en Veracruz. RE/MAX CIN te ofrece las mejores propiedades residenciales con ubicación privilegiada y precios competitivos." />
-        <link rel="canonical" href="https://remaxcin.com/residencial" />
-        <meta property="og:url" content="https://remaxcin.com/residencial" />
+        <link rel="canonical" href="https://remaxcin.com/inicio" />
+        <meta property="og:url" content="https://remaxcin.com/inicio" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Propiedades Residenciales en Venta Veracruz | RE/MAX CIN" />
         <meta property="og:description" content="Encuentra casas y departamentos en venta en Veracruz. RE/MAX CIN te ofrece las mejores propiedades residenciales con ubicación privilegiada y precios competitivos." />

@@ -48,6 +48,11 @@ const Valuador = () => {
           name="description"
           content="Conoce el valor de tu propiedad en minutos con nuestro simulador de avalúos. Obtén una valuación precisa y gratuita de tu casa o departamento."
         />
+        <link rel="canonical" href="https://remaxcin.com/valuador" />
+        <meta property="og:title" content="Valuador de Propiedades | REMAX CIN" />
+        <meta property="og:description" content="Conoce el valor de tu propiedad en minutos con nuestro simulador de avalúos." />
+        <meta property="og:url" content="https://remaxcin.com/valuador" />
+        <meta property="og:type" content="website" />
       </Helmet>
       <Header/>
       <div className="bg-gradient-to-b from-gray-50 to-gray-100 min-h-screen w-full">

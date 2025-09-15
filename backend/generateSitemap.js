@@ -14,7 +14,7 @@ async function generateSitemap() {
     
     // Obtener todas las propiedades desde la API
     console.log('📡 Obteniendo propiedades desde la API...');
-    const response = await axios.get('hhttp://localhost:3000/api/propiedades');
+    const response = await axios.get('http://localhost:3001/api/propiedades');
     const propiedades = response.data.data.rows;
     console.log(`📦 ${propiedades.length} propiedades encontradas`);
 
@@ -73,6 +73,12 @@ async function generateSitemap() {
   <url>
     <loc>https://remaxcin.com/valuador</loc>
     <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+  </url>
+  <url>
+    <loc>https://remaxcin.com/creditos-hipotecarios</loc>
+    <priority>0.8</priority>
     <changefreq>monthly</changefreq>
     <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
   </url>
@@ -139,10 +145,16 @@ async function generateSitemap() {
     console.error('❌ Error al generar el sitemap:', error.message);
     if (error.response) {
       console.error('📡 Error de API:', error.response.status, error.response.statusText);
+      console.error('📡 Response data:', error.response.data);
+    }
+    if (error.code === 'ECONNREFUSED') {
+      console.error('🔌 Error de conexión: El servidor backend no está ejecutándose en localhost:3001');
+      console.error('💡 Solución: Ejecuta "npm start" en el directorio backend primero');
     }
     if (error.code === 'ENOENT') {
       console.error('📁 Error de archivo: No se pudo encontrar el directorio de destino');
     }
+    console.error('🔍 Error completo:', error);
     process.exit(1);
   }
 }

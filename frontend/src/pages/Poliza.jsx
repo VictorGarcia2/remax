@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 // Constantes para Pipedrive
 const PIPEDRIVE_API_KEY = "02317c5467585c4251d802ab65e0c7b9f60541ee";
@@ -250,7 +251,20 @@ function Poliza() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+    <>
+      <Helmet>
+        <title>Pólizas de Renta - REMAX CIN Veracruz</title>
+        <meta
+          name="description"
+          content="Protege tu inversión inmobiliaria con nuestras pólizas de renta. Garantía de pagos, respaldo legal y evaluación profesional de inquilinos."
+        />
+        <link rel="canonical" href="https://remaxcin.com/Polizas-de-renta" />
+        <meta property="og:title" content="Pólizas de Renta - REMAX CIN Veracruz" />
+        <meta property="og:description" content="Protege tu inversión inmobiliaria con nuestras pólizas de renta. Garantía de pagos y respaldo legal." />
+        <meta property="og:url" content="https://remaxcin.com/Polizas-de-renta" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* Navigation */}
       <nav
         className={`fixed w-full z-50 transition-all duration-300 ${
@@ -682,7 +696,8 @@ function Poliza() {
     </div>
   </div>
 )}
-    </div>
+      </div>
+    </>
   );
 }
 

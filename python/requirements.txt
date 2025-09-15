@@ -6,3 +6,7 @@ python-multipart
 WeasyPrint 
 unidecode
 rapidfuzz
+numpy
+selenium
+pandas
+openpyxl
