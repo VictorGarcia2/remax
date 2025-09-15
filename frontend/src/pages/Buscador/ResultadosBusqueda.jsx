@@ -11,6 +11,7 @@ import ActiveFilters from "../../components/ActiveFilters";
 import { useEffect } from "react";
 import { useSearchContext } from "../../context/SearchContext";
 import Breadcrumbs from "../../components/Breadcrumbs";
+import { Helmet } from "react-helmet-async";
 
 
 const ResultadosBusqueda = ({
@@ -52,6 +53,18 @@ const ResultadosBusqueda = ({
   }, [selectedOptionsTipos]);
   return (
     <>
+      <Helmet>
+        <title>Propiedades en Venta y Renta - REMAX CIN Veracruz</title>
+        <meta
+          name="description"
+          content="Encuentra propiedades en venta y renta en Veracruz. Casas, departamentos, oficinas y terrenos. REMAX CIN - Tu mejor opción inmobiliaria."
+        />
+        <link rel="canonical" href="https://remaxcin.com/propiedades" />
+        <meta property="og:title" content="Propiedades en Venta y Renta - REMAX CIN Veracruz" />
+        <meta property="og:description" content="Encuentra propiedades en venta y renta en Veracruz. Casas, departamentos, oficinas y terrenos." />
+        <meta property="og:url" content="https://remaxcin.com/propiedades" />
+        <meta property="og:type" content="website" />
+      </Helmet>
       <MenuFilter
         valor={valor}
         setSelectedOptionsOperacion={setSelectedOptionsOperacion}

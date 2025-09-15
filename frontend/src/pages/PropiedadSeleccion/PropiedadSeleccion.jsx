@@ -436,18 +436,18 @@ export default function PropiedadSeleccion({ seleccion }) {
         />
         <meta
           property="og:url"
-          content={`https://remaxcin.mx/propiedades/seleccion/${propiedadSeleccion?.propiedad_id}`}
+          content={`https://remaxcin.com/propiedades/seleccion/${propiedadSeleccion?.propiedad_id}`}
         />
         <meta property="og:type" content="website" />
         <link
           rel="canonical"
-          href={`https://remaxcin.mx/propiedades/seleccion/${propiedadSeleccion?.propiedad_id}`}
+          href={`https://remaxcin.com/propiedades/seleccion/${propiedadSeleccion?.propiedad_id}`}
         />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "RealEstateListing",
-            "@id": `https://remaxcin.mx/propiedades/seleccion/${propiedadSeleccion?.propiedad_id}`,
+            "@id": `https://remaxcin.com/propiedades/seleccion/${propiedadSeleccion?.propiedad_id}`,
             identifier: propiedadSeleccion?.propiedad_id,
             name:
               propiedadSeleccion?.titulo ||
@@ -461,7 +461,7 @@ export default function PropiedadSeleccion({ seleccion }) {
                   } en ${direccion}`
                 : "Propiedad"),
             description: propiedadSeleccion?.descripcion_corta,
-            url: `https://remaxcin.mx/propiedades/seleccion/${propiedadSeleccion?.propiedad_id}`,
+            url: `https://remaxcin.com/propiedades/seleccion/${propiedadSeleccion?.propiedad_id}`,
             datePosted: new Date().toISOString(),
             image: propiedadSeleccion?.imagenes
               ? propiedadSeleccion.imagenes
@@ -506,11 +506,11 @@ export default function PropiedadSeleccion({ seleccion }) {
               image: imagenAgente,
               telephone: "+52 229 269 6629",
               email: "remax.cin.veracruz@gmail.com",
-              url: "https://remaxcin.mx",
+              url: "https://remaxcin.com",
             },
             mainEntityOfPage: {
               "@type": "WebPage",
-              "@id": `https://remaxcin.mx/propiedades/seleccion/${propiedadSeleccion?.propiedad_id}`,
+              "@id": `https://remaxcin.com/propiedades/seleccion/${propiedadSeleccion?.propiedad_id}`,
             },
           })}
         </script>

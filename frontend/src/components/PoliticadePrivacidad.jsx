@@ -7,7 +7,7 @@ export default function PoliticadePrivacidad() {
         <>
         <Header/>
         <div className="pt-30 p-6 text-start text-[#7b7b7b] max-w-6xl flex flex-col justify-center  mx-auto mb-5 font-sans leading-relaxed">
-            <h1 className="text-2xl font-bold mb-4 text-center">Política de Privacidad de REMAXCIN.MX</h1>
+            <h1 className="text-2xl font-bold mb-4 text-center">Política de Privacidad de REMAXCIN.COM</h1>
             <p className="mb-4">
                 <strong>1. Identidad y domicilio del responsable del tratamiento de los datos personales</strong>
             </p>
