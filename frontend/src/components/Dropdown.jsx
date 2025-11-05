@@ -1,12 +1,12 @@
 import React, { useEffect, useRef } from "react";
+import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
+import { GOOGLE_MAPS_CONFIG } from '../config/googleMaps';
 import {
   Accordion,
   AccordionHeader,
   AccordionBody,
 } from "@material-tailwind/react";
 import { useState } from "react";
-// import mapboxgl from "mapbox-gl"; // Eliminamos la importación estática
-import "mapbox-gl/dist/mapbox-gl.css";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { 
   faSnowflake, 
@@ -98,9 +98,9 @@ export function Dropdown({ propiedadSeleccion }) {
   const handleOpenAcc5 = () => setOpenAcc5((cur) => !cur);
   const mapContainerRef = useRef(null);
   const mapRef = useRef(null);
-  const mapLoadedRef = useRef(false);
-  const [mapIsReady, setMapIsReady] = useState(false);
-  const [mapboxglInstance, setMapboxglInstance] = useState(null); // Nuevo estado para la instancia de mapboxgl
+  
+  const { isLoaded } = useJsApiLoader(GOOGLE_MAPS_CONFIG);
+  
   const colonia = propiedadSeleccion?.colonias.colonia_nombre;
   const estado = propiedadSeleccion?.estados?.estado_nombre;
   const ciudad = propiedadSeleccion?.ciudades.ciudad_nombre;
@@ -162,44 +162,9 @@ export function Dropdown({ propiedadSeleccion }) {
   const latitud = propiedadSeleccion?.latitud;
   const longitud = propiedadSeleccion?.longitud;
 
-  useEffect(() => {
-    if (mapIsReady && mapRef.current && latitud && longitud && mapboxglInstance) {
-      new mapboxglInstance.Marker({ color: "#e63946" })
-        .setLngLat([longitud, latitud])
-        .addTo(mapRef.current);
-      mapRef.current.setCenter([longitud, latitud]);
-    }
-  }, [mapIsReady, latitud, longitud, mapboxglInstance]);
-
-  // Efecto para cargar dinámicamente la librería mapboxgl
-  useEffect(() => {
-    import('mapbox-gl').then((module) => {
-      const loadedMapboxgl = module.default;
-      loadedMapboxgl.accessToken = "pk.eyJ1IjoidmljdG9yZ2FyY2lhcHJ6IiwiYSI6ImNtNXZ3dW0wMjA2aHgyanE1M3ptczQ2azUifQ.ILrTXW_4c9_pbGC3Uj-wdg";
-      setMapboxglInstance(loadedMapboxgl);
-    });
-  }, []); // Se ejecuta solo una vez para cargar la librería
-
-  // Efecto para inicializar el mapa una vez que mapboxglInstance y el contenedor estén listos
-  useEffect(() => {
-    if (!mapContainerRef.current || !mapboxglInstance) return;
-    if (mapRef.current) return; // Evitar la reinicialización si el mapa ya existe
-
-    mapRef.current = new mapboxglInstance.Map({
-      container: mapContainerRef.current,
-      style: "mapbox://styles/mapbox/streets-v11",
-      center: [-96.135744, 19.172264], // Veracruz
-      zoom: 13,
-    });
-    mapRef.current.addControl(new mapboxglInstance.NavigationControl());
-    mapRef.current.on("load", () => {
-      mapLoadedRef.current = true;
-      setMapIsReady(true);
-    });
-    return () => {
-      if (mapRef.current) mapRef.current.remove();
-    };
-  }, [mapboxglInstance]); // Depende de mapboxglInstance para ejecutarse cuando esté cargado
+  const mapCenter = latitud && longitud 
+    ? { lat: parseFloat(latitud), lng: parseFloat(longitud) }
+    : { lat: 19.172264, lng: -96.135744 }; // Veracruz por defecto
 
   const amenidadesFiltradas = {
     aire_acondicionado: "Aire acondicionado",
@@ -365,13 +330,27 @@ export function Dropdown({ propiedadSeleccion }) {
           <p className="text-base lg:text-2xl">{direccion}, México</p>
           <br />
           <div className="w-full flex flex-col lg:flex-row gap-4">
-            {/* Mapa */}
+            {/* Mapa de Google */}
             <div className="w-full h-[400px] relative">
-              <div
-                ref={mapContainerRef}
-                style={{ width: "100%", height: "100%" }}
-                className="rounded-xl overflow-hidden"
-              />
+              {isLoaded && latitud && longitud ? (
+                <GoogleMap
+                  mapContainerStyle={{ width: "100%", height: "100%" }}
+                  center={mapCenter}
+                  zoom={15}
+                  onLoad={map => { mapRef.current = map; }}
+                  options={{
+                    streetViewControl: false,
+                    mapTypeControl: false,
+                    fullscreenControl: true,
+                  }}
+                >
+                  <Marker position={mapCenter} />
+                </GoogleMap>
+              ) : (
+                <div className="w-full h-full flex items-center justify-center bg-gray-100 rounded-xl">
+                  <p className="text-gray-500">Cargando mapa...</p>
+                </div>
+              )}
             </div>
           </div>
         </AccordionBody>

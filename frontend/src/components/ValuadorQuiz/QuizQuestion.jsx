@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import MapboxAddressInput from './MapboxAddressInput';
+import GoogleAddressInput from './GoogleAddressInput';
 import { useSearchContext } from '../../context/SearchContext';
 
 const QuizQuestion = ({
@@ -226,7 +226,7 @@ const QuizQuestion = ({
       case 'mapbox':
         return (
           <div className="mb-6">
-            <MapboxAddressInput
+            <GoogleAddressInput
               value={answer}
               onChange={handleMapboxChange}
               disabled={loading}

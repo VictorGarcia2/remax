@@ -1,6 +1,7 @@
 import React, { useCallback, useRef, useEffect, useState } from "react";
 import { GoogleMap, InfoWindow, OverlayView, useJsApiLoader, Polygon } from "@react-google-maps/api";
 import { useSearchContext } from '../context/SearchContext';
+import { GOOGLE_MAPS_CONFIG } from '../config/googleMaps';
 
 const containerStyle = {
   width: '100%',
@@ -11,8 +12,6 @@ const defaultCenter = {
   lat: 19.172264,
   lng: -96.135744
 };
-
-const GOOGLE_MAPS_LIBRARIES = ["places"];
 
 function abreviarPrecio(valor) {
   if (valor >= 1_000_000) return `${(valor / 1_000_000).toFixed(1)}M`;
@@ -129,10 +128,7 @@ const GoogleMapsConCards = ({
   const [retryKey, setRetryKey] = useState(0);
   console.log('Valor de seleccion en GoogleMapsConCards:', seleccion);
 
-  const { isLoaded, loadError } = useJsApiLoader({
-    googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_KEY || "AIzaSyDoBmSoAPraNNjNS2NQAu-Vs85trnJuJVI",
-    libraries: GOOGLE_MAPS_LIBRARIES,
-  });
+  const { isLoaded, loadError } = useJsApiLoader(GOOGLE_MAPS_CONFIG);
 
   const veracruzCoordsArray = useVeracruzPolygon();
 

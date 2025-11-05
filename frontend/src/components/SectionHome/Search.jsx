@@ -2,10 +2,10 @@ import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot, faHouse, faHouseUser, faBuilding, faMapLocation, faBuildingCircleCheck, faWarehouse, faBuildingColumns, faStore, faTractor } from "@fortawesome/free-solid-svg-icons";
-import mapboxgl from "mapbox-gl";
 import { useSearchContext } from "../../context/SearchContext";
 import { useGooglePlacesAutocomplete } from '../../hooks/useGooglePlacesAutocomplete';
 import { useJsApiLoader } from "@react-google-maps/api";
+import { GOOGLE_MAPS_CONFIG } from '../../config/googleMaps';
 
 export default function Search({
   autoCompleteHome,
@@ -27,12 +27,9 @@ export default function Search({
   const [modalBusqueda, setModalBusqueda] = useState(true);
   const modalRef = useRef(null);
   const [highlightedTipo, setHighlightedTipo] = useState(-1);
-  mapboxgl.accessToken =
-    "pk.eyJ1IjoidmljdG9yZ2FyY2lhcHJ6IiwiYSI6ImNtNXZ3dW0wMjA2aHgyanE1M3ptczQ2azUifQ.ILrTXW_4c9_pbGC3Uj-wdg";
-  const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: "AIzaSyDoBmSoAPraNNjNS2NQAu-Vs85trnJuJVI",
-    libraries: ["places"],
-  });
+  
+  const { isLoaded } = useJsApiLoader(GOOGLE_MAPS_CONFIG);
+  
   const { suggestions, getPlacePredictions } = useGooglePlacesAutocomplete(isLoaded);
   const handleOperacion = (event) => {
     const value = parseInt(event.target.id, 10); // Siempre número

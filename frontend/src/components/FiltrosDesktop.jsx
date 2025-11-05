@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import LimpiarFiltro from "./LimpiarFiltro.jsx";
 import { useSearchContext } from "../context/SearchContext.jsx";
 import { useJsApiLoader } from "@react-google-maps/api";
+import { GOOGLE_MAPS_CONFIG } from '../config/googleMaps';
 
 export default function FiltrosDesktop({
   busqueda,
@@ -36,10 +37,7 @@ export default function FiltrosDesktop({
   } = useSearchContext(); 
 
   // Google Places Autocomplete
-  const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: "AIzaSyDoBmSoAPraNNjNS2NQAu-Vs85trnJuJVI",
-    libraries: ["places"],
-  });
+  const { isLoaded } = useJsApiLoader(GOOGLE_MAPS_CONFIG);
   const [suggestions, setSuggestions] = useState([]);
   useEffect(() => {
     if (!isLoaded || !busquedaHome) return;
@@ -59,45 +57,17 @@ export default function FiltrosDesktop({
       setModalBusqueda(true);
     }
   };
+  
+  // Usar Google Places en lugar de Mapbox
   useEffect(() => {
-    if (!busquedaHome) {
+    if (!busquedaHome || !isLoaded) {
       setAutoCompleteHome([]);
       setModalBusqueda(true);
       return;
     }
-    const fetchAutocompleteResults = async () => {
-      try {
-        const mapboxglModule = await import('mapbox-gl');
-        const mapboxgl = mapboxglModule.default;
-        const accessToken = "pk.eyJ1IjoidmljdG9yZ2FyY2lhcHJ6IiwiYSI6ImNtNXZ3dW0wMjA2aHgyanE1M3ptczQ2azUifQ.ILrTXW_4c9_pbGC3Uj-wdg";
-        const response = await fetch(
-          `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
-            busquedaHome
-          )}.json?access_token=${accessToken}&types=place,address&language=es&country=MX`
-        );
-        const data = await response.json();
-        if (data.features && data.features.length > 0) {
-          const filteredData = data.features.map((item) => {
-            if (item.place_type.includes("place")) {
-              return { ...item, category: "ciudad" };
-            } else if (item.place_type.includes("address")) {
-              return { ...item, category: "direccion" };
-            }
-            return item;
-          });
-          setAutoCompleteHome(filteredData);
-          setModalBusqueda(false);
-        } else {
-          setAutoCompleteHome([]);
-          setModalBusqueda(true);
-        }
-      } catch (error) {
-        setAutoCompleteHome([]);
-        setModalBusqueda(true);
-      }
-    };
-
-  }, [busquedaHome]);
+    // Ya se maneja con Google Places AutocompleteService arriba
+    // Simplemente usar las suggestions
+  }, [busquedaHome, isLoaded]);
 
 
   const handleSearch = (item) => {

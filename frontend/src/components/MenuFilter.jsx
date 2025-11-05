@@ -413,7 +413,7 @@ export default function MenuFilter({
               } overflow-hidden `}
               aria-labelledby="accordion-collapse-heading-2"
             >
-              <form className="z-50   flex text-base flex-col items-end  mt-1 px-4">
+              <div className="z-50   flex text-base flex-col items-end  mt-1 px-4">
                 {operation.map(({ icon, nombre, titulo }, index) => (
                   <div
                     key={index}
@@ -438,7 +438,7 @@ export default function MenuFilter({
                     />
                   </div>
                 ))}
-              </form>
+              </div>
               <hr className="w-full static text-[#7b7b7b7b]" />
             </div>
           </div>
@@ -573,7 +573,7 @@ export default function MenuFilter({
               } overflow-hidden `}
               aria-labelledby="accordion-collapse-heading-3"
             >
-              <form className="z-50 overflow-y-scroll h-60  flex text-base flex-col items-end   mt-1 px-4 ">
+              <div className="z-50 overflow-y-scroll h-60  flex text-base flex-col items-end   mt-1 px-4 ">
                 {propiedadesFiltradas.map(
                   ({ icon, nombre, tipo_id }, index) => (
                     <div
@@ -598,7 +598,7 @@ export default function MenuFilter({
                     </div>
                   )
                 )}
-              </form>
+              </div>
               <hr className="w-full static text-[#7b7b7b7b]" />
             </div>
           </div>          <div className="flex justify-evenly w-full bottom-10 mt-10 z-50">

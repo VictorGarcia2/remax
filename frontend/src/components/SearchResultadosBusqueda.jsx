@@ -4,6 +4,7 @@ import { faFilter, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { useSearchContext } from "../context/SearchContext";
 import { useJsApiLoader } from "@react-google-maps/api";
+import { GOOGLE_MAPS_CONFIG } from "../config/googleMaps";
 
 export default function SearchResultadosBusqueda({
   menuClose,
@@ -39,10 +40,7 @@ export default function SearchResultadosBusqueda({
   };
 
   // Google Places Autocomplete
-  const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: "AIzaSyDoBmSoAPraNNjNS2NQAu-Vs85trnJuJVI",
-    libraries: ["places"],
-  });
+  const { isLoaded } = useJsApiLoader(GOOGLE_MAPS_CONFIG);
   const [suggestions, setSuggestions] = useState([]);
   useEffect(() => {
     if (!isLoaded || !busquedaHome) return;

@@ -75,9 +75,9 @@ async function obtenerValuacionPython(answers) {
 
   try {
     console.log("Enviando petición a la API:", payload);
-    console.log("URL de la API:", "https://api.remaxcin.com//valuar");
+    console.log("URL de la API:", "https://api.remaxcin.com/valuar");
     
-    const response = await fetch("https://api.remaxcin.com//valuar", {
+    const response = await fetch("https://api.remaxcin.com/valuar", {
       method: "POST",
       headers: { 
         "Content-Type": "application/json",
