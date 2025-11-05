@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useState, useMemo, lazy, Suspense, useRef } from "react";
 import { Link } from "react-router-dom";
-// import Mapbox from "./Mapbox"; // Comentamos la importación directa
 import {
   faCircleExclamation,
   faList,
@@ -132,9 +131,6 @@ const PropertyCard = React.memo(({
     </div>
   );
 });
-
-// Carga diferida del componente Mapbox
-const LazyMapbox = lazy(() => import('./Mapbox'));
 
 // Componente de Skeleton mejorado
 const CardSkeleton = () => {
