@@ -441,7 +441,7 @@ export default function DesarrolloPalma() {
     "offers": {
       "@type": "Offer",
       "priceCurrency": "MXN",
-      "price": "1700000",
+      "price": "1750000",
       "availability": "https://schema.org/InStock",
       "url": "https://remaxcin.com/desarrollo-palma"
     }
@@ -451,12 +451,12 @@ export default function DesarrolloPalma() {
     <main className="w-full min-h-screen bg-white font-sans tracking-wide overflow-x-hidden scroll-pt-20">
       <Helmet>
         <title>Palma Departamentos en Venta en Veracruz | Desarrollo Exclusivo</title>
-        <meta name="description" content="Torre Palma 347 departamentos en Veracruz desde $1.7 millones. 1-2 recámaras, estacionamiento incluido, ubicación premium. ¡Agenda tu visita!" />
+        <meta name="description" content="Torre Palma 347 departamentos en Veracruz desde $1.75 millones. 1-2 recámaras, estacionamiento incluido, ubicación premium. ¡Agenda tu visita!" />
         <link rel="canonical" href="https://remaxcin.com/desarrollo-palma" />
         <meta property="og:url" content="https://remaxcin.com/desarrollo-palma" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Palma Departamentos en Venta en Veracruz | Desarrollo Exclusivo" />
-        <meta property="og:description" content="Torre Palma 347 departamentos en Veracruz desde $1.7 millones. 1-2 recámaras, estacionamiento incluido, ubicación premium. ¡Agenda tu visita!" />
+        <meta property="og:description" content="Torre Palma 347 departamentos en Veracruz desde $1.75 millones. 1-2 recámaras, estacionamiento incluido, ubicación premium. ¡Agenda tu visita!" />
         <meta property="og:image" content="https://remaxcin.com/DesarrolloPalma/FACHADA.webp" />
         <script type="application/ld+json">
           {JSON.stringify(schemaData)}
@@ -500,7 +500,7 @@ export default function DesarrolloPalma() {
                 <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-white/90 font-light leading-relaxed max-w-3xl">
                   Espacios <span className="font-medium text-[#d2c8b3]">contemporáneos</span> diseñados para tu comodidad
                   <br className="hidden sm:block" />
-                  <span className="text-sm sm:text-base md:text-lg lg:text-xl text-[#d2c8b3]/90 mt-2 lg:mt-4 block">Desde $1,700,000 MXN</span>
+                  <span className="text-sm sm:text-base md:text-lg lg:text-xl text-[#d2c8b3]/90 mt-2 lg:mt-4 block">Desde $1,750,000 MXN</span>
                 </p>
               </motion.div>
 
@@ -1190,7 +1190,7 @@ export default function DesarrolloPalma() {
                   <p className="text-xs sm:text-sm text-[#7a8d77] font-medium uppercase tracking-wide">Planta Baja</p>
                 </div>
                 <div className="text-left sm:text-right">
-                  <div className="text-lg sm:text-xl lg:text-2xl font-light text-[#4f634b] mb-1">$1,900,000</div>
+                  <div className="text-lg sm:text-xl lg:text-2xl font-light text-[#4f634b] mb-1">$2,190,000</div>
                   <div className="text-xs text-[#7a8d77] uppercase tracking-wide">MXN</div>
                 </div>
               </div>
@@ -1198,7 +1198,7 @@ export default function DesarrolloPalma() {
               <div className="space-y-2 sm:space-y-3 lg:space-y-4 mb-4 sm:mb-6">
                 <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
                   <span className="text-xs sm:text-sm text-[#4f634b]/70">Tamaño:</span>
-                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">90 m²</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">87.45 m²</span>
                 </div>
                 <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
                   <span className="text-xs sm:text-sm text-[#4f634b]/70">Distribución:</span>
@@ -1224,7 +1224,7 @@ export default function DesarrolloPalma() {
                   <p className="text-xs sm:text-sm text-[#7a8d77] font-medium uppercase tracking-wide">Planta Baja</p>
                 </div>
                 <div className="text-left sm:text-right">
-                  <div className="text-xl sm:text-2xl font-light text-[#4f634b] mb-1">$1,700,000</div>
+                  <div className="text-xl sm:text-2xl font-light text-[#4f634b] mb-1">$1,750,000</div>
                   <div className="text-xs text-[#7a8d77] uppercase tracking-wide">MXN</div>
                 </div>
               </div>
@@ -1232,7 +1232,7 @@ export default function DesarrolloPalma() {
               <div className="space-y-3 sm:space-y-4 mb-6">
                 <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
                   <span className="text-xs sm:text-sm text-[#4f634b]/70">Tamaño:</span>
-                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">70 m²</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">70.75 m²</span>
                 </div>
                 <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
                   <span className="text-xs sm:text-sm text-[#4f634b]/70">Distribución:</span>
@@ -1258,7 +1258,7 @@ export default function DesarrolloPalma() {
                   <p className="text-xs sm:text-sm text-[#7a8d77] font-medium uppercase tracking-wide">Segundo Piso</p>
                 </div>
                 <div className="text-left sm:text-right">
-                  <div className="text-xl sm:text-2xl font-light text-[#4f634b] mb-1">$1,870,000</div>
+                  <div className="text-xl sm:text-2xl font-light text-[#4f634b] mb-1">$2,050,000</div>
                   <div className="text-xs text-[#7a8d77] uppercase tracking-wide">MXN</div>
                 </div>
               </div>
@@ -1266,7 +1266,7 @@ export default function DesarrolloPalma() {
               <div className="space-y-3 sm:space-y-4 mb-6">
                 <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
                   <span className="text-xs sm:text-sm text-[#4f634b]/70">Tamaño:</span>
-                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">84 m²</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">84.75 m²</span>
                 </div>
                 <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
                   <span className="text-xs sm:text-sm text-[#4f634b]/70">Distribución:</span>
@@ -1292,7 +1292,7 @@ export default function DesarrolloPalma() {
                   <p className="text-xs sm:text-sm text-[#7a8d77] font-medium uppercase tracking-wide">Segundo Piso</p>
                 </div>
                 <div className="text-left sm:text-right">
-                  <div className="text-xl sm:text-2xl font-light text-[#4f634b] mb-1">$1,760,000</div>
+                  <div className="text-xl sm:text-2xl font-light text-[#4f634b] mb-1">$1,815,000</div>
                   <div className="text-xs text-[#7a8d77] uppercase tracking-wide">MXN</div>
                 </div>
               </div>
@@ -1300,7 +1300,7 @@ export default function DesarrolloPalma() {
               <div className="space-y-3 sm:space-y-4 mb-6">
                 <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
                   <span className="text-xs sm:text-sm text-[#4f634b]/70">Tamaño:</span>
-                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">76 m²</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">76.5 m²</span>
                 </div>
                 <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
                   <span className="text-xs sm:text-sm text-[#4f634b]/70">Distribución:</span>
@@ -1326,7 +1326,7 @@ export default function DesarrolloPalma() {
                   <p className="text-xs sm:text-sm text-[#7a8d77] font-medium uppercase tracking-wide">Tercer Piso</p>
                 </div>
                 <div className="text-left sm:text-right">
-                  <div className="text-xl sm:text-2xl font-light text-[#4f634b] mb-1">$1,870,000</div>
+                  <div className="text-xl sm:text-2xl font-light text-[#4f634b] mb-1">$2,050,000</div>
                   <div className="text-xs text-[#7a8d77] uppercase tracking-wide">MXN</div>
                 </div>
               </div>
@@ -1334,7 +1334,7 @@ export default function DesarrolloPalma() {
               <div className="space-y-3 sm:space-y-4 mb-6">
                 <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
                   <span className="text-xs sm:text-sm text-[#4f634b]/70">Tamaño:</span>
-                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">84 m²</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">84.75 m²</span>
                 </div>
                 <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
                   <span className="text-xs sm:text-sm text-[#4f634b]/70">Distribución:</span>
@@ -1360,7 +1360,7 @@ export default function DesarrolloPalma() {
                   <p className="text-xs sm:text-sm text-[#7a8d77] font-medium uppercase tracking-wide">Tercer Piso</p>
                 </div>
                 <div className="text-left sm:text-right">
-                  <div className="text-xl sm:text-2xl font-light text-[#4f634b] mb-1">$1,760,000</div>
+                  <div className="text-xl sm:text-2xl font-light text-[#4f634b] mb-1">$1,815,000</div>
                   <div className="text-xs text-[#7a8d77] uppercase tracking-wide">MXN</div>
                 </div>
               </div>
@@ -1368,7 +1368,7 @@ export default function DesarrolloPalma() {
               <div className="space-y-3 sm:space-y-4 mb-6">
                 <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
                   <span className="text-xs sm:text-sm text-[#4f634b]/70">Tamaño:</span>
-                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">76 m²</span>
+                  <span className="text-xs sm:text-sm font-medium text-[#4f634b]">76.5 m²</span>
                 </div>
                 <div className="flex justify-between py-1 sm:py-2 border-b border-[#d2c8b3]/20">
                   <span className="text-xs sm:text-sm text-[#4f634b]/70">Distribución:</span>

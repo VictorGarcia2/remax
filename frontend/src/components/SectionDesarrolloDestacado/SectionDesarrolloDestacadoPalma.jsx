@@ -36,7 +36,7 @@ export default function SectionDesarrolloDestacadoPalma() {
                 <FaPhoneAlt /> <span className="font-bold tracking-wide">22 92 696 629</span>
               </div>
               <ul className="text-[#4f634b]/90 mb-4 space-y-3 text-base">
-                <li className="flex items-center gap-3"><FaInfoCircle className="text-[#4f634b]/60 text-xl" /><span>Departamentos de 2 a 3 recámaras desde $1,100,000</span></li>
+                <li className="flex items-center gap-3"><FaInfoCircle className="text-[#4f634b]/60 text-xl" /><span>Departamentos de 1 a 2 recámaras desde $1,750,000</span></li>
                 <li className="flex items-center gap-3"><FaLeaf className="text-[#4f634b]/60 text-xl" /><span>Desarrollo 100% ecológico</span></li>
                 <li className="flex items-center gap-3"><FaMapMarkerAlt className="text-[#4f634b]/60 text-xl" /><span>Zona residencial privilegiada</span></li>
                 <li className="flex items-center gap-3"><FaStar className="text-[#4f634b]/60 text-xl" /><span>Áreas verdes y jardines</span></li>

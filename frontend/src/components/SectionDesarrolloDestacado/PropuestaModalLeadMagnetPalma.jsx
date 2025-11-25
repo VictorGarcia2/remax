@@ -80,7 +80,7 @@ export default function PropuestaModalLeadMagnetPalma({ show, setShow }) {
                 <ul className="text-sm text-[#4f634b]/80 space-y-2">
                   <li className="flex items-center gap-2">
                     <span className="w-2 h-2 bg-[#7a8d77] rounded-full"></span>
-                    <span>Precio preferencial desde $1,100,000</span>
+                    <span>Precio preferencial desde $1,750,000</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="w-2 h-2 bg-[#7a8d77] rounded-full"></span>

@@ -71,7 +71,7 @@ export default function SectionDesarrollosSlider() {
       title: 'Palma Departamentos en Boca del Río',
       subtitle: 'Diseño contemporáneo',
       phone: '22 92 696 629',
-      priceFrom: '$1,700,000',
+      priceFrom: '$1,750,000',
       email: 'remax.cin.veracruz@gmail.com',
       category: 'Desarrollo Premium',
       link: '/desarrollo-palma',
@@ -82,7 +82,7 @@ export default function SectionDesarrollosSlider() {
       lightBg: 'bg-[#f5f3f0]',
       lightText: 'text-[#d2c8b3]',
       features: [
-        { icon: FaHome, text: 'Departamentos de 1 a 2 recámaras desde $1,700,000' },
+        { icon: FaHome, text: 'Departamentos de 1 a 2 recámaras desde $1,750,000' },
         { icon: FaMapMarkerAlt, text: 'Ubicación estratégica' },
         { icon: FaLeaf, text: 'Diseño arquitectónico contemporáneo' },
         { icon: FaShieldAlt, text: 'Seguridad y privacidad' },
@@ -98,15 +98,15 @@ export default function SectionDesarrollosSlider() {
       ],
       units: [
         {
-          size: '57—67 m²',
+          size: '70.75 m²',
           rooms: 1,
-          description: 'Estudios y departamentos de 1 recámara con diseño moderno.',
+          description: 'Departamentos de 1 recámara con estudio.',
           icons: [FaBed]
         },
         {
-          size: '76—86 m²',
+          size: '76.5—87.45 m²',
           rooms: 2,
-          description: 'Departamentos de 2 recámaras con vista panorámica.',
+          description: 'Departamentos de 2 recámaras con espacios amplios.',
           icons: [FaBed, FaBed]
         }
       ],
