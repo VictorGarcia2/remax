@@ -1,7 +1,6 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import { X } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function WhatsAppModal({ isOpen, onClose, propiedadId }) {
   if (!isOpen) return null;
@@ -18,10 +17,9 @@ export default function WhatsAppModal({ isOpen, onClose, propiedadId }) {
     <div className="fixed inset-0 flex items-center justify-center bg-white/70 z-50">
       <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-8 space-y-6">
         <div className="text-end">
-          <FontAwesomeIcon
-            icon={faXmark}
-            size="2xl"
-            className="cursor-pointer"
+          <X
+            size={32}
+            className="cursor-pointer ml-auto text-gray-500 hover:text-gray-800 transition-colors"
             onClick={onClose}
           />
         </div>
@@ -43,7 +41,7 @@ export default function WhatsAppModal({ isOpen, onClose, propiedadId }) {
             className="inline-flex items-center gap-2 px-4 py-2 bg-blueRemax text-white rounded-lg shadow-sm hover:bg-blueRemax/80 transition-colors duration-200"
             onClick={handleWhatsAppClick}
           >
-            <FontAwesomeIcon icon={faWhatsapp} className="w-4 h-4" />
+            <FaWhatsapp className="w-4 h-4" />
             <span className="text-sm sm:text-base md:text-lg">
               Contactar por WhatsApp
             </span>

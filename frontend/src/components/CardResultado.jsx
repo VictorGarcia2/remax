@@ -1,14 +1,13 @@
 import React, { useCallback, useEffect, useState, useMemo, lazy, Suspense, useRef } from "react";
 import { Link } from "react-router-dom";
-import {
-  faCircleExclamation,
-  faList,
-  faMap,
-  faXmark,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Share2 } from "lucide-react";
-import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import { 
+  AlertCircle, 
+  List, 
+  Map as MapIcon, 
+  X,
+  Share2 
+} from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import { useSearchContext } from "../context/SearchContext"; // Importar useSearchContext
 import GoogleMapsConCards from "./GoogleMapsConCards";
 
@@ -121,11 +120,7 @@ const PropertyCard = React.memo(({
             valor === "comercial" ? "bg-redRemax" : "bg-blueRemax"
           }`}
         >
-          <img
-            loading="lazy"
-            src="HomePageContent/brand-whatsapp 1.svg"
-            alt="WhatsApp"
-          />
+          <FaWhatsapp className="w-5 h-5 text-white" />
         </div>
       </div>
     </div>
@@ -169,76 +164,67 @@ const CardSkeleton = () => {
   );
 };
 
-// Agregar los estilos de animación personalizados
-const styles = `
-  @keyframes shimmer {
-    0% {
-      transform: translateX(-100%);
+// Estilos de shimmer inyectados como JSX en el componente (ver ShimmerStyles abajo)
+const ShimmerStyles = () => (
+  <style>{`
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
     }
-    100% {
-      transform: translateX(100%);
+    .animate-shimmer {
+      animation: shimmer 2s infinite;
     }
-  }
+  `}</style>
+);
 
-  .animate-shimmer {
-    animation: shimmer 2s infinite;
-  }
-`;
-
-// Agregar los estilos al documento
-const styleSheet = document.createElement("style");
-styleSheet.textContent = styles;
-document.head.appendChild(styleSheet);
-
-export default function CardResultado({
-  propiedades,
-  setBusqueda,
-  busqueda,
-  manejoBusqueda,
-  setPropiedadesVisibles,
-  propiedadesVisibles,
-  selectedOptions,
-  setAutoCompleteHome,
-  busquedaHome,
-  setSelectedOptions,
-  nuevas,
-  setNuevas,
-  precioMinimo,
-  setPrecioMinimo,
-  setPrecioMaximo,
-  precioMaximo,
-  aplicarFiltros,
-  setSeleccion,
-  selectedOptionsTipos,
-  selectedOptionsOperacion,
-}) {
+export default function CardResultado() {
   // Estado estructurado para los índices de imagen por propiedad
   const [imageIndices, setImageIndices] = useState({});
   const imageCache = useRef(new Map());
-  const { valor, seleccion } = useSearchContext(); // Obtener seleccion del contexto
+  const { 
+    valor, 
+    seleccion, 
+    setSeleccion,
+    propiedades,
+    setBusqueda,
+    busqueda,
+    manejoBusqueda,
+    setPropiedadesVisibles,
+    propiedadesVisibles,
+    selectedOptions,
+    setAutoCompleteHome,
+    busquedaHome,
+    setSelectedOptions,
+    nuevas,
+    setNuevas,
+    precioMinimo,
+    setPrecioMinimo,
+    precioMaximo,
+    setPrecioMaximo,
+    aplicarFiltros,
+    selectedOptionsTipos,
+    selectedOptionsOperacion
+  } = useSearchContext(); 
   const [isLoading, setIsLoading] = useState(true);
 
-  // Precargar imágenes
+  // Precargar solo la primera imagen de cada propiedad visible (en vez de todas)
   useEffect(() => {
-    if (propiedadesVisibles) {
+    if (Array.isArray(propiedadesVisibles)) {
       propiedadesVisibles.forEach(item => {
-        const imagenesArray = (item.imagenes || '').split(",");
-        imagenesArray.forEach(imagen => {
+        const firstImage = (item.imagenes || '').split(",")[0];
+        if (firstImage && !imageCache.current.has(`${item.propiedad_id}-${firstImage}`)) {
           const img = new Image();
-          img.src = `https://cdn.remax.com.mx/properties/${item.propiedad_id}/${imagen}`;
-          imageCache.current.set(`${item.propiedad_id}-${imagen}`, img);
-        });
+          img.src = `https://cdn.remax.com.mx/properties/${item.propiedad_id}/${firstImage}`;
+          imageCache.current.set(`${item.propiedad_id}-${firstImage}`, img);
+        }
       });
     }
   }, [propiedadesVisibles]);
 
-  // Efecto para simular la carga
+  // Actualizar estado de carga basado en datos reales (sin delay artificial)
   useEffect(() => {
     if (propiedadesVisibles) {
-      const timer = setTimeout(() => {
-        setIsLoading(false);
-      }, 1000);
-      return () => clearTimeout(timer);
+      setIsLoading(false);
     } else {
       setIsLoading(true);
     }
@@ -284,7 +270,7 @@ export default function CardResultado({
 
   // FILTRADO CENTRALIZADO
   const propiedadesFiltradas = useMemo(() => {
-    let filtradas = (propiedades || [])
+    let filtradas = (Array.isArray(propiedades) ? propiedades : [])
       .filter((item) => {
         // Filtro por sector
         if (selectedOptions && selectedOptions.length > 0) {
@@ -363,10 +349,9 @@ export default function CardResultado({
           <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-8 space-y-6">
             <div className="text-center space-y-2">
               <div className="text-end">
-                <FontAwesomeIcon
-                  icon={faXmark}
-                  size="2xl"
-                  className="cursor-pointer"
+                <X
+                  size={32}
+                  className="cursor-pointer ml-auto text-gray-500 hover:text-gray-800 transition-colors"
                   onClick={() => setShareModalOpen(true)}
                 />
               </div>
@@ -399,7 +384,7 @@ export default function CardResultado({
                   window.open(whatsappLink, "_blank");
                 }}
               >
-                <FontAwesomeIcon icon={faWhatsapp} className="w-4 h-4" />
+                <FaWhatsapp className="w-6 h-6" />
                 <span className="text-sm sm:text-base md:text-lg">
                   Contactar por WhatsApp
                 </span>
@@ -423,7 +408,7 @@ export default function CardResultado({
               : "bg-blueRemax border-blueRemax hover:bg-blueRemax focus:bg-blueRemax focus:ring-blueRemax"
           }`}
         >
-          <FontAwesomeIcon icon={mostrarMapa === 0 ? faMap :  faList} />
+          {mostrarMapa === 0 ? <MapIcon size={18} /> : <List size={18} />}
           {mostrarMapa === 0 ? mostrar[1].nombre : mostrar[0].nombre}
         </button>
       </div>
@@ -463,30 +448,7 @@ export default function CardResultado({
 
       {/* Mapa */}
       <div className={`${mapa ? "" : "invisible lg:visible"} mt-0 xl:visible w-full lg:h-[700px] lg:sticky lg:top-[calc(var(--header-height)_+_1rem)]`}>
-        <GoogleMapsConCards
-          setSeleccion={setSeleccion}
-          seleccion={seleccion}
-          selectedOptionsOperacion={selectedOptionsOperacion}
-          aplicarFiltros={aplicarFiltros}
-          precioMaximo={precioMaximo}
-          setPrecioMaximo={setPrecioMaximo}
-          precioMinimo={precioMinimo}
-          setPrecioMinimo={setPrecioMinimo}
-          setNuevas={setNuevas}
-          nuevas={nuevas}
-          setSelectedOptions={setSelectedOptions}
-          selectedOptions={selectedOptions}
-          propiedades={propiedadesFiltradas}
-          setBusqueda={setBusqueda}
-          busqueda={busqueda}
-          manejoBusqueda={manejoBusqueda}
-          setPropiedadesVisibles={handleSetPropiedadesVisibles}
-          propiedadesVisibles={propiedadesFiltradas}
-          setAutoCompleteHome={setAutoCompleteHome}
-          busquedaHome={busquedaHome}
-          selectedOptionsTipos={selectedOptionsTipos}
-          valor={valor}
-        />
+        <GoogleMapsConCards />
       </div>
     </div>
   );

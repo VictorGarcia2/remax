@@ -1,5 +1,4 @@
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { ChevronDown } from "lucide-react";
 import React, { useState } from "react";
 
 export default function RangoDePrecio({
@@ -31,11 +30,11 @@ export default function RangoDePrecio({
         className="flex justify-center items-center gap-2 bg-gray-100 rounded-2xl px-3 py-2 cursor-pointer"
       >
         <p className="text-lg sm:text-xl md:text-xl 2xl:text-2xl">Rango de precios</p>
-        <FontAwesomeIcon
+        <ChevronDown
           className={`transform transition-transform ${
             openModal ? "rotate-180" : "rotate-0"
           }`}
-          icon={faChevronDown}
+          size={20}
         />
       </div>
 

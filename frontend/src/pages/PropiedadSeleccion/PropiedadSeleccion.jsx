@@ -3,15 +3,13 @@ import { Helmet } from "react-helmet-async";
 import SectionFooter from "../../components/SectionFooter/SectionFooter.jsx";
 import HeaderPropiedadSeleccion from "./HeaderPropiedadSeleccion.jsx";
 import { Dropdown } from "../../components/Dropdown.jsx";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
-import { faX } from "@fortawesome/free-solid-svg-icons";
+import { X, Share2 } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import Paginacion from "../../components/Pagination.jsx";
 import axios from "axios";
 import { useParams } from "react-router";
 /* import propierties from "/src/APi/propiedades.json"; */
 import { ShareButtons } from "../../components/ShareButtons.jsx";
-import { Share2 } from "lucide-react";
 import { toast } from "react-toastify";
 import { useSearchContext } from "../../context/SearchContext";
 import Breadcrumbs from "../../components/Breadcrumbs.jsx";
@@ -128,9 +126,10 @@ export default function PropiedadSeleccion({ seleccion }) {
 
   useEffect(() => {
     axios
-      .get("https://remaxcin.com/api/propiedades")
+      .get("/api/propiedades")
       .then((res) => {
-        setPropiedades(res.data.data.rows);
+        const dataRows = res.data?.data?.rows || (Array.isArray(res.data) ? res.data : []);
+        setPropiedades(dataRows);
       })
       .catch((err) => {
         console.error("❌ Error en frontend:", err);
@@ -184,7 +183,7 @@ export default function PropiedadSeleccion({ seleccion }) {
         
       }
     } else {
-      console.log("No existe una propiedad seleccionada o no tiene imágenes.");
+
     }
 
     if (countPage !== undefined) {
@@ -293,7 +292,7 @@ export default function PropiedadSeleccion({ seleccion }) {
     setFormLoading(true);
     
     try {
-      const apiKey = "02317c5467585c4251d802ab65e0c7b9f60541ee";
+      const apiKey = import.meta.env.VITE_PIPEDRIVE_API_KEY;
       
       // Asegurar que existan los campos personalizados
       const customFieldIds = await ensureCustomFields(apiKey);
@@ -340,7 +339,7 @@ export default function PropiedadSeleccion({ seleccion }) {
       }
 
       // Si todo fue exitoso
-      console.log("Lead creado en PipeDrive:", dealResponse.data);
+
       
       // Limpiar el formulario y cerrar el modal
       setFormData({ name: "", email: "", phone: "" });
@@ -371,7 +370,7 @@ export default function PropiedadSeleccion({ seleccion }) {
 
     } catch (error) {
       console.error("Error al procesar el lead:", error);
-      console.log("Detalles del error:", error.response?.data || "No hay detalles adicionales");
+
       toast.error("Lo sentimos, hubo un problema al enviar tu solicitud. Por favor, intenta nuevamente o contáctanos directamente por WhatsApp.");
     } finally {
       setFormLoading(false);
@@ -553,10 +552,9 @@ export default function PropiedadSeleccion({ seleccion }) {
         <div className="w-full max-w-6xl h-full max-h-[90vh] bg-white rounded-2xl flex flex-col justify-center items-center shadow-[0px_4px_5px_0px] shadow-black/40 relative p-4 md:p-6 lg:p-8">
           {/* Botón de cierre */}
           <div className="w-full flex justify-end absolute top-4 right-4 z-10">
-            <FontAwesomeIcon
+            <X
               onClick={handleCerrar}
-              icon={faX}
-              size="2xl"
+              size={32}
               className="cursor-pointer hover:text-blueRemax active:text-blueRemax"
             />
           </div>
@@ -727,8 +725,7 @@ export default function PropiedadSeleccion({ seleccion }) {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <FontAwesomeIcon
-                        icon={faWhatsapp}
+                      <FaWhatsapp
                         style={{
                           width: "25px",
                           height: "40px",
@@ -966,8 +963,7 @@ export default function PropiedadSeleccion({ seleccion }) {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <FontAwesomeIcon
-                          icon={faWhatsapp}
+                        <FaWhatsapp
                           style={{
                             width: "40px",
                             height: "40px",

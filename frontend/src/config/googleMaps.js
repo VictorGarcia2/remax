@@ -1,14 +1,14 @@
 // Configuración de Google Maps API
 export const GOOGLE_MAPS_CONFIG = {
   id: "google-map-script", // ID único para evitar conflictos
-  googleMapsApiKey: "AIzaSyBvNfyPiw50Y94B5rN-I_tUwdWz7iR_i8M",
+  googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
   libraries: ["places", "geometry", "drawing"],
   language: "es",
   region: "MX"
 };
 
 export const MAPBOX_CONFIG = {
-  accessToken: "pk.eyJ1IjoidmljdG9yZ2FyY2lhcHJ6IiwiYSI6ImNtNXZ3dW0wMjA2aHgyanE1M3ptczQ2azUifQ.ILrTXW_4c9_pbGC3Uj-wdg"
+  accessToken: import.meta.env.VITE_MAPBOX_ACCESS_TOKEN
 };
 
 // Centro de Veracruz

@@ -14,34 +14,33 @@ import Breadcrumbs from "../../components/Breadcrumbs";
 import { Helmet } from "react-helmet-async";
 
 
-const ResultadosBusqueda = ({
-  propiedades,
-  menuClose,
-  setMenuClose,
-  busqueda,
-  setBusqueda,
-  manejoBusqueda,
-  setManejoBusqueda,
-  propiedadesVisibles,
-  setPropiedadesVisibles,
-  setAutoCompleteHome,
-  setPropiedades,
-  setSelectedOptions,
-  nuevas,
-  setNuevas,
-  precioMinimo,
-  setPrecioMinimo,
-  setPrecioMaximo,
-  precioMaximo,
-  setAplicarFiltros,
-  aplicarFiltros,
-  seleccion,
-  setSeleccion,
-  selectedOptions,
-  valor,
-}) => {
+const ResultadosBusqueda = () => {
   // Usar el contexto para acceder a los estados compartidos
   const { 
+    propiedades,
+    isFilterMenuOpen,
+    setIsFilterMenuOpen,
+    busqueda,
+    setBusqueda,
+    manejoBusqueda,
+    setManejoBusqueda,
+    propiedadesVisibles,
+    setPropiedadesVisibles,
+    setAutoCompleteHome,
+    setPropiedades,
+    setSelectedOptions,
+    nuevas,
+    setNuevas,
+    precioMinimo,
+    setPrecioMinimo,
+    setPrecioMaximo,
+    precioMaximo,
+    setAplicarFiltros,
+    aplicarFiltros,
+    seleccion,
+    setSeleccion,
+    selectedOptions,
+    valor,
     selectedOptionsTipos, 
     setSelectedOptionsTipos,
     busquedaHome,
@@ -49,7 +48,7 @@ const ResultadosBusqueda = ({
     setSelectedOptionsOperacion 
   } = useSearchContext();
   useEffect(() => {
-    console.log("selectedOptionsTipos desde resultados de busqueda:", selectedOptionsTipos);
+  
   }, [selectedOptionsTipos]);
   return (
     <>
@@ -65,84 +64,16 @@ const ResultadosBusqueda = ({
         <meta property="og:url" content="https://remaxcin.com/propiedades" />
         <meta property="og:type" content="website" />
       </Helmet>
-      <MenuFilter
-        valor={valor}
-        setSelectedOptionsOperacion={setSelectedOptionsOperacion}
-        precioMaximo={precioMaximo}
-        setPrecioMaximo={setPrecioMaximo}
-        precioMinimo={precioMinimo}
-        setPrecioMinimo={setPrecioMinimo}
-        setBusqueda={setBusqueda}
-        busqueda={busqueda}
-     
-        menuClose={menuClose}
-        setMenuClose={setMenuClose}
-        setSelectedOptions={setSelectedOptions}
-        selectedOptions={selectedOptions}
-      />
+      <MenuFilter />
       <HeaderResultadoBusqueda />
       <Breadcrumbs propiedades={propiedades} />
       <div className="hidden lg:block">
-        <FiltrosDesktop
-          valor={valor}
-          setSelectedOptionsOperacion={setSelectedOptionsOperacion}
-    
-          setAplicarFiltros={setAplicarFiltros}
-          precioMaximo={precioMaximo}
-          setPrecioMaximo={setPrecioMaximo}
-          precioMinimo={precioMinimo}
-          setPrecioMinimo={setPrecioMinimo}
-          setBusqueda={setBusqueda}
-          busqueda={busqueda}
-          setManejoBusqueda={setManejoBusqueda}
-          setSelectedOptions={setSelectedOptions}
-          selectedOptions={selectedOptions}
-         
-        />
+        <FiltrosDesktop />
       </div>
-      <SearchResultadosBusqueda
-        setSelectedOptions={setSelectedOptions}
-        selectedOptions={selectedOptions}
-        menuClose={menuClose}
-        setMenuClose={setMenuClose}
-        setBusqueda={setBusqueda}
-        busqueda={busqueda}
-        setManejoBusqueda={setManejoBusqueda}
-      />
-      <CantidadPropiedades propiedadesVisibles={propiedadesVisibles} />
-      <ActiveFilters 
-        selectedOptions={selectedOptions}
-        setSelectedOptions={setSelectedOptions}
-        precioMinimo={precioMinimo}
-        precioMaximo={precioMaximo}
-        setPrecioMinimo={setPrecioMinimo}
-        setPrecioMaximo={setPrecioMaximo}
-      />
-      <CardResultado
-        selectedOptionsOperacion={selectedOptionsOperacion}
-        selectedOptionsTipos={selectedOptionsTipos}
-        seleccion={seleccion}
-        setSeleccion={setSeleccion}
-        aplicarFiltros={aplicarFiltros}
-        precioMaximo={precioMaximo}
-        setPrecioMaximo={setPrecioMaximo}
-        precioMinimo={precioMinimo}
-        setPrecioMinimo={setPrecioMinimo}
-        nuevas={nuevas}
-        setNuevas={setNuevas}
-        setSelectedOptions={setSelectedOptions}
-        selectedOptions={selectedOptions}
-        propiedades={propiedades}
-        setBusqueda={setBusqueda}
-        busqueda={busqueda}
-        manejoBusqueda={manejoBusqueda}
-        setManejoBusqueda={setManejoBusqueda}
-        setPropiedadesVisibles={setPropiedadesVisibles}
-        propiedadesVisibles={propiedadesVisibles}
-        setAutoCompleteHome={setAutoCompleteHome}
-        busquedaHome={busquedaHome}
-        setPropiedades={setPropiedades}
-      />
+      <SearchResultadosBusqueda />
+      <CantidadPropiedades />
+      <ActiveFilters />
+      <CardResultado />
       <SectionFooter />
     </>
   );

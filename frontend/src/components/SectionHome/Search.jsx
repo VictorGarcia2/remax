@@ -1,7 +1,17 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLocationDot, faHouse, faHouseUser, faBuilding, faMapLocation, faBuildingCircleCheck, faWarehouse, faBuildingColumns, faStore, faTractor } from "@fortawesome/free-solid-svg-icons";
+import { 
+  MapPin, 
+  Home, 
+  Store, 
+  Users, 
+  Landmark, 
+  Building, 
+  Map, 
+  Building2, 
+  Warehouse, 
+  Tractor 
+} from "lucide-react";
 import { useSearchContext } from "../../context/SearchContext";
 import { useGooglePlacesAutocomplete } from '../../hooks/useGooglePlacesAutocomplete';
 import { useJsApiLoader } from "@react-google-maps/api";
@@ -63,28 +73,28 @@ export default function Search({
       tipo_nombre: "Casa",
       sector_nombre: "residencial",
       src: "/HomePageContent/casa.svg",
-      icon: faHouse
+      icon: Home
     },
     {
       tipo_id: 9,
       tipo_nombre: "Local",
       sector_nombre: "comercial",
       src: "/HomePageContent/casa.svg",
-      icon: faStore
+      icon: Store
     },
     {
       tipo_id: 2,
       tipo_nombre: "Casa en Condominio",
       sector_nombre: "residencial", 
       src: "/HomePageContent/casaencondominio.svg",
-      icon: faHouseUser
+      icon: Users
     },
     {
       tipo_id: 2,
       tipo_nombre: "Oficina",
       sector_nombre: "comercial", 
       src: "/HomePageContent/casaencondominio.svg",
-      icon: faBuildingColumns
+      icon: Landmark
     },
 
     {
@@ -92,7 +102,7 @@ export default function Search({
       tipo_nombre: "Departamento",
       sector_nombre: "residencial",
       src: "/HomePageContent/icondepartamento.svg",
-      icon: faBuilding
+      icon: Building
     },
 
     {
@@ -100,49 +110,49 @@ export default function Search({
       tipo_nombre: "Terreno",
       sector_nombre: "residencial",
       src: "/HomePageContent/terreno-residencial.svg",
-      icon: faMapLocation
+      icon: Map
     },
     {
       tipo_id: 6,
       tipo_nombre: "Desarrollo",
       sector_nombre: "residencial",
       src: "/HomePageContent/desarrollo.svg",
-      icon: faBuildingCircleCheck
+      icon: Building2
     },
     {
       tipo_id: 7,
       tipo_nombre: "Nave industrial",
       sector_nombre: "comercial",
       src: "/HomePageContent/bodega-industrial.svg",
-      icon: faWarehouse
+      icon: Warehouse
     },
     {
       tipo_id: 8,
       tipo_nombre: "Edificio",
       sector_nombre: "comercial",
       src: "/HomePageContent/edificio.svg",
-      icon: faBuildingColumns
+      icon: Landmark
     },
     {
       tipo_id: 10,
       tipo_nombre: "Terreno",
       sector_nombre: "comercial",
       src: "/HomePageContent/terreno-comercial.svg",
-      icon: faMapLocation
+      icon: Map
     },
     {
       tipo_id: 14,
       tipo_nombre: "Finca/Rancho",
       sector_nombre: "comercial",
       src: "/HomePageContent/finca-rancho.svg",
-      icon: faTractor
+      icon: Tractor
     },
     {
       tipo_id: 19,
       tipo_nombre: "Bodega",
       sector_nombre: "comercial",
       src: "/HomePageContent/bodega-comercial.svg",
-      icon: faWarehouse
+      icon: Warehouse
     },
   ];
   
@@ -276,7 +286,7 @@ export default function Search({
                             }}
                             className="flex items-center gap-1 py-1 hover:bg-gray-200 rounded w-full px-1 cursor-pointer"
                           >
-                            <FontAwesomeIcon icon={faLocationDot} className="text-[#7b7b7b]" />
+                            <MapPin className="text-[#7b7b7b] w-4 h-4" />
                             <span className="text-start text-sm sm:text-sm lg:text-base text-[#7b7b7b]" dangerouslySetInnerHTML={{__html: highlightMatch(item.description, busquedaHome)}} />
                           </div>
                         );
@@ -324,8 +334,7 @@ export default function Search({
                     className={`py-2 px-5 w-full flex items-center cursor-pointer gap-1
                       ${(highlightedTipo === idx || selectedOptionsTipos.includes(item.tipo_id)) ? 'bg-gray-200' : ''}`}
                   >
-                    <FontAwesomeIcon
-                      icon={item.icon}
+                    <item.icon
                       className="w-4 sm:w-6 lg:w-8 text-[#414141]"
                     />
                     <p id={item.tipo_id.toString()}>{item.tipo_nombre}</p>

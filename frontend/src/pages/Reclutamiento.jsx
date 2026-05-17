@@ -4,13 +4,19 @@ import { toast } from "react-toastify";
 import Header from "../components/SectionHome/Header";
 import SectionFooter from "../components/SectionFooter/SectionFooter";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGlobe, faAward, faChartLine, faUsers, faBriefcase, faGraduationCap } from "@fortawesome/free-solid-svg-icons";
+import { 
+  Globe, 
+  Award, 
+  TrendingUp, 
+  Users, 
+  Briefcase, 
+  GraduationCap 
+} from "lucide-react";
 import { useSearchContext } from "../context/SearchContext";
 
 // Constantes para Pipedrive
-const PIPEDRIVE_API_KEY = "02317c5467585c4251d802ab65e0c7b9f60541ee";
-const PIPEDRIVE_API_URL = "https://api.pipedrive.com/v1";
+const PIPEDRIVE_API_KEY = import.meta.env.VITE_PIPEDRIVE_API_KEY;
+const PIPEDRIVE_API_URL = import.meta.env.VITE_PIPEDRIVE_API_URL || "https://api.pipedrive.com/v1";
 const PIPELINE_ID_RECLUTAMIENTO = 2; // EJEMPLO: Reemplaza esto con el ID real de tu pipeline de reclutamiento
 
 // Definición de campos personalizados para Leads en Pipedrive
@@ -296,7 +302,7 @@ export default function Reclutamiento() {
     try {
       const response = await fetch(
         `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(query)}.json?` +
-        `access_token=${"pk.eyJ1IjoidmljdG9yZ2FyY2lhcHJ6IiwiYSI6ImNtNXZ3dW0wMjA2aHgyanE1M3ptczQ2azUifQ.ILrTXW_4c9_pbGC3Uj-wdg"}&` +
+        `access_token=${import.meta.env.VITE_MAPBOX_ACCESS_TOKEN}&` +
         'country=mx&' +
         'types=address&' +
         'language=es'
@@ -688,14 +694,14 @@ ${formData.message}`;
                     }`}
                 >
                   <span>Comienza hoy</span>
-                  <FontAwesomeIcon icon={faChartLine} className="ml-2" />
+                  <TrendingUp className="ml-2 w-5 h-5" />
                 </a>
                 <a
                   href="#beneficios"
                   className="inline-flex items-center bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-medium hover:bg-white/10 transition-all duration-300"
                 >
                   <span>Conocer más</span>
-                  <FontAwesomeIcon icon={faUsers} className="ml-2" />
+                  <Users className="ml-2 w-5 h-5" />
                 </a>
               </div>
             </div>
@@ -745,7 +751,7 @@ ${formData.message}`;
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-gray-50 rounded-xl shadow-md p-8 hover:shadow-lg transition-shadow duration-300">
               <div className="text-[#db1c2e] text-3xl mb-4">
-                <FontAwesomeIcon icon={faGlobe} />
+                <Globe size={32} />
               </div>
               <h3 className="text-xl font-semibold mb-3">Marca global</h3>
               <p className="text-gray-600"> Respaldo de la marca inmobiliaria #1 del mundo presente en más de 110 países y con más de 140,000 agentes en todo el mundo.</p>
@@ -753,7 +759,7 @@ ${formData.message}`;
 
             <div className="bg-gray-50 rounded-xl shadow-md p-8 hover:shadow-lg transition-shadow duration-300">
               <div className="text-[#db1c2e] text-3xl mb-4">
-                <FontAwesomeIcon icon={faAward} />
+                <Award size={32} />
               </div>
               <h3 className="text-xl font-semibold mb-3">Prestigio profesional</h3>
               <p className="text-gray-600">Posiciónate como un asesor inmobiliario de élite en tu mercado local.</p>
@@ -761,7 +767,7 @@ ${formData.message}`;
 
             <div className="bg-gray-50 rounded-xl shadow-md p-8 hover:shadow-lg transition-shadow duration-300">
               <div className="text-[#db1c2e] text-3xl mb-4">
-                <FontAwesomeIcon icon={faGraduationCap} />
+                <GraduationCap size={32} />
               </div>
               <h3 className="text-xl font-semibold mb-3">Capacitación continua</h3>
               <p className="text-gray-600">Acceso a programas de formación especializados y certificaciones internacionales.</p>
@@ -769,7 +775,7 @@ ${formData.message}`;
 
             <div className="bg-gray-50 rounded-xl shadow-md p-8 hover:shadow-lg transition-shadow duration-300">
               <div className="text-[#db1c2e] text-3xl mb-4">
-                <FontAwesomeIcon icon={faChartLine} />
+                <TrendingUp size={32} />
               </div>
               <h3 className="text-xl font-semibold mb-3">Crecimiento profesional</h3>
               <p className="text-gray-600">Desarrollo de carrera con posibilidades de ingresos superiores al promedio.</p>
@@ -777,7 +783,7 @@ ${formData.message}`;
 
             <div className="bg-gray-50 rounded-xl shadow-md p-8 hover:shadow-lg transition-shadow duration-300">
               <div className="text-[#db1c2e] text-3xl mb-4">
-                <FontAwesomeIcon icon={faUsers} />
+                <Users size={32} />
               </div>
               <h3 className="text-xl font-semibold mb-3">Propiedades Exclusivas</h3>
               <p className="text-gray-600">Acceso a inmuebles exclusivos de alto valor en todo el mercado de Veracruzano, con el esquema de comisiones más competitivo del mercado.</p>
@@ -785,7 +791,7 @@ ${formData.message}`;
 
             <div className="bg-gray-50 rounded-xl shadow-md p-8 hover:shadow-lg transition-shadow duration-300">
               <div className="text-[#db1c2e] text-3xl mb-4">
-                <FontAwesomeIcon icon={faBriefcase} />
+                <Briefcase size={32} />
               </div>
               <h3 className="text-xl font-semibold mb-3">Modelo de negocio</h3>
               <p className="text-gray-600">Sistema probado que maximiza tus resultados y potencia tu desarrollo profesional.</p>
@@ -859,15 +865,15 @@ ${formData.message}`;
               <p className="text-xl mb-6">Completa el formulario y comienza tu carrera profesional en el sector inmobiliario con el respaldo de la marca #1</p>
               {/*       <div className="flex flex-wrap justify-center gap-4">
                 <div className="flex items-center bg-white/20 px-4 py-2 rounded-lg">
-                  <FontAwesomeIcon icon={faChartLine} className="text-2xl mr-2" />
+                  <TrendingUp className="text-2xl mr-2" />
                   <span className="font-medium">Ingresos ilimitados</span>
                 </div>
                 <div className="flex items-center bg-white/20 px-4 py-2 rounded-lg">
-                  <FontAwesomeIcon icon={faUsers} className="text-2xl mr-2" />
+                  <Users className="text-2xl mr-2" />
                   <span className="font-medium">Networking profesional</span>
                 </div>
                 <div className="flex items-center bg-white/20 px-4 py-2 rounded-lg">
-                  <FontAwesomeIcon icon={faGraduationCap} className="text-2xl mr-2" />
+                  <GraduationCap className="text-2xl mr-2" />
                   <span className="font-medium">Capacitación continua</span>
                 </div>
               </div> */}

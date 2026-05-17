@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FaCheckCircle, FaShieldAlt } from "react-icons/fa";
 
-const PIPEDRIVE_API_KEY = "02317c5467585c4251d802ab65e0c7b9f60541ee";
-const PIPEDRIVE_API_URL = "https://api.pipedrive.com/v1";
+const PIPEDRIVE_API_KEY = import.meta.env.VITE_PIPEDRIVE_API_KEY;
+const PIPEDRIVE_API_URL = import.meta.env.VITE_PIPEDRIVE_API_URL || "https://api.pipedrive.com/v1";
 const PIPELINE_ID_DESARROLLO = 2; // Cambia este valor por el ID del pipeline que desees
 const STAGE_ID_DESARROLLO = 1;   // Cambia este valor por el ID de la etapa de ese pipeline
 

@@ -1,24 +1,22 @@
 import React, { useEffect, useRef, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFilter, faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { Filter, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useSearchContext } from "../context/SearchContext";
 import { useJsApiLoader } from "@react-google-maps/api";
 import { GOOGLE_MAPS_CONFIG } from "../config/googleMaps";
 
-export default function SearchResultadosBusqueda({
-  menuClose,
-  setMenuClose,
-  setBusqueda,
-  busqueda,
-  setManejoBusqueda,
-}) {
+export default function SearchResultadosBusqueda() {
   const [modalBusqueda, setModalBusqueda] = useState(true);
   const {
     valor,
     busquedaHome,
     setBusquedaHome,
-    setSeleccion
+    setSeleccion,
+    isFilterMenuOpen,
+    setIsFilterMenuOpen,
+    setBusqueda,
+    busqueda,
+    setManejoBusqueda
   } = useSearchContext();
 
   // Solución al error: declarar el ref
@@ -50,7 +48,7 @@ export default function SearchResultadosBusqueda({
     });
   }, [busquedaHome, isLoaded]);
 
-  const handleCloseMenu = () => setMenuClose(false);
+  const handleOpenMenu = () => setIsFilterMenuOpen(true);
 
   const handleInputChange = (e) => {
     const value = e.target.value;
@@ -104,7 +102,7 @@ export default function SearchResultadosBusqueda({
             onClick={() => handleSearch(item)}
             className="flex items-center gap-1 py-1 hover:bg-gray-200 rounded w-full px-1 cursor-pointer"
           >
-            <FontAwesomeIcon icon={faLocationDot} className="text-[#7b7b7b]" />
+            <MapPin className="text-[#7b7b7b] w-4 h-4" />
             <span className="text-start text-sm md:text-base text-[#7b7b7b]" dangerouslySetInnerHTML={{__html: highlightMatch(item.description, busquedaHome)}} />
           </div>
         );
@@ -151,8 +149,8 @@ export default function SearchResultadosBusqueda({
           </Link>
         </div>
       </div>
-      <div className="xl:hidden" onClick={handleCloseMenu}>
-        <FontAwesomeIcon icon={faFilter} color="#7b7b7b" size="xl" />
+      <div className="xl:hidden" onClick={handleOpenMenu}>
+        <Filter color="#7b7b7b" size={24} />
       </div>
     </div>
   );

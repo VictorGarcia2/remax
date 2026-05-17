@@ -1,6 +1,5 @@
-import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FaWhatsapp } from "react-icons/fa";
+import { FaTimes } from "react-icons/fa";
 import React, { useState } from "react";
 
 export default function () {
@@ -16,10 +15,9 @@ export default function () {
             <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-8 space-y-6">
               <div className="text-center space-y-2">
                 <div className="text-end">
-                  <FontAwesomeIcon
-                    icon={faXmark}
-                    size="2xl"
-                    className="cursor-pointer"
+                  <FaTimes
+                    size={32}
+                    className="cursor-pointer ml-auto"
                     onClick={() => setShareModalOpen(false)}
                   />
                 </div>
@@ -49,7 +47,7 @@ export default function () {
                     window.open(whatsappLink, "_blank");
                   }}
                 >
-                  <FontAwesomeIcon icon={faWhatsapp} className="w-4 h-4" />
+                  <FaWhatsapp className="w-4 h-4" />
                   <span className="text-sm sm:text-base md:text-lg">
                     Contactar por WhatsApp
                   </span>

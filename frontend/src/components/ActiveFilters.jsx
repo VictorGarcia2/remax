@@ -1,21 +1,19 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { X } from "lucide-react";
 import { useSearchContext } from '../context/SearchContext';
 
-const ActiveFilters = ({ 
-  selectedOptions, 
-  setSelectedOptions,
-  precioMinimo,
-  precioMaximo,
-  setPrecioMinimo,
-  setPrecioMaximo
-}) => {
+const ActiveFilters = () => {
   const { 
     selectedOptionsTipos,
     setSelectedOptionsTipos,
     selectedOptionsOperacion, 
     setSelectedOptionsOperacion,
+    selectedOptions,
+    setSelectedOptions,
+    precioMinimo,
+    setPrecioMinimo,
+    precioMaximo,
+    setPrecioMaximo
   } = useSearchContext();
 
   // Mapeo de nombres para mostrar
@@ -97,7 +95,7 @@ const ActiveFilters = ({
               onClick={() => removeFilter('sector', sector)}
               className="ml-1 hover:bg-blue-200 rounded-full p-0.5"
             >
-              <FontAwesomeIcon icon={faXmark} className="w-2 h-2" />
+              <X className="w-2 h-2" />
             </button>
           </div>
         ))}
@@ -110,7 +108,7 @@ const ActiveFilters = ({
               onClick={() => removeFilter('tipo', tipo)}
               className="ml-1 hover:bg-green-200 rounded-full p-0.5"
             >
-              <FontAwesomeIcon icon={faXmark} className="w-2 h-2" />
+              <X className="w-2 h-2" />
             </button>
           </div>
         ))}
@@ -123,7 +121,7 @@ const ActiveFilters = ({
               onClick={() => removeFilter('operacion', operacion)}
               className="ml-1 hover:bg-purple-200 rounded-full p-0.5"
             >
-              <FontAwesomeIcon icon={faXmark} className="w-2 h-2" />
+              <X className="w-2 h-2" />
             </button>
           </div>
         ))}
@@ -136,7 +134,7 @@ const ActiveFilters = ({
               onClick={() => removeFilter('precioMin')}
               className="ml-1 hover:bg-yellow-200 rounded-full p-0.5"
             >
-              <FontAwesomeIcon icon={faXmark} className="w-2 h-2" />
+              <X className="w-2 h-2" />
             </button>
           </div>
         )}
@@ -149,7 +147,7 @@ const ActiveFilters = ({
               onClick={() => removeFilter('precioMax')}
               className="ml-1 hover:bg-yellow-200 rounded-full p-0.5"
             >
-              <FontAwesomeIcon icon={faXmark} className="w-2 h-2" />
+              <X className="w-2 h-2" />
             </button>
           </div>
         )}

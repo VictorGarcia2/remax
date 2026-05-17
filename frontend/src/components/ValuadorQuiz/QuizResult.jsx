@@ -5,8 +5,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useSearchContext } from "../../context/SearchContext";
 
 // Constantes para Pipedrive (Idealmente, mover a un archivo de configuración o variables de entorno)
-const PIPEDRIVE_API_KEY = "02317c5467585c4251d802ab65e0c7b9f60541ee";
-const PIPEDRIVE_API_URL = "https://api.pipedrive.com/v1";
+const PIPEDRIVE_API_KEY = import.meta.env.VITE_PIPEDRIVE_API_KEY;
+const PIPEDRIVE_API_URL = import.meta.env.VITE_PIPEDRIVE_API_URL || "https://api.pipedrive.com/v1";
 
 // Definición de campos personalizados para Valuador en Pipedrive
 const VALUATOR_CUSTOM_FIELDS = {
@@ -311,8 +311,8 @@ const QuizResult = ({ estimatedValue, contactInfo, quizAnswers, onReset, onCompl
         estadisticas: estimatedValue || {}
       };
       
-      console.log("Enviando petición para PDF:", payload);
-      console.log("URL del PDF:", 'https://api.remaxcin.com//reporte_pdf');
+      
+      
       
       // Probar diferentes URLs para el PDF
       const pdfUrls = [
@@ -326,7 +326,7 @@ const QuizResult = ({ estimatedValue, contactInfo, quizAnswers, onReset, onCompl
       
       for (const url of pdfUrls) {
         try {
-          console.log("Probando URL:", url);
+
           response = await fetch(url, {
             method: 'POST',
             headers: { 
@@ -336,10 +336,10 @@ const QuizResult = ({ estimatedValue, contactInfo, quizAnswers, onReset, onCompl
             body: JSON.stringify(payload)
           });
           
-          console.log("Respuesta PDF:", response.status, response.statusText, "para URL:", url);
+
           
           if (response.ok) {
-            console.log("¡URL exitosa:", url);
+
             break;
           } else {
             lastError = `Error ${response.status} para URL: ${url}`;

@@ -19,11 +19,12 @@ export const SearchProvider = ({ children }) => {
   const [busquedaHome, setBusquedaHome] = useState('');
   const [selectedOptionsOperacion, setSelectedOptionsOperacion] = useState([]);
   const [valor, setValor] = useState("residencial");
+  const [isFilterMenuOpen, setIsFilterMenuOpen] = useState(false);
 
   // Nuevos estados
   const [propiedades, setPropiedades] = useState([]);
   const [busqueda, setBusqueda] = useState('');
-  const [propiedadesVisibles, setPropiedadesVisibles] = useState(10);
+  const [propiedadesVisibles, setPropiedadesVisibles] = useState([]);
   const [autoCompleteHome, setAutoCompleteHome] = useState('');
   const [selectedOptions, setSelectedOptions] = useState([]); // Estado general de opciones seleccionadas
   const [nuevas, setNuevas] = useState(false);
@@ -36,8 +37,10 @@ export const SearchProvider = ({ children }) => {
   useEffect(() => {
     const fetchPropiedades = async () => {
       try {
-        const response = await axios.get('https://remaxcin.com/api/propiedades');
-        setPropiedades(response.data);
+        const response = await axios.get('/api/propiedades');
+        // El API devuelve { data: { rows: [...] } }
+        const dataRows = response.data?.data?.rows || (Array.isArray(response.data) ? response.data : []);
+        setPropiedades(dataRows);
       } catch (error) {
         console.error('Error al obtener las propiedades:', error);
       }
@@ -50,9 +53,8 @@ export const SearchProvider = ({ children }) => {
     setBusqueda(event.target.value);
   };
 
-  useEffect(() => {
-    console.log("selectedOptionsTipos desde contexto:", selectedOptionsTipos);
-  }, [selectedOptionsTipos]);
+
+  
   
   return (
     <SearchContext.Provider 
@@ -65,6 +67,8 @@ export const SearchProvider = ({ children }) => {
         setSelectedOptionsOperacion,
         valor,
         setValor,
+        isFilterMenuOpen,
+        setIsFilterMenuOpen,
         // Exponer nuevos estados y setters
         propiedades,
         setPropiedades,

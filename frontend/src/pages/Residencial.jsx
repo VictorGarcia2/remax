@@ -177,13 +177,7 @@ const ScrollToTopButton = () => {
   );
 };
 
-export default React.memo(function Residencial({
-  valor,
-  autoCompleteHome,
-  setAutoCompleteHome,
-  setBusqueda,
-  propiedades,
-}) {
+export default React.memo(function Residencial() {
   const {
     busquedaHome,
     setBusquedaHome,
@@ -191,6 +185,12 @@ export default React.memo(function Residencial({
     setSelectedOptionsTipos,
     selectedOptionsOperacion,
     setSelectedOptionsOperacion,
+    valor,
+    propiedades,
+    busqueda,
+    setBusqueda,
+    autoCompleteHome,
+    setAutoCompleteHome,
   } = useSearchContext();
 
   const firstSectionRef = useRef(null);
@@ -253,7 +253,9 @@ export default React.memo(function Residencial({
 
       <section className="relative  w-full" aria-labelledby="porque-title">
         <h2 id="porque-title" className="sr-only">¿Por qué elegir residencial?</h2>
-        <SectionPorque valor={valor} />
+        <Suspense fallback={<Placeholder height={300} />}>
+          <SectionPorque valor={valor} />
+        </Suspense>
       </section>
 
       <Suspense fallback={<Placeholder height={400} />}>

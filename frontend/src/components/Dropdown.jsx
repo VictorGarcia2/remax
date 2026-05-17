@@ -7,61 +7,46 @@ import {
   AccordionBody,
 } from "@material-tailwind/react";
 import { useState } from "react";
-import { library } from '@fortawesome/fontawesome-svg-core';
 import { 
-  faSnowflake, 
-  faWaterLadder,
-  faCouch,
-  faGamepad,
-  faPeopleGroup,
-  faChild,
-  faDoorOpen,
-  faBook,
-  faBoxArchive,
-  faMugHot,
-  faTemperatureHigh,
-  faFutbol,
-  faTableTennisPaddleBall,
-  faKitchenSet,
-  faChess,
-  faBroom,
-  faTv,
-  faElevator,
-  faSolarPanel,
-  faDumbbell,
-  faWater,
-  faWifi,
-  faHotTubPerson,
-  faLeaf,
-  faSoap,
-  faPhone,
-  faPaw,
-  faFireBurner,
-  faFilm,
-  faChampagneGlasses,
-  faSpa,
-  faShieldHalved,
-  faUmbrellaBeach,
-  faShirt,
-  faLock,
-  faMountainSun,
-  faTree,
-  faCheck, faHouseChimney, faFire
-} from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+  Snowflake, 
+  Waves, 
+  Sofa, 
+  Gamepad2, 
+  Users, 
+  Baby, 
+  DoorOpen, 
+  Book, 
+  Archive, 
+  Coffee, 
+  Thermometer, 
+  Trophy, 
+  Dumbbell, 
+  Wifi, 
+  Bath, 
+  Leaf, 
+  WashingMachine, 
+  Phone, 
+  PawPrint, 
+  Flame, 
+  Film, 
+  Wine, 
+  Flower2, 
+  ShieldCheck, 
+  Umbrella, 
+  Shirt, 
+  Lock, 
+  Mountain, 
+  TreeDeciduous, 
+  Check, 
+  Home,
+  ChefHat,
+  Tv,
+  ArrowUpSquare,
+  Sun,
+  Timer
+} from 'lucide-react';
 
-// Añade los íconos a la biblioteca
-library.add(
-  faSnowflake, faWaterLadder, faCouch, faGamepad, faPeopleGroup,
-  faChild, faDoorOpen, faBook, faBoxArchive, faMugHot,
-  faTemperatureHigh, faFutbol, faTableTennisPaddleBall, faKitchenSet,
-  faChess, faBroom, faTv, faElevator, faSolarPanel,
-  faDumbbell, faWater, faWifi, faHotTubPerson, faLeaf,
-  faSoap, faPhone, faPaw, faFireBurner, faFilm,
-  faChampagneGlasses, faSpa, faShieldHalved, faUmbrellaBeach,
-  faShirt, faLock, faMountainSun, faTree, faCheck, faHouseChimney, faFire
-);
-// mapboxgl.accessToken = "pk.eyJ1IjoidmljdG9yZ2FyY2lhcHJ6IiwiYSI6ImNtNXZ3dW0wMjA2aHgyanE1M3ptczQ2azUifQ.ILrTXW_4c9_pbGC3Uj-wdg";
+// mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_ACCESS_TOKEN;
 
 function Icon({ id, open }) {
   return (
@@ -220,49 +205,49 @@ export function Dropdown({ propiedadSeleccion }) {
   // Función que asigna íconos de FontAwesome a cada amenidad
   function getAmenityIcon(amenityKey) {
     const iconMap = {
-      aire_acondicionado: faSnowflake,
-      alberca: faWaterLadder,
-      amueblada: faCouch,
-      area_de_juegos: faGamepad,
-      areas_comunes: faPeopleGroup,
-      areas_ninos: faChild,
-      balcon: faDoorOpen,
-      biblioteca: faBook,
-      bodega: faBoxArchive,
-      cafeteria: faMugHot,
-      calefaccion: faTemperatureHigh,
-      cancha_de_futbol: faFutbol,
-      cancha_de_padel: faTableTennisPaddleBall,
-      cancha_de_tenis: faTableTennisPaddleBall, // Usa el mismo ícono si no hay otro
-      casa_club: faHouseChimney,
-      chimenea: faFire,
-      cocina_integral: faKitchenSet,
-      cuarto_de_recreacion: faChess,
-      cuarto_de_servicio: faBroom,
-      cuarto_tv: faTv,
-      elevador: faElevator,
-      energia_solar: faSolarPanel,
-      gimnasio: faDumbbell,
-      hidroneumatico: faWater,
-      internet: faWifi,
-      jacuzzi: faHotTubPerson,
-      jardin: faLeaf,
-      lavanderia: faSoap,
-      linea_telefonica: faPhone,
-      mascotas: faPaw,
-      parrilla: faFireBurner,
-      salon_de_cine: faFilm,
-      salon_de_fiestas: faChampagneGlasses,
-      spa: faSpa,
-      sistema_de_seguridad: faShieldHalved,
-      terraza: faUmbrellaBeach,
-      vestidor: faShirt,
-      vigilancia: faLock,
-      vista_panoramica: faMountainSun,
-      zona_arbolada: faTree,
+      aire_acondicionado: Snowflake,
+      alberca: Waves,
+      amueblada: Sofa,
+      area_de_juegos: Gamepad2,
+      areas_comunes: Users,
+      areas_ninos: Baby,
+      balcon: DoorOpen,
+      biblioteca: Book,
+      bodega: Archive,
+      cafeteria: Coffee,
+      calefaccion: Thermometer,
+      cancha_de_futbol: Trophy,
+      cancha_de_padel: Trophy,
+      cancha_de_tenis: Trophy,
+      casa_club: Home,
+      chimenea: Flame,
+      cocina_integral: ChefHat,
+      cuarto_de_recreacion: Gamepad2,
+      cuarto_de_servicio: WashingMachine,
+      cuarto_tv: Tv,
+      elevador: ArrowUpSquare,
+      energia_solar: Sun,
+      gimnasio: Dumbbell,
+      hidroneumatico: Waves,
+      internet: Wifi,
+      jacuzzi: Bath,
+      jardin: Leaf,
+      lavanderia: WashingMachine,
+      linea_telefonica: Phone,
+      mascotas: PawPrint,
+      parrilla: Flame,
+      salon_de_cine: Film,
+      salon_de_fiestas: Wine,
+      spa: Flower2,
+      sistema_de_seguridad: ShieldCheck,
+      terraza: Umbrella,
+      vestidor: Shirt,
+      vigilancia: Lock,
+      vista_panoramica: Mountain,
+      zona_arbolada: TreeDeciduous,
     };
 
-    return iconMap[amenityKey] || "fa-solid fa-check"; // Ícono por defecto
+    return iconMap[amenityKey] || Check;
   }
 
   // Resultado final (array de objetos con label e icono)
@@ -362,12 +347,15 @@ export function Dropdown({ propiedadSeleccion }) {
         <AccordionBody>
           <div className="flex flex-wrap gap-2">
             {amenidadesDisponibles &&
-              amenidadesDisponibles.map((item) => (
-                <div className="bg-[#D9D9D9] flex items-center gap-2 rounded py-2 px-2 text-base lg:text-2xl">
-                  <FontAwesomeIcon icon={item.icon} className="text-[#797979]"/>
-                  <p className="text-[#797979]">{item.label}</p>
-                </div>
-              ))}
+              amenidadesDisponibles.map((item) => {
+                const IconComponent = item.icon;
+                return (
+                  <div key={item.label} className="bg-[#D9D9D9] flex items-center gap-2 rounded py-2 px-2 text-base lg:text-2xl">
+                    <IconComponent size={20} className="text-[#797979]"/>
+                    <p className="text-[#797979]">{item.label}</p>
+                  </div>
+                );
+              })}
           </div>
         </AccordionBody>
       </Accordion>

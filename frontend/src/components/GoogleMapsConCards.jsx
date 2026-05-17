@@ -113,16 +113,17 @@ function useVeracruzPolygon() {
   return veracruzCoordsArray;
 }
 
-const GoogleMapsConCards = ({
-  propiedades = [],
-  setPropiedadesVisibles = () => {},
-  valor
-}) => {
+const GoogleMapsConCards = () => {
+  const { 
+    propiedades, 
+    setPropiedadesVisibles, 
+    valor,
+    seleccion 
+  } = useSearchContext();
   const [selectedProp, setSelectedProp] = useState(null);
   const mapRef = useRef(null);
   const [zoom, setZoom] = useState(11);
   const [mapCenter, setMapCenter] = useState(defaultCenter);
-  const { seleccion } = useSearchContext();
   const [pendingCenter, setPendingCenter] = useState(null);
   const [mapError, setMapError] = useState(false);
   const [retryKey, setRetryKey] = useState(0);
@@ -137,7 +138,7 @@ const GoogleMapsConCards = ({
     if (!mapRef.current) return;
     const bounds = mapRef.current.getBounds();
     if (!bounds) return;
-    const visibles = propiedades.filter((prop) => {
+    const visibles = (Array.isArray(propiedades) ? propiedades : []).filter((prop) => {
       if (!prop.latitud || !prop.longitud) return false;
       const pos = { lat: parseFloat(prop.latitud), lng: parseFloat(prop.longitud) };
       return bounds.contains(pos);
@@ -231,7 +232,7 @@ const GoogleMapsConCards = ({
           />
         ))}
         */}
-        {propiedades.map((prop) => {
+        {(Array.isArray(propiedades) ? propiedades : []).map((prop) => {
           if (!prop.latitud || !prop.longitud) return null;
           const pos = { lat: parseFloat(prop.latitud), lng: parseFloat(prop.longitud) };
           return (

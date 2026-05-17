@@ -20,8 +20,8 @@ import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
 
 // Constantes para Pipedrive
-const PIPEDRIVE_API_KEY = "02317c5467585c4251d802ab65e0c7b9f60541ee";
-const PIPEDRIVE_API_URL = "https://api.pipedrive.com/v1";
+const PIPEDRIVE_API_KEY = import.meta.env.VITE_PIPEDRIVE_API_KEY;
+const PIPEDRIVE_API_URL = import.meta.env.VITE_PIPEDRIVE_API_URL || "https://api.pipedrive.com/v1";
 
 // Lista de posibles propietarios
 const OWNER_MATCHES = [

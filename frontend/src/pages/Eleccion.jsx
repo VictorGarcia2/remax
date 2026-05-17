@@ -23,8 +23,11 @@ const CardContent = React.forwardRef(({ className, ...props }, ref) => (
 ));
 CardContent.displayName = "CardContent";
 
+import { useSearchContext } from "../context/SearchContext";
+
 // Main App Component
-const Eleccion = ({ setValor }) => {
+const Eleccion = () => {
+  const { setValor } = useSearchContext();
   const navigate = useNavigate();
   
   // Precargar el componente Residencial para mejorar el rendimiento

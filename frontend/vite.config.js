@@ -64,10 +64,9 @@ export default defineConfig(({ command }) => {
           },
           proxy: {
             '/api': {
-              target: 'https://localhost:3000',
+              target: 'http://localhost:3001',
               secure: false,
-              changeOrigin: true,
-              rewrite: (path) => path.replace(/^\/api/, '')
+              changeOrigin: true
             }
           }
         }

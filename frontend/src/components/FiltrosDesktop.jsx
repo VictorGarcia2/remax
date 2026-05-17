@@ -4,27 +4,13 @@ import RangoDePrecio from "./RangoDePrecio.jsx";
 import Operacion from "./Operacion.jsx";
 import Sector from "./Sector.jsx";
 import { Link } from "react-router-dom";
-import { faL, faLocationDot } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { MapPin } from "lucide-react";
 import LimpiarFiltro from "./LimpiarFiltro.jsx";
 import { useSearchContext } from "../context/SearchContext.jsx";
 import { useJsApiLoader } from "@react-google-maps/api";
 import { GOOGLE_MAPS_CONFIG } from '../config/googleMaps';
 
-export default function FiltrosDesktop({
-  busqueda,
-  setBusqueda,
-  setManejoBusqueda,
-  setSelectedOptions,
-  precioMinimo,
-  setPrecioMinimo,
-  setPrecioMaximo,
-  precioMaximo,
-  setAplicarFiltros,
-  selectedOptions, 
-  valor
-}) {
-
+export default function FiltrosDesktop() {
   const { 
     busquedaHome,
     setBusquedaHome,
@@ -32,10 +18,19 @@ export default function FiltrosDesktop({
     setSelectedOptionsTipos,
     selectedOptionsOperacion, 
     setSelectedOptionsOperacion,
-    valor: contextValor,
-    setSeleccion
+    valor,
+    setSeleccion,
+    setBusqueda,
+    precioMinimo,
+    setPrecioMinimo,
+    precioMaximo,
+    setPrecioMaximo,
+    selectedOptions,
+    setSelectedOptions,
+    setAplicarFiltros
   } = useSearchContext(); 
-
+  
+  const contextValor = valor; // Alias for consistency with existing code
   // Google Places Autocomplete
   const { isLoaded } = useJsApiLoader(GOOGLE_MAPS_CONFIG);
   const [suggestions, setSuggestions] = useState([]);
@@ -146,7 +141,7 @@ export default function FiltrosDesktop({
             onClick={() => handleSearch(item)}
             className="flex items-center gap-1 py-1 hover:bg-gray-200 rounded w-full px-1 cursor-pointer"
           >
-            <FontAwesomeIcon icon={faLocationDot} className="text-[#7b7b7b]" />
+            <MapPin className="text-[#7b7b7b] w-4 h-4" />
             <span className="text-start text-xs sm:text-sm lg:text-base text-[#7b7b7b]" dangerouslySetInnerHTML={{__html: highlightMatch(item.description, busquedaHome)}} />
           </div>
         );

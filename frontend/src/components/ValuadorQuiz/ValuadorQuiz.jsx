@@ -74,8 +74,7 @@ async function obtenerValuacionPython(answers) {
   };
 
   try {
-    console.log("Enviando petición a la API:", payload);
-    console.log("URL de la API:", "https://api.remaxcin.com/valuar");
+
     
     const response = await fetch("https://api.remaxcin.com/valuar", {
       method: "POST",
@@ -86,7 +85,7 @@ async function obtenerValuacionPython(answers) {
       body: JSON.stringify(payload)
     });
 
-    console.log("Respuesta de la API:", response.status, response.statusText);
+
 
     if (!response.ok) {
       const errorText = await response.text();
@@ -95,7 +94,7 @@ async function obtenerValuacionPython(answers) {
     }
     
     const data = await response.json();
-    console.log("Datos recibidos:", data);
+
     return data;
   } catch (error) {
     console.error("Error completo:", error);
@@ -566,7 +565,7 @@ const ValuadorQuiz = ({ onComplete, address }) => {
       setLoading(true);
       try {
         const resultado = await obtenerValuacionPython(updatedAnswers);
-        console.log("Resultado de la API:", resultado);
+
         setEstimatedValue({
           low: resultado.rango?.[0] || resultado.valor_estimado * 0.9,
           high: resultado.rango?.[1] || resultado.valor_estimado * 1.1,

@@ -1,7 +1,6 @@
 import React from "react";
 import SliderComoComprar from "./SliderComoComprar";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { Search } from "lucide-react";
 
 export default function SectionComoComprar() {
   return (
@@ -29,7 +28,7 @@ export default function SectionComoComprar() {
           <div className="lg:col-span-2">
             <div className="grid sm:grid-cols-3 gap-8 md:gap-12">
               <div className="flex gap-x-5">
-              <FontAwesomeIcon icon={faMagnifyingGlass} style={{ height: 24, width:24}}  className="mt-2 text-blue-600" />
+              <Search size={24} className="mt-2 text-blue-600" />
                 <div className="grow">
                   <p className="text-start w-full text-xl">
                     {" "}

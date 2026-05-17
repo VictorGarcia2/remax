@@ -1,29 +1,27 @@
 import React, { useState, useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faBuilding,
-  faBuildingUser,
-  faChevronDown,
-  faCity,
-  faHouse,
-  faHouseChimney,
-  faIndustry,
-  faMap,
-  faMapLocationDot,
-  faPenRuler,
-  faTreeCity,
-  faWarehouse,
-} from "@fortawesome/free-solid-svg-icons";
+import { 
+  Building, 
+  Building2, 
+  ChevronDown, 
+  Home, 
+  Factory, 
+  Map as MapIcon, 
+  PencilRuler, 
+  Trees, 
+  Warehouse 
+} from "lucide-react";
 import { useSearchContext } from "../context/SearchContext";
 
-export default function Tipo({selectedOptions, valor }) {
+export default function Tipo() {
   const { 
     busquedaHome,
     setBusquedaHome,
     selectedOptionsTipos,
     setSelectedOptionsTipos,
     selectedOptionsOperacion, 
-    setSelectedOptionsOperacion 
+    setSelectedOptionsOperacion,
+    selectedOptions,
+    valor
   } = useSearchContext();
   const [openModal, setOpenModal] = useState(true);
   
@@ -63,17 +61,17 @@ export default function Tipo({selectedOptions, valor }) {
   };
 
   const lugares = [
-    { icon: faHouse, nombre: "Casa", tipo_id: 1, sector: "residencial" },
-    { icon: faHouseChimney, nombre: "Casa en Condominio", tipo_id: 2, sector: "residencial" },
-    { icon: faBuilding, nombre: "Departamento", tipo_id: 3, sector: "residencial" },
-    { icon: faPenRuler, nombre: "Desarrollo", tipo_id: 6, sector: "residencial" },
-    { icon: faMap, nombre: "Terreno", tipo_id: 4, sector: "residencial" },
-    { icon: faMap, nombre: "Terreno", tipo_id: 10, sector: "comercial" },
-    /* { icon: faMap, nombre: "Terreno", tipo_id: 5, sector: "residencial" }, */
-    { icon: faBuilding, nombre: "Edificio", tipo_id: 8, sector: "comercial" },
-    { icon: faTreeCity, nombre: "Finca/Rancho", tipo_id: 14, sector: "residencial" },
-    { icon: faWarehouse, nombre: "Bodega", tipo_id: 19, sector: "comercial" },
-    { icon: faIndustry, nombre: "Nave Industrial", tipo_id: 7, sector: "comercial" },
+    { icon: Home, nombre: "Casa", tipo_id: 1, sector: "residencial" },
+    { icon: Home, nombre: "Casa en Condominio", tipo_id: 2, sector: "residencial" },
+    { icon: Building, nombre: "Departamento", tipo_id: 3, sector: "residencial" },
+    { icon: PencilRuler, nombre: "Desarrollo", tipo_id: 6, sector: "residencial" },
+    { icon: MapIcon, nombre: "Terreno", tipo_id: 4, sector: "residencial" },
+    { icon: MapIcon, nombre: "Terreno", tipo_id: 10, sector: "comercial" },
+    /* { icon: Map, nombre: "Terreno", tipo_id: 5, sector: "residencial" }, */
+    { icon: Building, nombre: "Edificio", tipo_id: 8, sector: "comercial" },
+    { icon: Trees, nombre: "Finca/Rancho", tipo_id: 14, sector: "residencial" },
+    { icon: Warehouse, nombre: "Bodega", tipo_id: 19, sector: "comercial" },
+    { icon: Building2, nombre: "Nave Industrial", tipo_id: 7, sector: "comercial" },
   ];
 
   const propiedadesFiltradas = lugares.filter(lugar => {
@@ -126,24 +124,24 @@ export default function Tipo({selectedOptions, valor }) {
           className="flex justify-center items-center gap-2 bg-gray-100 rounded-2xl px-3 py-2 cursor-pointer"
         >
           <p className="text-lg sm:text-xl md:text-xl 2xl:text-2xl">Tipo</p>
-          <FontAwesomeIcon
+          <ChevronDown
             className={`transform ${
               openModal ? "rotate-0" : "rotate-180"
             } transition-transform`}
-            icon={faChevronDown}
+            size={20}
           />
         </div>
 
         {!openModal && (
           <form className="z-50 bg-gray-100 py-5 rounded-2xl px-4 absolute mt-13 flex flex-col gap-4">
-            {propiedadesFiltradas.map(({ icon, nombre, tipo_id }) => (
+            {propiedadesFiltradas.map(({ icon: IconComponent, nombre, tipo_id }) => (
               <div
                 key={tipo_id}
                 className="flex justify-between items-center mb-4"
               >
                 <label className="flex items-center cursor-pointer w-full justify-between">
                   <div className="flex items-center">
-                    <FontAwesomeIcon icon={icon} />
+                    <IconComponent size={18} />
                     <span className="mx-2 text-sm font-medium text-gray-900">
                       {nombre}
                     </span>

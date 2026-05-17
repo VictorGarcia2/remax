@@ -1,5 +1,4 @@
-import { faChevronDown, faCity, faHouse } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { ChevronDown, Building2, Home } from "lucide-react";
 import React, { useState } from "react";
 
 export default function Operacion({ selectedOptionsOperacion, setSelectedOptionsOperacion }) {
@@ -18,8 +17,8 @@ export default function Operacion({ selectedOptionsOperacion, setSelectedOptions
   };
 
   const lugares = [
-    { icon: faHouse, nombre: 1, titulo: "Venta" },
-    { icon: faCity, nombre: 2, titulo: "Renta" },
+    { icon: Home, nombre: 1, titulo: "Venta" },
+    { icon: Building2, nombre: 2, titulo: "Renta" },
   ];
 
   return (
@@ -38,22 +37,22 @@ export default function Operacion({ selectedOptionsOperacion, setSelectedOptions
         className="flex justify-center items-center gap-2 bg-gray-100 rounded-2xl px-3 py-2 cursor-pointer"
       >
         <p className="text-lg sm:text-xl md:text-xl 2xl:text-2xl">Operacion</p>
-        <FontAwesomeIcon
+        <ChevronDown
           className={`transform transition-transform ${openModal ? "rotate-180" : "rotate-0"}`}
-          icon={faChevronDown}
+          size={20}
         />
       </div>
 
       {/* Modal */}
       {!openModal && (
         <form className="z-20 bg-gray-100 py-5 rounded-2xl px-4 absolute mt-13 flex flex-col gap-4">
-          {lugares.map(({ icon, nombre, titulo }, index) => (
+          {lugares.map(({ icon: IconComponent, nombre, titulo }, index) => (
             <div
               key={index}
               className="flex justify-between items-center mb-4"
             >
               <div className="flex items-center">
-                <FontAwesomeIcon icon={icon} />
+                <IconComponent size={18} />
                 <label
                   htmlFor={`checkbox-${index}`}
                   className="mx-2 text-sm font-medium text-gray-900"
