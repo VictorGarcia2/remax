@@ -9,7 +9,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
+let cachedSitemap = '';
 
 // Middlewares
 app.use(cors());
@@ -86,13 +87,23 @@ async function updateSitemap() {
     sitemap += `
 </urlset>`;
 
-    // Guardar el sitemap en el directorio público
-    const sitemapPath = path.join(__dirname, '../frontend/public/sitemap.xml');
-    fs.writeFileSync(sitemapPath, sitemap);
+    cachedSitemap = sitemap;
+
+    // Guardar el sitemap en el directorio público si existe la carpeta
+    try {
+      const sitemapPath = path.join(__dirname, '../frontend/public/sitemap.xml');
+      const dir = path.dirname(sitemapPath);
+      if (fs.existsSync(dir)) {
+        fs.writeFileSync(sitemapPath, sitemap);
+        console.log('✅ Sitemap local actualizado con éxito');
+      }
+    } catch (e) {
+      // Ignorar de forma segura si no existe el directorio frontend en producción
+    }
  
     return true;
   } catch (error) {
-    
+    console.error('Error al actualizar el sitemap:', error);
     return false;
   }
 }
@@ -129,6 +140,12 @@ app.get('/api/update-sitemap', async (req, res) => {
   }
 });
 
+// Ruta para servir el sitemap dinámico
+app.get('/sitemap.xml', (req, res) => {
+  res.header('Content-Type', 'application/xml');
+  res.status(200).send(cachedSitemap);
+});
+ 
 // Actualizar el sitemap al iniciar el servidor
 updateSitemap().catch(error => {
   console.error('Error al actualizar el sitemap durante el inicio:', error);

@@ -125,8 +125,9 @@ export default function PropiedadSeleccion({ seleccion }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const API_URL = import.meta.env.VITE_API_URL || '';
     axios
-      .get("/api/propiedades")
+      .get(`${API_URL}/api/propiedades`)
       .then((res) => {
         const dataRows = res.data?.data?.rows || (Array.isArray(res.data) ? res.data : []);
         setPropiedades(dataRows);

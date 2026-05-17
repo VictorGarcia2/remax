@@ -37,7 +37,8 @@ export const SearchProvider = ({ children }) => {
   useEffect(() => {
     const fetchPropiedades = async () => {
       try {
-        const response = await axios.get('/api/propiedades');
+        const API_URL = import.meta.env.VITE_API_URL || '';
+        const response = await axios.get(`${API_URL}/api/propiedades`);
         // El API devuelve { data: { rows: [...] } }
         const dataRows = response.data?.data?.rows || (Array.isArray(response.data) ? response.data : []);
         setPropiedades(dataRows);
