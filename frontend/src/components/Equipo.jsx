@@ -1,8 +1,9 @@
 import React from "react";
 
-export const Equipo = ({ propiedades }) => {
+export const Equipo = ({ propiedades = [] }) => {
 
-  const todosLosAgentes = propiedades.map((p) => p.agentes).filter(Boolean);
+  const safePropiedades = Array.isArray(propiedades) ? propiedades : [];
+  const todosLosAgentes = safePropiedades.map((p) => p.agentes).filter(Boolean);
 
   const agentesUnicos = Array.from(
     new Map(todosLosAgentes.map((a) => [a.agente_id, a])).values()

@@ -3,8 +3,11 @@ import { Equipo } from "../components/Equipo";
 import Header from "../components/SectionHome/Header";
 import SectionFooter from "../components/SectionFooter/SectionFooter";
 import { Helmet } from "react-helmet-async";
+import { useSearchContext } from "../context/SearchContext";
 
-export default function NuestroEquipo({propiedades}) {
+export default function NuestroEquipo() {
+  const { propiedades } = useSearchContext();
+
   return (
     <>
       <Helmet>
