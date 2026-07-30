@@ -1,7 +1,5 @@
 # Nixpacks configuration for REMAX FastAPI & Scrapers
 
-providers = ["python"]
-
 [phases.setup]
 nixPkgs = ["python311", "chromium", "glib", "pango", "harfbuzz", "cairo"]
 
