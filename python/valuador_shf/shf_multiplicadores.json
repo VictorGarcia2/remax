@@ -1,0 +1,660 @@
+{
+    "acapulco de juárez": {
+        "nombre": "Acapulco de Juárez",
+        "nivel": "municipio",
+        "cagr_anual": 0.06869707670750436,
+        "indice_actual": 200.89,
+        "periodo": "2005.0-2026.0"
+    },
+    "aguascalientes": {
+        "nombre": "Aguascalientes",
+        "nivel": "estado",
+        "cagr_anual": 0.06981296108152613,
+        "indice_actual": 201.9,
+        "periodo": "2005.0-2026.0"
+    },
+    "apizaco": {
+        "nombre": "Apizaco",
+        "nivel": "municipio",
+        "cagr_anual": 0.059914803829018703,
+        "indice_actual": 179.05,
+        "periodo": "2005.0-2026.0"
+    },
+    "apodaca": {
+        "nombre": "Apodaca",
+        "nivel": "municipio",
+        "cagr_anual": 0.06888492568701965,
+        "indice_actual": 214.94,
+        "periodo": "2005.0-2026.0"
+    },
+    "bahía de banderas": {
+        "nombre": "Bahía de Banderas",
+        "nivel": "municipio",
+        "cagr_anual": 0.07387578329294953,
+        "indice_actual": 243.25,
+        "periodo": "2005.0-2026.0"
+    },
+    "benito juárez": {
+        "nombre": "Benito Juárez",
+        "nivel": "municipio",
+        "cagr_anual": 0.0813292701292756,
+        "indice_actual": 222.035,
+        "periodo": "2005.0-2026.0"
+    },
+    "cajeme": {
+        "nombre": "Cajeme",
+        "nivel": "municipio",
+        "cagr_anual": 0.06455922279861981,
+        "indice_actual": 203.96,
+        "periodo": "2005.0-2026.0"
+    },
+    "campeche": {
+        "nombre": "Campeche",
+        "nivel": "estado",
+        "cagr_anual": 0.07195624431359593,
+        "indice_actual": 216.6833333333333,
+        "periodo": "2005.0-2026.0"
+    },
+    "carmen": {
+        "nombre": "Carmen",
+        "nivel": "municipio",
+        "cagr_anual": 0.0731722461787836,
+        "indice_actual": 221.1,
+        "periodo": "2005.0-2026.0"
+    },
+    "celaya": {
+        "nombre": "Celaya",
+        "nivel": "municipio",
+        "cagr_anual": 0.06243817439987698,
+        "indice_actual": 195.71,
+        "periodo": "2005.0-2026.0"
+    },
+    "centro": {
+        "nombre": "Centro",
+        "nivel": "municipio",
+        "cagr_anual": 0.06413412257660278,
+        "indice_actual": 188.33,
+        "periodo": "2005.0-2026.0"
+    },
+    "chihuahua": {
+        "nombre": "Chihuahua",
+        "nivel": "estado",
+        "cagr_anual": 0.06872818855245644,
+        "indice_actual": 212.97333333333333,
+        "periodo": "2005.0-2026.0"
+    },
+    "coatzacoalcos": {
+        "nombre": "Coatzacoalcos",
+        "nivel": "municipio",
+        "cagr_anual": 0.06186660433492519,
+        "indice_actual": 188.44,
+        "periodo": "2005.0-2026.0"
+    },
+    "corregidora": {
+        "nombre": "Corregidora",
+        "nivel": "municipio",
+        "cagr_anual": 0.06690455306122889,
+        "indice_actual": 193.61,
+        "periodo": "2005.0-2026.0"
+    },
+    "cuauhtémoc": {
+        "nombre": "Cuauhtémoc",
+        "nivel": "municipio",
+        "cagr_anual": 0.08318101272295975,
+        "indice_actual": 185.2,
+        "periodo": "2005.0-2026.0"
+    },
+    "culiacán": {
+        "nombre": "Culiacán",
+        "nivel": "municipio",
+        "cagr_anual": 0.07100539515183035,
+        "indice_actual": 224.75,
+        "periodo": "2005.0-2026.0"
+    },
+    "durango": {
+        "nombre": "Durango",
+        "nivel": "estado",
+        "cagr_anual": 0.05973740172855524,
+        "indice_actual": 175.75,
+        "periodo": "2005.0-2026.0"
+    },
+    "el marqués": {
+        "nombre": "El Marqués",
+        "nivel": "municipio",
+        "cagr_anual": 0.06530578749101812,
+        "indice_actual": 199.84,
+        "periodo": "2005.0-2026.0"
+    },
+    "emiliano zapata": {
+        "nombre": "Emiliano Zapata",
+        "nivel": "municipio",
+        "cagr_anual": 0.0670863566106441,
+        "indice_actual": 204.05,
+        "periodo": "2005.0-2026.0"
+    },
+    "garcía": {
+        "nombre": "García",
+        "nivel": "municipio",
+        "cagr_anual": 0.06734470236443779,
+        "indice_actual": 218.01,
+        "periodo": "2005.0-2026.0"
+    },
+    "guadalajara": {
+        "nombre": "Guadalajara",
+        "nivel": "municipio",
+        "cagr_anual": 0.07552246099498605,
+        "indice_actual": 235.3,
+        "periodo": "2005.0-2026.0"
+    },
+    "guadalupe": {
+        "nombre": "Guadalupe",
+        "nivel": "municipio",
+        "cagr_anual": 0.06310519622655586,
+        "indice_actual": 184.38,
+        "periodo": "2005.0-2026.0"
+    },
+    "gustavo a. madero": {
+        "nombre": "Gustavo A. Madero",
+        "nivel": "municipio",
+        "cagr_anual": 0.07695277757942653,
+        "indice_actual": 171.3,
+        "periodo": "2005.0-2026.0"
+    },
+    "gómez palacio": {
+        "nombre": "Gómez Palacio",
+        "nivel": "municipio",
+        "cagr_anual": 0.05762854972280396,
+        "indice_actual": 173.05,
+        "periodo": "2005.0-2026.0"
+    },
+    "hermosillo": {
+        "nombre": "Hermosillo",
+        "nivel": "municipio",
+        "cagr_anual": 0.06741935485082085,
+        "indice_actual": 209.77,
+        "periodo": "2005.0-2026.0"
+    },
+    "huejotzingo": {
+        "nombre": "Huejotzingo",
+        "nivel": "municipio",
+        "cagr_anual": 0.0654741686348348,
+        "indice_actual": 215.05,
+        "periodo": "2005.0-2026.0"
+    },
+    "iztapalapa": {
+        "nombre": "Iztapalapa",
+        "nivel": "municipio",
+        "cagr_anual": 0.07586691412633195,
+        "indice_actual": 173.12,
+        "periodo": "2005.0-2026.0"
+    },
+    "jesús maría": {
+        "nombre": "Jesús María",
+        "nivel": "municipio",
+        "cagr_anual": 0.06834838542763522,
+        "indice_actual": 195.69,
+        "periodo": "2005.0-2026.0"
+    },
+    "juárez": {
+        "nombre": "Juárez",
+        "nivel": "municipio",
+        "cagr_anual": 0.06621182370863643,
+        "indice_actual": 215.33499999999998,
+        "periodo": "2005.0-2026.0"
+    },
+    "kanasín": {
+        "nombre": "Kanasín",
+        "nivel": "municipio",
+        "cagr_anual": 0.06938671327177115,
+        "indice_actual": 213.52,
+        "periodo": "2005.0-2026.0"
+    },
+    "la paz": {
+        "nombre": "La Paz",
+        "nivel": "municipio",
+        "cagr_anual": 0.07873046294571817,
+        "indice_actual": 257.89,
+        "periodo": "2005.0-2026.0"
+    },
+    "león": {
+        "nombre": "León",
+        "nivel": "municipio",
+        "cagr_anual": 0.06617134100933786,
+        "indice_actual": 208.27,
+        "periodo": "2005.0-2026.0"
+    },
+    "los cabos": {
+        "nombre": "Los Cabos",
+        "nivel": "municipio",
+        "cagr_anual": 0.07860133576281259,
+        "indice_actual": 260.99,
+        "periodo": "2005.0-2026.0"
+    },
+    "manzanillo": {
+        "nombre": "Manzanillo",
+        "nivel": "municipio",
+        "cagr_anual": 0.0669754112426657,
+        "indice_actual": 214.11,
+        "periodo": "2005.0-2026.0"
+    },
+    "matamoros": {
+        "nombre": "Matamoros",
+        "nivel": "municipio",
+        "cagr_anual": 0.06575615263352508,
+        "indice_actual": 199.86,
+        "periodo": "2005.0-2026.0"
+    },
+    "mazatlán": {
+        "nombre": "Mazatlán",
+        "nivel": "municipio",
+        "cagr_anual": 0.07112189647928835,
+        "indice_actual": 225.01,
+        "periodo": "2005.0-2026.0"
+    },
+    "metepec": {
+        "nombre": "Metepec",
+        "nivel": "municipio",
+        "cagr_anual": 0.06260033322944936,
+        "indice_actual": 168.18,
+        "periodo": "2005.0-2026.0"
+    },
+    "mexicali": {
+        "nombre": "Mexicali",
+        "nivel": "municipio",
+        "cagr_anual": 0.07301672950552729,
+        "indice_actual": 231.41,
+        "periodo": "2005.0-2026.0"
+    },
+    "miguel hidalgo": {
+        "nombre": "Miguel Hidalgo",
+        "nivel": "municipio",
+        "cagr_anual": 0.08183518398589462,
+        "indice_actual": 180.01,
+        "periodo": "2005.0-2026.0"
+    },
+    "mineral de la reforma": {
+        "nombre": "Mineral de la Reforma",
+        "nivel": "municipio",
+        "cagr_anual": 0.06022799104560672,
+        "indice_actual": 188.77,
+        "periodo": "2005.0-2026.0"
+    },
+    "monterrey": {
+        "nombre": "Monterrey",
+        "nivel": "municipio",
+        "cagr_anual": 0.07594352147728434,
+        "indice_actual": 220.16,
+        "periodo": "2005.0-2026.0"
+    },
+    "morelia": {
+        "nombre": "Morelia",
+        "nivel": "municipio",
+        "cagr_anual": 0.06692213468206587,
+        "indice_actual": 216.0,
+        "periodo": "2005.0-2026.0"
+    },
+    "mérida": {
+        "nombre": "Mérida",
+        "nivel": "municipio",
+        "cagr_anual": 0.07584219392701641,
+        "indice_actual": 214.99,
+        "periodo": "2005.0-2026.0"
+    },
+    "nacajuca": {
+        "nombre": "Nacajuca",
+        "nivel": "municipio",
+        "cagr_anual": 0.06203247115536459,
+        "indice_actual": 187.67,
+        "periodo": "2005.0-2026.0"
+    },
+    "puebla": {
+        "nombre": "Puebla",
+        "nivel": "estado",
+        "cagr_anual": 0.06776053304499707,
+        "indice_actual": 210.39666666666668,
+        "periodo": "2005.0-2026.0"
+    },
+    "querétaro": {
+        "nombre": "Querétaro",
+        "nivel": "estado",
+        "cagr_anual": 0.06701261973791905,
+        "indice_actual": 199.12,
+        "periodo": "2005.0-2026.0"
+    },
+    "reynosa": {
+        "nombre": "Reynosa",
+        "nivel": "municipio",
+        "cagr_anual": 0.0657864740557248,
+        "indice_actual": 203.2,
+        "periodo": "2005.0-2026.0"
+    },
+    "saltillo": {
+        "nombre": "Saltillo",
+        "nivel": "municipio",
+        "cagr_anual": 0.06716811657241695,
+        "indice_actual": 201.5,
+        "periodo": "2005.0-2026.0"
+    },
+    "san juan bautista tuxtepec": {
+        "nombre": "San Juan Bautista Tuxtepec",
+        "nivel": "municipio",
+        "cagr_anual": 0.06475808396350002,
+        "indice_actual": 192.39,
+        "periodo": "2005.0-2026.0"
+    },
+    "san luis potosí": {
+        "nombre": "San Luis Potosí",
+        "nivel": "estado",
+        "cagr_anual": 0.06497694840059598,
+        "indice_actual": 201.64000000000001,
+        "periodo": "2005.0-2026.0"
+    },
+    "san pedro tlaquepaque": {
+        "nombre": "San Pedro Tlaquepaque",
+        "nivel": "municipio",
+        "cagr_anual": 0.06960633058599797,
+        "indice_actual": 231.35,
+        "periodo": "2005.0-2026.0"
+    },
+    "soledad de graciano sánchez": {
+        "nombre": "Soledad de Graciano Sánchez",
+        "nivel": "municipio",
+        "cagr_anual": 0.06202736372938489,
+        "indice_actual": 198.4,
+        "periodo": "2005.0-2026.0"
+    },
+    "solidaridad": {
+        "nombre": "Solidaridad",
+        "nivel": "municipio",
+        "cagr_anual": 0.07982333813536702,
+        "indice_actual": 258.09,
+        "periodo": "2005.0-2026.0"
+    },
+    "tapachula": {
+        "nombre": "Tapachula",
+        "nivel": "municipio",
+        "cagr_anual": 0.06492951735690022,
+        "indice_actual": 198.11,
+        "periodo": "2005.0-2026.0"
+    },
+    "tecámac": {
+        "nombre": "Tecámac",
+        "nivel": "municipio",
+        "cagr_anual": 0.057757374815466056,
+        "indice_actual": 172.16,
+        "periodo": "2005.0-2026.0"
+    },
+    "temixco": {
+        "nombre": "Temixco",
+        "nivel": "municipio",
+        "cagr_anual": 0.06789857394164356,
+        "indice_actual": 197.96,
+        "periodo": "2005.0-2026.0"
+    },
+    "tepic": {
+        "nombre": "Tepic",
+        "nivel": "municipio",
+        "cagr_anual": 0.0755413927335673,
+        "indice_actual": 244.94,
+        "periodo": "2005.0-2026.0"
+    },
+    "tijuana": {
+        "nombre": "Tijuana",
+        "nivel": "municipio",
+        "cagr_anual": 0.07413407848120568,
+        "indice_actual": 245.75,
+        "periodo": "2005.0-2026.0"
+    },
+    "tizayuca": {
+        "nombre": "Tizayuca",
+        "nivel": "municipio",
+        "cagr_anual": 0.058586441498072794,
+        "indice_actual": 186.47,
+        "periodo": "2005.0-2026.0"
+    },
+    "tlacolula de matamoros": {
+        "nombre": "Tlacolula de Matamoros",
+        "nivel": "municipio",
+        "cagr_anual": 0.06041982769467058,
+        "indice_actual": 197.39,
+        "periodo": "2005.0-2026.0"
+    },
+    "tlajomulco de zúñiga": {
+        "nombre": "Tlajomulco de Zúñiga",
+        "nivel": "municipio",
+        "cagr_anual": 0.06721078303436756,
+        "indice_actual": 232.39,
+        "periodo": "2005.0-2026.0"
+    },
+    "tlaxcala": {
+        "nombre": "Tlaxcala",
+        "nivel": "estado",
+        "cagr_anual": 0.05925858964097608,
+        "indice_actual": 179.4666666666667,
+        "periodo": "2005.0-2026.0"
+    },
+    "toluca": {
+        "nombre": "Toluca",
+        "nivel": "municipio",
+        "cagr_anual": 0.06133354349833997,
+        "indice_actual": 176.21,
+        "periodo": "2005.0-2026.0"
+    },
+    "torreón": {
+        "nombre": "Torreón",
+        "nivel": "municipio",
+        "cagr_anual": 0.06652207634972451,
+        "indice_actual": 201.97,
+        "periodo": "2005.0-2026.0"
+    },
+    "tuxtla gutiérrez": {
+        "nombre": "Tuxtla Gutiérrez",
+        "nivel": "municipio",
+        "cagr_anual": 0.06814203602585645,
+        "indice_actual": 203.97,
+        "periodo": "2005.0-2026.0"
+    },
+    "uruapan": {
+        "nombre": "Uruapan",
+        "nivel": "municipio",
+        "cagr_anual": 0.06550094904367598,
+        "indice_actual": 203.14,
+        "periodo": "2005.0-2026.0"
+    },
+    "veracruz": {
+        "nombre": "Veracruz",
+        "nivel": "estado",
+        "cagr_anual": 0.0625602372322629,
+        "indice_actual": 193.08333333333334,
+        "periodo": "2005.0-2026.0"
+    },
+    "villa de álvarez": {
+        "nombre": "Villa de Álvarez",
+        "nivel": "municipio",
+        "cagr_anual": 0.06541834115476308,
+        "indice_actual": 212.25,
+        "periodo": "2005.0-2026.0"
+    },
+    "zacatecas": {
+        "nombre": "Zacatecas",
+        "nivel": "estado",
+        "cagr_anual": 0.06399780641628827,
+        "indice_actual": 181.02666666666664,
+        "periodo": "2005.0-2026.0"
+    },
+    "zapopan": {
+        "nombre": "Zapopan",
+        "nivel": "municipio",
+        "cagr_anual": 0.07111675945673057,
+        "indice_actual": 231.96,
+        "periodo": "2005.0-2026.0"
+    },
+    "zihuatanejo de azueta": {
+        "nombre": "Zihuatanejo de Azueta",
+        "nivel": "municipio",
+        "cagr_anual": 0.06408897212961784,
+        "indice_actual": 190.77,
+        "periodo": "2005.0-2026.0"
+    },
+    "zumpango": {
+        "nombre": "Zumpango",
+        "nivel": "municipio",
+        "cagr_anual": 0.056358836266521495,
+        "indice_actual": 177.46,
+        "periodo": "2005.0-2026.0"
+    },
+    "baja california": {
+        "nombre": "Baja California",
+        "nivel": "estado",
+        "cagr_anual": 0.073533101139732,
+        "indice_actual": 238.56333333333336,
+        "periodo": "2005.0-2026.0"
+    },
+    "baja california sur": {
+        "nombre": "Baja California Sur",
+        "nivel": "estado",
+        "cagr_anual": 0.07861767205599834,
+        "indice_actual": 258.96999999999997,
+        "periodo": "2005.0-2026.0"
+    },
+    "chiapas": {
+        "nombre": "Chiapas",
+        "nivel": "estado",
+        "cagr_anual": 0.0665336604652138,
+        "indice_actual": 201.02333333333334,
+        "periodo": "2005.0-2026.0"
+    },
+    "ciudad de méxico": {
+        "nombre": "Ciudad de México",
+        "nivel": "estado",
+        "cagr_anual": 0.07959457876098197,
+        "indice_actual": 177.41833333333332,
+        "periodo": "2005.0-2026.0"
+    },
+    "coahuila": {
+        "nombre": "Coahuila",
+        "nivel": "estado",
+        "cagr_anual": 0.06644680603652375,
+        "indice_actual": 200.95333333333335,
+        "periodo": "2005.0-2026.0"
+    },
+    "colima": {
+        "nombre": "Colima",
+        "nivel": "estado",
+        "cagr_anual": 0.06630176254602427,
+        "indice_actual": 212.8066666666667,
+        "periodo": "2005.0-2026.0"
+    },
+    "guanajuato": {
+        "nombre": "Guanajuato",
+        "nivel": "estado",
+        "cagr_anual": 0.0644312510031606,
+        "indice_actual": 202.19333333333336,
+        "periodo": "2005.0-2026.0"
+    },
+    "guerrero": {
+        "nombre": "Guerrero",
+        "nivel": "estado",
+        "cagr_anual": 0.06681071486832924,
+        "indice_actual": 196.38333333333333,
+        "periodo": "2005.0-2026.0"
+    },
+    "hidalgo": {
+        "nombre": "Hidalgo",
+        "nivel": "estado",
+        "cagr_anual": 0.0597145095122833,
+        "indice_actual": 187.38333333333333,
+        "periodo": "2005.0-2026.0"
+    },
+    "jalisco": {
+        "nombre": "Jalisco",
+        "nivel": "estado",
+        "cagr_anual": 0.07052328403693808,
+        "indice_actual": 232.564,
+        "periodo": "2005.0-2026.0"
+    },
+    "michoacán": {
+        "nombre": "Michoacán",
+        "nivel": "estado",
+        "cagr_anual": 0.06609676489782945,
+        "indice_actual": 209.99666666666667,
+        "periodo": "2005.0-2026.0"
+    },
+    "morelos": {
+        "nombre": "Morelos",
+        "nivel": "estado",
+        "cagr_anual": 0.0679876590593036,
+        "indice_actual": 201.05333333333337,
+        "periodo": "2005.0-2026.0"
+    },
+    "méxico": {
+        "nombre": "México",
+        "nivel": "estado",
+        "cagr_anual": 0.05965881766209247,
+        "indice_actual": 173.15,
+        "periodo": "2005.0-2026.0"
+    },
+    "nayarit": {
+        "nombre": "Nayarit",
+        "nivel": "estado",
+        "cagr_anual": 0.0746906371003555,
+        "indice_actual": 243.62666666666667,
+        "periodo": "2005.0-2026.0"
+    },
+    "nuevo león": {
+        "nombre": "Nuevo León",
+        "nivel": "estado",
+        "cagr_anual": 0.0691029142620112,
+        "indice_actual": 217.26799999999997,
+        "periodo": "2005.0-2026.0"
+    },
+    "oaxaca": {
+        "nombre": "Oaxaca",
+        "nivel": "estado",
+        "cagr_anual": 0.06301113437110328,
+        "indice_actual": 194.39333333333332,
+        "periodo": "2005.0-2026.0"
+    },
+    "quintana roo": {
+        "nombre": "Quintana Roo",
+        "nivel": "estado",
+        "cagr_anual": 0.08080914723409638,
+        "indice_actual": 261.3533333333333,
+        "periodo": "2005.0-2026.0"
+    },
+    "sinaloa": {
+        "nombre": "Sinaloa",
+        "nivel": "estado",
+        "cagr_anual": 0.07082617694278359,
+        "indice_actual": 224.20000000000002,
+        "periodo": "2005.0-2026.0"
+    },
+    "sonora": {
+        "nombre": "Sonora",
+        "nivel": "estado",
+        "cagr_anual": 0.06593614748788768,
+        "indice_actual": 206.74666666666667,
+        "periodo": "2005.0-2026.0"
+    },
+    "tabasco": {
+        "nombre": "Tabasco",
+        "nivel": "estado",
+        "cagr_anual": 0.06318498321017407,
+        "indice_actual": 187.51,
+        "periodo": "2005.0-2026.0"
+    },
+    "tamaulipas": {
+        "nombre": "Tamaulipas",
+        "nivel": "estado",
+        "cagr_anual": 0.06575366142138006,
+        "indice_actual": 200.91666666666666,
+        "periodo": "2005.0-2026.0"
+    },
+    "yucatán": {
+        "nombre": "Yucatán",
+        "nivel": "estado",
+        "cagr_anual": 0.07329302857370479,
+        "indice_actual": 214.02666666666667,
+        "periodo": "2005.0-2026.0"
+    }
+}

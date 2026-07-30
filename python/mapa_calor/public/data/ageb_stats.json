@@ -1,0 +1,4886 @@
+{
+  "30_003_0000_0357": {
+    "count": 2,
+    "avg_precio_m2": 9169.5,
+    "sum_precio_m2": 18339,
+    "colonia_predominante": "Hilario C Salas"
+  },
+  "30_003_0000_0319": {
+    "count": 1,
+    "avg_precio_m2": 6894.74,
+    "sum_precio_m2": 6894.74,
+    "colonia_predominante": "Acayucan Centro"
+  },
+  "30_003_0000_0516": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Villa Alta"
+  },
+  "30_004_0000_0246": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Actopan"
+  },
+  "30_004_0000_0231": {
+    "count": 3,
+    "avg_precio_m2": 12416.96,
+    "sum_precio_m2": 24833.92,
+    "colonia_predominante": "Actopan"
+  },
+  "30_011_0000_0166": {
+    "count": 84,
+    "avg_precio_m2": 21290.305975609765,
+    "sum_precio_m2": 1745805.0900000005,
+    "colonia_predominante": "Alvarado Centro"
+  },
+  "30_011_0000_0151": {
+    "count": 4,
+    "avg_precio_m2": 20731.553333333333,
+    "sum_precio_m2": 62194.66,
+    "colonia_predominante": "Alvarado Centro"
+  },
+  "30_011_0000_0217": {
+    "count": 55,
+    "avg_precio_m2": 21389.87175,
+    "sum_precio_m2": 855594.8699999999,
+    "colonia_predominante": "Alvarado Centro"
+  },
+  "30_011_0000_0170": {
+    "count": 5,
+    "avg_precio_m2": 20044.4125,
+    "sum_precio_m2": 80177.65,
+    "colonia_predominante": "Anton Lizardo"
+  },
+  "30_011_0000_0255": {
+    "count": 2,
+    "avg_precio_m2": 22836.54,
+    "sum_precio_m2": 22836.54,
+    "colonia_predominante": "Anton Lizardo"
+  },
+  "30_011_0000_0236": {
+    "count": 2,
+    "avg_precio_m2": 21521.010000000002,
+    "sum_precio_m2": 43042.020000000004,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_011_0000_0039": {
+    "count": 5,
+    "avg_precio_m2": 16945.9425,
+    "sum_precio_m2": 67783.77,
+    "colonia_predominante": "Heroica Anton Lizardo"
+  },
+  "30_011_0000_0185": {
+    "count": 3,
+    "avg_precio_m2": 19542.183333333334,
+    "sum_precio_m2": 58626.55,
+    "colonia_predominante": "Residencial Lomas Residencial"
+  },
+  "30_013_0000_0156": {
+    "count": 1,
+    "avg_precio_m2": 9668.31,
+    "sum_precio_m2": 9668.31,
+    "colonia_predominante": "Las Delicias"
+  },
+  "30_014_0000_0115": {
+    "count": 2,
+    "avg_precio_m2": 13500,
+    "sum_precio_m2": 27000,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_014_0000_0100": {
+    "count": 2,
+    "avg_precio_m2": 3754695.43,
+    "sum_precio_m2": 7509390.86,
+    "colonia_predominante": "La Patrona"
+  },
+  "30_016_0000_0105": {
+    "count": 1,
+    "avg_precio_m2": 7966.08,
+    "sum_precio_m2": 7966.08,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_016_0000_0158": {
+    "count": 3,
+    "avg_precio_m2": 11516.575,
+    "sum_precio_m2": 23033.15,
+    "colonia_predominante": "General Vicente Lopez"
+  },
+  "30_026_0000_0116": {
+    "count": 3,
+    "avg_precio_m2": 13818.1,
+    "sum_precio_m2": 41454.3,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_026_0000_0046": {
+    "count": 1,
+    "avg_precio_m2": 15333.33,
+    "sum_precio_m2": 15333.33,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_026_0000_014A": {
+    "count": 5,
+    "avg_precio_m2": 711210.206,
+    "sum_precio_m2": 3556051.03,
+    "colonia_predominante": "Banderilla Centro"
+  },
+  "30_026_0000_0027": {
+    "count": 5,
+    "avg_precio_m2": 9857.064000000002,
+    "sum_precio_m2": 49285.32000000001,
+    "colonia_predominante": "Banderilla Centro"
+  },
+  "30_027_0000_0043": {
+    "count": 1,
+    "avg_precio_m2": 10508.47,
+    "sum_precio_m2": 10508.47,
+    "colonia_predominante": "Benito Juárez"
+  },
+  "30_028_0000_0286": {
+    "count": 18,
+    "avg_precio_m2": 14010.442857142856,
+    "sum_precio_m2": 196146.19999999998,
+    "colonia_predominante": "Fernando Gutierrez Barrios"
+  },
+  "30_028_0000_0568": {
+    "count": 13,
+    "avg_precio_m2": 17175.62375,
+    "sum_precio_m2": 137404.99,
+    "colonia_predominante": "Jardines de Virginia"
+  },
+  "30_028_0000_0676": {
+    "count": 12,
+    "avg_precio_m2": 16697.740833333333,
+    "sum_precio_m2": 200372.89,
+    "colonia_predominante": "Boca Del Rio Centro"
+  },
+  "30_028_0000_038A": {
+    "count": 16,
+    "avg_precio_m2": 18795.46,
+    "sum_precio_m2": 263136.44,
+    "colonia_predominante": "Boca Del Rio"
+  },
+  "30_028_0000_0182": {
+    "count": 39,
+    "avg_precio_m2": 76784.56342857143,
+    "sum_precio_m2": 2687459.72,
+    "colonia_predominante": "Adalberto Tejeda"
+  },
+  "30_028_0000_0252": {
+    "count": 187,
+    "avg_precio_m2": 18948.248013245044,
+    "sum_precio_m2": 2861185.4500000016,
+    "colonia_predominante": "Costa de Oro 1a Secc"
+  },
+  "30_028_0000_0271": {
+    "count": 162,
+    "avg_precio_m2": 187340.02768656722,
+    "sum_precio_m2": 25103563.71000001,
+    "colonia_predominante": "Costa de Oro 1a Secc"
+  },
+  "30_028_0000_0290": {
+    "count": 23,
+    "avg_precio_m2": 34049.400555555556,
+    "sum_precio_m2": 612889.21,
+    "colonia_predominante": "Costa de Oro 1a Secc"
+  },
+  "30_028_0000_0322": {
+    "count": 37,
+    "avg_precio_m2": 19611.224666666665,
+    "sum_precio_m2": 588336.74,
+    "colonia_predominante": "La Cuchilla"
+  },
+  "30_028_0000_0341": {
+    "count": 35,
+    "avg_precio_m2": 16301.163,
+    "sum_precio_m2": 489034.89,
+    "colonia_predominante": "Villa Rica"
+  },
+  "30_028_0000_0356": {
+    "count": 49,
+    "avg_precio_m2": 16458.17853658537,
+    "sum_precio_m2": 674785.3200000001,
+    "colonia_predominante": "Villa Rica"
+  },
+  "30_028_0000_0591": {
+    "count": 17,
+    "avg_precio_m2": 17822.173333333332,
+    "sum_precio_m2": 267332.6,
+    "colonia_predominante": "Costa Verde"
+  },
+  "30_028_0000_0657": {
+    "count": 16,
+    "avg_precio_m2": 14669.18071428571,
+    "sum_precio_m2": 205368.52999999994,
+    "colonia_predominante": "Heriberto Kehoe (Petrolera)"
+  },
+  "30_028_0000_0680": {
+    "count": 5,
+    "avg_precio_m2": 8986.46,
+    "sum_precio_m2": 26959.379999999997,
+    "colonia_predominante": "Venustiano Carranza"
+  },
+  "30_028_0000_0708": {
+    "count": 1,
+    "avg_precio_m2": 9777.78,
+    "sum_precio_m2": 9777.78,
+    "colonia_predominante": "Venustiano Carranza"
+  },
+  "30_028_0000_0712": {
+    "count": 2,
+    "avg_precio_m2": 16000,
+    "sum_precio_m2": 32000,
+    "colonia_predominante": "Plan de Ayala"
+  },
+  "30_028_0000_077A": {
+    "count": 19,
+    "avg_precio_m2": 11942.448,
+    "sum_precio_m2": 179136.72,
+    "colonia_predominante": "Joyas de Mocambo (Granjas los Pinos)"
+  },
+  "30_028_0000_0799": {
+    "count": 3,
+    "avg_precio_m2": 18377.190000000002,
+    "sum_precio_m2": 36754.380000000005,
+    "colonia_predominante": "Ugocep"
+  },
+  "30_028_0000_0869": {
+    "count": 67,
+    "avg_precio_m2": 74247.10071428571,
+    "sum_precio_m2": 4157837.6399999997,
+    "colonia_predominante": "El Morro las Colonias"
+  },
+  "30_028_0000_0515": {
+    "count": 7,
+    "avg_precio_m2": 17809.12285714286,
+    "sum_precio_m2": 124663.86,
+    "colonia_predominante": "Las Vegas II"
+  },
+  "30_028_0000_0638": {
+    "count": 15,
+    "avg_precio_m2": 17614.612142857142,
+    "sum_precio_m2": 246604.56999999998,
+    "colonia_predominante": "Infonavit el Morro"
+  },
+  "30_028_0000_0572": {
+    "count": 44,
+    "avg_precio_m2": 13803.443428571429,
+    "sum_precio_m2": 483120.52,
+    "colonia_predominante": "Jardines de Virginia"
+  },
+  "30_028_0000_0924": {
+    "count": 1,
+    "avg_precio_m2": 10714.29,
+    "sum_precio_m2": 10714.29,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_028_0000_0089": {
+    "count": 6,
+    "avg_precio_m2": 13103.005,
+    "sum_precio_m2": 26206.01,
+    "colonia_predominante": "Nueva Era"
+  },
+  "30_028_0000_0093": {
+    "count": 19,
+    "avg_precio_m2": 7000.874117647059,
+    "sum_precio_m2": 119014.86000000002,
+    "colonia_predominante": "Revolucion"
+  },
+  "30_028_0000_052A": {
+    "count": 2,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Las Vegas II"
+  },
+  "30_028_0000_0587": {
+    "count": 16,
+    "avg_precio_m2": 18267.43666666667,
+    "sum_precio_m2": 219209.24000000002,
+    "colonia_predominante": "Jardines de Virginia"
+  },
+  "30_028_0000_0731": {
+    "count": 22,
+    "avg_precio_m2": 16942.06,
+    "sum_precio_m2": 271072.96,
+    "colonia_predominante": "Ejido Primero de Mayo Sur"
+  },
+  "30_028_0000_0661": {
+    "count": 6,
+    "avg_precio_m2": 14102.991999999998,
+    "sum_precio_m2": 70514.95999999999,
+    "colonia_predominante": "Boca Del Rio Centro"
+  },
+  "30_028_0000_0125": {
+    "count": 4,
+    "avg_precio_m2": 16044.747500000001,
+    "sum_precio_m2": 64178.990000000005,
+    "colonia_predominante": "Rigo"
+  },
+  "30_028_0000_013A": {
+    "count": 17,
+    "avg_precio_m2": 14271.23636363636,
+    "sum_precio_m2": 156983.59999999998,
+    "colonia_predominante": "Revolucion"
+  },
+  "30_028_0000_0750": {
+    "count": 18,
+    "avg_precio_m2": 16000.693749999999,
+    "sum_precio_m2": 256011.09999999998,
+    "colonia_predominante": "Jose Lopez Portillo"
+  },
+  "30_028_0000_0695": {
+    "count": 2,
+    "avg_precio_m2": 11529.41,
+    "sum_precio_m2": 11529.41,
+    "colonia_predominante": "Venustiano Carranza"
+  },
+  "30_028_0000_0623": {
+    "count": 4,
+    "avg_precio_m2": 14895.995,
+    "sum_precio_m2": 59583.98,
+    "colonia_predominante": "Infonavit el Morro"
+  },
+  "30_028_0000_084A": {
+    "count": 6,
+    "avg_precio_m2": 19499.975000000002,
+    "sum_precio_m2": 116999.85,
+    "colonia_predominante": "Villa Rica"
+  },
+  "30_028_0000_091A": {
+    "count": 27,
+    "avg_precio_m2": 13071.942380952378,
+    "sum_precio_m2": 274510.7899999999,
+    "colonia_predominante": "Las Vegas II"
+  },
+  "30_028_0000_0500": {
+    "count": 16,
+    "avg_precio_m2": 14538.885714285716,
+    "sum_precio_m2": 203544.40000000002,
+    "colonia_predominante": "El Manantial"
+  },
+  "30_028_0000_0144": {
+    "count": 5,
+    "avg_precio_m2": 17329.34,
+    "sum_precio_m2": 86646.7,
+    "colonia_predominante": "Ejido Primero de Mayo Norte"
+  },
+  "30_028_0000_0163": {
+    "count": 12,
+    "avg_precio_m2": 17556.475,
+    "sum_precio_m2": 175564.75,
+    "colonia_predominante": "Ejido Primero de Mayo Norte"
+  },
+  "30_028_0000_0604": {
+    "count": 11,
+    "avg_precio_m2": 20525.642222222225,
+    "sum_precio_m2": 184730.78000000003,
+    "colonia_predominante": "Revolucion"
+  },
+  "30_028_0000_0619": {
+    "count": 10,
+    "avg_precio_m2": 15731.718571428572,
+    "sum_precio_m2": 110122.03,
+    "colonia_predominante": "Estatuto Juridico"
+  },
+  "30_028_0000_0642": {
+    "count": 59,
+    "avg_precio_m2": 16231.101489361705,
+    "sum_precio_m2": 762861.7700000001,
+    "colonia_predominante": "Jardines de Virginia"
+  },
+  "30_028_0000_0727": {
+    "count": 14,
+    "avg_precio_m2": 15209.47090909091,
+    "sum_precio_m2": 167304.18,
+    "colonia_predominante": "Ejido Primero de Mayo Sur"
+  },
+  "30_028_0000_0746": {
+    "count": 13,
+    "avg_precio_m2": 14839.849999999999,
+    "sum_precio_m2": 178078.19999999998,
+    "colonia_predominante": "Ejido Primero de Mayo Sur"
+  },
+  "30_028_0000_0765": {
+    "count": 12,
+    "avg_precio_m2": 15937.927777777775,
+    "sum_precio_m2": 143441.34999999998,
+    "colonia_predominante": "Casas Tamsa"
+  },
+  "30_028_0000_0892": {
+    "count": 1,
+    "avg_precio_m2": 11228.07,
+    "sum_precio_m2": 11228.07,
+    "colonia_predominante": "Miguel Alemán Valdés"
+  },
+  "30_028_0000_0303": {
+    "count": 3,
+    "avg_precio_m2": 15254.24,
+    "sum_precio_m2": 15254.24,
+    "colonia_predominante": "Las Vegas II"
+  },
+  "30_028_0000_0801": {
+    "count": 1,
+    "avg_precio_m2": 18235.29,
+    "sum_precio_m2": 18235.29,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_028_0000_0375": {
+    "count": 123,
+    "avg_precio_m2": 15721.7472,
+    "sum_precio_m2": 1572174.72,
+    "colonia_predominante": "La Tampiquera"
+  },
+  "30_028_0000_0816": {
+    "count": 63,
+    "avg_precio_m2": 18912.06021739131,
+    "sum_precio_m2": 869954.7700000003,
+    "colonia_predominante": "Boca Del Rio Centro"
+  },
+  "30_028_0000_0888": {
+    "count": 1,
+    "avg_precio_m2": 16434.78,
+    "sum_precio_m2": 16434.78,
+    "colonia_predominante": "Miguel Alemán Valdes"
+  },
+  "30_028_0000_0873": {
+    "count": 74,
+    "avg_precio_m2": 17980.567611940296,
+    "sum_precio_m2": 1204698.0299999998,
+    "colonia_predominante": "El Morro las Colonias"
+  },
+  "30_030_0000_0246": {
+    "count": 2,
+    "avg_precio_m2": 5669.25,
+    "sum_precio_m2": 5669.25,
+    "colonia_predominante": "Centro"
+  },
+  "30_030_0000_0176": {
+    "count": 4,
+    "avg_precio_m2": 2475.8599999999997,
+    "sum_precio_m2": 9903.439999999999,
+    "colonia_predominante": "Centro"
+  },
+  "30_030_0000_0180": {
+    "count": 1,
+    "avg_precio_m2": 2166.67,
+    "sum_precio_m2": 2166.67,
+    "colonia_predominante": "Hogar"
+  },
+  "30_032_0000_0077": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Catemaco"
+  },
+  "30_032_0000_0202": {
+    "count": 1,
+    "avg_precio_m2": 12931.03,
+    "sum_precio_m2": 12931.03,
+    "colonia_predominante": "Don Pedro"
+  },
+  "30_032_0000_0359": {
+    "count": 1,
+    "avg_precio_m2": 13235.29,
+    "sum_precio_m2": 13235.29,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_032_0000_0255": {
+    "count": 1,
+    "avg_precio_m2": 5937.5,
+    "sum_precio_m2": 5937.5,
+    "colonia_predominante": "Tepetapan"
+  },
+  "30_033_0000_0093": {
+    "count": 1,
+    "avg_precio_m2": 26923.08,
+    "sum_precio_m2": 26923.08,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_034_0000_0122": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Aguilera"
+  },
+  "30_036_0000_0023": {
+    "count": 3,
+    "avg_precio_m2": 10798.766666666668,
+    "sum_precio_m2": 32396.300000000003,
+    "colonia_predominante": "Coacoatzintla"
+  },
+  "30_038_0000_0206": {
+    "count": 12,
+    "avg_precio_m2": 26534.59,
+    "sum_precio_m2": 238811.31,
+    "colonia_predominante": "Sostenes Guzmán"
+  },
+  "30_038_0000_0051": {
+    "count": 3,
+    "avg_precio_m2": 19958.756666666664,
+    "sum_precio_m2": 59876.27,
+    "colonia_predominante": "Coatepec Centro"
+  },
+  "30_038_0000_0085": {
+    "count": 13,
+    "avg_precio_m2": 14728.576363636363,
+    "sum_precio_m2": 162014.34,
+    "colonia_predominante": "Coatepec Centro"
+  },
+  "30_038_0000_0117": {
+    "count": 9,
+    "avg_precio_m2": 16400.922857142858,
+    "sum_precio_m2": 114806.45999999999,
+    "colonia_predominante": "Coatepec Centro"
+  },
+  "30_038_0000_0263": {
+    "count": 13,
+    "avg_precio_m2": 14213.354999999998,
+    "sum_precio_m2": 170560.25999999998,
+    "colonia_predominante": "Congregacion La Orduña"
+  },
+  "30_038_0000_0225": {
+    "count": 1,
+    "avg_precio_m2": 22666.67,
+    "sum_precio_m2": 22666.67,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_038_0000_0259": {
+    "count": 1,
+    "avg_precio_m2": 8653.85,
+    "sum_precio_m2": 8653.85,
+    "colonia_predominante": "Jardines de Coatepec"
+  },
+  "30_038_0000_0070": {
+    "count": 2,
+    "avg_precio_m2": 16420.8,
+    "sum_precio_m2": 32841.6,
+    "colonia_predominante": "Araucarias"
+  },
+  "30_038_0000_0278": {
+    "count": 1,
+    "avg_precio_m2": 8766.67,
+    "sum_precio_m2": 8766.67,
+    "colonia_predominante": "Encino"
+  },
+  "30_038_0000_0136": {
+    "count": 1,
+    "avg_precio_m2": 8992.81,
+    "sum_precio_m2": 8992.81,
+    "colonia_predominante": "Las Lomas"
+  },
+  "30_038_0000_0329": {
+    "count": 11,
+    "avg_precio_m2": 17625.853333333336,
+    "sum_precio_m2": 158632.68000000002,
+    "colonia_predominante": "Coatepec Centro"
+  },
+  "30_038_0000_0047": {
+    "count": 16,
+    "avg_precio_m2": 11266.152499999998,
+    "sum_precio_m2": 135193.83,
+    "colonia_predominante": "La Gachupina"
+  },
+  "30_038_0000_0297": {
+    "count": 10,
+    "avg_precio_m2": 19391.394999999997,
+    "sum_precio_m2": 155131.15999999997,
+    "colonia_predominante": "La Florida"
+  },
+  "30_038_0000_030A": {
+    "count": 8,
+    "avg_precio_m2": 16478.26714285714,
+    "sum_precio_m2": 115347.87,
+    "colonia_predominante": "Los Lirios"
+  },
+  "30_038_0000_0314": {
+    "count": 33,
+    "avg_precio_m2": 15580.214285714284,
+    "sum_precio_m2": 436245.99999999994,
+    "colonia_predominante": "Coatepec Centro"
+  },
+  "30_039_0000_1697": {
+    "count": 1,
+    "avg_precio_m2": 11309.52,
+    "sum_precio_m2": 11309.52,
+    "colonia_predominante": "Cd Olmeca"
+  },
+  "30_039_0000_1860": {
+    "count": 1,
+    "avg_precio_m2": 6292.31,
+    "sum_precio_m2": 6292.31,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_039_0000_1165": {
+    "count": 4,
+    "avg_precio_m2": 9356.762499999999,
+    "sum_precio_m2": 37427.049999999996,
+    "colonia_predominante": "Vistalmar"
+  },
+  "30_039_0000_0025": {
+    "count": 7,
+    "avg_precio_m2": 7104.562,
+    "sum_precio_m2": 35522.81,
+    "colonia_predominante": "Guadalupe Victoria"
+  },
+  "30_039_0000_003A": {
+    "count": 12,
+    "avg_precio_m2": 6652.266666666666,
+    "sum_precio_m2": 59870.4,
+    "colonia_predominante": "Puerto México"
+  },
+  "30_039_0000_0059": {
+    "count": 10,
+    "avg_precio_m2": 14481.651249999999,
+    "sum_precio_m2": 115853.20999999999,
+    "colonia_predominante": "Coatzacoalcos Centro"
+  },
+  "30_039_0000_0063": {
+    "count": 6,
+    "avg_precio_m2": 17095.737500000003,
+    "sum_precio_m2": 68382.95000000001,
+    "colonia_predominante": "Coatzacoalcos Centro"
+  },
+  "30_039_0000_0078": {
+    "count": 8,
+    "avg_precio_m2": 13001.518,
+    "sum_precio_m2": 65007.59,
+    "colonia_predominante": "Coatzacoalcos Centro"
+  },
+  "30_039_0000_1019": {
+    "count": 3,
+    "avg_precio_m2": 11003.173333333334,
+    "sum_precio_m2": 33009.520000000004,
+    "colonia_predominante": "Playa Sol"
+  },
+  "30_039_0000_1080": {
+    "count": 2,
+    "avg_precio_m2": 12008.31,
+    "sum_precio_m2": 24016.62,
+    "colonia_predominante": "Coatzacoalcos Centro"
+  },
+  "30_039_0000_1095": {
+    "count": 4,
+    "avg_precio_m2": 11143.643333333333,
+    "sum_precio_m2": 33430.93,
+    "colonia_predominante": "Puerto MÃ©xico"
+  },
+  "30_039_0000_188A": {
+    "count": 25,
+    "avg_precio_m2": 8548.063684210525,
+    "sum_precio_m2": 162413.20999999996,
+    "colonia_predominante": "Paraíso Coatzacoalcos"
+  },
+  "30_039_0000_099A": {
+    "count": 2,
+    "avg_precio_m2": 10826.21,
+    "sum_precio_m2": 10826.21,
+    "colonia_predominante": "Esfuerzo de los Hermanos Del Trabajo"
+  },
+  "30_039_0000_0364": {
+    "count": 1,
+    "avg_precio_m2": 27500,
+    "sum_precio_m2": 27500,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_039_0000_1042": {
+    "count": 2,
+    "avg_precio_m2": 12098.87,
+    "sum_precio_m2": 24197.74,
+    "colonia_predominante": "Emiliano Zapata"
+  },
+  "30_039_0000_1470": {
+    "count": 2,
+    "avg_precio_m2": 15704.515,
+    "sum_precio_m2": 31409.03,
+    "colonia_predominante": "Lomas de Barrillas"
+  },
+  "30_039_0000_1663": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Ciudad Olmeca"
+  },
+  "30_039_0000_1678": {
+    "count": 3,
+    "avg_precio_m2": 8190.215,
+    "sum_precio_m2": 16380.43,
+    "colonia_predominante": "Ciudad Olmeca"
+  },
+  "30_039_0000_1682": {
+    "count": 2,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Ciudad Olmeca"
+  },
+  "30_039_0000_0129": {
+    "count": 10,
+    "avg_precio_m2": 9581.971666666666,
+    "sum_precio_m2": 57491.83,
+    "colonia_predominante": "Benito Juárez Norte"
+  },
+  "30_039_0000_0453": {
+    "count": 1,
+    "avg_precio_m2": 10952.38,
+    "sum_precio_m2": 10952.38,
+    "colonia_predominante": "Rancho Alegre"
+  },
+  "30_039_0000_0966": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Coatzacoalcos Centro"
+  },
+  "30_039_0000_1023": {
+    "count": 6,
+    "avg_precio_m2": 14344.025,
+    "sum_precio_m2": 57376.1,
+    "colonia_predominante": "Guadalupe Victoria"
+  },
+  "30_039_0000_1038": {
+    "count": 1,
+    "avg_precio_m2": 8520.83,
+    "sum_precio_m2": 8520.83,
+    "colonia_predominante": "Guadalupe Victoria"
+  },
+  "30_039_0000_1517": {
+    "count": 1,
+    "avg_precio_m2": 5407.17,
+    "sum_precio_m2": 5407.17,
+    "colonia_predominante": "Benito Juárez Sur"
+  },
+  "30_039_0000_0082": {
+    "count": 12,
+    "avg_precio_m2": 11591.918888888888,
+    "sum_precio_m2": 104327.26999999999,
+    "colonia_predominante": "Petrolera"
+  },
+  "30_039_0000_1659": {
+    "count": 11,
+    "avg_precio_m2": 10367.9125,
+    "sum_precio_m2": 41471.65,
+    "colonia_predominante": "Ciudad Olmeca"
+  },
+  "30_039_0000_0487": {
+    "count": 1,
+    "avg_precio_m2": 6250,
+    "sum_precio_m2": 6250,
+    "colonia_predominante": "Benito Juárez Norte"
+  },
+  "30_039_0000_1381": {
+    "count": 1,
+    "avg_precio_m2": 7500,
+    "sum_precio_m2": 7500,
+    "colonia_predominante": "San Silverio"
+  },
+  "30_039_0000_0985": {
+    "count": 4,
+    "avg_precio_m2": 8745.42,
+    "sum_precio_m2": 17490.84,
+    "colonia_predominante": "Esfuerzo de los Hermanos Del Trabajo"
+  },
+  "30_039_0000_124A": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Santa Isabel"
+  },
+  "30_039_0000_1273": {
+    "count": 2,
+    "avg_precio_m2": 8600,
+    "sum_precio_m2": 8600,
+    "colonia_predominante": "Rancho Alegre"
+  },
+  "30_039_0000_1396": {
+    "count": 1,
+    "avg_precio_m2": 8475.97,
+    "sum_precio_m2": 8475.97,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_039_0000_1606": {
+    "count": 1,
+    "avg_precio_m2": 9658.54,
+    "sum_precio_m2": 9658.54,
+    "colonia_predominante": "Nueva Imagen"
+  },
+  "30_039_0000_1610": {
+    "count": 3,
+    "avg_precio_m2": 9879.775000000001,
+    "sum_precio_m2": 19759.550000000003,
+    "colonia_predominante": "Nueva Imagen"
+  },
+  "30_039_0000_0468": {
+    "count": 9,
+    "avg_precio_m2": 13472.69125,
+    "sum_precio_m2": 107781.53,
+    "colonia_predominante": "Coatzacoalcos Centro"
+  },
+  "30_039_0000_0097": {
+    "count": 32,
+    "avg_precio_m2": 12582.7535483871,
+    "sum_precio_m2": 390065.3600000001,
+    "colonia_predominante": "Petrolera"
+  },
+  "30_039_0000_010A": {
+    "count": 12,
+    "avg_precio_m2": 16653.438000000002,
+    "sum_precio_m2": 166534.38,
+    "colonia_predominante": "Coatzacoalcos Centro"
+  },
+  "30_039_0000_0148": {
+    "count": 2,
+    "avg_precio_m2": 12187.65,
+    "sum_precio_m2": 24375.3,
+    "colonia_predominante": "Coatzacoalcos Centro"
+  },
+  "30_039_0000_1220": {
+    "count": 1,
+    "avg_precio_m2": 7333.33,
+    "sum_precio_m2": 7333.33,
+    "colonia_predominante": "Francisco Villa"
+  },
+  "30_039_0000_0504": {
+    "count": 2,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Lic Luis EcheverrÃ­a Alvarez"
+  },
+  "30_039_0000_1076": {
+    "count": 1,
+    "avg_precio_m2": 4991.18,
+    "sum_precio_m2": 4991.18,
+    "colonia_predominante": "El Tesoro"
+  },
+  "30_039_0000_1625": {
+    "count": 1,
+    "avg_precio_m2": 13142.86,
+    "sum_precio_m2": 13142.86,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_039_0000_1644": {
+    "count": 1,
+    "avg_precio_m2": 14200,
+    "sum_precio_m2": 14200,
+    "colonia_predominante": "Ciudad Olmeca"
+  },
+  "30_039_0000_1589": {
+    "count": 7,
+    "avg_precio_m2": 14653.470000000001,
+    "sum_precio_m2": 73267.35,
+    "colonia_predominante": "Santa Isabel"
+  },
+  "30_039_0000_1907": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Coatzacoalcos"
+  },
+  "30_039_0000_1911": {
+    "count": 15,
+    "avg_precio_m2": 6853.217499999999,
+    "sum_precio_m2": 82238.60999999999,
+    "colonia_predominante": "Puerto Esmeralda"
+  },
+  "30_039_0000_1004": {
+    "count": 7,
+    "avg_precio_m2": 5505.259999999999,
+    "sum_precio_m2": 33031.56,
+    "colonia_predominante": "Guadalupe Victoria"
+  },
+  "30_039_0000_1894": {
+    "count": 13,
+    "avg_precio_m2": 15491.58,
+    "sum_precio_m2": 170407.38,
+    "colonia_predominante": "Fraccionamiento Paraíso Coatzacoalcos"
+  },
+  "30_039_0000_1714": {
+    "count": 3,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Ciudad Olmeca"
+  },
+  "30_039_0000_1108": {
+    "count": 1,
+    "avg_precio_m2": 11000,
+    "sum_precio_m2": 11000,
+    "colonia_predominante": "Coatzacoalcos Centro"
+  },
+  "30_039_0000_1733": {
+    "count": 1,
+    "avg_precio_m2": 4067.34,
+    "sum_precio_m2": 4067.34,
+    "colonia_predominante": "Punta Del Mar"
+  },
+  "30_039_0000_2017": {
+    "count": 2,
+    "avg_precio_m2": 13043.48,
+    "sum_precio_m2": 13043.48,
+    "colonia_predominante": "San Silverio"
+  },
+  "30_039_0000_2036": {
+    "count": 5,
+    "avg_precio_m2": 12637.560000000001,
+    "sum_precio_m2": 50550.240000000005,
+    "colonia_predominante": "San Silverio"
+  },
+  "30_039_0000_2021": {
+    "count": 3,
+    "avg_precio_m2": 13043.48,
+    "sum_precio_m2": 13043.48,
+    "colonia_predominante": "San Silverio"
+  },
+  "30_039_0000_149A": {
+    "count": 1,
+    "avg_precio_m2": 6446.56,
+    "sum_precio_m2": 6446.56,
+    "colonia_predominante": "Santa Rosa"
+  },
+  "30_039_0000_1593": {
+    "count": 3,
+    "avg_precio_m2": 17901.18,
+    "sum_precio_m2": 53703.54,
+    "colonia_predominante": "Las Palmas"
+  },
+  "30_039_0000_1254": {
+    "count": 3,
+    "avg_precio_m2": 13617.163333333332,
+    "sum_precio_m2": 40851.49,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_039_0000_0383": {
+    "count": 2,
+    "avg_precio_m2": 14800,
+    "sum_precio_m2": 14800,
+    "colonia_predominante": "Fovissste"
+  },
+  "30_039_0000_195A": {
+    "count": 1,
+    "avg_precio_m2": 5378.57,
+    "sum_precio_m2": 5378.57,
+    "colonia_predominante": "Puerto Esmeralda"
+  },
+  "30_039_0000_131A": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Independencia"
+  },
+  "30_039_0000_1574": {
+    "count": 1,
+    "avg_precio_m2": 14848.48,
+    "sum_precio_m2": 14848.48,
+    "colonia_predominante": "Fraccionamiento Las Gaviotas"
+  },
+  "30_040_0000_0098": {
+    "count": 3,
+    "avg_precio_m2": 13833.33,
+    "sum_precio_m2": 27666.66,
+    "colonia_predominante": "14 de Marzo"
+  },
+  "30_040_0000_0331": {
+    "count": 2,
+    "avg_precio_m2": 4987.5,
+    "sum_precio_m2": 4987.5,
+    "colonia_predominante": "Faja de Oro"
+  },
+  "30_040_0000_0238": {
+    "count": 1,
+    "avg_precio_m2": 11044.18,
+    "sum_precio_m2": 11044.18,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_044_0000_0383": {
+    "count": 5,
+    "avg_precio_m2": 29106.523999999998,
+    "sum_precio_m2": 145532.62,
+    "colonia_predominante": "Club Residencial Campestre"
+  },
+  "30_044_0000_0523": {
+    "count": 4,
+    "avg_precio_m2": 15032.036666666667,
+    "sum_precio_m2": 45096.11,
+    "colonia_predominante": "Antorchista Unidad"
+  },
+  "30_044_0000_0557": {
+    "count": 1,
+    "avg_precio_m2": 9127.52,
+    "sum_precio_m2": 9127.52,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_044_0000_0720": {
+    "count": 1,
+    "avg_precio_m2": 13351.13,
+    "sum_precio_m2": 13351.13,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_044_0000_003A": {
+    "count": 3,
+    "avg_precio_m2": 16295.815,
+    "sum_precio_m2": 32591.63,
+    "colonia_predominante": "San Jose"
+  },
+  "30_044_0000_0044": {
+    "count": 4,
+    "avg_precio_m2": 22378.345,
+    "sum_precio_m2": 89513.38,
+    "colonia_predominante": "El Girasol"
+  },
+  "30_044_0000_0059": {
+    "count": 7,
+    "avg_precio_m2": 11744.717999999999,
+    "sum_precio_m2": 58723.59,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_044_0000_0133": {
+    "count": 3,
+    "avg_precio_m2": 15043.08,
+    "sum_precio_m2": 30086.16,
+    "colonia_predominante": "Miranda"
+  },
+  "30_044_0000_0167": {
+    "count": 3,
+    "avg_precio_m2": 5278.206666666667,
+    "sum_precio_m2": 15834.62,
+    "colonia_predominante": "San Martin de Porres"
+  },
+  "30_044_0000_028A": {
+    "count": 1,
+    "avg_precio_m2": 16279.07,
+    "sum_precio_m2": 16279.07,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_044_0000_0294": {
+    "count": 2,
+    "avg_precio_m2": 10016.24,
+    "sum_precio_m2": 20032.48,
+    "colonia_predominante": "Lopez Arias"
+  },
+  "30_044_0000_0487": {
+    "count": 43,
+    "avg_precio_m2": 15534.904146341456,
+    "sum_precio_m2": 636931.0699999997,
+    "colonia_predominante": "San Cayetano"
+  },
+  "30_044_0000_0519": {
+    "count": 5,
+    "avg_precio_m2": 12670.710000000001,
+    "sum_precio_m2": 63353.55,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_044_0000_0097": {
+    "count": 10,
+    "avg_precio_m2": 15752.106,
+    "sum_precio_m2": 157521.06,
+    "colonia_predominante": "Alameda"
+  },
+  "30_044_0000_0631": {
+    "count": 1,
+    "avg_precio_m2": 13531.53,
+    "sum_precio_m2": 13531.53,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_044_0000_0576": {
+    "count": 1,
+    "avg_precio_m2": 6250,
+    "sum_precio_m2": 6250,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_044_0000_0788": {
+    "count": 1,
+    "avg_precio_m2": 13392.86,
+    "sum_precio_m2": 13392.86,
+    "colonia_predominante": "San Román INFONAVIT"
+  },
+  "30_044_0000_0491": {
+    "count": 2,
+    "avg_precio_m2": 7638.89,
+    "sum_precio_m2": 15277.78,
+    "colonia_predominante": "Las Arboledas"
+  },
+  "30_044_0000_0947": {
+    "count": 1,
+    "avg_precio_m2": 21071.43,
+    "sum_precio_m2": 21071.43,
+    "colonia_predominante": "Córdoba Centro"
+  },
+  "30_044_0000_0010": {
+    "count": 5,
+    "avg_precio_m2": 21743.85,
+    "sum_precio_m2": 108719.25,
+    "colonia_predominante": "Circuito Campestre"
+  },
+  "30_044_0000_1038": {
+    "count": 6,
+    "avg_precio_m2": 15879.970000000001,
+    "sum_precio_m2": 95279.82,
+    "colonia_predominante": "Residencial Finca Real"
+  },
+  "30_044_0000_0453": {
+    "count": 1,
+    "avg_precio_m2": 17450.98,
+    "sum_precio_m2": 17450.98,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_044_0000_0468": {
+    "count": 7,
+    "avg_precio_m2": 15323.449999999999,
+    "sum_precio_m2": 107264.15,
+    "colonia_predominante": "Nuevo Córdoba"
+  },
+  "30_044_0000_010A": {
+    "count": 12,
+    "avg_precio_m2": 15336.065833333332,
+    "sum_precio_m2": 184032.78999999998,
+    "colonia_predominante": "Fraccionamiento Los Olivos"
+  },
+  "30_044_0000_0580": {
+    "count": 1,
+    "avg_precio_m2": 11415.09,
+    "sum_precio_m2": 11415.09,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_044_0000_0152": {
+    "count": 2,
+    "avg_precio_m2": 13218.39,
+    "sum_precio_m2": 13218.39,
+    "colonia_predominante": "Miranda"
+  },
+  "30_044_0000_0612": {
+    "count": 7,
+    "avg_precio_m2": 17037.902857142857,
+    "sum_precio_m2": 119265.32,
+    "colonia_predominante": "Villa Verde"
+  },
+  "30_044_0000_0769": {
+    "count": 3,
+    "avg_precio_m2": 14371.02,
+    "sum_precio_m2": 28742.04,
+    "colonia_predominante": "La Luz Francisco I Madero"
+  },
+  "30_044_0000_0754": {
+    "count": 1,
+    "avg_precio_m2": 22424.24,
+    "sum_precio_m2": 22424.24,
+    "colonia_predominante": "La Luz Francisco I Madero"
+  },
+  "30_044_0000_0951": {
+    "count": 1,
+    "avg_precio_m2": 7167.24,
+    "sum_precio_m2": 7167.24,
+    "colonia_predominante": "El Cañaveral"
+  },
+  "30_044_0000_0345": {
+    "count": 1,
+    "avg_precio_m2": 17571.88,
+    "sum_precio_m2": 17571.88,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_044_0000_0896": {
+    "count": 1,
+    "avg_precio_m2": 14015.15,
+    "sum_precio_m2": 14015.15,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_044_0000_0364": {
+    "count": 4,
+    "avg_precio_m2": 12045.494999999999,
+    "sum_precio_m2": 48181.979999999996,
+    "colonia_predominante": "Alianza Popular"
+  },
+  "30_045_0000_0198": {
+    "count": 1,
+    "avg_precio_m2": 10994.76,
+    "sum_precio_m2": 10994.76,
+    "colonia_predominante": "Cosamaloapan de Carpio Centro"
+  },
+  "30_045_0000_0658": {
+    "count": 3,
+    "avg_precio_m2": 12164.37,
+    "sum_precio_m2": 36493.11,
+    "colonia_predominante": "Gabino Barreda"
+  },
+  "30_047_0000_007A": {
+    "count": 1,
+    "avg_precio_m2": 7780,
+    "sum_precio_m2": 7780,
+    "colonia_predominante": "Coscomatepec de Bravo"
+  },
+  "30_048_0000_0626": {
+    "count": 1,
+    "avg_precio_m2": 14878.61,
+    "sum_precio_m2": 14878.61,
+    "colonia_predominante": "Cosoleacaque Centro"
+  },
+  "30_048_0000_0221": {
+    "count": 1,
+    "avg_precio_m2": 34550.84,
+    "sum_precio_m2": 34550.84,
+    "colonia_predominante": "Estero Del Pantano"
+  },
+  "30_048_0000_0768": {
+    "count": 1,
+    "avg_precio_m2": 5776.08,
+    "sum_precio_m2": 5776.08,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_048_0000_0541": {
+    "count": 1,
+    "avg_precio_m2": 7579.55,
+    "sum_precio_m2": 7579.55,
+    "colonia_predominante": "Solidaridad El Naranjito"
+  },
+  "30_048_0000_0715": {
+    "count": 1,
+    "avg_precio_m2": 6153.85,
+    "sum_precio_m2": 6153.85,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_048_0000_065A": {
+    "count": 7,
+    "avg_precio_m2": 5006.111999999999,
+    "sum_precio_m2": 25030.559999999998,
+    "colonia_predominante": "Infonavit Paquital"
+  },
+  "30_048_0000_0664": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "AmpliaciÃ³n Mapachapa"
+  },
+  "30_048_0000_0556": {
+    "count": 1,
+    "avg_precio_m2": 6935.14,
+    "sum_precio_m2": 6935.14,
+    "colonia_predominante": "Solidaridad El Naranjito"
+  },
+  "30_048_0000_0236": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "AmpliaciÃ³n Mapachapa"
+  },
+  "30_055_0000_0103": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Chalma"
+  },
+  "30_061_0000_076A": {
+    "count": 2,
+    "avg_precio_m2": 7284.885,
+    "sum_precio_m2": 14569.77,
+    "colonia_predominante": "J Mario Rosado"
+  },
+  "30_061_0000_0685": {
+    "count": 1,
+    "avg_precio_m2": 4687.5,
+    "sum_precio_m2": 4687.5,
+    "colonia_predominante": "La Aurora"
+  },
+  "30_061_0000_0967": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Ignacio Zaragoza"
+  },
+  "30_061_0000_0789": {
+    "count": 2,
+    "avg_precio_m2": 2568.75,
+    "sum_precio_m2": 2568.75,
+    "colonia_predominante": "Tepito"
+  },
+  "30_062_0000_0061": {
+    "count": 1,
+    "avg_precio_m2": 25000,
+    "sum_precio_m2": 25000,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_065_0000_0082": {
+    "count": 2,
+    "avg_precio_m2": 3763.4,
+    "sum_precio_m2": 3763.4,
+    "colonia_predominante": "Los Pinos"
+  },
+  "30_065_0000_0190": {
+    "count": 2,
+    "avg_precio_m2": 8580.375,
+    "sum_precio_m2": 17160.75,
+    "colonia_predominante": "Congregacion Rinconada"
+  },
+  "30_065_0000_0330": {
+    "count": 1,
+    "avg_precio_m2": 7539.68,
+    "sum_precio_m2": 7539.68,
+    "colonia_predominante": "Bugambilias"
+  },
+  "30_065_0000_0487": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Fraccionamiento La Pradera"
+  },
+  "30_065_0000_0383": {
+    "count": 3,
+    "avg_precio_m2": 12908.15,
+    "sum_precio_m2": 38724.45,
+    "colonia_predominante": "Bugambilias"
+  },
+  "30_065_0000_0237": {
+    "count": 1,
+    "avg_precio_m2": 7783.78,
+    "sum_precio_m2": 7783.78,
+    "colonia_predominante": "Villa Emiliano Zapata"
+  },
+  "30_065_0000_0025": {
+    "count": 1,
+    "avg_precio_m2": 13118.81,
+    "sum_precio_m2": 13118.81,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_065_0000_0171": {
+    "count": 4,
+    "avg_precio_m2": 17904.34,
+    "sum_precio_m2": 53713.02,
+    "colonia_predominante": "La Estanzuela"
+  },
+  "30_065_0000_0400": {
+    "count": 1,
+    "avg_precio_m2": 17142.86,
+    "sum_precio_m2": 17142.86,
+    "colonia_predominante": "Emiliano Zapata"
+  },
+  "30_065_0000_010A": {
+    "count": 3,
+    "avg_precio_m2": 12083.335,
+    "sum_precio_m2": 24166.67,
+    "colonia_predominante": "Dos Ríos"
+  },
+  "30_065_0000_0468": {
+    "count": 2,
+    "avg_precio_m2": 17413.535,
+    "sum_precio_m2": 34827.07,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_065_0000_0491": {
+    "count": 1,
+    "avg_precio_m2": 13600,
+    "sum_precio_m2": 13600,
+    "colonia_predominante": "Emiliano Zapata"
+  },
+  "30_065_0000_0311": {
+    "count": 8,
+    "avg_precio_m2": 13710.507499999998,
+    "sum_precio_m2": 109684.05999999998,
+    "colonia_predominante": "Bugambilias"
+  },
+  "30_068_0000_0188": {
+    "count": 1,
+    "avg_precio_m2": 14761.9,
+    "sum_precio_m2": 14761.9,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_068_0000_0192": {
+    "count": 5,
+    "avg_precio_m2": 17992.1475,
+    "sum_precio_m2": 71968.59,
+    "colonia_predominante": "Lomas de La Llave"
+  },
+  "30_068_0000_0239": {
+    "count": 6,
+    "avg_precio_m2": 14273.911666666669,
+    "sum_precio_m2": 85643.47000000002,
+    "colonia_predominante": "Fraccionamiento Residencial la Llave"
+  },
+  "30_068_0000_0262": {
+    "count": 24,
+    "avg_precio_m2": 15527.323749999998,
+    "sum_precio_m2": 372655.76999999996,
+    "colonia_predominante": "Santa Leticia"
+  },
+  "30_068_0000_0313": {
+    "count": 1,
+    "avg_precio_m2": 12500,
+    "sum_precio_m2": 12500,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_068_0000_0205": {
+    "count": 1,
+    "avg_precio_m2": 10714.29,
+    "sum_precio_m2": 10714.29,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_068_0000_0224": {
+    "count": 25,
+    "avg_precio_m2": 18193.744583333337,
+    "sum_precio_m2": 436649.87000000005,
+    "colonia_predominante": "Fortín"
+  },
+  "30_068_0000_039A": {
+    "count": 1,
+    "avg_precio_m2": 15497.55,
+    "sum_precio_m2": 15497.55,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_068_0000_021A": {
+    "count": 61,
+    "avg_precio_m2": 15662.084745762713,
+    "sum_precio_m2": 924063.0000000001,
+    "colonia_predominante": "Fortín de las Flores Centro"
+  },
+  "30_068_0000_0243": {
+    "count": 1,
+    "avg_precio_m2": 18666.67,
+    "sum_precio_m2": 18666.67,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_068_0000_0116": {
+    "count": 10,
+    "avg_precio_m2": 18122.244,
+    "sum_precio_m2": 181222.44,
+    "colonia_predominante": "Ejido Tlacotengo"
+  },
+  "30_068_0000_0258": {
+    "count": 10,
+    "avg_precio_m2": 15659.123750000002,
+    "sum_precio_m2": 125272.99000000002,
+    "colonia_predominante": "Los Pinos"
+  },
+  "30_068_0000_0366": {
+    "count": 1,
+    "avg_precio_m2": 20730.77,
+    "sum_precio_m2": 20730.77,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_069_0000_0077": {
+    "count": 1,
+    "avg_precio_m2": 16666.67,
+    "sum_precio_m2": 16666.67,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_071_0000_0126": {
+    "count": 1,
+    "avg_precio_m2": 11428.57,
+    "sum_precio_m2": 11428.57,
+    "colonia_predominante": "Reserva Territorial"
+  },
+  "30_071_0000_0041": {
+    "count": 1,
+    "avg_precio_m2": 13838.46,
+    "sum_precio_m2": 13838.46,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_071_0000_0111": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Huatusco de Chicuellar Centro"
+  },
+  "30_074_0000_0058": {
+    "count": 1,
+    "avg_precio_m2": 13636.36,
+    "sum_precio_m2": 13636.36,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_075_0000_0163": {
+    "count": 5,
+    "avg_precio_m2": 18075.0025,
+    "sum_precio_m2": 72300.01,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_077_0000_037A": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Isla Centro"
+  },
+  "30_077_0000_0238": {
+    "count": 1,
+    "avg_precio_m2": 9740.74,
+    "sum_precio_m2": 9740.74,
+    "colonia_predominante": "Isla Centro"
+  },
+  "30_079_0000_0073": {
+    "count": 3,
+    "avg_precio_m2": 17574.379999999997,
+    "sum_precio_m2": 35148.759999999995,
+    "colonia_predominante": "IxhuacÃ¡n de los Reyes"
+  },
+  "30_081_0000_0156": {
+    "count": 2,
+    "avg_precio_m2": 11512.895,
+    "sum_precio_m2": 23025.79,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_085_0000_0278": {
+    "count": 3,
+    "avg_precio_m2": 20827.693333333333,
+    "sum_precio_m2": 62483.08,
+    "colonia_predominante": "Barrio Barrio Nuevo"
+  },
+  "30_085_0000_0085": {
+    "count": 5,
+    "avg_precio_m2": 15326.26,
+    "sum_precio_m2": 61305.04,
+    "colonia_predominante": "Escamela"
+  },
+  "30_085_0000_0259": {
+    "count": 1,
+    "avg_precio_m2": 13465.17,
+    "sum_precio_m2": 13465.17,
+    "colonia_predominante": "De La Luz"
+  },
+  "30_085_0000_0367": {
+    "count": 2,
+    "avg_precio_m2": 4701.34,
+    "sum_precio_m2": 9402.68,
+    "colonia_predominante": "Cuautlalpan"
+  },
+  "30_085_0000_0066": {
+    "count": 1,
+    "avg_precio_m2": 16216.22,
+    "sum_precio_m2": 16216.22,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_085_0000_0051": {
+    "count": 1,
+    "avg_precio_m2": 23404.26,
+    "sum_precio_m2": 23404.26,
+    "colonia_predominante": "Escamela"
+  },
+  "30_085_0000_0526": {
+    "count": 1,
+    "avg_precio_m2": 17872.34,
+    "sum_precio_m2": 17872.34,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_087_0000_0569": {
+    "count": 1,
+    "avg_precio_m2": 10833.33,
+    "sum_precio_m2": 10833.33,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_087_0000_0770": {
+    "count": 4,
+    "avg_precio_m2": 16092.800000000001,
+    "sum_precio_m2": 48278.4,
+    "colonia_predominante": "Coapexpan"
+  },
+  "30_087_0000_0624": {
+    "count": 1,
+    "avg_precio_m2": 5666.67,
+    "sum_precio_m2": 5666.67,
+    "colonia_predominante": "Pomona Infonavit"
+  },
+  "30_087_0000_1730": {
+    "count": 2,
+    "avg_precio_m2": 8722.085,
+    "sum_precio_m2": 17444.17,
+    "colonia_predominante": "Unidad Jardín"
+  },
+  "30_087_0000_0018": {
+    "count": 2,
+    "avg_precio_m2": 11200,
+    "sum_precio_m2": 11200,
+    "colonia_predominante": "Empleados Municipales"
+  },
+  "30_087_0000_0022": {
+    "count": 4,
+    "avg_precio_m2": 10792.449999999999,
+    "sum_precio_m2": 43169.799999999996,
+    "colonia_predominante": "Progreso Macuiltepetl"
+  },
+  "30_087_0000_0094": {
+    "count": 20,
+    "avg_precio_m2": 7030.410588235294,
+    "sum_precio_m2": 119516.98,
+    "colonia_predominante": "Jose Cardel"
+  },
+  "30_087_0000_0107": {
+    "count": 10,
+    "avg_precio_m2": 12722.220000000001,
+    "sum_precio_m2": 50888.880000000005,
+    "colonia_predominante": "Francisco Ferrer Guardia"
+  },
+  "30_087_0000_0111": {
+    "count": 8,
+    "avg_precio_m2": 17618.4275,
+    "sum_precio_m2": 140947.42,
+    "colonia_predominante": "Xalapa Enríquez Centro"
+  },
+  "30_087_0000_0126": {
+    "count": 2,
+    "avg_precio_m2": 12291.67,
+    "sum_precio_m2": 12291.67,
+    "colonia_predominante": "SebastiÃ¡n Lerdo de Tejada Indeco"
+  },
+  "30_087_0000_0997": {
+    "count": 2,
+    "avg_precio_m2": 15064.355,
+    "sum_precio_m2": 30128.71,
+    "colonia_predominante": "Guadalupe Rodriguez"
+  },
+  "30_087_0000_0145": {
+    "count": 20,
+    "avg_precio_m2": 10824.258235294119,
+    "sum_precio_m2": 184012.39,
+    "colonia_predominante": "Jalapa Enríquez Centro"
+  },
+  "30_087_0000_015A": {
+    "count": 13,
+    "avg_precio_m2": 15135.46,
+    "sum_precio_m2": 136219.13999999998,
+    "colonia_predominante": "Jalapa Enríquez Centro"
+  },
+  "30_087_0000_0164": {
+    "count": 11,
+    "avg_precio_m2": 15451.269999999999,
+    "sum_precio_m2": 139061.43,
+    "colonia_predominante": "Jalapa Enríquez Centro"
+  },
+  "30_087_0000_0215": {
+    "count": 9,
+    "avg_precio_m2": 16987.85375,
+    "sum_precio_m2": 135902.83,
+    "colonia_predominante": "Nueva Xalapa"
+  },
+  "30_087_0000_022A": {
+    "count": 19,
+    "avg_precio_m2": 29730.89882352941,
+    "sum_precio_m2": 505425.27999999997,
+    "colonia_predominante": "Xalapa Enríquez Centro"
+  },
+  "30_087_0000_0291": {
+    "count": 1,
+    "avg_precio_m2": 22892.54,
+    "sum_precio_m2": 22892.54,
+    "colonia_predominante": "21 de Marzo"
+  },
+  "30_087_0000_0338": {
+    "count": 4,
+    "avg_precio_m2": 10206.686666666666,
+    "sum_precio_m2": 30620.059999999998,
+    "colonia_predominante": "Virginia Cordero de Murillo Vidal"
+  },
+  "30_087_0000_0380": {
+    "count": 30,
+    "avg_precio_m2": 12643.365217391305,
+    "sum_precio_m2": 290797.4,
+    "colonia_predominante": "Sipeh Animas"
+  },
+  "30_087_0000_0427": {
+    "count": 3,
+    "avg_precio_m2": 28769.23,
+    "sum_precio_m2": 57538.46,
+    "colonia_predominante": "Pastoresa"
+  },
+  "30_087_0000_047A": {
+    "count": 1,
+    "avg_precio_m2": 13500,
+    "sum_precio_m2": 13500,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_087_0000_0588": {
+    "count": 2,
+    "avg_precio_m2": 16500,
+    "sum_precio_m2": 16500,
+    "colonia_predominante": "Casa Blanca"
+  },
+  "30_087_0000_0639": {
+    "count": 15,
+    "avg_precio_m2": 18893.834545454545,
+    "sum_precio_m2": 207832.18,
+    "colonia_predominante": "Coapexpan"
+  },
+  "30_087_0000_0658": {
+    "count": 3,
+    "avg_precio_m2": 19102.215,
+    "sum_precio_m2": 38204.43,
+    "colonia_predominante": "Unidad Del Bosque Pensiones"
+  },
+  "30_087_0000_086A": {
+    "count": 5,
+    "avg_precio_m2": 19442.127500000002,
+    "sum_precio_m2": 77768.51000000001,
+    "colonia_predominante": "Jacarandas"
+  },
+  "30_087_0000_0944": {
+    "count": 44,
+    "avg_precio_m2": 14587.093142857144,
+    "sum_precio_m2": 510548.26,
+    "colonia_predominante": "Fuentes de Las Ánimas"
+  },
+  "30_087_0000_0963": {
+    "count": 2,
+    "avg_precio_m2": 12065.414999999999,
+    "sum_precio_m2": 24130.829999999998,
+    "colonia_predominante": "Benito Juárez"
+  },
+  "30_087_0000_0978": {
+    "count": 2,
+    "avg_precio_m2": 14588.06,
+    "sum_precio_m2": 14588.06,
+    "colonia_predominante": "Benito Juárez"
+  },
+  "30_087_0000_104A": {
+    "count": 3,
+    "avg_precio_m2": 2259.4866666666667,
+    "sum_precio_m2": 6778.46,
+    "colonia_predominante": "Miguel Hidalgo y Costilla"
+  },
+  "30_087_0000_1054": {
+    "count": 8,
+    "avg_precio_m2": 16785.611666666668,
+    "sum_precio_m2": 100713.67000000001,
+    "colonia_predominante": "Jardines de Jalapa"
+  },
+  "30_087_0000_1088": {
+    "count": 4,
+    "avg_precio_m2": 10019.550000000001,
+    "sum_precio_m2": 30058.65,
+    "colonia_predominante": "Progreso Macuiltepetl"
+  },
+  "30_087_0000_1092": {
+    "count": 3,
+    "avg_precio_m2": 19687.5,
+    "sum_precio_m2": 39375,
+    "colonia_predominante": "Modelo"
+  },
+  "30_087_0000_1105": {
+    "count": 6,
+    "avg_precio_m2": 11713.869999999999,
+    "sum_precio_m2": 58569.35,
+    "colonia_predominante": "Obrero Campesina"
+  },
+  "30_087_0000_111A": {
+    "count": 9,
+    "avg_precio_m2": 17286.028,
+    "sum_precio_m2": 86430.14,
+    "colonia_predominante": "Veracruz"
+  },
+  "30_087_0000_1124": {
+    "count": 5,
+    "avg_precio_m2": 8033.608,
+    "sum_precio_m2": 40168.04,
+    "colonia_predominante": "Progreso Macuiltepetl"
+  },
+  "30_087_0000_1139": {
+    "count": 1,
+    "avg_precio_m2": 2166.67,
+    "sum_precio_m2": 2166.67,
+    "colonia_predominante": "Progreso Macuiltepetl"
+  },
+  "30_087_0000_1143": {
+    "count": 1,
+    "avg_precio_m2": 9705.88,
+    "sum_precio_m2": 9705.88,
+    "colonia_predominante": "Rafael Lucio"
+  },
+  "30_087_0000_1177": {
+    "count": 3,
+    "avg_precio_m2": 20454.55,
+    "sum_precio_m2": 20454.55,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_087_0000_1181": {
+    "count": 1,
+    "avg_precio_m2": 2100000,
+    "sum_precio_m2": 2100000,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_087_0000_1209": {
+    "count": 3,
+    "avg_precio_m2": 12353.095000000001,
+    "sum_precio_m2": 24706.190000000002,
+    "colonia_predominante": "Revolución"
+  },
+  "30_087_0000_1213": {
+    "count": 2,
+    "avg_precio_m2": 9500,
+    "sum_precio_m2": 9500,
+    "colonia_predominante": "Unidad Del Bosque Pensiones"
+  },
+  "30_087_0000_1228": {
+    "count": 2,
+    "avg_precio_m2": 2225,
+    "sum_precio_m2": 2225,
+    "colonia_predominante": "RevoluciÃ³n"
+  },
+  "30_087_0000_1247": {
+    "count": 1,
+    "avg_precio_m2": 12187.5,
+    "sum_precio_m2": 12187.5,
+    "colonia_predominante": "Lomas de San Roque"
+  },
+  "30_087_0000_1266": {
+    "count": 1,
+    "avg_precio_m2": 12916.67,
+    "sum_precio_m2": 12916.67,
+    "colonia_predominante": "Carolino Anaya"
+  },
+  "30_087_0000_1302": {
+    "count": 2,
+    "avg_precio_m2": 14439.025,
+    "sum_precio_m2": 28878.05,
+    "colonia_predominante": "Álvaro Obregón"
+  },
+  "30_087_0000_2226": {
+    "count": 6,
+    "avg_precio_m2": 18433.4575,
+    "sum_precio_m2": 73733.83,
+    "colonia_predominante": "Residencial Monte Magno"
+  },
+  "30_087_0000_1406": {
+    "count": 7,
+    "avg_precio_m2": 8666.096000000001,
+    "sum_precio_m2": 43330.48,
+    "colonia_predominante": "Sebastián Lerdo de Tejada Indeco"
+  },
+  "30_087_0000_2071": {
+    "count": 1,
+    "avg_precio_m2": 14444.44,
+    "sum_precio_m2": 14444.44,
+    "colonia_predominante": "América"
+  },
+  "30_087_0000_1497": {
+    "count": 2,
+    "avg_precio_m2": 13684.21,
+    "sum_precio_m2": 13684.21,
+    "colonia_predominante": "Miradores del Sumidero"
+  },
+  "30_087_0000_1548": {
+    "count": 2,
+    "avg_precio_m2": 12541.23,
+    "sum_precio_m2": 25082.46,
+    "colonia_predominante": "Benito Juárez"
+  },
+  "30_087_0000_1567": {
+    "count": 1,
+    "avg_precio_m2": 11739.13,
+    "sum_precio_m2": 11739.13,
+    "colonia_predominante": "Del Moral"
+  },
+  "30_087_0000_1020": {
+    "count": 1,
+    "avg_precio_m2": 21666.67,
+    "sum_precio_m2": 21666.67,
+    "colonia_predominante": "Fraccionamiento Constituyentes"
+  },
+  "30_087_0000_0130": {
+    "count": 3,
+    "avg_precio_m2": 28477.686666666665,
+    "sum_precio_m2": 85433.06,
+    "colonia_predominante": "Represa Del Carmen"
+  },
+  "30_087_0000_0605": {
+    "count": 1,
+    "avg_precio_m2": 13684.21,
+    "sum_precio_m2": 13684.21,
+    "colonia_predominante": "Rotaria"
+  },
+  "30_087_0000_061A": {
+    "count": 2,
+    "avg_precio_m2": 12083.33,
+    "sum_precio_m2": 12083.33,
+    "colonia_predominante": "Higueras"
+  },
+  "30_087_0000_0906": {
+    "count": 1,
+    "avg_precio_m2": 11538.46,
+    "sum_precio_m2": 11538.46,
+    "colonia_predominante": "Veracruz"
+  },
+  "30_087_0000_1073": {
+    "count": 10,
+    "avg_precio_m2": 4431.705,
+    "sum_precio_m2": 8863.41,
+    "colonia_predominante": "Unidad Jardín"
+  },
+  "30_087_0000_0982": {
+    "count": 3,
+    "avg_precio_m2": 21750,
+    "sum_precio_m2": 43500,
+    "colonia_predominante": "Xalapa Enríquez Centro"
+  },
+  "30_087_0000_1001": {
+    "count": 2,
+    "avg_precio_m2": 15121.485,
+    "sum_precio_m2": 30242.97,
+    "colonia_predominante": "Benito Juárez"
+  },
+  "30_087_0000_1463": {
+    "count": 14,
+    "avg_precio_m2": 8657.068000000001,
+    "sum_precio_m2": 86570.68000000001,
+    "colonia_predominante": "Buenavista"
+  },
+  "30_087_0000_1478": {
+    "count": 8,
+    "avg_precio_m2": 14861.491999999998,
+    "sum_precio_m2": 74307.45999999999,
+    "colonia_predominante": "Los Lagos"
+  },
+  "30_087_0000_1482": {
+    "count": 1,
+    "avg_precio_m2": 13684.21,
+    "sum_precio_m2": 13684.21,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_087_0000_1660": {
+    "count": 2,
+    "avg_precio_m2": 12113.515,
+    "sum_precio_m2": 24227.03,
+    "colonia_predominante": "Emiliano Zapata"
+  },
+  "30_087_0000_2230": {
+    "count": 8,
+    "avg_precio_m2": 1052726.00375,
+    "sum_precio_m2": 8421808.03,
+    "colonia_predominante": "Centro Sct Veracruz"
+  },
+  "30_087_0000_1938": {
+    "count": 2,
+    "avg_precio_m2": 14576.92,
+    "sum_precio_m2": 14576.92,
+    "colonia_predominante": "PeÃ±ascal"
+  },
+  "30_087_0000_1675": {
+    "count": 1,
+    "avg_precio_m2": 7500,
+    "sum_precio_m2": 7500,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_087_0000_1764": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Moctezuma"
+  },
+  "30_087_0000_1980": {
+    "count": 2,
+    "avg_precio_m2": 10688.025,
+    "sum_precio_m2": 21376.05,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_087_0000_1158": {
+    "count": 5,
+    "avg_precio_m2": 16526.763333333332,
+    "sum_precio_m2": 49580.29,
+    "colonia_predominante": "Ferrocarrilera"
+  },
+  "30_087_0000_1196": {
+    "count": 1,
+    "avg_precio_m2": 18584.07,
+    "sum_precio_m2": 18584.07,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_087_0000_2300": {
+    "count": 41,
+    "avg_precio_m2": 19690.914054054054,
+    "sum_precio_m2": 728563.82,
+    "colonia_predominante": "Rubí Ánimas"
+  },
+  "30_087_0000_2207": {
+    "count": 31,
+    "avg_precio_m2": 33828.30043478261,
+    "sum_precio_m2": 778050.91,
+    "colonia_predominante": "Las Cumbres"
+  },
+  "30_087_0000_1622": {
+    "count": 1,
+    "avg_precio_m2": 4782.61,
+    "sum_precio_m2": 4782.61,
+    "colonia_predominante": "Veracruz"
+  },
+  "30_087_0000_2122": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_087_0000_1590": {
+    "count": 3,
+    "avg_precio_m2": 11288.54,
+    "sum_precio_m2": 22577.08,
+    "colonia_predominante": "Del Moral"
+  },
+  "30_087_0000_1317": {
+    "count": 7,
+    "avg_precio_m2": 11205.256,
+    "sum_precio_m2": 56026.28,
+    "colonia_predominante": "Los Ãngeles"
+  },
+  "30_087_0000_1340": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "2 de Abril"
+  },
+  "30_087_0000_0874": {
+    "count": 5,
+    "avg_precio_m2": 5605.01,
+    "sum_precio_m2": 11210.02,
+    "colonia_predominante": "Sumidero"
+  },
+  "30_087_0000_1957": {
+    "count": 1,
+    "avg_precio_m2": 28333.33,
+    "sum_precio_m2": 28333.33,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_087_0000_1514": {
+    "count": 2,
+    "avg_precio_m2": 24853.345,
+    "sum_precio_m2": 49706.69,
+    "colonia_predominante": "Estibadores"
+  },
+  "30_087_0000_1016": {
+    "count": 9,
+    "avg_precio_m2": 16047.358000000002,
+    "sum_precio_m2": 80236.79000000001,
+    "colonia_predominante": "Jose de Jesús Panes"
+  },
+  "30_087_0000_2052": {
+    "count": 3,
+    "avg_precio_m2": 12230.519999999999,
+    "sum_precio_m2": 36691.56,
+    "colonia_predominante": "Fraccionamiento Los Pinos"
+  },
+  "30_087_0000_2118": {
+    "count": 1,
+    "avg_precio_m2": 14556.96,
+    "sum_precio_m2": 14556.96,
+    "colonia_predominante": "2 de Abril"
+  },
+  "30_087_0000_2160": {
+    "count": 61,
+    "avg_precio_m2": 12663.08148148148,
+    "sum_precio_m2": 683806.3999999999,
+    "colonia_predominante": "Residencial Monte Magno"
+  },
+  "30_087_0000_0855": {
+    "count": 1,
+    "avg_precio_m2": 15000,
+    "sum_precio_m2": 15000,
+    "colonia_predominante": "Bugambilias de Xalapa"
+  },
+  "30_087_0000_1923": {
+    "count": 6,
+    "avg_precio_m2": 10822.275000000001,
+    "sum_precio_m2": 64933.65000000001,
+    "colonia_predominante": "Salvador Diaz Mirón"
+  },
+  "30_087_0000_2090": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Hidalgo"
+  },
+  "30_087_0000_1783": {
+    "count": 2,
+    "avg_precio_m2": 4337.73,
+    "sum_precio_m2": 4337.73,
+    "colonia_predominante": "Lomas Verdes"
+  },
+  "30_087_0000_232A": {
+    "count": 4,
+    "avg_precio_m2": 10421.359999999999,
+    "sum_precio_m2": 31264.079999999998,
+    "colonia_predominante": "Las Fuentes"
+  },
+  "30_087_0000_0751": {
+    "count": 16,
+    "avg_precio_m2": 14049.051000000001,
+    "sum_precio_m2": 140490.51,
+    "colonia_predominante": "Emiliano Zapata"
+  },
+  "30_087_0000_1853": {
+    "count": 1,
+    "avg_precio_m2": 9736.84,
+    "sum_precio_m2": 9736.84,
+    "colonia_predominante": "Aviación Civil"
+  },
+  "30_087_0000_2245": {
+    "count": 4,
+    "avg_precio_m2": 17790.885000000002,
+    "sum_precio_m2": 71163.54000000001,
+    "colonia_predominante": "Las Torres"
+  },
+  "30_087_0000_2315": {
+    "count": 2,
+    "avg_precio_m2": 4337.73,
+    "sum_precio_m2": 4337.73,
+    "colonia_predominante": "Las Fuentes"
+  },
+  "30_087_0000_1887": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "FREDEPO"
+  },
+  "30_087_0000_1919": {
+    "count": 2,
+    "avg_precio_m2": 15963.235,
+    "sum_precio_m2": 31926.47,
+    "colonia_predominante": "FREDEPO"
+  },
+  "30_087_0000_1961": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Lealtad Institucional"
+  },
+  "30_087_0000_0766": {
+    "count": 2,
+    "avg_precio_m2": 14851.97,
+    "sum_precio_m2": 14851.97,
+    "colonia_predominante": "Felipe Carrillo Puerto"
+  },
+  "30_087_0000_1711": {
+    "count": 1,
+    "avg_precio_m2": 31250,
+    "sum_precio_m2": 31250,
+    "colonia_predominante": "Fraccionamiento Coapexpan"
+  },
+  "30_087_0000_129A": {
+    "count": 5,
+    "avg_precio_m2": 22532.701999999997,
+    "sum_precio_m2": 112663.51,
+    "colonia_predominante": "Emiliano Zapata"
+  },
+  "30_087_0000_0643": {
+    "count": 17,
+    "avg_precio_m2": 12961.49375,
+    "sum_precio_m2": 207383.9,
+    "colonia_predominante": "Santa Rosa"
+  },
+  "30_087_0000_0732": {
+    "count": 12,
+    "avg_precio_m2": 17831.26,
+    "sum_precio_m2": 196143.86,
+    "colonia_predominante": "Mártires de Chicago"
+  },
+  "30_087_0000_1904": {
+    "count": 16,
+    "avg_precio_m2": 22963.18857142857,
+    "sum_precio_m2": 321484.64,
+    "colonia_predominante": "Pastoresa"
+  },
+  "30_087_0000_1834": {
+    "count": 3,
+    "avg_precio_m2": 20416.835,
+    "sum_precio_m2": 40833.67,
+    "colonia_predominante": "Bosques de Las Lomas"
+  },
+  "30_087_0000_2368": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Tulipanes de Las Ãnimas"
+  },
+  "30_087_0000_0395": {
+    "count": 33,
+    "avg_precio_m2": 20927.435,
+    "sum_precio_m2": 585968.18,
+    "colonia_predominante": "Indeco Animas"
+  },
+  "30_087_0000_1336": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Cuauhtémoc"
+  },
+  "30_087_0000_0817": {
+    "count": 9,
+    "avg_precio_m2": 16065.455,
+    "sum_precio_m2": 128523.64,
+    "colonia_predominante": "El Castillo"
+  },
+  "30_087_0000_1321": {
+    "count": 12,
+    "avg_precio_m2": 15662.712499999998,
+    "sum_precio_m2": 125301.69999999998,
+    "colonia_predominante": "Lomas del Tejar"
+  },
+  "30_087_0000_0253": {
+    "count": 6,
+    "avg_precio_m2": 13348.691666666666,
+    "sum_precio_m2": 80092.15,
+    "colonia_predominante": "Bellavista"
+  },
+  "30_087_0000_2194": {
+    "count": 166,
+    "avg_precio_m2": 33134.51313333334,
+    "sum_precio_m2": 4970176.970000001,
+    "colonia_predominante": "Pedregal de las Animas"
+  },
+  "30_087_0000_2298": {
+    "count": 51,
+    "avg_precio_m2": 15868.053684210527,
+    "sum_precio_m2": 602986.04,
+    "colonia_predominante": "Anáhuac"
+  },
+  "30_087_0000_1552": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Del Moral"
+  },
+  "30_087_0000_1586": {
+    "count": 12,
+    "avg_precio_m2": 15861.797777777778,
+    "sum_precio_m2": 142756.18,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_087_0000_1779": {
+    "count": 1,
+    "avg_precio_m2": 7337.28,
+    "sum_precio_m2": 7337.28,
+    "colonia_predominante": "Moctezuma"
+  },
+  "30_087_0000_175A": {
+    "count": 10,
+    "avg_precio_m2": 14785.103,
+    "sum_precio_m2": 147851.03,
+    "colonia_predominante": "Moctezuma"
+  },
+  "30_087_0000_2103": {
+    "count": 1,
+    "avg_precio_m2": 13500,
+    "sum_precio_m2": 13500,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_087_0000_1942": {
+    "count": 3,
+    "avg_precio_m2": 11269.06,
+    "sum_precio_m2": 22538.12,
+    "colonia_predominante": "Casa Blanca"
+  },
+  "30_087_0000_0681": {
+    "count": 26,
+    "avg_precio_m2": 901984.2060869564,
+    "sum_precio_m2": 20745636.74,
+    "colonia_predominante": "El Olmo"
+  },
+  "30_092_0000_0145": {
+    "count": 3,
+    "avg_precio_m2": 13588.475,
+    "sum_precio_m2": 27176.95,
+    "colonia_predominante": "Xico"
+  },
+  "30_092_0000_015A": {
+    "count": 4,
+    "avg_precio_m2": 13650.273333333336,
+    "sum_precio_m2": 40950.82000000001,
+    "colonia_predominante": "Xico"
+  },
+  "30_094_0000_0277": {
+    "count": 1,
+    "avg_precio_m2": 11956.52,
+    "sum_precio_m2": 11956.52,
+    "colonia_predominante": "Feliciano Ceballos"
+  },
+  "30_097_0000_0156": {
+    "count": 1,
+    "avg_precio_m2": 27552.22,
+    "sum_precio_m2": 27552.22,
+    "colonia_predominante": "Lerdo de Tejada Centro"
+  },
+  "30_100_0000_0134": {
+    "count": 1,
+    "avg_precio_m2": 11666.67,
+    "sum_precio_m2": 11666.67,
+    "colonia_predominante": "Manlio Fabio Altamirano"
+  },
+  "30_101_0000_0131": {
+    "count": 3,
+    "avg_precio_m2": 16840.176666666666,
+    "sum_precio_m2": 50520.53,
+    "colonia_predominante": "Unidad habitacional Palmira"
+  },
+  "30_101_0000_0112": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Mariano Escobedo"
+  },
+  "30_101_0000_0023": {
+    "count": 1,
+    "avg_precio_m2": 19534.88,
+    "sum_precio_m2": 19534.88,
+    "colonia_predominante": "Unidad habitacional Palmira"
+  },
+  "30_102_0000_0783": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Veracruz Centro"
+  },
+  "30_102_0000_0711": {
+    "count": 1,
+    "avg_precio_m2": 15000.56,
+    "sum_precio_m2": 15000.56,
+    "colonia_predominante": "Chapultepec"
+  },
+  "30_102_0000_0143": {
+    "count": 1,
+    "avg_precio_m2": 117775.41,
+    "sum_precio_m2": 117775.41,
+    "colonia_predominante": "Martinez de La Torre"
+  },
+  "30_102_0000_0266": {
+    "count": 1,
+    "avg_precio_m2": 15000.56,
+    "sum_precio_m2": 15000.56,
+    "colonia_predominante": "Constitución"
+  },
+  "30_102_0000_0730": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Costa Esmeralda"
+  },
+  "30_105_0000_0060": {
+    "count": 7,
+    "avg_precio_m2": 15002.133333333331,
+    "sum_precio_m2": 90012.79999999999,
+    "colonia_predominante": "Medellin de Bravo"
+  },
+  "30_105_0000_0200": {
+    "count": 4,
+    "avg_precio_m2": 10035.4875,
+    "sum_precio_m2": 40141.95,
+    "colonia_predominante": "Medellin de Bravo"
+  },
+  "30_105_0000_0376": {
+    "count": 10,
+    "avg_precio_m2": 10153.279999999999,
+    "sum_precio_m2": 71072.95999999999,
+    "colonia_predominante": "Arboledas de San Ramon"
+  },
+  "30_105_0000_0395": {
+    "count": 2,
+    "avg_precio_m2": 9230.77,
+    "sum_precio_m2": 18461.54,
+    "colonia_predominante": "Puente Moreno"
+  },
+  "30_105_0000_0183": {
+    "count": 4,
+    "avg_precio_m2": 12079.720000000001,
+    "sum_precio_m2": 48318.880000000005,
+    "colonia_predominante": "Ejido El Tejar"
+  },
+  "30_105_0000_0198": {
+    "count": 1,
+    "avg_precio_m2": 14112.9,
+    "sum_precio_m2": 14112.9,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_105_0000_0446": {
+    "count": 3,
+    "avg_precio_m2": 8744.393333333333,
+    "sum_precio_m2": 26233.18,
+    "colonia_predominante": "Arboledas de San Ramon"
+  },
+  "30_105_0000_0501": {
+    "count": 1,
+    "avg_precio_m2": 10789.47,
+    "sum_precio_m2": 10789.47,
+    "colonia_predominante": "Fraccionamiento Arboleda San Miguel"
+  },
+  "30_105_0000_015A": {
+    "count": 1,
+    "avg_precio_m2": 4896.91,
+    "sum_precio_m2": 4896.91,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_105_0000_0412": {
+    "count": 8,
+    "avg_precio_m2": 13989.47857142857,
+    "sum_precio_m2": 97926.34999999999,
+    "colonia_predominante": "Fraccionamiento Puente Moreno"
+  },
+  "30_105_0000_0431": {
+    "count": 3,
+    "avg_precio_m2": 17082.44,
+    "sum_precio_m2": 51247.32,
+    "colonia_predominante": "Puente Moreno"
+  },
+  "30_105_0000_0450": {
+    "count": 10,
+    "avg_precio_m2": 12597.232499999998,
+    "sum_precio_m2": 100777.85999999999,
+    "colonia_predominante": "Puente Moreno"
+  },
+  "30_105_0000_0427": {
+    "count": 2,
+    "avg_precio_m2": 14328.14,
+    "sum_precio_m2": 28656.28,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_105_0000_0408": {
+    "count": 6,
+    "avg_precio_m2": 15042.494,
+    "sum_precio_m2": 75212.47,
+    "colonia_predominante": "Puente Moreno"
+  },
+  "30_105_0000_0361": {
+    "count": 3,
+    "avg_precio_m2": 9375,
+    "sum_precio_m2": 9375,
+    "colonia_predominante": "Arboledas de San Ramon"
+  },
+  "30_105_0000_0380": {
+    "count": 3,
+    "avg_precio_m2": 13502.11,
+    "sum_precio_m2": 27004.22,
+    "colonia_predominante": "Puente Moreno"
+  },
+  "30_105_0000_0126": {
+    "count": 3,
+    "avg_precio_m2": 14546.826666666666,
+    "sum_precio_m2": 43640.479999999996,
+    "colonia_predominante": "Paso Del Toro"
+  },
+  "30_105_0000_0111": {
+    "count": 6,
+    "avg_precio_m2": 23055.394999999997,
+    "sum_precio_m2": 92221.57999999999,
+    "colonia_predominante": "Paso Del Toro"
+  },
+  "30_108_0000_0378": {
+    "count": 1,
+    "avg_precio_m2": 1550,
+    "sum_precio_m2": 1550,
+    "colonia_predominante": "Buenavista Norte"
+  },
+  "30_108_0000_1130": {
+    "count": 1,
+    "avg_precio_m2": 2800,
+    "sum_precio_m2": 2800,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_108_0000_1060": {
+    "count": 1,
+    "avg_precio_m2": 15425.53,
+    "sum_precio_m2": 15425.53,
+    "colonia_predominante": "Insurgentes Norte"
+  },
+  "30_108_0000_1253": {
+    "count": 3,
+    "avg_precio_m2": 8951.143333333333,
+    "sum_precio_m2": 26853.43,
+    "colonia_predominante": "Cuauhtemoc"
+  },
+  "30_108_0000_0471": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Santa Clara"
+  },
+  "30_108_0000_058A": {
+    "count": 2,
+    "avg_precio_m2": 3469.105,
+    "sum_precio_m2": 6938.21,
+    "colonia_predominante": "Minatitlan Centro"
+  },
+  "30_108_0000_0607": {
+    "count": 1,
+    "avg_precio_m2": 1461.99,
+    "sum_precio_m2": 1461.99,
+    "colonia_predominante": "Cuauhtemoc"
+  },
+  "30_108_0000_1003": {
+    "count": 1,
+    "avg_precio_m2": 14469.45,
+    "sum_precio_m2": 14469.45,
+    "colonia_predominante": "Petrolera"
+  },
+  "30_108_0000_1041": {
+    "count": 1,
+    "avg_precio_m2": 9411.76,
+    "sum_precio_m2": 9411.76,
+    "colonia_predominante": "Miguel Hidalgo"
+  },
+  "30_108_0000_1075": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Nueva Mina"
+  },
+  "30_108_0000_1179": {
+    "count": 3,
+    "avg_precio_m2": 5581.363333333334,
+    "sum_precio_m2": 16744.09,
+    "colonia_predominante": "Cuauhtemoc"
+  },
+  "30_108_0000_1183": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Chapala"
+  },
+  "30_108_0000_1234": {
+    "count": 1,
+    "avg_precio_m2": 6923.08,
+    "sum_precio_m2": 6923.08,
+    "colonia_predominante": "Miguel Hidalgo"
+  },
+  "30_108_0000_1111": {
+    "count": 1,
+    "avg_precio_m2": 8709.68,
+    "sum_precio_m2": 8709.68,
+    "colonia_predominante": "Insurgentes Norte"
+  },
+  "30_108_0000_1249": {
+    "count": 3,
+    "avg_precio_m2": 5417.099999999999,
+    "sum_precio_m2": 16251.3,
+    "colonia_predominante": "Minatitlan Centro"
+  },
+  "30_108_0000_0537": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Palmar"
+  },
+  "30_108_0000_1145": {
+    "count": 2,
+    "avg_precio_m2": 5636.36,
+    "sum_precio_m2": 5636.36,
+    "colonia_predominante": "Nueva Tacoteno"
+  },
+  "30_108_0000_1018": {
+    "count": 2,
+    "avg_precio_m2": 9495.39,
+    "sum_precio_m2": 18990.78,
+    "colonia_predominante": "Palmar"
+  },
+  "30_108_0000_1431": {
+    "count": 1,
+    "avg_precio_m2": 2236.36,
+    "sum_precio_m2": 2236.36,
+    "colonia_predominante": "Nueva Esperanza"
+  },
+  "30_109_0000_0093": {
+    "count": 1,
+    "avg_precio_m2": 5937.5,
+    "sum_precio_m2": 5937.5,
+    "colonia_predominante": "Benito Juárez"
+  },
+  "30_109_0000_0267": {
+    "count": 1,
+    "avg_precio_m2": 19293.48,
+    "sum_precio_m2": 19293.48,
+    "colonia_predominante": "Mateo Acosta"
+  },
+  "30_114_0000_013A": {
+    "count": 1,
+    "avg_precio_m2": 5879.24,
+    "sum_precio_m2": 5879.24,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_115_0000_0067": {
+    "count": 3,
+    "avg_precio_m2": 11554.416666666666,
+    "sum_precio_m2": 34663.25,
+    "colonia_predominante": "Lopez Arias"
+  },
+  "30_115_0000_0048": {
+    "count": 1,
+    "avg_precio_m2": 17857.14,
+    "sum_precio_m2": 17857.14,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_118_0000_0247": {
+    "count": 1,
+    "avg_precio_m2": 14444.44,
+    "sum_precio_m2": 14444.44,
+    "colonia_predominante": "Unidad habitacional Cidosa"
+  },
+  "30_118_0000_0340": {
+    "count": 5,
+    "avg_precio_m2": 8825.557499999999,
+    "sum_precio_m2": 35302.229999999996,
+    "colonia_predominante": "Lomas de San Alejandro"
+  },
+  "30_118_0000_0177": {
+    "count": 1,
+    "avg_precio_m2": 25735.29,
+    "sum_precio_m2": 25735.29,
+    "colonia_predominante": "Barrio Barrio Nuevo"
+  },
+  "30_118_0000_0213": {
+    "count": 1,
+    "avg_precio_m2": 10457.14,
+    "sum_precio_m2": 10457.14,
+    "colonia_predominante": "Carlos Marx"
+  },
+  "30_118_0000_0317": {
+    "count": 5,
+    "avg_precio_m2": 17319.546,
+    "sum_precio_m2": 86597.73,
+    "colonia_predominante": "Benito Juárez"
+  },
+  "30_118_0000_036A": {
+    "count": 2,
+    "avg_precio_m2": 33994.33,
+    "sum_precio_m2": 33994.33,
+    "colonia_predominante": "El Espinal"
+  },
+  "30_118_0000_0143": {
+    "count": 7,
+    "avg_precio_m2": 13851.378,
+    "sum_precio_m2": 69256.89,
+    "colonia_predominante": "Orizaba Centro"
+  },
+  "30_118_0000_0105": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Agrícola Moctezuma"
+  },
+  "30_118_0000_011A": {
+    "count": 4,
+    "avg_precio_m2": 1573776.8933333333,
+    "sum_precio_m2": 4721330.68,
+    "colonia_predominante": "Orizaba Centro"
+  },
+  "30_118_0000_0124": {
+    "count": 4,
+    "avg_precio_m2": 10383.5325,
+    "sum_precio_m2": 41534.13,
+    "colonia_predominante": "Barrio Nuevo"
+  },
+  "30_118_0000_0139": {
+    "count": 2,
+    "avg_precio_m2": 26636.905,
+    "sum_precio_m2": 53273.81,
+    "colonia_predominante": "Orizaba Centro"
+  },
+  "30_118_0000_0181": {
+    "count": 2,
+    "avg_precio_m2": 27021.135000000002,
+    "sum_precio_m2": 54042.270000000004,
+    "colonia_predominante": "Orizaba Centro"
+  },
+  "30_118_0000_0232": {
+    "count": 2,
+    "avg_precio_m2": 12032.73,
+    "sum_precio_m2": 24065.46,
+    "colonia_predominante": "Francisco Ferrer Guardia"
+  },
+  "30_118_0000_0073": {
+    "count": 6,
+    "avg_precio_m2": 10782.465999999999,
+    "sum_precio_m2": 53912.329999999994,
+    "colonia_predominante": "Orizaba Centro"
+  },
+  "30_118_0000_0196": {
+    "count": 3,
+    "avg_precio_m2": 11856.279999999999,
+    "sum_precio_m2": 35568.84,
+    "colonia_predominante": "Orizaba Centro"
+  },
+  "30_118_0000_0209": {
+    "count": 2,
+    "avg_precio_m2": 2406.015,
+    "sum_precio_m2": 4812.03,
+    "colonia_predominante": "Orizaba Centro"
+  },
+  "30_118_0000_0425": {
+    "count": 7,
+    "avg_precio_m2": 6907.79,
+    "sum_precio_m2": 41446.74,
+    "colonia_predominante": "Orizaba Centro"
+  },
+  "30_118_0000_0158": {
+    "count": 2,
+    "avg_precio_m2": 19831.35,
+    "sum_precio_m2": 39662.7,
+    "colonia_predominante": "Orizaba Centro"
+  },
+  "30_118_0000_029A": {
+    "count": 6,
+    "avg_precio_m2": 10643.253999999999,
+    "sum_precio_m2": 53216.27,
+    "colonia_predominante": "El Espinal"
+  },
+  "30_118_0000_0336": {
+    "count": 1,
+    "avg_precio_m2": 18633.54,
+    "sum_precio_m2": 18633.54,
+    "colonia_predominante": "Escamela"
+  },
+  "30_118_0000_0406": {
+    "count": 3,
+    "avg_precio_m2": 13234.836666666664,
+    "sum_precio_m2": 39704.509999999995,
+    "colonia_predominante": "Lomas de San Alejandro"
+  },
+  "30_118_0000_0410": {
+    "count": 4,
+    "avg_precio_m2": 13220.943333333335,
+    "sum_precio_m2": 39662.83,
+    "colonia_predominante": "El Espinal"
+  },
+  "30_118_0000_0444": {
+    "count": 11,
+    "avg_precio_m2": 11976.03888888889,
+    "sum_precio_m2": 107784.35,
+    "colonia_predominante": "Cerritos"
+  },
+  "30_118_0000_0069": {
+    "count": 9,
+    "avg_precio_m2": 452506.13500000007,
+    "sum_precio_m2": 2715036.8100000005,
+    "colonia_predominante": "Santa Maria Tlachichilco"
+  },
+  "30_122_0000_0061": {
+    "count": 1,
+    "avg_precio_m2": 19001.92,
+    "sum_precio_m2": 19001.92,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_123_0000_0406": {
+    "count": 5,
+    "avg_precio_m2": 6700.606,
+    "sum_precio_m2": 33503.03,
+    "colonia_predominante": "Revolución 1910"
+  },
+  "30_123_0000_0410": {
+    "count": 1,
+    "avg_precio_m2": 4761.9,
+    "sum_precio_m2": 4761.9,
+    "colonia_predominante": "Adán Castelan"
+  },
+  "30_123_0000_0514": {
+    "count": 1,
+    "avg_precio_m2": 10365.85,
+    "sum_precio_m2": 10365.85,
+    "colonia_predominante": "Moralillo"
+  },
+  "30_123_0000_0529": {
+    "count": 1,
+    "avg_precio_m2": 10344.04,
+    "sum_precio_m2": 10344.04,
+    "colonia_predominante": "Moralillo"
+  },
+  "30_123_0000_0783": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Moralillo"
+  },
+  "30_123_0000_0764": {
+    "count": 1,
+    "avg_precio_m2": 46776.92,
+    "sum_precio_m2": 46776.92,
+    "colonia_predominante": "Adán Castelan"
+  },
+  "30_124_0000_023A": {
+    "count": 1,
+    "avg_precio_m2": 9656.08,
+    "sum_precio_m2": 9656.08,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_124_0000_0761": {
+    "count": 8,
+    "avg_precio_m2": 15291.603749999998,
+    "sum_precio_m2": 122332.82999999999,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_124_0000_0757": {
+    "count": 1,
+    "avg_precio_m2": 2064.82,
+    "sum_precio_m2": 2064.82,
+    "colonia_predominante": "Tajin"
+  },
+  "30_124_0000_0441": {
+    "count": 1,
+    "avg_precio_m2": 15625,
+    "sum_precio_m2": 15625,
+    "colonia_predominante": "Antonio M Quirazco"
+  },
+  "30_126_0000_0145": {
+    "count": 3,
+    "avg_precio_m2": 28689.864999999998,
+    "sum_precio_m2": 57379.729999999996,
+    "colonia_predominante": "Paso de Ovejas Centro"
+  },
+  "30_128_0000_0099": {
+    "count": 1,
+    "avg_precio_m2": 3577.42,
+    "sum_precio_m2": 3577.42,
+    "colonia_predominante": "Amado Nervo"
+  },
+  "30_128_0000_0347": {
+    "count": 1,
+    "avg_precio_m2": 9177,
+    "sum_precio_m2": 9177,
+    "colonia_predominante": "Perote"
+  },
+  "30_128_0000_046A": {
+    "count": 1,
+    "avg_precio_m2": 5225.79,
+    "sum_precio_m2": 5225.79,
+    "colonia_predominante": "Veracruz"
+  },
+  "30_128_0000_0101": {
+    "count": 3,
+    "avg_precio_m2": 3103.53,
+    "sum_precio_m2": 9310.59,
+    "colonia_predominante": "Amado Nervo"
+  },
+  "30_131_0000_0658": {
+    "count": 4,
+    "avg_precio_m2": 3118.22,
+    "sum_precio_m2": 3118.22,
+    "colonia_predominante": "Santa Elena"
+  },
+  "30_131_0000_0107": {
+    "count": 8,
+    "avg_precio_m2": 10165.256666666668,
+    "sum_precio_m2": 60991.54000000001,
+    "colonia_predominante": "Santa Elena"
+  },
+  "30_131_0000_0130": {
+    "count": 4,
+    "avg_precio_m2": 8411.432499999999,
+    "sum_precio_m2": 33645.729999999996,
+    "colonia_predominante": "27 de Septiembre"
+  },
+  "30_131_0000_0126": {
+    "count": 2,
+    "avg_precio_m2": 12919.445,
+    "sum_precio_m2": 25838.89,
+    "colonia_predominante": "27 de Septiembre"
+  },
+  "30_131_0000_008A": {
+    "count": 3,
+    "avg_precio_m2": 3373.0150000000003,
+    "sum_precio_m2": 6746.030000000001,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_131_0000_0094": {
+    "count": 12,
+    "avg_precio_m2": 12173.467777777778,
+    "sum_precio_m2": 109561.21,
+    "colonia_predominante": "Cazones"
+  },
+  "30_131_0000_015A": {
+    "count": 3,
+    "avg_precio_m2": 8402.323333333334,
+    "sum_precio_m2": 25206.97,
+    "colonia_predominante": "Chapultepec"
+  },
+  "30_131_0000_0164": {
+    "count": 3,
+    "avg_precio_m2": 8203.91,
+    "sum_precio_m2": 24611.73,
+    "colonia_predominante": "San Román"
+  },
+  "30_131_0000_0183": {
+    "count": 1,
+    "avg_precio_m2": 6691.73,
+    "sum_precio_m2": 6691.73,
+    "colonia_predominante": "Residencial Bosques de Santa Elena"
+  },
+  "30_131_0000_0198": {
+    "count": 2,
+    "avg_precio_m2": 11491.85,
+    "sum_precio_m2": 22983.7,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_131_0000_0272": {
+    "count": 2,
+    "avg_precio_m2": 11442.855,
+    "sum_precio_m2": 22885.71,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_131_0000_0287": {
+    "count": 1,
+    "avg_precio_m2": 12540.91,
+    "sum_precio_m2": 12540.91,
+    "colonia_predominante": "Miguel Hidalgo"
+  },
+  "30_131_0000_0304": {
+    "count": 1,
+    "avg_precio_m2": 7282.61,
+    "sum_precio_m2": 7282.61,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_131_0000_0535": {
+    "count": 2,
+    "avg_precio_m2": 9041.91,
+    "sum_precio_m2": 18083.82,
+    "colonia_predominante": "Arroyo Del Maíz"
+  },
+  "30_131_0000_0446": {
+    "count": 1,
+    "avg_precio_m2": 11000,
+    "sum_precio_m2": 11000,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_131_0000_0520": {
+    "count": 12,
+    "avg_precio_m2": 11946.77909090909,
+    "sum_precio_m2": 131414.57,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_131_0000_0677": {
+    "count": 2,
+    "avg_precio_m2": 10838.635,
+    "sum_precio_m2": 21677.27,
+    "colonia_predominante": "Las Vegas"
+  },
+  "30_131_0000_093A": {
+    "count": 1,
+    "avg_precio_m2": 7666.67,
+    "sum_precio_m2": 7666.67,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_131_0000_0732": {
+    "count": 1,
+    "avg_precio_m2": 5588.24,
+    "sum_precio_m2": 5588.24,
+    "colonia_predominante": "La Ceiba"
+  },
+  "30_131_0000_0751": {
+    "count": 2,
+    "avg_precio_m2": 10059.619999999999,
+    "sum_precio_m2": 20119.239999999998,
+    "colonia_predominante": "Obras Sociales"
+  },
+  "30_131_0000_0785": {
+    "count": 4,
+    "avg_precio_m2": 11144.24,
+    "sum_precio_m2": 44576.96,
+    "colonia_predominante": "Obras Sociales"
+  },
+  "30_131_0000_079A": {
+    "count": 1,
+    "avg_precio_m2": 9310.34,
+    "sum_precio_m2": 9310.34,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_131_0000_0836": {
+    "count": 2,
+    "avg_precio_m2": 10778.235,
+    "sum_precio_m2": 21556.47,
+    "colonia_predominante": "Tamaulipas"
+  },
+  "30_131_0000_0910": {
+    "count": 3,
+    "avg_precio_m2": 16111.11,
+    "sum_precio_m2": 32222.22,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_131_0000_1016": {
+    "count": 1,
+    "avg_precio_m2": 1.13,
+    "sum_precio_m2": 1.13,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_131_0000_0200": {
+    "count": 1,
+    "avg_precio_m2": 10887.1,
+    "sum_precio_m2": 10887.1,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_131_0000_0338": {
+    "count": 2,
+    "avg_precio_m2": 18882.98,
+    "sum_precio_m2": 37765.96,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_131_0000_0874": {
+    "count": 1,
+    "avg_precio_m2": 11029.41,
+    "sum_precio_m2": 11029.41,
+    "colonia_predominante": "Chapultepec"
+  },
+  "30_131_0000_1020": {
+    "count": 2,
+    "avg_precio_m2": 10054.595000000001,
+    "sum_precio_m2": 20109.190000000002,
+    "colonia_predominante": "El Vergel"
+  },
+  "30_131_0000_0802": {
+    "count": 4,
+    "avg_precio_m2": 20090.91,
+    "sum_precio_m2": 80363.64,
+    "colonia_predominante": "La Rueda"
+  },
+  "30_131_0000_1177": {
+    "count": 2,
+    "avg_precio_m2": 14517.545,
+    "sum_precio_m2": 29035.09,
+    "colonia_predominante": "Chapultepec"
+  },
+  "30_131_0000_0573": {
+    "count": 1,
+    "avg_precio_m2": 14500,
+    "sum_precio_m2": 14500,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_131_0000_129A": {
+    "count": 1,
+    "avg_precio_m2": 17153.28,
+    "sum_precio_m2": 17153.28,
+    "colonia_predominante": "Primavera"
+  },
+  "30_131_0000_0728": {
+    "count": 3,
+    "avg_precio_m2": 7598.035,
+    "sum_precio_m2": 15196.07,
+    "colonia_predominante": "Yanga"
+  },
+  "30_131_0000_047A": {
+    "count": 3,
+    "avg_precio_m2": 13286.61,
+    "sum_precio_m2": 39859.83,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_131_0000_0840": {
+    "count": 3,
+    "avg_precio_m2": 16680.34,
+    "sum_precio_m2": 50041.02,
+    "colonia_predominante": "Parcela 14"
+  },
+  "30_131_0000_0855": {
+    "count": 3,
+    "avg_precio_m2": 4976.67,
+    "sum_precio_m2": 4976.67,
+    "colonia_predominante": "Petromex"
+  },
+  "30_131_0000_0889": {
+    "count": 1,
+    "avg_precio_m2": 3783.78,
+    "sum_precio_m2": 3783.78,
+    "colonia_predominante": "División de Oriente"
+  },
+  "30_131_0000_1285": {
+    "count": 2,
+    "avg_precio_m2": 16000,
+    "sum_precio_m2": 16000,
+    "colonia_predominante": "Poza Rica Centro"
+  },
+  "30_133_0000_0474": {
+    "count": 2,
+    "avg_precio_m2": 6938.625,
+    "sum_precio_m2": 13877.25,
+    "colonia_predominante": "Lindavista"
+  },
+  "30_133_0000_0309": {
+    "count": 1,
+    "avg_precio_m2": 9733.18,
+    "sum_precio_m2": 9733.18,
+    "colonia_predominante": "Primero de Mayo"
+  },
+  "30_133_0000_0120": {
+    "count": 2,
+    "avg_precio_m2": 15263.154999999999,
+    "sum_precio_m2": 30526.309999999998,
+    "colonia_predominante": "Pueblo Anáhuac"
+  },
+  "30_133_0000_0296": {
+    "count": 3,
+    "avg_precio_m2": 9650.363333333333,
+    "sum_precio_m2": 28951.089999999997,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_133_0000_0351": {
+    "count": 2,
+    "avg_precio_m2": 10879.63,
+    "sum_precio_m2": 10879.63,
+    "colonia_predominante": "Mata Redonda"
+  },
+  "30_133_0000_0050": {
+    "count": 1,
+    "avg_precio_m2": 14736.84,
+    "sum_precio_m2": 14736.84,
+    "colonia_predominante": "Ciudad Cuauhtémoc"
+  },
+  "30_134_0000_0062": {
+    "count": 1,
+    "avg_precio_m2": 8322.22,
+    "sum_precio_m2": 8322.22,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_135_0000_0144": {
+    "count": 1,
+    "avg_precio_m2": 20129.87,
+    "sum_precio_m2": 20129.87,
+    "colonia_predominante": "Pueblo Jalapilla"
+  },
+  "30_138_0000_0201": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Ãlvaro ObregÃ³n"
+  },
+  "30_138_0000_0080": {
+    "count": 3,
+    "avg_precio_m2": 16458.253333333334,
+    "sum_precio_m2": 49374.76,
+    "colonia_predominante": "Agraria"
+  },
+  "30_138_0000_0131": {
+    "count": 1,
+    "avg_precio_m2": 5885.71,
+    "sum_precio_m2": 5885.71,
+    "colonia_predominante": "Venustiano Carranza"
+  },
+  "30_141_0000_0550": {
+    "count": 1,
+    "avg_precio_m2": 4090.91,
+    "sum_precio_m2": 4090.91,
+    "colonia_predominante": "6 de Enero"
+  },
+  "30_141_0000_018A": {
+    "count": 2,
+    "avg_precio_m2": 12135.445,
+    "sum_precio_m2": 24270.89,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_141_0000_0565": {
+    "count": 2,
+    "avg_precio_m2": 8596.36,
+    "sum_precio_m2": 17192.72,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_141_0000_057A": {
+    "count": 1,
+    "avg_precio_m2": 10191.08,
+    "sum_precio_m2": 10191.08,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_141_0000_1084": {
+    "count": 1,
+    "avg_precio_m2": 6800,
+    "sum_precio_m2": 6800,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_141_0000_0391": {
+    "count": 1,
+    "avg_precio_m2": 6888.11,
+    "sum_precio_m2": 6888.11,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_143_0000_0216": {
+    "count": 1,
+    "avg_precio_m2": 4669,
+    "sum_precio_m2": 4669,
+    "colonia_predominante": "El Jardín"
+  },
+  "30_143_0000_0184": {
+    "count": 1,
+    "avg_precio_m2": 8768.97,
+    "sum_precio_m2": 8768.97,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_143_0000_017A": {
+    "count": 1,
+    "avg_precio_m2": 8103.45,
+    "sum_precio_m2": 8103.45,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_144_0000_0020": {
+    "count": 1,
+    "avg_precio_m2": 14229.25,
+    "sum_precio_m2": 14229.25,
+    "colonia_predominante": "Sayula de Alemán"
+  },
+  "30_145_0000_0102": {
+    "count": 1,
+    "avg_precio_m2": 10000,
+    "sum_precio_m2": 10000,
+    "colonia_predominante": "Soconusco"
+  },
+  "30_145_0000_0206": {
+    "count": 1,
+    "avg_precio_m2": 15500,
+    "sum_precio_m2": 15500,
+    "colonia_predominante": "Soconusco"
+  },
+  "30_148_0000_0138": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Soledad de Doblado Centro"
+  },
+  "30_148_0000_0104": {
+    "count": 1,
+    "avg_precio_m2": 13043.48,
+    "sum_precio_m2": 13043.48,
+    "colonia_predominante": "Soledad de Doblado Centro"
+  },
+  "30_151_0000_0218": {
+    "count": 1,
+    "avg_precio_m2": 13271.6,
+    "sum_precio_m2": 13271.6,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_151_0000_0186": {
+    "count": 1,
+    "avg_precio_m2": 3091.87,
+    "sum_precio_m2": 3091.87,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_152_0000_015A": {
+    "count": 1,
+    "avg_precio_m2": 9415.58,
+    "sum_precio_m2": 9415.58,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_152_0000_0145": {
+    "count": 2,
+    "avg_precio_m2": 13189.415,
+    "sum_precio_m2": 26378.83,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_152_0000_0164": {
+    "count": 3,
+    "avg_precio_m2": 7771.063333333333,
+    "sum_precio_m2": 23313.19,
+    "colonia_predominante": "Cnop"
+  },
+  "30_155_0000_0734": {
+    "count": 1,
+    "avg_precio_m2": 13767.12,
+    "sum_precio_m2": 13767.12,
+    "colonia_predominante": "Gutiérrez Barrios"
+  },
+  "30_158_0000_0115": {
+    "count": 2,
+    "avg_precio_m2": 18130.955,
+    "sum_precio_m2": 36261.91,
+    "colonia_predominante": "Playa Paraíso"
+  },
+  "30_158_0000_0100": {
+    "count": 1,
+    "avg_precio_m2": 9629.63,
+    "sum_precio_m2": 9629.63,
+    "colonia_predominante": "Medanos"
+  },
+  "30_160_0000_0306": {
+    "count": 1,
+    "avg_precio_m2": 12068.97,
+    "sum_precio_m2": 12068.97,
+    "colonia_predominante": "Progreso"
+  },
+  "30_160_0000_0359": {
+    "count": 1,
+    "avg_precio_m2": 25000,
+    "sum_precio_m2": 25000,
+    "colonia_predominante": "Ejido Estero Del Ídolo"
+  },
+  "30_160_0000_0452": {
+    "count": 1,
+    "avg_precio_m2": 11363.64,
+    "sum_precio_m2": 11363.64,
+    "colonia_predominante": "Gabino Gonzalez"
+  },
+  "30_161_0000_038A": {
+    "count": 1,
+    "avg_precio_m2": 11206.9,
+    "sum_precio_m2": 11206.9,
+    "colonia_predominante": "Tempoal Centro"
+  },
+  "30_164_0000_0061": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Los Cedros"
+  },
+  "30_169_0000_0195": {
+    "count": 1,
+    "avg_precio_m2": 3026.88,
+    "sum_precio_m2": 3026.88,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_169_0000_0176": {
+    "count": 1,
+    "avg_precio_m2": 3073.12,
+    "sum_precio_m2": 3073.12,
+    "colonia_predominante": "Tejeda"
+  },
+  "30_174_0000_027A": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Tierra Blanca Centro"
+  },
+  "30_174_0000_059A": {
+    "count": 2,
+    "avg_precio_m2": 23250,
+    "sum_precio_m2": 23250,
+    "colonia_predominante": "Tierra Blanca El Viejo"
+  },
+  "30_174_0000_0551": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Miraflores"
+  },
+  "30_174_0000_0373": {
+    "count": 1,
+    "avg_precio_m2": 11250,
+    "sum_precio_m2": 11250,
+    "colonia_predominante": "Terraplen"
+  },
+  "30_175_0000_0332": {
+    "count": 1,
+    "avg_precio_m2": 7333.33,
+    "sum_precio_m2": 7333.33,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_175_0000_0578": {
+    "count": 1,
+    "avg_precio_m2": 17857.14,
+    "sum_precio_m2": 17857.14,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_178_0000_0175": {
+    "count": 1,
+    "avg_precio_m2": 12429.38,
+    "sum_precio_m2": 12429.38,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_178_0000_0090": {
+    "count": 1,
+    "avg_precio_m2": 22983.87,
+    "sum_precio_m2": 22983.87,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_178_0000_0086": {
+    "count": 1,
+    "avg_precio_m2": 12662.34,
+    "sum_precio_m2": 12662.34,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_181_0000_0170": {
+    "count": 2,
+    "avg_precio_m2": 11515.24,
+    "sum_precio_m2": 11515.24,
+    "colonia_predominante": "Tlalixcoyan"
+  },
+  "30_182_0000_0021": {
+    "count": 2,
+    "avg_precio_m2": 12272.73,
+    "sum_precio_m2": 12272.73,
+    "colonia_predominante": "Tlalnelhuayocan"
+  },
+  "30_182_0000_0040": {
+    "count": 1,
+    "avg_precio_m2": 16964.29,
+    "sum_precio_m2": 16964.29,
+    "colonia_predominante": "Otilpan"
+  },
+  "30_189_0000_0766": {
+    "count": 1,
+    "avg_precio_m2": 13750,
+    "sum_precio_m2": 13750,
+    "colonia_predominante": "Santiago de La Peña"
+  },
+  "30_189_0000_0889": {
+    "count": 2,
+    "avg_precio_m2": 4.24,
+    "sum_precio_m2": 4.24,
+    "colonia_predominante": "Vista Hermosa"
+  },
+  "30_189_0000_0770": {
+    "count": 3,
+    "avg_precio_m2": 17724.86666666667,
+    "sum_precio_m2": 53174.600000000006,
+    "colonia_predominante": "Santiago de La Peña"
+  },
+  "30_189_0000_0639": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "AnÃ¡huac"
+  },
+  "30_189_0000_0179": {
+    "count": 9,
+    "avg_precio_m2": 14351.876507731959,
+    "sum_precio_m2": 114815.01206185567,
+    "colonia_predominante": "Adolfo Ruiz Cortines"
+  },
+  "30_189_0000_0145": {
+    "count": 3,
+    "avg_precio_m2": 3064861.11,
+    "sum_precio_m2": 6129722.22,
+    "colonia_predominante": "Los Pinos"
+  },
+  "30_189_0000_0198": {
+    "count": 8,
+    "avg_precio_m2": 18212.41875,
+    "sum_precio_m2": 145699.35,
+    "colonia_predominante": "Tuxpan de Rodriguez Cano Centro"
+  },
+  "30_189_0000_0200": {
+    "count": 5,
+    "avg_precio_m2": 16970.21,
+    "sum_precio_m2": 84851.05,
+    "colonia_predominante": "Centro"
+  },
+  "30_189_0000_0215": {
+    "count": 1,
+    "avg_precio_m2": 34979.42,
+    "sum_precio_m2": 34979.42,
+    "colonia_predominante": "Tuxpan de Rodriguez Cano Centro"
+  },
+  "30_189_0000_0319": {
+    "count": 2,
+    "avg_precio_m2": 10416.67,
+    "sum_precio_m2": 10416.67,
+    "colonia_predominante": "Tenechaco Infonavit"
+  },
+  "30_189_0000_0338": {
+    "count": 1,
+    "avg_precio_m2": 14074.07,
+    "sum_precio_m2": 14074.07,
+    "colonia_predominante": "Enrique Rodríguez Cano"
+  },
+  "30_189_0000_0380": {
+    "count": 1,
+    "avg_precio_m2": 12941.18,
+    "sum_precio_m2": 12941.18,
+    "colonia_predominante": "Los Pinos"
+  },
+  "30_189_0000_0658": {
+    "count": 2,
+    "avg_precio_m2": 21174.275,
+    "sum_precio_m2": 42348.55,
+    "colonia_predominante": "Tropicana"
+  },
+  "30_189_0000_0408": {
+    "count": 2,
+    "avg_precio_m2": 14142.855,
+    "sum_precio_m2": 28285.71,
+    "colonia_predominante": "Los Pinos"
+  },
+  "30_189_0000_0592": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Esfuerzo"
+  },
+  "30_189_0000_061A": {
+    "count": 3,
+    "avg_precio_m2": 23942.316666666666,
+    "sum_precio_m2": 71826.95,
+    "colonia_predominante": "Los Pinos"
+  },
+  "30_189_0000_0643": {
+    "count": 1,
+    "avg_precio_m2": 10119.05,
+    "sum_precio_m2": 10119.05,
+    "colonia_predominante": "AnAhuac"
+  },
+  "30_189_0000_0662": {
+    "count": 4,
+    "avg_precio_m2": 41941.7475,
+    "sum_precio_m2": 167766.99,
+    "colonia_predominante": "Enrique Rodriguez Cano"
+  },
+  "30_189_0000_0696": {
+    "count": 2,
+    "avg_precio_m2": 13623.19,
+    "sum_precio_m2": 13623.19,
+    "colonia_predominante": "Las Lomas"
+  },
+  "30_189_0000_1177": {
+    "count": 2,
+    "avg_precio_m2": 14312.765,
+    "sum_precio_m2": 28625.53,
+    "colonia_predominante": "La Calzada"
+  },
+  "30_189_0000_0732": {
+    "count": 5,
+    "avg_precio_m2": 13252.689999999999,
+    "sum_precio_m2": 66263.45,
+    "colonia_predominante": "La Calzada"
+  },
+  "30_189_0000_0906": {
+    "count": 1,
+    "avg_precio_m2": 16666.67,
+    "sum_precio_m2": 16666.67,
+    "colonia_predominante": "Del Puerto"
+  },
+  "30_189_0000_1181": {
+    "count": 1,
+    "avg_precio_m2": 13492.06,
+    "sum_precio_m2": 13492.06,
+    "colonia_predominante": "La Calzada"
+  },
+  "30_189_0000_1209": {
+    "count": 4,
+    "avg_precio_m2": 14883.57,
+    "sum_precio_m2": 44650.71,
+    "colonia_predominante": "Alfonso Arroyo"
+  },
+  "30_189_0000_0624": {
+    "count": 2,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Tuxpan de Rodriguez Cano Centro"
+  },
+  "30_189_0000_0427": {
+    "count": 4,
+    "avg_precio_m2": 12358,
+    "sum_precio_m2": 37074,
+    "colonia_predominante": "Azteca"
+  },
+  "30_189_0000_0944": {
+    "count": 1,
+    "avg_precio_m2": 7187.5,
+    "sum_precio_m2": 7187.5,
+    "colonia_predominante": "Monte Grande"
+  },
+  "30_189_0000_1228": {
+    "count": 1,
+    "avg_precio_m2": 10256.41,
+    "sum_precio_m2": 10256.41,
+    "colonia_predominante": "Tuxpan de Rodriguez Cano Centro"
+  },
+  "30_189_0000_0836": {
+    "count": 1,
+    "avg_precio_m2": 13953.49,
+    "sum_precio_m2": 13953.49,
+    "colonia_predominante": "Granjas de Alto Lucero"
+  },
+  "30_189_0000_0554": {
+    "count": 9,
+    "avg_precio_m2": 15668.3625,
+    "sum_precio_m2": 125346.9,
+    "colonia_predominante": "El Romance"
+  },
+  "30_189_0000_0893": {
+    "count": 1,
+    "avg_precio_m2": 11200,
+    "sum_precio_m2": 11200,
+    "colonia_predominante": "17 de Octubre"
+  },
+  "30_189_0000_1092": {
+    "count": 5,
+    "avg_precio_m2": 16466.35,
+    "sum_precio_m2": 65865.4,
+    "colonia_predominante": "Universitaria"
+  },
+  "30_189_0000_0997": {
+    "count": 3,
+    "avg_precio_m2": 18669.983333333334,
+    "sum_precio_m2": 56009.95,
+    "colonia_predominante": "Unidad habitacional Militares"
+  },
+  "30_189_0000_1336": {
+    "count": 1,
+    "avg_precio_m2": 20725.39,
+    "sum_precio_m2": 20725.39,
+    "colonia_predominante": "Jardines de Tuxpan"
+  },
+  "30_189_0000_0234": {
+    "count": 16,
+    "avg_precio_m2": 20618.206,
+    "sum_precio_m2": 309273.08999999997,
+    "colonia_predominante": "Jardines de Tuxpan"
+  },
+  "30_189_0000_0588": {
+    "count": 3,
+    "avg_precio_m2": 17485.695,
+    "sum_precio_m2": 34971.39,
+    "colonia_predominante": "Los Pinos"
+  },
+  "30_189_0000_054A": {
+    "count": 4,
+    "avg_precio_m2": 13068.093333333332,
+    "sum_precio_m2": 39204.28,
+    "colonia_predominante": "Infonavit Tulipanes"
+  },
+  "30_191_0000_0162": {
+    "count": 1,
+    "avg_precio_m2": 7488.46,
+    "sum_precio_m2": 7488.46,
+    "colonia_predominante": "Las Granjas"
+  },
+  "30_192_0000_0259": {
+    "count": 1,
+    "avg_precio_m2": 16241.67,
+    "sum_precio_m2": 16241.67,
+    "colonia_predominante": "Vega de Alatorre"
+  },
+  "30_192_0000_0225": {
+    "count": 1,
+    "avg_precio_m2": 15467.84,
+    "sum_precio_m2": 15467.84,
+    "colonia_predominante": "Emilio Carranza"
+  },
+  "30_193_0000_1057": {
+    "count": 32,
+    "avg_precio_m2": 13807.78344827586,
+    "sum_precio_m2": 400425.72,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_2820": {
+    "count": 2,
+    "avg_precio_m2": 9319.445,
+    "sum_precio_m2": 18638.89,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_0788": {
+    "count": 4,
+    "avg_precio_m2": 8282.41,
+    "sum_precio_m2": 33129.64,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_0218": {
+    "count": 41,
+    "avg_precio_m2": 16064.724444444446,
+    "sum_precio_m2": 433747.56000000006,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_0260": {
+    "count": 11,
+    "avg_precio_m2": 15065.603750000002,
+    "sum_precio_m2": 120524.83000000002,
+    "colonia_predominante": "Faros"
+  },
+  "30_193_0000_0311": {
+    "count": 14,
+    "avg_precio_m2": 22594.207777777778,
+    "sum_precio_m2": 203347.87,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_0326": {
+    "count": 46,
+    "avg_precio_m2": 18003.84325,
+    "sum_precio_m2": 720153.7300000001,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_0434": {
+    "count": 20,
+    "avg_precio_m2": 18828.899999999998,
+    "sum_precio_m2": 338920.19999999995,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_0453": {
+    "count": 22,
+    "avg_precio_m2": 73681.05666666666,
+    "sum_precio_m2": 1326259.0199999998,
+    "colonia_predominante": "Reforma"
+  },
+  "30_193_0000_0472": {
+    "count": 13,
+    "avg_precio_m2": 19359.802,
+    "sum_precio_m2": 193598.02,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_0561": {
+    "count": 1,
+    "avg_precio_m2": 18428.57,
+    "sum_precio_m2": 18428.57,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_0805": {
+    "count": 1,
+    "avg_precio_m2": 10165.29,
+    "sum_precio_m2": 10165.29,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_156A": {
+    "count": 24,
+    "avg_precio_m2": 11704.282857142858,
+    "sum_precio_m2": 245789.94000000003,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1574": {
+    "count": 6,
+    "avg_precio_m2": 12720.947499999998,
+    "sum_precio_m2": 50883.78999999999,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1644": {
+    "count": 1,
+    "avg_precio_m2": 6666.67,
+    "sum_precio_m2": 6666.67,
+    "colonia_predominante": "Niños Héroes"
+  },
+  "30_193_0000_3000": {
+    "count": 2,
+    "avg_precio_m2": 15043.314999999999,
+    "sum_precio_m2": 30086.629999999997,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1945": {
+    "count": 13,
+    "avg_precio_m2": 10920.553076923077,
+    "sum_precio_m2": 141967.19,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_2892": {
+    "count": 10,
+    "avg_precio_m2": 11926.10888888889,
+    "sum_precio_m2": 107334.98000000001,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_2498": {
+    "count": 2,
+    "avg_precio_m2": 12236.84,
+    "sum_precio_m2": 24473.68,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_3053": {
+    "count": 2,
+    "avg_precio_m2": 7083.33,
+    "sum_precio_m2": 7083.33,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_3227": {
+    "count": 3,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Colinas de Santa Fe"
+  },
+  "30_193_0000_0379": {
+    "count": 3,
+    "avg_precio_m2": 12597.310000000001,
+    "sum_precio_m2": 25194.620000000003,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_0148": {
+    "count": 3,
+    "avg_precio_m2": 10165.896666666666,
+    "sum_precio_m2": 30497.69,
+    "colonia_predominante": "Miguel Hidalgo"
+  },
+  "30_193_0000_1803": {
+    "count": 3,
+    "avg_precio_m2": 13867.76,
+    "sum_precio_m2": 41603.28,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1184": {
+    "count": 4,
+    "avg_precio_m2": 14201.0125,
+    "sum_precio_m2": 56804.05,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_0114": {
+    "count": 1,
+    "avg_precio_m2": 3570.73,
+    "sum_precio_m2": 3570.73,
+    "colonia_predominante": "Buenavista"
+  },
+  "30_193_0000_0129": {
+    "count": 11,
+    "avg_precio_m2": 13687.371428571429,
+    "sum_precio_m2": 95811.6,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_0133": {
+    "count": 21,
+    "avg_precio_m2": 8429.4225,
+    "sum_precio_m2": 134870.76,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_0152": {
+    "count": 6,
+    "avg_precio_m2": 14163.604000000001,
+    "sum_precio_m2": 70818.02,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_0171": {
+    "count": 23,
+    "avg_precio_m2": 14965.547,
+    "sum_precio_m2": 299310.94,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_0186": {
+    "count": 10,
+    "avg_precio_m2": 12919.76888888889,
+    "sum_precio_m2": 116277.92000000001,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_0203": {
+    "count": 31,
+    "avg_precio_m2": 12034.269999999999,
+    "sum_precio_m2": 361028.1,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_0222": {
+    "count": 7,
+    "avg_precio_m2": 19628.648333333334,
+    "sum_precio_m2": 117771.89,
+    "colonia_predominante": "21 de Abril"
+  },
+  "30_193_0000_0237": {
+    "count": 3,
+    "avg_precio_m2": 3142.855,
+    "sum_precio_m2": 6285.71,
+    "colonia_predominante": "Veracruz Centro"
+  },
+  "30_193_0000_0241": {
+    "count": 19,
+    "avg_precio_m2": 35964.01999999999,
+    "sum_precio_m2": 611388.3399999999,
+    "colonia_predominante": "Veracruz Centro"
+  },
+  "30_193_0000_0256": {
+    "count": 20,
+    "avg_precio_m2": 18029.574375,
+    "sum_precio_m2": 288473.19,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_0307": {
+    "count": 8,
+    "avg_precio_m2": 11674.0425,
+    "sum_precio_m2": 93392.34,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_0330": {
+    "count": 3,
+    "avg_precio_m2": 9000.876666666665,
+    "sum_precio_m2": 27002.629999999997,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_0345": {
+    "count": 19,
+    "avg_precio_m2": 12128.710625000002,
+    "sum_precio_m2": 194059.37000000002,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_0364": {
+    "count": 1,
+    "avg_precio_m2": 6338.03,
+    "sum_precio_m2": 6338.03,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_193_0000_035A": {
+    "count": 8,
+    "avg_precio_m2": 12165.204285714284,
+    "sum_precio_m2": 85156.43,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_0383": {
+    "count": 9,
+    "avg_precio_m2": 11341.550000000001,
+    "sum_precio_m2": 90732.40000000001,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_0449": {
+    "count": 20,
+    "avg_precio_m2": 15942.465624999997,
+    "sum_precio_m2": 255079.44999999995,
+    "colonia_predominante": "Reforma"
+  },
+  "30_193_0000_0468": {
+    "count": 72,
+    "avg_precio_m2": 17919.79028985507,
+    "sum_precio_m2": 1236465.5299999998,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_0612": {
+    "count": 1,
+    "avg_precio_m2": 9259.26,
+    "sum_precio_m2": 9259.26,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_193_0000_0631": {
+    "count": 4,
+    "avg_precio_m2": 13482.66,
+    "sum_precio_m2": 53930.64,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1593": {
+    "count": 2,
+    "avg_precio_m2": 11331.25,
+    "sum_precio_m2": 22662.5,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_067A": {
+    "count": 18,
+    "avg_precio_m2": 10828.235294117647,
+    "sum_precio_m2": 184080,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_0684": {
+    "count": 13,
+    "avg_precio_m2": 11781.6175,
+    "sum_precio_m2": 141379.41,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_0792": {
+    "count": 4,
+    "avg_precio_m2": 10407.6725,
+    "sum_precio_m2": 41630.69,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_0843": {
+    "count": 8,
+    "avg_precio_m2": 9864.490000000002,
+    "sum_precio_m2": 69051.43000000001,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_0862": {
+    "count": 1,
+    "avg_precio_m2": 14444.44,
+    "sum_precio_m2": 14444.44,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1004": {
+    "count": 1,
+    "avg_precio_m2": 11971.83,
+    "sum_precio_m2": 11971.83,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1023": {
+    "count": 5,
+    "avg_precio_m2": 7434.93,
+    "sum_precio_m2": 37174.65,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1061": {
+    "count": 123,
+    "avg_precio_m2": 12214.128878504684,
+    "sum_precio_m2": 1306911.7900000012,
+    "colonia_predominante": "Floresta"
+  },
+  "30_193_0000_1095": {
+    "count": 21,
+    "avg_precio_m2": 13115.270999999999,
+    "sum_precio_m2": 262305.42,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1108": {
+    "count": 48,
+    "avg_precio_m2": 12628.336341463415,
+    "sum_precio_m2": 517761.79000000004,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1150": {
+    "count": 1,
+    "avg_precio_m2": 9736.84,
+    "sum_precio_m2": 9736.84,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_193_0000_117A": {
+    "count": 3,
+    "avg_precio_m2": 12302.720000000001,
+    "sum_precio_m2": 36908.16,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_124A": {
+    "count": 2,
+    "avg_precio_m2": 11153.845000000001,
+    "sum_precio_m2": 22307.690000000002,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1254": {
+    "count": 9,
+    "avg_precio_m2": 13817.083750000002,
+    "sum_precio_m2": 110536.67000000001,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1269": {
+    "count": 3,
+    "avg_precio_m2": 12348.596666666666,
+    "sum_precio_m2": 37045.79,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1292": {
+    "count": 1,
+    "avg_precio_m2": 11827.96,
+    "sum_precio_m2": 11827.96,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1324": {
+    "count": 1,
+    "avg_precio_m2": 14936.36,
+    "sum_precio_m2": 14936.36,
+    "colonia_predominante": "La Pochota"
+  },
+  "30_193_0000_1343": {
+    "count": 4,
+    "avg_precio_m2": 10164.0375,
+    "sum_precio_m2": 40656.15,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1358": {
+    "count": 4,
+    "avg_precio_m2": 13224.426666666666,
+    "sum_precio_m2": 39673.28,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1362": {
+    "count": 7,
+    "avg_precio_m2": 9207.005,
+    "sum_precio_m2": 55242.03,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1451": {
+    "count": 12,
+    "avg_precio_m2": 15331.755,
+    "sum_precio_m2": 153317.55,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1466": {
+    "count": 24,
+    "avg_precio_m2": 12947.958260869564,
+    "sum_precio_m2": 297803.04,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1470": {
+    "count": 8,
+    "avg_precio_m2": 11381.131666666668,
+    "sum_precio_m2": 68286.79000000001,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_149A": {
+    "count": 13,
+    "avg_precio_m2": 9928.265833333333,
+    "sum_precio_m2": 119139.18999999999,
+    "colonia_predominante": "Los Pinos"
+  },
+  "30_193_0000_1502": {
+    "count": 4,
+    "avg_precio_m2": 15000,
+    "sum_precio_m2": 60000,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1517": {
+    "count": 1,
+    "avg_precio_m2": 17543.86,
+    "sum_precio_m2": 17543.86,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1521": {
+    "count": 3,
+    "avg_precio_m2": 6660.826666666667,
+    "sum_precio_m2": 19982.48,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1540": {
+    "count": 16,
+    "avg_precio_m2": 2196737.42125,
+    "sum_precio_m2": 35147798.74,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1555": {
+    "count": 8,
+    "avg_precio_m2": 10799.095,
+    "sum_precio_m2": 64794.57,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_163A": {
+    "count": 9,
+    "avg_precio_m2": 11971.542222222222,
+    "sum_precio_m2": 107743.88,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1678": {
+    "count": 3,
+    "avg_precio_m2": 13875.86,
+    "sum_precio_m2": 13875.86,
+    "colonia_predominante": "Maria Esther Zuno de Echeverria"
+  },
+  "30_193_0000_1790": {
+    "count": 5,
+    "avg_precio_m2": 10688.66,
+    "sum_precio_m2": 42754.64,
+    "colonia_predominante": "Reserva Tarimoya I"
+  },
+  "30_193_0000_1837": {
+    "count": 2,
+    "avg_precio_m2": 14193.925,
+    "sum_precio_m2": 28387.85,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1875": {
+    "count": 4,
+    "avg_precio_m2": 13814.6625,
+    "sum_precio_m2": 55258.65,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1911": {
+    "count": 6,
+    "avg_precio_m2": 11227.52,
+    "sum_precio_m2": 56137.600000000006,
+    "colonia_predominante": "Villa Rica"
+  },
+  "30_193_0000_2178": {
+    "count": 8,
+    "avg_precio_m2": 3059618.746,
+    "sum_precio_m2": 15298093.729999999,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_2549": {
+    "count": 2,
+    "avg_precio_m2": 12804.05,
+    "sum_precio_m2": 12804.05,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_2553": {
+    "count": 3,
+    "avg_precio_m2": 13125,
+    "sum_precio_m2": 26250,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_2568": {
+    "count": 21,
+    "avg_precio_m2": 24269.95823529412,
+    "sum_precio_m2": 412589.29000000004,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_2572": {
+    "count": 16,
+    "avg_precio_m2": 86196.76357142857,
+    "sum_precio_m2": 1206754.69,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_2604": {
+    "count": 7,
+    "avg_precio_m2": 9245.14,
+    "sum_precio_m2": 36980.56,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_302A": {
+    "count": 1,
+    "avg_precio_m2": 7633.59,
+    "sum_precio_m2": 7633.59,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_3072": {
+    "count": 15,
+    "avg_precio_m2": 10948.768333333332,
+    "sum_precio_m2": 131385.21999999997,
+    "colonia_predominante": "Geovillas los Pinos"
+  },
+  "30_193_0000_1076": {
+    "count": 9,
+    "avg_precio_m2": 13415.04375,
+    "sum_precio_m2": 107320.35,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_2623": {
+    "count": 2,
+    "avg_precio_m2": 11598.525000000001,
+    "sum_precio_m2": 23197.050000000003,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_0415": {
+    "count": 29,
+    "avg_precio_m2": 13340.714545454544,
+    "sum_precio_m2": 293495.72,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_042A": {
+    "count": 69,
+    "avg_precio_m2": 18178.860163934423,
+    "sum_precio_m2": 1108910.4699999997,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_0608": {
+    "count": 2,
+    "avg_precio_m2": 16336.63,
+    "sum_precio_m2": 16336.63,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_0275": {
+    "count": 9,
+    "avg_precio_m2": 8393.6575,
+    "sum_precio_m2": 67149.26,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_028A": {
+    "count": 17,
+    "avg_precio_m2": 11201.663571428571,
+    "sum_precio_m2": 156823.29,
+    "colonia_predominante": "Veracruz Centro"
+  },
+  "30_193_0000_0294": {
+    "count": 46,
+    "avg_precio_m2": 13482.762391304352,
+    "sum_precio_m2": 620207.0700000002,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_0398": {
+    "count": 21,
+    "avg_precio_m2": 13334.930476190475,
+    "sum_precio_m2": 280033.54,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_0400": {
+    "count": 3,
+    "avg_precio_m2": 15645.39,
+    "sum_precio_m2": 46936.17,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_0595": {
+    "count": 1,
+    "avg_precio_m2": 10691.82,
+    "sum_precio_m2": 10691.82,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_2587": {
+    "count": 2,
+    "avg_precio_m2": 11467.89,
+    "sum_precio_m2": 11467.89,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1589": {
+    "count": 25,
+    "avg_precio_m2": 12388.56608695652,
+    "sum_precio_m2": 284937.01999999996,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1610": {
+    "count": 2,
+    "avg_precio_m2": 13384.05,
+    "sum_precio_m2": 26768.1,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1625": {
+    "count": 4,
+    "avg_precio_m2": 8450.09,
+    "sum_precio_m2": 25350.27,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1767": {
+    "count": 3,
+    "avg_precio_m2": 12283.746666666666,
+    "sum_precio_m2": 36851.24,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1856": {
+    "count": 30,
+    "avg_precio_m2": 12168.608571428571,
+    "sum_precio_m2": 340721.04,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_2708": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Villa Rica"
+  },
+  "30_193_0000_2801": {
+    "count": 29,
+    "avg_precio_m2": 14712.320740740739,
+    "sum_precio_m2": 397232.66,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_284A": {
+    "count": 2,
+    "avg_precio_m2": 9500,
+    "sum_precio_m2": 19000,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_2888": {
+    "count": 2,
+    "avg_precio_m2": 9000,
+    "sum_precio_m2": 9000,
+    "colonia_predominante": "Villa Rica"
+  },
+  "30_193_0000_3231": {
+    "count": 9,
+    "avg_precio_m2": 4613.82,
+    "sum_precio_m2": 13841.46,
+    "colonia_predominante": "Colinas de Santa Fe"
+  },
+  "30_193_0000_0190": {
+    "count": 19,
+    "avg_precio_m2": 14871.400666666666,
+    "sum_precio_m2": 223071.01,
+    "colonia_predominante": "Veracruz Centro"
+  },
+  "30_193_0000_0985": {
+    "count": 8,
+    "avg_precio_m2": 12175.13,
+    "sum_precio_m2": 73050.78,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_0858": {
+    "count": 4,
+    "avg_precio_m2": 13224.465,
+    "sum_precio_m2": 26448.93,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1894": {
+    "count": 15,
+    "avg_precio_m2": 13452.012142857142,
+    "sum_precio_m2": 188328.16999999998,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_0580": {
+    "count": 1,
+    "avg_precio_m2": 8928.57,
+    "sum_precio_m2": 8928.57,
+    "colonia_predominante": "Unidad habitacional Lomas Del Vergel"
+  },
+  "30_193_0000_0078": {
+    "count": 8,
+    "avg_precio_m2": 13653.391428571427,
+    "sum_precio_m2": 95573.73999999999,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1485": {
+    "count": 7,
+    "avg_precio_m2": 12563.532,
+    "sum_precio_m2": 62817.659999999996,
+    "colonia_predominante": "Adolfo Ruiz Cortines"
+  },
+  "30_193_0000_277A": {
+    "count": 19,
+    "avg_precio_m2": 12559.921999999999,
+    "sum_precio_m2": 188398.83,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_3091": {
+    "count": 5,
+    "avg_precio_m2": 13043.476666666667,
+    "sum_precio_m2": 39130.43,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_3212": {
+    "count": 13,
+    "avg_precio_m2": 5645.503333333334,
+    "sum_precio_m2": 33873.020000000004,
+    "colonia_predominante": "Costa Dorada"
+  },
+  "30_193_0000_3176": {
+    "count": 12,
+    "avg_precio_m2": 12541.68,
+    "sum_precio_m2": 100333.44,
+    "colonia_predominante": "Los Torrentes"
+  },
+  "30_193_0000_1860": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Lomas Del Rio Medio"
+  },
+  "30_193_0000_2515": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "AsociaciÃ³n Civil"
+  },
+  "30_193_0000_3301": {
+    "count": 7,
+    "avg_precio_m2": 16504.358571428573,
+    "sum_precio_m2": 115530.51000000001,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_2407": {
+    "count": 14,
+    "avg_precio_m2": 7853.038571428571,
+    "sum_precio_m2": 54971.27,
+    "colonia_predominante": "Laguna Real"
+  },
+  "30_193_0000_2337": {
+    "count": 8,
+    "avg_precio_m2": 10493.49,
+    "sum_precio_m2": 73454.43,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_220A": {
+    "count": 2,
+    "avg_precio_m2": 12221.505000000001,
+    "sum_precio_m2": 24443.010000000002,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_3068": {
+    "count": 6,
+    "avg_precio_m2": 10632.855,
+    "sum_precio_m2": 42531.42,
+    "colonia_predominante": "Geovillas los Pinos"
+  },
+  "30_193_0000_2924": {
+    "count": 47,
+    "avg_precio_m2": 9781.965833333332,
+    "sum_precio_m2": 352150.76999999996,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_3195": {
+    "count": 10,
+    "avg_precio_m2": 10465.245714285713,
+    "sum_precio_m2": 73256.71999999999,
+    "colonia_predominante": "Los Torrentes"
+  },
+  "30_193_0000_3458": {
+    "count": 4,
+    "avg_precio_m2": 14964.525,
+    "sum_precio_m2": 29929.05,
+    "colonia_predominante": "Xana"
+  },
+  "30_193_0000_3462": {
+    "count": 18,
+    "avg_precio_m2": 17193.655333333332,
+    "sum_precio_m2": 257904.83,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1413": {
+    "count": 2,
+    "avg_precio_m2": 12502.189999999999,
+    "sum_precio_m2": 25004.379999999997,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1381": {
+    "count": 2,
+    "avg_precio_m2": 13406.315,
+    "sum_precio_m2": 26812.63,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1377": {
+    "count": 3,
+    "avg_precio_m2": 11725.723333333333,
+    "sum_precio_m2": 35177.17,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1733": {
+    "count": 3,
+    "avg_precio_m2": 33232.85666666667,
+    "sum_precio_m2": 99698.57,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_3636": {
+    "count": 1,
+    "avg_precio_m2": 17857.14,
+    "sum_precio_m2": 17857.14,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_193_0000_380A": {
+    "count": 6,
+    "avg_precio_m2": 19109.714,
+    "sum_precio_m2": 95548.56999999999,
+    "colonia_predominante": "Nueva"
+  },
+  "30_193_0000_3833": {
+    "count": 5,
+    "avg_precio_m2": 17889.266666666666,
+    "sum_precio_m2": 53667.8,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_3655": {
+    "count": 33,
+    "avg_precio_m2": 17875.621153846154,
+    "sum_precio_m2": 464766.14999999997,
+    "colonia_predominante": "Mata de Pita"
+  },
+  "30_193_0000_3693": {
+    "count": 5,
+    "avg_precio_m2": 13145.206,
+    "sum_precio_m2": 65726.03,
+    "colonia_predominante": "Mata de Pita"
+  },
+  "30_193_0000_373A": {
+    "count": 1,
+    "avg_precio_m2": 7428.57,
+    "sum_precio_m2": 7428.57,
+    "colonia_predominante": "Fraccionamiento Hacienda Sotavento"
+  },
+  "30_193_0000_3710": {
+    "count": 3,
+    "avg_precio_m2": 10223.550000000001,
+    "sum_precio_m2": 30670.65,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_3797": {
+    "count": 5,
+    "avg_precio_m2": 6846.661999999999,
+    "sum_precio_m2": 34233.31,
+    "colonia_predominante": "Paso de San Juan"
+  },
+  "30_193_0000_3706": {
+    "count": 4,
+    "avg_precio_m2": 18387.1,
+    "sum_precio_m2": 18387.1,
+    "colonia_predominante": "Hacienda Sotavento"
+  },
+  "30_193_0000_0773": {
+    "count": 2,
+    "avg_precio_m2": 16153.85,
+    "sum_precio_m2": 32307.7,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_2303": {
+    "count": 3,
+    "avg_precio_m2": 15767.816666666666,
+    "sum_precio_m2": 47303.45,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_2977": {
+    "count": 1,
+    "avg_precio_m2": 3662.71,
+    "sum_precio_m2": 3662.71,
+    "colonia_predominante": "Sanchez"
+  },
+  "30_193_0000_3725": {
+    "count": 2,
+    "avg_precio_m2": 8944.16,
+    "sum_precio_m2": 17888.32,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_3640": {
+    "count": 20,
+    "avg_precio_m2": 19022.374705882357,
+    "sum_precio_m2": 323380.37000000005,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_3481": {
+    "count": 8,
+    "avg_precio_m2": 17432.23857142857,
+    "sum_precio_m2": 122025.67,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_2360": {
+    "count": 10,
+    "avg_precio_m2": 13796.077777777777,
+    "sum_precio_m2": 124164.7,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_2322": {
+    "count": 1,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Geovillas Del Puerto"
+  },
+  "30_193_0000_2784": {
+    "count": 9,
+    "avg_precio_m2": 12835.619999999999,
+    "sum_precio_m2": 89849.34,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_2799": {
+    "count": 4,
+    "avg_precio_m2": 14200.426666666666,
+    "sum_precio_m2": 42601.28,
+    "colonia_predominante": "El Coyol"
+  },
+  "30_193_0000_3867": {
+    "count": 13,
+    "avg_precio_m2": 18217.319166666668,
+    "sum_precio_m2": 218607.83000000002,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_2905": {
+    "count": 3,
+    "avg_precio_m2": 15561.115,
+    "sum_precio_m2": 31122.23,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_3585": {
+    "count": 2,
+    "avg_precio_m2": null,
+    "sum_precio_m2": 0,
+    "colonia_predominante": "Las Palmas"
+  },
+  "30_193_0000_3513": {
+    "count": 5,
+    "avg_precio_m2": 9731.555,
+    "sum_precio_m2": 38926.22,
+    "colonia_predominante": "Libertad de Expresión"
+  },
+  "30_193_0000_291A": {
+    "count": 11,
+    "avg_precio_m2": 10938.507142857143,
+    "sum_precio_m2": 76569.55,
+    "colonia_predominante": "Geovillas los Pinos"
+  },
+  "30_193_0000_3284": {
+    "count": 3,
+    "avg_precio_m2": 8535.355,
+    "sum_precio_m2": 17070.71,
+    "colonia_predominante": "Los Torrentes"
+  },
+  "30_193_0000_3180": {
+    "count": 2,
+    "avg_precio_m2": 14769.23,
+    "sum_precio_m2": 14769.23,
+    "colonia_predominante": "Lomas Del Rio Medio"
+  },
+  "30_193_0000_3049": {
+    "count": 1,
+    "avg_precio_m2": 19795.92,
+    "sum_precio_m2": 19795.92,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_2286": {
+    "count": 1,
+    "avg_precio_m2": 14166.67,
+    "sum_precio_m2": 14166.67,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_193_0000_1818": {
+    "count": 2,
+    "avg_precio_m2": 9045.45,
+    "sum_precio_m2": 9045.45,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_0824": {
+    "count": 27,
+    "avg_precio_m2": 13230.737499999997,
+    "sum_precio_m2": 317537.69999999995,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_0063": {
+    "count": 1,
+    "avg_precio_m2": 18200,
+    "sum_precio_m2": 18200,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_2873": {
+    "count": 3,
+    "avg_precio_m2": 12562.993333333332,
+    "sum_precio_m2": 37688.979999999996,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_3570": {
+    "count": 5,
+    "avg_precio_m2": 7650.932500000001,
+    "sum_precio_m2": 30603.730000000003,
+    "colonia_predominante": "Villarin"
+  },
+  "30_193_0000_366A": {
+    "count": 19,
+    "avg_precio_m2": 18150.222777777773,
+    "sum_precio_m2": 326704.00999999995,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_3829": {
+    "count": 4,
+    "avg_precio_m2": 16233.3325,
+    "sum_precio_m2": 64933.33,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_3674": {
+    "count": 4,
+    "avg_precio_m2": 22044.62,
+    "sum_precio_m2": 66133.86,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_3034": {
+    "count": 1,
+    "avg_precio_m2": 6671.43,
+    "sum_precio_m2": 6671.43,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_2271": {
+    "count": 1,
+    "avg_precio_m2": 2141.06,
+    "sum_precio_m2": 2141.06,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_334A": {
+    "count": 11,
+    "avg_precio_m2": 10613.66909090909,
+    "sum_precio_m2": 116750.36,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_2445": {
+    "count": 1,
+    "avg_precio_m2": 7200,
+    "sum_precio_m2": 7200,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_0701": {
+    "count": 4,
+    "avg_precio_m2": 13756.0175,
+    "sum_precio_m2": 55024.07,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_2182": {
+    "count": 2,
+    "avg_precio_m2": 16336.63,
+    "sum_precio_m2": 16336.63,
+    "colonia_predominante": "Del Norte"
+  },
+  "30_193_0000_1841": {
+    "count": 4,
+    "avg_precio_m2": 7726.935000000001,
+    "sum_precio_m2": 30907.740000000005,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1771": {
+    "count": 5,
+    "avg_precio_m2": 12617.263333333334,
+    "sum_precio_m2": 37851.79,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_2676": {
+    "count": 1,
+    "avg_precio_m2": 12333.33,
+    "sum_precio_m2": 12333.33,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_193_0000_2430": {
+    "count": 4,
+    "avg_precio_m2": 16336.63,
+    "sum_precio_m2": 65346.52,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_2341": {
+    "count": 5,
+    "avg_precio_m2": 12726.3725,
+    "sum_precio_m2": 50905.49,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1786": {
+    "count": 1,
+    "avg_precio_m2": 19230.77,
+    "sum_precio_m2": 19230.77,
+    "colonia_predominante": "Las Hortalizas"
+  },
+  "30_193_0000_0538": {
+    "count": 1,
+    "avg_precio_m2": 14285.71,
+    "sum_precio_m2": 14285.71,
+    "colonia_predominante": "Fraccionamiento Las Hortalizas"
+  },
+  "30_193_0000_3119": {
+    "count": 10,
+    "avg_precio_m2": 11620.143,
+    "sum_precio_m2": 116201.43,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_3316": {
+    "count": 1,
+    "avg_precio_m2": 15942.03,
+    "sum_precio_m2": 15942.03,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_193_0000_3848": {
+    "count": 23,
+    "avg_precio_m2": 16918.63095238095,
+    "sum_precio_m2": 355291.24999999994,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_2981": {
+    "count": 10,
+    "avg_precio_m2": 13481.070000000002,
+    "sum_precio_m2": 94367.49,
+    "colonia_predominante": "Palma Real"
+  },
+  "30_193_0000_1729": {
+    "count": 11,
+    "avg_precio_m2": 10930.43,
+    "sum_precio_m2": 120234.73000000001,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_1682": {
+    "count": 10,
+    "avg_precio_m2": 17147.995000000003,
+    "sum_precio_m2": 171479.95,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_2619": {
+    "count": 1,
+    "avg_precio_m2": 11346.15,
+    "sum_precio_m2": 11346.15,
+    "colonia_predominante": "Alfredo V Bonfil"
+  },
+  "30_193_0000_3689": {
+    "count": 11,
+    "avg_precio_m2": 21348.413999999997,
+    "sum_precio_m2": 213484.13999999996,
+    "colonia_predominante": "Mata de Pita"
+  },
+  "30_193_0000_3015": {
+    "count": 14,
+    "avg_precio_m2": 17710.453846153847,
+    "sum_precio_m2": 230235.9,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_2214": {
+    "count": 1,
+    "avg_precio_m2": 9473.68,
+    "sum_precio_m2": 9473.68,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_193_0000_3208": {
+    "count": 8,
+    "avg_precio_m2": 11126.576666666666,
+    "sum_precio_m2": 66759.45999999999,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_3814": {
+    "count": 1,
+    "avg_precio_m2": 10156.25,
+    "sum_precio_m2": 10156.25,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_193_0000_3369": {
+    "count": 5,
+    "avg_precio_m2": 12396.198,
+    "sum_precio_m2": 61980.99,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_199_0000_0029": {
+    "count": 2,
+    "avg_precio_m2": 18000,
+    "sum_precio_m2": 18000,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_200_0000_0036": {
+    "count": 1,
+    "avg_precio_m2": 6500,
+    "sum_precio_m2": 6500,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_204_0000_0389": {
+    "count": 2,
+    "avg_precio_m2": 11914.89,
+    "sum_precio_m2": 23829.78,
+    "colonia_predominante": "Veracruz de Ignacio de la Llave"
+  },
+  "30_205_0000_0206": {
+    "count": 1,
+    "avg_precio_m2": 6508.88,
+    "sum_precio_m2": 6508.88,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_206_0000_0059": {
+    "count": 2,
+    "avg_precio_m2": 6944.5599999999995,
+    "sum_precio_m2": 13889.119999999999,
+    "colonia_predominante": "Brunet"
+  },
+  "30_206_0000_0097": {
+    "count": 1,
+    "avg_precio_m2": 13846.15,
+    "sum_precio_m2": 13846.15,
+    "colonia_predominante": "Fraccionamiento Guadalupe Tepeyac"
+  },
+  "30_206_0000_0186": {
+    "count": 1,
+    "avg_precio_m2": 6742.62,
+    "sum_precio_m2": 6742.62,
+    "colonia_predominante": "Desconocida"
+  },
+  "30_206_0000_0152": {
+    "count": 1,
+    "avg_precio_m2": 21739.13,
+    "sum_precio_m2": 21739.13,
+    "colonia_predominante": "San Agustin"
+  },
+  "30_207_0000_0041": {
+    "count": 3,
+    "avg_precio_m2": 3388.116666666667,
+    "sum_precio_m2": 10164.35,
+    "colonia_predominante": "3 Valles Centro"
+  },
+  "30_211_0000_0044": {
+    "count": 3,
+    "avg_precio_m2": 12232.916666666666,
+    "sum_precio_m2": 36698.75,
+    "colonia_predominante": "13 de Diciembre"
+  },
+  "30_211_0000_003A": {
+    "count": 1,
+    "avg_precio_m2": 15348.84,
+    "sum_precio_m2": 15348.84,
+    "colonia_predominante": "Desconocida"
+  }
+}

@@ -1,0 +1,923 @@
+{
+  "Jardines de Virginia, Boca del Río": {
+    "lat": 19.1562141,
+    "lng": -96.1110718,
+    "display_name": "Jardines de Virginia, Boca del Río, Veracruz, 94292, México"
+  },
+  "Alvarado, Veracruz": {
+    "lat": 18.7711218,
+    "lng": -95.7607957,
+    "display_name": "Alvarado, Veracruz, 95270, México"
+  },
+  "Residencial Lomas Residencial, Alvarado": {
+    "lat": 19.0594947,
+    "lng": -96.0613449,
+    "display_name": "Residencial Playa Dorada, RESIDENCIAL PLAYA DORADA, Mandinga y Matoza, Alvarado, Veracruz, 95250, México"
+  },
+  "Lomas Diamante, Alvarado": {
+    "lat": 19.0705612,
+    "lng": -96.092211,
+    "display_name": "Boulevard Lomas Diamante, LAS OLAS RESIDENCIAL, Playas del Conchal, Alvarado, Veracruz, 95264, México"
+  },
+  "Lomas de la Rioja, Alvarado": {
+    "lat": 19.056162,
+    "lng": -96.0614243,
+    "display_name": "LOMAS DE LA RIOJA, Mandinga y Matoza, Alvarado, Veracruz, 95250, México"
+  },
+  "Agrícola Moctezuma, Orizaba": {
+    "lat": 18.8562207,
+    "lng": -97.0866501,
+    "display_name": "Agrícola Moctezuma, Orizaba, Veracruz, 94300, México"
+  },
+  "El Morro las Colonias, Boca del Río": {
+    "error": "Not found"
+  },
+  "Graciano Sánchez Romo, Boca del Río": {
+    "lat": 19.1387874,
+    "lng": -96.1225841,
+    "display_name": "Escuela Primaria Graciano Sánchez Romo, Calle Guillermo Prieto, Carranza 1ra Sección, Boca del Río, Veracruz, 94298, México"
+  },
+  "Maria de La Piedad, Coatzacoalcos": {
+    "lat": 18.1493943,
+    "lng": -94.4301372,
+    "display_name": "María de la Piedad, Coatzacoalcos, Veracruz, 96410, México"
+  },
+  "Fraccionamiento Lomas de Río Medio II, Veracruz": {
+    "lat": 19.2009522,
+    "lng": -96.1982855,
+    "display_name": "Jardín de Niños Bicentenario de México, Calle Río Necaxa, Lomas de Río Medio, Veracruz, Municipio de Veracruz, Veracruz, 91808, México"
+  },
+  "Punta Tiburón Residencial Marina y Golf, Alvarado": {
+    "error": "Not found"
+  },
+  "Antón Lizardo, Alvarado": {
+    "lat": 19.056667,
+    "lng": -95.988056,
+    "display_name": "Antón Lizardo, Alvarado, Veracruz, 95269, México"
+  },
+  "Lomas del Dorado, Boca del Río": {
+    "lat": 19.0863502,
+    "lng": -96.1198473,
+    "display_name": "Lomas Del Dorado, Boca del Río, Veracruz, 94290, México"
+  },
+  "Adalberto Tejeda, Boca del Río": {
+    "lat": 19.1365704,
+    "lng": -96.1146021,
+    "display_name": "Adalberto Tejeda, Boca del Río, Veracruz, 94298, México"
+  },
+  "Unidad habitacional Los Volcanes, Veracruz": {
+    "error": "Not found"
+  },
+  "Astilleros de Veracruz, Veracruz": {
+    "lat": 19.2090915,
+    "lng": -96.1889741,
+    "display_name": "Calle Golfo de México, Marina Mercante, Veracruz, Municipio de Veracruz, Veracruz, 91808, México"
+  },
+  "Las Palmas, Medellín": {
+    "lat": 19.1037434,
+    "lng": -96.1236051,
+    "display_name": "Fraccionamiento Las Palmas, Medellín, Veracruz, 94297, México"
+  },
+  "Fraccionamiento Siglo XXI, Veracruz": {
+    "error": "Not found"
+  },
+  "Fraccionamiento Lomas del Sol, Alvarado": {
+    "lat": 19.0651518,
+    "lng": -96.0698265,
+    "display_name": "FRACCIONAMIENTO LOMAS DEL SOL, Alvarado, Veracruz, 95264, México"
+  },
+  "Lomas del Mediterráneo, Alvarado": {
+    "lat": 19.0635643,
+    "lng": -96.0731676,
+    "display_name": "Club de Playa Lomas del Mar, Calle Mar Mediterráneo, Lomas del Mar, Torres el Sendero Residencial, Kilómetro Cuatro, Mandinga y Matoza, Alvarado, Veracruz, 95264, México"
+  },
+  "Rio del Dorado, Boca del Río": {
+    "lat": 19.1010066,
+    "lng": -96.1058951,
+    "display_name": "Zócalo de Boca del Río, Cabecera Municipal, El Estero, Boca del Río, Veracruz, México"
+  },
+  "La Tampiquera, Boca del Río": {
+    "lat": 19.1101113,
+    "lng": -96.110072,
+    "display_name": "La Tampiquera, Boca del Río, Veracruz, 94290, México"
+  },
+  "El Porvenir, Coatepec": {
+    "lat": 19.4581512,
+    "lng": -96.9493377,
+    "display_name": "Fraccionamiento El Porvenir, Coatepec, Veracruz, 91615, México"
+  },
+  "Fraccionamiento las Lomas, Alvarado": {
+    "lat": 19.0563399,
+    "lng": -96.0595094,
+    "display_name": "Fraccionamiento Real Mandinga, REAL MANDINGA, Mandinga y Matoza, Alvarado, Veracruz, 95250, México"
+  },
+  "Fraccionamiento Linda Vista Ánimas, Xalapa": {
+    "lat": 19.5127443,
+    "lng": -96.8721117,
+    "display_name": "Fraccionamiento Linda Vista, Olmos de las Ánimas, Xalapa, Veracruz, México"
+  },
+  "Playas del Conchal, Alvarado": {
+    "lat": 19.075833,
+    "lng": -96.089722,
+    "display_name": "Playas del Conchal, Alvarado, Veracruz, 95264, México"
+  },
+  "Reforma, Veracruz": {
+    "lat": 19.5186737,
+    "lng": -96.9300666,
+    "display_name": "Reforma, Xalapa, Veracruz, 91090, México"
+  },
+  "Pedregal de las Animas, Xalapa": {
+    "lat": 19.531924,
+    "lng": -96.8821439,
+    "display_name": "Pedregal de Las Ánimas, Xalapa, Veracruz, 91190, México"
+  },
+  "Galaxia, Boca del Río": {
+    "lat": 19.1587701,
+    "lng": -96.1183845,
+    "display_name": "Galaxia, Boca del Río, Veracruz, 94249, México"
+  },
+  "Ejido San Jose Novillero, Boca del Río": {
+    "error": "Not found"
+  },
+  "Residencial Paseo de la Reina, Xalapa": {
+    "lat": 19.5246139,
+    "lng": -96.8659241,
+    "display_name": "Residencial Montecristo, Paseo de la Reina, Xalapa, Veracruz, México"
+  },
+  "N/A": {
+    "lat": 20.5621278,
+    "lng": -97.4430392,
+    "display_name": "A, Unidad Habitacional Infonavit Poza de Cuero, Villa de las Flores, Terrenos del Lote 4 \"Poza de Cuero\", Poza Rica de Hidalgo, Veracruz, 93308, México"
+  },
+  "Fraccionamiento Jardines de Las Ánimas, Xalapa": {
+    "error": "Not found"
+  },
+  "Alameda, Córdoba": {
+    "lat": 18.8868744,
+    "lng": -96.9401019,
+    "display_name": "Alameda, Córdoba, Veracruz, 94500, México"
+  },
+  "La Trinidad, Coatepec": {
+    "lat": 19.447748,
+    "lng": -96.9533158,
+    "display_name": "La Trinidad, Coatepec, Veracruz, 91615, México"
+  },
+  "Xalapa, Veracruz": {
+    "lat": 19.5408338,
+    "lng": -96.9146374,
+    "display_name": "Xalapa, Veracruz, 91170, México"
+  },
+  "Lomas Del Mar, Boca del Río": {
+    "lat": 19.1275835,
+    "lng": -96.1095953,
+    "display_name": "Lomas del Mar, Boca del Río, Veracruz, 94293, México"
+  },
+  "Fraccionamiento Residencial Monte Magno, Xalapa": {
+    "error": "Not found"
+  },
+  "Fraccionamiento Costa de Oro, Boca del Río": {
+    "error": "Not found"
+  },
+  "Fraccionamiento Jacarandas, Emiliano Zapata": {
+    "lat": 19.4982628,
+    "lng": -96.8526379,
+    "display_name": "Telesecundaria Bicentenario de la Independencia de México, Calle Hacienda del Carmen, Gravileas, Cincuentenario, Jacarandas, Emiliano Zapata, Veracruz, 91637, México"
+  },
+  "Córdoba, Veracruz": {
+    "lat": 18.8944704,
+    "lng": -96.9352891,
+    "display_name": "Córdoba, Veracruz, 94500, México"
+  },
+  "Boca del Río, Veracruz": {
+    "lat": 19.1129068,
+    "lng": -96.1118481,
+    "display_name": "Boca del Río, Veracruz, México"
+  },
+  "Mandinga y Matoza, Alvarado": {
+    "lat": 19.048611,
+    "lng": -96.073056,
+    "display_name": "Mandinga y Matoza, Alvarado, Veracruz, 95264, México"
+  },
+  "Fraccionamiento Geovillas los Pinos , Veracruz": {
+    "error": "Not found"
+  },
+  "Revolución, Xalapa": {
+    "lat": 19.5701087,
+    "lng": -96.9206332,
+    "display_name": "Revolución, Xalapa, Veracruz, 91110, México"
+  },
+  "Fraccionamiento Club de Golf Villa Rica, Alvarado": {
+    "error": "Not found"
+  },
+  "Fraccionamiento Las Palmas, Medellín": {
+    "lat": 19.1037434,
+    "lng": -96.1236051,
+    "display_name": "Fraccionamiento Las Palmas, Primero de la Palma, Medellín, Veracruz, 94297, México"
+  },
+  "Fraccionamiento Tlacotengo , Fortín": {
+    "lat": 18.9190446,
+    "lng": -96.9928622,
+    "display_name": "Fraccionamiento Tlacotengo, Fortín de las Flores, Veracruz, 94470, México"
+  },
+  "Unidad habitacional Sipeh Animas, Xalapa": {
+    "error": "Not found"
+  },
+  "Emiliano Zapata, Xalapa": {
+    "lat": 19.5101776,
+    "lng": -96.9236916,
+    "display_name": "Emiliano Zapata, Xalapa, Veracruz, 91090, México"
+  },
+  "Nuevo Córdoba, Córdoba": {
+    "lat": 18.8962207,
+    "lng": -96.9546254,
+    "display_name": "Nuevo Córdoba, Córdoba, Veracruz, 94500, México"
+  },
+  "Las Olas Residencial, Alvarado": {
+    "lat": 19.0705802,
+    "lng": -96.0835539,
+    "display_name": "LAS OLAS RESIDENCIAL, Kilómetro Cuatro, Alvarado, Veracruz, 95264, México"
+  },
+  "Fraccionamiento Puente Moreno, Medellín": {
+    "lat": 19.1034761,
+    "lng": -96.163586,
+    "display_name": "Fraccionamiento Puente Moreno, Medellín, Veracruz, 94274, México"
+  },
+  "Obrera, Minatitlán": {
+    "lat": 17.9877855,
+    "lng": -94.5372664,
+    "display_name": "Obrera, Col. 18 de marzo, Minatitlán, Veracruz, 97600, México"
+  },
+  "El Olmo, Xalapa": {
+    "lat": 19.5097346,
+    "lng": -96.8659833,
+    "display_name": "El Olmo, Xalapa, Veracruz, 91194, México"
+  },
+  "Fraccionamiento Lomas de Río Medio, Veracruz": {
+    "lat": 19.20118,
+    "lng": -96.1946713,
+    "display_name": "Fraccionamiento Lomas de Río Medio, Veracruz, Municipio de Veracruz, Veracruz, 91808, México"
+  },
+  "Anáhuac, Xalapa": {
+    "lat": 19.5239962,
+    "lng": -96.8761812,
+    "display_name": "Anáhuac, Xalapa, Veracruz, 91190, México"
+  },
+  "Fraccionamiento Joyas de Mocambo (Granjas los Pinos), Boca del Río": {
+    "error": "Not found"
+  },
+  "Indeco Animas, Xalapa": {
+    "lat": 19.5328596,
+    "lng": -96.8910715,
+    "display_name": "Indeco Ánimas, Xalapa, Veracruz, 91190, México"
+  },
+  "Pueblo El Lencero, Emiliano Zapata": {
+    "error": "Not found"
+  },
+  "Boca Del Rio, Boca del Río": {
+    "lat": 19.1033511,
+    "lng": -96.106086,
+    "display_name": "Boca del Río, Veracruz, 94290, México"
+  },
+  "San José, Córdoba": {
+    "lat": 18.8951082,
+    "lng": -96.9414441,
+    "display_name": "San José, Córdoba, Veracruz, 94500, México"
+  },
+  "Veracruz, Veracruz": {
+    "lat": 19.2003429,
+    "lng": -96.1383572,
+    "display_name": "Veracruz, Municipio de Veracruz, Veracruz, 91701, México"
+  },
+  "Xalapa Enríquez Centro, Xalapa": {
+    "lat": 19.5289314,
+    "lng": -96.9190615,
+    "display_name": "Óptica México, 47, Calle Xalapeños Ilustres, Venustiano Carranza, Zona Centro, Xalapa, Veracruz, 91000, México"
+  },
+  "Buena Vista, Alvarado": {
+    "error": "Not found"
+  },
+  "Ignacio Zaragoza, Veracruz": {
+    "lat": 19.705278,
+    "lng": -97.214167,
+    "display_name": "Ignacio Zaragoza, Altotonga, Veracruz, México"
+  },
+  "El Morro, Boca del Río": {
+    "lat": 19.1223771,
+    "lng": -96.1089602,
+    "display_name": "El Morro, Boca del Río, Veracruz, 93294, México"
+  },
+  "Fraccionamiento Dorado Real, Veracruz": {
+    "lat": 19.1598388,
+    "lng": -96.2238666,
+    "display_name": "Fraccionamiento Dorado Real, Valente Díaz, Municipio de Veracruz, Veracruz, 91725, México"
+  },
+  "Fraccionamiento El Conchal, Alvarado": {
+    "error": "Not found"
+  },
+  "Fraccionamiento Tulipanes de Las Ánimas, Xalapa": {
+    "error": "Not found"
+  },
+  "Los Delfines, Boca del Río": {
+    "lat": 19.1195778,
+    "lng": -96.1049912,
+    "display_name": "Edificio Los Delfines, Boulevard Miguel Alemán, Cabecera Municipal, El Estero, Boca del Río, Veracruz, 93294, México"
+  },
+  "Aeropuerto Ciudad de Veracruz, Veracruz": {
+    "lat": 19.1360414,
+    "lng": -96.1860699,
+    "display_name": "Aeropuerto Internacional General Heriberto Jara Corona, Privada de Broadway, Hacienda Sotavento, Veracruz, Municipio de Veracruz, Veracruz, 91775, México"
+  },
+  "Lomas del Mar, Alvarado": {
+    "lat": 19.0627352,
+    "lng": -96.0747298,
+    "display_name": "Lomas del Mar, Torres el Sendero Residencial, Kilómetro Cuatro, Mandinga y Matoza, Alvarado, Veracruz, 95264, México"
+  },
+  "Papantla Centro, Papantla": {
+    "lat": 20.4621522,
+    "lng": -97.3357786,
+    "display_name": "Centro de Readaptación Social \"Papantla\", Ixtacu, Colonia Unidad y Trabajo, Terrenos del Lote 20 \"Escolín\", Papantla, Veracruz, 93440, México"
+  },
+  "Alvarado Centro, Alvarado": {
+    "error": "Not found"
+  },
+  "Ejido El Tejar, Medellín": {
+    "error": "Not found"
+  },
+  "Fraccionamiento Acueducto Animas, Xalapa": {
+    "error": "Not found"
+  },
+  "Agrícola, Xalapa": {
+    "lat": 19.5291521,
+    "lng": -96.8783428,
+    "display_name": "Agrícola, Xalapa, Veracruz, 91190, México"
+  },
+  "Primero de Mayo Sur, Boca del Río": {
+    "lat": 19.1431078,
+    "lng": -96.125714,
+    "display_name": "Primero de Mayo Sur, Boca del Río, Veracruz, 91940, México"
+  },
+  "Fortín, Veracruz": {
+    "lat": 19.5476689,
+    "lng": -96.9412115,
+    "display_name": "Fortín, Calle Esmeralda, FOVISSSTE, Xalapa, Veracruz, 91010, México"
+  },
+  "Mallorca Residencial, Alvarado": {
+    "lat": 19.057368,
+    "lng": -96.0660586,
+    "display_name": "RESIDENCIAL MALLORCA, Mandinga y Matoza, Alvarado, Veracruz, 95250, México"
+  },
+  "El Dorado, Boca del Río": {
+    "lat": 19.0924475,
+    "lng": -96.1111978,
+    "display_name": "El Dorado, Boca del Río, Veracruz, 94290, México"
+  },
+  "Congregacion La Laguna, Coatepec": {
+    "lat": 19.4990357,
+    "lng": -96.9443937,
+    "display_name": "La Pitaya (Congregación Zoncuantla), La Laguna, Coatepec, Veracruz, 91608, México"
+  },
+  "Pascual Ortiz Rubio, Veracruz": {
+    "lat": 20.9667093,
+    "lng": -97.4030384,
+    "display_name": "Pascual Ortiz Rubio, Colonia El Esfuerzo, Tuxpan, Veracruz, 92800, México"
+  },
+  "Boca del Río Centro, Boca del Río": {
+    "error": "Not found"
+  },
+  "Arboledas San Pedro, Coatepec": {
+    "error": "Not found"
+  },
+  "Pueblo La Antigua Veracruz, La Antigua": {
+    "error": "Not found"
+  },
+  "Medellín, Veracruz": {
+    "lat": 18.9923145,
+    "lng": -96.1377405,
+    "display_name": "Medellín, Veracruz, México"
+  },
+  "Fraccionamiento Jardín, Fortín": {
+    "error": "Not found"
+  },
+  "Unidad habitacional Rincon Del Conchal, Alvarado": {
+    "error": "Not found"
+  },
+  "Fraccionamiento Las Palmas, Veracruz": {
+    "lat": 19.1037434,
+    "lng": -96.1236051,
+    "display_name": "Fraccionamiento Las Palmas, Primero de la Palma, Medellín, Veracruz, 94297, México"
+  },
+  "Fraccionamiento Maguellitos, Banderilla": {
+    "error": "Not found"
+  },
+  "Fraccionamiento Palma Real II, Veracruz": {
+    "lat": 19.1755285,
+    "lng": -96.2146663,
+    "display_name": "Fraccionamiento Palma Real II, Valente Díaz, Municipio de Veracruz, Veracruz, 91809, México"
+  },
+  "Fraccionamiento Coapexpan, Xalapa": {
+    "error": "Not found"
+  },
+  "Los Manantiales, Alvarado": {
+    "error": "Not found"
+  },
+  "Villa Rica, Boca del Río": {
+    "lat": 19.126507,
+    "lng": -96.1139291,
+    "display_name": "Villa Rica, Boca del Río, Veracruz, 94297, México"
+  },
+  "Costa Verde, Boca del Río": {
+    "lat": 19.1647285,
+    "lng": -96.1168626,
+    "display_name": "Calzada Costa Verde, Galaxia, Boca del Río, Veracruz, 94294, México"
+  },
+  "Residencial Las Lomas, Alvarado": {
+    "lat": 19.0578599,
+    "lng": -96.0614072,
+    "display_name": "Residencial Playa Dorada, RESIDENCIAL PLAYA DORADA, Mandinga y Matoza, Alvarado, Veracruz, 95250, México"
+  },
+  "El Manantial, Boca del Río": {
+    "lat": 19.1250219,
+    "lng": -96.1187238,
+    "display_name": "El Dren, Miguel Aleman, Boca del Río, Veracruz, México"
+  },
+  "Ricardo Flores Magón, Veracruz": {
+    "lat": 20.411111,
+    "lng": -97.152778,
+    "display_name": "Ricardo Flores Magón, Gutiérrez Zamora, Veracruz, México"
+  },
+  "Los Lagos, Xalapa": {
+    "lat": 19.5162852,
+    "lng": -96.9219267,
+    "display_name": "Los Lagos, Xalapa, Veracruz, 91090, México"
+  },
+  "Congregacion El Grande, Coatepec": {
+    "error": "Not found"
+  },
+  "Fraccionamiento Sama de Grado, Fortín": {
+    "error": "Not found"
+  },
+  "Emiliano Zapata, Coatzacoalcos": {
+    "lat": 18.1496984,
+    "lng": -94.393178,
+    "display_name": "Emiliano Zapata, Allende, Coatzacoalcos, Veracruz, 96430, México"
+  },
+  "Fraccionamiento Virginia, Boca del Río": {
+    "error": "Not found"
+  },
+  "Fraccionamiento Vista Bella, Alvarado": {
+    "error": "Not found"
+  },
+  "Cazones, Poza Rica de Hidalgo": {
+    "lat": 20.5427954,
+    "lng": -97.435417,
+    "display_name": "Cazones, Residencial La Ceiba, Poza Rica, Terrenos del Lote 3 \"Poza Rica\", Poza Rica de Hidalgo, Veracruz, 93230, México"
+  },
+  "Coatepec, Veracruz": {
+    "lat": 19.4543134,
+    "lng": -96.9596375,
+    "display_name": "Coatepec, Veracruz, México"
+  },
+  "Fraccionamiento Circuito Quetzales, Xalapa": {
+    "error": "Not found"
+  },
+  "Fraccionamiento Club de Golf, Emiliano Zapata": {
+    "lat": 19.472446,
+    "lng": -96.7860372,
+    "display_name": "Fraccionamiento La Laguna, Club de Golf, Miradores (Miradores del Mar), Emiliano Zapata, Veracruz, 91640, México"
+  },
+  "Malibran de las Brujas, Veracruz": {
+    "error": "Not found"
+  },
+  "Emiliano Zapata, Veracruz": {
+    "lat": 19.4569696,
+    "lng": -96.7912766,
+    "display_name": "Emiliano Zapata, Veracruz, México"
+  },
+  "Coatzacoalcos, Veracruz": {
+    "lat": 18.1405019,
+    "lng": -94.4344003,
+    "display_name": "Coatzacoalcos, Veracruz, 96576, México"
+  },
+  "Articulo 123, Veracruz": {
+    "lat": 19.2066069,
+    "lng": -96.229045,
+    "display_name": "Articulo 123, Geo Villas Los Pinos 2, Veracruz, Municipio de Veracruz, Veracruz, 91809, México"
+  },
+  "Los Filtros, Córdoba": {
+    "lat": 18.9066648,
+    "lng": -96.9390475,
+    "display_name": "Los Filtros, Córdoba, Veracruz, 94500, México"
+  },
+  "Faros, Veracruz": {
+    "lat": 19.0747651,
+    "lng": -96.0858484,
+    "display_name": "Calle Los Faros, LAS OLAS RESIDENCIAL, Playas del Conchal, Alvarado, Veracruz, 95264, México"
+  },
+  "Ricardo Flores Magón, Boca del Río": {
+    "lat": 19.1509735,
+    "lng": -96.1242434,
+    "display_name": "Escuela Primaria Ricardo Flores Magón, Calle Norte 8, Casas Tamsa, Boca del Río, Veracruz, 91940, México"
+  },
+  "Congregacion Mandinga y Cardon, Alvarado": {
+    "error": "Not found"
+  },
+  "Congregacion La Luz Francisco I Madero, Córdoba": {
+    "error": "Not found"
+  },
+  "Fraccionamiento Xana, Veracruz": {
+    "lat": 19.1590647,
+    "lng": -96.1794214,
+    "display_name": "Fraccionamiento Xana, Veracruz, Municipio de Veracruz, Veracruz, 91726, México"
+  },
+  "Fraccionamiento Verginia, Córdoba": {
+    "error": "Not found"
+  },
+  "Río Jamapa, Boca del Río": {
+    "lat": 19.1026802,
+    "lng": -96.110539,
+    "display_name": "Colonia Río Jamapa, Boca del Río, Veracruz, 94290, México"
+  },
+  "Fraccionamiento La Pradera, Emiliano Zapata": {
+    "lat": 19.4982628,
+    "lng": -96.8526379,
+    "display_name": "Telesecundaria Bicentenario de la Independencia de México, Calle Hacienda del Carmen, Gravileas, Cincuentenario, Jacarandas, Emiliano Zapata, Veracruz, 91637, México"
+  },
+  "Los Pinos, Boca del Río": {
+    "lat": 19.1419672,
+    "lng": -96.1140201,
+    "display_name": "Los Pinos, Boca del Río, Veracruz, 94298, México"
+  },
+  "Pocitos y Rivera, Veracruz": {
+    "error": "Not found"
+  },
+  "Tulipanes de la Animas, Xalapa": {
+    "lat": 19.5384561,
+    "lng": -96.8925232,
+    "display_name": "Tulipanes, Fraccionamiento Los Reyes, Jardines de Agustín Lara, Xalapa, Veracruz, 91174, México"
+  },
+  "Fraccionamiento La Pradera, Xalapa": {
+    "error": "Not found"
+  },
+  "Torres el Sendero Residencial, Alvarado": {
+    "lat": 19.0707958,
+    "lng": -96.0766523,
+    "display_name": "Torres el Sendero Residencial, Kilómetro Cuatro, Alvarado, Veracruz, 95264, México"
+  },
+  "Adolfo López Mateos, Veracruz": {
+    "lat": 20.5348137,
+    "lng": -97.2343771,
+    "display_name": "Adolfo López Mateos (Taracuán), Terrenos del Lote 10 \"Polutla, Taracuán, Poza Verde y Tenixtepec\", Papantla, Veracruz, México"
+  },
+  "Centro, Veracruz": {
+    "lat": 18.8522894,
+    "lng": -97.0622792,
+    "display_name": "Centro, Ixtaczoquitlán, Veracruz, 94460, México"
+  },
+  "Fraccionamiento Los Lienzos, Fortín": {
+    "lat": 18.9286233,
+    "lng": -96.9764759,
+    "display_name": "Fraccionamiento Los Lienzos, Fortín de las Flores, Veracruz, 94470, México"
+  },
+  "Fraccionamiento Residencial del Bosque, Veracruz": {
+    "lat": 19.1462752,
+    "lng": -96.221724,
+    "display_name": "Fraccionamiento Residencial del Bosque, Valente Díaz, Municipio de Veracruz, Veracruz, 91725, México"
+  },
+  "Fraccionamiento Banus, Alvarado": {
+    "error": "Not found"
+  },
+  "HernAndez Ochoa, Coatepec": {
+    "lat": 19.4510414,
+    "lng": -96.9662376,
+    "display_name": "Calle Privada Rafaél Hernández Ochoa, Unidad Habitacional Roberto Amoros, Coatepec, Veracruz, 91559, México"
+  },
+  "Manlio Fabio Altamirano (Lecheros), Boca del Río": {
+    "error": "Not found"
+  },
+  "Fraccionamiento Palma Real, Veracruz": {
+    "lat": 19.1755285,
+    "lng": -96.2146663,
+    "display_name": "Fraccionamiento Palma Real II, Valente Díaz, Municipio de Veracruz, Veracruz, 91809, México"
+  },
+  "Tres Pasos, Emiliano Zapata": {
+    "lat": 19.5035699,
+    "lng": -96.8461549,
+    "display_name": "Fraccionamiento Tres Pasos, Jacarandas, Emiliano Zapata, Veracruz, 91637, México"
+  },
+  "Barrio Potrerillo, Ixtaczoquitlán": {
+    "error": "Not found"
+  },
+  "Fraccionamiento Flores Del Valle, Veracruz": {
+    "error": "Not found"
+  },
+  "Ylang Ylang, Boca del Río": {
+    "lat": 19.1470276,
+    "lng": -96.1102802,
+    "display_name": "Ganadera Ylang Ylang, Calle Acapulco, Joyas de Mocambo, Boca del Río, Veracruz, 91940, México"
+  },
+  "Acueducto, Xalapa": {
+    "lat": 19.5564218,
+    "lng": -96.9367258,
+    "display_name": "Acueducto, 10 de Abril, Xalapa, Veracruz, 91016, México"
+  },
+  "Chapultepec, Poza Rica de Hidalgo": {
+    "lat": 20.5126446,
+    "lng": -97.4688584,
+    "display_name": "Chapultepec, Colonia División de Oriente, Poza Rica, Terrenos del Lote 3 \"Poza Rica\", Poza Rica de Hidalgo, Veracruz, 93367, México"
+  },
+  "Luis Echeverria Alvarez, Boca del Río": {
+    "error": "Not found"
+  },
+  "Populares, Veracruz": {
+    "lat": 19.5479435,
+    "lng": -96.8635327,
+    "display_name": "Farmacia Genericos y Populares, Carretera Xalapa - Alto Lucero, El Castillo, Xalapa, Veracruz, 91210, México"
+  },
+  "Fraccionamiento El Animo, Emiliano Zapata": {
+    "error": "Not found"
+  },
+  "Banderilla Centro, Banderilla": {
+    "error": "Not found"
+  },
+  "Fraccionamiento San José, Coatepec": {
+    "error": "Not found"
+  },
+  "Residencial Residencial Bosques de Santa Elena, Poza Rica de Hidalgo": {
+    "error": "Not found"
+  },
+  "Pueblo Playa de Vacas, Medellín": {
+    "error": "Not found"
+  },
+  "Ignacio de la Llave, Veracruz": {
+    "lat": 18.6560972,
+    "lng": -95.9726543,
+    "display_name": "Ignacio de la Llave, Veracruz, 95240, México"
+  },
+  "Fraccionamiento Lomas del Tejar, Xalapa": {
+    "error": "Not found"
+  },
+  "Bosque de Niebla, Xalapa": {
+    "lat": 19.5294145,
+    "lng": -96.8640283,
+    "display_name": "Bosque de Niebla, Xalapa, Veracruz, 91210, México"
+  },
+  "Esperanza, Córdoba": {
+    "lat": 18.8833869,
+    "lng": -96.9348181,
+    "display_name": "Esperanza, Córdoba, Veracruz, 94500, México"
+  },
+  "Puerta Paraíso, Veracruz": {
+    "lat": 19.1302834,
+    "lng": -96.1754414,
+    "display_name": "Avenida Puerta Paraíso, Fracc. Hacienda Paraiso, Veracruz, Municipio de Veracruz, Veracruz, 91775, México"
+  },
+  "Reserva Territorial, Xalapa": {
+    "lat": 19.4982661,
+    "lng": -96.8795016,
+    "display_name": "Reserva Territorial, Xalapa, Veracruz, 91096, México"
+  },
+  "Villa Montaña, Banderilla": {
+    "lat": 19.5937289,
+    "lng": -96.9548562,
+    "display_name": "Boulevard Villa Montaña, Banderilla, Veracruz, 91303, México"
+  },
+  "Fraccionamiento Residencial Marino, Medellín": {
+    "error": "Not found"
+  },
+  "INDECO Shangri-La, Fortín": {
+    "error": "Not found"
+  },
+  "Lomas de San Roque, Xalapa": {
+    "lat": 19.5549132,
+    "lng": -96.9403684,
+    "display_name": "Lomas de San Roque, Xalapa, Veracruz, 91016, México"
+  },
+  "Fraccionamiento Gravileas, Emiliano Zapata": {
+    "error": "Not found"
+  },
+  "Represa Del Carmen, Xalapa": {
+    "lat": 19.531761,
+    "lng": -96.9361207,
+    "display_name": "Represa del Carmen, Xalapa, Veracruz, 91050, México"
+  },
+  "Fraccionamiento Floresta, Veracruz": {
+    "lat": 20.5428737,
+    "lng": -97.462399,
+    "display_name": "Fraccionamiento La Floresta, Poza Rica, Terrenos del Lote 3 \"Poza Rica\", Poza Rica de Hidalgo, Veracruz, 93320, México"
+  },
+  "Crystal Lagoons, Veracruz": {
+    "lat": 19.1316249,
+    "lng": -96.1662191,
+    "display_name": "Crystal Lagoons, Veracruz, Municipio de Veracruz, Veracruz, 91775, México"
+  },
+  "Valle Anáhuac, Xalapa": {
+    "lat": 19.5213561,
+    "lng": -96.8778817,
+    "display_name": "Valle Anáhuac, Xalapa, Veracruz, 91193, México"
+  },
+  "Los Lirios, Coatepec": {
+    "lat": 19.4432046,
+    "lng": -96.9665959,
+    "display_name": "Privada Los Lirios, Lomas de Temimil, Coatepec, Veracruz, 91559, México"
+  },
+  "Las Trancas, Emiliano Zapata": {
+    "lat": 19.5064826,
+    "lng": -96.8634427,
+    "display_name": "Las Trancas, Emiliano Zapata, Veracruz, 91194, México"
+  },
+  "Cerritos, Orizaba": {
+    "lat": 18.8511892,
+    "lng": -97.105438,
+    "display_name": "Cerritos, Avenida Oriente 7, Del Maestro, Las Alamedas, Orizaba, Veracruz, 94300, México"
+  },
+  "Fraccionamiento A I M P, Poza Rica de Hidalgo": {
+    "error": "Not found"
+  },
+  "Valente Diaz, Veracruz": {
+    "lat": 19.1683703,
+    "lng": -96.218214,
+    "display_name": "Valente Díaz, Municipio de Veracruz, Veracruz, 91725, México"
+  },
+  "Fraccionamiento Villa Verde, Córdoba": {
+    "error": "Not found"
+  },
+  "Fraccionamiento Imperial de la Ánimas, Xalapa": {
+    "error": "Not found"
+  },
+  "El Coyol, Veracruz": {
+    "lat": 19.1713784,
+    "lng": -96.6982397,
+    "display_name": "El Coyol, Comapa, Veracruz, México"
+  },
+  "27 de Septiembre, Poza Rica de Hidalgo": {
+    "lat": 20.5301637,
+    "lng": -97.4532579,
+    "display_name": "27 de Septiembre, Colonia Francisco I. Madero, Poza Rica, Terrenos del Lote 3 \"Poza Rica\", Poza Rica de Hidalgo, Veracruz, 93260, México"
+  },
+  "San Andres Tuxtla Centro, San Andrés Tuxtla": {
+    "error": "Not found"
+  },
+  "San Nicolás, Córdoba": {
+    "lat": 18.8973801,
+    "lng": -96.9697665,
+    "display_name": "Infonavit San Nicolás, Córdoba, Veracruz, 94500, México"
+  },
+  "Unidad habitacional Sebastián Lerdo de Tejada Indeco, Xalapa": {
+    "error": "Not found"
+  },
+  "Bajo Del Jobo, Veracruz": {
+    "error": "Not found"
+  },
+  "Fraccionamiento Kawatzin Valencia, Coatzintla": {
+    "error": "Not found"
+  },
+  "Ensueño, Xalapa": {
+    "lat": 19.525255,
+    "lng": -96.9126846,
+    "display_name": "Fraccionamiento Ensueño, Xalapa, Veracruz, 91060, México"
+  },
+  "Unidad habitacional Puerta Grande, Mariano Escobedo": {
+    "error": "Not found"
+  },
+  "Fovissste, Coatzacoalcos": {
+    "error": "Not found"
+  },
+  "Adolfo Ruiz Cortines, Veracruz": {
+    "lat": 20.5980556,
+    "lng": -97.3056041,
+    "display_name": "Adolfo Ruiz Cortines (El Aguacate), Terrenos del Lote 24 \"Cazones, Migueles, Caristay, Aguacate y Sombrerete\", Papantla, Veracruz, México"
+  },
+  "Fraccionamiento Cordilleras, Boca del Río": {
+    "error": "Not found"
+  },
+  "Puerto México, Coatzacoalcos": {
+    "lat": 18.1485446,
+    "lng": -94.4455062,
+    "display_name": "Puerto México, Coatzacoalcos, Veracruz, 96510, México"
+  },
+  "Primero de Mayo Norte, Boca del Río": {
+    "lat": 19.1435489,
+    "lng": -96.1214363,
+    "display_name": "Primero de Mayo Norte, Boca del Río, Veracruz, 94298, México"
+  },
+  "Aviación Vieja, Poza Rica de Hidalgo": {
+    "lat": 20.5149215,
+    "lng": -97.4471534,
+    "display_name": "Colonia Aviación Vieja, Poza Rica, Terrenos del Lote 3 \"Poza Rica\", Poza Rica de Hidalgo, Veracruz, 93370, México"
+  },
+  "Coatepec Centro, Coatepec": {
+    "lat": 19.4557997,
+    "lng": -96.9599408,
+    "display_name": "Centro Comercial Coatepec, 19, Calle Hernández y Hernández, Unidad Habitacional Roberto Amoros, Coatepec, Veracruz, 91500, México"
+  },
+  "Fraccionamiento Santa Cecilia, Papantla": {
+    "lat": 20.5983195,
+    "lng": -97.412132,
+    "display_name": "Fraccionamiento Santa Cecilia, Terrenos del Lote 22 \"Pital y Mozutla\", Papantla, Veracruz, México"
+  },
+  "Del Bosque, Coatepec": {
+    "lat": 19.4605783,
+    "lng": -96.9595208,
+    "display_name": "Parque lineal temático \"Senderito del Bosque de Niebla\", Unidad Habitacional Roberto Amoros, Coatepec, Veracruz, 91500, México"
+  },
+  "Fraccionamiento Arboledas, Veracruz": {
+    "lat": 17.9981164,
+    "lng": -94.6178949,
+    "display_name": "Fraccionamiento Arboledas, Cosoleacaque, Veracruz, 96346, México"
+  },
+  "Las Vegas II, Boca del Río": {
+    "lat": 19.1359668,
+    "lng": -96.1343149,
+    "display_name": "Las Vegas II, Boca del Río, Veracruz, 91948, México"
+  },
+  "Aquiles Serdán, Nogales": {
+    "lat": 18.8148575,
+    "lng": -97.1702225,
+    "display_name": "Aquiles Serdán, Nogales, Veracruz, 94720, México"
+  },
+  "Pueblo Las Flores, Fortín": {
+    "lat": 18.8993309,
+    "lng": -96.9982014,
+    "display_name": "Fortín de las Flores, Veracruz, 94470, México"
+  },
+  "Fraccionamiento La Florida, Veracruz": {
+    "lat": 20.5861687,
+    "lng": -97.4279431,
+    "display_name": "Fraccionamiento la Florida, Terrenos del Lote 4 \"Poza de Cuero\", Poza Rica de Hidalgo, Veracruz, 93306, México"
+  },
+  "Fraccionamiento Las Trancas, Xalapa": {
+    "error": "Not found"
+  },
+  "Fraccionamiento Villas de La Llave, Fortín": {
+    "lat": 18.9157518,
+    "lng": -96.9916835,
+    "display_name": "Fraccionamiento Villas de la Llave, Fortín de las Flores, Veracruz, 94470, México"
+  },
+  "Vicente Lombardo Toledano, Fortín": {
+    "lat": 18.9183,
+    "lng": -96.9970039,
+    "display_name": "Vicente Lombardo Toledano, Fortín de las Flores, Veracruz, 94470, México"
+  },
+  "Pueblo Miradores Del Mar, Emiliano Zapata": {
+    "error": "Not found"
+  },
+  "Mártires de Chicago, Xalapa": {
+    "lat": 19.5063567,
+    "lng": -96.9078472,
+    "display_name": "Mártires de Chicago, Xalapa, Veracruz, 91093, México"
+  },
+  "Barrio Barrio Nuevo, Orizaba": {
+    "lat": 18.84255,
+    "lng": -97.0745968,
+    "display_name": "Coats México, Autopista Puebla - Orizaba, El Trébol, Barrio Nuevo, Ixtaczoquitlán, Veracruz, 94460, México"
+  },
+  "Fraccionamiento Las Torres, Veracruz": {
+    "error": "Not found"
+  },
+  "2 de Enero, Coatepec": {
+    "lat": 19.491111,
+    "lng": -96.944444,
+    "display_name": "Colonia 6 de Enero, La Laguna, Coatepec, Veracruz, 91612, México"
+  },
+  "Ánimas Marqueza, Xalapa": {
+    "error": "Not found"
+  },
+  "Miguel Alemán, Veracruz": {
+    "lat": 19.2054097,
+    "lng": -96.152882,
+    "display_name": "Miguel Alemán, Veracruz, Municipio de Veracruz, Veracruz, 91897, México"
+  },
+  "Petrolera, Córdoba": {
+    "lat": 18.8933686,
+    "lng": -96.9670348,
+    "display_name": "Petrolera, Córdoba, Veracruz, 94500, México"
+  },
+  "Rincón Grande, Orizaba": {
+    "lat": 18.8421413,
+    "lng": -97.0851825,
+    "display_name": "Rincon Grande, Paraíso, Orizaba, Veracruz, 94300, México"
+  },
+  "Miguel Hidalgo, Coatzacoalcos": {
+    "lat": 18.1477679,
+    "lng": -94.3975274,
+    "display_name": "Miguel Hidalgo, Allende, Coatzacoalcos, Veracruz, 96430, México"
+  },
+  "Fraccionamiento Real Mandinga, Alvarado": {
+    "lat": 19.0563399,
+    "lng": -96.0595094,
+    "display_name": "Fraccionamiento Real Mandinga, REAL MANDINGA, Mandinga y Matoza, Alvarado, Veracruz, 95250, México"
+  },
+  "Playa Linda, Veracruz": {
+    "lat": 19.2144405,
+    "lng": -96.176169,
+    "display_name": "Playa Linda, Veracruz, Municipio de Veracruz, Veracruz, 91810, México"
+  },
+  "Fraccionamiento Los Ángeles, Xalapa": {
+    "lat": 19.5314186,
+    "lng": -96.9098154,
+    "display_name": "México, Pumar, Xalapa, Veracruz, 91040, México"
+  },
+  "Zona federal Heroica Anton Lizardo, Alvarado": {
+    "error": "Not found"
+  }
+}

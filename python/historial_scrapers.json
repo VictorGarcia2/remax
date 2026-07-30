@@ -1,0 +1,21 @@
+[
+  {
+    "run_id": "SCRAP-20260729-2132",
+    "fecha": "2026-07-29 21:32:48",
+    "tipo_inmueble": "casas",
+    "zona": "veracruz",
+    "modo": "rapido",
+    "portales": [
+      "lamudi",
+      "inmuebles24",
+      "propiedades_com",
+      "vivanuncios",
+      "remax_scraper"
+    ],
+    "total_procesados": 10659,
+    "nuevas_agregadas": 142,
+    "precios_modificados": 18,
+    "bajas_detectadas": 7,
+    "estado": "completado"
+  }
+]

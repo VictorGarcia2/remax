@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valuador Profesional de Propiedades Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="valuador_style.css">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-mesh"></div>
+    
+    <div class="container">
+        <header class="app-header">
+            <div class="logo">
+                <i class="fa-solid fa-chart-line"></i>
+                <h1>Perito Valuador <span>AI</span></h1>
+            </div>
+            <p>Análisis Comparativo de Mercado &mdash; Veracruz &amp; Tabasco</p>
+        </header>
+
+        <main class="dashboard">
+            <!-- Columna Izquierda: Formulario -->
+            <section class="glass-panel form-panel">
+                <h2><i class="fa-solid fa-sliders"></i> Características del Inmueble</h2>
+                <form id="valuation-form">
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label for="m2_totales">M2 de Terreno</label>
+                            <input type="number" id="m2_totales" placeholder="Ej. 300" required min="50">
+                        </div>
+                        <div class="input-group">
+                            <label for="m2_construidos">M2 Construcción</label>
+                            <input type="number" id="m2_construidos" placeholder="Ej. 250" required min="50">
+                        </div>
+                        <div class="input-group">
+                            <label for="recamaras">Recámaras</label>
+                            <input type="number" id="recamaras" placeholder="Ej. 3" required min="1">
+                        </div>
+                        <div class="input-group">
+                            <label for="banos">Baños Totales</label>
+                            <input type="number" id="banos" placeholder="Ej. 3" required min="1" step="0.5">
+                        </div>
+                        <div class="input-group">
+                            <label for="estacionamientos">Estacionamientos</label>
+                            <input type="number" id="estacionamientos" placeholder="Ej. 2" required min="0">
+                        </div>
+                        <div class="input-group">
+                            <label for="antiguedad">Antigüedad y Estado</label>
+                            <select id="antiguedad" required>
+                                <option value="a_estrenar">A Estrenar (Nueva)</option>
+                                <option value="1_a_5">1 a 5 Años</option>
+                                <option value="5_a_10">5 a 10 Años</option>
+                                <option value="mas_10">Más de 10 Años (A remodelar)</option>
+                            </select>
+                        </div>
+                        <div class="input-group full-width">
+                            <label for="ubicacion">Ubicación Estratégica (Zona)</label>
+                            <select id="ubicacion" required>
+                                <option value="">Cargando zonas...</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="amenities-section">
+                        <label>Amenidades y Extras (Suman plusvalía):</label>
+                        <div class="checkbox-grid">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="am_alberca" value="alberca">
+                                <span>🏊 Alberca Privada</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="am_seguridad" value="seguridad" checked>
+                                <span>👮 Seguridad 24/7</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="am_casa_club" value="casa_club">
+                                <span>🏡 Casa Club / Amenidades</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="am_frente_mar" value="frente_mar">
+                                <span>🌊 Vista / Frente al mar</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-primary">
+                        <i class="fa-solid fa-calculator"></i> Generar Avalúo Inteligente
+                    </button>
+                </form>
+            </section>
+
+            <!-- Columna Derecha: Resultados -->
+            <section class="glass-panel results-panel">
+                <div id="loading-state" class="state-container hidden">
+                    <div class="loader-spinner"></div>
+                    <p>Corriendo algoritmos OLS y buscando testigos de mercado...</p>
+                </div>
+                
+                <div id="empty-state" class="state-container">
+                    <i class="fa-solid fa-file-invoice-dollar empty-icon"></i>
+                    <h3>Listo para valuar</h3>
+                    <p>Ingresa las características de la propiedad a la izquierda para ejecutar el análisis de datos.</p>
+                </div>
+
+                <div id="results-content" class="results-content hidden">
+                    <div class="price-showcase">
+                        <span class="badge">Valor Comercial Óptimo</span>
+                        <h2 id="precio-optimo">$0.00 MXN</h2>
+                        <div class="price-range">
+                            <div class="range-item">
+                                <span>Venta Rápida (-5%)</span>
+                                <strong id="precio-rapida" class="text-accent">$0.00</strong>
+                            </div>
+                            <div class="range-item">
+                                <span>Promedio por M2</span>
+                                <strong id="precio-m2">$0.00 /m²</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analysis-breakdown">
+                        <h3><i class="fa-solid fa-magnifying-glass-chart"></i> Desglose del Modelo</h3>
+                        <ul class="breakdown-list" id="breakdown-list">
+                            <!-- Inyectado por JS -->
+                        </ul>
+                    </div>
+
+                    <div class="testigos-section">
+                        <h3><i class="fa-solid fa-house-circle-check"></i> Testigos de Mercado (Comparables)</h3>
+                        <p class="section-subtitle">Propiedades más similares encontradas en la zona para justificar el avalúo.</p>
+                        <div class="cards-container" id="testigos-container">
+                            <!-- Cards inyectadas por JS -->
+                        </div>
+                    </div>
+
+                    <!-- Nueva sección: Plusvalía SHF + DENUE -->
+                    <div class="plusvalia-section" id="plusvalia-section">
+                        <h3><i class="fa-solid fa-chart-line"></i> Proyección de Plusvalía & Entorno</h3>
+                        <p class="section-subtitle">Basado en el Índice SHF de Precios de Vivienda (T1 2026) y el INEGI DENUE en 1km.</p>
+                        <div class="plusvalia-grid">
+                            <div class="pv-card" id="pv-shf">
+                                <div class="pv-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                                <div class="pv-content">
+                                    <span class="pv-label">Plusvalía Anual (SHF)</span>
+                                    <span class="pv-value" id="shf-cagr">—</span>
+                                    <span class="pv-sub" id="shf-zona">Cargando zona...</span>
+                                </div>
+                            </div>
+                            <div class="pv-card" id="pv-1year">
+                                <div class="pv-icon pv-green"><i class="fa-solid fa-calendar-plus"></i></div>
+                                <div class="pv-content">
+                                    <span class="pv-label">Valor Estimado a 1 Año</span>
+                                    <span class="pv-value" id="valor-1-anio">—</span>
+                                    <span class="pv-sub" id="ganancia-1-anio">Ganancia potencial: —</span>
+                                </div>
+                            </div>
+                            <div class="pv-card" id="pv-denue">
+                                <div class="pv-icon pv-orange"><i class="fa-solid fa-store"></i></div>
+                                <div class="pv-content">
+                                    <span class="pv-label">Actividad Comercial DENUE</span>
+                                    <span class="pv-value" id="denue-score">—</span>
+                                    <span class="pv-sub" id="denue-detail">Negocios ancla en 1km...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>Valuador AI - Basado en Análisis Comparativo de Mercado con Inmuebles24 Scraper Data</p>
+        </footer>
+    </div>
+    
+    <script src="valuador_script.js?v=5"></script>
+</body>
+</html>

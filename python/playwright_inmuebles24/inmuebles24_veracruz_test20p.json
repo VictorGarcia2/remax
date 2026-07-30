@@ -1,0 +1,761 @@
+{
+    "project": "Inmuebles24 Scraper DB",
+    "version": "1.1",
+    "metadata": {
+        "created_at": "2026-07-29T20:27:47.854028",
+        "last_update": "2026-07-29T20:28:20.802773",
+        "total_records": 30
+    },
+    "listings": {
+        "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-veracruz-con-hab.-en-p.-b.-fracc.-150250934.html?n_src=Listado&n_pills=Seguridad+privada&n_pg=1&n_pos=1&n_search_id=7ebeff8d-a73a-4c40-8304-1948f4e2dbc2": {
+            "data": {
+                "precio": "MN 5,350,000",
+                "precio_valor": 5350000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "230 m² lote | 3 rec. | 3 baños | 2 estac.",
+                "m2_totales": 230.0,
+                "m2_construidos": 217.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "1 años",
+                "lat": 19.0858605,
+                "lng": -96.1195026,
+                "direccion": "Fracc. Lomas del Dorado",
+                "ubicacion": "Lomas del Dorado, Boca del Río",
+                "descripcion": "Casa en Venta con 4 recámaras una en Pb. En Fracc. Lomas del Dorado, Boca del Río, Ver. Precio: $5, 350, 000. Mantenimiento aprox: $2, 060. ($1580 mtto casa + $480 cuota agua mensual a 15m³) Construcción: 217m2. Terreno: 230m2. Planta baja. - Garage para 2 vehículos. - Sala con doble altura. - Recámara con baño completo. - Cocina con barra de granito. - Área de lavado. - Medio baño. - Jardín (65m²) - Pasillo de Servicio. Planta alta. - Recámara principal con vestidor y baño. - Recámara secundaria con clóset y baño. - Recámara secundaria con clóset y baño. - Tarja de servicio. Equipamiento. - Parrilla, horno y campana de acero inoxidable. - Cisterna 3, 000L. - Baño con plancha de mármol y canceles de cristal templado. - Puertas y clóset de madera de cedro con encino. Amenidades. - Casa club con alberca. - Cancha de pádel. - Gimnasio. - Vigilancia 24hrs. - Áreas verdes. Precio sujeto a cambio sin previo aviso. El precio no incluye gastos notariales. Ver datos",
+                "amenidades": ""
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:28:20.802629",
+                "updated_at": "2026-07-29T20:28:20.802629"
+            }
+        },
+        "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-nueva-en-venta-149971736.html?n_src=Listado&n_pills=Jard%C3%ADn+privado&n_pg=1&n_pos=2&n_search_id=7ebeff8d-a73a-4c40-8304-1948f4e2dbc2": {
+            "data": {
+                "precio": "MN 6,450,000",
+                "precio_valor": 6450000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "258 m² lote | 3 rec. | 3 baños | 2 estac.",
+                "m2_totales": 258.0,
+                "m2_construidos": 320.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "A estrenar",
+                "lat": 19.0652628163,
+                "lng": -96.0823962228,
+                "direccion": "Casa Nueva en Venta",
+                "ubicacion": "Punta Tiburón Residencial Marina y Golf, Alvarado",
+                "descripcion": "Casa Nueva en VentaPunta TiburónRiviera Veracruzana$6, 450, 000+Gastos de escrituración258 m2 Terreno320 m2 ConstrucciónRecibidor con muro decorativoClósetMedio baño de visitasSalaComedorCocina integral con barra de granito, parrilla, campana, torre de hornos, alacena y barra desayunadorAlberca con cascadaJardínPasillo lateral de servicioCuarto de servicio con baño completoGarage techado para 2 autosPlanta altaÁrea de tv amplia1 Habitación con baño completo y vestidor1 Habitación principal amplia con baño completo, vestidor y terraza1 Habitación secundaria con baño completo y vestidorCuarto de lavadoÁrea de tendido",
+                "amenidades": ""
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:28:20.802675",
+                "updated_at": "2026-07-29T20:28:20.802675"
+            }
+        },
+        "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-playas-del-conchal-riviera-veracruzana-149971927.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=3&n_search_id=7ebeff8d-a73a-4c40-8304-1948f4e2dbc2": {
+            "data": {
+                "precio": "MN 9,190,000",
+                "precio_valor": 9190000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "362 m² lote | 3 rec. | 5 baños | 2 estac.",
+                "m2_totales": 362.0,
+                "m2_construidos": 385.0,
+                "recamaras": 3,
+                "banos": 5,
+                "estacionamientos": 2,
+                "antiguedad": "5 años",
+                "lat": 19.0778005447,
+                "lng": -96.0846589524,
+                "direccion": "Casa en Venta Playas del Conchal Riviera Veracruzana",
+                "ubicacion": "Playas del Conchal, Alvarado",
+                "descripcion": "Casa en VentaPlayas del ConchalRiviera Veracruzana$9, 190, 000 amueblada con paneles solares!! +Gastos de escrituración362 m2 Terreno385 m2 ConstrucciónEquipamiento: AmuebladaClimatizadaPersianasFiltros de aguaPaneles solaresDistribución: RecibidorMedio baño de visitasSalaComedorÁrea de bar con barra de cuarzo, tarja, enfriador de vinosCocina integral con barra de cuarzo, parrilla, campana, torre de hornos, alacena, área para desayunadorAlberca con borbollónTerraza techada con pérgolasÁrea de asador con barra de preparación, tarja techado con pérgolasMedio bañoRegaderaBodegaCuarto de servicio con baño completo y clósetÁrea de lavadoGarage techado para 2 autos con portón automáticoPlanta altaÁrea de tv con clóset de blancos1 Habitación secundaria con baño completo, vestidor y balcón1 Habitación secundaria con baño completo, walk in clóset y acceso a terraza1 Habitación principal con baño completo, tina, amplio vestidor con tocador y acceso a terraza",
+                "amenidades": ""
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:28:20.802686",
+                "updated_at": "2026-07-29T20:28:20.802686"
+            }
+        },
+        "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-veracruz-con-alberca-col-el-morro-150251637.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=4&n_search_id=7ebeff8d-a73a-4c40-8304-1948f4e2dbc2": {
+            "data": {
+                "precio": "MN 3,100,000",
+                "precio_valor": 3100000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "100 m² lote | 3 rec. | 3 baños | 2 estac.",
+                "m2_totales": 100.0,
+                "m2_construidos": 172.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "1 años",
+                "lat": 19.1127206,
+                "lng": -96.1071483,
+                "direccion": "Col. El Morro",
+                "ubicacion": "El Morro las Colonias, Boca del Río",
+                "descripcion": "Casa en Venta con Alberca en Col. El Morro en Boca del Río, Ver. Precio: $3, 100, 000. 2 casas en venta. Terreno: 100 m2 (5 x 20) Construcción: 172 M2. Planta baja. - Garaje para 2 autos. - Sala. - Comedor. - Cocina integral con barra de granito. - Medio baño. - Alberca. - Zona de asador. - Cuarto de lavado. Planta alta. - Recámara principal con vestidor y baño completo. - Dos recámaras secundarias con clóset y baño completo cada una. Equipamiento. - Parrilla y campana en cocina. - Barandales de vidrio templado. - Cristal templado en baños. - Piso formato 0. 60 x 1. 20. Precio sujeto a cambio sin previo aviso. No incluye gastos notariales. Ver datos",
+                "amenidades": ""
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:28:20.802690",
+                "updated_at": "2026-07-29T20:28:20.802690"
+            }
+        },
+        "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-veracruz-acceso-por-ambas-calles-150250800.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=5&n_search_id=7ebeff8d-a73a-4c40-8304-1948f4e2dbc2": {
+            "data": {
+                "precio": "MN 3,540,000",
+                "precio_valor": 3540000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "175 m² lote | 3 rec. | 3 baños | 2 estac.",
+                "m2_totales": 175.0,
+                "m2_construidos": 175.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "1 años",
+                "lat": 19.0502207,
+                "lng": -96.0614311,
+                "direccion": "Fracc. Lomas de la Rioja",
+                "ubicacion": "Lomas de la Rioja, Alvarado",
+                "descripcion": "Casa en venta frente a área verde y acceso por ambas calles en Fracc. Lomas de la Rioja, Riviera Veracruzana. Precio: $3, 540, 000. Mantenimiento aprox: $1, 250. Terreno: 178. 82m² Construcción: 175m² Planta Baja. * Garage para 2 autos en línea (entrada por ambas calles). * Sala. * ⁠Comedor. * ⁠Cocina con barra de granito y detalles de lambrin. * ⁠Medio baño de visitas. * Área de lavado. Primer nivel. * Clóset de blancos y vertedero con lambrin. * ⁠Recámara principal con vestidor, baño completo, balcón con vista al área verde. * ⁠Recámara secundaria con clóset, baño completo y terraza. * ⁠Recámara secundaria con clóset y baño completo. Amenidades. * Doble filtro de vigilancia. * Casa club con alberca. * Gimnasio. * Área infantil. * Área comercial. * Oxxo. * Rioja Bus. * Vigilancia 24/7. Precio sujeto a cambio sin previo aviso. El precio no incluye gastos notariales. Ver datos",
+                "amenidades": ""
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:28:20.802693",
+                "updated_at": "2026-07-29T20:28:20.802693"
+            }
+        },
+        "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-con-4-recamaras-en-venta-180-m-sup2--superficie-149111003.html?n_src=Listado&n_pills=Seguridad+privada&n_pg=1&n_pos=6&n_search_id=7ebeff8d-a73a-4c40-8304-1948f4e2dbc2": {
+            "data": {
+                "precio": "MN 6,500,000",
+                "precio_valor": 6500000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "180 m² lote | 4 rec. | 4 baños | 2 estac.",
+                "m2_totales": 180.0,
+                "m2_construidos": 305.0,
+                "recamaras": 4,
+                "banos": 4,
+                "estacionamientos": 2,
+                "antiguedad": "A estrenar",
+                "lat": 19.061318795869745,
+                "lng": -96.07790719358465,
+                "direccion": "PUNTA TIBURON",
+                "ubicacion": "Punta Tiburón Residencial Marina y Golf, Alvarado",
+                "descripcion": "Casa en Venta en la mejor zona de la Riviera Veracruz, te enamoraras de los espacios, de la ventilacion y la iluminacion natural con la que cuenta. Es una belleza que puede ser tu nuevo hogar. Precio $6, 500, 000. 00. sotano. Cochera 2 autos techados. Cuarto de lavado. Area de guardado. Recamara, cuarto de servicio o estudio con closet y baño. primer nivel. Recibidor. Sala. Comedor. Cocina integral quipada y concepto abierto para convivencia. Medio baño para visitas. 45 m2 de jardín. Terraza. Pasillo de servicio. segundo nivel. 3 recámaras con baño cada una, la principal con vestidor y las otras 2 con closet. Sala de television. equipamento. -Espejos retroiluminados en todos los baños. -Muebles decorativos. -Lamparas decorativas. -Climatizada. No dejes pasar esta oportunidad de vivir en la zona de mayor crecimiento. ** Contáctame para una cita personalizada. Soy tu aliada en el sector inmobiliario.",
+                "amenidades": ""
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:28:20.802697",
+                "updated_at": "2026-07-29T20:28:20.802697"
+            }
+        },
+        "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-nueva-en-venta-punta-tiburon-149971799.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=7&n_search_id=7ebeff8d-a73a-4c40-8304-1948f4e2dbc2": {
+            "data": {
+                "precio": "MN 4,600,000",
+                "precio_valor": 4600000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "200 m² lote | 3 rec. | 3 baños | 2 estac.",
+                "m2_totales": 200.0,
+                "m2_construidos": 223.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "A estrenar",
+                "lat": 19.0653598,
+                "lng": -96.0904274,
+                "direccion": "Casa Nueva en Venta Punta Tiburon",
+                "ubicacion": "Punta Tiburón Residencial Marina y Golf, Alvarado",
+                "descripcion": "Casa Nueva en Venta Punta TiburónRiviera Veracruzana $4, 600, 000+Gastos de escrituración 200 m2 Terreno223 m2 Construcción -Planta bajaVestíbulo SalaComedorCocina con barra de granito, parrilla, campana y barra desayunador Medio baño de visitasJardínPasillo lateral de servicio Garage techado para 2 autos -Planta altaÁrea de tv1 Habitación principal con baño completo y vestidor1 Habitación secundaria con baño completo y clóset1 Habitación secundaria con baño completo y clósetCuarto de lavado",
+                "amenidades": ""
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:28:20.802699",
+                "updated_at": "2026-07-29T20:28:20.802699"
+            }
+        },
+        "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-costa-de-oro-145732794.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=8&n_search_id=7ebeff8d-a73a-4c40-8304-1948f4e2dbc2": {
+            "data": {
+                "precio": "MN 17,000,000",
+                "precio_valor": 17000000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "500 m² lote | 5 rec. | 7 baños | 4 estac.",
+                "m2_totales": 500.0,
+                "m2_construidos": 776.0,
+                "recamaras": 5,
+                "banos": 7,
+                "estacionamientos": 4,
+                "antiguedad": "A estrenar",
+                "lat": 19.119297622341882,
+                "lng": -96.10154061447776,
+                "direccion": "Costa de oro",
+                "ubicacion": "Fraccionamiento Costa de Oro, Boca del Río",
+                "descripcion": "Residencia en venta completamente remodelada, en esquina en fraccionamiento costa de oro, boca del rio. Inversión $Ver datos. Más Gastos de escrituración. 500 m2 Terreno. 776 m2 Construcción. planta baja. Garage para 4 autos con 2 portones eléctricos independientes. Jardín en pasto sintético. Terraza con pérgolas. Alberca. Palapa de teja con asador de material con cubierta de granito, tarja y barra de parota con puertas de acero inoxidable. Baño completo para alberca. Recibidor amplio. Closet. Bodega. Medio baño de visitas. 1 Habitación en planta baja con baño completo y closet. Área de bar con barra de preparación y tarja. Sala. Comedor. Cocina integral con parrilla, campana, tarja, torre de hornos, alacena, preparación para lavavajillas, e isla de preparación. Antecomedor. Cuarto de alacena. Cuarto de lavado. Área de tendido. Cuarto de servicio con baño completo. Estancia. Bodega. Acceso a jardín. planta alta. Área de tv. Medio baño. 1 Habitación de usos múltiples. 1 Habitación con vestidor. 1 Baño completo con tina. 1 Habitación con vestidor. 1 Habitación principal amplia con terraza, vestidor, baño amplio con tina. **\"¿Te interesa saber más? Agenda tu cita y conoce cada detalle de esta propiedad. **Para información completa y visitas, contáctame hoy mismo. \"",
+                "amenidades": ""
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:28:20.802702",
+                "updated_at": "2026-07-29T20:28:20.802702"
+            }
+        },
+        "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-nueva-en-venta-las-palmas-150066856.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=9&n_search_id=7ebeff8d-a73a-4c40-8304-1948f4e2dbc2": {
+            "data": {
+                "precio": "MN 5,750,000",
+                "precio_valor": 5750000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "250 m² lote | 3 rec. | 3 baños | 2 estac.",
+                "m2_totales": 250.0,
+                "m2_construidos": 289.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "A estrenar",
+                "lat": 19.1079764832,
+                "lng": -96.122212019,
+                "direccion": "Casa Nueva en Venta Las Palmas",
+                "ubicacion": "Medellín, Veracruz",
+                "descripcion": "Casa Nueva en Venta Las PalmasMedellín de Bravo, Ver. $5, 750, 000+ Gastos de escrituración 250 m2 Terreno289 m2 Construcción RecibidorSala Comedor1 Habitación con closet y baño completoMedio baño de visitasCocina integral con cubierta de granito, parrilla, campana, torre de hornos, doble tarja, alacena e isla desayunadorCuarto de lavadoArea de tendidoJardínPasillo lateral de servicioGarage techado con porton eléctrico para 2 autos Planta altaVestibuloCuarto de tv1 Habitación principal con vestidor y baño completoAmplia terraza para crecer a futuro1 Habitación secundaria con vestidor y baño completo",
+                "amenidades": ""
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:28:20.802705",
+                "updated_at": "2026-07-29T20:28:20.802705"
+            }
+        },
+        "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-residencial-los-manantiales-alvarado-150618234.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=10&n_search_id=7ebeff8d-a73a-4c40-8304-1948f4e2dbc2": {
+            "data": {
+                "precio": "MN 4,280,000",
+                "precio_valor": 4280000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "200 m² lote | 3 rec. | 3 baños | 2 estac.",
+                "m2_totales": 200.0,
+                "m2_construidos": 230.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "A estrenar",
+                "lat": 19.0544710452,
+                "lng": -96.0741334635,
+                "direccion": "Residencial Los Manantiales",
+                "ubicacion": "Alvarado, Veracruz",
+                "descripcion": "Fraccionamiento Residencial Los Manantiales Casa en Venta en la Riviera Veracruzana a unos pasos de la hermosa laguna de MandingaDisfruta de sus atardeceres y de la comodidad de vivir en un exclusivo fraccionamiento con acceso controlado y vigilancia 24 horas. Terreno de 200m2Construcción 230m2Cochera 2 autosEscalera barMedio bañoSala comedorCocina integral con parrilla y campanaRecamara en planta baja con closet y baño y terrazaTerraza a la albercaJardín y alberca y chapoteaderoPlanta altaÁrea de tv con. TerrazaEstudioRecamara con vestidor y baño y terrazaRecamara principal con vestidor y amplio baño y balcónCuarto de lavado con área de tendidoCisterna; tinaco e hidroIncluye barandal en cristal templado y canceles de baño1 recamara pb2 Recamaras pa3. 5 bañosAlbercaInversión $4, 280, 000. 00",
+                "amenidades": ""
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:28:20.802708",
+                "updated_at": "2026-07-29T20:28:20.802708"
+            }
+        },
+        "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-punto-lomas-equipada-149342642.html?n_src=Listado&n_pills=%C3%81rea+de+juegos+infantiles&n_pg=1&n_pos=11&n_search_id=7ebeff8d-a73a-4c40-8304-1948f4e2dbc2": {
+            "data": {
+                "precio": "MN 4,990,000",
+                "precio_valor": 4990000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "160 m² lote | 3 rec. | 4 baños | 2 estac.",
+                "m2_totales": 160.0,
+                "m2_construidos": 240.0,
+                "recamaras": 3,
+                "banos": 4,
+                "estacionamientos": 2,
+                "antiguedad": "A estrenar",
+                "lat": 19.0743149,
+                "lng": -96.08977019999999,
+                "direccion": "Punto lomas",
+                "ubicacion": "Alvarado, Veracruz",
+                "descripcion": "Casa en Venta en Punto lomas, en la Riviera Veracuzana. Valor $4, 990, 000. 00. *sin muebles. *precio sujeto a cambios sin previo aviso por la constructora. Terreno 160m2. Construcción 240m2. Totalmente equipada! -️Climatizada. -️Canceles de baño. -️Videoportero. -️Cerradura inteligente. -️Espejos con luz led en baños. -️Lámparas decorativas. -️Hidroneumático, tanque de gas y calentador. planta baja. Cochera techada 2 autos. Medio baño. Sala. Comedor. Cocina inetegral con isla, parrilla, campana y horno. Cuarto de lavado. Cuarto de servicio con baño. Jardin. planta alta. 3 recámaras con vestidor y baño. Sala de tv. Clóset de blancos. *lista para entrega*",
+                "amenidades": ""
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:28:20.802712",
+                "updated_at": "2026-07-29T20:28:20.802712"
+            }
+        },
+        "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-lomas-de-la-rioja-4-recamaras-y-147885560.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=12&n_search_id=7ebeff8d-a73a-4c40-8304-1948f4e2dbc2": {
+            "data": {
+                "precio": "MN 3,990,000",
+                "precio_valor": 3990000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "178 m² lote | 4 rec. | 3 baños | 2 estac.",
+                "m2_totales": 178.0,
+                "m2_construidos": 210.0,
+                "recamaras": 4,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "A estrenar",
+                "lat": 19.0448802,
+                "lng": -96.06063909999999,
+                "direccion": "Lomas de la Rioja",
+                "ubicacion": "Lomas de la Rioja, Alvarado",
+                "descripcion": "Casa en Venta en Lomas de la Rioja en la Riviera Veracruzana, con aacceso a azotea con vista a la laguna de mandinga, ubicación privilegiada en esquina. Promocion $3, 990, 000. 00. Precio $4, 400, 000. 00. Terreno 178. 10 m2. Construcción 210 m2. planta baja. Sala y Comedor: con Amplios espacios integrados, ideales para reuniones sociales y momentos familiares, con acabados de alta calidad. Cocina: Moderna y funcional con cubierta de granito y equipada con horno, parrilla, campana y tarja. Garaje: Espacio para dos vehículos, que garantiza comodidad. Recámara/Estudio con Baño Completo: Una habitación privada en planta baja, ideal para visitas o personas mayores. Área de servicio y lavandería: funcional con acceso desde la cocina. Jardín. planta alta. Dos Recámaras: Cada una de estas habitaciones ofrece privacidad y lujo Baño Compartido. Recámara Principal con Vestidor y Baño: La suite principal es un santuario de confort, con un generoso vestidor y un baño de diseño, creando un espacio de retiro personal. Acceso a azotea con vista a la laguna de mandinga. ¿Te interesa saber más? Agenda tu cita y conoce cada detalle de esta propiedad. Para información completa y visitas, hoy mismo\"️",
+                "amenidades": ""
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:28:20.802715",
+                "updated_at": "2026-07-29T20:28:20.802715"
+            }
+        },
+        "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-lomas-residencial-150537680.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=13&n_search_id=7ebeff8d-a73a-4c40-8304-1948f4e2dbc2": {
+            "data": {
+                "precio": "MN 4,100,000",
+                "precio_valor": 4100000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "171 m² lote | 3 rec. | 4 baños | 2 estac.",
+                "m2_totales": 171.0,
+                "m2_construidos": 270.0,
+                "recamaras": 3,
+                "banos": 4,
+                "estacionamientos": 2,
+                "antiguedad": "8 años",
+                "lat": 19.1735899,
+                "lng": -96.2206283,
+                "direccion": "Casa en Venta Lomas Residencial",
+                "ubicacion": "Residencial Lomas Residencial, Alvarado",
+                "descripcion": "Casa en VentaLomas ResidencialRiviera Veracruzana$4, 100, 000+Gastos de escrituraciónPrecio sujeto a cambio sin previo aviso¡Tramitamos tu crédito hipotecario sin costo! Todas las fotografías son de nuestra autoría y uso exclusivo de la inmobiliaria!! 171 m2 Terreno270 m2 Construcción RecibidorSalaComedorMedio baño de visitasCocina integral con barra de granito, estufa, campana e isla desayunadorCuarto de lavadoCuarto de servicio con baño completoAlberca con cascadaTerrazaPasillo lateral de servicioGarage techado con portón eléctrico para 2 autosPlanta altaÁrea de tv1 Habitación principal con vestidor y baño completo1 Habitación secundaria con clóset y baño completo1 Habitación secundaria con clóset y baño completo",
+                "amenidades": ""
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:28:20.802719",
+                "updated_at": "2026-07-29T20:28:20.802719"
+            }
+        },
+        "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-veracruz-fracc.-costo-verde-150250888.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=14&n_search_id=7ebeff8d-a73a-4c40-8304-1948f4e2dbc2": {
+            "data": {
+                "precio": "MN 4,500,000",
+                "precio_valor": 4500000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "170 m² lote | 3 rec. | 4 baños | 6 estac.",
+                "m2_totales": 170.0,
+                "m2_construidos": 450.0,
+                "recamaras": 3,
+                "banos": 4,
+                "estacionamientos": 6,
+                "antiguedad": "6 años",
+                "lat": 19.171188,
+                "lng": -96.1189114,
+                "direccion": "Fracc. Costa Verde",
+                "ubicacion": "Costa Verde, Boca del Río",
+                "descripcion": "Casa en Venta de 3 Niveles y Roof Garden en Fracc. Costa Verde. Precio: $4, 500, 000. Terreno: 170 m2. Construcción: 450 m2. Planta Baja. * Garage techado para 6 carros. * ⁠Cuarto de servicio o bodega. * ⁠Baño completo. * ⁠Bodeguita. * ⁠Oficina o bodega. Primer Nivel. * Amplia Sala de estar. * ⁠Terraza con vista a la calle. * ⁠Área de comedor. * ⁠Cocina integral con barra desayunadora y alacena. * ⁠Acceso a pb y Terraza. Segundo Nivel. * Séptico. * ⁠Cuarto de Lavado. * ⁠Recámara principal con vestidor, zapatera y baño completo. * ⁠Recámara secundaria 1 con closet y baño compartido. * ⁠Recámara secundaria 2 con vestidor y baño compartido. Tercer Nivel. * Área social techada / Salón de fiestas con bar y baños de mujeres y hombres. * ⁠Roof Garden con área de asador. Equipamiento. * Campana. * ⁠Portón Eléctrico. * ⁠Sistema de Circuito Cerrado. * ⁠Hidroneumático. * ⁠Aljibe. * ⁠6 mini splits. El precio está sujeto a cambio sin previo aviso. El precio no incluye gastos de escrituración. Ver datos",
+                "amenidades": ""
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:28:20.802722",
+                "updated_at": "2026-07-29T20:28:20.802722"
+            }
+        },
+        "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-veracruz-con-5-hab-y-alberca-col.-150254536.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=15&n_search_id=7ebeff8d-a73a-4c40-8304-1948f4e2dbc2": {
+            "data": {
+                "precio": "MN 1,900,000",
+                "precio_valor": 1900000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "200 m² lote | 4 rec. | 1 baño | 1 estac.",
+                "m2_totales": 200.0,
+                "m2_construidos": 298.0,
+                "recamaras": 4,
+                "banos": 1,
+                "estacionamientos": 1,
+                "antiguedad": "1 años",
+                "lat": 19.2102729,
+                "lng": -96.1831947,
+                "direccion": "Col. Astilleros",
+                "ubicacion": "Astilleros de Veracruz, Veracruz",
+                "descripcion": "Casa en Venta con 5 Recámaras, 2 en P. B y con Alberca en Col. Astilleros Veracruz Ver. Precio $1, 900, 000. Construcción 298 M2. Terreno 200 M2 (10 x 20) Planta baja: * Garaje para 1 auto. * Sala. * ⁠Comedor. * ⁠Recámara con espacio para clóset. * ⁠Recámara con clóset. * ⁠Cocina Integral. * ⁠Baño completo. * Patio con alberca y asador. * ⁠Área de lavado. Planta alta. * Sala de tv. * ⁠Baño completo. * ⁠Recámara con área para clóset. * ⁠Amplia recámara con clóset y sala de tv. * ⁠Amplia recámara con espacio para clóset y sala de tv. * ⁠Balcón. Precio sujeto cambios sin previo aviso. El precio no incluye gastos notariales. Ver datos",
+                "amenidades": ""
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:28:20.802725",
+                "updated_at": "2026-07-29T20:28:20.802725"
+            }
+        },
+        "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-veracruz-en-esquina-fracc.-lomas-150250983.html?n_src=Listado&n_pills=Jard%C3%ADn+privado&n_pg=1&n_pos=16&n_search_id=7ebeff8d-a73a-4c40-8304-1948f4e2dbc2": {
+            "data": {
+                "precio": "MN 3,500,000",
+                "precio_valor": 3500000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "180 m² lote | 3 rec. | 2 baños | 2 estac.",
+                "m2_totales": 180.0,
+                "m2_construidos": 253.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "1 años",
+                "lat": 19.0549207085,
+                "lng": -96.0417159116,
+                "direccion": "Fracc. Lomas Residencial",
+                "ubicacion": "Residencial Las Lomas, Alvarado",
+                "descripcion": "Casa en venta en esquina en el Fraccionamiento Lomas Residencial, Riviera Veracruzana. Precio: $3, 500, 000. Mtto. Mensual aprox. + Cuota de agua fija: $1, 100. Terreno: 180 m2. Construcción: 253 m2. Planta baja. - Recibidor. - Sala doble altura con vista a jardín interior. - Comedor. - Cocina integral con barra desayunadora, estufa y campana. - Jardín interior. - Medio baño de visitas. - Garage techado para 2 autos con portón eléctrico. - Cuarto de lavado. - Área de tendido. Planta alta. - Sala de tv con balcón. - Dos recámaras secundarias con clóset. - Baño completo compartido. - Recámara principal con balcón, vestidor y baño completo. Equipamiento. - Cisterna. - Calentador. - Bomba hidroneumática. - Climatizada. Amenidades. - Filtro de seguridad. - Áreas verdes. - Juegos infantiles. - Palapa común. - Oxxo y Farmacia dentro del fraccionamiento. Precio sujeto a cambio sin previo aviso. No incluye gastos notariales. Ver datos",
+                "amenidades": ""
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:28:20.802728",
+                "updated_at": "2026-07-29T20:28:20.802728"
+            }
+        },
+        "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-punto-lomas-148056170.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=17&n_search_id=7ebeff8d-a73a-4c40-8304-1948f4e2dbc2": {
+            "data": {
+                "precio": "MN 4,569,000",
+                "precio_valor": 4569000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "169 m² lote | 3 rec. | 3 baños | 2 estac.",
+                "m2_totales": 169.0,
+                "m2_construidos": 218.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "A estrenar",
+                "lat": 19.0743149,
+                "lng": -96.08977019999999,
+                "direccion": "Punto Lomas Residencial",
+                "ubicacion": "Fraccionamiento las Lomas, Alvarado",
+                "descripcion": "Casa en Venta en Punto Lomas, en la Riviera Veracruzana, un hogar ideal para disfrutar y crear nuevos momentos felices. Precio $4, 569, 000. 00. Precio sujeto a cambio sin previo aviso. Terreno 169. 22 m2. Construccion 218. 01 m2. planta baja. Cochera techada para 2 autos. Pasillo de servicio. Medio baño. Sala. Comedor. Cocina integral equipada. Jardin. Cuarto de lavado. planta alta. Sala de television. 3 Recamaras con baño cada una, la principal con vestidor y las 2 con closet. \"¿Te interesa saber más? Agenda tu cita y conoce cada detalle de esta propiedad. Para información completa y visitas, contáctame hoy mismo\". ️",
+                "amenidades": ""
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:28:20.802731",
+                "updated_at": "2026-07-29T20:28:20.802731"
+            }
+        },
+        "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-lomas-diamante-148768391.html?n_src=Listado&n_pills=Seguridad+privada&n_pg=1&n_pos=18&n_search_id=7ebeff8d-a73a-4c40-8304-1948f4e2dbc2": {
+            "data": {
+                "precio": "MN 6,490,000",
+                "precio_valor": 6490000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "208 m² lote | 4 rec. | 5 baños | 2 estac.",
+                "m2_totales": 208.0,
+                "m2_construidos": 277.0,
+                "recamaras": 4,
+                "banos": 5,
+                "estacionamientos": 2,
+                "antiguedad": "A estrenar",
+                "lat": 19.0727201,
+                "lng": -96.0928581,
+                "direccion": "Lomas Diamante",
+                "ubicacion": "Lomas Diamante, Alvarado",
+                "descripcion": "Vive en el corazón de la Riviera Veracruzana en el fraccionamiento consolidado y con exclusividadFraccionamiento Lomas DiamanteCon acceso y vigilancia controlada 24 horas 7x7Áreas verdes, pérgola central, 4 parques infantiles¡Estrena esta preciosa casa en venta con 4 habitaciones, 1 de ellas en planta baja y alberca y jardín! Consta de: Terreno 208m2Construcción 277m2Garaje para dos autos amplioPuerta de servicioBaño completo de servicioAcceso principal con puerta de aluminio a doble altura de 2m de anchoMedio baño con base de mármol con doble entrepañoRecámara planta baja y bañoSala comedor con iluminación led en techoVentanal hacia terraza albercaAlberca con cascada y luz interiorJardínCocina integral de parota con gabinetes a techo, base cubierta de granito y muro de zona húmeda, isla, equipada con luz led perimetral inferior y superior, parrilla de inducción, horno eléctrico y campana con instalación interna de gasPuerta aislante sin herraje hacia cocinaVentanales de cocina hacia jardín y albercaCuarto de lavado con lavadero, instalaciones de lavadora, boiler de gas para 5 serviciosMuro en sala decorativo con piedraEscaleras anchas con iluminación con sensor por cada escalónÁrea de tv con clóset de blancosRecámara 2 con clóset y bañoRecámara 3 con clóset y bañoRecámara principal con vestidor independiente y amplio baño con doble ovalinToda la carpintería es de parotaCada baño cuenta con base cubierta de mármol con doble entrepañoCisterna de 4, 500 litrosTinaco de 1, 100 litros8 ductos con pastillas para minisplitsBases en azotea para recibir paneles solaresInstalaciones al techo para recibir tanque estacionarioBarandal en escalera de vidrio templadoCanceles de baño en vidrio templadotodas las regaderas, mezcladoras y mono mandos y ovalines son helvex (salvo la regadera de la principal) y los wc son caste, pisos de porcelanato. ¡Entrega inmediata! Inversión $6, 490, 000. 001 rpb3 rpa5. 5 bañosAlberca",
+                "amenidades": ""
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:28:20.802734",
+                "updated_at": "2026-07-29T20:28:20.802734"
+            }
+        },
+        "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-virginia-148446617.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=19&n_search_id=7ebeff8d-a73a-4c40-8304-1948f4e2dbc2": {
+            "data": {
+                "precio": "MN 4,650,000",
+                "precio_valor": 4650000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "60 m² lote | 3 rec. | 2 baños | 2 estac.",
+                "m2_totales": 60.0,
+                "m2_construidos": 172.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "A estrenar",
+                "lat": 19.1601006,
+                "lng": -96.114468,
+                "direccion": "Juan Pablo II al 800",
+                "ubicacion": "Fraccionamiento Virginia, Boca del Río",
+                "descripcion": "Un nuevo concepto de Fracc. Privado rodeado de naturaleza en el centro de la ciudad. Sobre Juan Pablo iia dos cuadras de Plaza MocamboA dos cuadras de Plaza Urban CenterCerca de Walmart y del colegio la pazDesde $4, 650, 000Jardines de Virginia, Veracruz. Terreno 60 m2 (6x10m) Construcción 172 m23 niveles3 recamarasSe entrega con climas y carpinteríaMantenimiento $3, 500Entrega estimada invierno 2026Descuento de 3% en pago de contadoplanta baja: Cochera para 2 autosBodegaPasillo de accesoEstudio/oficinaprimer nivel: Espacio Sala-ComedorCocina integralCuarto de lavado1/2 Baño para visitasJardín privadosegundo nivel: 1 recamara principal con vestidor y baño completo2 recamaras secundarias con closet1 baño completo compartidoCuarto sépticoAzotea para adaptarse a Roof Garden e instalación paneles solaresamenidades: Caseta de Vigilancia 24 hrsPortón de seguridad para control de accesoÁreas verdesAsadoresAlbercaBaños Exteriores",
+                "amenidades": ""
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:28:20.802736",
+                "updated_at": "2026-07-29T20:28:20.802736"
+            }
+        },
+        "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-con-241-m-sup2--superficie-de-terreno-y-4-148150967.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=20&n_search_id=7ebeff8d-a73a-4c40-8304-1948f4e2dbc2": {
+            "data": {
+                "precio": "MN 6,300,000",
+                "precio_valor": 6300000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "241 m² lote | 4 rec. | 4 baños | 2 estac.",
+                "m2_totales": 241.0,
+                "m2_construidos": 267.0,
+                "recamaras": 4,
+                "banos": 4,
+                "estacionamientos": 2,
+                "antiguedad": "A estrenar",
+                "lat": 19.073598413920962,
+                "lng": -96.09159855096017,
+                "direccion": "Lomas Diamante",
+                "ubicacion": "Lomas Diamante, Alvarado",
+                "descripcion": "Casa en venta en fracc lomas diamante en la Riviera Veracruzana. ️Precio preventa $6, 300, 000. 00. ️Terreno 241. 95 m2. ️Construcción 267 m2. ️planta baja. ️Cochera 2 autos con porton automatico. Jardin muy amplio. ️Cocina integral con barra desayunadora. ️Cuarto de lavado. ️Comedor. ️Sala a doble altura. ️Medio baño. ️Recámara con closet y baño. ️planta alta. ️Recámara ppal con vestidor y baño. ️2 recámaras con closet y baño. ️Sala de tv. ️Closet de blancos. ️Vertedero para limpieza. \"¿Te interesa saber más? Agenda tu cita y conoce cada detalle de esta propiedad.",
+                "amenidades": ""
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:28:20.802740",
+                "updated_at": "2026-07-29T20:28:20.802740"
+            }
+        },
+        "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-costa-de-oro-boca-del-rio.-149173204.html?n_src=Listado&n_pills=Jard%C3%ADn+privado&n_pg=1&n_pos=21&n_search_id=7ebeff8d-a73a-4c40-8304-1948f4e2dbc2": {
+            "data": {
+                "precio": "MN 8,820,000",
+                "precio_valor": 8820000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "240 m² lote | 3 rec. | 3 baños | 2 estac.",
+                "m2_totales": 240.0,
+                "m2_construidos": 253.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "En construcción",
+                "lat": 19.1552468,
+                "lng": -96.10234679999999,
+                "direccion": "Costa de oro",
+                "ubicacion": "Fraccionamiento Costa de Oro, Boca del Río",
+                "descripcion": "Terreno 240 m2. Construcción 253 m2. 2 Niveles. 3 Recamaras con baño. Cerca de restaurantes, Plaza Américas y Andamar. A unos minutos de la playa. planta baja: Cochera para 2 autos. Espacio Sala-Comedor. 1/2 Baño para visitas. Cocina integral. Área de lavado. Jardín. planta alta: 1 Recamara principal con vestidor, baño y balcón. 2 Recamaras secundarias con closet y baño c/u",
+                "amenidades": ""
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:28:20.802743",
+                "updated_at": "2026-07-29T20:28:20.802743"
+            }
+        },
+        "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-veracruz-con-alberca-en-fracc.-punta-150250798.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=22&n_search_id=7ebeff8d-a73a-4c40-8304-1948f4e2dbc2": {
+            "data": {
+                "precio": "MN 5,000,000",
+                "precio_valor": 5000000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "250 m² lote | 3 rec. | 4 baños | 3 estac.",
+                "m2_totales": 250.0,
+                "m2_construidos": 310.0,
+                "recamaras": 3,
+                "banos": 4,
+                "estacionamientos": 3,
+                "antiguedad": "1 años",
+                "lat": 19.0653598,
+                "lng": -96.0904274,
+                "direccion": "Fracc. Punta Tiburón",
+                "ubicacion": "Punta Tiburón Residencial Marina y Golf, Alvarado",
+                "descripcion": "Casa en Venta con alberca, lado doble sombra en Fracc. Punta Tiburón, Riviera Veracruzana. Precio: $5, 000, 000. Mantenimiento mensual: $3, 171. Terreno: 250 m² Construcción: 310 m² Planta Baja: - Garaje para 2 autos. - Recibidor en doble altura. - Medio baño de visitas. - Recámara amplia con vestidor y baño completo. - Sala. - Comedor. - Cocina integral con barra e isla de granito, doble tarja, parrilla con campana y horno. - Cuarto de lavado con preparación para lavadora y secadora para gas o eléctrica con corriente 110 y 220. - Bodega con escaleras de caracol para acceder. - Cuarto de servicio con baño completo. - Pasillo de servicio. - Alberca de 3x3 mts. C/Leds y azulejo veneciano. - Jardín. Planta Alta: - Área de tv. - Recámara principal, con vestidor y baño completo con tina, regadera. - Recámara secundaria, con closet y baño completo. Equipamiento: - Paneles solares. - Persianas black out y solares, en toda la casa. - Climatizada. - Luz led en toda la casa. - Tanque de gas estacionario. - Cisterna para 3, 000 Lts. De agua. - Presurizador de 90 Lts. - Pisos y recubrimientos rectificados. - Grifería Helvex. - Muebles de baño Castel. - Accesorios eléctricos Biticino. - Muebles de madera de cedro y de caobilla acabado en tinta y barniz de poliuretano semi-mate. - Canceleria eurovent serie 100. Amenidades. - Vigilancia 24/7. - Doble filtro de vigilancia. - Restaurante. - Áreas verdes. - Casa Club, marina y club de golf (mediante la compra de acción). Precio sujeto a cambio sin previo aviso. El precio no incluye gastos notariales. Ver datos",
+                "amenidades": ""
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:28:20.802746",
+                "updated_at": "2026-07-29T20:28:20.802746"
+            }
+        },
+        "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-col.-maria-de-la-piedad-coatzacoalcos-148430420.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=23&n_search_id=7ebeff8d-a73a-4c40-8304-1948f4e2dbc2": {
+            "data": {
+                "precio": "MN 5,195,000",
+                "precio_valor": 5195000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "310 m² lote | 3 rec. | 3 baños | 2 estac.",
+                "m2_totales": 310.0,
+                "m2_construidos": 364.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "14 años",
+                "lat": 18.1514939,
+                "lng": -94.4313294,
+                "direccion": "Av. Bellavista",
+                "ubicacion": "Maria de La Piedad, Coatzacoalcos",
+                "descripcion": "Casa en Venta en Coatzacoalcos | María de la Piedad | A 1 minuto de la Playa | 344m² con Alberca. Excelente casa de diseño minimalista en venta ubicada sobre Av. Bellavista, en la prestigiosa Colonia María de la Piedad, esta propiedad residencial es una de las mejores opciones en venta en Coatzacoalcos. Su ubicación estratégica es inmejorable: a solo 1 minuto de la playa, lo que te permite disfrutar del estilo de vida playero sin renunciar a la comodidad de tener todo a la mano. Características. Casa con 15 años de ser antigüedad, en buen estado de conservación. 344 m² de área construida sobre un terreno de 310 m², con 10 metros de frente y 31 metros de fondo. Distribución en 3 Niveles: 3 Recamaras. Cocina integral totalmente equipada. Estudio y cuarto de televisión. 3 Baños completos + 1 medio baño. Áreas Exteriores y de Servicio: Jardín y terraza: espacios diseñados para la convivencia agradable y cómoda. Alberca privada para refrescarte y disfrutar el clima de Veracruz. Área de lavado y tendido. Bodega de 1. 90 x 2. 20 m para almacenamiento adicional. 2 espacios de estacionamiento. Conectividad y Servicios Clave: A 1 minuto: Playa (disfruta del malecón y atardeceres únicos). A 4 cuadras: Supermercado chedraui (compras rápidas y surtido completo). A 5 minutos: Clínica General del imss (tranquilidad ante cualquier emergencia). A 15 minutos: Principales plazas comerciales (entretenimiento y tiendas departamentales). Cercanía inmediata: Boulevard Adolfo Ruiz Cortines, Parque Independencia y el dinámico centro de Coatzacoalcos. El barrio es residencial y tranquilo, con amplias avenidas arboladas y camellón central, ofreciendo una excelente percepción de seguridad para toda la familia. Estarás muy cerca de avenidas principales con comercios de todo tipo y a solo 7 minutos en auto del centro de la ciudad. Vivir aquí es elegir la tranquilidad de un barrio residencial, la emoción de estar a un paso de la playa y la seguridad de contar con servicios y comercios de primer nivel a pocos minutos. ¡Esta es la casa que estabas buscando! Agenda tu visita ahora mismo.",
+                "amenidades": ""
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:28:20.802749",
+                "updated_at": "2026-07-29T20:28:20.802749"
+            }
+        },
+        "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-veracruz-con-paneles-solares-fracc.-150253767.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=24&n_search_id=7ebeff8d-a73a-4c40-8304-1948f4e2dbc2": {
+            "data": {
+                "precio": "MN 5,995,000",
+                "precio_valor": 5995000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "200 m² lote | 3 rec. | 3 baños | 2 estac.",
+                "m2_totales": 200.0,
+                "m2_construidos": 424.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "6 años",
+                "lat": 19.1299129,
+                "lng": -96.1081649,
+                "direccion": "Fracc. Jardines de Virginia",
+                "ubicacion": "Jardines de Virginia, Boca del Río",
+                "descripcion": "Casa en Venta con Paneles Solares en Fracc. Jardines de Virginia, Boca del Rio, Veracruz. Precio: $5, 995, 000. Terreno: 200 m2. Construcción: 424 m2. Planta Baja. * Garaje techado para 2 autos. * ⁠Pasillo de servicio. * ⁠Bodega. * ⁠Área de sala y comedor. * ⁠Cocina integral con barra de granito. * ⁠Alacena. * ⁠Medio baño. * Terraza con barra de granito y medio baño con ventilador. * ⁠Bodeguita. Primer Nivel. * Recámara principal con vestidor, baño completo y balcón. * ⁠Recámara secundaria con vestidor, baño completo y balcón. * ⁠Recámara secundaria con closet y baño completo. Segundo Nivel. * Roof garden. * ⁠Estudio con opción a recamara. * ⁠Amplio patio trasero. * ⁠Cuarto de lavado. * ⁠Covacha. * ⁠Medio baño. Equipamiento. * Estufa con 6 hornillas. * ⁠Campana de cocina. * ⁠Comedor. * ⁠Cristales templados. * ⁠Hidroneumático. * ⁠Portón eléctrico. * ⁠20 Paneles Solares. * ⁠Horno eléctrico. * ⁠6 Ventiladores. * ⁠5 climas mini split. * ⁠Cisterna. * ⁠Rotoplas. El precio está sujeto a cambio sin previo aviso. El precio no incluye gastos de escrituración. No incluye todo el mobiliario de lasfotografías. Ver datos..",
+                "amenidades": ""
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:28:20.802752",
+                "updated_at": "2026-07-29T20:28:20.802752"
+            }
+        },
+        "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-punta-tiburon-149971665.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=25&n_search_id=7ebeff8d-a73a-4c40-8304-1948f4e2dbc2": {
+            "data": {
+                "precio": "MN 5,800,000",
+                "precio_valor": 5800000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "232 m² lote | 3 rec. | 4 baños | 2 estac.",
+                "m2_totales": 232.0,
+                "m2_construidos": 246.0,
+                "recamaras": 3,
+                "banos": 4,
+                "estacionamientos": 2,
+                "antiguedad": "3 años",
+                "lat": 19.0638387446,
+                "lng": -96.0829386725,
+                "direccion": "Punta Tiburon",
+                "ubicacion": "Punta Tiburón Residencial Marina y Golf, Alvarado",
+                "descripcion": "Punta TiburónRiviera VeracruzanaVenta$5, 800, 000. 00Más Gastos de escrituración232 m2 de Terreno246 m2 de ConstrucciónRecibidor en doble alturaSala comedorMedio baño de visitasCocina integral con barra de cuarzo, parrilla, campana, horno electrico, alacena, barra desayunadorÁrea de lavado con centro de lavadoCuarto de servicio con baño completoGarage techado para 2 autos con portón automáticoJardínTerrazaAlbercaPasillo lateral de servicioCloset de blancos y séptico1 Habitación principal con baño completo, tina jacuzzi y amplio vestidor2 Habitaciones secundarias con baño completo y vestidorClimatizadaPersianasPaneles solares",
+                "amenidades": ""
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:28:20.802756",
+                "updated_at": "2026-07-29T20:28:20.802756"
+            }
+        },
+        "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-lomas-de-la-rioja-149971646.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=26&n_search_id=7ebeff8d-a73a-4c40-8304-1948f4e2dbc2": {
+            "data": {
+                "precio": "MN 3,450,000",
+                "precio_valor": 3450000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "160 m² lote | 3 rec. | 3 baños | 2 estac.",
+                "m2_totales": 160.0,
+                "m2_construidos": 234.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "8 años",
+                "lat": 19.0475169885,
+                "lng": -96.0604674386,
+                "direccion": "Casa en Venta Lomas de La Rioja",
+                "ubicacion": "Lomas de la Rioja, Alvarado",
+                "descripcion": "Lomas de La Rioja Riviera Veracruzana3, 450, 000. 00Gastos de escrituración 160 m2 Terreno234 m2 Construcción Planta BajaSala ComedorÁrea de tvmedio baño de visitasCuarto de lavadoJardín interior con asador argentino Garage para 2 autosPrimer nivel 1 Habitación con clóset baño completo1 Habitación con clóset baño completoSegundo nivel1 Habitación principal con vestidor y baño completo EstudioTerraza",
+                "amenidades": ""
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:28:20.802758",
+                "updated_at": "2026-07-29T20:28:20.802758"
+            }
+        },
+        "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-veracruz-con-hab.-en-p.-b.-fracc.-150443346.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=27&n_search_id=7ebeff8d-a73a-4c40-8304-1948f4e2dbc2": {
+            "data": {
+                "precio": "MN 4,250,000",
+                "precio_valor": 4250000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "170 m² lote | 3 rec. | 3 baños | 2 estac.",
+                "m2_totales": 170.0,
+                "m2_construidos": 217.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "1 años",
+                "lat": 19.0502207,
+                "lng": -96.0614311,
+                "direccion": "Fracc. Lomas de la Rioja",
+                "ubicacion": "Lomas de la Rioja, Alvarado",
+                "descripcion": "Casa en venta con rec. En P. B fracc. Lomas de la Rioja, Riviera Veracruzana. Precio $4, 250, 000. Mantenimiento $1, 400 aprox. Terreno 170 m2 (8. 50x20) Construcción 217 m2. Planta baja. * Garage techado para dos autos. * Medio baño de visitas. * Sala comedor en doble altura. * Cocina integral con barra de granito, barra desayunadora y torre de hornos. * Recámara con clóset y baño completo. * Cuarto de lavado. * Bodega. * Ojo de patio con jardín interior. * Jardín. Planta alta. * Closet de blancos. * Area de escritorio. * Sala de tv. * Recámara con clóset y baño. * Recámara principal con vestidor y baño. Segundo nivel. * Roof Garden con vista a la laguna. Equipamiento. * Mamparas de cristal templado en baños. * Lámparas decorativas. * Campana y Parrilla en cocina. * Doble tarja. * Hidroneumático o bomba sumergible. * Preparación para paneles solares. * Tanque estacionario. * Preparación para filtros de agua o suavizador. * Preparación para lavavajillas. * Calentador. * Cisterna. Amenidades. * Vigilancia 24/7. * Parques. * Jardines. * Casa clubes con Alberca. * Gimnasio. * Palapa. * Rioja bus. * Oxxo. * Canchas deportivas. Precio sujeto a cambio sin previo aviso. El precio no incluye gastos de escrituración",
+                "amenidades": ""
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:28:20.802762",
+                "updated_at": "2026-07-29T20:28:20.802762"
+            }
+        },
+        "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casas-en-venta-en-jardines-de-virginia-boca-del-rio.-148371928.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=28&n_search_id=7ebeff8d-a73a-4c40-8304-1948f4e2dbc2": {
+            "data": {
+                "precio": "MN 4,650,000",
+                "precio_valor": 4650000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "60 m² lote | 3 rec. | 2 baños | 2 estac.",
+                "m2_totales": 60.0,
+                "m2_construidos": 172.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "A estrenar",
+                "lat": 19.1598165,
+                "lng": -96.1135004,
+                "direccion": "Calzada Juan Pablo II",
+                "ubicacion": "Jardines de Virginia, Boca del Río",
+                "descripcion": "Construcción 172 m2. Mantenimiento $3, 500. Un nuevo concepto de Fracc. Privado rodeado de naturaleza en el centro de la ciudad. Sobre Juan Pablo ii. A dos cuadras de Plaza Mocambo. A dos cuadras de Plaza Urban Center. Cerca de Walmart y del colegio la paz. Entrega estimada Invierno 2026. Descuento de 3% en pago de contado. 12 Meses sin intereses. planta baja: Cochera para 2 autos. Bodega. Pasillo de acceso. Estudio/oficina. primer nivel: Espacio Sala-Comedor. Cocina integral. Cuarto de lavado. 1/2 Baño para visitas. Jardín privado. segundo nivel: 1 Recamara principal con vestidor y baño completo. 2 Recamaras secundarias con closet. 1 Baño completo compartido. Cuarto séptico. Preparación paneles solares. amenidades: Caseta de Vigilancia 24 hrs. Portón de seguridad para control de acceso. Áreas verdes. Asadores. Alberca. Baños Exteriores",
+                "amenidades": ""
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:28:20.802764",
+                "updated_at": "2026-07-29T20:28:20.802764"
+            }
+        },
+        "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-punto-lomas-residencial-alvarado-150158356.html?n_src=Listado&n_pills=Seguridad+privada&n_pg=1&n_pos=29&n_search_id=7ebeff8d-a73a-4c40-8304-1948f4e2dbc2": {
+            "data": {
+                "precio": "MN 4,350,000",
+                "precio_valor": 4350000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "160 m² lote | 3 rec. | 3 baños",
+                "m2_totales": 160.0,
+                "m2_construidos": 210.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 0,
+                "antiguedad": "A estrenar",
+                "lat": 19.0727736471,
+                "lng": -96.0900491497,
+                "direccion": "Punto Lomas Residencial",
+                "ubicacion": "Lomas Diamante, Alvarado",
+                "descripcion": "Vivir en el corazón de la Riviera Veracruzana nunca fue tan increíble. Espectacular casa en Preventa en el Fraccionamiento Residencial Punto LomasEn un lote Lado sombraCasa en preventa en dos niveles con: Terreno 160m2Construcción 210m2Fachada con detalle de manguera con iluminación ledgaraje techado para dos autosSala a doble altura con detalle de muro de Lambrin para la tvcomedorCocina integral con barra desayunadora cubierta de granitoCuarto de lavadoMedio bañoRecámara en planta baja con clóset y con bañoTerrazaalberca con cascada (5x2m) Escalera con barandal de vidrio templadoEn planta altaÁrea de tv Family roomRecámara 2 con clóset, baño y terrazaAmplia recámara principal con vestidor y bañoIncluye cisterna, bomba e hidroneumáticoTemplados en baños, escalera, espejos con luz ledEscalera de bombero en segundo nivelEntrega Julio 2026Video e imágenes ilustrativas, pueden variar sujetos a cambios por el constructorinversion $4, 350, 000. 00",
+                "amenidades": ""
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:28:20.802766",
+                "updated_at": "2026-07-29T20:28:20.802766"
+            }
+        },
+        "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-playas-del-conchal-149971796.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=30&n_search_id=7ebeff8d-a73a-4c40-8304-1948f4e2dbc2": {
+            "data": {
+                "precio": "MN 13,800,000",
+                "precio_valor": 13800000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "876 m² lote | 3 rec. | 5 baños | 3 estac.",
+                "m2_totales": 876.0,
+                "m2_construidos": 511.0,
+                "recamaras": 3,
+                "banos": 5,
+                "estacionamientos": 3,
+                "antiguedad": "A estrenar",
+                "lat": 19.0763432,
+                "lng": -96.0866982,
+                "direccion": "Casa en Venta Playas del Conchal",
+                "ubicacion": "Playas del Conchal, Alvarado",
+                "descripcion": "Residencia en VentaPlayas del Conchal Riviera Veracruzana $13, 800, 000+Gastos de escrituración 876 m2 Terreno511 m2 Construcción RecibidorSala ComedorCocina integral con cubierta de cuarzo, parrilla, campana, torre de hornos, refrigerador, alacena e isla desayunador Medio baño de visitas1 Habitación principal con baño completo y vestidor1 Habitación secundaria con baño completo y vestidor 1 Habitación secundaria con baño completo y vestidorGarage techado para 3 autos Área de lavadoCuarto de lavado Cuarto de servicio con baño completoSalón de usos múltiples con medio bañoBaño completo para albercaAlberca Jardín amplio Terraza Acceso a segundo nivel por escaleras con cimentación lista para construir33 Paneles solares",
+                "amenidades": ""
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:28:20.802769",
+                "updated_at": "2026-07-29T20:28:20.802769"
+            }
+        }
+    }
+}

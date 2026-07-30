@@ -1,0 +1,821 @@
+{
+    "project": "Inmuebles24 Scraper DB",
+    "version": "1.1",
+    "metadata": {
+        "created_at": "2026-07-29T20:27:37.113900",
+        "last_update": "2026-07-29T20:27:45.858305",
+        "total_records": 30
+    },
+    "listings": {
+        "https://www.vivanuncios.com.mx/a-venta-casa/astilleros-de-veracruz/casa-en-venta-en-veracruz-con-5-hab-y-alberca-col-astilleros/150254570": {
+            "data": {
+                "precio": "MXN 1,900,000",
+                "precio_valor": 1900000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "200.0 m² lote | 4 rec. | 1 banos | 1 estac.",
+                "m2_totales": 200.0,
+                "m2_construidos": 298.0,
+                "recamaras": 4,
+                "banos": 1,
+                "estacionamientos": 1,
+                "antiguedad": "1",
+                "direccion": "Col. Astilleros, Astilleros de Veracruz, Veracruz, Veracruz, Mexico vivanuncios, ",
+                "ubicacion": "Veracruz, Veracruz, Astilleros de Veracruz",
+                "descripcion": "Casa en Venta con 5 Recámaras, 2 en P.B y con Alberca en Col. Astilleros Veracruz Ver Precio $1,900,000 Construcción 298 M2 Terreno 200 M2 (10 x 20) Planta baja: * Garaje para 1 auto * Sala * ⁠Comedor. * ⁠Recámara con espacio para clóset. * ⁠Recámara con clóset. * ⁠Cocina Integral * ⁠Baño completo * Patio con alberca y asador. * ⁠Área de lavado. Planta alta * Sala de TV. * ⁠Baño completo. * ⁠Recámara con área para clóset. * ⁠Amplia recámara con clóset y sala de TV. * ⁠Amplia recámara con espacio para clóset y sala de TV. * ⁠Balcón. Precio sujeto cambios sin previo aviso. El precio no incluye gastos notariales Ver datos",
+                "amenidades": "Alberca | Seguridad privada",
+                "lat": 19.2102729,
+                "lng": -96.1831947,
+                "tipo_propiedad": "Casa",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:45.857693",
+                "updated_at": "2026-07-29T20:27:45.857693"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-casa/lomas-del-dorado/casa-venta-boca-del-rio-veracruz/148986908": {
+            "data": {
+                "precio": "MXN 3,980,000",
+                "precio_valor": 3980000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "160.0 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 160.0,
+                "m2_construidos": 180.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "A estrenar",
+                "direccion": "Carretera Boca del Río - Paso del Toro, Lomas del Dorado, Boca del Río, Veracruz, Mexico vivanuncios, ",
+                "ubicacion": "Veracruz, Boca del Río, Lomas del Dorado",
+                "descripcion": "Vive en uno de los fraccionamientos con mayor plusvalía y seguridad de la zona: Lomas del Dorado Fraccionamiento privado completamente bardeado con: Doble caseta de acceso controlado Vigilancia 24/7 Casa Club Alberca y palapa Gimnasio Cancha de pádel Juegos infantiles Parque recreativo Características de la propiedad - Terreno: 160 m² - Construcción: 180 m² Distribucion Planta Baja: - Sala - Comedor - Medio baño - Cocina integral con barra de granito - Área de lavado - 1 Recámara - 1 Baño completo - Garage para 2 autos Planta Alta: - Sala de TV - Recámara principal con vestidor y baño - Recámara secundaria con clóset y baño Ideal para familias que buscan seguridad, comodidad y excelentes amenidades en una zona de alta plusvalía en Boca del Río. Agenda tu cita y conoce tu próxima casa. El p",
+                "amenidades": "Alberca | Seguridad privada | Jardin",
+                "lat": 19.0858605,
+                "lng": -96.11950259999999,
+                "tipo_propiedad": "Casa",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:45.857839",
+                "updated_at": "2026-07-29T20:27:45.857839"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-casa/el-morro-las-colonias/casa-en-venta-en-veracruz-con-alberca-col-el-morro-boca-del-rio-ver/150251657": {
+            "data": {
+                "precio": "MXN 3,100,000",
+                "precio_valor": 3100000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "100.0 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 100.0,
+                "m2_construidos": 172.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "1",
+                "direccion": "Col. El Morro, El Morro las Colonias, Boca del Río, Veracruz, Mexico vivanuncios, ",
+                "ubicacion": "Veracruz, Boca del Río, El Morro las Colonias",
+                "descripcion": "Casa en Venta con Alberca en Col. El Morro en Boca del Río, Ver Precio: $3,100,000 2 casas en venta Terreno: 100 m2 (5 x 20) Construcción: 172 M2 Planta baja - Garaje para 2 autos - Sala - Comedor - Cocina integral con barra de granito. - Medio baño. - Alberca. - Zona de asador. - Cuarto de lavado. Planta alta - Recámara principal con vestidor y baño completo. - Dos recámaras secundarias con clóset y baño completo cada una. Equipamiento - Parrilla y campana en cocina. - Barandales de vidrio templado. - Cristal templado en baños. - Piso formato 0.60 x 1.20 Precio sujeto a cambio sin previo aviso. No incluye gastos notariales. Ver datos",
+                "amenidades": "Alberca | Seguridad privada",
+                "lat": 19.1127206,
+                "lng": -96.1071483,
+                "tipo_propiedad": "Casa",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:45.857878",
+                "updated_at": "2026-07-29T20:27:45.857878"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-casa/punta-tiburon-residencial-marina-y-golf/casa-en-venta-en-punta-tiburon-con-4-recamaras-y-amplio-jardin/147060758": {
+            "data": {
+                "precio": "MXN 6,700,000",
+                "precio_valor": 6700000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "303.0 m² lote | 4 rec. | 4 banos | 2 estac.",
+                "m2_totales": 303.0,
+                "m2_construidos": 313.0,
+                "recamaras": 4,
+                "banos": 4,
+                "estacionamientos": 2,
+                "antiguedad": "4",
+                "direccion": "Punta Tiburón, Punta Tiburón Residencial Marina y Golf, Alvarado, Veracruz, Mexico vivanuncios, ",
+                "ubicacion": "Veracruz, Alvarado, Punta Tiburón Residencial Marina y Golf",
+                "descripcion": "Casa en Venta en Punta Tiburon / Con amplio jardín y recámara en planta baja Precio 6,700,000.00 Terreno 303 m2 Construcción 313 m2 PLANTA BAJA Cochera techada 2 autos Entrada con doble altura Medio baño para visitas Sala Comedor Cocina integral equipada con barra de cuarzo e isla desayunadora Recámara con baño completo Jardín muy amplio Terraza techada Área de lavado Cuarto de servicio con baño PLANTA ALTA Recámara principal con vestidor y baño 2 recamaras secundarias con vestidor y baño cada una Terraza SE ENTREGA Climatizada climas inverter Persianas cortinas Ventiladores de techo **¿Te interesa saber más? Agenda tu cita y conoce cada detalle de esta propiedad. **Para información completa y visitas, hoy mismo\"",
+                "amenidades": "Seguridad privada | Aire acondicionado | Terraza | Jardin",
+                "lat": 19.0631254,
+                "lng": -96.0929216,
+                "tipo_propiedad": "Casa",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:45.857903",
+                "updated_at": "2026-07-29T20:27:45.857903"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-casa/lomas-de-la-rioja/casa-en-venta-en-lomas-de-la-rioja-amplio-jardin-y-alberca/147723347": {
+            "data": {
+                "precio": "MXN 4,450,000",
+                "precio_valor": 4450000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "204.0 m² lote | 3 rec. | 4 banos | 2 estac.",
+                "m2_totales": 204.0,
+                "m2_construidos": 242.0,
+                "recamaras": 3,
+                "banos": 4,
+                "estacionamientos": 2,
+                "antiguedad": "A estrenar",
+                "direccion": "Fraccionamiento Lomas de la Rioja, Lomas de la Rioja, Alvarado, Veracruz, Mexico vivanuncios, ",
+                "ubicacion": "Veracruz, Alvarado, Lomas de la Rioja",
+                "descripcion": "Espectacular Casa en Venta con gran comodidad para ti, en el fracionamiento Lomas de la Rioja en la Riviera Veracruzana Precio $4,450,000.00 Terreno 204 m2 Construcción 242 m2 PLANTA BAJA Cochera techada para 2 autos con porton automatico Pasillo de servicio hacia alberca Sala Comedor Cocina integral (madera cuarzo ) parrilla, campana, barra desayunadora, mueble para horno y microondas Medio baño para visitas Area de bar Area de lavado Alberca con asador, cascada, pergolas de concreto y baño completo PLANTA ALTA 2 Recámaras principal con vestidor y baño cada una, una de ellas con balcón 1 recámara secundaria con baño y closet Sala de tv SE ENTREGA Climas en Recámaras Canceles de baño ¿Te interesa saber más? Agenda tu cita y conoce cada detalle de esta propiedad. Para información completa y",
+                "amenidades": "Alberca | Seguridad privada | Aire acondicionado | Terraza | Jardin",
+                "lat": 19.0448802,
+                "lng": -96.06063909999999,
+                "tipo_propiedad": "Casa",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:45.857920",
+                "updated_at": "2026-07-29T20:27:45.857920"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-casa/lomas-del-mediterraneo/casa-en-venta-lomas-del-mediterraneo-alvarado-veracruz/150569081": {
+            "data": {
+                "precio": "MXN 3,400,000",
+                "precio_valor": 3400000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "160.0 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 160.0,
+                "m2_construidos": 165.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "A estrenar",
+                "direccion": "Lomas del Mediterraneo, Lomas del Mediterráneo, Alvarado, Veracruz, Mexico vivanuncios, ",
+                "ubicacion": "Veracruz, Alvarado, Lomas del Mediterráneo",
+                "descripcion": "Casa en venta totalmente equipada en la riviera veracruzana con recámara en planta baja y alberca Fraccionamiento Lomas del Mediterraneo, ubicada en los puntos mas altos, enfrente de parque y con vista al mar Terreno 160m2 Construcción 165m2 Garaje 2 autos Recámara con clóset y baño en planta baja Sala comedor Medio baño Cocina con isla y amplia alacena Terraza con Alberca con cascada y area de asador En planta alta Recámara 2 con vestidor y baño y salida a terraza con vista al mar Recámara 3 con vestidor y baño y salida a terraza con vista al mar Área de lavado semitechada Se entrega con persianas, aires acondicionados, canceles de baño 1 RPB 2 RPA Alberca 2 autos 3.5 baños Inversión $3,400,000.00 * la casa está amueblada pero sin uso. Es Nueva * No incluye muebles",
+                "amenidades": "Alberca | Seguridad privada | Aire acondicionado | Terraza | Jardin",
+                "lat": 19.0509798574,
+                "lng": -96.0365871096,
+                "tipo_propiedad": "Casa",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:45.857935",
+                "updated_at": "2026-07-29T20:27:45.857935"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-casa/lomas-de-la-rioja/casa-en-venta-fracc-lomas-de-la-rioja-riviera-veracruzana-alvarado-veracruz/148645060": {
+            "data": {
+                "precio": "MXN 3,990,000",
+                "precio_valor": 3990000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "183.0 m² lote | 4 rec. | 3 banos | 2 estac.",
+                "m2_totales": 183.0,
+                "m2_construidos": 195.0,
+                "recamaras": 4,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "A estrenar",
+                "direccion": "Santa Elena #1, Lomas de la Rioja, Alvarado, Veracruz, Mexico vivanuncios, ",
+                "ubicacion": "Veracruz, Alvarado, Lomas de la Rioja",
+                "descripcion": "Residencia con seguridad privada, amenidades y alta plusvalía en Lomas de la Rioja, Riviera Veracruzana Invierta en una propiedad estratégica ubicada en el Fraccionamiento Lomas de la Rioja, Alvarado, una de las zonas de mayor crecimiento, demanda y plusvalía en la Riviera Veracruzana. Este inmueble destaca por estar situado en un entorno residencial completamente consolidado, reconocido por su infraestructura de seguridad perimetral permanente, ambiente estrictamente familiar y amenidades exclusivas diseñadas para el confort. Su ubicación clave garantiza una conectividad ágil con los principales centros comerciales y de servicios de la región, consolidándose como una opción definitiva de inversión para asegurar su patrimonio y calidad de vida. Esta propiedad se encuentra en excelente esta",
+                "amenidades": "Alberca | Seguridad privada | Terraza | Jardin",
+                "lat": 19.0526387,
+                "lng": -96.06097,
+                "tipo_propiedad": "Casa",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:45.857951",
+                "updated_at": "2026-07-29T20:27:45.857951"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-casa/las-vegas-ii/casa-en-venta-residencial-bambu-boca-del-rio/149848350": {
+            "data": {
+                "precio": "MXN 2,990,000",
+                "precio_valor": 2990000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "105.0 m² lote | 4 rec. | 3 banos | 2 estac.",
+                "m2_totales": 105.0,
+                "m2_construidos": 162.0,
+                "recamaras": 4,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "1",
+                "direccion": "Residencial Bambú, Las Vegas II, Boca del Río, Veracruz, Mexico vivanuncios, ",
+                "ubicacion": "Veracruz, Boca del Río, Las Vegas II",
+                "descripcion": "Terreno 105 m2 Construcción 162 m2 2 Niveles 4 Recamaras Recamara en planta baja Fraccionamiento cerrado con alberca, palapas, áreas verdes, cancha de básquet y seguridad 24 horas. PLANTA BAJA: Cochera para 2 autos Espacio Sala-Comedor 1/2 Baño para visitas Cocina integral Recamara con baño Cuarto de lavado Jardín PLANTA ALTA: Recamara principal con vestidor y baño 2 Recamaras secundarias con closet Baño completo compartido Terraza",
+                "amenidades": "Alberca | Seguridad privada | Terraza | Jardin",
+                "lat": 19.1387687,
+                "lng": -96.13553549999999,
+                "tipo_propiedad": "Casa",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:45.857965",
+                "updated_at": "2026-07-29T20:27:45.857965"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-casa/maria-de-la-piedad/casa-en-venta-col-maria-de-la-piedad-coatzacoalcos-veracruz/148430572": {
+            "data": {
+                "precio": "MXN 5,195,000",
+                "precio_valor": 5195000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "310.0 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 310.0,
+                "m2_construidos": 364.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "14",
+                "direccion": "Av. Bellavista, Maria de La Piedad, Coatzacoalcos, Veracruz, Mexico vivanuncios, ",
+                "ubicacion": "Veracruz, Coatzacoalcos, Maria de La Piedad",
+                "descripcion": "Casa en Venta en Coatzacoalcos | María de la Piedad | A 1 minuto de la Playa | 344m² con Alberca Excelente casa de diseño minimalista en venta ubicada sobre Av. Bellavista, en la prestigiosa Colonia María de la Piedad, esta propiedad residencial es una de las mejores opciones en venta en Coatzacoalcos. Su ubicación estratégica es inmejorable: a solo 1 minuto de la playa, lo que te permite disfrutar del estilo de vida playero sin renunciar a la comodidad de tener todo a la mano. CARACTERÍSTICAS Casa con 15 años de ser antigüedad, en buen estado de conservación. 344 m² de área construida sobre un terreno de 310 m², con 10 metros de frente y 31 metros de fondo. Distribución en 3 Niveles: 3 Recamaras. Cocina integral totalmente equipada. Estudio y cuarto de televisión. 3 Baños completos + 1 me",
+                "amenidades": "Alberca | Seguridad privada | Aire acondicionado | Terraza | Jardin",
+                "lat": 18.1514939,
+                "lng": -94.4313294,
+                "tipo_propiedad": "Casa",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:45.857981",
+                "updated_at": "2026-07-29T20:27:45.857981"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-casa/punta-tiburon-residencial-marina-y-golf/casa-en-punta-tiburon-riviera-veracruzana/148648054": {
+            "data": {
+                "precio": "MXN 6,390,000",
+                "precio_valor": 6390000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "230.0 m² lote | 4 rec. | 4 banos | 2 estac.",
+                "m2_totales": 230.0,
+                "m2_construidos": 250.0,
+                "recamaras": 4,
+                "banos": 4,
+                "estacionamientos": 2,
+                "antiguedad": "A estrenar",
+                "direccion": "Laguna VII 8, Punta Tiburón Residencial Marina y Golf, Alvarado, Veracruz, Mexico vivanuncios, ",
+                "ubicacion": "Veracruz, Alvarado, Punta Tiburón Residencial Marina y Golf",
+                "descripcion": "??4 Recamaras una de ellas en planta baja.Diseño y Arquitectura  encontraras en esta Propiedad y con una espectacular  doble altura. Residencial Punta Tiburón $6.390.000 Terreno de 230m2 Construcción  250m2 Características: - 4 Recámaras una de ellas en planta baja y la principal con vestidor. - 4 baños - cocina con cuarzo - Climatizada ??El precio de esta propiedad puede cambiar sin previo aviso por el Propietario.",
+                "amenidades": "Alberca | Seguridad privada | Terraza | Jardin",
+                "lat": 18.7713845,
+                "lng": -95.7566479,
+                "tipo_propiedad": "Casa",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:45.857996",
+                "updated_at": "2026-07-29T20:27:45.857996"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-casa/punta-tiburon-residencial-marina-y-golf/casa-en-venta-punta-tiburon/150092825": {
+            "data": {
+                "precio": "MXN 7,500,000",
+                "precio_valor": 7500000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "252.0 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 252.0,
+                "m2_construidos": 280.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "2",
+                "direccion": "Casa en Venta Punta Tiburon, Punta Tiburón Residencial Marina y Golf, Alvarado, Veracruz, Mexico vivanuncios, ",
+                "ubicacion": "Veracruz, Alvarado, Punta Tiburón Residencial Marina y Golf",
+                "descripcion": "Casa en Venta Punta Tiburón Riviera Veracruzana $7,500,000.00 +Gastosas de escrituración 252 m2 Terreno 280 m2  Construcción -Planta baja Recibidor Sala en desnivel Comedor con lampara decorativa Cocina integral con parrilla, campana, horno, refrigerador, alacena e isla desayunado Medio baño de visitas Patio Alberca privada con asoleado Pasillo lateral de servicio Garage techado para 2 autos -Planta alta Area de TV 1 Habitación principal con balcón, baño completo y vestidor 1 Habitación secundaria con closet 1 Habitación secundaria con closet 1 Baño completo que una a las habitaciones secundarias -3er nivel Cuarto de servicio con baño completo Cuarto de lavado Si buscas amplitud, diseño contemporáneo y una ubicación privilegiada dentro de uno de los fraccionamientos más exclusivos de la Ri",
+                "amenidades": "Alberca | Seguridad privada | Aire acondicionado | Terraza | Jardin",
+                "lat": 19.0592552134,
+                "lng": -96.0806212438,
+                "tipo_propiedad": "Casa",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:45.858011",
+                "updated_at": "2026-07-29T20:27:45.858011"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-casa/punta-tiburon-residencial-marina-y-golf/venta-de-casa-en-punta-tiburon-4-habitaciones/149281362": {
+            "data": {
+                "precio": "MXN 7,190,000",
+                "precio_valor": 7190000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "273.0 m² lote | 4 rec. | 4 banos | 2 estac.",
+                "m2_totales": 273.0,
+                "m2_construidos": 298.0,
+                "recamaras": 4,
+                "banos": 4,
+                "estacionamientos": 2,
+                "antiguedad": "A estrenar",
+                "direccion": "Laguna VI, Punta Tiburón Residencial Marina y Golf, Alvarado, Veracruz, Mexico vivanuncios, ",
+                "ubicacion": "Veracruz, Alvarado, Punta Tiburón Residencial Marina y Golf",
+                "descripcion": "Exclusividad y confort es lo que te ofrece esta propiedad , más sus 4 habitaciones y su alberca. Casa Ballena Residencial Marina &amp; Golf Inversión $7,190.000 Ven a conocerla Ver datos 273m² de terreno 298m² de construcción. - Diseño moderno - Alberca y jardín privado - 4 recámaras + estudio - 4 baños completos - Mármol natural y carpintería en encino - Cocina equipada con barra de granito",
+                "amenidades": "Alberca | Seguridad privada | Jardin",
+                "lat": 19.0653598,
+                "lng": -96.0904274,
+                "tipo_propiedad": "Casa",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:45.858026",
+                "updated_at": "2026-07-29T20:27:45.858026"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-casa/primero-de-mayo-sur/casa-en-venta-en-veracruz-en-col-ejido-primero-de-mayo-sur/149965387": {
+            "data": {
+                "precio": "MXN 2,250,000",
+                "precio_valor": 2250000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "105.0 m² lote | 1 rec. | 1 banos | 1 estac.",
+                "m2_totales": 105.0,
+                "m2_construidos": 120.0,
+                "recamaras": 1,
+                "banos": 1,
+                "estacionamientos": 1,
+                "antiguedad": "1",
+                "direccion": "Col. Ejido Primero de Mayo Sur, Primero de Mayo Sur, Boca del Río, Veracruz, Mexico vivanuncios, ",
+                "ubicacion": "Veracruz, Boca del Río, Primero de Mayo Sur",
+                "descripcion": "Casa en venta un nivel, en Ejido Primero de Mayo Sur, Boca del Río, Ver. Precio: $2,250,000 Construcción: 120m² Terreno: 105m² Distribución - Garage para 1 vehículo - Sala - Comedor - Cocina - Baño completo - Recámara con clóset y baño completo - Ojo de patio - Área de lavado Equipamiento - Calentador - Portón eléctrico - Preparación para climas - Cisterna 1,200L. Precio sujeto a cambio sin previo aviso. El precio no incluye gastos notariales. Ver datos",
+                "amenidades": "Seguridad privada | Cisterna",
+                "lat": 19.1411784,
+                "lng": -96.1248675,
+                "tipo_propiedad": "Casa",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:45.858041",
+                "updated_at": "2026-07-29T20:27:45.858041"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-casa/lomas-de-la-rioja/casa-en-venta-lomas-de-la-rioja-4-recamaras-y-ubicacion-en-esquina/147885600": {
+            "data": {
+                "precio": "MXN 3,990,000",
+                "precio_valor": 3990000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "178.0 m² lote | 4 rec. | 3 banos | 2 estac.",
+                "m2_totales": 178.0,
+                "m2_construidos": 210.0,
+                "recamaras": 4,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "A estrenar",
+                "direccion": "Lomas de la Rioja, Lomas de la Rioja, Alvarado, Veracruz, Mexico vivanuncios, ",
+                "ubicacion": "Veracruz, Alvarado, Lomas de la Rioja",
+                "descripcion": "Casa en Venta en Lomas de la Rioja en la Riviera Veracruzana, con aacceso a azotea con vista a la laguna de mandinga, ubicación privilegiada en esquina. PROMOCION $3,990,000.00 Precio $4,400,000.00 Terreno 178.10 m2 Construcción 210 m2 PLANTA BAJA Sala y Comedor: con Amplios espacios integrados, ideales para reuniones sociales y momentos familiares, con acabados de alta calidad. Cocina: Moderna y funcional con cubierta de granito y equipada con horno, parrilla, campana y tarja. Garaje: Espacio para dos vehículos, que garantiza comodidad. Recámara/Estudio con Baño Completo: Una habitación privada en planta baja, ideal para visitas o personas mayores. Área de servicio y lavandería: funcional con acceso desde la cocina Jardín PLANTA ALTA Dos Recámaras: Cada una de estas habitaciones ofrece pr",
+                "amenidades": "Alberca | Seguridad privada | Jardin",
+                "lat": 19.0448802,
+                "lng": -96.06063909999999,
+                "tipo_propiedad": "Casa",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:45.858056",
+                "updated_at": "2026-07-29T20:27:45.858056"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-casa/lomas-diamante/casa-en-venta-lomas-diamante/148768394": {
+            "data": {
+                "precio": "MXN 6,490,000",
+                "precio_valor": 6490000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "208.0 m² lote | 4 rec. | 5 banos | 2 estac.",
+                "m2_totales": 208.0,
+                "m2_construidos": 277.0,
+                "recamaras": 4,
+                "banos": 5,
+                "estacionamientos": 2,
+                "antiguedad": "A estrenar",
+                "direccion": "Lomas Diamante, Lomas Diamante, Alvarado, Veracruz, Mexico vivanuncios, ",
+                "ubicacion": "Veracruz, Alvarado, Lomas Diamante",
+                "descripcion": "Vive en el corazón de la Riviera Veracruzana en el fraccionamiento consolidado y con exclusividad Fraccionamiento Lomas Diamante Con acceso y vigilancia controlada 24 horas 7x7 Áreas verdes, pérgola central, 4 parques infantiles ¡Estrena esta preciosa casa en venta con 4 habitaciones, 1 de ellas en planta baja y alberca y jardín! Consta de: Terreno 208m2 Construcción 277m2 Garaje para dos autos amplio Puerta de servicio Baño completo de servicio Acceso principal con puerta de aluminio a doble altura de 2m de ancho Medio baño con base de mármol con doble entrepaño Recámara planta baja y baño Sala comedor con iluminación led en techo Ventanal hacia terraza alberca Alberca con cascada y luz interior Jardín Cocina integral de parota con gabinetes a techo, base cubierta de granito y muro de zon",
+                "amenidades": "Alberca | Seguridad privada | Aire acondicionado | Cisterna | Terraza | Jardin",
+                "lat": 19.0727201,
+                "lng": -96.0928581,
+                "tipo_propiedad": "Casa",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:45.858070",
+                "updated_at": "2026-07-29T20:27:45.858070"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-casa/lomas-del-dorado/casa-de-4-recamaras-en-venta-en-lomas-del-dorado-boca-del-rio/149029442": {
+            "data": {
+                "precio": "MXN 5,950,000",
+                "precio_valor": 5950000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "181.0 m² lote | 4 rec. | 4 banos | 2 estac.",
+                "m2_totales": 181.0,
+                "m2_construidos": 269.0,
+                "recamaras": 4,
+                "banos": 4,
+                "estacionamientos": 2,
+                "antiguedad": "A estrenar",
+                "direccion": "Lomas del dorado, Lomas del Dorado, Boca del Río, Veracruz, Mexico vivanuncios, ",
+                "ubicacion": "Veracruz, Boca del Río, Lomas del Dorado",
+                "descripcion": "️CASA AGUA en Lomas del Dorado | Precio $5,950,000 Un hogar para disfrutar, con estilo, modernidad, calidez y espacios amplios, con 4 recámaras Precio $5,950,000 *Precio sujeto a cambios sin previo aviso por el constructor ️181.50 m2 de terreno ️269 m2 de construcción ️PLANTA BAJA Sala doble altura Comedor Cocina integral concepto abierto con barra desayunadora Baño completo Recámara o estudio Jardín Alberca Pasillo de servicio Cochera 2 autos techados ️PLANTA ALTA Cuarto de lavado 3 recámaras con baño cada una, la principal con vestidor y las otras 2 con closet ¿Te interesa saber más? Agenda tu cita y conoce cada detalle de esta propiedad.",
+                "amenidades": "Alberca | Seguridad privada | Jardin",
+                "lat": 19.0858605,
+                "lng": -96.11950259999999,
+                "tipo_propiedad": "Casa",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:45.858085",
+                "updated_at": "2026-07-29T20:27:45.858085"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-casa/fraccionamiento-virginia/casa-en-fraccionamiento-virginia/148446618": {
+            "data": {
+                "precio": "MXN 4,650,000",
+                "precio_valor": 4650000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "60.0 m² lote | 3 rec. | 2 banos | 2 estac.",
+                "m2_totales": 60.0,
+                "m2_construidos": 172.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "A estrenar",
+                "direccion": "Juan Pablo II al 800, Fraccionamiento Virginia, Boca del Río, Veracruz, Mexico vivanuncios, ",
+                "ubicacion": "Veracruz, Boca del Río, Fraccionamiento Virginia",
+                "descripcion": "Un nuevo concepto de Fracc. Privado rodeado de naturaleza en el centro de la ciudad.Sobre Juan Pablo II A dos cuadras de Plaza Mocambo A dos cuadras de Plaza Urban Center Cerca de Walmart y del colegio la paz Desde $4,650,000 Jardines de Virginia, Veracruz. Terreno 60 m2 (6x10m) Construcción 172 m2 3 niveles 3 recamaras Se entrega con climas y carpintería Mantenimiento $3,500 Entrega estimada invierno 2026 Descuento de 3% en pago de contado PLANTA BAJA: Cochera para 2 autos Bodega Pasillo de acceso Estudio/oficina PRIMER NIVEL: Espacio Sala-Comedor Cocina integral Cuarto de lavado 1/2 Baño para visitas Jardín privado SEGUNDO NIVEL: 1 recamara principal con vestidor y baño completo 2 recamaras secundarias con closet 1 baño completo compartido Cuarto séptico Azotea para adaptarse a Roof Gard",
+                "amenidades": "Alberca | Seguridad privada | Aire acondicionado | Terraza | Jardin",
+                "lat": 19.1601006,
+                "lng": -96.114468,
+                "tipo_propiedad": "Casa",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:45.858099",
+                "updated_at": "2026-07-29T20:27:45.858099"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-casa/playas-del-conchal/venta-de-casa-en-playas-del-conchal-con-alberca-y-jardin/148213497": {
+            "data": {
+                "precio": "MXN 7,100,000",
+                "precio_valor": 7100000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "300.0 m² lote | 4 rec. | 5 banos | 2 estac.",
+                "m2_totales": 300.0,
+                "m2_construidos": 332.0,
+                "recamaras": 4,
+                "banos": 5,
+                "estacionamientos": 2,
+                "antiguedad": "A estrenar",
+                "direccion": "Gobernadores 8, Playas del Conchal, Alvarado, Veracruz, Mexico vivanuncios, ",
+                "ubicacion": "Veracruz, Alvarado, Playas del Conchal",
+                "descripcion": "Buscas casa con mega jardín y Con Alberca Esta es tu mejor Opción Inversión $7.100.000 Frac Playas Del Conchal Riviera Veracruzana Terreno de 300m²  10X 30 Construcción 332m² Planta baja garaje para 2 autos Bodega Cuarto de Servicio con baño estudio o recámara con clóset y baño jardín interior sale-comedor cocina integral con parrilla, campana, horno y microondas. terraza techada frente a alberca alberca 2x6 un gran jardín aprox 80 m2 Planta alta 3 recámaras con vestidores y baño cada uno. Sala de TV terraza hacia la alberca",
+                "amenidades": "Alberca | Seguridad privada | Terraza | Jardin",
+                "lat": 19.0757223,
+                "lng": -96.084649,
+                "tipo_propiedad": "Casa",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:45.858114",
+                "updated_at": "2026-07-29T20:27:45.858114"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-casa/las-palmas/casa-en-venta-en-veracruz-con-hab-en-p-b-fracc-las-palmas/150247590": {
+            "data": {
+                "precio": "MXN 5,750,000",
+                "precio_valor": 5750000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "259.0 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 259.0,
+                "m2_construidos": 289.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "1",
+                "direccion": "Fracc. Las Palmas, Las Palmas, Medellín, Veracruz, Mexico vivanuncios, ",
+                "ubicacion": "Veracruz, Medellín, Las Palmas",
+                "descripcion": "Casa en Venta con habitación en PB en Fracc. Las Palmas, Medellín, Veracruz Entrega estimada: Junio 2026 Precio Venta: $5,750,000 Terreno: 259 m2 Construcción: 289.11 m2 Mantenimiento aprox: $1,200 Planta Baja * Garaje techado para 2 autos con portón eléctrico * ⁠Pasillo de servicio * ⁠Sala doble altura * ⁠Comedor * ⁠Cocina con barra desayunadora de granito * ⁠Medio Baño de visitas * Recámara con clóset y baño completo * ⁠Área de Lavado * Jardín Planta Alta * Recámara principal con vestidor y baño completo * ⁠Recámara secundaria con vestidor y baño completo * Cuarto de TV * Terraza * ⁠Cuarto de Blancos Amenidades * Áreas Verdes * ⁠Tiendas de conveniencia * ⁠Cafetería * ⁠Cancha de Pádel, futbol y basket * ⁠Vigilancia 24/7 * ⁠Seguridad * ⁠Acceso controlado * ⁠Parques Precio sujeto a cambio s",
+                "amenidades": "Seguridad privada | Terraza | Jardin",
+                "lat": 19.1018368,
+                "lng": -96.122076,
+                "tipo_propiedad": "Casa",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:45.858128",
+                "updated_at": "2026-07-29T20:27:45.858128"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-casa/anton-lizardo/casa-en-venta-en-anton-lizardo-veracruz/150554726": {
+            "data": {
+                "precio": "MXN 1,390,000",
+                "precio_valor": 1390000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "296.0 m² lote | 3 rec. | 2 banos | 1 estac.",
+                "m2_totales": 296.0,
+                "m2_construidos": 140.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "30",
+                "direccion": "Virgilio Uribe 3, Antón Lizardo, Alvarado, Veracruz, Mexico vivanuncios, ",
+                "ubicacion": "Veracruz, Alvarado, Antón Lizardo",
+                "descripcion": "Residencia costera de 140 m² en Antón Lizardo, Veracruz | 3 Recámaras y vista panorámica al mar Ubicada sobre el estratégico corredor del Boulevard Riviera Veracruzana en Antón Lizardo, esta propiedad de 140 m² de construcción integra un programa arquitectónico de 3 recámaras, optimizado para ofrecer un alto confort habitacional y vistas privilegiadas hacia el entorno marino. Un activo inmobiliario de excelente proyección de plusvalía en un nodo residencial en consolidación, que combina la exclusividad del estilo de vida costero con una conectividad vial inmediata hacia los principales centros comerciales, de servicios y oferta educativa de la región. Casa con 30 años de antigüedad, lista para remodelar 140 m2 de área construida y 296 m2 de área total de terreno. 15.75 m de frente y 19.56 ",
+                "amenidades": "Seguridad privada | Terraza",
+                "lat": 19.0598049,
+                "lng": -95.99340199999999,
+                "tipo_propiedad": "Casa",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:45.858144",
+                "updated_at": "2026-07-29T20:27:45.858144"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-casa/lomas-del-dorado/casa-en-venta-lomas-del-dorado-boca-del-rio-veracruz/150608419": {
+            "data": {
+                "precio": "MXN 3,790,000",
+                "precio_valor": 3790000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "168.0 m² lote | 4 rec. | 3 banos | 2 estac.",
+                "m2_totales": 168.0,
+                "m2_construidos": 176.0,
+                "recamaras": 4,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "A estrenar",
+                "direccion": "Fraccionamiento Lomas DEL Dorado, Lomas del Dorado, Boca del Río, Veracruz, Mexico vivanuncios, ",
+                "ubicacion": "Veracruz, Boca del Río, Lomas del Dorado",
+                "descripcion": "En el fraccionamiento Lomas del Dorado En boca del rio veracruz A unos metros de plaza el dorado A 5 min del nuevo hospital Covadonga El fraccionamiento cuenta con acceso controlado, vigilancia 24 horas, casa club con alberca y chapoteadero, gimnasio climatizado, dos canchas de pádel, juegos infantiles y terraza ¡Entrega Inmediata! Terreno 168m Construcción 176m Consta de Espacio garaje 2 autos Sala comedor Cocina integral equipada con electrodomésticos y alacena vertical Medio baño Área de lavado techada Jardín Recámara tipo estudio Recámara con clóset y baño En planta alta Recámara con clóset y baño Recámara principal con vestidor y baño 2 recámaras planta baja 2 recámaras planta alta 3.5 baños Inversión  $3,790,000.00 ¡Entrega Inmediata! **precio sujeto a cambios **imagenes ilustrativas",
+                "amenidades": "Alberca | Seguridad privada | Aire acondicionado | Cisterna | Terraza | Jardin",
+                "lat": 19.087726078,
+                "lng": -96.1216483672,
+                "tipo_propiedad": "Casa",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:45.858159",
+                "updated_at": "2026-07-29T20:27:45.858159"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-casa/punta-tiburon-residencial-marina-y-golf/casa-en-venta-punta-tiburon-riviera-veracruzana/149972187": {
+            "data": {
+                "precio": "MXN 4,790,000",
+                "precio_valor": 4790000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "180.0 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 180.0,
+                "m2_construidos": 225.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "A estrenar",
+                "direccion": "Casa Nueva en Venta Punta Tiburon Riviera Veracruzana, Punta Tiburón Residencial Marina y Golf, Alvarado, Veracruz, Mexico vivanuncios, ",
+                "ubicacion": "Veracruz, Alvarado, Punta Tiburón Residencial Marina y Golf",
+                "descripcion": "Casa Nueva en Venta Punta Tiburón Riviera Veracruzana $4,790,000 +Gastos de escrituración Sala Comedor Cocina integral con barra de cuarzo, estufa, campana Medio baño de visitas Jardin Cuarto de lavado Pasillo lateral de servicio Garage techado para 2 autos Planta alta Area de TV 1 Habitación principal con baño completo y vestidor 1 Habitación secundaria con baño completo y closet 1 Habitación secundaria con baño completo y closet",
+                "amenidades": "Seguridad privada | Jardin",
+                "lat": 19.0632911613,
+                "lng": -96.0784969343,
+                "tipo_propiedad": "Casa",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:45.858173",
+                "updated_at": "2026-07-29T20:27:45.858173"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-casa/punta-tiburon-residencial-marina-y-golf/casa-en-punta-tiburon/149972035": {
+            "data": {
+                "precio": "MXN 5,750,000",
+                "precio_valor": 5750000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "251.0 m² lote | 3 rec. | 4 banos | 2 estac.",
+                "m2_totales": 251.0,
+                "m2_construidos": 285.0,
+                "recamaras": 3,
+                "banos": 4,
+                "estacionamientos": 2,
+                "antiguedad": "A estrenar",
+                "direccion": "Casa Nueva EN Venta EN Punta Tiburón, Punta Tiburón Residencial Marina y Golf, Alvarado, Veracruz, Mexico vivanuncios, ",
+                "ubicacion": "Veracruz, Alvarado, Punta Tiburón Residencial Marina y Golf",
+                "descripcion": "Punta Tiburón Riviera Veracruzana $5,750,000.00 +Gastos de escrituración Precio sujeto a cambio sin previo aviso ¡Tramitamos tu crédito hipotecario SIN COSTO! Se entrega Equipada en cocina Tapiz en las 3 Habitaciones Lámparas Persianas Climatizada Hornos Refrigerador Enfriador de vinos 251 m2 Terreno 285 m2 Construcción Sala Comedor Cocina independiente con barra de granito, parrilla, campana, hornos, lavavajillas, enfriador de vinos y refrigerador Medio baño de visitas Alberca Terraza Pasillo lateral de servicio Cuarto de servicio con baño completo Cuarto de lavado Garage techado para 2 autos con portón automático Planta alta 1 Habitación principal con baño completo y vestidor 1 Habitación secundaria con baño completo y vestidor 1 Habitación secundaria con baño completo y vestidor",
+                "amenidades": "Alberca | Seguridad privada | Aire acondicionado | Terraza | Jardin",
+                "lat": 19.0601475923,
+                "lng": -96.0777459158,
+                "tipo_propiedad": "Casa",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:45.858188",
+                "updated_at": "2026-07-29T20:27:45.858188"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-casa/punta-tiburon-residencial-marina-y-golf/casa-nueva-en-venta-punta-tiburon-riviera-veracruzana/149991678": {
+            "data": {
+                "precio": "MXN 6,000,000",
+                "precio_valor": 6000000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "229.0 m² lote | 3 rec. | 4 banos | 2 estac.",
+                "m2_totales": 229.0,
+                "m2_construidos": 275.0,
+                "recamaras": 3,
+                "banos": 4,
+                "estacionamientos": 2,
+                "antiguedad": "A estrenar",
+                "direccion": "Casa Nueva en Venta Punta Tiburon Riviera Veracruzana, Punta Tiburón Residencial Marina y Golf, Alvarado, Veracruz, Mexico vivanuncios, ",
+                "ubicacion": "Veracruz, Alvarado, Punta Tiburón Residencial Marina y Golf",
+                "descripcion": "Casa Nueva en Venta Punta Tiburón Riviera Veracruzana $6,000,000 + Gastos de escrituración 229 m2 Terreno 275 m2 Construcción -Planta baja Sala en doble altura Comedor Cocina integral con cubierta de granito, parrilla, campana, hornos, refrigerador, enfriador de vinos Medio baño de visitas Terraza Alberca Pasillo lateral de servicio Cuarto de lavado Cuarto de servicio con baño completo Garage techado con portón eléctrico para 2 autos -Planta alta Clóset de blancos y séptico 1 Habitación principal con balcón, baño completo y vestidor 1 Habitación secundaria con vestidor y baño completo 1 Habitación secundaria con vestidor y baño completo",
+                "amenidades": "Alberca | Seguridad privada | Terraza | Jardin",
+                "lat": 19.0647661,
+                "lng": -96.0833252,
+                "tipo_propiedad": "Casa",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:45.858203",
+                "updated_at": "2026-07-29T20:27:45.858203"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-casa/lomas-diamante/casa-en-venta-punto-lomas-residencial-alvarado-veracruz-riviera-veracruzana/150158359": {
+            "data": {
+                "precio": "MXN 4,350,000",
+                "precio_valor": 4350000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "160.0 m² lote | 3 rec. | 3 banos | 0 estac.",
+                "m2_totales": 160.0,
+                "m2_construidos": 210.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 0,
+                "antiguedad": "A estrenar",
+                "direccion": "Punto Lomas Residencial, Lomas Diamante, Alvarado, Veracruz, Mexico vivanuncios, ",
+                "ubicacion": "Veracruz, Alvarado, Lomas Diamante",
+                "descripcion": "Vivir en el corazón de la Riviera Veracruzana nunca fue tan increíble... Espectacular casa en Preventa en el Fraccionamiento Residencial Punto Lomas En un lote Lado sombra Casa en preventa en dos niveles con: Terreno 160m2 Construcción 210m2 Fachada con detalle de manguera con iluminación led garaje techado para dos autos Sala  a doble altura con detalle de muro de Lambrin para la tv comedor Cocina integral con barra desayunadora cubierta de granito Cuarto de lavado Medio baño Recámara en planta baja con clóset y con baño Terraza alberca con cascada (5x2m) Escalera con barandal de vidrio templado En planta alta Área de TV Family room Recámara 2 con clóset, baño y terraza Amplia recámara principal con vestidor y baño Incluye cisterna, bomba e hidroneumático Templados en baños, escalera, esp",
+                "amenidades": "Alberca | Seguridad privada | Aire acondicionado | Cisterna | Terraza | Jardin",
+                "lat": 19.0727736471,
+                "lng": -96.0900491497,
+                "tipo_propiedad": "Casa",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:45.858217",
+                "updated_at": "2026-07-29T20:27:45.858217"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-casa/fraccionamiento-las-lomas/casa-en-venta-punto-lomas/148056274": {
+            "data": {
+                "precio": "MXN 4,569,000",
+                "precio_valor": 4569000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "169.0 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 169.0,
+                "m2_construidos": 218.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "A estrenar",
+                "direccion": "Punto Lomas Residencial, Fraccionamiento las Lomas, Alvarado, Veracruz, Mexico vivanuncios, ",
+                "ubicacion": "Veracruz, Alvarado, Fraccionamiento las Lomas",
+                "descripcion": "Casa en Venta en Punto Lomas, en la Riviera Veracruzana, un hogar ideal para disfrutar y crear nuevos momentos felices Precio $4,569,000.00 Precio sujeto a cambio sin previo aviso Terreno 169.22 m2 Construccion 218.01 m2 PLANTA BAJA Cochera techada para 2 autos Pasillo de servicio Medio baño Sala Comedor Cocina integral equipada Jardin Cuarto de lavado PLANTA ALTA Sala de television 3 Recamaras con baño cada una, la principal con vestidor y las 2 con closet \"¿Te interesa saber más? Agenda tu cita y conoce cada detalle de esta propiedad. Para información completa y visitas, contáctame hoy mismo\". ️",
+                "amenidades": "Alberca | Seguridad privada | Jardin",
+                "lat": 19.0743149,
+                "lng": -96.08977019999999,
+                "tipo_propiedad": "Casa",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:45.858231",
+                "updated_at": "2026-07-29T20:27:45.858231"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-casa/punta-tiburon-residencial-marina-y-golf/casa-nueva-en-venta/149972031": {
+            "data": {
+                "precio": "MXN 6,450,000",
+                "precio_valor": 6450000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "258.0 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 258.0,
+                "m2_construidos": 320.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "A estrenar",
+                "direccion": "Casa Nueva en Venta, Punta Tiburón Residencial Marina y Golf, Alvarado, Veracruz, Mexico vivanuncios, ",
+                "ubicacion": "Veracruz, Alvarado, Punta Tiburón Residencial Marina y Golf",
+                "descripcion": "Casa Nueva en Venta Punta Tiburón Riviera Veracruzana $6,450,000 +Gastos de escrituración 258 m2 Terreno 320 m2 Construcción Recibidor con muro decorativo Clóset Medio baño de visitas Sala Comedor Cocina integral con barra de granito, parrilla, campana, torre de hornos, alacena y barra desayunador Alberca con cascada Jardín Pasillo lateral de servicio Cuarto de servicio con baño completo Garage techado para 2 autos Planta alta Área de TV amplia 1 Habitación con baño completo y vestidor 1 Habitación principal amplia con baño completo, vestidor y terraza 1 Habitación secundaria con baño completo y vestidor Cuarto de lavado Área de tendido",
+                "amenidades": "Alberca | Seguridad privada | Aire acondicionado | Terraza | Jardin",
+                "lat": 19.0652628163,
+                "lng": -96.0823962228,
+                "tipo_propiedad": "Casa",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:45.858245",
+                "updated_at": "2026-07-29T20:27:45.858245"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-casa/punta-tiburon-residencial-marina-y-golf/casa-en-venta-punta-tiburon/149972015": {
+            "data": {
+                "precio": "MXN 17,400,000",
+                "precio_valor": 17400000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "634.0 m² lote | 4 rec. | 5 banos | 3 estac.",
+                "m2_totales": 634.0,
+                "m2_construidos": 408.0,
+                "recamaras": 4,
+                "banos": 5,
+                "estacionamientos": 3,
+                "antiguedad": "A estrenar",
+                "direccion": "Punta Tiburón, Punta Tiburón Residencial Marina y Golf, Alvarado, Veracruz, Mexico vivanuncios, ",
+                "ubicacion": "Veracruz, Alvarado, Punta Tiburón Residencial Marina y Golf",
+                "descripcion": "Residencia Nueva en Venta Punta Tiburón Marina Country Club Riviera Veracruzana $17,400,000 +Gastos de escrituración 634 m2 Terreno 408 m2 Construcción Vestíbulo Medio baño de visitas Sala Comedor Cocina integral con cubierta de cuarzo, parrilla, campana, alacena y barra desayunador Cuarto de lavado Cuarto de servicio con baño completo Garage techado para 3 autos 2 Pasillos laterales de servicio 1 Habitación con baño completo y vestidor 1 Habitación con baño completo y vestidor Terraza Jardín Alberca Sala de Tv con closet Estudio con terraza 1 Habitación con baño completo y vestidor 1 Habitación con baño completo y vestidor",
+                "amenidades": "Alberca | Seguridad privada | Aire acondicionado | Terraza | Jardin",
+                "lat": 19.0645255831,
+                "lng": -96.08772874,
+                "tipo_propiedad": "Casa",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:45.858259",
+                "updated_at": "2026-07-29T20:27:45.858259"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-casa/lomas-diamante/casa-en-venta-punto-lomas-residencial-riviera-veracruzana-alvarado-veracruz/150569728": {
+            "data": {
+                "precio": "MXN 5,210,000",
+                "precio_valor": 5210000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "180.0 m² lote | 4 rec. | 4 banos | 2 estac.",
+                "m2_totales": 180.0,
+                "m2_construidos": 225.0,
+                "recamaras": 4,
+                "banos": 4,
+                "estacionamientos": 2,
+                "antiguedad": "A estrenar",
+                "direccion": "Punto Lomas, Lomas Diamante, Alvarado, Veracruz, Mexico vivanuncios, ",
+                "ubicacion": "Veracruz, Alvarado, Lomas Diamante",
+                "descripcion": "CASA DALIA EN EL CORAZÓN DE LA RIVIERA VERACRUZANA TERRENO: 180 M2 CONSTRUCCIÓN: 225 M2 Una residencia diseñada para quienes buscan un equilibrio entre lujo contemporáneo y un estilo de vida relajado cerca del mar. Con una privilegiada ubicación que ofrece amplias vistas al Golfo de México, Casa Dalia ha sido concebida para disfrutar tanto de la elegancia urbana como del ambiente fresco y natural de la costa. Ademas esta ubicada en una de las zonas mas exclusivas de la Riviera Veracruzana, rodeada de los mejores residenciales y principal área comercial. Aquí encontraras no solo confort y estilo, sino también la seguridad de invertir en el sector de mayor plusvalía y crecimiento de todo el estado. Planta baja: -Cochera techada para 2 autos -Sala comedor con vista a los dos jardines -Cocina ",
+                "amenidades": "Seguridad privada | Aire acondicionado | Terraza | Jardin",
+                "lat": 19.0726925281,
+                "lng": -96.0911005757,
+                "tipo_propiedad": "Casa",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:45.858274",
+                "updated_at": "2026-07-29T20:27:45.858274"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-casa/lomas-de-la-rioja/casa-en-venta-lomas-de-la-rioja-alvarado-veracruz/149835399": {
+            "data": {
+                "precio": "MXN 3,100,000",
+                "precio_valor": 3100000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "147.0 m² lote | 3 rec. | 2 banos | 3 estac.",
+                "m2_totales": 147.0,
+                "m2_construidos": 155.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 3,
+                "antiguedad": "7",
+                "direccion": "Lomas de la Rioja, Lomas de la Rioja, Alvarado, Veracruz, Mexico vivanuncios, ",
+                "ubicacion": "Veracruz, Alvarado, Lomas de la Rioja",
+                "descripcion": "Ubicada en los primeros cluster de uno de los mejores fraccionamientos para vivir de la riviera veracruzana. Con su privilegiada ubicación en barda perimetral hacia el camellón central y sus grandes palmeras ???? Fraccionamiento Lomas de la Rioja Disfruta de esta linda casa con todo el aroma de un hogar cálido y unido. Cuenta con un terreno de 147m2 y 155m2 de construcción distribuidas estratégicamente para optimizar tus espacios y convivencia en familia Amplio garaje hasta para 3 autos Área de sala Área de comedor Medio baño Cuarto de lavado Cocina integral con carpintería de encino estufa y campana Alacena en cubo de escalera Área de patio y pasillo de comunicación desde garaje a cuarto de lavado y patio terraza Escalera a segundo nivel con barandal Recámara 1 y 2 con clóset Baño Recámar",
+                "amenidades": "Seguridad privada | Aire acondicionado | Cisterna | Terraza",
+                "lat": 19.0523953134,
+                "lng": -96.0604764735,
+                "tipo_propiedad": "Casa",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:45.858288",
+                "updated_at": "2026-07-29T20:27:45.858288"
+            }
+        }
+    }
+}

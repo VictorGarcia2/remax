@@ -1,0 +1,363 @@
+{
+  "metricas": {
+    "mape": 222.45,
+    "mediana_error": 40.0,
+    "mae": 19450613.0,
+    "r2": -460.845,
+    "dentro_15_pct": 12.0,
+    "dentro_25_pct": 22.0,
+    "n_evaluadas": 50
+  },
+  "detalle": [
+    {
+      "real": 4990000.0,
+      "pred": 7600000,
+      "pct": 52.30460921843687,
+      "zona": "Rio del Dorado, Boca del Río",
+      "status": "XX"
+    },
+    {
+      "real": 3250000.0,
+      "pred": 5190000,
+      "pct": 59.692307692307686,
+      "zona": "Lomas de la Rioja, Alvarado",
+      "status": "XX"
+    },
+    {
+      "real": 5700000.0,
+      "pred": 7940000,
+      "pct": 39.29824561403509,
+      "zona": "Punta Tiburón Residencial Marina y ",
+      "status": "XX"
+    },
+    {
+      "real": 15500000.0,
+      "pred": 19040000,
+      "pct": 22.838709677419356,
+      "zona": "Fraccionamiento Las Palmas, Medellí",
+      "status": "!!"
+    },
+    {
+      "real": 4100000.0,
+      "pred": 5740000,
+      "pct": 40.0,
+      "zona": "INDECO Shangri-La, Fortín",
+      "status": "XX"
+    },
+    {
+      "real": 8950000.0,
+      "pred": 13280000,
+      "pct": 48.37988826815642,
+      "zona": "Playas del Conchal, Alvarado",
+      "status": "XX"
+    },
+    {
+      "real": 1520000.0,
+      "pred": 1200000,
+      "pct": 21.052631578947366,
+      "zona": "N/A",
+      "status": "!!"
+    },
+    {
+      "real": 4500000.0,
+      "pred": 6430000,
+      "pct": 42.888888888888886,
+      "zona": "Fraccionamiento Real Del Angel, Vil",
+      "status": "XX"
+    },
+    {
+      "real": 5900000.0,
+      "pred": 8860000,
+      "pct": 50.16949152542372,
+      "zona": "Punta Tiburón Residencial Marina y ",
+      "status": "XX"
+    },
+    {
+      "real": 3850000.0,
+      "pred": 5470000,
+      "pct": 42.077922077922075,
+      "zona": "Fraccionamiento Sol Campestre, Vill",
+      "status": "XX"
+    },
+    {
+      "real": 33000000.0,
+      "pred": 17370000,
+      "pct": 47.36363636363636,
+      "zona": "Playas del Conchal, Alvarado",
+      "status": "XX"
+    },
+    {
+      "real": 9000000.0,
+      "pred": 772260000,
+      "pct": 8480.666666666668,
+      "zona": "N/A",
+      "status": "XX"
+    },
+    {
+      "real": 3100000.0,
+      "pred": 4030000,
+      "pct": 30.0,
+      "zona": "El Morro, Boca del Río",
+      "status": "XX"
+    },
+    {
+      "real": 3920000.0,
+      "pred": 5490000,
+      "pct": 40.05102040816326,
+      "zona": "Lomas de la Rioja, Alvarado",
+      "status": "XX"
+    },
+    {
+      "real": 1350000.0,
+      "pred": 3810000,
+      "pct": 182.22222222222223,
+      "zona": "Playa Linda, Veracruz",
+      "status": "XX"
+    },
+    {
+      "real": 2850000.0,
+      "pred": 2470000,
+      "pct": 13.333333333333334,
+      "zona": "N/A",
+      "status": "OK"
+    },
+    {
+      "real": 971400.0,
+      "pred": 1700000,
+      "pct": 75.00514721021206,
+      "zona": "Fraccionamiento Puente Moreno, Mede",
+      "status": "XX"
+    },
+    {
+      "real": 4500000.0,
+      "pred": 6960000,
+      "pct": 54.666666666666664,
+      "zona": "Nacajuca, Tabasco",
+      "status": "XX"
+    },
+    {
+      "real": 8750000.0,
+      "pred": 5620000,
+      "pct": 35.77142857142857,
+      "zona": "N/A",
+      "status": "XX"
+    },
+    {
+      "real": 6100000.0,
+      "pred": 8300000,
+      "pct": 36.0655737704918,
+      "zona": "Sabina, Villahermosa",
+      "status": "XX"
+    },
+    {
+      "real": 3290000.0,
+      "pred": 4610000,
+      "pct": 40.121580547112465,
+      "zona": "Lomas de la Rioja, Alvarado",
+      "status": "XX"
+    },
+    {
+      "real": 3712900.0,
+      "pred": 5160000,
+      "pct": 38.97492526057798,
+      "zona": "El Country, Centro",
+      "status": "XX"
+    },
+    {
+      "real": 2490000.0,
+      "pred": 2000000,
+      "pct": 19.67871485943775,
+      "zona": "N/A",
+      "status": "!!"
+    },
+    {
+      "real": 3550000.0,
+      "pred": 3150000,
+      "pct": 11.267605633802818,
+      "zona": "N/A",
+      "status": "OK"
+    },
+    {
+      "real": 4300000.0,
+      "pred": 6020000,
+      "pct": 40.0,
+      "zona": "Playas del Conchal, Alvarado",
+      "status": "XX"
+    },
+    {
+      "real": 4800000.0,
+      "pred": 3890000,
+      "pct": 18.958333333333332,
+      "zona": "N/A",
+      "status": "!!"
+    },
+    {
+      "real": 4500000.0,
+      "pred": 3300000,
+      "pct": 26.666666666666668,
+      "zona": "N/A",
+      "status": "!!"
+    },
+    {
+      "real": 6180000.0,
+      "pred": 8480000,
+      "pct": 37.2168284789644,
+      "zona": "Residencial Paseo de la Reina, Xala",
+      "status": "XX"
+    },
+    {
+      "real": 6490000.0,
+      "pred": 9750000,
+      "pct": 50.231124807396,
+      "zona": "Fraccionamiento Lomas del Sol, Alva",
+      "status": "XX"
+    },
+    {
+      "real": 5850000.0,
+      "pred": 8190000,
+      "pct": 40.0,
+      "zona": "Punta Tiburón Residencial Marina y ",
+      "status": "XX"
+    },
+    {
+      "real": 6500000.0,
+      "pred": 9220000,
+      "pct": 41.84615384615385,
+      "zona": "Punta Tiburón Residencial Marina y ",
+      "status": "XX"
+    },
+    {
+      "real": 4190000.0,
+      "pred": 3090000,
+      "pct": 26.25298329355609,
+      "zona": "N/A",
+      "status": "!!"
+    },
+    {
+      "real": 3790000.0,
+      "pred": 3400000,
+      "pct": 10.29023746701847,
+      "zona": "N/A",
+      "status": "OK"
+    },
+    {
+      "real": 4100000.0,
+      "pred": 3990000,
+      "pct": 2.682926829268293,
+      "zona": "N/A",
+      "status": "OK"
+    },
+    {
+      "real": 3400000.0,
+      "pred": 4850000,
+      "pct": 42.64705882352941,
+      "zona": "Unidad habitacional Floresta 80, Ve",
+      "status": "XX"
+    },
+    {
+      "real": 4400000.0,
+      "pred": 14250000,
+      "pct": 223.86363636363637,
+      "zona": "N/A",
+      "status": "XX"
+    },
+    {
+      "real": 3300000.0,
+      "pred": 4200000,
+      "pct": 27.27272727272727,
+      "zona": "Lomas de la Rioja, Alvarado",
+      "status": "!!"
+    },
+    {
+      "real": 5900000.0,
+      "pred": 4160000,
+      "pct": 29.491525423728817,
+      "zona": "N/A",
+      "status": "!!"
+    },
+    {
+      "real": 9139200.0,
+      "pred": 3020000,
+      "pct": 66.95553221288515,
+      "zona": "N/A",
+      "status": "XX"
+    },
+    {
+      "real": 5180000.0,
+      "pred": 6990000,
+      "pct": 34.942084942084946,
+      "zona": "Fraccionamiento Las Palmas, Medellí",
+      "status": "XX"
+    },
+    {
+      "real": 1204000.0,
+      "pred": 900000,
+      "pct": 25.249169435215947,
+      "zona": "N/A",
+      "status": "!!"
+    },
+    {
+      "real": 3200000.0,
+      "pred": 4340000,
+      "pct": 35.625,
+      "zona": "Nacajuca, Tabasco",
+      "status": "XX"
+    },
+    {
+      "real": 2990000.0,
+      "pred": 4190000,
+      "pct": 40.13377926421405,
+      "zona": "Lomas de la Rioja, Alvarado",
+      "status": "XX"
+    },
+    {
+      "real": 12100000.0,
+      "pred": 15070000,
+      "pct": 24.545454545454547,
+      "zona": "N/A",
+      "status": "!!"
+    },
+    {
+      "real": 5900000.0,
+      "pred": 6520000,
+      "pct": 10.508474576271185,
+      "zona": "N/A",
+      "status": "OK"
+    },
+    {
+      "real": 4995000.0,
+      "pred": 6740000,
+      "pct": 34.93493493493494,
+      "zona": "N/A",
+      "status": "XX"
+    },
+    {
+      "real": 6500000.0,
+      "pred": 10570000,
+      "pct": 62.61538461538462,
+      "zona": "Jardines de Virginia, Boca del Río",
+      "status": "XX"
+    },
+    {
+      "real": 18690000.0,
+      "pred": 114920000,
+      "pct": 514.8742643124666,
+      "zona": "N/A",
+      "status": "XX"
+    },
+    {
+      "real": 5250000.0,
+      "pred": 11970000,
+      "pct": 128.0,
+      "zona": "N/A",
+      "status": "XX"
+    },
+    {
+      "real": 2513250.0,
+      "pred": 2590000,
+      "pct": 3.0538147816572168,
+      "zona": "Cedros, Centro",
+      "status": "OK"
+    }
+  ]
+}

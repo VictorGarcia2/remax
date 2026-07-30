@@ -1,0 +1,791 @@
+{
+    "project": "Inmuebles24 Scraper DB",
+    "version": "1.1",
+    "metadata": {
+        "created_at": "2026-07-29T20:32:03.259983",
+        "last_update": "2026-07-29T20:32:08.162532",
+        "total_records": 30
+    },
+    "listings": {
+        "https://www.lamudi.com.mx/detalle/41032-73-e4cbabbe9e97-52c7-19c0fda-8933-74fe": {
+            "data": {
+                "precio": "MN 2,150,000",
+                "precio_valor": 2150000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "65 m² lote | 2 rec. | 2 banos | 1 estac.",
+                "m2_totales": 65.0,
+                "m2_construidos": 65.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónIgnacio Zaragoza, Veracruz, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Veracruz, Ignacio Zaragoza",
+                "descripcion": "Descripción ¡Tu nuevo hogar te espera en el corazón de Veracruz!\n            \n\nDescubre este moderno y acogedor departamento en Preventa, ideal para quienes buscan comodidad y estilo.\nEste departamento es perfecto para disfrutar de momentos en familia o recibir a amigos.\n\nVENTA  2,150,000   \n\nSuperficie:      65m2\n\nÚltimos dos departamentos disponibles.  ENTREGA PRIMAVERA 2026\n\nUbicación Privilegiada:\n\nSituado en una zona estratégica de Veracruz, tendrás acceso a una variedad de servicios, incluyendo tiendas, restaurantes y áreas recreativas.\nAdemás, estarás a pocos minutos de las hermosas playas y del vibrante centro de la ciudad.\n\n¡No pierdas la oportunidad de hacer de este departamento tu nuevo hogar!\nContáctanos para más información sobre precios y disponibilidad.\n¡Tu vida en Veracruz ",
+                "amenidades": "Aire acondicionado | Terraza",
+                "lat": 19.175531,
+                "lng": -96.131276,
+                "codigo_postal": "91910"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:08.162128",
+                "updated_at": "2026-07-29T20:32:08.162128"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-d2c7ecebda7d-a87e-19ef045-9fdb-7f18": {
+            "data": {
+                "precio": "MN 2,850,000",
+                "precio_valor": 2850000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "80 m² lote | 2 rec. | 2 banos",
+                "m2_totales": 80.0,
+                "m2_construidos": 80.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 0,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónIgnacio Zaragoza, Veracruz, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Veracruz, Ignacio Zaragoza",
+                "descripcion": "Descripción Departamento Nuevo en Venta\n\nVeracriuz, Ver\n\n$2,850,000\n+Gastos de escrituración\nPrecio sujeto a cambio sin previo aviso\nApartado desde $150,000\n\n80 m2 área habitable\n\nSala\nComedor\nCocina integral\n2 Habitaciones con clóset\n2 Baños completos\nÁrea de lavado\nEstacionamiento para 1 auto\nElevador\n\nApartado $150,000.00\nAbono a los 3 meses $150,000.00\nAbono a los 6 meses $200,000.00\nresto a la entrega abril 2027\n\nMantenimiento: $1,700.00",
+                "amenidades": "",
+                "lat": 19.182694,
+                "lng": -96.125632,
+                "codigo_postal": "91910"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:08.162166",
+                "updated_at": "2026-07-29T20:32:08.162166"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-5adc412ecb6e-5e20-19c5fb4-b82a-78c1": {
+            "data": {
+                "precio": "MN 2,750,000",
+                "precio_valor": 2750000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "108 m² lote | 3 rec. | 2 banos | 1 estac.",
+                "m2_totales": 108.0,
+                "m2_construidos": 108.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónReforma, Veracruz, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Veracruz, Reforma",
+                "descripcion": "Descripción Departamento en venta – Calumar 250\n\n????Boca del Río\n\nDepartamentos nuevos en edificio de solo 4 unidades, con excelente distribución, roof garden privado y equipamiento completo.\n\nPrecios desde:\n•\tPlanta baja: $2,960,000\n•\t1er nivel: $2,890,000\n•\t2do nivel: $2,820,000\n•\t3er nivel: $2,750,000\n\nSuperficie\n•\t108.14 m² de construcción\nDistribución\n•\tSala – comedor\n•\tCocina integral equipada (estufa y campana de acero inoxidable)\n•\tCuarto de lavado\n•\tRecámara principal con clóset y baño\n•\t2 recámaras secundarias con clóset\n•\tBaño completo compartido\n•\tClóset de blancos\n•\tGaraje para 1 auto con portón eléctrico\nRoof garden\n•\tPérgola\n•\tTarja\n•\tMedio baño\n•\tAsador\nEquipamiento\n•\t3 minisplits en recámaras y 1 en sala-comedor\n•\tCalentador de paso\n•\tCisterna individual de 3,000 L\n•\tTina",
+                "amenidades": "Aire acondicionado | Cisterna | Terraza",
+                "lat": 19.172961,
+                "lng": -96.12532,
+                "codigo_postal": "91919"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:08.162182",
+                "updated_at": "2026-07-29T20:32:08.162182"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-ae6099c1ce57-9f46-19d3d25-a1a2-73b8": {
+            "data": {
+                "precio": "MN 2,800,000",
+                "precio_valor": 2800000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "80 m² lote | 2 rec. | 2 banos | 1 estac.",
+                "m2_totales": 80.0,
+                "m2_construidos": 80.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónIgnacio Zaragoza, Veracruz, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Veracruz, Ignacio Zaragoza",
+                "descripcion": "Descripción Descubre este encantador departamento ubicado en el corazón de Ignacio Zaragoza, Veracruz, una zona que combina la tranquilidad residencial con la conveniencia urbana. Situado en el sexto piso de un edificio moderno, este departamento ofrece una superficie total de 80 m2, ideal para quienes buscan un espacio cómodo y funcional.\n\nEl departamento cuenta con una excelente distribucion, consta de dos recámaras dos baños, sala comedor, proporcionando el espacio necesario para una familia o para quienes deseen un ambiente de trabajo desde casa. La cocina es práctica y está equipada para satisfacer todas tus necesidades culinarias.\n\nEl edificio dispone de un elevador, lo que facilita el acceso a la propiedad. Además, incluye un espacio de estacionamiento, asegurando la comodidad y seg",
+                "amenidades": "Alberca | Terraza",
+                "lat": 19.1829974,
+                "lng": -96.1263187,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:08.162194",
+                "updated_at": "2026-07-29T20:32:08.162194"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-138e5db89db1-2db9-1988869-b38d-77d4": {
+            "data": {
+                "precio": "MN 2,150,000",
+                "precio_valor": 2150000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "65 m² lote | 2 rec. | 2 banos | 1 estac.",
+                "m2_totales": 65.0,
+                "m2_construidos": 65.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónIgnacio Zaragoza, Veracruz, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Veracruz, Ignacio Zaragoza",
+                "descripcion": "Descripción Departamento ubicado en el punto donde tu lo necesitas\n\nPreventa de departamento en la Calle Luz Nava casi ese con 20 de Noviembre en zona cerca de escuelas, hospitales y tiendas de conveniencia\n\nDepartamento de 65 metros cuadrados ubicado en 3er piso \nconformado por\n* estancia\n* cocina equipada\n* 2 recamaras\n* 2 baños\n* 1 lugar de estacionamiento\n\nAmenidades\n\nAlberca\nAsador\nAreas verdes\n\nYa solo queda este departamento, aprovecha esta oportunidad\n\nInformes al Ver teléfono Whatsapp",
+                "amenidades": "Aire acondicionado | Alberca | Circuito Cerrado | Cisterna | Terraza",
+                "lat": 19.1755451,
+                "lng": -96.1307047,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:08.162207",
+                "updated_at": "2026-07-29T20:32:08.162207"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-64c13f281290-1762-1993b80-c02a-73cb": {
+            "data": {
+                "precio": "MN 1,350,000",
+                "precio_valor": 1350000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "70 m² lote | 2 rec. | 2 banos | 1 estac.",
+                "m2_totales": 70.0,
+                "m2_construidos": 70.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónEl Coyol, Veracruz, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Veracruz, El Coyol",
+                "descripcion": "Descripción Descubre este funcional departamento con un diseño que maximiza cada metro cuadrado.\n\nUbicado en una zona tranquila, este inmueble ofrece un ambiente acogedor ideal para familias pequeñas o parejas.\n\nCuenta con acabados prácticos y una distribución inteligente que separa las áreas sociales de las privadas.\n\nEl interior consta de una sala-comedor integrada, perfecta para recibir visitas o disfrutar de momentos en familia. La cocina integral que facilita la preparación de alimentos.\n\nLas 2 recámaras ofrecen espacios cómodos y funcionales, complementadas por 2 baños completos.\n\nEn el exterior, disfruta de un patio ideal para mascotas. Además, cuenta con 1 lugar de estacionamiento asignado.\n\nLos servicios básicos de agua y luz están garantizados.\n\n- Precio aplicable a cualquier tip",
+                "amenidades": "Circuito Cerrado",
+                "lat": 19.160988,
+                "lng": -96.1501849,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:08.162220",
+                "updated_at": "2026-07-29T20:32:08.162220"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-9fcd70e734a5-48f2-19b9f58-9942-75b7": {
+            "data": {
+                "precio": "MN 1,920,000",
+                "precio_valor": 1920000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "52 m² lote | 1 rec. | 1 bano",
+                "m2_totales": 52.0,
+                "m2_construidos": 52.0,
+                "recamaras": 1,
+                "banos": 1,
+                "estacionamientos": 0,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónRicardo Flores Magon, Veracruz, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Veracruz, Ricardo Flores Magon",
+                "descripcion": "Descripción DEPARTAMENTOS EN VENTA JARANA EN LA ZONA TURÍSTICA DEL PUERTO DE VERACRUZ\nSuperficie 52 m2 1 recámara\n75 m2 2 recámaras\n78 m2 2 recámaras\n\nCómodos departamentos en ubicación privilegiada a unos minutos del centro y los principales puntos turísticos del Puerto de Veracruz. A tres cuadras del boulevard Manuel Avila Camacho. \n\nHAY DE 1 Y 2 RECÁMARAS cuentan con:\n- 1 recámara con balcón y closet\n- 1 baño completo\n- cocina integral con parrilla eléctrica y campana, carpintería, tarja y llave mezcladora\n- sala-comedor\n- cuarto de lavado\n- 1 cajón de estacionamiento\nInstalación para dos aires acondicionados, pisos de primera en formato 60X60 marca Porcelanite.\nRoof garden con piso y medio baño, área de asador techada.\n\nA 15 minutos caminando de los principales puntos turísticos del ce",
+                "amenidades": "Jardin | Terraza",
+                "lat": 19.192303,
+                "lng": -96.128469,
+                "codigo_postal": "91900"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:08.162231",
+                "updated_at": "2026-07-29T20:32:08.162231"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-9feca10f9a99-ab14-19f9cba-bdc5-7d62": {
+            "data": {
+                "precio": "MN 1,890,000",
+                "precio_valor": 1890000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "70 m² lote | 2 rec. | 2 banos | 1 estac.",
+                "m2_totales": 70.0,
+                "m2_construidos": 70.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónVeracruz Centro, Veracruz, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Veracruz, Veracruz Centro",
+                "descripcion": "Descripción Departamento en Preventa en Calle Alacio Perez\nDepartamento en preventa\nUbicado en el tercer Nivel Departamento de 70 metros cuadrados \nConsta de sala, comedor, cocina integral equipada, dos recamaras, dos baños\n1 lugar de estacionamiento\nDepartamento ubicado cerca de zona de hospitales, escuelas centros comerciales\ncon varias rutas de acceso\nel departamento se entrega con minisplit estufa y campana\n\nContamos con la Propiedad ideal para personas únicas como tu .......\n\nNuestro mayor placer es acompañarte es acompañarte en el proceso para que obtengas ese hogar especial que estas buscando",
+                "amenidades": "Aire acondicionado | Circuito Cerrado",
+                "lat": 19.188641,
+                "lng": -96.134174,
+                "codigo_postal": "91900"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:08.162242",
+                "updated_at": "2026-07-29T20:32:08.162242"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-893df710c57f-6c70-19a0b4f-a2cc-787b": {
+            "data": {
+                "precio": "MN 1,980,000",
+                "precio_valor": 1980000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "76 m² lote | 2 rec. | 1 bano | 1 estac.",
+                "m2_totales": 76.0,
+                "m2_construidos": 76.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 1,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónVeracruz Centro, Veracruz, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Veracruz, Veracruz Centro",
+                "descripcion": "Descripción Veracruz, Centro\n\n28 Departamentos con elevador \n7 unidades por nivel\n\n76 m2\n77m2\n80.5m2\n\nDepartamentos desde\n$2,230,000\n\nRecibidor\nSala \nComedor\nCocina equipada con cubierta de granito y barra desayunador \n1 Baño completo \n1 Habitación con closet\n1 Habitación con closet \nÁrea de lavado\n1 Cajón de estacionamiento \n1 Bodega\nTanque de gas estacionado por departamento\n\nAmenidades: \nÁrea de coworking (área de trabajo)\nTerraza equipada\nSport bar\nElevador\nEstacionamiento techado\nServicio de vigilancia con portero para tu tranquilidad \nBodegas de almacenamiento por departamento\n\n¡No pierdas la oportunidad! Aparta tu ubicación con solo $20,000.00, Aceptamos Todos los créditos.",
+                "amenidades": "Seguridad privada | Terraza",
+                "lat": 19.196146,
+                "lng": -96.145413,
+                "codigo_postal": "91700"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:08.162253",
+                "updated_at": "2026-07-29T20:32:08.162253"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-6a9812ca9b82-971-19f71ce-86fa-7838": {
+            "data": {
+                "precio": "MN 1,980,000",
+                "precio_valor": 1980000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "70 m² lote | 2 rec. | 2 banos",
+                "m2_totales": 70.0,
+                "m2_construidos": 70.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 0,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónIgnacio Zaragoza, Veracruz, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Veracruz, Ignacio Zaragoza",
+                "descripcion": "Descripción DEPARTAMENTOS EN VENTA EN COLONIA ZARAGOZA, GENIA, GENUS\nSuperficie 70 m2 \n\nVive cerca de todo lo que necesitas!\nHospital, parque, tiendas de materiales de oficina, centro comercial, restaurantes, centros de ocio, farmacia, supermercado, colegio, estación de bomberos, hoteles y la playa, todo a pocos minutos de tu nuevo hogar. \nComodidad y funcionalidad para ti y tu familia!!!\n\nCARACTERÍSTICAS:\n- 2 Recámaras\n- 2 Baños completos\n- Cocina integral con estufa y campana\n- 1 Estacionamiento\n- Calentador\n- Interfón\n- Mini Splits\n- Área de lavado\n- Gas estacionario individual\n\nAMENIDADES:\nAlberca\nTerraza con asador y baños\nCaseta de vigilancia\n\nNo dejes pasar esta excelente oportunidad de inversión. \nContáctanos hoy mismo para agendar una visita y estrenar tu nuevo departamento en una",
+                "amenidades": "Aire acondicionado | Alberca | Jardin | Seguridad privada | Terraza",
+                "lat": 19.176692,
+                "lng": -96.130575,
+                "codigo_postal": "91910"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:08.162263",
+                "updated_at": "2026-07-29T20:32:08.162263"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-37a52bee5558-ef53-19d4c90-8529-7a9d": {
+            "data": {
+                "precio": "MN 2,630,000",
+                "precio_valor": 2630000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "88 m² lote | 2 rec. | 2 banos | 1 estac.",
+                "m2_totales": 88.0,
+                "m2_construidos": 88.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónIgnacio Zaragoza, Veracruz, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Veracruz, Ignacio Zaragoza",
+                "descripcion": "Descripción Torre AG 767\n\nModelo A2 Y A4\n\nDesde $2,630,000\n+Gastos de escrituración\n\nDesde\n88 m2 Habitables\n\nSala\nComedor con balcón\nCocina integral con barra de granito\n1 Habitación principal con baño completo, vestidor y balcón\n1 Habitación secundaria con clóset y balcón\n1 Baño completo\n\nEl edificio cuenta con:\nRecepcion\nElevador para 8 personas\nGarage techado\nControl de acceso\nCafeteria\nGimnasio\nArea de Co-work\nRoof garden con alberca y vista al mar\nJacuzzi en terraza de algunos departamentos\nTanque estacionario\nCisterna y tinaco independiente",
+                "amenidades": "Alberca | Cisterna | Gimnasio | Jacuzzi | Terraza",
+                "lat": 19.177422,
+                "lng": -96.124582,
+                "codigo_postal": "91919"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:08.162273",
+                "updated_at": "2026-07-29T20:32:08.162273"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-3ab62e645bc8-159a-19d6672-85c3-762c": {
+            "data": {
+                "precio": "MN 2,800,000",
+                "precio_valor": 2800000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "80 m² lote | 2 rec. | 2 banos | 1 estac.",
+                "m2_totales": 80.0,
+                "m2_construidos": null,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónIgnacio Zaragoza, Veracruz, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Veracruz, Ignacio Zaragoza",
+                "descripcion": "Descripción Descubre este encantador departamento ubicado en el corazón de Ignacio Zaragoza, Veracruz, una zona que combina la tranquilidad residencial con la conveniencia urbana. Situado en el sexto piso de un edificio moderno, este departamento ofrece una superficie total de 80 m2, ideal para quienes buscan un espacio cómodo y funcional.\n\nEl departamento cuenta con una excelente distribucion, consta de dos recámaras dos baños, sala comedor, proporcionando el espacio necesario para una familia o para quienes deseen un ambiente de trabajo desde casa. La cocina es práctica y está equipada para satisfacer todas tus necesidades culinarias.\n\nEl edificio dispone de un elevador, lo que facilita el acceso a la propiedad. Además, incluye un espacio de estacionamiento, asegurando la comodidad y seg",
+                "amenidades": "Alberca | Terraza",
+                "lat": 19.178049,
+                "lng": -96.128843,
+                "codigo_postal": "91910"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:08.162284",
+                "updated_at": "2026-07-29T20:32:08.162284"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-b8df7362362d-a015-19f2621-9452-7a1a": {
+            "data": {
+                "precio": "MN 1,990,000",
+                "precio_valor": 1990000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "3 rec. | 2 banos | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": null,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónReforma, Veracruz, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Veracruz, Reforma",
+                "descripcion": "Descripción departamento  en venta fraccionamiento Reforma cerca de escuelas y centros comerciales 3 recamaras estacionamiento techado cocina equipada 2 climas",
+                "amenidades": "Aire acondicionado | Circuito Cerrado | Cisterna",
+                "lat": 19.1701489,
+                "lng": -96.13004029999999,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:08.162295",
+                "updated_at": "2026-07-29T20:32:08.162295"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-28894eac8ec2-d97b-194b52e-833b-7aab": {
+            "data": {
+                "precio": "MN 2,150,000",
+                "precio_valor": 2150000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "65 m² lote | 2 rec. | 2 banos | 1 estac.",
+                "m2_totales": 65.0,
+                "m2_construidos": 65.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónIgnacio Zaragoza, Veracruz, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Veracruz, Ignacio Zaragoza",
+                "descripcion": "Descripción Atención inversionistas, tenemos a la venta preciosos departamentos de 2 recámaras y alberca, se encuentran ubicados estratégicamente en una de las mejores zonas del puerto de Veracruz, muy cerca de Hospital regional, universidad Veracruz, ADO, Acuario, playas.\nNo dejes pasar ésta gran oportunidad y aprovecha tu crédito o de contado.\nganalo!\nÚltimo disponible:\nEn el Nivel 3 \nPiso 4. EasyBroker ID: EB-RE3627",
+                "amenidades": "Aire acondicionado | Alberca | Jardin",
+                "lat": 19.175545,
+                "lng": -96.130705,
+                "codigo_postal": "91910"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:08.162305",
+                "updated_at": "2026-07-29T20:32:08.162305"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-21fb5b7d988c-8ba1-19c7808-bff8-760a": {
+            "data": {
+                "precio": "MN 2,750,000",
+                "precio_valor": 2750000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "108 m² lote | 3 rec. | 2 banos | 1 estac.",
+                "m2_totales": 108.0,
+                "m2_construidos": 108.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónReforma, Veracruz, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Veracruz, Reforma",
+                "descripcion": "Descripción Departamento ubicado en la calle pinzon\nDepartamento totalmente terminado en el Fraccionamiento Reforma en la Ciudad de Boca del Rio, Ver\n\nDepartamento de 108 metros cuadrados de construccion, cuenta\ncon:\nSala comedor\ncocina integral\nTres Recamaras amplias\nrecamaras con closet\nestacionamiento\n\nInformes al Ver teléfono Whatsapp",
+                "amenidades": "Aire acondicionado | Circuito Cerrado",
+                "lat": 19.1716051,
+                "lng": -96.12451,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:08.162315",
+                "updated_at": "2026-07-29T20:32:08.162315"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-d196f2f3ddc0-a860-19a929d-98e3-74f6": {
+            "data": {
+                "precio": "MN 4,700,000",
+                "precio_valor": 4700000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "339 m² lote | 3 rec. | 1 bano",
+                "m2_totales": 339.0,
+                "m2_construidos": 339.0,
+                "recamaras": 3,
+                "banos": 1,
+                "estacionamientos": 0,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónVeracruz Centro, Veracruz, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Veracruz, Veracruz Centro",
+                "descripcion": "Descripción VENTA de Deptos \nZONA CENTRO en Veracruz.\nSuperficie 339.76 Mts (13.70 x 24.80)\n\nEdificio de tres niveles \nPlanta baja y dos niveles cada uno con 3 deptos\n9 departamentos en total.  En cada nivel hay un departamento de 90m2 y dos departamentos de 75m2\nDistribución:\nSala comedor, cocina\nDos habitaciones con closets, un baño y patio de servicio",
+                "amenidades": "Cisterna",
+                "lat": 19.1969823,
+                "lng": -96.1381188,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:08.162324",
+                "updated_at": "2026-07-29T20:32:08.162324"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-8a554f1f3d45-1dc4-19e8f9a-877f-7383": {
+            "data": {
+                "precio": "MN 2,150,000",
+                "precio_valor": 2150000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "110 m² lote | 3 rec. | 2 banos | 1 estac.",
+                "m2_totales": 110.0,
+                "m2_construidos": 110.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónRicardo Flores Magon, Veracruz, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Veracruz, Ricardo Flores Magon",
+                "descripcion": "Descripción *ESCOBARS BR VENDE* \n\n*PENT HOUSE, Col Zaragoza. Veracruz.* tercer nivel\n\n*Consta de;*\nPiso 1; sala, comedor, cocina, ojo de patio, baño completo, área de blancos, dos recámaras.\n\nPlanta alta; recámara principal con baño y terraza.\n\nEstacionamiento para un auto, alberca.\n\n*PRECIO*; $2,150,000.00\n\n*Contáctanos al*;\n\n*Somos los de la llavecita*🔑",
+                "amenidades": "Alberca | Terraza",
+                "lat": 19.19172918,
+                "lng": -96.13005728,
+                "codigo_postal": "91900"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:08.162333",
+                "updated_at": "2026-07-29T20:32:08.162333"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-f283adcf5ca5-de8-19e2f42-b204-78bd": {
+            "data": {
+                "precio": "MN 4,210,000",
+                "precio_valor": 4210000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "140 m² lote | 2 rec. | 2 banos | 1 estac.",
+                "m2_totales": 140.0,
+                "m2_construidos": 140.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónIgnacio Zaragoza, Veracruz, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Veracruz, Ignacio Zaragoza",
+                "descripcion": "Descripción Ven y conoce nuestros departamentos en Torre residencial AG-767 ubicados en la colonia Ignacio Zaragoza en Veracruz, Ver. Conformado por 8 departamentos, este proyecto ofrece una de las zonas con mayor seguridad y comfort, teniendo como escenario el mar a 150 mts y en una avenida muy amplia y con lugares estrategicos de compras en super y mercado.\nEste departamento cuenta con una construcción de 140M2.\n\nDepartamentos en venta Torre AG-767 en la colonia Ignacio Zaragoza en Veracruz, ver.\n\nSala-comedor\ncocina integral con barra de granito\n2 recámaras\n2 baños\n\narea de lavado\nun cajon de estacionamiento techado\nTotalmente climatizado\nGas estacionario\nCisterna y Tinaco independiente por cada departamento\n\nAdicionales:\nElevador para 8 personas\nRecepción\nControl de seguridad\nCafeteria",
+                "amenidades": "Aire acondicionado | Alberca | Cisterna | Gimnasio | Jacuzzi | Terraza",
+                "lat": 19.178182,
+                "lng": -96.125325,
+                "codigo_postal": "91910"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:08.162343",
+                "updated_at": "2026-07-29T20:32:08.162343"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-33aa10125929-d63f-19a0ba8-815b-71ff": {
+            "data": {
+                "precio": "MN 1,920,000",
+                "precio_valor": 1920000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "56 m² lote | 2 rec. | 1 bano",
+                "m2_totales": 56.0,
+                "m2_construidos": 56.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 0,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónRicardo Flores Magon, Veracruz, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Veracruz, Ricardo Flores Magon",
+                "descripcion": "Descripción Departamento en Venta \n\nVeracruz desde $1,920,000 MXN\n\nUbicados a solo tres cuadras del Boulevard Manuel Ávila Camacho, en la colonia Ricardo Flores Magón, estos departamentos ofrecen una excelente ubicación cerca de la zona turística del Puerto de Veracruz.\n\nCol. Ricardo Flores Magon\n\nConsta de 11 departamentos distribuidos en cuatro niveles, con tres tipologías diferentes, todos con un cajón de estacionamiento y balcón privado. Además, cuenta con rooftop de uso común.\n\nModelos disponibles:\n •\tTipo A: 78.92 m², 2 recámaras, 2 baños completos\n •\tTipo B: 75.36 m², 2 recámaras, 2 baños completos\n •\tTipo C: 56.26 m², 1 recámara, 1 baño completo\n\nCada unidad incluye sala-comedor, cocina integral, cuarto de lavado y preparación para minisplit en todas las áreas.\n\nPrecio de preventa ",
+                "amenidades": "Aire acondicionado | Terraza",
+                "lat": 19.191586,
+                "lng": -96.128163,
+                "codigo_postal": "91900"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:08.162352",
+                "updated_at": "2026-07-29T20:32:08.162352"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-8bf9b080de44-4258-19f489a-bbc4-7c0f": {
+            "data": {
+                "precio": "MN 1,250,000",
+                "precio_valor": 1250000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "70 m² lote | 2 rec. | 2 banos",
+                "m2_totales": 70.0,
+                "m2_construidos": 70.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 0,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónEl Coyol, Veracruz, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Veracruz, El Coyol",
+                "descripcion": "Descripción DEPARTAMENTOS EN VENTA EN EL COYOL CON VISTA A LA LAGUNA \nSuperficie 70 m2 y 90 m2\n\nVive en una zona tranquila y con excelente ubicación en El Coyol, con fácil acceso a supermercados, tiendas de conveniencia, escuelas y todos los servicios que necesitas en tu día a día.\n\nDisfruta de una hermosa vista a la laguna, en un entorno ideal para familias jóvenes o como inversión inteligente.\n\nCaracterísticas generales:\n Interfón en todos los departamentos\n Área de juegos infantiles \n Estacionamiento cerrado para 1 auto \n Mantenimiento mensual: $700 (incluye agua)\n\n Opción 1 – 70 m² | Desde $1,250,000\n2 recámaras con clóset\nRecámara principal con baño completo\n1 baño completo adicional\nSala - comedor\nCocina abierta\nÁrea de lavado\n\n Opción 2 – 90 m² | Desde $1,500,000\n3 recámaras con cló",
+                "amenidades": "",
+                "lat": 19.158421,
+                "lng": -96.149916,
+                "codigo_postal": "91779"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:08.162362",
+                "updated_at": "2026-07-29T20:32:08.162362"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-70d6b95f7ffd-b581-19cdf9d-ab1c-736d": {
+            "data": {
+                "precio": "MN 2,850,000",
+                "precio_valor": 2850000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "2 rec. | 2 banos | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": null,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónIgnacio Zaragoza, Veracruz, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Veracruz, Ignacio Zaragoza",
+                "descripcion": "Descripción Preventa torre de 28 departamentos con elevador,  de 2 recámaras, 2 baños, cocina integral con cubierta de granito, roof con alberca, 1 lugar de estacionamiento, muy cerca del Malecón, las playas de Villa del Mar, Acuario de Veracruz.",
+                "amenidades": "Alberca | Terraza",
+                "lat": 19.18359442,
+                "lng": -96.12747598,
+                "codigo_postal": "91910"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:08.162371",
+                "updated_at": "2026-07-29T20:32:08.162371"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-96ec5b42ef38-8bec-19ba648-ab34-7dc0": {
+            "data": {
+                "precio": "MN 2,850,000",
+                "precio_valor": 2850000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "80 m² lote | 2 rec. | 2 banos | 1 estac.",
+                "m2_totales": 80.0,
+                "m2_construidos": 80.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónIgnacio Zaragoza, Veracruz, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Veracruz, Ignacio Zaragoza",
+                "descripcion": "Descripción Departamento moderno y acogedor en Preventa, ideal para quienes buscan comodidad, tranquilidad y un nuevo estilo de vida con una inversión inteligente. Torre Bartolomé está ubicada a unos pasos de la playa Villa del Mar y del Acuario de Veracruz y a tan sólo unos minutos de colegios, bancos, restaurantes, y centros comerciales.  Agenda tu cita con Marbelo Inmuebles, informes Ver teléfono Whatsapp venta         $2,850,000       (Fecha estimada de entrega Diciembre 2026)\nSuperficie:          80m2\n\nTorre de 28 departamentos\n\nDESCRIPCION\n•\tSala\n•\tComedor\n•\tCocina integral\n•\tRecámara principal con vestidor y baño completo\n•\tRecámara secundaria con closet\n•\tBaño completo compartido\n•\tCochera para 1 auto\n•\tCuarto de lavado\n\nAMENIDADES\n•\tRooftop con alberca\n•\tSeguridad las 24 horas\n•\tE",
+                "amenidades": "Alberca | Terraza",
+                "lat": 19.183354,
+                "lng": -96.127142,
+                "codigo_postal": "91910"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:08.162379",
+                "updated_at": "2026-07-29T20:32:08.162379"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-3eef2d42ad92-41c2-19b9ad5-ac69-713f": {
+            "data": {
+                "precio": "MN 2,900,000",
+                "precio_valor": 2900000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "98 m² lote | 3 rec. | 2 banos | 2 estac.",
+                "m2_totales": 98.0,
+                "m2_construidos": 98.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónMata de Pita, Veracruz, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Veracruz, Mata de Pita",
+                "descripcion": "Descripción Se vende hermoso Penthouse en Veracruz en exclusivo Cluster\nCuenta con:\n-Sala comedor \n-Cocina integral\n-3 recámaras\n-2 baños completos\n-Cuarto de lavado\n-Balcón\n-4 aires acondicionados\n-Gas estacionario\n\nAmenidades:\n-Laguna\n-Alberca\n-Gimnasio\n-Cancha de fútbol y basquetbol\n\nEl penthouse puede vnederse con muebles (opcional)\n°Refrigerador c/fábrica de hielos\n°Sofá cama\n°Mesa c/sombrilla (6 sillas y love)\n°Cabecera de cama acolchonada\n°2 camas queen size (box y colchón}\n°2 cajoneras\n°Cama inflable queen size\n°Telescopio \n\nPrecio de Venta $2,900,000\nMuebles $50,000",
+                "amenidades": "Aire acondicionado | Alberca | Gimnasio | Seguridad privada | Terraza",
+                "lat": 19.1316625,
+                "lng": -96.169983,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:08.162454",
+                "updated_at": "2026-07-29T20:32:08.162454"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-65498342bef7-3ba9-19f8d23-8a49-70b5": {
+            "data": {
+                "precio": "MN 4,400,000",
+                "precio_valor": 4400000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "95 m² lote | 2 rec. | 2 banos | 2 estac.",
+                "m2_totales": 95.0,
+                "m2_construidos": 95.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónVeracruz Centro, Veracruz, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Veracruz, Veracruz Centro",
+                "descripcion": "Descripción Departamentos en Venta | Torre Arista 500, Centro de Veracruz\n\nVive con comodidad, seguridad y una excelente ubicación en el corazón de Veracruz. Departamentos listos para habitar con acabados de calidad y amenidades exclusivas.\n\nCaracterísticas:\n 2 recámaras\n 2 baños completos\n Sala y comedor con terraza\n Cocina integral equipada\n Área de lavado\n 2 cajones de estacionamiento\n Climas y calentador incluidos\nAmenidades:\n\n Alberca • Roof Garden • Salón de eventos • Elevador • Recepción • Barbería • Valet Parking • Seguridad 24/7\n\nDepartamentos disponibles:\n Arista 10A – 151 m² – $5,750,000\n Arista 10B – 116 m² – $5,400,000\n Arista 10C – 95 m² – $4,400,000\n Arista 10D – 95 m² – $4,400,000\n Arista 10E – 120 m² – $4,900,000",
+                "amenidades": "Aire acondicionado | Alberca | Cisterna | Seguridad privada | Terraza",
+                "lat": 19.1978645,
+                "lng": -96.13815679999999,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:08.162464",
+                "updated_at": "2026-07-29T20:32:08.162464"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-8a382f812348-2993-197b6de-a04c-774e": {
+            "data": {
+                "precio": "MN 2,860,000",
+                "precio_valor": 2860000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "105 m² lote | 2 rec. | 2 banos | 1 estac.",
+                "m2_totales": 105.0,
+                "m2_construidos": 105.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónIgnacio Zaragoza, Veracruz, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Veracruz, Ignacio Zaragoza",
+                "descripcion": "Descripción Tenemos en Preventa Hermosos Departamentos en Torre Ángel Gabriel ubicada en la Col I Zaragoza.\nConsta de 2 Recámaras, Principal con baño, Baño Compartido, Sala, Comedor, Cocina integral, Área de Servicio, Terraza.\nMuy cerca de Centros Comerciales, Escuelas, Farmacias, Restaurantes, Gasolineras, etc. EasyBroker ID: EB-TN5781",
+                "amenidades": "Aire acondicionado | Alberca | Terraza",
+                "lat": 19.178049,
+                "lng": -96.128843,
+                "codigo_postal": "91910"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:08.162473",
+                "updated_at": "2026-07-29T20:32:08.162473"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-90353d153884-c807-19e1fdc-b448-720c": {
+            "data": {
+                "precio": "MN 2,657,500",
+                "precio_valor": 2657500.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "2 rec. | 2 banos | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": null,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónReforma, Veracruz, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Veracruz, Reforma",
+                "descripcion": "Descripción Preventa de Departamentos Torre Aldema ubicada en el Fraccionamiento Reforma, Veracruz, Veracruz.  Con un diseño moderno, acogedor y funcional, ideal para quienes buscan comodidad, tranquilidad y estilo.  Ubicado a tan sólo unos minutos de restaurantes, bancos, escuelas y centros comerciales.  Agenda tu cita con Marbelo Inmuebles y conócelos.  Informes Ver teléfono Whatsapp PREVENTA: precios desde $2,657,500\n\nSuperficie desde:     78.33m2   hasta   138.34m2\n\nTorre de 15 departamentos\n\nDESCRIPCION\n•\tSala\n•\tComedor\n•\tCocina integral con granito\n•\t2 recámaras con closet\n•\t2 baños completos\n•\tÁrea de lavado\n\nAMENIDADES\n•\tRoof top\n•\tElevador\n•\tEstacionamiento techado\n\n*Precio sujeto a cambios sin previo aviso\n*El precio no incluye gastos de escrituración e impuesto",
+                "amenidades": "Terraza",
+                "lat": 19.170578,
+                "lng": -96.125447,
+                "codigo_postal": "91919"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:08.162483",
+                "updated_at": "2026-07-29T20:32:08.162483"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-f7da51092b7a-d031-19e8a35-a4e1-7519": {
+            "data": {
+                "precio": "MN 6,900,000",
+                "precio_valor": 6900000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "648 m² lote | 8 rec. | 6 banos",
+                "m2_totales": 648.0,
+                "m2_construidos": 648.0,
+                "recamaras": 8,
+                "banos": 6,
+                "estacionamientos": 0,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónRicardo Flores Magon, Veracruz, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Veracruz, Ricardo Flores Magon",
+                "descripcion": "Descripción *ESCOBARS BIENES RAÍCES VENDE*\n\n\n*PROPIEDAD CON ACCESORIAS*. A SOLO DOS CUADRAS DEL MAR.\nIdeal para rentas vacionales y/o un pequeño pero funcional hotel.\n\nHoracio Díaz. Col Zaragoza. Veracruz. Ver.\n\n\n1 Casa de dos niveles \n5 Departamentos y una oficina.\n\n*Medidas* \nT - 648 m2\nC - 613 m2\n53x13\n\n*Precio* $6,900,000.00\n\nContactos al whatsap; Ver teléfono Whatsapp *Somos los de la*🔑",
+                "amenidades": "",
+                "lat": 19.18409031,
+                "lng": -96.12585023,
+                "codigo_postal": "91900"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:08.162492",
+                "updated_at": "2026-07-29T20:32:08.162492"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-561606c746eb-1a93-1967f3c-b66f-7383": {
+            "data": {
+                "precio": "MN 783,500",
+                "precio_valor": 783500.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "47 m² lote | 2 rec. | 1 bano",
+                "m2_totales": 47.0,
+                "m2_construidos": 47.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 0,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónTejería, Veracruz, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Veracruz, Tejería",
+                "descripcion": "Descripción Departamentos Nuevos en cluster con Alberca en Zona industrial a 5 min de la carretera, Seminario IV\n\nPrecio:\nPlanta baja: $783,500 \nPlanta media: $722,500\nPlanta alta: $713,500\n\nConstruction : 47 m2 \n\n▪2 recámaras con clóset \n▪1 baño completo \n▪Sala\n▪Comedor \n▪Cocina \n▪Patio de servicio \n▪Alberca \n▪Área de juegos  \n▪Asadores",
+                "amenidades": "Aire acondicionado | Alberca | Circuito Cerrado | Terraza",
+                "lat": 19.1465922,
+                "lng": -96.2118831,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:08.162502",
+                "updated_at": "2026-07-29T20:32:08.162502"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-75edd1c0c6b7-cca0-19d666a-bafa-70f3": {
+            "data": {
+                "precio": "MN 2,050,000",
+                "precio_valor": 2050000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "70 m² lote | 2 rec. | 2 banos | 1 estac.",
+                "m2_totales": 70.0,
+                "m2_construidos": 70.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónVeracruz Centro, Veracruz, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Veracruz, Veracruz Centro",
+                "descripcion": "Descripción GENESIS\n\n$2,050,000\n+Gastos de escrituración\n\n70 m2\nHabitables\n\nSala\nComedor\nCocina integral con estufa y campana\n2 Recámaras\n2 Baños\n1 Cajón de estacionamiento\nCalentador\nInterfón\nMini Splits\nÁrea de lavado",
+                "amenidades": "",
+                "lat": 19.184959,
+                "lng": -96.130565,
+                "codigo_postal": "91910"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:08.162511",
+                "updated_at": "2026-07-29T20:32:08.162511"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-82e15fe3d416-fe46-19b0181-9964-77ef": {
+            "data": {
+                "precio": "MN 1,980,000",
+                "precio_valor": 1980000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "70 m² lote | 2 rec. | 2 banos | 1 estac.",
+                "m2_totales": 70.0,
+                "m2_construidos": 70.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónIgnacio Zaragoza, Veracruz, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Veracruz, Ignacio Zaragoza",
+                "descripcion": "Descripción DEPARTAMENTO EN VENTA\n\nGENIA\n\nCol. Centro, Veracruz\nDiseñado para quienes buscan ubicación estratégica, comodidad y plusvalía.\n\nCaracterísticas \n•\t70 m²\n•\t2 recámaras\n•\t2 baños completos\n•\tSala\n•\tComedor\n•\tCocina equipada\n•\tÁrea de servicio\n•\tMinisplits\n•\tTerraza individual\n•\t1 cajón de estacionamiento\n•\tTanque de gas estacionario individual\n\nDiseño inteligente y distribución moderna, ideal para vivir o invertir.\n\nAmenidades:\n•\tAlberca\n•\tÁrea de pergolado\n•\tCaseta de vigilancia\n•\tUbicación privilegiada\n•\tSolo 12 departamentos tendrán 2 cajones de estacionamiento (beneficio exclusivo en preventa)\n\nUbicación Estratégica\n\nA unos minutos de hospitales, parques, zona comercial y vías principales.\n\nDesde $1,980,000\n\nIdeal para:\n•\tMédicos residentes\n•\tEstudiantes de posgrado\n•\tProfesi",
+                "amenidades": "Aire acondicionado | Alberca | Seguridad privada | Terraza",
+                "lat": 19.180567,
+                "lng": -96.131643,
+                "codigo_postal": "91700"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:08.162520",
+                "updated_at": "2026-07-29T20:32:08.162520"
+            }
+        }
+    }
+}

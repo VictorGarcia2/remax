@@ -1,0 +1,1186 @@
+{
+    "project": "Propiedades.com Scraper DB",
+    "version": "1.0",
+    "metadata": {
+        "created_at": "2026-07-29T20:27:03.977865",
+        "last_update": "2026-07-29T20:27:33.099422",
+        "total_records": 47
+    },
+    "listings": {
+        "https://propiedades.com/inmuebles/casa-en-venta-valente-diaz-2-lomas-numero-100-fracc-la-querencia-residencial-91697-veracruz-ver-libertad-veracruz-29709049": {
+            "data": {
+                "precio": "MXN 1,509,600",
+                "precio_valor": 1509600.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "90 m² const. | 3 rec. | 3 baños | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": 90.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 1,
+                "antiguedad": "1 año en Propiedades.com",
+                "direccion": "Valente Díaz - 2 Lomas número 100",
+                "ubicacion": "Libertad, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Valente Díaz - 2 Lomas número 100, Fracc. La Querencia Residencial, 91697 Veracruz, Ver., Col. Libertad C.P. 91697, Veracruz",
+                "amenidades": "Alberca | Seguridad privada",
+                "lat": 19.1897483,
+                "lng": -96.1524232
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099327",
+                "updated_at": "2026-07-29T20:27:33.099327"
+            }
+        },
+        "https://propiedades.com/inmuebles/casa-en-venta-maguey-palmas-del-coyol-91779-veracruz-ver-las-palmas-veracruz-31613725": {
+            "data": {
+                "precio": "MXN 1,500,000",
+                "precio_valor": 1500000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "120 m² const. | 3 rec. | 3 baños",
+                "m2_totales": null,
+                "m2_construidos": 120.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 0,
+                "antiguedad": "A estrenar",
+                "direccion": "Maguey",
+                "ubicacion": "Las Palmas, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Maguey, Palmas del Coyol, 91779 Veracruz, Ver., Col. Las Palmas C.P. 91779, Veracruz",
+                "amenidades": "Aire acondicionado | Cisterna",
+                "lat": 19.1614293,
+                "lng": -96.1556535
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099349",
+                "updated_at": "2026-07-29T20:27:33.099349"
+            }
+        },
+        "https://propiedades.com/inmuebles/casa-en-venta-calle-barandillas-mzn-1-lt1-fracc-privanzas-carretera-a-2-lomas-col-tejeria-veracruz-tejeria-veracruz-30758835": {
+            "data": {
+                "precio": "MXN 720,000",
+                "precio_valor": 720000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "49 m² const. | 2 rec. | 1 baños | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": 49.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 1,
+                "antiguedad": "6 meses en Propiedades.com",
+                "direccion": "Calle Barandillas",
+                "ubicacion": "Tejería, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Calle Barandillas, Mzn. 1 Lt.1, Fracc. Privanzas, Carretera A 2 Lomas, Col. Tejería, Veracruz, Col. Tejería C.P. 91697, Veracruz",
+                "amenidades": "",
+                "lat": 20.441184,
+                "lng": -97.3269982
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099353",
+                "updated_at": "2026-07-29T20:27:33.099353"
+            }
+        },
+        "https://propiedades.com/inmuebles/casa-en-venta-valente-diaz-2-lomas-numero-100-fracc-la-querencia-residencial-91697-veracruz-ver-libertad-veracruz-29709048": {
+            "data": {
+                "precio": "MXN 1,172,000",
+                "precio_valor": 1172000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "75 m² const. | 2 rec. | 1 baños | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": 75.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 1,
+                "antiguedad": "1 año en Propiedades.com",
+                "direccion": "Valente Díaz - 2 Lomas número 100",
+                "ubicacion": "Libertad, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Valente Díaz - 2 Lomas número 100, Fracc. La Querencia Residencial, 91697 Veracruz, Ver., Col. Libertad C.P. 91697, Veracruz",
+                "amenidades": "Alberca | Seguridad privada",
+                "lat": 19.1897483,
+                "lng": -96.1524232
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099356",
+                "updated_at": "2026-07-29T20:27:33.099356"
+            }
+        },
+        "https://propiedades.com/inmuebles/casa-en-venta-playa-la-quebrada-astilleros-de-veracruz-veracruz-30197502": {
+            "data": {
+                "precio": "MXN 2,995,000",
+                "precio_valor": 2995000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "195 m² const. | 3 rec. | 2 baños",
+                "m2_totales": null,
+                "m2_construidos": 195.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 0,
+                "antiguedad": "12 meses en Propiedades.com",
+                "direccion": "PLAYA LA QUEBRADA",
+                "ubicacion": "Astilleros de Veracruz, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "PLAYA LA QUEBRADA, Col. Astilleros de Veracruz C.P. 91800, Veracruz",
+                "amenidades": "Alberca",
+                "lat": 19.2102729,
+                "lng": -96.1831947
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099357",
+                "updated_at": "2026-07-29T20:27:33.099357"
+            }
+        },
+        "https://propiedades.com/inmuebles/casa-en-venta-reforma-veracruz-30610053": {
+            "data": {
+                "precio": "MXN 5,800,000",
+                "precio_valor": 5800000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "325 m² const. | 3 rec. | 4 baños",
+                "m2_totales": null,
+                "m2_construidos": 325.0,
+                "recamaras": 3,
+                "banos": 4,
+                "estacionamientos": 0,
+                "antiguedad": "8 meses en Propiedades.com",
+                "direccion": "",
+                "ubicacion": "Reforma, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": " , Col. Reforma C.P. 91919, Veracruz",
+                "amenidades": "",
+                "lat": 19.1725615,
+                "lng": -96.1262546
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099359",
+                "updated_at": "2026-07-29T20:27:33.099359"
+            }
+        },
+        "https://propiedades.com/inmuebles/casa-en-venta-calle-barandillas-mzn-1-lt1-fracc-privanzas-carretera-a-2-lomas-col-tejeria-veracruz-tejeria-veracruz-30334081": {
+            "data": {
+                "precio": "MXN 890,000",
+                "precio_valor": 890000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "59 m² const. | 2 rec. | 1 baños | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": 59.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 1,
+                "antiguedad": "10 meses en Propiedades.com",
+                "direccion": "Calle Barandillas",
+                "ubicacion": "Tejería, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Calle Barandillas, Mzn. 1 Lt.1, Fracc. Privanzas, Carretera A 2 Lomas, Col. Tejería, Veracruz, Col. Tejería C.P. 91697, Veracruz",
+                "amenidades": "Alberca",
+                "lat": 20.441184,
+                "lng": -97.3269982
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099361",
+                "updated_at": "2026-07-29T20:27:33.099361"
+            }
+        },
+        "https://propiedades.com/inmuebles/casa-en-venta-calle-barandillas-mzn-1-lt1-fracc-privanzas-carretera-a-2-lomas-col-tejeria-veracruz-tejeria-veracruz-30334080": {
+            "data": {
+                "precio": "MXN 830,000",
+                "precio_valor": 830000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "59 m² const. | 2 rec. | 1 baños | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": 59.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 1,
+                "antiguedad": "10 meses en Propiedades.com",
+                "direccion": "Calle Barandillas",
+                "ubicacion": "Tejería, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Calle Barandillas, Mzn. 1 Lt.1, Fracc. Privanzas, Carretera A 2 Lomas, Col. Tejería, Veracruz, Col. Tejería C.P. 91697, Veracruz",
+                "amenidades": "Alberca | Seguridad privada",
+                "lat": 20.441184,
+                "lng": -97.3269982
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099363",
+                "updated_at": "2026-07-29T20:27:33.099363"
+            }
+        },
+        "https://propiedades.com/inmuebles/casa-en-venta-av-puerta-paraiso-sn-91775-veracruz-ver-banaterra-veracruz-29708268": {
+            "data": {
+                "precio": "MXN 1,500,000",
+                "precio_valor": 1500000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "71 m² const. | 3 rec. | 1 baños | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": 71.0,
+                "recamaras": 3,
+                "banos": 1,
+                "estacionamientos": 1,
+                "antiguedad": "1 año en Propiedades.com",
+                "direccion": "Av. Puerta Paraiso s/n",
+                "ubicacion": "Banaterra, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Av. Puerta Paraiso s/n, 91775 Veracruz, Ver., Col. Banaterra C.P. 91775, Veracruz",
+                "amenidades": "",
+                "lat": 19.1902778,
+                "lng": -96.1533333
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099364",
+                "updated_at": "2026-07-29T20:27:33.099364"
+            }
+        },
+        "https://www.propiedades.com/inmuebles/casa-en-venta-av-cristobal-de-olid-527-reforma-veracruz-29481197": {
+            "data": {
+                "precio": "MXN 4,800,000",
+                "precio_valor": 4800000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "309 m² const. | 4 rec. | 4 baños | 2 estac.",
+                "m2_totales": null,
+                "m2_construidos": 309.0,
+                "recamaras": 4,
+                "banos": 4,
+                "estacionamientos": 2,
+                "antiguedad": "1 año en Propiedades.com",
+                "direccion": "Av. Cristóbal de Olid #527",
+                "ubicacion": "Reforma, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Av. Cristóbal de Olid #527, Col. Reforma C.P. 91919, Veracruz",
+                "amenidades": "Cisterna | Gimnasio",
+                "lat": 19.1707806,
+                "lng": -96.1248675
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099366",
+                "updated_at": "2026-07-29T20:27:33.099366"
+            }
+        },
+        "https://propiedades.com/inmuebles/casa-en-venta-juan-barragan-634-ricardo-flores-magon-veracruz-30153289": {
+            "data": {
+                "precio": "MXN 2,499,000",
+                "precio_valor": 2499000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "188 m² const. | 5 rec. | 2 baños",
+                "m2_totales": null,
+                "m2_construidos": 188.0,
+                "recamaras": 5,
+                "banos": 2,
+                "estacionamientos": 0,
+                "antiguedad": "1 año en Propiedades.com",
+                "direccion": "Juan Barragan  #634",
+                "ubicacion": "Ricardo Flores Magón, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Juan Barragan  #634, Col. Ricardo Flores Magón C.P. 91900, Veracruz",
+                "amenidades": "Seguridad privada | Aire acondicionado | Terraza",
+                "lat": 19.1914151,
+                "lng": -96.1275175
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099367",
+                "updated_at": "2026-07-29T20:27:33.099367"
+            }
+        },
+        "https://www.propiedades.com/inmuebles/casa-en-venta-sin-nombre-de-calle-tejeria-veracruz-30938988": {
+            "data": {
+                "precio": "MXN 1,200,000",
+                "precio_valor": 1200000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "91 m² const. | 2 rec. | 3 baños | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": 91.0,
+                "recamaras": 2,
+                "banos": 3,
+                "estacionamientos": 1,
+                "antiguedad": "5 meses en Propiedades.com",
+                "direccion": "Sin nombre de calle",
+                "ubicacion": "Tejería, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Sin nombre de calle, Col. Tejería C.P. 91697, Veracruz",
+                "amenidades": "Seguridad privada",
+                "lat": 20.441184,
+                "lng": -97.3269982
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099369",
+                "updated_at": "2026-07-29T20:27:33.099369"
+            }
+        },
+        "https://www.propiedades.com/inmuebles/casa-en-venta-sin-nombre-de-calle-sn-ignacio-zaragoza-veracruz-31084491": {
+            "data": {
+                "precio": "MXN 8,000,000",
+                "precio_valor": 8000000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "405 m² const. | 4 rec. | 2 baños | 2 estac.",
+                "m2_totales": null,
+                "m2_construidos": 405.0,
+                "recamaras": 4,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "3 meses en Propiedades.com",
+                "direccion": "Sin nombre de calle #S/N",
+                "ubicacion": "Ignacio Zaragoza, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Sin nombre de calle #S/N, Col. Ignacio Zaragoza C.P. 91910, Veracruz",
+                "amenidades": "Seguridad privada | Cisterna",
+                "lat": 19.1780491,
+                "lng": -96.1288426
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099370",
+                "updated_at": "2026-07-29T20:27:33.099370"
+            }
+        },
+        "https://www.propiedades.com/inmuebles/casa-en-venta-sin-nombre-de-calle-sn-playa-linda-veracruz-31419907": {
+            "data": {
+                "precio": "MXN 1,470,000",
+                "precio_valor": 1470000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "130 m² const. | 3 rec. | 3 baños | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": 130.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 1,
+                "antiguedad": "2 meses en Propiedades.com",
+                "direccion": "Sin nombre de calle #S/N",
+                "ubicacion": "Playa Linda, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Sin nombre de calle #S/N, Col. Playa Linda C.P. 91810, Veracruz",
+                "amenidades": "Aire acondicionado | Cisterna",
+                "lat": 19.213501,
+                "lng": -96.1752377
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099372",
+                "updated_at": "2026-07-29T20:27:33.099372"
+            }
+        },
+        "https://propiedades.com/inmuebles/casa-en-venta-p-las-barras-34-laguna-real-91790-veracruz-ver-34-laguna-real-veracruz-31542603": {
+            "data": {
+                "precio": "MXN 1,345,000",
+                "precio_valor": 1345000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "240 m² const. | 3 rec. | 2 baños",
+                "m2_totales": null,
+                "m2_construidos": 240.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 0,
+                "antiguedad": "26 días en Propiedades.com",
+                "direccion": "P.º Las Barras 34",
+                "ubicacion": "Laguna Real, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "P.º Las Barras 34, Laguna Real, 91790 Veracruz, Ver. #34, Col. Laguna Real C.P. 91790, Veracruz",
+                "amenidades": "Aire acondicionado | Cisterna",
+                "lat": 19.152155699999998,
+                "lng": -96.1553076
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099373",
+                "updated_at": "2026-07-29T20:27:33.099373"
+            }
+        },
+        "https://www.propiedades.com/inmuebles/casa-en-venta-sin-nombre-de-calle-sn-electricistas-veracruz-31527139": {
+            "data": {
+                "precio": "MXN 2,200,000",
+                "precio_valor": 2200000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "210 m² const. | 3 rec. | 2 baños",
+                "m2_totales": null,
+                "m2_construidos": 210.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 0,
+                "antiguedad": "29 días en Propiedades.com",
+                "direccion": "Sin nombre de calle #S/N",
+                "ubicacion": "Electricistas, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Sin nombre de calle #S/N, Col. Electricistas C.P. 91916, Veracruz",
+                "amenidades": "Aire acondicionado | Cisterna",
+                "lat": 19.1667492,
+                "lng": -96.1348057
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099374",
+                "updated_at": "2026-07-29T20:27:33.099374"
+            }
+        },
+        "https://propiedades.com/inmuebles/casa-en-venta-sin-nombre-de-calle-sn-veracruz-centro-veracruz-31598601": {
+            "data": {
+                "precio": "MXN 3,690,000",
+                "precio_valor": 3690000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "370 m² const. | 6 rec. | 6 baños | 2 estac.",
+                "m2_totales": null,
+                "m2_construidos": 370.0,
+                "recamaras": 6,
+                "banos": 6,
+                "estacionamientos": 2,
+                "antiguedad": "A estrenar",
+                "direccion": "Sin nombre de calle #S/N",
+                "ubicacion": "Veracruz Centro, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Sin nombre de calle #S/N, Col. Veracruz Centro C.P. 91700, Veracruz",
+                "amenidades": "Aire acondicionado",
+                "lat": 19.189537,
+                "lng": -96.1394441
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099376",
+                "updated_at": "2026-07-29T20:27:33.099376"
+            }
+        },
+        "https://www.propiedades.com/inmuebles/casa-en-venta-sin-nombre-de-calle-sn-siglo-xxi-veracruz-31509471": {
+            "data": {
+                "precio": "MXN 1,590,000",
+                "precio_valor": 1590000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "120 m² const. | 3 rec. | 3 baños | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": 120.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 1,
+                "antiguedad": "1 mes en Propiedades.com",
+                "direccion": "Sin nombre de calle #S/N",
+                "ubicacion": "Siglo XXI, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Sin nombre de calle #S/N, Col. Siglo XXI C.P. 91777, Veracruz",
+                "amenidades": "Seguridad privada | Aire acondicionado",
+                "lat": 19.1555033,
+                "lng": -96.1613155
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099377",
+                "updated_at": "2026-07-29T20:27:33.099377"
+            }
+        },
+        "https://www.propiedades.com/inmuebles/casa-en-venta-sin-nombre-de-calle-sn-palma-real-veracruz-31564451": {
+            "data": {
+                "precio": "MXN 880,000",
+                "precio_valor": 880000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "68 m² const. | 2 rec. | 1 baños | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": 68.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 1,
+                "antiguedad": "19 días en Propiedades.com",
+                "direccion": "Sin nombre de calle #S/N",
+                "ubicacion": "Palma Real, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Sin nombre de calle #S/N, Col. Palma Real C.P. 91826, Veracruz",
+                "amenidades": "Aire acondicionado",
+                "lat": 19.1957054,
+                "lng": -96.1847084
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099378",
+                "updated_at": "2026-07-29T20:27:33.099378"
+            }
+        },
+        "https://propiedades.com/inmuebles/casa-en-venta-veracruz-centro-veracruz-30609550": {
+            "data": {
+                "precio": "MXN 2,200,000",
+                "precio_valor": 2200000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "110 m² const. | 3 rec. | 1 baños",
+                "m2_totales": null,
+                "m2_construidos": 110.0,
+                "recamaras": 3,
+                "banos": 1,
+                "estacionamientos": 0,
+                "antiguedad": "8 meses en Propiedades.com",
+                "direccion": "",
+                "ubicacion": "Veracruz Centro, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": " , Col. Veracruz Centro C.P. 91700, Veracruz",
+                "amenidades": "",
+                "lat": 19.2053583,
+                "lng": -96.1607022
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099382",
+                "updated_at": "2026-07-29T20:27:33.099382"
+            }
+        },
+        "https://www.propiedades.com/inmuebles/casa-en-venta-estadios-0-21-de-abril-veracruz-28595573": {
+            "data": {
+                "precio": "MXN 1,600,000",
+                "precio_valor": 1600000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "276 m² const. | 4 rec. | 2 baños | 2 estac.",
+                "m2_totales": null,
+                "m2_construidos": 276.0,
+                "recamaras": 4,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "2 años en Propiedades.com",
+                "direccion": "ESTADIOS #0",
+                "ubicacion": "21 de Abril, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "ESTADIOS #0, Col. 21 de Abril C.P. 91720, Veracruz",
+                "amenidades": "Seguridad privada | Aire acondicionado | Cisterna",
+                "lat": 19.1847864,
+                "lng": -96.1487219
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099384",
+                "updated_at": "2026-07-29T20:27:33.099384"
+            }
+        },
+        "https://www.propiedades.com/inmuebles/casa-en-venta-sin-nombre-de-calle-sn-reforma-veracruz-31433992": {
+            "data": {
+                "precio": "MXN 5,800,000",
+                "precio_valor": 5800000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "325 m² const. | 3 rec. | 6 baños | 2 estac.",
+                "m2_totales": null,
+                "m2_construidos": 325.0,
+                "recamaras": 3,
+                "banos": 6,
+                "estacionamientos": 2,
+                "antiguedad": "2 meses en Propiedades.com",
+                "direccion": "Sin nombre de calle #S/N",
+                "ubicacion": "Reforma, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Sin nombre de calle #S/N, Col. Reforma C.P. 91919, Veracruz",
+                "amenidades": "Aire acondicionado",
+                "lat": 19.1707806,
+                "lng": -96.1248675
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099386",
+                "updated_at": "2026-07-29T20:27:33.099386"
+            }
+        },
+        "https://www.propiedades.com/inmuebles/casa-en-venta-lomas-2-dos-lomas-veracruz-30854596": {
+            "data": {
+                "precio": "MXN 1,198,000",
+                "precio_valor": 1198000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "67 m² const. | 2 rec. | 2 baños | 2 estac.",
+                "m2_totales": null,
+                "m2_construidos": 67.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "5 meses en Propiedades.com",
+                "direccion": "LOMAS #2",
+                "ubicacion": "Dos Lomas, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "LOMAS #2, Col. Dos Lomas C.P. 91697, Veracruz",
+                "amenidades": "Seguridad privada | Aire acondicionado | Cisterna",
+                "lat": 19.1462309,
+                "lng": -96.2389221
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099388",
+                "updated_at": "2026-07-29T20:27:33.099388"
+            }
+        },
+        "https://www.propiedades.com/inmuebles/casa-en-venta-sin-nombre-de-calle-floresta-veracruz-31580660": {
+            "data": {
+                "precio": "MXN 2,091,000",
+                "precio_valor": 2091000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "170 m² const. | 3 rec. | 2 baños | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": 170.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "13 días en Propiedades.com",
+                "direccion": "Sin nombre de calle",
+                "ubicacion": "Floresta, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Sin nombre de calle, Col. Floresta C.P. 91940, Veracruz",
+                "amenidades": "Cisterna",
+                "lat": 19.1556264,
+                "lng": -96.1354683
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099389",
+                "updated_at": "2026-07-29T20:27:33.099389"
+            }
+        },
+        "https://propiedades.com/inmuebles/casa-en-venta-victimas-del-5-y-6-de-julio-704-ignacio-zaragoza-91910-veracruz-ver-704-ignacio-zaragoza-veracruz-31542746": {
+            "data": {
+                "precio": "MXN 1,345,000",
+                "precio_valor": 1345000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "80 m² const. | 2 rec. | 1 baños",
+                "m2_totales": null,
+                "m2_construidos": 80.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 0,
+                "antiguedad": "26 días en Propiedades.com",
+                "direccion": "Víctimas del 5 y 6 de Julio 704",
+                "ubicacion": "Ignacio Zaragoza, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Víctimas del 5 y 6 de Julio 704, Ignacio Zaragoza, 91910 Veracruz, Ver. #704, Col. Ignacio Zaragoza C.P. 91910, Veracruz",
+                "amenidades": "Aire acondicionado | Cisterna",
+                "lat": 19.179248899999997,
+                "lng": -96.1257378
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099390",
+                "updated_at": "2026-07-29T20:27:33.099390"
+            }
+        },
+        "https://propiedades.com/inmuebles/casa-en-venta-veracruz-centro-veracruz-23539625": {
+            "data": {
+                "precio": "MXN 6,500,000",
+                "precio_valor": 6500000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "350 m² const. | 4 rec. | 3 baños",
+                "m2_totales": null,
+                "m2_construidos": 350.0,
+                "recamaras": 4,
+                "banos": 3,
+                "estacionamientos": 0,
+                "antiguedad": "5 años en Propiedades.com",
+                "direccion": "",
+                "ubicacion": "Veracruz Centro, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": " , Col. Veracruz Centro C.P. 91700, Veracruz",
+                "amenidades": "",
+                "lat": 19.1969823,
+                "lng": -96.13811880000002
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099391",
+                "updated_at": "2026-07-29T20:27:33.099391"
+            }
+        },
+        "https://www.propiedades.com/inmuebles/casa-en-venta-sin-nombre-de-calle-sn-ricardo-flores-magon-veracruz-31420224": {
+            "data": {
+                "precio": "MXN 3,800,000",
+                "precio_valor": 3800000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "189 m² const. | 3 rec. | 5 baños | 2 estac.",
+                "m2_totales": null,
+                "m2_construidos": 189.0,
+                "recamaras": 3,
+                "banos": 5,
+                "estacionamientos": 2,
+                "antiguedad": "2 meses en Propiedades.com",
+                "direccion": "Sin nombre de calle #S/N",
+                "ubicacion": "Ricardo Flores Magón, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Sin nombre de calle #S/N, Col. Ricardo Flores Magón C.P. 91900, Veracruz",
+                "amenidades": "Aire acondicionado | Cisterna",
+                "lat": 19.1914151,
+                "lng": -96.1275175
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099392",
+                "updated_at": "2026-07-29T20:27:33.099392"
+            }
+        },
+        "https://www.propiedades.com/inmuebles/casa-en-venta-centro-00-veracruz-centro-veracruz-30789812": {
+            "data": {
+                "precio": "MXN 2,800,000",
+                "precio_valor": 2800000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "139 m² const. | 3 rec. | 2 baños | 2 estac.",
+                "m2_totales": null,
+                "m2_construidos": 139.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "6 meses en Propiedades.com",
+                "direccion": "centro #00",
+                "ubicacion": "Veracruz Centro, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "centro #00, Col. Veracruz Centro C.P. 91700, Veracruz",
+                "amenidades": "Aire acondicionado | Cisterna",
+                "lat": 19.189537,
+                "lng": -96.1394441
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099394",
+                "updated_at": "2026-07-29T20:27:33.099394"
+            }
+        },
+        "https://propiedades.com/inmuebles/casa-en-venta-sin-nombre-de-calle-sn-laguna-real-veracruz-31504935": {
+            "data": {
+                "precio": "MXN 1,600,000",
+                "precio_valor": 1600000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "100 m² const. | 2 rec. | 1 baños | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": 100.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 1,
+                "antiguedad": "1 mes en Propiedades.com",
+                "direccion": "Sin nombre de calle #S/N",
+                "ubicacion": "Laguna Real, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Sin nombre de calle #S/N, Col. Laguna Real C.P. 91790, Veracruz",
+                "amenidades": "Seguridad privada | Aire acondicionado",
+                "lat": 19.149087,
+                "lng": -96.1540241
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099395",
+                "updated_at": "2026-07-29T20:27:33.099395"
+            }
+        },
+        "https://www.propiedades.com/inmuebles/casa-en-venta-sin-nombre-de-calle-sn-floresta-veracruz-31376451": {
+            "data": {
+                "precio": "MXN 3,500,000",
+                "precio_valor": 3500000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "196 m² const. | 3 rec. | 3 baños | 3 estac.",
+                "m2_totales": null,
+                "m2_construidos": 196.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 3,
+                "antiguedad": "2 meses en Propiedades.com",
+                "direccion": "Sin nombre de calle #S/N",
+                "ubicacion": "Floresta, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Sin nombre de calle #S/N, Col. Floresta C.P. 91940, Veracruz",
+                "amenidades": "Aire acondicionado",
+                "lat": 19.1556264,
+                "lng": -96.1354683
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099396",
+                "updated_at": "2026-07-29T20:27:33.099396"
+            }
+        },
+        "https://www.propiedades.com/inmuebles/casa-en-venta-floresta-000-floresta-veracruz-30901589": {
+            "data": {
+                "precio": "MXN 1,900,000",
+                "precio_valor": 1900000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "160 m² const. | 3 rec. | 2 baños | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": 160.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "5 meses en Propiedades.com",
+                "direccion": "floresta #000",
+                "ubicacion": "Floresta, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "floresta #000, Col. Floresta C.P. 91940, Veracruz",
+                "amenidades": "Aire acondicionado | Cisterna",
+                "lat": 19.1556264,
+                "lng": -96.1354683
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099397",
+                "updated_at": "2026-07-29T20:27:33.099397"
+            }
+        },
+        "https://propiedades.com/inmuebles/casa-en-venta-agustin-de-iturbide-ricardo-flores-magon-veracruz-27334480": {
+            "data": {
+                "precio": "MXN 1,865,990",
+                "precio_valor": 1865990.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "280 m² const. | 4 rec. | 3 baños",
+                "m2_totales": null,
+                "m2_construidos": 280.0,
+                "recamaras": 4,
+                "banos": 3,
+                "estacionamientos": 0,
+                "antiguedad": "3 años en Propiedades.com",
+                "direccion": "Agustín de Iturbide",
+                "ubicacion": "Ricardo Flores Magón, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Agustín de Iturbide, Col. Ricardo Flores Magón C.P. 91900, Veracruz",
+                "amenidades": "Aire acondicionado",
+                "lat": 19.1914151,
+                "lng": -96.1275175
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099398",
+                "updated_at": "2026-07-29T20:27:33.099398"
+            }
+        },
+        "https://www.propiedades.com/inmuebles/casa-en-venta-sin-nombre-de-calle-quinta-maria-veracruz-31400098": {
+            "data": {
+                "precio": "MXN 1,230,000",
+                "precio_valor": 1230000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "121 m² const. | 2 rec. | 3 baños | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": 121.0,
+                "recamaras": 2,
+                "banos": 3,
+                "estacionamientos": 1,
+                "antiguedad": "2 meses en Propiedades.com",
+                "direccion": "Sin nombre de calle",
+                "ubicacion": "Quinta María, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Sin nombre de calle, Col. Quinta María C.P. 91859, Veracruz",
+                "amenidades": "Seguridad privada | Aire acondicionado | Cisterna",
+                "lat": 19.1970351,
+                "lng": -96.158664
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099400",
+                "updated_at": "2026-07-29T20:27:33.099400"
+            }
+        },
+        "https://propiedades.com/inmuebles/casa-en-venta-sin-nombre-de-calle-sn-las-brisas-veracruz-31056293": {
+            "data": {
+                "precio": "MXN 2,400,000",
+                "precio_valor": 2400000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "240 m² const. | 5 rec. | 4 baños | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": 240.0,
+                "recamaras": 5,
+                "banos": 4,
+                "estacionamientos": 1,
+                "antiguedad": "4 meses en Propiedades.com",
+                "direccion": "Sin nombre de calle #S/N",
+                "ubicacion": "Las Brisas, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Sin nombre de calle #S/N, Col. Las Brisas C.P. 91809, Veracruz",
+                "amenidades": "Seguridad privada | Aire acondicionado",
+                "lat": 19.2043522,
+                "lng": -96.1831947
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099401",
+                "updated_at": "2026-07-29T20:27:33.099401"
+            }
+        },
+        "https://www.propiedades.com/inmuebles/casa-en-venta-lomas-00-dos-lomas-veracruz-30854595": {
+            "data": {
+                "precio": "MXN 1,338,000",
+                "precio_valor": 1338000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "74 m² const. | 3 rec. | 3 baños | 2 estac.",
+                "m2_totales": null,
+                "m2_construidos": 74.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "5 meses en Propiedades.com",
+                "direccion": "lomas #00",
+                "ubicacion": "Dos Lomas, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "lomas #00, Col. Dos Lomas C.P. 91697, Veracruz",
+                "amenidades": "Seguridad privada | Aire acondicionado | Cisterna",
+                "lat": 19.1462309,
+                "lng": -96.2389221
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099402",
+                "updated_at": "2026-07-29T20:27:33.099402"
+            }
+        },
+        "https://www.propiedades.com/inmuebles/casa-en-venta-zamora-0-veracruz-centro-veracruz-30854102": {
+            "data": {
+                "precio": "MXN 1,100,000",
+                "precio_valor": 1100000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "83 m² const. | 2 rec. | 1 baños",
+                "m2_totales": null,
+                "m2_construidos": 83.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 0,
+                "antiguedad": "5 meses en Propiedades.com",
+                "direccion": "ZAMORA #0",
+                "ubicacion": "Veracruz Centro, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "ZAMORA #0, Col. Veracruz Centro C.P. 91700, Veracruz",
+                "amenidades": "",
+                "lat": 19.189537,
+                "lng": -96.1394441
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099403",
+                "updated_at": "2026-07-29T20:27:33.099403"
+            }
+        },
+        "https://propiedades.com/inmuebles/casa-en-venta-bahamas-floresta-veracruz-29122113": {
+            "data": {
+                "precio": "MXN 741,000",
+                "precio_valor": 741000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "185 m² const. | 4 rec. | 2 baños",
+                "m2_totales": null,
+                "m2_construidos": 185.0,
+                "recamaras": 4,
+                "banos": 2,
+                "estacionamientos": 0,
+                "antiguedad": "2 años en Propiedades.com",
+                "direccion": "Bahamas #0",
+                "ubicacion": "Floresta, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Bahamas #0, Col. Floresta C.P. 91940, Veracruz",
+                "amenidades": "",
+                "lat": 19.1480827,
+                "lng": -96.1318086
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099404",
+                "updated_at": "2026-07-29T20:27:33.099404"
+            }
+        },
+        "https://propiedades.com/inmuebles/casa-en-venta-sin-nombre-de-calle-sn-geovillas-los-pinos-veracruz-31561124": {
+            "data": {
+                "precio": "MXN 850,000",
+                "precio_valor": 850000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "68 m² const. | 2 rec. | 1 baños | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": 68.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 1,
+                "antiguedad": "20 días en Propiedades.com",
+                "direccion": "Sin nombre de calle #S/N",
+                "ubicacion": "Geovillas los Pinos, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Sin nombre de calle #S/N, Col. Geovillas los Pinos C.P. 91808, Veracruz",
+                "amenidades": "Aire acondicionado",
+                "lat": 19.2147592,
+                "lng": -96.2256491
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099405",
+                "updated_at": "2026-07-29T20:27:33.099405"
+            }
+        },
+        "https://www.propiedades.com/inmuebles/casa-en-venta-arboledas-000-floresta-veracruz-30901581": {
+            "data": {
+                "precio": "MXN 2,100,000",
+                "precio_valor": 2100000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "85 m² const. | 3 rec. | 2 baños | 2 estac.",
+                "m2_totales": null,
+                "m2_construidos": 85.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "5 meses en Propiedades.com",
+                "direccion": "ARBOLEDAS #000",
+                "ubicacion": "Floresta, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "ARBOLEDAS #000, Col. Floresta C.P. 91940, Veracruz",
+                "amenidades": "Seguridad privada | Aire acondicionado | Cisterna",
+                "lat": 19.1556264,
+                "lng": -96.1354683
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099407",
+                "updated_at": "2026-07-29T20:27:33.099407"
+            }
+        },
+        "https://www.propiedades.com/inmuebles/casa-en-venta-sin-nombre-de-calle-sn-reserva-tarimoya-i-veracruz-31414067": {
+            "data": {
+                "precio": "MXN 3,300,000",
+                "precio_valor": 3300000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "250 m² const. | 6 rec. | 3 baños | 2 estac.",
+                "m2_totales": null,
+                "m2_construidos": 250.0,
+                "recamaras": 6,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "2 meses en Propiedades.com",
+                "direccion": "Sin nombre de calle #S/N",
+                "ubicacion": "Reserva Tarimoya I, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Sin nombre de calle #S/N, Col. Reserva Tarimoya I C.P. 91850, Veracruz",
+                "amenidades": "Seguridad privada | Aire acondicionado | Cisterna",
+                "lat": 19.1927736,
+                "lng": -96.1720712
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099408",
+                "updated_at": "2026-07-29T20:27:33.099408"
+            }
+        },
+        "https://propiedades.com/inmuebles/casa-en-venta-veracruz-veracruz-20297929": {
+            "data": {
+                "precio": "MXN 1,200,000",
+                "precio_valor": 1200000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "118 m² const. | 3 rec. | 2 baños",
+                "m2_totales": null,
+                "m2_construidos": 118.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 0,
+                "antiguedad": "5 años en Propiedades.com",
+                "direccion": "",
+                "ubicacion": "Veracruz, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": " , Col. Veracruz C.P. 91709, Veracruz",
+                "amenidades": "",
+                "lat": 19.2001197,
+                "lng": -96.1328179
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099409",
+                "updated_at": "2026-07-29T20:27:33.099409"
+            }
+        },
+        "https://propiedades.com/inmuebles/casa-en-venta-sin-nombre-de-calle-sn-nuevo-veracruz-veracruz-31049759": {
+            "data": {
+                "precio": "MXN 2,500,000",
+                "precio_valor": 2500000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "107 m² const. | 3 rec. | 3 baños | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": 107.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 1,
+                "antiguedad": "4 meses en Propiedades.com",
+                "direccion": "Sin nombre de calle #S/N",
+                "ubicacion": "Nuevo Veracruz, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Sin nombre de calle #S/N, Col. Nuevo Veracruz C.P. 91726, Veracruz",
+                "amenidades": "Seguridad privada | Aire acondicionado",
+                "lat": 19.2183897,
+                "lng": -96.1729171
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099411",
+                "updated_at": "2026-07-29T20:27:33.099411"
+            }
+        },
+        "https://www.propiedades.com/inmuebles/casa-en-venta-sin-nombre-de-calle-sn-los-pinos-veracruz-31523519": {
+            "data": {
+                "precio": "MXN 2,600,000",
+                "precio_valor": 2600000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "1 m² const. | 6 rec. | 4 baños",
+                "m2_totales": null,
+                "m2_construidos": 1.0,
+                "recamaras": 6,
+                "banos": 4,
+                "estacionamientos": 0,
+                "antiguedad": "1 mes en Propiedades.com",
+                "direccion": "Sin nombre de calle #S/N",
+                "ubicacion": "Los Pinos, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Sin nombre de calle #S/N, Col. Los Pinos C.P. 91870, Veracruz",
+                "amenidades": "Aire acondicionado",
+                "lat": 19.2080254,
+                "lng": -96.1619784
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099412",
+                "updated_at": "2026-07-29T20:27:33.099412"
+            }
+        },
+        "https://propiedades.com/inmuebles/casa-en-venta-nicolas-bravo-483-centro-91700-veracruz-ver-483-veracruz-centro-veracruz-31108200": {
+            "data": {
+                "precio": "MXN 2,312,000",
+                "precio_valor": 2312000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "280 m² const. | 3 rec. | 2 baños",
+                "m2_totales": null,
+                "m2_construidos": 280.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 0,
+                "antiguedad": "3 meses en Propiedades.com",
+                "direccion": "Nicolás Bravo 483",
+                "ubicacion": "Veracruz Centro, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Nicolás Bravo 483, Centro, 91700 Veracruz, Ver. #483, Col. Veracruz Centro C.P. 91700, Veracruz",
+                "amenidades": "Seguridad privada | Aire acondicionado | Cisterna",
+                "lat": 19.1971056,
+                "lng": -96.1420437
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099414",
+                "updated_at": "2026-07-29T20:27:33.099414"
+            }
+        },
+        "https://www.propiedades.com/inmuebles/casa-en-venta-rio-medio-000-lomas-de-rio-medio-ii-veracruz-30986853": {
+            "data": {
+                "precio": "MXN 1,300,000",
+                "precio_valor": 1300000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "130 m² const. | 2 rec. | 2 baños",
+                "m2_totales": null,
+                "m2_construidos": 130.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 0,
+                "antiguedad": "4 meses en Propiedades.com",
+                "direccion": "RIO MEDIO #000",
+                "ubicacion": "Lomas de Rio Medio II, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "RIO MEDIO #000, Col. Lomas de Rio Medio II C.P. 91809, Veracruz",
+                "amenidades": "Aire acondicionado | Cisterna",
+                "lat": 19.2053408,
+                "lng": -96.1977851
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099415",
+                "updated_at": "2026-07-29T20:27:33.099415"
+            }
+        },
+        "https://www.propiedades.com/inmuebles/casa-en-venta-floresta-000-floresta-veracruz-30850332": {
+            "data": {
+                "precio": "MXN 2,950,000",
+                "precio_valor": 2950000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "265 m² const. | 3 rec. | 4 baños | 2 estac.",
+                "m2_totales": null,
+                "m2_construidos": 265.0,
+                "recamaras": 3,
+                "banos": 4,
+                "estacionamientos": 2,
+                "antiguedad": "6 meses en Propiedades.com",
+                "direccion": "FLORESTA #000",
+                "ubicacion": "Floresta, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "FLORESTA #000, Col. Floresta C.P. 91940, Veracruz",
+                "amenidades": "Aire acondicionado | Cisterna",
+                "lat": 19.1556264,
+                "lng": -96.1354683
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099416",
+                "updated_at": "2026-07-29T20:27:33.099416"
+            }
+        },
+        "https://propiedades.com/inmuebles/casa-en-venta-sin-nombre-de-calle-sn-el-vergel-veracruz-31561024": {
+            "data": {
+                "precio": "MXN 1,180,000",
+                "precio_valor": 1180000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "140 m² const. | 3 rec. | 2 baños",
+                "m2_totales": null,
+                "m2_construidos": 140.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 0,
+                "antiguedad": "20 días en Propiedades.com",
+                "direccion": "Sin nombre de calle #S/N",
+                "ubicacion": "El Vergel, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Sin nombre de calle #S/N, Col. El Vergel C.P. 91715, Veracruz",
+                "amenidades": "Aire acondicionado | Cisterna",
+                "lat": 19.1832247,
+                "lng": -96.1732486
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:33.099417",
+                "updated_at": "2026-07-29T20:27:33.099417"
+            }
+        }
+    }
+}

@@ -76,7 +76,8 @@ async function obtenerValuacionPython(answers) {
   try {
 
     
-    const response = await fetch("https://api.remaxcin.com/valuar", {
+    const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+    const response = await fetch(`${API_BASE_URL}/valuar`, {
       method: "POST",
       headers: { 
         "Content-Type": "application/json",

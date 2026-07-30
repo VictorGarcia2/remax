@@ -1,0 +1,1186 @@
+{
+    "project": "Propiedades.com Scraper DB",
+    "version": "1.0",
+    "metadata": {
+        "created_at": "2026-07-29T20:32:09.653983",
+        "last_update": "2026-07-29T20:32:35.479212",
+        "total_records": 47
+    },
+    "listings": {
+        "https://propiedades.com/inmuebles/departamento-en-venta-el-coyol-veracruz-30559120": {
+            "data": {
+                "precio": "MXN 1,250,000",
+                "precio_valor": 1250000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "70 m² const. | 2 rec. | 2 baños",
+                "m2_totales": null,
+                "m2_construidos": 70.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 0,
+                "antiguedad": "8 meses en Propiedades.com",
+                "direccion": "",
+                "ubicacion": "El Coyol, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": " , Col. El Coyol C.P. 91780, Veracruz",
+                "amenidades": "",
+                "lat": 19.1584261,
+                "lng": -96.1498387
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479146",
+                "updated_at": "2026-07-29T20:32:35.479146"
+            }
+        },
+        "https://propiedades.com/inmuebles/departamento-en-venta-av-puerta-paraiso-sn-91775-veracruz-ver-banaterra-veracruz-29708269": {
+            "data": {
+                "precio": "MXN 1,265,000",
+                "precio_valor": 1265000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "65 m² const. | 2 rec. | 1 baños | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": 65.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 1,
+                "antiguedad": "1 año en Propiedades.com",
+                "direccion": "Av. Puerta Paraiso s/n",
+                "ubicacion": "Banaterra, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Av. Puerta Paraiso s/n, 91775 Veracruz, Ver., Col. Banaterra C.P. 91775, Veracruz",
+                "amenidades": "",
+                "lat": 19.1902778,
+                "lng": -96.1533333
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479161",
+                "updated_at": "2026-07-29T20:32:35.479161"
+            }
+        },
+        "https://propiedades.com/inmuebles/departamento-en-venta-carr-a-dos-lomas-buenavista-91697-ver-bruno-pagliai-veracruz-29709474": {
+            "data": {
+                "precio": "MXN 673,000",
+                "precio_valor": 673000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "47 m² const. | 2 rec. | 1 baños",
+                "m2_totales": null,
+                "m2_construidos": 47.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 0,
+                "antiguedad": "1 año en Propiedades.com",
+                "direccion": "Carr. a dos Lomas",
+                "ubicacion": "Bruno Pagliai, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Carr. a dos Lomas, Buenavista, 91697 Ver.\n, Col. Bruno Pagliai C.P. 91697, Veracruz",
+                "amenidades": "",
+                "lat": 19.1694408,
+                "lng": -96.2273383
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479164",
+                "updated_at": "2026-07-29T20:32:35.479164"
+            }
+        },
+        "https://propiedades.com/inmuebles/departamento-en-venta-av-puerta-paraiso-sn-91775-veracruz-ver-banaterra-veracruz-29708271": {
+            "data": {
+                "precio": "MXN 1,265,000",
+                "precio_valor": 1265000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "65 m² const. | 2 rec. | 1 baños | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": 65.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 1,
+                "antiguedad": "1 año en Propiedades.com",
+                "direccion": "Av. Puerta Paraiso s/n",
+                "ubicacion": "Banaterra, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Av. Puerta Paraiso s/n, 91775 Veracruz, Ver., Col. Banaterra C.P. 91775, Veracruz",
+                "amenidades": "",
+                "lat": 19.1902778,
+                "lng": -96.1533333
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479165",
+                "updated_at": "2026-07-29T20:32:35.479165"
+            }
+        },
+        "https://propiedades.com/inmuebles/departamento-en-venta-valente-diaz-mata-cocuite-91697-las-bajadas-ver-libertad-veracruz-29709041": {
+            "data": {
+                "precio": "MXN 783,500",
+                "precio_valor": 783500.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "43 m² const. | 2 rec. | 1 baños | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": 43.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 1,
+                "antiguedad": "1 año en Propiedades.com",
+                "direccion": "Valente Díaz - Mata Cocuite",
+                "ubicacion": "Libertad, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Valente Díaz - Mata Cocuite, 91697 Las Bajadas, Ver., Col. Libertad C.P. 91697, Veracruz",
+                "amenidades": "Alberca | Cisterna",
+                "lat": 19.1897483,
+                "lng": -96.1524232
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479167",
+                "updated_at": "2026-07-29T20:32:35.479167"
+            }
+        },
+        "https://www.propiedades.com/inmuebles/departamento-en-venta-sin-nombre-de-calle-veracruz-centro-veracruz-30532755": {
+            "data": {
+                "precio": "MXN 2,263,450",
+                "precio_valor": 2263450.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "77 m² const. | 2 rec. | 1 baños | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": 77.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 1,
+                "antiguedad": "9 meses en Propiedades.com",
+                "direccion": "Sin nombre de calle",
+                "ubicacion": "Veracruz Centro, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Sin nombre de calle, Col. Veracruz Centro C.P. 91700, Veracruz",
+                "amenidades": "",
+                "lat": 19.189537,
+                "lng": -96.1394441
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479168",
+                "updated_at": "2026-07-29T20:32:35.479168"
+            }
+        },
+        "https://propiedades.com/inmuebles/departamento-en-venta-calle-barandillas-mzn-1-lt1-fracc-privanzas-carretera-a-2-lomas-col-tejeria-veracruz-tejeria-veracruz-30758146": {
+            "data": {
+                "precio": "MXN 658,000",
+                "precio_valor": 658000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "46 m² const. | 2 rec. | 1 baños",
+                "m2_totales": null,
+                "m2_construidos": 46.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 0,
+                "antiguedad": "6 meses en Propiedades.com",
+                "direccion": "Calle Barandillas",
+                "ubicacion": "Tejería, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Calle Barandillas, Mzn. 1 Lt.1, Fracc. Privanzas, Carretera A 2 Lomas, Col. Tejería, Veracruz, Col. Tejería C.P. 91697, Veracruz",
+                "amenidades": "",
+                "lat": 20.441184,
+                "lng": -97.3269982
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479170",
+                "updated_at": "2026-07-29T20:32:35.479170"
+            }
+        },
+        "https://propiedades.com/inmuebles/departamento-en-venta-calle-barandillas-mzn-1-lt1-fracc-privanzas-carretera-a-2-lomas-col-tejeria-veracruz-tejeria-veracruz-29708354": {
+            "data": {
+                "precio": "MXN 665,000",
+                "precio_valor": 665000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "47 m² const. | 2 rec. | 1 baños",
+                "m2_totales": null,
+                "m2_construidos": 47.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 0,
+                "antiguedad": "1 año en Propiedades.com",
+                "direccion": "Calle Barandillas",
+                "ubicacion": "Tejería, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Calle Barandillas, Mzn. 1 Lt.1, Fracc. Privanzas, Carretera A 2 Lomas, Col. Tejería, Veracruz, Col. Tejería C.P. 91697, Veracruz",
+                "amenidades": "",
+                "lat": 20.441184,
+                "lng": -97.3269982
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479171",
+                "updated_at": "2026-07-29T20:32:35.479171"
+            }
+        },
+        "https://www.propiedades.com/inmuebles/departamento-en-venta-centro-600-veracruz-centro-veracruz-31553412": {
+            "data": {
+                "precio": "MXN 1,980,000",
+                "precio_valor": 1980000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "70 m² const. | 2 rec. | 2 baños | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": 70.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "22 días en Propiedades.com",
+                "direccion": "Centro #600",
+                "ubicacion": "Veracruz Centro, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Centro #600, Col. Veracruz Centro C.P. 91700, Veracruz",
+                "amenidades": "Alberca | Seguridad privada",
+                "lat": 19.189537,
+                "lng": -96.1394441
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479172",
+                "updated_at": "2026-07-29T20:32:35.479172"
+            }
+        },
+        "https://propiedades.com/inmuebles/departamento-en-venta-av-puerta-paraiso-sn-91775-veracruz-ver-banaterra-veracruz-29708270": {
+            "data": {
+                "precio": "MXN 1,265,000",
+                "precio_valor": 1265000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "65 m² const. | 2 rec. | 1 baños | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": 65.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 1,
+                "antiguedad": "1 año en Propiedades.com",
+                "direccion": "Av. Puerta Paraiso s/n",
+                "ubicacion": "Banaterra, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Av. Puerta Paraiso s/n, 91775 Veracruz, Ver., Col. Banaterra C.P. 91775, Veracruz",
+                "amenidades": "",
+                "lat": 19.1902778,
+                "lng": -96.1533333
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479173",
+                "updated_at": "2026-07-29T20:32:35.479173"
+            }
+        },
+        "https://propiedades.com/inmuebles/departamento-en-venta-carr-a-dos-lomas-buenavista-91697-ver-bruno-pagliai-veracruz-29709473": {
+            "data": {
+                "precio": "MXN 683,000",
+                "precio_valor": 683000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "47 m² const. | 2 rec. | 1 baños",
+                "m2_totales": null,
+                "m2_construidos": 47.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 0,
+                "antiguedad": "1 año en Propiedades.com",
+                "direccion": "Carr. a dos Lomas",
+                "ubicacion": "Bruno Pagliai, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Carr. a dos Lomas, Buenavista, 91697 Ver.\n, Col. Bruno Pagliai C.P. 91697, Veracruz",
+                "amenidades": "",
+                "lat": 19.1694408,
+                "lng": -96.2273383
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479174",
+                "updated_at": "2026-07-29T20:32:35.479174"
+            }
+        },
+        "https://propiedades.com/inmuebles/departamento-en-venta-valente-diaz-mata-cocuite-91697-las-bajadas-ver-libertad-veracruz-29708559": {
+            "data": {
+                "precio": "MXN 722,500",
+                "precio_valor": 722500.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "43 m² const. | 2 rec.",
+                "m2_totales": null,
+                "m2_construidos": 43.0,
+                "recamaras": 2,
+                "banos": 0,
+                "estacionamientos": 0,
+                "antiguedad": "1 año en Propiedades.com",
+                "direccion": "Valente Díaz - Mata Cocuite",
+                "ubicacion": "Libertad, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Valente Díaz - Mata Cocuite, 91697 Las Bajadas, Ver., Col. Libertad C.P. 91697, Veracruz",
+                "amenidades": "Alberca | Cisterna",
+                "lat": 19.1897483,
+                "lng": -96.1524232
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479175",
+                "updated_at": "2026-07-29T20:32:35.479175"
+            }
+        },
+        "https://propiedades.com/inmuebles/departamento-en-venta-valente-diaz-mata-cocuite-91697-las-bajadas-ver-libertad-veracruz-29708558": {
+            "data": {
+                "precio": "MXN 713,500",
+                "precio_valor": 713500.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "44 m² const. | 2 rec. | 1 baños | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": 44.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 1,
+                "antiguedad": "1 año en Propiedades.com",
+                "direccion": "Valente Díaz - Mata Cocuite",
+                "ubicacion": "Libertad, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Valente Díaz - Mata Cocuite, 91697 Las Bajadas, Ver., Col. Libertad C.P. 91697, Veracruz",
+                "amenidades": "Alberca | Cisterna",
+                "lat": 19.1897483,
+                "lng": -96.1524232
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479176",
+                "updated_at": "2026-07-29T20:32:35.479176"
+            }
+        },
+        "https://www.propiedades.com/inmuebles/departamento-en-venta-sin-nombre-de-calle-0-valle-alto-veracruz-29219448": {
+            "data": {
+                "precio": "MXN 815,000",
+                "precio_valor": 815000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "47 m² const. | 2 rec. | 1 baños | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": 47.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 1,
+                "antiguedad": "2 años en Propiedades.com",
+                "direccion": "Sin nombre de calle #0",
+                "ubicacion": "Valle Alto, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Sin nombre de calle #0, Col. Valle Alto C.P. 91697, Veracruz",
+                "amenidades": "Alberca | Seguridad privada",
+                "lat": 19.1430943,
+                "lng": -96.2166095
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479177",
+                "updated_at": "2026-07-29T20:32:35.479177"
+            }
+        },
+        "https://propiedades.com/inmuebles/departamento-en-venta-centro-600-veracruz-centro-veracruz-31549782": {
+            "data": {
+                "precio": "MXN 2,190,000",
+                "precio_valor": 2190000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "70 m² const. | 2 rec. | 2 baños | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": 70.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "23 días en Propiedades.com",
+                "direccion": "Centro #600",
+                "ubicacion": "Veracruz Centro, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Centro #600, Col. Veracruz Centro C.P. 91700, Veracruz",
+                "amenidades": "Seguridad privada | Aire acondicionado",
+                "lat": 19.189537,
+                "lng": -96.1394441
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479177",
+                "updated_at": "2026-07-29T20:32:35.479177"
+            }
+        },
+        "https://propiedades.com/inmuebles/departamento-en-venta-crystal-lagoons-crystal-lagoons-veracruz-91699-hacienda-paraiso-ver-dream-lagoons-veracruz-31591920": {
+            "data": {
+                "precio": "MXN 2,600,000",
+                "precio_valor": 2600000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "120 m² const. | 3 rec. | 2 baños",
+                "m2_totales": null,
+                "m2_construidos": 120.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 0,
+                "antiguedad": "A estrenar",
+                "direccion": "Crystal Lagoons",
+                "ubicacion": "Dream Lagoons, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Crystal Lagoons, Crystal Lagoons Veracruz, 91699 Hacienda Paraíso, Ver., Col. Dream Lagoons C.P. 91699, Veracruz",
+                "amenidades": "Alberca | Seguridad privada | Aire acondicionado | Cisterna | Terraza | Gimnasio | Elevador",
+                "lat": 19.1330042,
+                "lng": -96.1733106
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479178",
+                "updated_at": "2026-07-29T20:32:35.479178"
+            }
+        },
+        "https://propiedades.com/inmuebles/departamento-en-venta-av-puerta-paraiso-sn-91775-veracruz-ver-banaterra-veracruz-29708274": {
+            "data": {
+                "precio": "MXN 1,600,000",
+                "precio_valor": 1600000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "88 m² const. | 2 rec. | 1 baños | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": 88.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 1,
+                "antiguedad": "1 año en Propiedades.com",
+                "direccion": "Av. Puerta Paraiso s/n",
+                "ubicacion": "Banaterra, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Av. Puerta Paraiso s/n, 91775 Veracruz, Ver., Col. Banaterra C.P. 91775, Veracruz",
+                "amenidades": "",
+                "lat": 19.1902778,
+                "lng": -96.1533333
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479179",
+                "updated_at": "2026-07-29T20:32:35.479179"
+            }
+        },
+        "https://propiedades.com/inmuebles/departamento-en-venta-luz-nava-82-ignacio-zaragoza-veracruz-30561536": {
+            "data": {
+                "precio": "MXN 2,150,000",
+                "precio_valor": 2150000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "65 m² const. | 2 rec. | 2 baños",
+                "m2_totales": null,
+                "m2_construidos": 65.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 0,
+                "antiguedad": "8 meses en Propiedades.com",
+                "direccion": "luz nava #82",
+                "ubicacion": "Ignacio Zaragoza, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "luz nava #82, Col. Ignacio Zaragoza C.P. 91910, Veracruz",
+                "amenidades": "",
+                "lat": 19.175682,
+                "lng": -96.12821199999999
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479180",
+                "updated_at": "2026-07-29T20:32:35.479180"
+            }
+        },
+        "https://propiedades.com/inmuebles/departamento-en-venta-alacio-perez-veracruz-centro-veracruz-30418053": {
+            "data": {
+                "precio": "MXN 2,190,000",
+                "precio_valor": 2190000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "70 m² const. | 2 rec. | 2 baños",
+                "m2_totales": null,
+                "m2_construidos": 70.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 0,
+                "antiguedad": "10 meses en Propiedades.com",
+                "direccion": "Alació Pérez",
+                "ubicacion": "Veracruz Centro, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Alació Pérez, Col. Veracruz Centro C.P. 91700, Veracruz",
+                "amenidades": "",
+                "lat": 19.184118,
+                "lng": -96.13432
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479181",
+                "updated_at": "2026-07-29T20:32:35.479181"
+            }
+        },
+        "https://www.propiedades.com/inmuebles/departamento-en-venta-sin-nombre-de-calle-sn-buenavista-infonavit-veracruz-31358122": {
+            "data": {
+                "precio": "MXN 640,000",
+                "precio_valor": 640000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "57 m² const. | 2 rec. | 1 baños",
+                "m2_totales": null,
+                "m2_construidos": 57.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 0,
+                "antiguedad": "2 meses en Propiedades.com",
+                "direccion": "Sin nombre de calle #S/N",
+                "ubicacion": "Buenavista INFONAVIT, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Sin nombre de calle #S/N, Col. Buenavista INFONAVIT C.P. 91850, Veracruz",
+                "amenidades": "Aire acondicionado | Cisterna",
+                "lat": 19.200313,
+                "lng": -96.1712596
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479183",
+                "updated_at": "2026-07-29T20:32:35.479183"
+            }
+        },
+        "https://www.propiedades.com/inmuebles/departamento-en-venta-coyol-000-el-coyol-veracruz-29482207": {
+            "data": {
+                "precio": "MXN 1,500,000",
+                "precio_valor": 1500000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "90 m² const. | 3 rec. | 3 baños | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": 90.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 1,
+                "antiguedad": "1 año en Propiedades.com",
+                "direccion": "COYOL #000",
+                "ubicacion": "El Coyol, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "COYOL #000, Col. El Coyol C.P. 91760, Veracruz",
+                "amenidades": "Seguridad privada | Aire acondicionado | Cisterna",
+                "lat": 19.1690013,
+                "lng": -96.1560126
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479184",
+                "updated_at": "2026-07-29T20:32:35.479184"
+            }
+        },
+        "https://propiedades.com/inmuebles/departamento-en-venta-valente-diaz-dos-lomas-91-la-querencia-residencial-veracruz-30325387": {
+            "data": {
+                "precio": "MXN 713,500",
+                "precio_valor": 713500.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "45 m² const. | 2 rec. | 1 baños",
+                "m2_totales": null,
+                "m2_construidos": 45.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 0,
+                "antiguedad": "11 meses en Propiedades.com",
+                "direccion": "VALENTE DIAZ DOS LOMAS #91",
+                "ubicacion": "La Querencia Residencial, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "VALENTE DIAZ DOS LOMAS #91, Col. La Querencia Residencial C.P. 91697, Veracruz",
+                "amenidades": "",
+                "lat": 19.1488552,
+                "lng": -96.21497029999999
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479185",
+                "updated_at": "2026-07-29T20:32:35.479185"
+            }
+        },
+        "https://www.propiedades.com/inmuebles/departamento-en-venta-centro-000-veracruz-centro-veracruz-28327492": {
+            "data": {
+                "precio": "MXN 895,000",
+                "precio_valor": 895000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "85 m² const. | 3 rec. | 1 baños | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": 85.0,
+                "recamaras": 3,
+                "banos": 1,
+                "estacionamientos": 1,
+                "antiguedad": "2 años en Propiedades.com",
+                "direccion": "CENTRO #000",
+                "ubicacion": "Veracruz Centro, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "CENTRO #000, Col. Veracruz Centro C.P. 91700, Veracruz",
+                "amenidades": "Seguridad privada | Aire acondicionado | Cisterna",
+                "lat": 19.189537,
+                "lng": -96.1394441
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479187",
+                "updated_at": "2026-07-29T20:32:35.479187"
+            }
+        },
+        "https://www.propiedades.com/inmuebles/departamento-en-venta-sin-nombre-de-calle-sn-veracruz-centro-veracruz-31537926": {
+            "data": {
+                "precio": "MXN 1,920,000",
+                "precio_valor": 1920000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "78 m² const. | 2 rec. | 2 baños | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": 78.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "27 días en Propiedades.com",
+                "direccion": "Sin nombre de calle #S/N",
+                "ubicacion": "Veracruz Centro, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Sin nombre de calle #S/N, Col. Veracruz Centro C.P. 91700, Veracruz",
+                "amenidades": "Aire acondicionado",
+                "lat": 19.189537,
+                "lng": -96.1394441
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479188",
+                "updated_at": "2026-07-29T20:32:35.479188"
+            }
+        },
+        "https://propiedades.com/inmuebles/departamento-en-venta-atacama-395-oasis-veracruz-29446667": {
+            "data": {
+                "precio": "MXN 445,000",
+                "precio_valor": 445000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "54 m² const. | 2 rec. | 1 baños",
+                "m2_totales": null,
+                "m2_construidos": 54.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 0,
+                "antiguedad": "1 año en Propiedades.com",
+                "direccion": "Atacama #395",
+                "ubicacion": "Oasis, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Atacama #395, Col. Oasis C.P. 91808, Veracruz",
+                "amenidades": "",
+                "lat": 19.20111,
+                "lng": -96.218445
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479189",
+                "updated_at": "2026-07-29T20:32:35.479189"
+            }
+        },
+        "https://www.propiedades.com/inmuebles/departamento-en-venta-xana-1-xana-veracruz-26703007": {
+            "data": {
+                "precio": "MXN 1,400,000",
+                "precio_valor": 1400000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "90 m² const. | 2 rec. | 1 baños | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": 90.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 1,
+                "antiguedad": "3 años en Propiedades.com",
+                "direccion": "xana #1",
+                "ubicacion": "Xana, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "xana #1, Col. Xana C.P. 91726, Veracruz",
+                "amenidades": "Alberca | Seguridad privada | Aire acondicionado | Cisterna",
+                "lat": 19.1583382,
+                "lng": -96.1784342
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479190",
+                "updated_at": "2026-07-29T20:32:35.479190"
+            }
+        },
+        "https://propiedades.com/inmuebles/departamento-en-venta-abraham-cabanas-174-del-maestro-veracruz-31571564": {
+            "data": {
+                "precio": "MXN 2,450,000",
+                "precio_valor": 2450000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "350 m² const. | 12 rec. | 5 baños",
+                "m2_totales": null,
+                "m2_construidos": 350.0,
+                "recamaras": 12,
+                "banos": 5,
+                "estacionamientos": 0,
+                "antiguedad": "16 días en Propiedades.com",
+                "direccion": "Abraham Cabañas #174",
+                "ubicacion": "Del Maestro, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Abraham Cabañas #174, Col. Del Maestro C.P. 91920, Veracruz",
+                "amenidades": "",
+                "lat": 19.158426,
+                "lng": -96.13269
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479191",
+                "updated_at": "2026-07-29T20:32:35.479191"
+            }
+        },
+        "https://www.propiedades.com/inmuebles/departamento-en-venta-dos-lomas-1-dos-lomas-veracruz-30854603": {
+            "data": {
+                "precio": "MXN 888,000",
+                "precio_valor": 888000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "62 m² const. | 2 rec. | 1 baños | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": 62.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 1,
+                "antiguedad": "5 meses en Propiedades.com",
+                "direccion": "DOS LOMAS #1",
+                "ubicacion": "Dos Lomas, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "DOS LOMAS #1, Col. Dos Lomas C.P. 91697, Veracruz",
+                "amenidades": "Alberca | Seguridad privada",
+                "lat": 19.1462309,
+                "lng": -96.2389221
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479192",
+                "updated_at": "2026-07-29T20:32:35.479192"
+            }
+        },
+        "https://propiedades.com/inmuebles/departamento-en-venta-sendero-de-las-palmas-339-paseo-de-las-palmas-ii-veracruz-29846116": {
+            "data": {
+                "precio": "MXN 750,000",
+                "precio_valor": 750000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "47 m² const. | 2 rec. | 1 baños",
+                "m2_totales": null,
+                "m2_construidos": 47.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 0,
+                "antiguedad": "1 año en Propiedades.com",
+                "direccion": "SENDERO DE LAS PALMAS #339",
+                "ubicacion": "Paseo de las Palmas II, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "SENDERO DE LAS PALMAS #339, Col. Paseo de las Palmas II C.P. 91697, Veracruz",
+                "amenidades": "",
+                "lat": 19.1504032,
+                "lng": -96.2315354
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479193",
+                "updated_at": "2026-07-29T20:32:35.479193"
+            }
+        },
+        "https://propiedades.com/inmuebles/departamento-en-venta-victimas-de-5-y-6-de-junio-faros-veracruz-31571726": {
+            "data": {
+                "precio": "MXN 1,300,000",
+                "precio_valor": 1300000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "83 m² const. | 2 rec. | 2 baños",
+                "m2_totales": null,
+                "m2_construidos": 83.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 0,
+                "antiguedad": "16 días en Propiedades.com",
+                "direccion": "victimas de 5 y 6 de junio",
+                "ubicacion": "Faros, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "victimas de 5 y 6 de junio, Col. Faros C.P. 91709, Veracruz",
+                "amenidades": "",
+                "lat": 19.200506,
+                "lng": -96.13325
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479193",
+                "updated_at": "2026-07-29T20:32:35.479193"
+            }
+        },
+        "https://propiedades.com/inmuebles/departamento-en-venta-j-enriquez-95-ricardo-flores-magon-veracruz-31571880": {
+            "data": {
+                "precio": "MXN 1,350,000",
+                "precio_valor": 1350000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "85 m² const. | 2 rec. | 2 baños",
+                "m2_totales": null,
+                "m2_construidos": 85.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 0,
+                "antiguedad": "16 días en Propiedades.com",
+                "direccion": "J Enriquez #95",
+                "ubicacion": "Ricardo Flores Magón, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "J Enriquez #95, Col. Ricardo Flores Magón C.P. 91900, Veracruz",
+                "amenidades": "",
+                "lat": 19.184439,
+                "lng": -96.12715
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479194",
+                "updated_at": "2026-07-29T20:32:35.479194"
+            }
+        },
+        "https://propiedades.com/inmuebles/departamento-en-venta-gaviota-352-residencial-del-bosque-segunda-seccion-veracruz-30827264": {
+            "data": {
+                "precio": "MXN 750,000",
+                "precio_valor": 750000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "61 m² const. | 2 rec. | 1 baños",
+                "m2_totales": null,
+                "m2_construidos": 61.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 0,
+                "antiguedad": "6 meses en Propiedades.com",
+                "direccion": "GAVIOTA #352",
+                "ubicacion": "Residencial del Bosque Segunda Sección, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "GAVIOTA #352, Col. Residencial del Bosque Segunda Sección C.P. 91697, Veracruz",
+                "amenidades": "",
+                "lat": 19.1377107,
+                "lng": -96.22383789999999
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479195",
+                "updated_at": "2026-07-29T20:32:35.479195"
+            }
+        },
+        "https://propiedades.com/inmuebles/departamento-en-venta-dreams-000-dream-lagoons-veracruz-30980448": {
+            "data": {
+                "precio": "MXN 1,600,000",
+                "precio_valor": 1600000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "87 m² const. | 2 rec. | 1 baños | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": 87.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 1,
+                "antiguedad": "4 meses en Propiedades.com",
+                "direccion": "DREAMS #000",
+                "ubicacion": "Dream Lagoons, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "DREAMS #000, Col. Dream Lagoons C.P. 91699, Veracruz",
+                "amenidades": "Alberca | Seguridad privada | Aire acondicionado",
+                "lat": 19.133046,
+                "lng": -96.1743546
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479196",
+                "updated_at": "2026-07-29T20:32:35.479196"
+            }
+        },
+        "https://propiedades.com/inmuebles/departamento-en-venta-circuito-ceiba-168-hacienda-sotavento-veracruz-31088341": {
+            "data": {
+                "precio": "MXN 630,000",
+                "precio_valor": 630000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "46 m² const. | 2 rec. | 1 baños",
+                "m2_totales": null,
+                "m2_construidos": 46.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 0,
+                "antiguedad": "3 meses en Propiedades.com",
+                "direccion": "circuito ceiba #168",
+                "ubicacion": "Hacienda Sotavento, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "circuito ceiba #168, Col. Hacienda Sotavento C.P. 91698, Veracruz",
+                "amenidades": "",
+                "lat": 19.1236193,
+                "lng": -96.18077690000001
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479197",
+                "updated_at": "2026-07-29T20:32:35.479197"
+            }
+        },
+        "https://propiedades.com/inmuebles/departamento-en-venta-rio-guaya-697-lomas-de-rio-medio-cuatro-veracruz-31604630": {
+            "data": {
+                "precio": "MXN 610,000",
+                "precio_valor": 610000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "48 m² const. | 2 rec. | 1 baños",
+                "m2_totales": null,
+                "m2_construidos": 48.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 0,
+                "antiguedad": "A estrenar",
+                "direccion": "RIO GUAYA #697",
+                "ubicacion": "Lomas de Río Medio Cuatro, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "RIO GUAYA #697, Col. Lomas de Río Medio Cuatro C.P. 91808, Veracruz",
+                "amenidades": "",
+                "lat": 19.1873286,
+                "lng": -96.2138383
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479198",
+                "updated_at": "2026-07-29T20:32:35.479198"
+            }
+        },
+        "https://www.propiedades.com/inmuebles/departamento-en-venta-reforma-00-reforma-veracruz-30980357": {
+            "data": {
+                "precio": "MXN 2,150,000",
+                "precio_valor": 2150000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "73 m² const. | 2 rec. | 2 baños",
+                "m2_totales": null,
+                "m2_construidos": 73.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 0,
+                "antiguedad": "4 meses en Propiedades.com",
+                "direccion": "REFORMA #00",
+                "ubicacion": "Reforma, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "REFORMA #00, Col. Reforma C.P. 91919, Veracruz",
+                "amenidades": "Aire acondicionado | Cisterna",
+                "lat": 19.1707806,
+                "lng": -96.1248675
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479198",
+                "updated_at": "2026-07-29T20:32:35.479198"
+            }
+        },
+        "https://propiedades.com/inmuebles/departamento-en-venta-patricio-chirinos-esquina-popocatepetl-coyol-zona-d-veracruz-30816687": {
+            "data": {
+                "precio": "MXN 1,280,000",
+                "precio_valor": 1280000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "60 m² const. | 2 rec. | 1 baños",
+                "m2_totales": null,
+                "m2_construidos": 60.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 0,
+                "antiguedad": "6 meses en Propiedades.com",
+                "direccion": "Patricio Chirinos",
+                "ubicacion": "Coyol Zona D, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Patricio Chirinos, esquina Popocatepetl, Col. Coyol Zona D C.P. 91779, Veracruz",
+                "amenidades": "",
+                "lat": 19.155643,
+                "lng": -96.15466
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479199",
+                "updated_at": "2026-07-29T20:32:35.479199"
+            }
+        },
+        "https://propiedades.com/inmuebles/departamento-en-venta-santa-teresa-110-hacienda-sotavento-veracruz-29271825": {
+            "data": {
+                "precio": "MXN 460,000",
+                "precio_valor": 460000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "40 m² const. | 2 rec. | 1 baños",
+                "m2_totales": null,
+                "m2_construidos": 40.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 0,
+                "antiguedad": "1 año en Propiedades.com",
+                "direccion": "SANTA TERESA #110",
+                "ubicacion": "Hacienda Sotavento, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "SANTA TERESA #110, Col. Hacienda Sotavento C.P. 91698, Veracruz",
+                "amenidades": "",
+                "lat": 19.1335969,
+                "lng": -96.1738053
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479200",
+                "updated_at": "2026-07-29T20:32:35.479200"
+            }
+        },
+        "https://www.propiedades.com/inmuebles/departamento-en-venta-flores-magon-00-ricardo-flores-magon-veracruz-30688846": {
+            "data": {
+                "precio": "MXN 3,590,000",
+                "precio_valor": 3590000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "112 m² const. | 3 rec. | 3 baños | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": 112.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 1,
+                "antiguedad": "7 meses en Propiedades.com",
+                "direccion": "FLORES MAGON #00",
+                "ubicacion": "Ricardo Flores Magón, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "FLORES MAGON #00, Col. Ricardo Flores Magón C.P. 91900, Veracruz",
+                "amenidades": "Seguridad privada | Aire acondicionado",
+                "lat": 19.1914151,
+                "lng": -96.1275175
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479201",
+                "updated_at": "2026-07-29T20:32:35.479201"
+            }
+        },
+        "https://propiedades.com/inmuebles/departamento-en-venta-circuito-toledo-359-valente-diaz-infonavit-veracruz-30703560": {
+            "data": {
+                "precio": "MXN 750,000",
+                "precio_valor": 750000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "60 m² const. | 2 rec. | 1 baños",
+                "m2_totales": null,
+                "m2_construidos": 60.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 0,
+                "antiguedad": "6 meses en Propiedades.com",
+                "direccion": "CIRCUITO TOLEDO #359",
+                "ubicacion": "Valente Díaz INFONAVIT, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "CIRCUITO TOLEDO #359, Col. Valente Díaz INFONAVIT C.P. 91917, Veracruz",
+                "amenidades": "",
+                "lat": 19.1719732,
+                "lng": -96.22166779999999
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479202",
+                "updated_at": "2026-07-29T20:32:35.479202"
+            }
+        },
+        "https://propiedades.com/inmuebles/departamento-en-venta-sanchez-tagle-1717-pocitos-y-rivera-veracruz-28723128": {
+            "data": {
+                "precio": "MXN 695,000",
+                "precio_valor": 695000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "59 m² const. | 2 rec. | 1 baños",
+                "m2_totales": null,
+                "m2_construidos": 59.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 0,
+                "antiguedad": "2 años en Propiedades.com",
+                "direccion": "Sánchez Tagle #1717",
+                "ubicacion": "Pocitos y Rivera, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Sánchez Tagle #1717, Col. Pocitos y Rivera C.P. 91729, Veracruz",
+                "amenidades": "",
+                "lat": 19.177984,
+                "lng": -96.150856
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479202",
+                "updated_at": "2026-07-29T20:32:35.479202"
+            }
+        },
+        "https://propiedades.com/inmuebles/departamento-en-venta-valente-diaz-mata-cocuite-mata-coquite-veracruz-30159068": {
+            "data": {
+                "precio": "MXN 734,000",
+                "precio_valor": 734000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "45 m² const. | 2 rec. | 1 baños",
+                "m2_totales": null,
+                "m2_construidos": 45.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 0,
+                "antiguedad": "12 meses en Propiedades.com",
+                "direccion": "Valente Díaz - Mata Cocuite",
+                "ubicacion": "Mata Coquite, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "Valente Díaz - Mata Cocuite, Col. Mata Coquite C.P. 91697, Veracruz",
+                "amenidades": "",
+                "lat": 19.1409766,
+                "lng": -96.2164623
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479203",
+                "updated_at": "2026-07-29T20:32:35.479203"
+            }
+        },
+        "https://propiedades.com/inmuebles/departamento-en-venta-av-rio-san-isidro-208-lomas-de-rio-medio-cuatro-veracruz-29451013": {
+            "data": {
+                "precio": "MXN 429,000",
+                "precio_valor": 429000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "48 m² const. | 2 rec. | 1 baños",
+                "m2_totales": null,
+                "m2_construidos": 48.0,
+                "recamaras": 2,
+                "banos": 1,
+                "estacionamientos": 0,
+                "antiguedad": "1 año en Propiedades.com",
+                "direccion": "AV. RIO SAN ISIDRO #208",
+                "ubicacion": "Lomas de Río Medio Cuatro, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "AV. RIO SAN ISIDRO #208, Col. Lomas de Río Medio Cuatro C.P. 91808, Veracruz",
+                "amenidades": "",
+                "lat": 19.1867416,
+                "lng": -96.2066098
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479204",
+                "updated_at": "2026-07-29T20:32:35.479204"
+            }
+        },
+        "https://www.propiedades.com/inmuebles/departamento-en-venta-coyol-000-el-coyol-veracruz-29482206": {
+            "data": {
+                "precio": "MXN 1,250,000",
+                "precio_valor": 1250000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "70 m² const. | 2 rec. | 2 baños | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": 70.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "1 año en Propiedades.com",
+                "direccion": "coyol #000",
+                "ubicacion": "El Coyol, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "coyol #000, Col. El Coyol C.P. 91780, Veracruz",
+                "amenidades": "Seguridad privada | Aire acondicionado | Cisterna | Elevador",
+                "lat": 19.173127,
+                "lng": -96.1543556
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479206",
+                "updated_at": "2026-07-29T20:32:35.479206"
+            }
+        },
+        "https://www.propiedades.com/inmuebles/departamento-en-venta-jf-molina-esquina-matamoros-586-pinitos-veracruz-30249882": {
+            "data": {
+                "precio": "MXN 750,000",
+                "precio_valor": 750000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "85 m² const. | 3 rec. | 1 baños | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": 85.0,
+                "recamaras": 3,
+                "banos": 1,
+                "estacionamientos": 1,
+                "antiguedad": "11 meses en Propiedades.com",
+                "direccion": "J.F. Molina esquina Matamoros #586Int. 402 - 1",
+                "ubicacion": "Pinitos, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "J.F. Molina esquina Matamoros #586Int. 402 - 1 , Col. Pinitos C.P. 91840, Veracruz",
+                "amenidades": "Cisterna",
+                "lat": 19.2104935,
+                "lng": -96.1656244
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479207",
+                "updated_at": "2026-07-29T20:32:35.479207"
+            }
+        },
+        "https://www.propiedades.com/inmuebles/departamento-en-venta-reforma-000-reforma-veracruz-30939037": {
+            "data": {
+                "precio": "MXN 2,750,000",
+                "precio_valor": 2750000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "108 m² const. | 3 rec. | 2 baños | 1 estac.",
+                "m2_totales": null,
+                "m2_construidos": 108.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "5 meses en Propiedades.com",
+                "direccion": "REFORMA #000",
+                "ubicacion": "Reforma, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "REFORMA #000, Col. Reforma C.P. 91919, Veracruz",
+                "amenidades": "Seguridad privada | Aire acondicionado | Cisterna",
+                "lat": 19.1707806,
+                "lng": -96.1248675
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479207",
+                "updated_at": "2026-07-29T20:32:35.479207"
+            }
+        },
+        "https://propiedades.com/inmuebles/departamento-en-venta-horacio-diaz-82-veracruz-centro-veracruz-30676867": {
+            "data": {
+                "precio": "MXN 1,980,000",
+                "precio_valor": 1980000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "70 m² const. | 2 rec. | 2 baños",
+                "m2_totales": null,
+                "m2_construidos": 70.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 0,
+                "antiguedad": "7 meses en Propiedades.com",
+                "direccion": "HORACIO DIAZ #82",
+                "ubicacion": "Veracruz Centro, Veracruz, Veracruz de Ignacio de la Llave",
+                "descripcion": "HORACIO DIAZ #82, Col. Veracruz Centro C.P. 91700, Veracruz",
+                "amenidades": "",
+                "lat": 19.1791641,
+                "lng": -96.1248778
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:35.479208",
+                "updated_at": "2026-07-29T20:32:35.479208"
+            }
+        }
+    }
+}

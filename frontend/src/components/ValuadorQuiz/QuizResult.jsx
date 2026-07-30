@@ -314,11 +314,10 @@ const QuizResult = ({ estimatedValue, contactInfo, quizAnswers, onReset, onCompl
       
       
       
-      // Probar diferentes URLs para el PDF
+      const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
       const pdfUrls = [
-        'https://api.remaxcin.com//reporte_pdf',
-        'https://api.remaxcin.com//reporte_pdf',
-        'https://api.remaxcin.com//reporte_pdf'
+        `${API_BASE_URL}/reporte_pdf`,
+        'http://localhost:8000/reporte_pdf'
       ];
       
       let response = null;

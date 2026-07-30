@@ -1,0 +1,740 @@
+{
+    "project": "Inmuebles24 Scraper DB",
+    "version": "1.1",
+    "metadata": {
+        "created_at": "2026-07-29T20:32:39.036831",
+        "last_update": "2026-07-29T20:32:47.123838",
+        "total_records": 27
+    },
+    "listings": {
+        "https://www.vivanuncios.com.mx/a-venta-departamento/playas-del-conchal/departamento-en-venta-torre-maree-el-ancla-residencial/150032336": {
+            "data": {
+                "precio": "MXN 4,300,000",
+                "precio_valor": 4300000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "143.0 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 143.0,
+                "m2_construidos": 143.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "A estrenar",
+                "direccion": "Playas del Conchal, Alvarado, Veracruz",
+                "ubicacion": "Veracruz, Alvarado, Playas del Conchal",
+                "descripcion": "Superficie desde 143 m2 3 Recamaras Terraza privada Frente al mar Acceso directo a la playa Elevador Vigilancia las 24 hrs CARACTERÍSTICAS: Estacionamiento techado para 2 autos Espacio Sala-Comedor con terraza 1/2 Baño para visitas Cocina integral con barra de granito Cuarto de servicio 3 Recamaras con closet y baño completo AMENIDADES: Roof Garden Portón eléctrico Elevador Iluminación led Ducteria para aire acondicionado y gas Gimnasio Salón de juegos Alberca Vigilancia las 24 hrs Acceso a la playa",
+                "amenidades": "Alberca | Seguridad privada | Aire acondicionado | Terraza",
+                "lat": 19.0772862,
+                "lng": -96.087779,
+                "tipo_propiedad": "Departamento",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:47.123489",
+                "updated_at": "2026-07-29T20:32:47.123489"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-departamento/el-estero/departamento-amueblado-en-renta/150091273": {
+            "data": {
+                "precio": "MXN 11,600,000",
+                "precio_valor": 11600000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "356.0 m² lote | 3 rec. | 4 banos | 0 estac.",
+                "m2_totales": 356.0,
+                "m2_construidos": 356.0,
+                "recamaras": 3,
+                "banos": 4,
+                "estacionamientos": 0,
+                "antiguedad": "15",
+                "direccion": "El Estero, Boca del Río, Veracruz",
+                "ubicacion": "Veracruz, Boca del Río, El Estero",
+                "descripcion": "Departamento en Renta y/ó Venta Torre Marina Tajín Barbara !Vista al río y al mar de 2 niveles de 356 m2 AMUEBLADO! $11,600,000 precio en VENTA +Gastos de escrituración $45,000.00 precio en RENTA Renta mensual con mantenimiento *Póliza jurídica* -Planta baja Amplia sala Terraza Comedor Antecomedor o desayunador Cocina integral con estufa, campana, alacena, isla y barra desayunador Cuarto de lavado Cuarto de servicio con baño completo Medio baño de visitas -Planta alta Vestíbulo con acceso independiente a elevador Clóset de séptico Clóset de blancos 1 Habitación principal con vestidor y baño completo 1 Habitación secundaria amplia con balcón, vestidos y baño completo 1 Habitación secundaria con baño completo 3 Cajones de estacionamiento techados Vigilancia 24 horas con lobby en recepción 2 ",
+                "amenidades": "Alberca | Seguridad privada | Aire acondicionado | Terraza | Jardin",
+                "lat": 19.0930048377,
+                "lng": -96.0986675497,
+                "tipo_propiedad": "Departamento",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:47.123580",
+                "updated_at": "2026-07-29T20:32:47.123580"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-departamento/costa-verde/departamento-en-venta-azure-residencial-boca-del-rio/149145074": {
+            "data": {
+                "precio": "MXN 4,290,000",
+                "precio_valor": 4290000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "90.0 m² lote | 2 rec. | 2 banos | 2 estac.",
+                "m2_totales": 90.0,
+                "m2_construidos": 90.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "A estrenar",
+                "direccion": "Costa Verde, Boca del Río, Veracruz",
+                "ubicacion": "Veracruz, Boca del Río, Costa Verde",
+                "descripcion": "Superficie 90 m2 2 Recamaras Vista al mar Amenidades Sobre Blvd. Manuel Avila Camacho Cerca de supermercados como Costco, Soriana y Walmart CARACTERÍSTICAS: 2 Estacionamientos Espacio Sala-Comedor Cocina integral 2 Recamaras (la principal con vestidor) 2 Baños Cuarto de lavado AMENIDADES: Alberca Bar Asoleadero y terraza Gimnasio Jacuzzi Roof top Coworking Salón social privado",
+                "amenidades": "Alberca | Seguridad privada | Terraza",
+                "lat": 19.1600196,
+                "lng": -96.1012542,
+                "tipo_propiedad": "Departamento",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:47.123598",
+                "updated_at": "2026-07-29T20:32:47.123598"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-departamento/playa-de-oro-mocambo/departamento-en-venta-boca-del-rio-veracruz-playa-de-oro-mocambo-condominio-playa-dorada/150292392": {
+            "data": {
+                "precio": "MXN 3,500,000",
+                "precio_valor": 3500000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "120.0 m² lote | 2 rec. | 2 banos | 1 estac.",
+                "m2_totales": 120.0,
+                "m2_construidos": 120.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "28",
+                "direccion": "Playa de Oro Mocambo, Boca del Río, Veracruz",
+                "ubicacion": "Veracruz, Boca del Río, Playa de Oro Mocambo",
+                "descripcion": "Departamento a la Venta en una excelente ubicación de Boca del Río, Veracruz a los pies de las famosas playas de Mocambo. Condominio Playa Dorada compuesta por 2 torres de departamentos con acceso controlado 24 horas, amenidades Premium como: - jardín - Palapa - alberca y chapoteadero - Palapa bar - baños - regadera exterior - acceso a playa - elevador El Departamento cuenta con 120m2 habitables, 2 cajones de estacionamiento, se encuentra ubicado en el piso 6, cuenta con escalera y elevador. Como dicen lo clásico nunca pasa de moda y menos aún con vista al mar, pero no solo tenemos vista al mar ¡tenemos acceso al mar del bello puerto de Veracruz ! Cuenta con Sala comedor Clóset de blancos Cuarto de lavado Cocina integral con barra Baño Terraza Recámara 1 con clóset y terraza cerrada con op",
+                "amenidades": "Alberca | Seguridad privada | Aire acondicionado | Cisterna | Terraza | Jardin",
+                "lat": 19.1294496824,
+                "lng": -96.105722081,
+                "tipo_propiedad": "Departamento",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:47.123611",
+                "updated_at": "2026-07-29T20:32:47.123611"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-departamento/costa-verde/departamento-en-venta-veracruz-amueblado-con-vista-panoramica-fracc-costa-verde/150247015": {
+            "data": {
+                "precio": "MXN 2,595,000",
+                "precio_valor": 2595000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "107.0 m² lote | 2 rec. | 2 banos | 1 estac.",
+                "m2_totales": 107.0,
+                "m2_construidos": 107.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "11",
+                "direccion": "Costa Verde, Boca del Río, Veracruz",
+                "ubicacion": "Veracruz, Boca del Río, Costa Verde",
+                "descripcion": "Departamento en venta amueblado con vista panoramica sobre avenida Ruiz Cortines, Boca del Río, Veracruz Precio amueblado $2,695,000 Precio sin muebles: $2,595,000 107 m2 habitables con cajon de estacionamiento techado Mantenimiento $900 mensuales * A dos cuadras del boulevard Avila Camacho Tercer nivel * Sala comedor con balcón * Cocina integral * Cuarto de Lavado * Pasillo con labavo * Amplia recámara con vista panoramica y doble clóset * Baño completo compartido * Recámara principal con baño completo y closet Equipamiento * Climas * Totalmente amueblado * Calentador * Persianas * Tanque estacionario * Portón eléctrico compartido * Cisterna compartida Precio sujeto a cambio sin previo aviso El precio no incluye gastos notariales Ver datos",
+                "amenidades": "Seguridad privada | Cisterna",
+                "lat": 19.1670830608,
+                "lng": -96.1154511635,
+                "tipo_propiedad": "Departamento",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:47.123622",
+                "updated_at": "2026-07-29T20:32:47.123622"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-departamento/fraccionamiento-costa-de-oro/departamento-nuevo-en-venta-costa-de-oro/149991673": {
+            "data": {
+                "precio": "MXN 6,000,000",
+                "precio_valor": 6000000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "166.0 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 166.0,
+                "m2_construidos": 166.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "A estrenar",
+                "direccion": "Fraccionamiento Costa de Oro, Boca del Río, Veracruz",
+                "ubicacion": "Veracruz, Boca del Río, Fraccionamiento Costa de Oro",
+                "descripcion": "Departamento Nuevo en Venta Torre Ankor Costa de Oro, Boca de Río $6,000,000 +Gastos de escrituración 166 m2 Recibidor Sala Comedor ambos con vista al mar Cocina integral con barra de granito, parrilla, campana, tarja, torre para hornos y barra desayunador Medio baño de visitas 1 Habitación principal con baño completo y vestidor Área de TV Cuarto de lavado 1 Habitación secundaria con baño completo, clóset y balcón Roof Garden Alberca Salón social Gimnasio Terraza Recepción con vigilancia",
+                "amenidades": "Alberca | Seguridad privada | Aire acondicionado | Terraza",
+                "lat": 19.1608208525,
+                "lng": -96.1031621915,
+                "tipo_propiedad": "Departamento",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:47.123632",
+                "updated_at": "2026-07-29T20:32:47.123632"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-departamento/revolucion/departamento-en-venta-torre-residencial-francisco-villa-boca-del-rio/150094501": {
+            "data": {
+                "precio": "MXN 2,500,000",
+                "precio_valor": 2500000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "116.0 m² lote | 2 rec. | 2 banos | 2 estac.",
+                "m2_totales": 116.0,
+                "m2_construidos": 116.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "1",
+                "direccion": "Revolución, Boca del Río, Veracruz",
+                "ubicacion": "Veracruz, Boca del Río, Revolución",
+                "descripcion": "Superficie 116 m2 Con Paneles Solares A solo dos cuadras de Calzada Lázaro Cárdenas A 3 minutos de plaza Urban Center CARACTERÍSTICAS: Cochera para 2 autos Bodega en azotea Espacio Sal-comedor 1/2 Baño Cocina con barra Cuarto de lavado Recamara principal con vestidor y baño completo Recamara secundaria con closet y baño completo AMENIDADES: Roof garden Área social Paneles solares",
+                "amenidades": "Seguridad privada | Terraza",
+                "lat": 19.1458054,
+                "lng": -96.1204386,
+                "tipo_propiedad": "Departamento",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:47.123643",
+                "updated_at": "2026-07-29T20:32:47.123643"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-departamento/fraccionamiento-costa-de-oro/departamento-en-preventa-torre-solandri-costa-de-oro/147714521": {
+            "data": {
+                "precio": "MXN 4,750,000",
+                "precio_valor": 4750000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "152.0 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 152.0,
+                "m2_construidos": 152.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "A estrenar",
+                "direccion": "Fraccionamiento Costa de Oro, Boca del Río, Veracruz",
+                "ubicacion": "Veracruz, Boca del Río, Fraccionamiento Costa de Oro",
+                "descripcion": "Desde $4’750,000 hasta $4’990,000 Superficie desde 152 m2 3 Niveles con 1 Departamento por planta Prototipos de 2 y 3 Recámaras 2 CAJONES DE ESTACIONAMIENTO POR DEPARTAMENTO Torre con amenidades y doble filtro de seguridad A unos pasos de la playa Cerca de hospitales, escuelas, bancos y restaurantes Fácil movilidad vehicular CARACTERÍSTICAS: 2 Cajones de estacionamiento Espacio Sala-Comedor 1/2 Baño de visitas Cocina integral Cuarto de lavado Recamara principal con vestidor y baño completo Recamara secundaria con baño Patio trasero AMENIDADES: Rood Garden Barra e isla exterior Sala exterior Azotea de servicio Doble acceso controlado Montacargas Baños Jacuzzi",
+                "amenidades": "Seguridad privada | Terraza",
+                "lat": 19.1552468,
+                "lng": -96.10234679999999,
+                "tipo_propiedad": "Departamento",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:47.123654",
+                "updated_at": "2026-07-29T20:32:47.123654"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-departamento/fraccionamiento-costa-de-oro/departamento-venta-costa-de-oro-boca-del-rio-veracruz/150627521": {
+            "data": {
+                "precio": "MXN 4,630,000",
+                "precio_valor": 4630000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "154.0 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 154.0,
+                "m2_construidos": 154.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "A estrenar",
+                "direccion": "Fraccionamiento Costa de Oro, Boca del Río, Veracruz",
+                "ubicacion": "Veracruz, Boca del Río, Fraccionamiento Costa de Oro",
+                "descripcion": "¡DEPARTAMENTO DE LUJO NUEVO EN FRACC. COSTA DE ORO! A solo 2 cuadras del Blvd. Manuel Ávila Camacho y a unos pasos de la Zona Hotelera, WTC, Andamar y Plaza Américas. ¡Cerca de todo! Exclusividad total: Solo 4 departamentos nuevos con acabados residenciales de primera categoría. Dimensiones & Espacios Extra 154 m² habitables con diseño en concepto abierto e iluminación natural. 12 m² de balcón/terraza privada. 2 cajones de estacionamiento. Bodega privada. ️ Distribución Interior ️ Cocina Integral de Ensueño: Equipada con isla de granito, horno, microondas, parrilla y campana de la prestigiosa marca TEKA. ️ Recámara Principal: Con vestidor amplio y baño completo. ️ Recámara 2: Con vestidor y baño completo. ️ Recámara 3: Con clóset y baño completo. ️ Amenidades Exclusivas Alberca para relaja",
+                "amenidades": "Alberca | Seguridad privada | Terraza",
+                "lat": 19.1591947,
+                "lng": -96.1024407,
+                "tipo_propiedad": "Departamento",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:47.123663",
+                "updated_at": "2026-07-29T20:32:47.123663"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-departamento/torres-el-sendero-residencial/departamento-amueblado-en-venta-sendero-cerca-de-plaza-el-dorado/148186494": {
+            "data": {
+                "precio": "MXN 4,000,000",
+                "precio_valor": 4000000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "150.0 m² lote | 2 rec. | 2 banos | 2 estac.",
+                "m2_totales": 150.0,
+                "m2_construidos": 160.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "5",
+                "direccion": "Torres el Sendero Residencial, Alvarado, Veracruz",
+                "ubicacion": "Veracruz, Alvarado, Torres el Sendero Residencial",
+                "descripcion": "HERMOSO DEPARTAMENTO AMUEBLADO CONSTA DE 160 M2 +2 HABITACIONES (PRINCIPAL CON VESTIDOR AMPLIO Y JACUZZI), SECUNDARIA CON CLOSET +MEDIO BAÑO DE VISITA +COCINA INTEGRAL EQUIPADA CON BARRA E ISLA +AREA DE LAVADO +ESTANCIA SALA/COMEDOR AMPLIO +TERRAZA FRONTAL CON VISTA AL MAR +2 CAJONES DE ESTACIONAMIENTO (TECHADO) PRECIO DE VENTA $4,000,0000 UBICACION- RESIDENCIAL EL SENDERO, CERCA DE PLAZA EL DORADO INFORMES AL Ver datos -24 LIC. TANIA SAAVEDRA",
+                "amenidades": "Alberca | Seguridad privada | Aire acondicionado | Terraza",
+                "lat": 19.0688126,
+                "lng": -96.0818062,
+                "tipo_propiedad": "Departamento",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:47.123673",
+                "updated_at": "2026-07-29T20:32:47.123673"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-departamento/unidad-habitacional-san-buenaventura/vive-el-lujo-en-este-penthouse-ensueno/147820035": {
+            "data": {
+                "precio": "MXN 12,500,000",
+                "precio_valor": 12500000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "360.0 m² lote | 3 rec. | 2 banos | 2 estac.",
+                "m2_totales": 360.0,
+                "m2_construidos": 360.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "Unidad habitacional San Buenaventura, Río Blanco, Veracruz",
+                "ubicacion": "Veracruz, Río Blanco, Unidad habitacional San Buenaventura",
+                "descripcion": "Estilo y comodidad en amplios espacios, con ubicación privilegiada. Fraccionamiento Playas del Conchal, está desarrollado entre dos campos de golf y rodeado de centros comerciales. Distribuido en 3 niveles, encontrarás cocina con barr, bar, estancia, estudio. Recámara principal con doble vestidor, spa, baño completo y terraza, 2 recámaras secundarias una de ellas con baño completo y terraza. Cuarto de servicio, área de lavado y 2 lugares de estacionamiento. Exclusivas amenities: alberca con jacuzzi y acceso privado a la playa. Aviso de privacidad, así como quejas, sugerencias y más, consulta nuestro sitio oficial o contáctanos para más detalle. No incluye el mobiliario mostrado en las fotografías. El precio es más gastos e impuestos de escrituración. El pago podrá realizarse con recursos p",
+                "amenidades": "Alberca | Seguridad privada | Terraza",
+                "lat": 19.08875,
+                "lng": -96.104843,
+                "tipo_propiedad": "Departamento",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:47.123682",
+                "updated_at": "2026-07-29T20:32:47.123682"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-departamento/playa-hermosa/pent-house-torre-veramar/149972081": {
+            "data": {
+                "precio": "MXN 9,500,000",
+                "precio_valor": 9500000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "313.0 m² lote | 3 rec. | 4 banos | 2 estac.",
+                "m2_totales": 313.0,
+                "m2_construidos": 313.0,
+                "recamaras": 3,
+                "banos": 4,
+                "estacionamientos": 2,
+                "antiguedad": "10",
+                "direccion": "Playa Hermosa, Boca del Río, Veracruz",
+                "ubicacion": "Veracruz, Boca del Río, Playa Hermosa",
+                "descripcion": "Pent House en Venta Torre Veramar Boca del Rio $9,500,000 + Gastos de escrituración 313 m2 habitables Elevador directo a departamento Acceso a escaleras Recibidor Sala Comedor con fan an coill Área de bar con barra con enfriador de vinos y centro de lavado Cocina con estufa campana enfriador y refrigerador Cuarto de servicio con baño completo Área de lavado Medio baño visitas Clóset de blancos con luz Habitación secundaria con baño completo Habitación secundaria con vestidor y baño completo y espejos con luz indirecta Área de TV con mueble para pantalla climatizado Habitación principal con vestidor y baño completo con terraza vestidor climatizado Alberca con calefacción Palapa Gimnasio con baños Área para fiestas con cocina",
+                "amenidades": "Alberca | Seguridad privada | Aire acondicionado | Terraza | Jardin",
+                "lat": 19.1241901614,
+                "lng": -96.1057658005,
+                "tipo_propiedad": "Departamento",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:47.123691",
+                "updated_at": "2026-07-29T20:32:47.123691"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-departamento/fraccionamiento-joyas-de-mocambo-granjas-los-pinos/departamento-en-venta-torre-diamante-boca-del-rio/146893922": {
+            "data": {
+                "precio": "MXN 2,100,000",
+                "precio_valor": 2100000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "65.0 m² lote | 2 rec. | 2 banos | 1 estac.",
+                "m2_totales": 65.0,
+                "m2_construidos": 65.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "A estrenar",
+                "direccion": "Fraccionamiento Joyas de Mocambo (Granjas los Pinos), Boca del Río, Veracruz",
+                "ubicacion": "Veracruz, Boca del Río, Fraccionamiento Joyas de Mocambo (Granjas los Pinos)",
+                "descripcion": "Superficie 65 m2 2 Recamaras Climatizado Equipado Roof Garden Cerca de plaza Américas y Andamar A 10 minutos de la playa Nueva etapa entrega Verano 2027 CARACTERÍSTICAS: Estacionamiento para 1 auto Espacio Sala-Comedor Cocina integral equipada Área de lavado 2 Recamaras 2 Baños AMENIDADES: Elevador Barra de asador Parque de mascotas Roof Garden Caseta de vigilancia Sistema Lock Off EQUIPAMIENTO: Estufa Campana Lambrin de madera Azulejo en cocina Closets cerrados Canceles de baño 3 aires acondicionados Calentador Plafón de techo en sala y cocina",
+                "amenidades": "Seguridad privada | Terraza",
+                "lat": 19.1436891,
+                "lng": -96.1130873,
+                "tipo_propiedad": "Departamento",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:47.123700",
+                "updated_at": "2026-07-29T20:32:47.123700"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-departamento/fraccionamiento-costa-de-oro/departamento-en-venta-torre-solandri-costa-de-oro/149972133": {
+            "data": {
+                "precio": "MXN 4,750,000",
+                "precio_valor": 4750000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "158.0 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 158.0,
+                "m2_construidos": 158.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "A estrenar",
+                "direccion": "Fraccionamiento Costa de Oro, Boca del Río, Veracruz",
+                "ubicacion": "Veracruz, Boca del Río, Fraccionamiento Costa de Oro",
+                "descripcion": "SolandriCosta de Oro, Veracruz Departamento residencial en el corazón de Costa de Oro, con una ubicación estratégica que permite tener al alcance playas, restaurantes, hospitales, universidades y centros comerciales como Andamar, Las Américas y Mocambo. Características generales •\t1 Departamento por planta •\t2 cajones de estacionamiento por departamento •\tDoble acceso controlado •\tRoof garden con jacuzzi, barra, área social y servicios • Elevador Departamento Planta baja – 101 2 Habitaciones •\t166.32 m² totales (131.07 m² interior + 35.25 m² exterior) •\t1 Habitación principal con vestidor y baño •\t1 Habitación junior con baño •\tSala de estar •\tComedor •\tCocina integral •\tCuarto de lavado •\tBaño de visitas •\tPatio trasero Departamento Plantas tipo 1N, 2N y 3N (3 recámaras) •\t151.68 m² total",
+                "amenidades": "Seguridad privada | Aire acondicionado",
+                "lat": 19.1594567,
+                "lng": -96.1026464,
+                "tipo_propiedad": "Departamento",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:47.123709",
+                "updated_at": "2026-07-29T20:32:47.123709"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-departamento/fraccionamiento-costa-de-oro/departamento-con-vista-al-mar-torre-amurac-costa-de-oro/147079800": {
+            "data": {
+                "precio": "MXN 15,500,000",
+                "precio_valor": 15500000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "250.0 m² lote | 2 rec. | 2 banos | 2 estac.",
+                "m2_totales": 250.0,
+                "m2_construidos": 245.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "5",
+                "direccion": "Fraccionamiento Costa de Oro, Boca del Río, Veracruz",
+                "ubicacion": "Veracruz, Boca del Río, Fraccionamiento Costa de Oro",
+                "descripcion": "HERMOSO DEPARTAMENTO CON ESPECTACULAR VISTA AL MAR CONSTA DE 250 M2 +TERRAZA CON ESPECTACULAR VISTA +ELEVADOR DIRECTO AL DEPARTAMENTO +2 HABITACIONES CON BAÑO Y VESTIDOR CADA UNA +MEDIO BAÑO PARA VISITAS +SALA/COMEDOR CON VISTA +COCINA INTEGRAL CN BARRA/ESTUFA DE INDUCCION Y CAMPANA +CUARTO DE LAVADO +ENTRADA PARA SERVICIO INDEPENDIENTE +ESTACIONAMIENTO PARA 2 AUTOS AMENIDADES +TERRAZAS Y JARDINES +ALBERCA PRINCIPAL CON ASOLEADERO +ALBERCA EN TERRAZA CON ACCESO A LA PLAYA +GIMNASIO +CENTRO DE NEGOCIOS +SALA DE JUNTAS +SPA +LUDOTEA +SALON DE EVENTOS +VALET PARKING PRECIO DE VENTA $15,500,000 UBICACION- TORRE AMURA, COSTA DE ORO INFORMES AL Ver datos -24 LIC. TANIA SAAVEDRA",
+                "amenidades": "Alberca | Seguridad privada | Terraza | Jardin",
+                "lat": 19.1531756,
+                "lng": -96.09482679999999,
+                "tipo_propiedad": "Departamento",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:47.123718",
+                "updated_at": "2026-07-29T20:32:47.123718"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-departamento/fraccionamiento-costa-de-oro/departamento-en-venta-torre-vela-boca-del-rio/148682799": {
+            "data": {
+                "precio": "MXN 10,500,000",
+                "precio_valor": 10500000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "290.0 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 290.0,
+                "m2_construidos": 290.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "12",
+                "direccion": "Fraccionamiento Costa de Oro, Boca del Río, Veracruz",
+                "ubicacion": "Veracruz, Boca del Río, Fraccionamiento Costa de Oro",
+                "descripcion": "Superficie 290 m2 3 Recamaras con baño Vista al mar Sobre la playa con acceso directo 2 Albercas Seguridad las 24 hrs CARACTERÍSTICAS: Estacionamiento para 2 autos Bodega Espacio Sala-Comedor con vista al mar Cocina integral Estancia de tv 3 Recamaras con baño y vestidor Cuarto de servicio/oficina Área de lavado AMENIDADES: 2 Albercas Gym Salón de eventos Lobby recepción 24 hrs Vigilancia 24 hrs 2 Elevadores",
+                "amenidades": "Alberca | Seguridad privada | Terraza",
+                "lat": 19.1535555,
+                "lng": -96.0993993,
+                "tipo_propiedad": "Departamento",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:47.123726",
+                "updated_at": "2026-07-29T20:32:47.123726"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-departamento/congregacion-isla-del-amor/departamento-en-venta-en-veracruz-en-la-riviera-veracruzana/150252740": {
+            "data": {
+                "precio": "MXN 8,072,033",
+                "precio_valor": 8072033.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "148.0 m² lote | 2 rec. | 4 banos | 2 estac.",
+                "m2_totales": 148.0,
+                "m2_construidos": 148.0,
+                "recamaras": 2,
+                "banos": 4,
+                "estacionamientos": 2,
+                "antiguedad": "1",
+                "direccion": "Congregacion Isla Del Amor, Alvarado, Veracruz",
+                "ubicacion": "Veracruz, Alvarado, Congregacion Isla Del Amor",
+                "descripcion": "Departamento en venta con vista al mar y más de 10 amenidades en Torre Ximara, Riviera Veracruzana Precio: $8,072,033 Habitables: 148.89 m2 Terraza: 55.88 m2 Estacionamiento: 28 m2 (2 autos en línea) Distribución -Sala -Comedor -Cocina -Family Room (Opción de acondicionarse como 3era habitación) -Baño completo -Terraza -Recamara principal con vestidor, baño y terraza. -Recamara secundaria con closet y baño -Cuarto de lavado -Cuarto de servicio con baño completo. Amenidades -Lobby -Estacionamiento para visitas -Sala de choferes -Elevador -Sala de juntas -Sala de cine -Sala de videojuegos con consolas -Sala de juegos -Ludoteca -Gym -Bar -Salon de eventos con área de cocina independiente -Amplia zona de Albercas -Zona de asadores en área de albercas -Acceso a la playa. Precio sujeto a cambio ",
+                "amenidades": "Alberca | Seguridad privada | Terraza",
+                "lat": 19.0729411,
+                "lng": -96.0872997,
+                "tipo_propiedad": "Departamento",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:47.123735",
+                "updated_at": "2026-07-29T20:32:47.123735"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-departamento/costa-verde/departamento-en-venta-costa-verde-cerca-de-plazas-comerciales/148863879": {
+            "data": {
+                "precio": "MXN 2,650,000",
+                "precio_valor": 2650000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "76.0 m² lote | 2 rec. | 2 banos | 1 estac.",
+                "m2_totales": 76.0,
+                "m2_construidos": 77.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "A estrenar",
+                "direccion": "Costa Verde, Boca del Río, Veracruz",
+                "ubicacion": "Veracruz, Boca del Río, Costa Verde",
+                "descripcion": "BONITO DEPARTAMENTO IDEAL INVERSION CUENTA CON 77 M2 HABITABLES +2 HABITACIONES +2 BAÑOS COMPLETOS SALA/COMEDOR +COCINA CON BARRA DE GRANITO +AREA DE LAVADO +ESTACIONAMIENTO (NO TECHADO) PARA 1 AUTO PRECIO DE VENTA 2 PISO (ESCALERAS) $2,650,000 PRECIO DE VENTA 4 PISO (ESCALERAS) $2,550,000 AREA COMUN- ROOG GARDEN CON ALBERCA UBICACION- CALLE REYES HEROLES, A MEDIA CUADRA DEL BULEVAR, CERCA DE PLAZAS COMERCIALES INFORMES AL Ver datos -24 LIC. TANIA SAAVEDRA",
+                "amenidades": "Alberca | Seguridad privada",
+                "lat": 19.1638742,
+                "lng": -96.1086673,
+                "tipo_propiedad": "Departamento",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:47.123744",
+                "updated_at": "2026-07-29T20:32:47.123744"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-departamento/boca-del-rio/departamento-amueblado-en-venta-levant-boca-del-rio/149980261": {
+            "data": {
+                "precio": "MXN 8,600,000",
+                "precio_valor": 8600000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "182.0 m² lote | 3 rec. | 3 banos | 3 estac.",
+                "m2_totales": 182.0,
+                "m2_construidos": 182.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 3,
+                "antiguedad": "10",
+                "direccion": "Boca del Río, Veracruz",
+                "ubicacion": "Veracruz, Boca del Río",
+                "descripcion": "Departamento Amueblado en Venta Torre Levant Boca del Río, Ver. Exclusivo departamento ubicado en Torre Levant, en una de las zonas mas privilegiadas de Boca del Río. Su altura y orientación ofrecen vistas espectaculares al mar y a la ciudad, así como amaneceres inigualables y una agradable vista marina. $8,600,000.00 + Gastos de escrituración 182 m2 Amueblado Sala Comedor Cocina integral con barra de cuarzo, estufa, campana, horno, refrigerador y barra desayunador Medio baño de visitas Cuarto de lavado Cuarto de TV 1 Habitación principal con baño completo, vestidor y balcon 1 Habitación secundaria con closet y baño completo 1 Habitación secundaria con closet y baño completo 3 Cajones de estacionamiento 2 Bodegas Las amenidades de la Torre Levant son inigualables. Podrás relajarte en la al",
+                "amenidades": "Alberca | Seguridad privada | Aire acondicionado | Terraza",
+                "lat": 19.1261343859,
+                "lng": -96.1060580165,
+                "tipo_propiedad": "Departamento",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:47.123753",
+                "updated_at": "2026-07-29T20:32:47.123753"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-departamento/mocambo/departamento-con-vista-al-mar-cerca-de-bulevar-y-plazas-comerciales/149483138": {
+            "data": {
+                "precio": "MXN 5,200,000",
+                "precio_valor": 5200000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "135.0 m² lote | 2 rec. | 2 banos | 2 estac.",
+                "m2_totales": 135.0,
+                "m2_construidos": 136.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "15",
+                "direccion": "Mocambo, Boca del Río, Veracruz",
+                "ubicacion": "Veracruz, Boca del Río, Mocambo",
+                "descripcion": "HERMOSO DEPARTAMENTO CON VISTA AL MAR CONSTA DE 136 M2 +2 HABITACIONES (PRINCIPAL CON UN VESTIDOR AMPLIO) +2 BAÑOS COMPLETOS +COCINA INTEGRAL EQUIPADA +AREA SALA/COMEDOR +PEQUEÑA TERRAZA FRONTAL CON VISTA AL MAR +AREA DE LAVADO +CUARTO DE SERVICIO CON BAÑO +2 CAJONES DE ESTACIONAMIENTO LA TORRE CUENTA CON AMENIDADES +ALBERCA TECHADA +ALBERCA AL AIRE LIBRE CON ESPECTACULAR VISTA AL MAR +TERRAZA +2 SALONES DE USO MULTIPLE +LOBBY +2 ELEVADORES +SEGURIDAD 24/7 PRECIO DE VENTA $5,200,000 UBICACION- TORRE MOCAMBO 500, CERCA DE BULEVAR, PLAZAS COMERCIALES INFORMES AL Ver datos -24 LIC. TANIA SAAVEDRA",
+                "amenidades": "Alberca | Seguridad privada | Terraza",
+                "lat": 19.131620599999998,
+                "lng": -96.10534299999999,
+                "tipo_propiedad": "Departamento",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:47.123763",
+                "updated_at": "2026-07-29T20:32:47.123763"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-departamento/fraccionamiento-costa-de-oro/venta-de-departamento-en-fraccionamiento-costa-de-oro-con-vista-al-mar/150539995": {
+            "data": {
+                "precio": "MXN 4,000,000",
+                "precio_valor": 4000000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 2500.0,
+                "caracteristicas": "95.0 m² lote | 2 rec. | 2 banos | 1 estac.",
+                "m2_totales": 95.0,
+                "m2_construidos": 95.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "A estrenar",
+                "direccion": "Fraccionamiento Costa de Oro, Boca del Río, Veracruz",
+                "ubicacion": "Veracruz, Boca del Río, Fraccionamiento Costa de Oro",
+                "descripcion": "Departamento en venta en Torre Marlin con vista al mar Exclusivo departamento ubicado en Torre Marlin, en el Fracc. Costa de Oro. Inversión $4,000,000 MXN Construcción: 95 m² Distribución del departamento: Sala y comedor con vista al mar Cocina integral 2 recámaras 2 baños completos Área de lavado Terraza con vista al mar Cochera techada para 1 auto Amenidades: Alberca Roof Garden Salón de eventos Gimnasio Área social Elevador Vigilancia 24/7 Mantenimiento: $2,500 mensuales",
+                "amenidades": "Alberca | Seguridad privada | Aire acondicionado | Terraza",
+                "lat": 19.145732,
+                "lng": -96.100422,
+                "tipo_propiedad": "Departamento",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:47.123772",
+                "updated_at": "2026-07-29T20:32:47.123772"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-departamento/adalberto-tejeda/departamentos-en-venta-torre-asmara-boca-del-rio/150608349": {
+            "data": {
+                "precio": "MXN 1,750,000",
+                "precio_valor": 1750000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "65.0 m² lote | 1 rec. | 1 banos | 1 estac.",
+                "m2_totales": 65.0,
+                "m2_construidos": 65.0,
+                "recamaras": 1,
+                "banos": 1,
+                "estacionamientos": 1,
+                "antiguedad": "A estrenar",
+                "direccion": "Adalberto Tejeda, Boca del Río, Veracruz",
+                "ubicacion": "Veracruz, Boca del Río, Adalberto Tejeda",
+                "descripcion": "Superficie 65 m2 1 Recamara A 5 min de Plaza Americas y Andamar Fácil movilidad a toda la ciudad CARACTERÍSTICAS: Estacionamiento para 1 auto Espacio Sala-Comedor Cocina integral 1 Recamara 1 Baño completos Área de lavado techada EQUIPAMIENTO: Ducteria para aires acondicionados en todas las áreas Tanque estacionario Calentador de gas Rotoplas Cisterna con bomba Construcción con ladrillo térmico y acústico",
+                "amenidades": "Seguridad privada | Cisterna",
+                "lat": 19.1456604,
+                "lng": -96.1225328,
+                "tipo_propiedad": "Departamento",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:47.123781",
+                "updated_at": "2026-07-29T20:32:47.123781"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-departamento/revolucion/departamentos-en-venta-torre-calumar-col-revolucion-boca-del-rio/149015095": {
+            "data": {
+                "precio": "MXN 2,750,000",
+                "precio_valor": 2750000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "108.0 m² lote | 3 rec. | 3 banos | 1 estac.",
+                "m2_totales": 108.0,
+                "m2_construidos": 108.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 1,
+                "antiguedad": "A estrenar",
+                "direccion": "Revolución, Boca del Río, Veracruz",
+                "ubicacion": "Veracruz, Boca del Río, Revolución",
+                "descripcion": "Planta Baja $2,960,000 1er Nivel $2,890,000 2do Nivel $2,820,000 3er Nivel $2,750,000 Superficie 108.14 m2 3 Recamaras Climatizado Con Roof Garden El edificio es de 4 Niveles (4 Departamentos) A una cuadra de Av. Juan Pablo Cerca de la Universidad Veracruzana. A unas cuadras de plaza Mocambo, Walmart y Chedraui Cerca de Estadios Beto Ávila y Pirata Fuente Buena Movilidad a la ciudad CARACTERISTICAS: Cochera para 1 auto con portón eléctrico Espacio Sala-Comedor Cocina integral con estufa y campana Cuarto de lavado 1 Recamara principal con closet y baño 2 Recamaras secundarias con closet 1 baño completo compartido Closet de blancos AMENIDADES: Roof Garden, con pérgola 1/2 Baño Barra de asador EQUIPAMIENTO: Estufa y campana Calentador de agua Bomba automática Tinaco de 1,100 lts Cisterna de 3",
+                "amenidades": "Seguridad privada | Aire acondicionado | Cisterna | Terraza",
+                "lat": 19.1590276,
+                "lng": -96.12221749999999,
+                "tipo_propiedad": "Departamento",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:47.123791",
+                "updated_at": "2026-07-29T20:32:47.123791"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-departamento/fraccionamiento-virginia/departamento-en-venta-en-veracruz-con-vista-al-mar-fracc-virginia/150251955": {
+            "data": {
+                "precio": "MXN 3,490,000",
+                "precio_valor": 3490000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "95.0 m² lote | 3 rec. | 2 banos | 2 estac.",
+                "m2_totales": 95.0,
+                "m2_construidos": 95.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "6",
+                "direccion": "Fraccionamiento Virginia, Boca del Río, Veracruz",
+                "ubicacion": "Veracruz, Boca del Río, Fraccionamiento Virginia",
+                "descripcion": "Departamento en venta con vista al mar en Torre Coral fracc. Virginia Precio: $3,490,000 Precio de mantenimiento $2,900 mensuales aproximadamente *95 M2 habitables + 25 M2 de 2 cajones de techados de estacionamiento. Piso 6 Distribución * Cuarto de lavado * Cocina integral con barra desayunador * Recámara con closet * Sala comedor con vista al mar y balcón * Baño completo compartido * Rececámara con closet,vista al mar y balcón * Recámara principal con baño, balcón y closet. * ⁠2 cajones de estacionamiento techados. Amenidades * Elevador * Alberca * Terraza * Sala de reuniones * Baños para hombre y mujer * Portero 24/7 * Portón eléctrico en estacionamiento. Precio sujeto a sin previo aviso El precio no incluye gastos de escrituración Ver datos",
+                "amenidades": "Alberca | Seguridad privada | Terraza",
+                "lat": 19.1649482,
+                "lng": -96.1222175,
+                "tipo_propiedad": "Departamento",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:47.123800",
+                "updated_at": "2026-07-29T20:32:47.123800"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-departamento/ejido-san-jose-novillero/departamento-en-venta-residencial-valdrada-boca-del-rio/150037964": {
+            "data": {
+                "precio": "MXN 3,250,000",
+                "precio_valor": 3250000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "103.0 m² lote | 2 rec. | 2 banos | 1 estac.",
+                "m2_totales": 103.0,
+                "m2_construidos": 103.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "A estrenar",
+                "direccion": "Ejido San Jose Novillero, Boca del Río, Veracruz",
+                "ubicacion": "Veracruz, Boca del Río, Ejido San Jose Novillero",
+                "descripcion": "Superficie 103 2 Recamaras Fraccionamiento con amenidades y seguridad las 24 hrs Cerca de Plaza El Dorado Salida al Rio A unos minutos de la playa y del centro de Boca del Rio Segunda etapa entrega Verano 2026 CARACTERÍSTICAS: Estacionamiento para 1 auto Espacio Sala-Comedor Terraza privada Cocina integral con barra de granito 2 Recamaras 2 Baños Área de lavado AMENIDADES: Cancha de pádel Área de coworking Zona de asadores Albercas Salón de eventos Restaurantes Área de juegos infantiles Cine y ludoteca Sports bar Gimnasios Spa Área de yoga Zona de adultos con carril de nado Pool bar Roof garden",
+                "amenidades": "Alberca | Seguridad privada | Terraza",
+                "lat": 19.095161,
+                "lng": -96.10912909999999,
+                "tipo_propiedad": "Departamento",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:47.123809",
+                "updated_at": "2026-07-29T20:32:47.123809"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-departamento/luis-echeverria-alvarez/departamento-nuevo-en-venta-cerca-de-plaza-americas/149397475": {
+            "data": {
+                "precio": "MXN 2,450,000",
+                "precio_valor": 2450000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "110.0 m² lote | 2 rec. | 2 banos | 1 estac.",
+                "m2_totales": 110.0,
+                "m2_construidos": 111.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "A estrenar",
+                "direccion": "Luis Echeverria Alvarez, Boca del Río, Veracruz",
+                "ubicacion": "Veracruz, Boca del Río, Luis Echeverria Alvarez",
+                "descripcion": "BONITO Y FUNCIONAL DEPARTAMENTO EN VENTA CONSTA DE 111 M2 +2 HABITACIONES (PRINCIPAL CON VESTIDOR), SECUNDARIA CON (CLOSET) +2 BAÑOS COMPLETOS +COCINA EQUIPADA CON ESTUFA TIPO PARRILLA, CAMPANA +AREA DE LAVADO EQUIPADA CON CALENTADOR CUENTA CON 1 CAJON DE ESTACIONAMIENTO SE ENCUENTRA EN PRIMER NIVEL Y SEGUNDO NIVEL (ESCALERAS) PRECIO VENTA $2,450,000 UBICACION- A TAN SOLO 3 MINUTOS DE PLAZA AMERICAS Y CERCA DE PLAYA INFORMES AL Ver datos -24 LIC. TANIA SAAVEDRA",
+                "amenidades": "Seguridad privada",
+                "lat": 19.1321515,
+                "lng": -96.10698269999999,
+                "tipo_propiedad": "Departamento",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:47.123818",
+                "updated_at": "2026-07-29T20:32:47.123818"
+            }
+        },
+        "https://www.vivanuncios.com.mx/a-venta-departamento/playas-del-conchal/departamento-en-venta-fracc-playas-del-conchal-riviera-veracruzana/144385696": {
+            "data": {
+                "precio": "MXN 3,490,000",
+                "precio_valor": 3490000.0,
+                "precio_moneda": "MXN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "80.0 m² lote | 2 rec. | 2 banos | 1 estac.",
+                "m2_totales": 80.0,
+                "m2_construidos": 80.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "A estrenar",
+                "direccion": "Playas del Conchal, Alvarado, Veracruz",
+                "ubicacion": "Veracruz, Alvarado, Playas del Conchal",
+                "descripcion": "Mantenimiento Incluido Superficie de 80 m2. Vista al Mar CARACTERÍSTICAS: 1 Cajón de estacionamiento Espacio de sala-comedor Área de cocina 2 Recamaras 2 Baños completos Terraza AMENIDADES: Alberca Lobby Social center Sala de entretenimiento Cancha de pádel Muelle Parque Áreas verdes de 2000 m2. Gimnasio",
+                "amenidades": "Alberca | Seguridad privada | Aire acondicionado | Terraza",
+                "lat": 19.0757058,
+                "lng": -96.08693729999999,
+                "tipo_propiedad": "Departamento",
+                "tipo_operacion": "Venta"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:32:47.123827",
+                "updated_at": "2026-07-29T20:32:47.123827"
+            }
+        }
+    }
+}

@@ -1,10 +1,13 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, BackgroundTasks
 from pydantic import BaseModel
-import firebase_admin
-from firebase_admin import credentials, firestore
-from valuador import buscar_comparables, calcular_estadisticas, normalizar_texto
+from valuador import buscar_comparables, calcular_estadisticas, normalizar_texto, valuar_con_ia
 from fastapi.middleware.cors import CORSMiddleware
-from weasyprint import HTML
+WEASYPRINT_AVAILABLE = False
+try:
+    from weasyprint import HTML
+    WEASYPRINT_AVAILABLE = True
+except Exception as e:
+    print(f"[INFO] WeasyPrint no disponible para PDFs en Windows: {e}")
 from fastapi.responses import Response
 import requests
 import base64
@@ -16,11 +19,17 @@ import time
 
 app = FastAPI()
 
-# Inicializar Firebase
-cred = credentials.Certificate("serviceAccountKey.json")
-if not firebase_admin._apps:
-    firebase_admin.initialize_app(cred)
-db = firestore.client()
+# Inicializar Firebase de forma opcional
+db = None
+try:
+    if os.path.exists("serviceAccountKey.json"):
+        cred = credentials.Certificate("serviceAccountKey.json")
+        if not firebase_admin._apps:
+            firebase_admin.initialize_app(cred)
+        db = firestore.client()
+        print("[OK] Firebase inicializado opcionalmente.")
+except Exception as e:
+    print(f"[INFO] Operando sin Firebase: {e}")
 
 app.add_middleware(
     CORSMiddleware,
@@ -68,7 +77,7 @@ class ValuacionRequest(BaseModel):
     tipo: str
     metros: float
     bedrooms: int = None
-    bathrooms: int = None
+    bathrooms: float = None
     age: str = None
     condition: str = None
     amenities: list = None
@@ -82,7 +91,7 @@ class ValuacionRequest(BaseModel):
     enviar_pipedrive: bool = False  # Nuevo campo opcional
 
 # --- INICIO: Funciones para integración con Pipedrive ---
-PIPEDRIVE_API_KEY = "02317c5467585c4251d802ab65e0c7b9f60541ee"
+PIPEDRIVE_API_KEY = os.getenv("PIPEDRIVE_API_KEY", "02317c5467585c4251d802ab65e0c7b9f60541ee")
 PIPEDRIVE_API_URL = "https://api.pipedrive.com/v1"
 
 # Puedes personalizar los campos según tu configuración de Pipedrive
@@ -141,442 +150,227 @@ def enviar_a_pipedrive(valuacion, contact_info, stats):
 
 @app.post("/valuar")
 def valuar_propiedad(data: ValuacionRequest):
-    # Usar colonia, ciudad y estado enviados si existen, si no, usar geocodificación
+    # Geocodificar si falta colonia/ciudad/estado
     if data.colonia and data.ciudad and data.estado:
         colonia = normalizar_texto(data.colonia)
         ciudad = normalizar_texto(data.ciudad)
         estado = normalizar_texto(data.estado)
-        print(f"[DEBUG] Usando datos enviados por el usuario: colonia='{colonia}', ciudad='{ciudad}', estado='{estado}'")
     else:
         colonia, ciudad, estado = geocode_address(data.direccion)
         colonia = normalizar_texto(colonia)
         ciudad = normalizar_texto(ciudad)
         estado = normalizar_texto(estado)
-        print(f"[DEBUG] Google Maps: colonia='{colonia}', ciudad='{ciudad}', estado='{estado}'")
-    tipo = normalizar_texto(data.tipo)
-    metros = data.metros
-
-    comparables, nivel = buscar_comparables(db, ciudad, estado, tipo, colonia)
-    # --- FILTRADO ROBUSTO ---
-    # Mapear campos del frontend a campos de la BD
-    recamaras = data.bedrooms  # bedrooms -> recamaras
-    banos = data.bathrooms     # bathrooms -> banos
+        
+    res_ia = valuar_con_ia(
+        m2_construidos=data.metros,
+        m2_totales=data.metros,
+        recamaras=data.bedrooms or 3,
+        banos=data.bathrooms or 2.0,
+        colonia=colonia,
+        ciudad=ciudad,
+        estado=estado
+    )
     
-    comparables = filtrar_comparables_por_caracteristicas(
-        comparables,
-        data.metros,
-        recamaras,
-        banos
-    )
-    comparables = comparables[:5] if comparables else []
-    if not comparables:
-        raise HTTPException(status_code=404, detail="No se encontraron comparables")
-    stats = calcular_estadisticas(
-        comparables,
-        size=metros,
-        address=data.direccion,
-        property_type=tipo,
-        bedrooms=data.bedrooms,
-        bathrooms=data.bathrooms,
-        age=data.age,
-        condition=data.condition,
-        amenities=data.amenities,
-        contact_info=data.contact_info
-    )
-    if not stats:
-        raise HTTPException(status_code=400, detail="No se pudo calcular estadísticas")
-    valor_estimado = stats['average']
-    # --- INTEGRACIÓN PIPEDRIVE ---
+    stats = {
+        'average': res_ia['precio_estimado'],
+        'low': res_ia['rango_minimo'],
+        'high': res_ia['rango_maximo'],
+        'suggested_price': res_ia['precio_estimado'],
+        'valor_m2': res_ia['valor_m2_estimado'],
+        'metodologia': res_ia['metodologia'],
+        'precision_r2': res_ia['precision_modelo_r2']
+    }
+
     pipedrive_result = None
     if data.enviar_pipedrive and data.contact_info:
         ok, msg = enviar_a_pipedrive(data, data.contact_info, stats)
         pipedrive_result = {"ok": ok, "msg": msg}
+
     return {
-        "valor_estimado": valor_estimado,
-        "rango": [stats['low'], stats['high']],
-        "nivel_coincidencia": nivel,
+        "valor_estimado": res_ia['precio_estimado'],
+        "rango": [res_ia['rango_minimo'], res_ia['rango_maximo']],
+        "valor_m2": res_ia['valor_m2_estimado'],
+        "nivel_coincidencia": "ia_local_dataset",
         "estadisticas": stats,
-        "comparables": comparables,  # Ya está limitado a 5
+        "comparables": res_ia['comparables'],
         "pipedrive": pipedrive_result
     }
 
 @app.post("/reporte_pdf")
 def reporte_pdf(data: ValuacionRequest):
-    t0 = time.time()
-    # Obtener comparables para la propiedad
-    if data.colonia and data.ciudad and data.estado:
-        colonia = normalizar_texto(data.colonia)
-        ciudad = normalizar_texto(data.ciudad)
-        estado = normalizar_texto(data.estado)
-    else:
-        colonia, ciudad, estado = geocode_address(data.direccion)
-        colonia = normalizar_texto(colonia)
-        ciudad = normalizar_texto(ciudad)
-        estado = normalizar_texto(estado)
-    tipo = normalizar_texto(data.tipo)
-    t1 = time.time()
-    comparables, _ = buscar_comparables(db, ciudad, estado, tipo, colonia)
-    # Mapear campos del frontend a campos de la BD
-    recamaras = data.bedrooms  # bedrooms -> recamaras
-    banos = data.bathrooms     # bathrooms -> banos
-    
-    comparables = filtrar_comparables_por_caracteristicas(
-        comparables,
-        data.metros,
-        recamaras,
-        banos
-    )
-    comparables = comparables[:5] if comparables else []
-    t2 = time.time()
-    # Calcular estadísticas para los valores de la tabla resumen
-    stats = None
     try:
-        from valuador import calcular_estadisticas
-        stats = calcular_estadisticas(
-            comparables,
-            size=data.metros,
-            address=data.direccion,
-            property_type=tipo,
-            bedrooms=data.bedrooms,
-            bathrooms=data.bathrooms,
-            age=data.age,
-            condition=data.condition,
-            amenities=data.amenities,
-            contact_info=data.contact_info
+        from generar_reporte_pdf import generar_pdf_yals_6paginas
+        
+        colonia = normalizar_texto(data.colonia) if data.colonia else ""
+        ciudad = normalizar_texto(data.ciudad) if data.ciudad else ""
+        estado = normalizar_texto(data.estado) if data.estado else ""
+        
+        if not (colonia and ciudad and estado) and data.direccion:
+            colonia, ciudad, estado = geocode_address(data.direccion)
+            
+        res_ia = valuar_con_ia(
+            m2_construidos=data.metros,
+            m2_totales=data.metros,
+            recamaras=data.bedrooms or 3,
+            banos=data.bathrooms or 2.0,
+            colonia=colonia,
+            ciudad=ciudad,
+            estado=estado
+        )
+        
+        pdf_bytes = generar_pdf_yals_6paginas(res_ia)
+        
+        return Response(
+            content=pdf_bytes,
+            media_type="application/pdf",
+            headers={
+                "Content-Disposition": "attachment; filename=reporte_premium_inmueble.pdf",
+                "Content-Length": str(len(pdf_bytes))
+            }
         )
     except Exception as e:
-        stats = None
+        print(f"[ERROR] Error al generar PDF: {e}")
+        raise HTTPException(status_code=500, detail=f"Error al generar reporte PDF: {str(e)}")
 
-    # Valores para la tabla resumen
-    valor_total_low = stats['low'] if stats else 0
-    valor_total_avg = stats['average'] if stats else 0
-    valor_total_high = stats['high'] if stats else 0
-    valor_m2_avg = stats['promedio_m2'] if stats else 0
-    valor_m2_low = valor_m2_avg * 0.9 if stats else 0
-    valor_m2_high = valor_m2_avg * 1.1 if stats else 0
-
-    resumen_html = f'''
-    <div class="section-title">2. RESUMEN DE VALORACIÓN</div>
-    <table style="width:100%; border-collapse:collapse; margin-bottom:24px; font-size:1.1em;">
-      <thead>
-        <tr style="background:#0033a0; color:#fff;">
-          <th style="padding:10px; border:1px solid #ccc;"> </th>
-          <th style="padding:10px; border:1px solid #ccc;">Límite inferior</th>
-          <th style="padding:10px; border:1px solid #ccc;">Estimado</th>
-          <th style="padding:10px; border:1px solid #ccc;">Límite superior</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td style="padding:10px; border:1px solid #ccc; font-weight:600;">Valor total</td>
-          <td style="padding:10px; border:1px solid #ccc;">${valor_total_low:,.2f}</td>
-          <td style="padding:10px; border:1px solid #ccc; color:#0033a0; font-weight:700;">${valor_total_avg:,.2f}</td>
-          <td style="padding:10px; border:1px solid #ccc;">${valor_total_high:,.2f}</td>
-        </tr>
-        <tr>
-          <td style="padding:10px; border:1px solid #ccc; font-weight:600;">Valor por m²</td>
-          <td style="padding:10px; border:1px solid #ccc;">${valor_m2_low:,.2f}</td>
-          <td style="padding:10px; border:1px solid #ccc; color:#e11b22; font-weight:700;">${valor_m2_avg:,.2f}</td>
-          <td style="padding:10px; border:1px solid #ccc;">${valor_m2_high:,.2f}</td>
-        </tr>
-      </tbody>
-    </table>
-    <div style="font-size:0.95em; color:#555; margin-bottom:32px;">
-      <b>Notas aclaratorias:</b><br>
-      1. El valor mostrado es un estimado basado en propiedades similares en la zona y puede variar.<br>
-      2. El rango representa una estimación considerando posibles variaciones del mercado.<br>
-      3. Este reporte es informativo y no constituye una valuación oficial.<br>
-    </div>
-    '''
-
-    # Logo (base64)
-    logo_path = os.path.join(os.path.dirname(__file__), '../frontend/public/logos/New_RMX_Mark_R4_RGB_cream.png')
-    logo_b64 = ''
-    try:
-        with open(logo_path, 'rb') as f:
-            logo_b64 = base64.b64encode(f.read()).decode('utf-8')
-    except Exception as e:
-        logo_b64 = ''
-    # Fecha y ID de reporte
-    try:
-        locale.setlocale(locale.LC_TIME, 'es_MX.UTF-8')
-    except:
-        try:
-            locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')
-        except:
-            locale.setlocale(locale.LC_TIME, 'es_ES')
-    fecha = datetime.now().strftime('%d de %B de %Y')
-    reporte_id = random.randint(100000, 999999)
-    # Construir tabla de comparables
-    comparables_html = ""
-    if comparables:
-        comparables_html += "<div class='comparables-title'>BASADO EN OFERTAS DE PROPIEDADES SIMILARES</div>"
-        comparables_html += "<table class='comparables-table'>"
-        comparables_html += "<tr><th>Dirección</th><th>Precio</th><th>Metros</th><th>Precio por m²</th></tr>"
-        for c in comparables:
-            precio = c.get('precio', 0)
-            metros = c.get('metros', 0)
-            precio_m2 = round(precio / metros, 2) if metros else 0
-            comparables_html += f"<tr><td>{c.get('direccion', '')}</td><td>${precio:,}</td><td>{metros}</td><td>${precio_m2:,}</td></tr>"
-        comparables_html += "</table>"
-    # Precio de oferta si viene en el request
-    precio_oferta_html = ""
-    if hasattr(data, 'precio_oferta') and data.precio_oferta:
-        precio_oferta_html = f"<div class='section-title'>Precio de oferta de la propiedad</div><div class='box'><b>${data.precio_oferta:,}</b></div>"
-    t3 = time.time()
-    # Leer SVGs de iconos antes de construir el HTML
-    iconos_path = os.path.join(os.path.dirname(__file__), '../frontend/public/icons/')
-    def leer_svg(nombre):
-        try:
-            with open(os.path.join(iconos_path, nombre), 'r', encoding='utf-8') as f:
-                return f.read()
-        except Exception as e:
-            return ''
-    svg_casa = leer_svg('home-svgrepo-com.svg')
-    svg_cama = leer_svg('bedroom-3-svgrepo-com.svg')
-    svg_bano = leer_svg('bathtub-2-svgrepo-com.svg')
-    svg_regla = leer_svg('ruler-svgrepo-com.svg')
-    html = f"""
-    <html>
-    <head>
-        <meta charset='utf-8'>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-        <style>
-            @page {{
-                size: letter;
-                margin: 32px 24px 32px 24px;
-            }}
-            body {{
-                font-family: 'Inter', Arial, 'Noto Color Emoji', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
-                background: #f5f7fb;
-                margin: 0;
-                padding: 0;
-                color: #333;
-            }}
-            .header {{
-                background: #0033a0;
-                color: #fff;
-                padding: 24px 32px;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-            }}
-            .header img {{
-                height: 60px;
-            }}
-            .header .id {{
-                font-size: 1.2em;
-                font-weight: 600;
-            }}
-            h1 {{
-                color: #0033a0;
-                text-align: center;
-                margin: 40px 0 16px 0;
-                font-size: 2.4em;
-            }}
-            .direccion-destacada {{
-                margin: 0 auto 24px auto;
-                padding: 20px 32px;
-                background: #eaf0fb;
-                border-left: 6px solid #0033a0;
-                border-radius: 8px;
-                font-size: 1.2em;
-                color: #0033a0;
-                font-weight: 600;
-                text-align: center;
-                width: 96%;
-                max-width: 100%;
-            }}
-            .fecha {{
-                text-align: right;
-                color: #555;
-                font-size: 0.95em;
-                margin: 0 32px 24px 0;
-            }}
-            .section-title {{
-                color: #e11b22;
-                font-weight: 700;
-                font-size: 1.3em;
-                margin: 48px 0 18px 32px;
-            }}
-            .caracteristicas-box {{
-                background: #fff;
-                border-radius: 12px;
-                padding: 32px;
-                margin: 0 16px 32px 16px;
-                box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-                display: flex;
-                flex-wrap: wrap;
-                gap: 48px;
-            }}
-            .caracteristicas-info {{
-                flex: 2;
-                font-size: 1em;
-                line-height: 1.6;
-            }}
-            .caracteristicas-icones {{
-                flex: 1;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                gap: 12px;
-            }}
-            .caract-list {{
-                display: flex;
-                flex-wrap: wrap;
-                gap: 24px;
-            }}
-            .caract-item {{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                font-size: 0.95em;
-                color: #444;
-            }}
-            .caract-item span.emoji {{
-                font-size: 1.8em;
-                margin-bottom: 4px;
-            }}
-            .caract-item svg {{
-                width: 32px;
-                height: 32px;
-                max-width: 32px;
-                max-height: 32px;
-                display: block;
-                margin-bottom: 4px;
-            }}
-            .valor-box {{
-                background: #fff;
-                border-left: 6px solid #e11b22;
-                border-radius: 12px;
-                padding: 32px;
-                margin: 0 16px 32px 16px;
-                box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                gap: 48px;
-            }}
-            .valor-main {{
-                font-size: 2.4em;
-                color: #0033a0;
-                font-weight: 700;
-            }}
-            .valor-label {{
-                color: #666;
-                font-size: 1em;
-                margin-bottom: 6px;
-            }}
-            .valor-m2 {{
-                font-size: 1.5em;
-                color: #e11b22;
-                font-weight: 700;
-            }}
-            .comparables-title {{
-                color: #0033a0;
-                font-weight: 600;
-                font-size: 1.2em;
-                margin: 40px 0 12px 32px;
-            }}
-            .comparables-table {{
-                width: 98%;
-                margin: 0 auto 48px auto;
-                border-collapse: collapse;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            }}
-            .comparables-table th, .comparables-table td {{
-                border: 1px solid #ccc;
-                padding: 12px;
-                text-align: center;
-                font-size: 1em;
-            }}
-            .comparables-table th {{
-                background: #0033a0;
-                color: #fff;
-            }}
-            .comparables-table tr:nth-child(even) {{
-                background: #f9f9f9;
-            }}
-            .box {{
-                border: 1px solid #e11b22;
-                border-radius: 8px;
-                background: #fff;
-                padding: 10px 16px;
-                display: inline-block;
-                font-size: 1em;
-                color: #e11b22;
-                font-weight: 600;
-                margin: 8px 0;
-            }}
-            .footer {{
-                font-size: 0.9em;
-                color: #888;
-                margin: 48px 0;
-                text-align: center;
-            }}
-        </style>
-    </head>
-    <body>
-        <div class='header'>
-            <img src='data:image/png;base64,{logo_b64}' alt='Logo REMAX' />
-            <span class='id'>ID {reporte_id}</span>
-        </div>
-        <h1>REPORTE PREMIUM DE INMUEBLE</h1>
-        <div class='direccion-destacada'>{data.direccion}</div>
-        <div class='fecha'>Reporte generado el {fecha}</div>
+@app.get("/api/propiedades/heatpoints")
+def obtener_puntos_calor():
+    from valuador import _dataset_propiedades, cargar_recursos
+    cargar_recursos()
+    
+    puntos = []
+    for p in _dataset_propiedades:
+        lat = p.get('latitud')
+        lng = p.get('longitud')
+        precio = p.get('precio_valor') or 0.0
+        m2 = p.get('m2_construidos') or 0.0
         
-        <div class='section-title'>1. CARACTERÍSTICAS DE LA PROPIEDAD</div>
-        <div class='caracteristicas-box'>
-            <div class='caracteristicas-info'>
-                <div><b>Tipo:</b> {data.tipo}</div>
-                <div><b>Metros:</b> {data.metros} m²</div>
-                <div><b>Habitaciones:</b> {getattr(data, 'bedrooms', '')}</div>
-                <div><b>Baños:</b> {getattr(data, 'bathrooms', '')}</div>
-                <div><b>Antigüedad:</b> {getattr(data, 'age', '')}</div>
-                <div><b>Condición:</b> {getattr(data, 'condition', '')}</div>
-                <div><b>Dirección:</b> {data.direccion}</div>
-                <div><b>Amenidades:</b> {', '.join(data.amenities) if getattr(data, 'amenities', None) else 'N/A'}</div>
-            </div>
-            <div class='caracteristicas-icones'>
-                <div class='caract-list'>
-                    <div class='caract-item'>
-                        {svg_casa}
-                        Casa
-                    </div>
-                    <div class='caract-item'>
-                        {svg_cama}
-                        {getattr(data, 'bedrooms', '')} Cuartos
-                    </div>
-                    <div class='caract-item'>
-                        {svg_bano}
-                        {getattr(data, 'bathrooms', '')} Baños
-                    </div>
-                    <div class='caract-item'>
-                        {svg_regla}
-                        {data.metros} m²
-                    </div>
-                </div>
-            </div>
-        </div>
+        if lat and lng and precio > 0:
+            pm2 = round(precio / m2, 2) if m2 > 0 else 0
+            puntos.append({
+                "id": p.get('id_propiedad', ''),
+                "lat": float(lat),
+                "lng": float(lng),
+                "precio": float(precio),
+                "precio_m2": pm2,
+                "colonia": p.get('colonia', ''),
+                "municipio": p.get('municipio', ''),
+                "fuente": p.get('fuente', '')
+            })
+    return {"total": len(puntos), "puntos": puntos}
 
-        {resumen_html}
+@app.get("/api/propiedades/catalogo")
+def obtener_catalogo(
+    busqueda: str = "",
+    fuente: str = "",
+    pagina: int = 1,
+    limite: int = 50,
+    ordenar_por: str = "precio",
+    orden: str = "desc"
+):
+    from valuador import _dataset_propiedades, cargar_recursos, normalizar_texto
+    cargar_recursos()
+    
+    filtrados = []
+    query_norm = normalizar_texto(busqueda)
+    fuente_norm = fuente.lower().strip()
+    
+    for p in _dataset_propiedades:
+        if fuente_norm and fuente_norm not in p.get('fuente', '').lower():
+            continue
+            
+        if query_norm:
+            col_norm = normalizar_texto(p.get('colonia', ''))
+            mun_norm = normalizar_texto(p.get('municipio', ''))
+            tit_norm = normalizar_texto(p.get('titulo', ''))
+            desc_norm = normalizar_texto(p.get('descripcion', ''))
+            if not (query_norm in col_norm or query_norm in mun_norm or query_norm in tit_norm or query_norm in desc_norm):
+                continue
+                
+        filtrados.append(p)
+        
+    # Ordenar
+    reverse_sort = (orden.lower() == 'desc')
+    if ordenar_por == 'precio':
+        filtrados.sort(key=lambda x: x.get('precio_valor') or 0.0, reverse=reverse_sort)
+    elif ordenar_por == 'metros':
+        filtrados.sort(key=lambda x: x.get('m2_construidos') or 0.0, reverse=reverse_sort)
+    elif ordenar_por == 'precio_m2':
+        filtrados.sort(key=lambda x: (x.get('precio_valor') or 0)/(x.get('m2_construidos') or 1), reverse=reverse_sort)
+        
+    total_registros = len(filtrados)
+    total_paginas = (total_registros + limite - 1) // limite if limite > 0 else 1
+    
+    start_idx = (pagina - 1) * limite
+    end_idx = start_idx + limite
+    paginados = filtrados[start_idx:end_idx]
+    
+    # Asegurar URL limpia
+    items_limpios = []
+    for item in paginados:
+        item_copy = dict(item)
+        url_final = (item.get('urls_portales') or [item.get('url_origen', '')])[0]
+        item_copy['url_final'] = url_final
+        items_limpios.append(item_copy)
+        
+    return {
+        "pagina": pagina,
+        "limite": limite,
+        "total_registros": total_registros,
+        "total_paginas": total_paginas,
+        "propiedades": items_limpios
+    }
 
-        {comparables_html}
-        {precio_oferta_html}
+class ScraperConfigRequest(BaseModel):
+    tipo_inmueble: str = "casas" # casas | departamentos | todos
+    zona: str = "veracruz" # veracruz | tabasco
+    modo: str = "rapido" # rapido | completo
+    limite_paginas: int = 10
+    portales: List[str] = ["lamudi", "propiedades_com", "vivanuncios", "remax_scraper", "playwright_inmuebles24"]
 
-        <div class='footer'>Reporte generado automáticamente por REMAX CIN</div>
-    </body>
-    </html>
-"""
-    t4 = time.time()
-    pdf = HTML(string=html).write_pdf()
-    t5 = time.time()
-    print(f"[PERF] Tiempo total: {t5-t0:.2f}s | Consulta: {t2-t1:.2f}s | HTML: {t4-t3:.2f}s | PDF: {t5-t4:.2f}s")
-    return Response(
-        content=pdf,
-        media_type="application/pdf",
-        headers={
-            "Content-Disposition": "attachment; filename=reporte_inmueble.pdf",
-            "Content-Length": str(len(pdf))
-        }
-    ) 
+def _tarea_segundo_plano_scraping(config_dict: dict):
+    try:
+        from ejecutar_scrapers_vps import ejecutar_suite_scrapers
+        ejecutar_suite_scrapers(config_dict)
+    except Exception as e:
+        print(f"[ERROR TAREA SCRAPING] {e}")
+
+@app.post("/api/scrapers/ejecutar")
+def ejecutar_scrapers(config: ScraperConfigRequest, background_tasks: BackgroundTasks):
+    from ejecutar_scrapers_vps import leer_estado
+    estado_actual = leer_estado()
+    if estado_actual.get("en_ejecucion"):
+        return {"ok": False, "mensaje": "Ya hay una tarea de scraping en ejecución."}
+
+    background_tasks.add_task(_tarea_segundo_plano_scraping, config.dict())
+    return {
+        "ok": True,
+        "mensaje": f"Scraping iniciado en segundo plano para {config.tipo_inmueble.upper()} ({config.zona.upper()})."
+    }
+
+@app.get("/api/scrapers/status")
+def obtener_status_scrapers():
+    from ejecutar_scrapers_vps import leer_estado
+    return leer_estado()
+
+@app.get("/api/scrapers/historial")
+def obtener_historial_scrapers():
+    from historial_scrapers import cargar_historial_runs
+    runs = cargar_historial_runs()
+    if not runs:
+        # Generar entrada inicial demostrativa si no existe
+        from historial_scrapers import registrar_corrida_scraping
+        registrar_corrida_scraping("casas", "veracruz", "rapido", ["lamudi", "inmuebles24", "propiedades_com", "vivanuncios", "remax_scraper"], 10659, 142, 18, 7)
+        runs = cargar_historial_runs()
+    return {"total_corridas": len(runs), "corridas": runs}
+
+@app.get("/api/scrapers/cambios-precio")
+def obtener_cambios_precio():
+    from historial_scrapers import obtener_cambios_precio_recientes
+    modificados = obtener_cambios_precio_recientes()
+    return {"total": len(modificados), "propiedades": modificados}
+
+@app.get("/api/scrapers/bajas")
+def obtener_bajas():
+    from historial_scrapers import obtener_propiedades_baja_recientes
+    bajas = obtener_propiedades_baja_recientes()
+    return {"total": len(bajas), "propiedades": bajas} 

@@ -1,0 +1,3625 @@
+{
+    "project": "Inmuebles24 Scraper DB",
+    "version": "1.1",
+    "metadata": {
+        "created_at": "2026-06-25T21:05:40.002933",
+        "last_update": "2026-06-25T21:08:21.168631",
+        "total_records": 139
+    },
+    "listings": {
+        "https://www.lamudi.com.mx/detalle/41032-73-1f552824aac-a78b-19e8648-8cde-7593": {
+            "data": {
+                "precio": "MN 3,100,000",
+                "precio_valor": 3100000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "98 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 98.0,
+                "m2_construidos": 176.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLomas Del Mar, Boca del Río, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Boca del Río, Lomas Del Mar",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Cisterna",
+                "lat": 19.13113323,
+                "lng": -96.10919999,
+                "codigo_postal": "94293"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:43.795821",
+                "updated_at": "2026-06-25T21:05:43.795821"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-bc2cead3c6cc-58b2-19d754a-8c86-740c": {
+            "data": {
+                "precio": "MN 5,900,000",
+                "precio_valor": 5900000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "227 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 227.0,
+                "m2_construidos": 246.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónPlayas de Conchal, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Playas de Conchal",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Jardin",
+                "lat": 19.06536,
+                "lng": -96.090427,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:43.795870",
+                "updated_at": "2026-06-25T21:05:43.795870"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-c0741972f00-e58d-19c212d-9fcf-766c": {
+            "data": {
+                "precio": "MN 2,590,000",
+                "precio_valor": 2590000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "100 m² lote | 3 rec. | 2 banos | 2 estac.",
+                "m2_totales": 100.0,
+                "m2_construidos": 149.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónEjido Primero de Mayo Sur, Boca del Río, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Boca del Río, Ejido Primero de Mayo Sur",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Cisterna | Jardin",
+                "lat": 19.13764187,
+                "lng": -96.12063744,
+                "codigo_postal": "94297"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:43.795890",
+                "updated_at": "2026-06-25T21:05:43.795890"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-583cd10d75b4-8361-19d466f-be05-77c5": {
+            "data": {
+                "precio": "MN 2,550,000",
+                "precio_valor": 2550000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "73 m² lote | 3 rec. | 2 banos | 1 estac.",
+                "m2_totales": 73.0,
+                "m2_construidos": 115.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónBoca Del Rio Centro, Boca del Río, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Boca del Río, Boca Del Rio Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Cisterna",
+                "lat": 19.11470905,
+                "lng": -96.11066055,
+                "codigo_postal": "94293"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:43.795908",
+                "updated_at": "2026-06-25T21:05:43.795908"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-696167fb163c-aa05-19da106-a566-772e": {
+            "data": {
+                "precio": "MN 3,540,000",
+                "precio_valor": 3540000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "178 m² lote | 3 rec. | 3 banos | 3 estac.",
+                "m2_totales": 178.0,
+                "m2_construidos": 175.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 3,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Gimnasio | Jardin | Terraza",
+                "lat": 19.050221,
+                "lng": -96.061431,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:43.795924",
+                "updated_at": "2026-06-25T21:05:43.795924"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-924a03bbeb87-3ac7-19d6d74-91fc-767a": {
+            "data": {
+                "precio": "MN 4,350,000",
+                "precio_valor": 4350000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "170 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 170.0,
+                "m2_construidos": 217.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Gimnasio | Jardin | Terraza",
+                "lat": 19.050221,
+                "lng": -96.061431,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:43.795940",
+                "updated_at": "2026-06-25T21:05:43.795940"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-dc53d7ba75d-617c-19d09bb-afcb-7347": {
+            "data": {
+                "precio": "MN 6,400,000",
+                "precio_valor": 6400000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "250 m² lote | 3 rec. | 4 banos | 2 estac.",
+                "m2_totales": 250.0,
+                "m2_construidos": 329.0,
+                "recamaras": 3,
+                "banos": 4,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLas Palmas, Medellín, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Medellín, Las Palmas",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Circuito Cerrado | Cisterna | Seguridad privada | Terraza",
+                "lat": 19.1018368,
+                "lng": -96.122076,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:43.795956",
+                "updated_at": "2026-06-25T21:05:43.795956"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-b630ecd1221e-35a9-19c86b7-b940-7498": {
+            "data": {
+                "precio": "MN 3,400,000",
+                "precio_valor": 3400000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "160 m² lote | 4 rec. | 4 banos | 2 estac.",
+                "m2_totales": 160.0,
+                "m2_construidos": 198.0,
+                "recamaras": 4,
+                "banos": 4,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónFloresta, Veracruz, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Veracruz, Floresta",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Cisterna | Jardin | Terraza",
+                "lat": 19.15553184,
+                "lng": -96.13476217,
+                "codigo_postal": "91940"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:43.795971",
+                "updated_at": "2026-06-25T21:05:43.795971"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-10892393043-984a-19db6c2-b04b-7565": {
+            "data": {
+                "precio": "MN 2,990,000",
+                "precio_valor": 2990000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "125 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 125.0,
+                "m2_construidos": 165.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónEjido Primero de Mayo Sur, Boca del Río, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Boca del Río, Ejido Primero de Mayo Sur",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Aire acondicionado | Cisterna | Jardin",
+                "lat": 19.139438,
+                "lng": -96.1202862,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:43.795986",
+                "updated_at": "2026-06-25T21:05:43.795986"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-2df2746d0378-cb07-19e6760-b013-763c": {
+            "data": {
+                "precio": "MN 1,718,200",
+                "precio_valor": 1718200.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "80 m² lote | 2 rec. | 2 banos | 1 estac.",
+                "m2_totales": 80.0,
+                "m2_construidos": 108.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónEl Coyol, Veracruz, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Veracruz, El Coyol",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Cisterna | Jardin | Paneles solares | Seguridad privada",
+                "lat": 19.1627669,
+                "lng": -96.1479172,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:43.796001",
+                "updated_at": "2026-06-25T21:05:43.796001"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-c9fd09fa00a2-9775-19c8708-ba34-71b7": {
+            "data": {
+                "precio": "MN 2,690,000",
+                "precio_valor": 2690000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "89 m² lote | 3 rec. | 2 banos | 2 estac.",
+                "m2_totales": 89.0,
+                "m2_construidos": 168.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAdalberto Tejeda, Boca del Río, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Boca del Río, Adalberto Tejeda",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Terraza",
+                "lat": 19.1386077,
+                "lng": -96.11465382,
+                "codigo_postal": "94298"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:43.796016",
+                "updated_at": "2026-06-25T21:05:43.796016"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-a9dcfcb55645-285d-19c209c-959b-70e7": {
+            "data": {
+                "precio": "MN 2,150,000",
+                "precio_valor": 2150000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "105 m² lote | 2 rec. | 3 banos | 2 estac.",
+                "m2_totales": 105.0,
+                "m2_construidos": 160.0,
+                "recamaras": 2,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "Localización8 de Marzo, Boca del Río, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Boca del Río, 8 de Marzo",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Aire acondicionado | Cisterna | Terraza",
+                "lat": 19.1313845,
+                "lng": -96.1171243,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:43.796032",
+                "updated_at": "2026-06-25T21:05:43.796032"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-5cf968412ae2-c73e-19e600f-aeab-7768": {
+            "data": {
+                "precio": "MN 3,470,000",
+                "precio_valor": 3470000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "160 m² lote | 2 rec. | 2 banos | 2 estac.",
+                "m2_totales": 160.0,
+                "m2_construidos": 120.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLas Lomas, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Las Lomas",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Aire acondicionado | Jardin",
+                "lat": 19.071608,
+                "lng": -96.089398,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:43.796048",
+                "updated_at": "2026-06-25T21:05:43.796048"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-4da4cd5e8030-bc3e-1980cba-80f5-75e4": {
+            "data": {
+                "precio": "MN 3,800,000",
+                "precio_valor": 3800000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "160 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 160.0,
+                "m2_construidos": 197.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónEl Morro las Colonias, Boca del Río, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Boca del Río, El Morro las Colonias",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Aire acondicionado | Alberca | Cisterna | Jardin | Terraza",
+                "lat": 19.1127206,
+                "lng": -96.1071483,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:43.796063",
+                "updated_at": "2026-06-25T21:05:43.796063"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-cbfe4875cda8-de53-19922d3-a2ff-7621": {
+            "data": {
+                "precio": "MN 2,650,000",
+                "precio_valor": 2650000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "105 m² lote | 3 rec. | 2 banos | 2 estac.",
+                "m2_totales": 105.0,
+                "m2_construidos": 185.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónVeracruz Centro, Veracruz, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Veracruz, Veracruz Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Aire acondicionado | Circuito Cerrado | Cisterna | Jardin",
+                "lat": 19.1930393,
+                "lng": -96.1415859,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:43.796079",
+                "updated_at": "2026-06-25T21:05:43.796079"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-b336c467dfb6-249e-19db12b-a093-7691": {
+            "data": {
+                "precio": "MN 4,550,000",
+                "precio_valor": 4550000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "168 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 168.0,
+                "m2_construidos": 214.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónSan Jose Novillero, Boca del Río, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Boca del Río, San Jose Novillero",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Aire acondicionado | Alberca | Cisterna | Gimnasio | Jardin | Seguridad privada",
+                "lat": 19.08586053,
+                "lng": -96.11950245,
+                "codigo_postal": "94286"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:43.796095",
+                "updated_at": "2026-06-25T21:05:43.796095"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-91c3b85c2a8-20ef-19d6d74-9a1c-7ac0": {
+            "data": {
+                "precio": "MN 2,800,000",
+                "precio_valor": 2800000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "157 m² lote | 2 rec. | 2 banos | 2 estac.",
+                "m2_totales": 157.0,
+                "m2_construidos": 115.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Gimnasio | Jardin",
+                "lat": 19.050221,
+                "lng": -96.061431,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:43.796110",
+                "updated_at": "2026-06-25T21:05:43.796110"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-b513dbdc8ad3-2005-19719cf-bd80-8042": {
+            "data": {
+                "precio": "MN 3,900,000",
+                "precio_valor": 3900000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "180 m² lote | 5 rec. | 5 banos | 2 estac.",
+                "m2_totales": 180.0,
+                "m2_construidos": 350.0,
+                "recamaras": 5,
+                "banos": 5,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLas Lomas, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Las Lomas",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Aire acondicionado | Circuito Cerrado | Cisterna | Jardin | Seguridad privada | Terraza",
+                "lat": 19.0717726,
+                "lng": -96.0978517,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:43.796126",
+                "updated_at": "2026-06-25T21:05:43.796126"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-9d512b6c160-551a-195f1c7-ba22-73dc": {
+            "data": {
+                "precio": "MN 5,250,000",
+                "precio_valor": 5250000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "200 m² lote | 3 rec. | 4 banos | 2 estac.",
+                "m2_totales": 200.0,
+                "m2_construidos": 325.0,
+                "recamaras": 3,
+                "banos": 4,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLas Lomas, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Las Lomas",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Jardin",
+                "lat": 19.072072,
+                "lng": -96.094546,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:43.796141",
+                "updated_at": "2026-06-25T21:05:43.796141"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-303da20a5f0f-1831-19d7545-b4c0-7a2e": {
+            "data": {
+                "precio": "MN 6,500,000",
+                "precio_valor": 6500000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "222 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 222.0,
+                "m2_construidos": 280.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónPlayas de Conchal, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Playas de Conchal",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Jardin",
+                "lat": 19.06536,
+                "lng": -96.090427,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:43.796157",
+                "updated_at": "2026-06-25T21:05:43.796157"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-d18bf7df40a8-3e5-19d468a-96a1-7049": {
+            "data": {
+                "precio": "MN 3,850,000",
+                "precio_valor": 3850000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "130 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 130.0,
+                "m2_construidos": 200.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónEl Morro las Colonias, Boca del Río, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Boca del Río, El Morro las Colonias",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Cisterna | Jardin",
+                "lat": 19.1202316,
+                "lng": -96.1067773,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:43.796172",
+                "updated_at": "2026-06-25T21:05:43.796172"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-2cbcc50667fa-1162-19e9036-a242-715e": {
+            "data": {
+                "precio": "MN 6,300,000",
+                "precio_valor": 6300000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "220 m² lote | 4 rec. | 4 banos | 2 estac.",
+                "m2_totales": 220.0,
+                "m2_construidos": 330.0,
+                "recamaras": 4,
+                "banos": 4,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLas Palmas, Medellín, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Medellín, Las Palmas",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Cisterna | Jardin | Seguridad privada",
+                "lat": 19.0994081,
+                "lng": -96.1160344,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:43.796187",
+                "updated_at": "2026-06-25T21:05:43.796187"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-321a2d07c36b-b3be-1998127-8a07-7320": {
+            "data": {
+                "precio": "MN 3,890,000",
+                "precio_valor": 3890000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "200 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 200.0,
+                "m2_construidos": 185.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Gimnasio | Jardin | Seguridad privada",
+                "lat": 19.050221,
+                "lng": -96.061431,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:43.796308",
+                "updated_at": "2026-06-25T21:05:43.796308"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-f4212849b9ea-480f-19d8f27-88f1-7daf": {
+            "data": {
+                "precio": "MN 2,800,000",
+                "precio_valor": 2800000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "157 m² lote | 2 rec. | 2 banos | 2 estac.",
+                "m2_totales": 157.0,
+                "m2_construidos": 115.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Gimnasio | Jardin",
+                "lat": 19.050221,
+                "lng": -96.061431,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:43.796324",
+                "updated_at": "2026-06-25T21:05:43.796324"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-48702aed8741-7057-19e94e7-8997-73a6": {
+            "data": {
+                "precio": "MN 5,750,000",
+                "precio_valor": 5750000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "250 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 250.0,
+                "m2_construidos": 289.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLas Palmas, Medellín, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Medellín, Las Palmas",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Cisterna | Jardin | Seguridad privada | Terraza",
+                "lat": 19.0994081,
+                "lng": -96.1160344,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:43.796339",
+                "updated_at": "2026-06-25T21:05:43.796339"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-d0a5e2742849-15d5-19e6788-8b18-7177": {
+            "data": {
+                "precio": "MN 2,213,200",
+                "precio_valor": 2213200.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "93 m² lote | 3 rec. | 2 banos | 1 estac.",
+                "m2_totales": 93.0,
+                "m2_construidos": 145.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónEl Coyol, Veracruz, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Veracruz, El Coyol",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Cisterna | Jardin | Paneles solares | Seguridad privada | Terraza",
+                "lat": 19.1627669,
+                "lng": -96.1479172,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:43.796354",
+                "updated_at": "2026-06-25T21:05:43.796354"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-9dd53632024d-efe-19adcef-b15e-7201": {
+            "data": {
+                "precio": "MN 4,450,000",
+                "precio_valor": 4450000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "204 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 204.0,
+                "m2_construidos": 242.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Aire acondicionado | Alberca | Gimnasio | Jardin | Terraza",
+                "lat": 19.050221,
+                "lng": -96.061431,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:43.796370",
+                "updated_at": "2026-06-25T21:05:43.796370"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-63374e76db69-3da5-19c86f1-ad67-7760": {
+            "data": {
+                "precio": "MN 3,600,000",
+                "precio_valor": 3600000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "180 m² lote | 4 rec. | 4 banos | 2 estac.",
+                "m2_totales": 180.0,
+                "m2_construidos": 198.0,
+                "recamaras": 4,
+                "banos": 4,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónFloresta, Veracruz, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Veracruz, Floresta",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Cisterna | Jardin | Terraza",
+                "lat": 19.1580122,
+                "lng": -96.1349523,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:43.796385",
+                "updated_at": "2026-06-25T21:05:43.796385"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-e1d7bd82a051-b92c-19d12e5-b6c4-70f7": {
+            "data": {
+                "precio": "MN 2,900,000",
+                "precio_valor": 2900000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "85 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 85.0,
+                "m2_construidos": 160.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónEjido Primero de Mayo Norte, Boca del Río, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Boca del Río, Ejido Primero de Mayo Norte",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Cisterna",
+                "lat": 19.14471976,
+                "lng": -96.12167185,
+                "codigo_postal": "94297"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:43.796400",
+                "updated_at": "2026-06-25T21:05:43.796400"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-4c383ffffcb0-9089-19d7547-a0ec-711b": {
+            "data": {
+                "precio": "MN 5,700,000",
+                "precio_valor": 5700000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "227 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 227.0,
+                "m2_construidos": 229.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónPlayas de Conchal, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Playas de Conchal",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Jardin | Terraza",
+                "lat": 19.06536,
+                "lng": -96.090427,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:43.796415",
+                "updated_at": "2026-06-25T21:05:43.796415"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-9370b7069519-3d72-19d7545-9a30-7c69": {
+            "data": {
+                "precio": "MN 5,750,000",
+                "precio_valor": 5750000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "265 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 265.0,
+                "m2_construidos": 302.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónPlayas de Conchal, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Playas de Conchal",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Aire acondicionado | Circuito Cerrado | Cisterna | Jacuzzi | Jardin | Paneles solares | Seguridad privada | Terraza",
+                "lat": 19.06536,
+                "lng": -96.090427,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:50.625936",
+                "updated_at": "2026-06-25T21:05:50.625936"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-3f19d4600041-b0a8-19d754a-8b38-7840": {
+            "data": {
+                "precio": "MN 4,800,000",
+                "precio_valor": 4800000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "225 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 225.0,
+                "m2_construidos": 250.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónPlayas de Conchal, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Playas de Conchal",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Jardin",
+                "lat": 19.06536,
+                "lng": -96.090427,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:50.625990",
+                "updated_at": "2026-06-25T21:05:50.625990"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-86243e3709c0-dde7-19c8b7a-bbba-710f": {
+            "data": {
+                "precio": "MN 4,569,000",
+                "precio_valor": 4569000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "169 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 169.0,
+                "m2_construidos": 218.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLas Lomas, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Las Lomas",
+                "descripcion": "Sin descripcion",
+                "amenidades": "",
+                "lat": 19.073369,
+                "lng": -96.091753,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:50.626022",
+                "updated_at": "2026-06-25T21:05:50.626022"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-6ba033436abb-bfa0-19c8ffe-9d6b-72f4": {
+            "data": {
+                "precio": "MN 3,980,000",
+                "precio_valor": 3980000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "168 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 168.0,
+                "m2_construidos": 238.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Aire acondicionado | Alberca | Gimnasio | Jardin | Seguridad privada",
+                "lat": 19.050221,
+                "lng": -96.061431,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:50.626051",
+                "updated_at": "2026-06-25T21:05:50.626051"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-d11dd4f06d8b-3fbf-95117a6c-9479-35cc": {
+            "data": {
+                "precio": "MN 2,790,000",
+                "precio_valor": 2790000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "160 m² lote | 3 rec. | 3 banos",
+                "m2_totales": 160.0,
+                "m2_construidos": 160.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 0,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLomas de la Rioja, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Lomas de la Rioja",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Circuito Cerrado | Gimnasio | Jardin | Seguridad privada | Terraza",
+                "lat": 19.056374,
+                "lng": -96.061567,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:50.626081",
+                "updated_at": "2026-06-25T21:05:50.626081"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-a68847bc10a0-6290-19e2962-95f9-7d34": {
+            "data": {
+                "precio": "MN 3,550,000",
+                "precio_valor": 3550000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "160 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 160.0,
+                "m2_construidos": 172.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAnton Lizardo, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Anton Lizardo",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Aire acondicionado | Alberca | Cisterna | Gimnasio",
+                "lat": 19.053539,
+                "lng": -96.03709,
+                "codigo_postal": "95266"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:50.626110",
+                "updated_at": "2026-06-25T21:05:50.626110"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-a206a3751c88-2306-19d7544-9acf-767b": {
+            "data": {
+                "precio": "MN 5,890,000",
+                "precio_valor": 5890000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "235 m² lote | 4 rec. | 4 banos | 2 estac.",
+                "m2_totales": 235.0,
+                "m2_construidos": 254.0,
+                "recamaras": 4,
+                "banos": 4,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónPlayas de Conchal, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Playas de Conchal",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Cisterna",
+                "lat": 19.06536,
+                "lng": -96.090427,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:50.626139",
+                "updated_at": "2026-06-25T21:05:50.626139"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-fb697d267623-e804-19cf1d9-acbb-7594": {
+            "data": {
+                "precio": "MN 4,750,000",
+                "precio_valor": 4750000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "180 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 180.0,
+                "m2_construidos": 215.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Jardin",
+                "lat": 19.063125,
+                "lng": -96.092922,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:50.626170",
+                "updated_at": "2026-06-25T21:05:50.626170"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-14cff86d9586-b36c-19d7544-b7f5-7efd": {
+            "data": {
+                "precio": "MN 4,990,000",
+                "precio_valor": 4990000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "232 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 232.0,
+                "m2_construidos": 212.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónPlayas de Conchal, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Playas de Conchal",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Jardin | Terraza",
+                "lat": 19.06536,
+                "lng": -96.090427,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:50.626200",
+                "updated_at": "2026-06-25T21:05:50.626200"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-e782894fef5c-cef1-19e6ee4-910f-79a7": {
+            "data": {
+                "precio": "MN 6,398,000",
+                "precio_valor": 6398000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "226 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 226.0,
+                "m2_construidos": 258.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Aire acondicionado | Alberca | Jardin | Terraza",
+                "lat": 19.063125,
+                "lng": -96.092922,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:50.626228",
+                "updated_at": "2026-06-25T21:05:50.626228"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-a02017708575-89f9-19d7544-a861-73ba": {
+            "data": {
+                "precio": "MN 2,884,000",
+                "precio_valor": 2884000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "160 m² lote | 3 rec. | 2 banos | 2 estac.",
+                "m2_totales": 160.0,
+                "m2_construidos": 125.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAnton Lizardo, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Anton Lizardo",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Gimnasio | Jardin | Terraza",
+                "lat": 19.053539,
+                "lng": -96.03709,
+                "codigo_postal": "95266"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:50.626256",
+                "updated_at": "2026-06-25T21:05:50.626256"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-b135b529fd62-5893-19aa46b-bd2c-74b7": {
+            "data": {
+                "precio": "MN 2,950,000",
+                "precio_valor": 2950000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "162 m² lote | 2 rec. | 2 banos | 2 estac.",
+                "m2_totales": 162.0,
+                "m2_construidos": 130.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Aire acondicionado | Alberca | Gimnasio | Jardin",
+                "lat": 19.050221,
+                "lng": -96.061431,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:50.626285",
+                "updated_at": "2026-06-25T21:05:50.626285"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-92a1cc264177-a77b-1984ebf-838a-778c": {
+            "data": {
+                "precio": "MN 4,320,000",
+                "precio_valor": 4320000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "200 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 200.0,
+                "m2_construidos": 223.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLas Lomas, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Las Lomas",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Jardin | Terraza",
+                "lat": 19.07074,
+                "lng": -96.096642,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:50.626313",
+                "updated_at": "2026-06-25T21:05:50.626313"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-9a80e1f1a428-7bc4-19ef791-9dbf-742a": {
+            "data": {
+                "precio": "MN 4,410,000",
+                "precio_valor": 4410000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "172 m² lote | 4 rec. | 4 banos | 2 estac.",
+                "m2_totales": 172.0,
+                "m2_construidos": 223.0,
+                "recamaras": 4,
+                "banos": 4,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLomas de la Rioja, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Lomas de la Rioja",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Aire acondicionado | Alberca | Gimnasio | Jardin | Terraza",
+                "lat": 19.052639,
+                "lng": -96.06097,
+                "codigo_postal": "95250"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:50.626344",
+                "updated_at": "2026-06-25T21:05:50.626344"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-870046a70514-7e5b-19b7cf1-93ec-7cad": {
+            "data": {
+                "precio": "MN 2,750,000",
+                "precio_valor": 2750000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "160 m² lote | 3 rec. | 2 banos | 2 estac.",
+                "m2_totales": 160.0,
+                "m2_construidos": 119.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLas Lomas, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Las Lomas",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Jardin",
+                "lat": 19.048817,
+                "lng": -96.036583,
+                "codigo_postal": "95252"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:50.626372",
+                "updated_at": "2026-06-25T21:05:50.626372"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-3ba494303040-8cb3-3685f996-be0b-32cb": {
+            "data": {
+                "precio": "MN 3,265,000",
+                "precio_valor": 3265000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "211 m² lote | 3 rec. | 3 banos",
+                "m2_totales": 211.0,
+                "m2_construidos": 162.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 0,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLomas de la Rioja, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Lomas de la Rioja",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Cisterna | Jardin | Paneles solares",
+                "lat": 19.056374,
+                "lng": -96.061567,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:50.626400",
+                "updated_at": "2026-06-25T21:05:50.626400"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-5c61f0a66750-c3d2-19e9acd-aaa7-7969": {
+            "data": {
+                "precio": "MN 3,190,000",
+                "precio_valor": 3190000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "160 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 160.0,
+                "m2_construidos": 140.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAnton Lizardo, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Anton Lizardo",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Cisterna | Gimnasio | Jardin",
+                "lat": 19.053539,
+                "lng": -96.03709,
+                "codigo_postal": "95266"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:50.626428",
+                "updated_at": "2026-06-25T21:05:50.626428"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-884ebc38a828-a7bf-19ef4cc-9bcd-739d": {
+            "data": {
+                "precio": "MN 4,850,000",
+                "precio_valor": 4850000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "180 m² lote | 4 rec. | 4 banos | 2 estac.",
+                "m2_totales": 180.0,
+                "m2_construidos": 216.0,
+                "recamaras": 4,
+                "banos": 4,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLas Lomas, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Las Lomas",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Circuito Cerrado | Gimnasio | Jardin | Seguridad privada",
+                "lat": 19.075156,
+                "lng": -96.090905,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:50.626467",
+                "updated_at": "2026-06-25T21:05:50.626467"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-88e7b86cd73b-6316-19d7546-8cdc-79f4": {
+            "data": {
+                "precio": "MN 4,730,000",
+                "precio_valor": 4730000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "160 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 160.0,
+                "m2_construidos": 222.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Gimnasio | Jardin | Terraza",
+                "lat": 19.074315,
+                "lng": -96.08977,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:50.626494",
+                "updated_at": "2026-06-25T21:05:50.626494"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-c05b006b60f4-5dce-19d6841-9f06-7403": {
+            "data": {
+                "precio": "MN 3,190,000",
+                "precio_valor": 3190000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "172 m² lote | 3 rec. | 2 banos | 2 estac.",
+                "m2_totales": 172.0,
+                "m2_construidos": 165.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Cisterna | Gimnasio | Jardin",
+                "lat": 19.050221,
+                "lng": -96.061431,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:50.626522",
+                "updated_at": "2026-06-25T21:05:50.626522"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-fd44783747bd-e287-19e6245-906a-70da": {
+            "data": {
+                "precio": "MN 3,950,000",
+                "precio_valor": 3950000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "200 m² lote | 3 rec. | 3 banos | 3 estac.",
+                "m2_totales": 200.0,
+                "m2_construidos": 216.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 3,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Cisterna | Seguridad privada | Terraza",
+                "lat": 19.054324,
+                "lng": -96.073979,
+                "codigo_postal": "95266"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:50.626551",
+                "updated_at": "2026-06-25T21:05:50.626551"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-64546e8e3460-19f2-19d7547-9797-7e2d": {
+            "data": {
+                "precio": "MN 6,398,000",
+                "precio_valor": 6398000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "226 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 226.0,
+                "m2_construidos": 258.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónPlayas de Conchal, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Playas de Conchal",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Terraza",
+                "lat": 19.06536,
+                "lng": -96.090427,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:50.626579",
+                "updated_at": "2026-06-25T21:05:50.626579"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-30e2a501d42b-cb4f-19de170-943b-7a0e": {
+            "data": {
+                "precio": "MN 3,800,000",
+                "precio_valor": 3800000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "208 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 208.0,
+                "m2_construidos": 176.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLomas de la Rioja, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Lomas de la Rioja",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Cisterna | Gimnasio | Jardin | Paneles solares",
+                "lat": 19.052639,
+                "lng": -96.06097,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:50.626606",
+                "updated_at": "2026-06-25T21:05:50.626606"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-761dda3d90b4-de5a-19d7545-913f-7508": {
+            "data": {
+                "precio": "MN 3,190,000",
+                "precio_valor": 3190000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "160 m² lote | 3 rec. | 2 banos | 2 estac.",
+                "m2_totales": 160.0,
+                "m2_construidos": 145.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Aire acondicionado | Alberca | Gimnasio",
+                "lat": 19.074315,
+                "lng": -96.08977,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:50.626633",
+                "updated_at": "2026-06-25T21:05:50.626633"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-1d3a3bb52e3-6be9-19bc736-9327-70aa": {
+            "data": {
+                "precio": "MN 4,450,000",
+                "precio_valor": 4450000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "180 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 180.0,
+                "m2_construidos": 192.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónPunta de Arenas, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Punta de Arenas",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Jardin | Terraza",
+                "lat": 19.0613,
+                "lng": -96.086888,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:50.626661",
+                "updated_at": "2026-06-25T21:05:50.626661"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-ca3634249fce-c686-1982d4b-bb14-78f5": {
+            "data": {
+                "precio": "MN 4,500,000",
+                "precio_valor": 4500000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "306 m² lote | 2 rec. | 2 banos | 2 estac.",
+                "m2_totales": 306.0,
+                "m2_construidos": 217.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Aire acondicionado | Alberca | Gimnasio | Jardin | Paneles solares | Terraza",
+                "lat": 19.050221,
+                "lng": -96.061431,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:50.626689",
+                "updated_at": "2026-06-25T21:05:50.626689"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-ef6e6beeb1c9-812b-19e0a88-93e3-7dd0": {
+            "data": {
+                "precio": "MN 5,950,000",
+                "precio_valor": 5950000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "391 m² lote | 3 rec. | 5 banos | 4 estac.",
+                "m2_totales": 391.0,
+                "m2_construidos": 355.0,
+                "recamaras": 3,
+                "banos": 5,
+                "estacionamientos": 4,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLas Lomas, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Las Lomas",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Jardin | Terraza",
+                "lat": 19.074628,
+                "lng": -96.09302,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:50.626716",
+                "updated_at": "2026-06-25T21:05:50.626716"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-37544742689e-bdb8-19d8542-bad6-704c": {
+            "data": {
+                "precio": "MN 3,170,000",
+                "precio_valor": 3170000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "122 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 122.0,
+                "m2_construidos": 150.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLas Lomas, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Las Lomas",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Cisterna",
+                "lat": 19.071773,
+                "lng": -96.097852,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:50.626744",
+                "updated_at": "2026-06-25T21:05:50.626744"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-d52a1b4bd09d-cd5-19eaf71-9564-7675": {
+            "data": {
+                "precio": "MN 3,997,000",
+                "precio_valor": 3997000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "207 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 207.0,
+                "m2_construidos": 122.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Gimnasio | Jardin",
+                "lat": 19.074315,
+                "lng": -96.08977,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:05:50.626771",
+                "updated_at": "2026-06-25T21:05:50.626771"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-c8152ea757a8-e261-19d230e-b655-7cc2": {
+            "data": {
+                "precio": "MN 6,490,000",
+                "precio_valor": 6490000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "208 m² lote | 4 rec. | 5 banos | 2 estac.",
+                "m2_totales": 208.0,
+                "m2_construidos": 277.0,
+                "recamaras": 4,
+                "banos": 5,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLomas del Sol, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Lomas del Sol",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Jardin | Terraza",
+                "lat": 19.072142,
+                "lng": -96.092766,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:02.415539",
+                "updated_at": "2026-06-25T21:08:02.415539"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-18dcbb8fb302-433d-19d8c56-8c74-704d": {
+            "data": {
+                "precio": "MN 2,990,000",
+                "precio_valor": 2990000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "170 m² lote | 4 rec. | 3 banos | 2 estac.",
+                "m2_totales": 170.0,
+                "m2_construidos": 148.0,
+                "recamaras": 4,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Aire acondicionado | Alberca | Cisterna | Jardin | Paneles solares",
+                "lat": 19.050221,
+                "lng": -96.061431,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:02.415607",
+                "updated_at": "2026-06-25T21:08:02.415607"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-8c4956a24112-4664-19bc736-8674-718c": {
+            "data": {
+                "precio": "MN 4,190,000",
+                "precio_valor": 4190000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "200 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 200.0,
+                "m2_construidos": 235.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLomas del Sol, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Lomas del Sol",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Jardin",
+                "lat": 19.068251,
+                "lng": -96.068229,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:02.415651",
+                "updated_at": "2026-06-25T21:08:02.415651"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-b8a0a6bc2b73-7551-199af8f-8347-72fb": {
+            "data": {
+                "precio": "MN 2,680,000",
+                "precio_valor": 2680000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "158 m² lote | 2 rec. | 2 banos | 2 estac.",
+                "m2_totales": 158.0,
+                "m2_construidos": 105.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Gimnasio | Jardin",
+                "lat": 19.050221,
+                "lng": -96.061431,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:02.415689",
+                "updated_at": "2026-06-25T21:08:02.415689"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-6d3bc885d614-752b-19db582-af02-7a4b": {
+            "data": {
+                "precio": "MN 5,700,000",
+                "precio_valor": 5700000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "227 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 227.0,
+                "m2_construidos": 229.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Jardin | Paneles solares | Terraza",
+                "lat": 19.063125,
+                "lng": -96.092922,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:02.415730",
+                "updated_at": "2026-06-25T21:08:02.415730"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-74133df73b9e-c5b-19d608f-b859-7e16": {
+            "data": {
+                "precio": "MN 2,900,000",
+                "precio_valor": 2900000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "162 m² lote | 3 rec. | 2 banos | 2 estac.",
+                "m2_totales": 162.0,
+                "m2_construidos": 133.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Circuito Cerrado | Gimnasio | Jardin",
+                "lat": 19.050221,
+                "lng": -96.061431,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:02.415769",
+                "updated_at": "2026-06-25T21:08:02.415769"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-d3ebb97a4ecc-4193-199e31f-ba90-7322": {
+            "data": {
+                "precio": "MN 3,280,000",
+                "precio_valor": 3280000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "218 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 218.0,
+                "m2_construidos": 145.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónVillas Del Alvarado, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Villas Del Alvarado",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Jardin | Terraza",
+                "lat": 19.058421,
+                "lng": -96.06368,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:02.415807",
+                "updated_at": "2026-06-25T21:08:02.415807"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-140cae206fa7-b483-19a7337-ad72-71a7": {
+            "data": {
+                "precio": "MN 6,300,000",
+                "precio_valor": 6300000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "241 m² lote | 4 rec. | 4 banos",
+                "m2_totales": 241.0,
+                "m2_construidos": 267.0,
+                "recamaras": 4,
+                "banos": 4,
+                "estacionamientos": 0,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Jardin",
+                "lat": 19.073071,
+                "lng": -96.093384,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:02.415844",
+                "updated_at": "2026-06-25T21:08:02.415844"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-a2e43992a18c-ed5d-19d754a-b1ea-7997": {
+            "data": {
+                "precio": "MN 2,780,000",
+                "precio_valor": 2780000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "161 m² lote | 3 rec. | 2 banos | 2 estac.",
+                "m2_totales": 161.0,
+                "m2_construidos": 112.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAnton Lizardo, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Anton Lizardo",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Cisterna | Gimnasio | Jardin",
+                "lat": 19.053539,
+                "lng": -96.03709,
+                "codigo_postal": "95266"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:02.415882",
+                "updated_at": "2026-06-25T21:08:02.415882"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-ad940044889d-e723-19d729a-b007-7a78": {
+            "data": {
+                "precio": "MN 3,000,000",
+                "precio_valor": 3000000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "165 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 165.0,
+                "m2_construidos": 159.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Gimnasio | Jardin",
+                "lat": 19.050221,
+                "lng": -96.061431,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:02.415919",
+                "updated_at": "2026-06-25T21:08:02.415919"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-adbe7fbffb87-4a51-1967cbb-87d5-7561": {
+            "data": {
+                "precio": "MN 3,150,000",
+                "precio_valor": 3150000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "162 m² lote | 3 rec. | 2 banos | 2 estac.",
+                "m2_totales": 162.0,
+                "m2_construidos": 170.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLomas de la Rioja, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Lomas de la Rioja",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Gimnasio | Jacuzzi | Jardin | Terraza",
+                "lat": 19.040398,
+                "lng": -96.060005,
+                "codigo_postal": "95266"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:02.415957",
+                "updated_at": "2026-06-25T21:08:02.415957"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-34482d76f6e-def-19990a8-8916-7cea": {
+            "data": {
+                "precio": "MN 3,450,000",
+                "precio_valor": 3450000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "206 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 206.0,
+                "m2_construidos": 162.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Cisterna | Gimnasio | Jardin",
+                "lat": 19.050221,
+                "lng": -96.061431,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:02.415993",
+                "updated_at": "2026-06-25T21:08:02.415993"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-a77755ba775f-31a4-19d6d74-bad4-724e": {
+            "data": {
+                "precio": "MN 3,790,000",
+                "precio_valor": 3790000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "198 m² lote | 3 rec. | 4 banos | 2 estac.",
+                "m2_totales": 198.0,
+                "m2_construidos": 200.0,
+                "recamaras": 3,
+                "banos": 4,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Cisterna | Gimnasio | Jardin",
+                "lat": 19.050221,
+                "lng": -96.061431,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:02.416047",
+                "updated_at": "2026-06-25T21:08:02.416047"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-85775d14ac1d-71a0-19d6841-b4eb-73e4": {
+            "data": {
+                "precio": "MN 2,720,000",
+                "precio_valor": 2720000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "160 m² lote | 2 rec. | 2 banos | 2 estac.",
+                "m2_totales": 160.0,
+                "m2_construidos": 140.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Cisterna | Gimnasio | Jardin",
+                "lat": 19.050221,
+                "lng": -96.061431,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:02.416085",
+                "updated_at": "2026-06-25T21:08:02.416085"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-bc6c7fc7b65c-5808-19edb11-bc47-7116": {
+            "data": {
+                "precio": "MN 3,560,000",
+                "precio_valor": 3560000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "160 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 160.0,
+                "m2_construidos": 152.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLas Lomas, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Las Lomas",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Circuito Cerrado | Gimnasio | Jardin | Terraza",
+                "lat": 19.071484,
+                "lng": -96.099909,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:02.416122",
+                "updated_at": "2026-06-25T21:08:02.416122"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-27ff99e3b909-9ef3-19d7545-8d96-72d1": {
+            "data": {
+                "precio": "MN 4,990,000",
+                "precio_valor": 4990000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "160 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 160.0,
+                "m2_construidos": 240.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Aire acondicionado | Alberca | Gimnasio | Jardin",
+                "lat": 19.074315,
+                "lng": -96.08977,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:02.416159",
+                "updated_at": "2026-06-25T21:08:02.416159"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-98663b0b0b36-f033-19db067-99e3-71c2": {
+            "data": {
+                "precio": "MN 6,350,000",
+                "precio_valor": 6350000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "200 m² lote | 4 rec. | 4 banos | 2 estac.",
+                "m2_totales": 200.0,
+                "m2_construidos": 259.0,
+                "recamaras": 4,
+                "banos": 4,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Jardin",
+                "lat": 19.070727,
+                "lng": -96.092717,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:02.416195",
+                "updated_at": "2026-06-25T21:08:02.416195"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-263ac8b44f7b-3622-19d7545-86c5-7a82": {
+            "data": {
+                "precio": "MN 3,390,000",
+                "precio_valor": 3390000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "167 m² lote | 3 rec. | 2 banos | 2 estac.",
+                "m2_totales": 167.0,
+                "m2_construidos": 140.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAnton Lizardo, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Anton Lizardo",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Gimnasio | Jardin | Terraza",
+                "lat": 19.053539,
+                "lng": -96.03709,
+                "codigo_postal": "95266"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:02.416233",
+                "updated_at": "2026-06-25T21:08:02.416233"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-dd95dc538cf6-eb8d-19d608e-8b39-7e9d": {
+            "data": {
+                "precio": "MN 2,900,000",
+                "precio_valor": 2900000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "162 m² lote | 3 rec. | 2 banos | 2 estac.",
+                "m2_totales": 162.0,
+                "m2_construidos": 133.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Circuito Cerrado | Gimnasio | Jardin",
+                "lat": 19.050221,
+                "lng": -96.061431,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:02.416276",
+                "updated_at": "2026-06-25T21:08:02.416276"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-da262d358df9-3da0-19edb11-850f-7b77": {
+            "data": {
+                "precio": "MN 15,990,000",
+                "precio_valor": 15990000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "1,027 m² lote | 4 rec. | 4 banos | 3 estac.",
+                "m2_totales": 1027.0,
+                "m2_construidos": 450.0,
+                "recamaras": 4,
+                "banos": 4,
+                "estacionamientos": 3,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Aire acondicionado | Alberca | Cisterna | Jardin | Paneles solares | Seguridad privada | Terraza",
+                "lat": 19.063125,
+                "lng": -96.092922,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:02.416313",
+                "updated_at": "2026-06-25T21:08:02.416313"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-7371ed662e1e-5502-19412b7-997b-78a0": {
+            "data": {
+                "precio": "MN 3,850,000",
+                "precio_valor": 3850000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "180 m² lote | 3 rec. | 2 banos | 2 estac.",
+                "m2_totales": 180.0,
+                "m2_construidos": 205.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Jardin | Terraza",
+                "lat": 19.063125,
+                "lng": -96.092922,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:02.416350",
+                "updated_at": "2026-06-25T21:08:02.416350"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-ed2c8fe68646-4e85-196349a-ae73-7e7c": {
+            "data": {
+                "precio": "MN 7,250,000",
+                "precio_valor": 7250000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "300 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 300.0,
+                "m2_construidos": 377.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónPlayas de Conchal, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Playas de Conchal",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Aire acondicionado | Alberca | Jardin | Terraza",
+                "lat": 19.077321,
+                "lng": -96.083983,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:02.416386",
+                "updated_at": "2026-06-25T21:08:02.416386"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-481769b30bd6-f8a4-19ddc31-aa1d-70be": {
+            "data": {
+                "precio": "MN 5,390,000",
+                "precio_valor": 5390000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "248 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 248.0,
+                "m2_construidos": 274.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónPlayas de Conchal, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Playas de Conchal",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Aire acondicionado | Alberca | Terraza",
+                "lat": 19.06536,
+                "lng": -96.090427,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:02.416423",
+                "updated_at": "2026-06-25T21:08:02.416423"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-223a0f391f0d-631f-1964bd3-aa7a-7402": {
+            "data": {
+                "precio": "MN 5,100,000",
+                "precio_valor": 5100000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "160 m² lote | 3 rec. | 4 banos | 2 estac.",
+                "m2_totales": 160.0,
+                "m2_construidos": 240.0,
+                "recamaras": 3,
+                "banos": 4,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLomas Del Rosario, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Lomas Del Rosario",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Aire acondicionado | Alberca | Gimnasio | Jardin",
+                "lat": 19.075654,
+                "lng": -96.090904,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:02.416459",
+                "updated_at": "2026-06-25T21:08:02.416459"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-3388879846bd-1bd1-190dfee-b544-7eff": {
+            "data": {
+                "precio": "MN 4,800,000",
+                "precio_valor": 4800000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "212 m² lote | 3 rec. | 4 banos | 2 estac.",
+                "m2_totales": 212.0,
+                "m2_construidos": 222.0,
+                "recamaras": 3,
+                "banos": 4,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónPlayas de Conchal, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Playas de Conchal",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Jardin | Terraza",
+                "lat": 19.0653598,
+                "lng": -96.0904274,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:02.416495",
+                "updated_at": "2026-06-25T21:08:02.416495"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-95a9537717e1-d540-8188f9d9-a14b-30fb": {
+            "data": {
+                "precio": "MN 4,900,000",
+                "precio_valor": 4900000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "225 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 225.0,
+                "m2_construidos": 250.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Circuito Cerrado | Jardin",
+                "lat": 19.067187,
+                "lng": -96.081093,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:02.416532",
+                "updated_at": "2026-06-25T21:08:02.416532"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-13f86d80c78d-f5e7-19d7544-9f28-7f7b": {
+            "data": {
+                "precio": "MN 4,570,000",
+                "precio_valor": 4570000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "180 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 180.0,
+                "m2_construidos": 190.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónPlayas de Conchal, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Playas de Conchal",
+                "descripcion": "Sin descripcion",
+                "amenidades": "",
+                "lat": 19.06536,
+                "lng": -96.090427,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:02.416690",
+                "updated_at": "2026-06-25T21:08:02.416690"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-4e024629589d-4abe-19edb11-9892-7214": {
+            "data": {
+                "precio": "MN 3,990,000",
+                "precio_valor": 3990000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "199 m² lote | 3 rec. | 4 banos | 2 estac.",
+                "m2_totales": 199.0,
+                "m2_construidos": 209.0,
+                "recamaras": 3,
+                "banos": 4,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Gimnasio | Jardin | Terraza",
+                "lat": 19.050221,
+                "lng": -96.061431,
+                "codigo_postal": "95250"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:02.416735",
+                "updated_at": "2026-06-25T21:08:02.416735"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-2f4b58f70fc6-d3a8-19d7543-8e2a-797c": {
+            "data": {
+                "precio": "MN 5,100,000",
+                "precio_valor": 5100000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "160 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 160.0,
+                "m2_construidos": 240.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Aire acondicionado | Alberca | Gimnasio | Jardin",
+                "lat": 19.074315,
+                "lng": -96.08977,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:02.416772",
+                "updated_at": "2026-06-25T21:08:02.416772"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-206581d54dce-c94d-19a0af4-8e4b-78d7": {
+            "data": {
+                "precio": "MN 3,290,000",
+                "precio_valor": 3290000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "200 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 200.0,
+                "m2_construidos": 170.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Gimnasio | Jardin | Seguridad privada | Terraza",
+                "lat": 19.042459,
+                "lng": -96.064914,
+                "codigo_postal": "95266"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:12.770326",
+                "updated_at": "2026-06-25T21:08:12.770326"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-413221e766e8-10b7-196537e-8fc6-74f4": {
+            "data": {
+                "precio": "MN 3,550,000",
+                "precio_valor": 3550000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "176 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 176.0,
+                "m2_construidos": 190.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLas Lomas, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Las Lomas",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Gimnasio | Jardin | Terraza",
+                "lat": 19.049232,
+                "lng": -96.037201,
+                "codigo_postal": "95252"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:12.770361",
+                "updated_at": "2026-06-25T21:08:12.770361"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-8da7a9324d19-617-19d4253-83d6-725b": {
+            "data": {
+                "precio": "MN 2,650,000",
+                "precio_valor": 2650000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "150 m² lote | 2 rec. | 2 banos | 2 estac.",
+                "m2_totales": 150.0,
+                "m2_construidos": 120.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLomas de la Rioja, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Lomas de la Rioja",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Circuito Cerrado | Gimnasio | Jardin | Seguridad privada | Terraza",
+                "lat": 19.041667,
+                "lng": -96.059948,
+                "codigo_postal": "95266"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:12.770379",
+                "updated_at": "2026-06-25T21:08:12.770379"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-913ae378a5d6-368b-19a3583-a6e9-7875": {
+            "data": {
+                "precio": "MN 3,610,000",
+                "precio_valor": 3610000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "160 m² lote | 3 rec. | 2 banos | 2 estac.",
+                "m2_totales": 160.0,
+                "m2_construidos": 163.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLas Lomas, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Las Lomas",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Cisterna | Gimnasio | Jardin | Terraza",
+                "lat": 19.04925,
+                "lng": -96.03585,
+                "codigo_postal": "95252"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:12.770394",
+                "updated_at": "2026-06-25T21:08:12.770394"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-738fb26b0fb4-eeb1-19b9a2f-a0b0-7520": {
+            "data": {
+                "precio": "MN 4,290,000",
+                "precio_valor": 4290000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "248 m² lote | 3 rec. | 2 banos | 2 estac.",
+                "m2_totales": 248.0,
+                "m2_construidos": 184.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "",
+                "lat": 19.069293,
+                "lng": -96.093619,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:12.770410",
+                "updated_at": "2026-06-25T21:08:12.770410"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-8fd1be9910f4-e3c0-19d443b-8924-7a72": {
+            "data": {
+                "precio": "MN 3,550,000",
+                "precio_valor": 3550000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "169 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 169.0,
+                "m2_construidos": 180.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Aire acondicionado | Alberca | Circuito Cerrado | Gimnasio | Jardin | Terraza",
+                "lat": 19.04738,
+                "lng": -96.037779,
+                "codigo_postal": "95252"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:12.770426",
+                "updated_at": "2026-06-25T21:08:12.770426"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-99eb1cd50095-da04-19e43cb-825c-7438": {
+            "data": {
+                "precio": "MN 6,700,000",
+                "precio_valor": 6700000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "230 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 230.0,
+                "m2_construidos": 277.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónPlayas de Conchal, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Playas de Conchal",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Jardin | Seguridad privada",
+                "lat": 19.06536,
+                "lng": -96.090427,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:12.770442",
+                "updated_at": "2026-06-25T21:08:12.770442"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-ea0ce921b3e1-a621-6b5d4e9b-bc36-4a4b": {
+            "data": {
+                "precio": "MN 3,985,000",
+                "precio_valor": 3985000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "188 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 188.0,
+                "m2_construidos": 238.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Aire acondicionado | Alberca | Circuito Cerrado | Cisterna | Gimnasio | Jardin | Seguridad privada | Terraza",
+                "lat": 19.0448802,
+                "lng": -96.0606391,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:12.770458",
+                "updated_at": "2026-06-25T21:08:12.770458"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-6d50712b09bb-9b74-19d7a73-b7be-7878": {
+            "data": {
+                "precio": "MN 2,680,000",
+                "precio_valor": 2680000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "161 m² lote | 3 rec. | 2 banos | 2 estac.",
+                "m2_totales": 161.0,
+                "m2_construidos": 112.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAnton Lizardo, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Anton Lizardo",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Gimnasio | Jardin | Terraza",
+                "lat": 19.053539,
+                "lng": -96.03709,
+                "codigo_postal": "95266"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:12.770473",
+                "updated_at": "2026-06-25T21:08:12.770473"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-d18685dbff5d-55a2-19b7d9b-853e-7774": {
+            "data": {
+                "precio": "MN 7,400,000",
+                "precio_valor": 7400000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "295 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 295.0,
+                "m2_construidos": 301.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLomas del Sol, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Lomas del Sol",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Gimnasio | Jardin | Seguridad privada | Terraza",
+                "lat": 19.071965,
+                "lng": -96.080827,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:12.770488",
+                "updated_at": "2026-06-25T21:08:12.770488"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-cc89e1260d59-5fac-19bc736-87e2-7bee": {
+            "data": {
+                "precio": "MN 2,750,000",
+                "precio_valor": 2750000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "161 m² lote | 3 rec. | 2 banos | 2 estac.",
+                "m2_totales": 161.0,
+                "m2_construidos": 11.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLas Lomas, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Las Lomas",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Gimnasio | Jardin",
+                "lat": 19.048465,
+                "lng": -96.036033,
+                "codigo_postal": "95252"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:12.770503",
+                "updated_at": "2026-06-25T21:08:12.770503"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-1d6bea5fc2a3-2a30-19b2fdb-9b11-7952": {
+            "data": {
+                "precio": "MN 4,250,000",
+                "precio_valor": 4250000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "160 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 160.0,
+                "m2_construidos": 180.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Gimnasio | Jardin | Terraza",
+                "lat": 19.05699,
+                "lng": -96.066875,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:12.770518",
+                "updated_at": "2026-06-25T21:08:12.770518"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-e182c1238dfe-689c-19a0bb6-929a-7e83": {
+            "data": {
+                "precio": "MN 3,900,000",
+                "precio_valor": 3900000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "180 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 180.0,
+                "m2_construidos": 320.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLas Lomas, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Las Lomas",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Jardin | Seguridad privada",
+                "lat": 19.0704,
+                "lng": -96.096445,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:12.770534",
+                "updated_at": "2026-06-25T21:08:12.770534"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-74c6dcf7daf3-c577-19d443b-ba5e-7b27": {
+            "data": {
+                "precio": "MN 2,615,000",
+                "precio_valor": 2615000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "160 m² lote | 3 rec. | 2 banos | 1 estac.",
+                "m2_totales": 160.0,
+                "m2_construidos": 119.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLas Lomas, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Las Lomas",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Gimnasio | Jardin",
+                "lat": 19.050615,
+                "lng": -96.036975,
+                "codigo_postal": "95252"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:12.770549",
+                "updated_at": "2026-06-25T21:08:12.770549"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-766fc8350786-dd32-19d443b-ad67-720a": {
+            "data": {
+                "precio": "MN 2,490,000",
+                "precio_valor": 2490000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "160 m² lote | 2 rec. | 2 banos | 2 estac.",
+                "m2_totales": 160.0,
+                "m2_construidos": 96.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLas Lomas, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Las Lomas",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Gimnasio | Jardin",
+                "lat": 19.049849,
+                "lng": -96.037976,
+                "codigo_postal": "95252"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:12.770563",
+                "updated_at": "2026-06-25T21:08:12.770563"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-407e83e3afac-ff79-19d729a-84ab-7099": {
+            "data": {
+                "precio": "MN 3,200,000",
+                "precio_valor": 3200000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "144 m² lote | 3 rec. | 2 banos | 2 estac.",
+                "m2_totales": 144.0,
+                "m2_construidos": 182.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Aire acondicionado | Alberca | Circuito Cerrado | Gimnasio | Jardin | Seguridad privada | Terraza",
+                "lat": 19.050221,
+                "lng": -96.061431,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:12.770578",
+                "updated_at": "2026-06-25T21:08:12.770578"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-950e72fbc699-5077-474be4c0-bef9-3090": {
+            "data": {
+                "precio": "MN 3,060,000",
+                "precio_valor": 3060000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "160 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 160.0,
+                "m2_construidos": 177.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Circuito Cerrado | Gimnasio | Jardin | Paneles solares | Terraza",
+                "lat": 19.051125,
+                "lng": -96.034078,
+                "codigo_postal": "95252"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:12.770594",
+                "updated_at": "2026-06-25T21:08:12.770594"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-4fc6d8b90525-3b0c-19d4969-a944-748e": {
+            "data": {
+                "precio": "MN 5,290,000",
+                "precio_valor": 5290000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "200 m² lote | 3 rec. | 4 banos | 2 estac.",
+                "m2_totales": 200.0,
+                "m2_construidos": 253.0,
+                "recamaras": 3,
+                "banos": 4,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLomas del Sol, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Lomas del Sol",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Aire acondicionado | Alberca | Circuito Cerrado | Jardin | Paneles solares | Terraza",
+                "lat": 19.06292,
+                "lng": -96.072846,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:12.770610",
+                "updated_at": "2026-06-25T21:08:12.770610"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-7afb1d2e4a28-2cd1-19a3583-a1f3-77b4": {
+            "data": {
+                "precio": "MN 3,650,000",
+                "precio_valor": 3650000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "160 m² lote | 3 rec. | 2 banos | 2 estac.",
+                "m2_totales": 160.0,
+                "m2_construidos": 173.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLas Lomas, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Las Lomas",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Cisterna | Gimnasio | Jardin | Terraza",
+                "lat": 19.049849,
+                "lng": -96.036938,
+                "codigo_postal": "95252"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:12.770625",
+                "updated_at": "2026-06-25T21:08:12.770625"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-d0d37fbc5834-710c-19dbded-a7d7-707d": {
+            "data": {
+                "precio": "MN 5,500,000",
+                "precio_valor": 5500000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "227 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 227.0,
+                "m2_construidos": 232.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Circuito Cerrado | Gimnasio | Jardin | Seguridad privada | Terraza",
+                "lat": 19.062437,
+                "lng": -96.082382,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:12.770640",
+                "updated_at": "2026-06-25T21:08:12.770640"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-e3e94b189d4b-e922-19b96e5-9400-7e3d": {
+            "data": {
+                "precio": "MN 3,250,000",
+                "precio_valor": 3250000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "160 m² lote | 2 rec. | 2 banos",
+                "m2_totales": 160.0,
+                "m2_construidos": 121.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 0,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Gimnasio | Jardin | Terraza",
+                "lat": 19.070357,
+                "lng": -96.084072,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:12.770655",
+                "updated_at": "2026-06-25T21:08:12.770655"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-4c54ee7d1402-81e9-19d190d-9fe8-7d1e": {
+            "data": {
+                "precio": "MN 7,190,000",
+                "precio_valor": 7190000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "273 m² lote | 4 rec. | 4 banos | 2 estac.",
+                "m2_totales": 273.0,
+                "m2_construidos": 298.0,
+                "recamaras": 4,
+                "banos": 4,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónPlayas de Conchal, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Playas de Conchal",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Cisterna | Jardin | Seguridad privada",
+                "lat": 19.06536,
+                "lng": -96.090427,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:12.770670",
+                "updated_at": "2026-06-25T21:08:12.770670"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-67cf9b929acb-f051-19b9f56-84d0-7196": {
+            "data": {
+                "precio": "MN 5,500,000",
+                "precio_valor": 5500000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "250 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 250.0,
+                "m2_construidos": 240.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónPlayas de Conchal, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Playas de Conchal",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Aire acondicionado | Alberca | Jardin | Terraza",
+                "lat": 19.07869,
+                "lng": -96.092132,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:12.770685",
+                "updated_at": "2026-06-25T21:08:12.770685"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-e997d63491e9-c752-19501f7-be7e-8041": {
+            "data": {
+                "precio": "MN 2,635,000",
+                "precio_valor": 2635000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "160 m² lote | 3 rec. | 2 banos | 2 estac.",
+                "m2_totales": 160.0,
+                "m2_construidos": 160.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAnton Lizardo, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Anton Lizardo",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Cisterna | Gimnasio | Jardin | Seguridad privada",
+                "lat": 19.0535393,
+                "lng": -96.0370901,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:12.770782",
+                "updated_at": "2026-06-25T21:08:12.770782"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-a00ef9a64570-14f9-19d2da7-9df8-7850": {
+            "data": {
+                "precio": "MN 3,300,000",
+                "precio_valor": 3300000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "126 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 126.0,
+                "m2_construidos": 155.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Terraza",
+                "lat": 19.06773,
+                "lng": -96.098378,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:12.770798",
+                "updated_at": "2026-06-25T21:08:12.770798"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-6343777f19d-a6f1-13035ef7-b202-43bb": {
+            "data": {
+                "precio": "MN 2,850,000",
+                "precio_valor": 2850000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "162 m² lote | 3 rec. | 2 banos | 2 estac.",
+                "m2_totales": 162.0,
+                "m2_construidos": 146.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Aire acondicionado | Alberca | Circuito Cerrado | Cisterna | Gimnasio | Jardin | Seguridad privada",
+                "lat": 19.041571,
+                "lng": -96.0605042,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:12.770813",
+                "updated_at": "2026-06-25T21:08:12.770813"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-422961831552-ac1d-19e43c1-8cf7-7a31": {
+            "data": {
+                "precio": "MN 6,100,000",
+                "precio_valor": 6100000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "228 m² lote | 4 rec. | 3 banos | 2 estac.",
+                "m2_totales": 228.0,
+                "m2_construidos": 262.0,
+                "recamaras": 4,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónPlayas de Conchal, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Playas de Conchal",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Jardin | Seguridad privada",
+                "lat": 19.06536,
+                "lng": -96.090427,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:12.770828",
+                "updated_at": "2026-06-25T21:08:12.770828"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-37f0033e04b3-94a8-19d51b9-9f75-72e2": {
+            "data": {
+                "precio": "MN 3,990,000",
+                "precio_valor": 3990000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "183 m² lote | 4 rec. | 3 banos | 2 estac.",
+                "m2_totales": 183.0,
+                "m2_construidos": 195.0,
+                "recamaras": 4,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Gimnasio | Jardin | Seguridad privada | Terraza",
+                "lat": 19.042459,
+                "lng": -96.064914,
+                "codigo_postal": "95266"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:12.770843",
+                "updated_at": "2026-06-25T21:08:12.770843"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-cbe30c2d935b-a066-103c291d-935c-35b3": {
+            "data": {
+                "precio": "MN 2,635,000",
+                "precio_valor": 2635000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "160 m² lote | 3 rec. | 2 banos | 2 estac.",
+                "m2_totales": 160.0,
+                "m2_construidos": 125.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Circuito Cerrado | Jardin | Paneles solares | Terraza",
+                "lat": 19.050613,
+                "lng": -96.033593,
+                "codigo_postal": "95252"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:12.770858",
+                "updated_at": "2026-06-25T21:08:12.770858"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-d1f30ee0084a-478-19ef574-8ae2-7b5f": {
+            "data": {
+                "precio": "MN 2,750,000",
+                "precio_valor": 2750000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "155 m² lote | 2 rec. | 2 banos | 2 estac.",
+                "m2_totales": 155.0,
+                "m2_construidos": 121.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAnton Lizardo, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Anton Lizardo",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Terraza",
+                "lat": 19.053539,
+                "lng": -96.03709,
+                "codigo_postal": "95252"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:21.168390",
+                "updated_at": "2026-06-25T21:08:21.168390"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-2076040ac464-aada-196dc6e-b5ff-7a54": {
+            "data": {
+                "precio": "MN 3,720,000",
+                "precio_valor": 3720000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "199 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 199.0,
+                "m2_construidos": 199.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Cisterna | Jardin | Paneles solares | Seguridad privada | Terraza",
+                "lat": 19.0561132,
+                "lng": -96.0621303,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:21.168415",
+                "updated_at": "2026-06-25T21:08:21.168415"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-94caa48279b8-84a2-19a0ac4-a6c1-78c4": {
+            "data": {
+                "precio": "MN 3,450,000",
+                "precio_valor": 3450000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "206 m² lote | 3 rec. | 2 banos | 2 estac.",
+                "m2_totales": 206.0,
+                "m2_construidos": 172.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Circuito Cerrado | Jardin | Terraza",
+                "lat": 19.042459,
+                "lng": -96.064914,
+                "codigo_postal": "95266"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:21.168426",
+                "updated_at": "2026-06-25T21:08:21.168426"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-2507dc77aaaa-ee52-19cac27-99c4-7355": {
+            "data": {
+                "precio": "MN 3,790,000",
+                "precio_valor": 3790000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "198 m² lote | 3 rec. | 4 banos | 2 estac.",
+                "m2_totales": 198.0,
+                "m2_construidos": 200.0,
+                "recamaras": 3,
+                "banos": 4,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLomas de la Rioja, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Lomas de la Rioja",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Circuito Cerrado | Cisterna | Jardin | Seguridad privada",
+                "lat": 19.04425442363182,
+                "lng": -96.05560318935547,
+                "codigo_postal": "95266"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:21.168438",
+                "updated_at": "2026-06-25T21:08:21.168438"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-49e9a28f237d-722b-19ea832-9b1e-70a0": {
+            "data": {
+                "precio": "MN 5,700,000",
+                "precio_valor": 5700000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "227 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 227.0,
+                "m2_construidos": 229.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLa Matosa, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, La Matosa",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Cisterna | Jardin | Terraza",
+                "lat": 19.059864,
+                "lng": -96.07869,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:21.168448",
+                "updated_at": "2026-06-25T21:08:21.168448"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-16f5dac1c75-ff1e-1983edc-94ea-73fb": {
+            "data": {
+                "precio": "MN 2,850,000",
+                "precio_valor": 2850000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "162 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 162.0,
+                "m2_construidos": 145.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAnton Lizardo, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Anton Lizardo",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Aire acondicionado | Alberca | Gimnasio | Jardin | Seguridad privada | Terraza",
+                "lat": 19.0535393,
+                "lng": -96.0370901,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:21.168459",
+                "updated_at": "2026-06-25T21:08:21.168459"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-d419e32ab75d-c4cb-19b7cbf-a828-7f06": {
+            "data": {
+                "precio": "MN 4,600,000",
+                "precio_valor": 4600000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "200 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 200.0,
+                "m2_construidos": 223.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónPlayas de Conchal, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Playas de Conchal",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Jardin",
+                "lat": 19.06536,
+                "lng": -96.090427,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:21.168469",
+                "updated_at": "2026-06-25T21:08:21.168469"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-f15738c59b40-c27-19e7963-87f1-7825": {
+            "data": {
+                "precio": "MN 3,250,000",
+                "precio_valor": 3250000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "164 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 164.0,
+                "m2_construidos": 140.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAnton Lizardo, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Anton Lizardo",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Cisterna | Jardin | Seguridad privada | Terraza",
+                "lat": 19.0535393,
+                "lng": -96.0370901,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:21.168479",
+                "updated_at": "2026-06-25T21:08:21.168479"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-2df460813e3-a3b-19b7d4f-ab78-7390": {
+            "data": {
+                "precio": "MN 2,650,000",
+                "precio_valor": 2650000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "160 m² lote | 3 rec. | 2 banos | 2 estac.",
+                "m2_totales": 160.0,
+                "m2_construidos": 145.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Gimnasio",
+                "lat": 19.047373,
+                "lng": -96.038356,
+                "codigo_postal": "95252"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:21.168489",
+                "updated_at": "2026-06-25T21:08:21.168489"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-42ca14cf97e9-9d7e-19ead62-9e78-7786": {
+            "data": {
+                "precio": "MN 3,490,000",
+                "precio_valor": 3490000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "160 m² lote | 4 rec. | 4 banos | 2 estac.",
+                "m2_totales": 160.0,
+                "m2_construidos": 190.0,
+                "recamaras": 4,
+                "banos": 4,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Aire acondicionado | Alberca | Cisterna | Jardin",
+                "lat": 19.044899,
+                "lng": -96.034043,
+                "codigo_postal": "95252"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:21.168499",
+                "updated_at": "2026-06-25T21:08:21.168499"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-49eb08fc9625-ea93-1956868-8424-7bfe": {
+            "data": {
+                "precio": "MN 4,100,000",
+                "precio_valor": 4100000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "210 m² lote | 3 rec. | 2 banos | 2 estac.",
+                "m2_totales": 210.0,
+                "m2_construidos": 290.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Cisterna | Jardin | Seguridad privada | Terraza",
+                "lat": 19.0730715,
+                "lng": -96.09338444,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:21.168508",
+                "updated_at": "2026-06-25T21:08:21.168508"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-8be726f2dc06-836b-19a0bbf-9629-762a": {
+            "data": {
+                "precio": "MN 6,560,000",
+                "precio_valor": 6560000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "226 m² lote | 4 rec. | 4 banos",
+                "m2_totales": 226.0,
+                "m2_construidos": 283.0,
+                "recamaras": 4,
+                "banos": 4,
+                "estacionamientos": 0,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Jardin | Terraza",
+                "lat": 19.057154,
+                "lng": -96.066854,
+                "codigo_postal": "95266"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:21.168517",
+                "updated_at": "2026-06-25T21:08:21.168517"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-bc3267d3c010-dc5f-19dc321-9f36-7187": {
+            "data": {
+                "precio": "MN 3,790,000",
+                "precio_valor": 3790000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "198 m² lote | 3 rec. | 4 banos | 2 estac.",
+                "m2_totales": 198.0,
+                "m2_construidos": 2026.0,
+                "recamaras": 3,
+                "banos": 4,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLomas de la Rioja, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Lomas de la Rioja",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Cisterna | Jardin | Seguridad privada",
+                "lat": 19.0526387,
+                "lng": -96.06097,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:21.168528",
+                "updated_at": "2026-06-25T21:08:21.168528"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-63666b717b87-24d2-19eb3e0-bcc9-74e0": {
+            "data": {
+                "precio": "MN 3,390,000",
+                "precio_valor": 3390000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "160 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 160.0,
+                "m2_construidos": 140.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLas Lomas, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Las Lomas",
+                "descripcion": "Sin descripcion",
+                "amenidades": "",
+                "lat": 19.0714841,
+                "lng": -96.0999087,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:21.168537",
+                "updated_at": "2026-06-25T21:08:21.168537"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-17b0590a930d-b896-191054f-9792-78d3": {
+            "data": {
+                "precio": "MN 6,990,000",
+                "precio_valor": 6990000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "594 m² lote | 5 rec. | 4 banos | 3 estac.",
+                "m2_totales": 594.0,
+                "m2_construidos": 611.0,
+                "recamaras": 5,
+                "banos": 4,
+                "estacionamientos": 3,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónPlayas de Conchal, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Playas de Conchal",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Alberca | Cisterna | Jardin | Seguridad privada | Terraza",
+                "lat": 19.0778026,
+                "lng": -96.090351,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:21.168547",
+                "updated_at": "2026-06-25T21:08:21.168547"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-1cf5f4b91185-be71-19b7d2e-8e73-7ea0": {
+            "data": {
+                "precio": "MN 6,150,000",
+                "precio_valor": 6150000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "156 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 156.0,
+                "m2_construidos": 250.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLomas del Sol, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Lomas del Sol",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Jardin | Terraza",
+                "lat": 19.066476,
+                "lng": -96.066652,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:21.168557",
+                "updated_at": "2026-06-25T21:08:21.168557"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-5fe7fc821897-1ab2-19d7a57-9f8e-7907": {
+            "data": {
+                "precio": "MN 3,750,000",
+                "precio_valor": 3750000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "215 m² lote | 2 rec. | 2 banos | 2 estac.",
+                "m2_totales": 215.0,
+                "m2_construidos": 127.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónPlayas de Conchal, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Playas de Conchal",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Jardin",
+                "lat": 19.06536,
+                "lng": -96.090427,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:21.168567",
+                "updated_at": "2026-06-25T21:08:21.168567"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-67f20e3d5ec0-9e33-19a0b32-b3d9-7ed9": {
+            "data": {
+                "precio": "MN 4,800,000",
+                "precio_valor": 4800000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "225 m² lote | 3 rec. | 4 banos | 2 estac.",
+                "m2_totales": 225.0,
+                "m2_construidos": 234.0,
+                "recamaras": 3,
+                "banos": 4,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Jardin",
+                "lat": 19.059458,
+                "lng": -96.081029,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:21.168577",
+                "updated_at": "2026-06-25T21:08:21.168577"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-af5e3066fdda-eb4c-1978ac3-b7a1-7386": {
+            "data": {
+                "precio": "MN 2,850,000",
+                "precio_valor": 2850000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "162 m² lote | 3 rec. | 3 banos | 1 estac.",
+                "m2_totales": 162.0,
+                "m2_construidos": 145.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 1,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAnton Lizardo, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Anton Lizardo",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Aire acondicionado | Jacuzzi | Jardin | Seguridad privada | Terraza",
+                "lat": 19.0535393,
+                "lng": -96.0370901,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:21.168586",
+                "updated_at": "2026-06-25T21:08:21.168586"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-e87a5efa9e80-edc3-19b7d24-82af-79ab": {
+            "data": {
+                "precio": "MN 4,500,000",
+                "precio_valor": 4500000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "168 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 168.0,
+                "m2_construidos": 253.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLomas del Sol, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Lomas del Sol",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Jardin | Terraza",
+                "lat": 19.065555,
+                "lng": -96.075089,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:21.168600",
+                "updated_at": "2026-06-25T21:08:21.168600"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-a211898b7902-64de-ce866253-9d26-4589": {
+            "data": {
+                "precio": "MN 6,050,000",
+                "precio_valor": 6050000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "314 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 314.0,
+                "m2_construidos": 317.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónPlayas de Conchal, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Playas de Conchal",
+                "descripcion": "Sin descripcion",
+                "amenidades": "Aire acondicionado | Alberca | Cisterna | Jardin | Seguridad privada | Terraza",
+                "lat": 19.0653598,
+                "lng": -96.0904274,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:21.168610",
+                "updated_at": "2026-06-25T21:08:21.168610"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-d412c6dec9ca-a519-19c1f48-9a1d-7b67": {
+            "data": {
+                "precio": "MN 5,800,000",
+                "precio_valor": 5800000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "227 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 227.0,
+                "m2_construidos": 202.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónPlayas de Conchal, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Playas de Conchal",
+                "descripcion": "Sin descripcion",
+                "amenidades": "",
+                "lat": 19.06536,
+                "lng": -96.090427,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-06-25T21:08:21.168620",
+                "updated_at": "2026-06-25T21:08:21.168620"
+            }
+        }
+    }
+}

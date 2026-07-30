@@ -1,0 +1,531 @@
+{
+    "project": "Inmuebles24 Scraper DB",
+    "version": "1.1",
+    "metadata": {
+        "created_at": "2026-07-29T20:26:40.654986",
+        "last_update": "2026-07-29T20:27:00.274980",
+        "total_records": 20
+    },
+    "listings": {
+        "https://www.lamudi.com.mx/detalle/41032-73-e5ec4efa07c8-c0d4-1927e1a-9b95-8034": {
+            "data": {
+                "precio": "MN 4,640,000",
+                "precio_valor": 4640000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "3 rec. | 3 banos | 2 estac.",
+                "m2_totales": null,
+                "m2_construidos": null,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Descripción Residencia nueva en venta Punto Lomas.\nUbicada en la mejor zona de la Riviera Veracruzana.\n\nPlanta baja:\nSala, comedor, cocina, área de lavado, medio baño. \nPatio trasero \nGarage para dos autos.\n\nPlanta alta:\nTres recámaras cada una con baño completo.\nLa recámara principal cuenta con vestidor.\nÁrea de sala de TV.\nT. 160 m2\nC. 210 m2\n\nPrecios:\nBásica: NO DISPONIBLE \nSemi-equipada: $4,640,000\nEquipada: $4,785,000\n\nEquipamiento básico: cocina integral con estufa, campana y barra de granito.\n\nSemi equipada: Muebles de baño, clósets  y vestidor en recámara principal.\n\nEquipada: Canceles de  baño de vidrio templado, aires acondicionados 4.\n\nNo incluye muebles , artículos de decoración, lámparas, Gas estacionario, espejos en baños.\n\nEl Fraccionamiento ofrece servicio de Vigilancia 24/",
+                "amenidades": "Aire acondicionado | Alberca | Gimnasio | Jardin | Seguridad privada",
+                "lat": 19.0743149,
+                "lng": -96.0897702,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:00.274456",
+                "updated_at": "2026-07-29T20:27:00.274456"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-3a2fe6da99cf-b1d0-19fb0dc-8156-77d6": {
+            "data": {
+                "precio": "MN 5,300,000",
+                "precio_valor": 5300000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "211 m² lote | 3 rec. | 3 banos | 3 estac.",
+                "m2_totales": 211.0,
+                "m2_construidos": 340.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 3,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónResidencial Monte Magno, Xalapa, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Xalapa, Residencial Monte Magno",
+                "descripcion": "Descripción Casa en venta con excelente ubicación y acabados.\nFraccionamiento Monte Magno Ánimas en Xalapa, Veracruz.\n\nCuenta con doble frente, calle privada, 3 recámaras con vestidor y baño cada una.\n\nPLANTA BAJA\nCochera techada para tres autos, cuenta con portón eléctrico \nRecibidor\nMedio Baño\nAmplia sala y comedor\nCocina integral con cubierta de granito e Isla con parrilla y campana \nJardín amplio con acceso desde calle secundaria \n\nPRIMER NIVEL\n3 recámaras muy amplias, con vestidor y baño completo cada una.\nCuenta con clima \n\nSEGUNDO NIVEL\nRoof garden con hermosa vista \nMedio baño\nÁrea de lavado y servicio\nÁrea de tendido\n\nCisterna de 8,000 lts con doble tinaco\nPreparación para mini split\nConstruida con tabique rojo\n\nAgenda hoy mismo\nWhatsApp Ver teléfono Whatsapp у WhatsApp NOTA: El p",
+                "amenidades": "Aire acondicionado | Cisterna | Jardin | Terraza",
+                "lat": 19.521661,
+                "lng": -96.865229,
+                "codigo_postal": "91193"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:00.274537",
+                "updated_at": "2026-07-29T20:27:00.274537"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-d77bc6982a29-a7f9-19f4953-a62e-7446": {
+            "data": {
+                "precio": "MN 5,500,000",
+                "precio_valor": 5500000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "500 m² lote | 2 rec. | 2 banos | 4 estac.",
+                "m2_totales": 500.0,
+                "m2_construidos": 200.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 4,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAnton Lizardo, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Anton Lizardo",
+                "descripcion": "Descripción Oportunidad ! Comoda casa a pie de playa, en tranquila ubicacion y espectacular vista, en un solo nivel. Despierte mirando al horizonte del Golfo de Mexico.. \n\nCuenta con gran jardin y amplia alberca, recamaras con ventanales de piso a techo, extensas recamaras con baño, sala comedor y cocina equipada. Incluye extra, zona federal concesionada de 630 m2 !.\n\nPuede rentarla por airbnb mientras no la use; se paga sola ! Contactenos y solicite una visita.",
+                "amenidades": "Aire acondicionado | Alberca | Circuito Cerrado | Jardin | Terraza",
+                "lat": 19.035925691988528,
+                "lng": -95.96869495711672,
+                "codigo_postal": "95269"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:00.274554",
+                "updated_at": "2026-07-29T20:27:00.274554"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-4ea3d4007813-5c80-19bbdfc-ac0e-75c2": {
+            "data": {
+                "precio": "MN 4,940,000",
+                "precio_valor": 4940000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "160 m² lote | 3 rec. | 4 banos | 2 estac.",
+                "m2_totales": 160.0,
+                "m2_construidos": 256.0,
+                "recamaras": 3,
+                "banos": 4,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Descripción La casa ideal para vivir en familia \nCuenta con sala y comedor con excelente iluminación natural durante el día\n3 recamaras con vestidor\nCuarto de servicio\n4 1/2 baños\nCocina integral equipada con parrilla y horno\nÁrea de lavado, garaje para 2 carros\n4 minisplits.\nEn el Fraccionamiento, encuentras Casa Club con alberca, palapa, gimnasio, cancha de pádel, juegos para tus niños\n\nNo incluye muebles",
+                "amenidades": "Aire acondicionado | Alberca | Circuito Cerrado | Gimnasio | Seguridad privada",
+                "lat": 19.0743149,
+                "lng": -96.0897702,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:00.274567",
+                "updated_at": "2026-07-29T20:27:00.274567"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-6b85c35b5ecb-df92-19f4322-b33b-7144": {
+            "data": {
+                "precio": "MN 3,000,000",
+                "precio_valor": 3000000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "105 m² lote | 3 rec. | 2 banos | 2 estac.",
+                "m2_totales": 105.0,
+                "m2_construidos": 197.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónÁnimas Marqueza, Xalapa, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Xalapa, Ánimas Marqueza",
+                "descripcion": "Descripción Tres recamaras\nRecamara principal con vestidor y baño\nRecamaras secundarias de buen tamaño y closet\nArea de tv en planta alta\nAmplia estancia para sala y comedor\nPatio de esparcimiento\nArea de lavado\nCocina integral con estufa \nCochera para dos autos con porton cerrado independiente\nEntorno residencial seguro\nDos plantas construidas\nComercios, parques y escuelas cercanos\nOportunidad unica en uno de los mejores fraccionamientos de xalapa",
+                "amenidades": "Circuito Cerrado | Cisterna",
+                "lat": 19.52094025230864,
+                "lng": -96.86754265952453,
+                "codigo_postal": "91193"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:00.274579",
+                "updated_at": "2026-07-29T20:27:00.274579"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-1b3782b063fa-72eb-19e2a56-8eb2-7f61": {
+            "data": {
+                "precio": "MN 6,500,000",
+                "precio_valor": 6500000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "205 m² lote | 5 rec. | 5 banos | 3 estac.",
+                "m2_totales": 205.0,
+                "m2_construidos": 430.0,
+                "recamaras": 5,
+                "banos": 5,
+                "estacionamientos": 3,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLas Cumbres, Xalapa, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Xalapa, Las Cumbres",
+                "descripcion": "Descripción Hermosa casa de 4 plantas:\n5 recámaras con baño\nRecámara principal con enorme vestidor\nRecámaras secundarias con clóset tipo vestidor \nRecámara en planta baja con baño sin clóset \nCocina integral equipada y con isla intermedia, suficientes espacios para guardar y despensa de buen tamaño \nAmplia estancia para sala y comedor con bastante luz natural\nSalón de usos múltiples con acceso a jardín \nRoof Garden con pérgola, asador y tarja \nEscuelas y comercios cercanos\nSe encuentra en cerrada tipo cluster con vigilancia y acceso restringido",
+                "amenidades": "Cisterna | Jardin | Seguridad privada | Terraza",
+                "lat": 19.5179717,
+                "lng": -96.8705352,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:00.274593",
+                "updated_at": "2026-07-29T20:27:00.274593"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-f60b97a6748f-6204-19d7a3b-b3c1-767d": {
+            "data": {
+                "precio": "MN 3,650,000",
+                "precio_valor": 3650000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "160 m² lote | 3 rec. | 2 banos | 2 estac.",
+                "m2_totales": 160.0,
+                "m2_construidos": 170.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLomas de la Rioja, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Lomas de la Rioja",
+                "descripcion": "Descripción CASA EN VENTA. \n\nCuenta con 3 recamaras, 2 baños y medio, estacionamiento para 2 vehículos, área de sala, comedor, cocina y lavandería.\n\nAgenda tu cita.\n\nIESA\nA-IES1\nSHO6940589\n\nNotas importantes:\n\n-Todas las propiedades están sujetas a disponibilidad.\n-La información y medidas proporcionadas son aproximadas y deberán ser confirmadas con la documentación correspondiente.\n-Los precios mencionados para renta no incluyen impuestos.\n-Los precios mencionados para venta no incluyen gastos notariales e impuestos correspondientes.\n-Los precios están sujetos a cambios sin previo aviso.\n-En el caso de propiedades en pre-venta, las imágenes son meramente ilustrativas.\n-En las operaciones de crédito, el precio total se determinará considerando los montos variables de conceptos de crédito y",
+                "amenidades": "Circuito Cerrado",
+                "lat": 19.040392,
+                "lng": -96.061391,
+                "codigo_postal": "95266"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:00.274652",
+                "updated_at": "2026-07-29T20:27:00.274652"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-c884632433d8-f1e0-14bb0e84-ae69-3f81": {
+            "data": {
+                "precio": "MN 2,350,000",
+                "precio_valor": 2350000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "160 m² lote | 3 rec. | 4 banos",
+                "m2_totales": 160.0,
+                "m2_construidos": 188.0,
+                "recamaras": 3,
+                "banos": 4,
+                "estacionamientos": 0,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLomas de la Rioja, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Lomas de la Rioja",
+                "descripcion": "Descripción Inmobiliaria arlette flores, pone en preventa hermosa casa con magnificas distribuciones y diseño contemporáneo, con excelente acabados en una zona residencial de la riviera veracruzana. Características; Garaje para 2 autos Sala Comedor Cocina integral Medio baño Jardin Area de lavado Recamara con baño y closet Primer planta 2 recamaras principal con baño y vestidor 1 recamara con closet y baño Cuarto de servicio Roof garden Entrega marzo 2021",
+                "amenidades": "Alberca | Circuito Cerrado | Jardin | Terraza",
+                "lat": 19.042582,
+                "lng": -96.05955,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:00.274675",
+                "updated_at": "2026-07-29T20:27:00.274675"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-69a392ce6da2-696a-19ba641-a0d9-7833": {
+            "data": {
+                "precio": "MN 2,650,000",
+                "precio_valor": 2650000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "160 m² lote | 2 rec. | 2 banos | 2 estac.",
+                "m2_totales": 160.0,
+                "m2_construidos": 115.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Descripción Casa de UNA PLANTA!\n\nLa casa consta de garaje para 2 autos, sala, comedor, cocina integral con barra de granito, equipada con parrilla y campana, horno, alacena, medio baño de visitas, recámara principal con vestidor y baño, segunda recámara secundaria con vestidor y baño, jardín trasero, cuarto de lavado.\n\n*La casa se entrega con calentador de 38lts, tanque de gas estacionario de 120lts, hidroneumático de 40lts.*\n\nEl Fraccionamiento Lomas del Mediterráneo contará con clusters privados con vigilancia 24/7, acceso automatizado para residentes, acceso controlado para visitantes, parques familiares, juegos infantiles, petfriendly, servicios subterráneos de luz, teléfono y cable, agua potable y drenaje, casa club, gimnasio.\nUbicado sobre la Riviera Veracruzana, se encuentra muy cer",
+                "amenidades": "Circuito Cerrado | Gimnasio | Jardin | Seguridad privada",
+                "lat": 18.770784,
+                "lng": -95.761391,
+                "codigo_postal": "95270"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:00.274691",
+                "updated_at": "2026-07-29T20:27:00.274691"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-479616e2b5a3-acbe-19fb0fa-b72d-7985": {
+            "data": {
+                "precio": "MN 2,750,000",
+                "precio_valor": 2750000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "155 m² lote | 2 rec. | 2 banos | 2 estac.",
+                "m2_totales": 155.0,
+                "m2_construidos": 121.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónLas Lomas, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Las Lomas",
+                "descripcion": "Descripción Casa en Venta en el Residencial Lomas Mediterráneo, en la Riviera Veracruzana \n  \nDESCRIPCIÓN DE CASA:\n• TERRENO 155.38 MTS\n• CONSTRUCCION 121 MTS\n\nPLANTA BAJA\n• GARAGE PARA DOS AUTOS\n• SALA COMEDOR\n• 2 BAÑOS Y MEDIO ( CADA UNO CUENTA CON SU ESPEJO DE LUZ LED)\n• COCINA EQUIPADA CON COCINA Y CAMPANA ( MADERA DE ENCINO Y PAROTA)\n• BARRA DE GRANITO CON LUZ LED Y LAMBRIN\n• RECAMARA PRIMCIPAL CON BAÑO VESTIDOR\n• RECAMARA SECUNDARIA CON CLOSET ( OJO DE PATIO)\n• ALBERCA CON CASCADA\n\nSEGUNDA PLANTA\n• CUARTO DE SERVICIO ( TANQUE DE GAS ESTACIONARIO, CALENTADOR Y HIDRONEUMATICO, LAVADERO DE GRANITO)\n• AREA DE TENDIDO\n• ACCESO A TERRAZA ( VISTA AL MAR Y A LA ENTRADA)\n\nPrecio de vta $2,750,000.00\n\n*Precio sujeto a cambio por el constructor sin previo aviso\n*Precio más Escrituración\n*Las im",
+                "amenidades": "Alberca | Cisterna | Jardin | Seguridad privada | Terraza",
+                "lat": 19.0714841,
+                "lng": -96.0999087,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:00.274707",
+                "updated_at": "2026-07-29T20:27:00.274707"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-dfe667048c9-75ea-19a0afe-a714-7108": {
+            "data": {
+                "precio": "MN 2,650,000",
+                "precio_valor": 2650000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "160 m² lote | 2 rec. | 2 banos | 2 estac.",
+                "m2_totales": 160.0,
+                "m2_construidos": 115.0,
+                "recamaras": 2,
+                "banos": 2,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Descripción Casa Nueva en Venta \nLomas del Mediterráneo \nRiviera Veracruzana \n\n$2,650,000\n+Gastos de escrituración \n\n160 m2 Terreno\n115 m2 Construcción \n\nSala\nComedor en altura y media\nCocina integral con cubierta de granito, parrilla, campana y torre para hornos \nCuarto de lavado\nMedio baño\nJardin central\nJardin posterior\n1 Habitación principal con baño completo y vestidor\n1 Habitación secundaria con baño completo y closet \nSe entrega con:\nCalentador\nHidrinuematico\nEspacio para lavadora y secadora\nFregadero de granito",
+                "amenidades": "Jardin",
+                "lat": 19.046982,
+                "lng": -96.038495,
+                "codigo_postal": "95252"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:00.274723",
+                "updated_at": "2026-07-29T20:27:00.274723"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-a6c1b561c80f-6b2e-19cd81a-8ced-7823": {
+            "data": {
+                "precio": "MN 3,600,000",
+                "precio_valor": 3600000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "180 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 180.0,
+                "m2_construidos": 195.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónPlayas de Conchal, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Playas de Conchal",
+                "descripcion": "Descripción Tenemos en Venta Hermosa Casa ubicada en el Frac Punta Tiburón en la Riviera Veracruzana.\nMuy cerca de Centros Comerciales,Restaurantes, Escuelas, Tiendas de conveniencia, etc. Consta de:\n*3 Recámaras cada una con baño completo e instalación para aire acondicionado 1 de las Recámaras con Vestidor y las otras 2 con clóset\n *  1/2 Baño \n* Accesorios de Baños Helvex \n* Pisos Interceramic \n* Hidroneumático \n* Bomba sumergible\n* Aljibe\n* Canceles de baño con vidrio templado de 10 mm\n* Cocina con granito y estufa Mabe\n* Cuarto de Servicio y lavado.\n* Garaje techado para 2 coches. EasyBroker ID: EB-VM7070",
+                "amenidades": "Aire acondicionado | Cisterna",
+                "lat": 19.06536,
+                "lng": -96.090427,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:00.274753",
+                "updated_at": "2026-07-29T20:27:00.274753"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-7703e967c9ef-7e8f-196dcab-a89e-7746": {
+            "data": {
+                "precio": "MN 6,500,000",
+                "precio_valor": 6500000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "222 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 222.0,
+                "m2_construidos": 280.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónPlayas de Conchal, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Playas de Conchal",
+                "descripcion": "Descripción CASA EN VENTA. \n\nEn punta tiburón.\nCuenta con baño en todas sus recamaras.\n\nAgenda tu cita.\n\nIESA\nA-IES1\nSHO6997859\r\n        \n\nContáctanos en nuestra sucursal de Veracruz.-\r\nTel: Ver teléfono Whatsapp Notas importantes:\n\n-Todas las propiedades están sujetas a disponibilidad.\n-La información y medidas proporcionadas son aproximadas y deberán ser confirmadas con la documentación correspondiente.\n-Los precios mencionados para renta no incluyen impuestos.\n-Los precios mencionados para venta no incluyen gastos notariales e impuestos correspondientes.\n-Los precios están sujetos a cambios sin previo aviso.\n-En el caso de propiedades en pre-venta, las imágenes son meramente ilustrativas.\n-En las operaciones de crédito, el precio total se determinará considerando los montos variables de",
+                "amenidades": "Circuito Cerrado",
+                "lat": 19.06536,
+                "lng": -96.090427,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:00.274770",
+                "updated_at": "2026-07-29T20:27:00.274770"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-cd804ed37b15-f660-19e2a18-90a0-73aa": {
+            "data": {
+                "precio": "MN 4,650,000",
+                "precio_valor": 4650000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "172 m² lote | 4 rec. | 4 banos | 2 estac.",
+                "m2_totales": 172.0,
+                "m2_construidos": 340.0,
+                "recamaras": 4,
+                "banos": 4,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónResidencial Monte Magno, Xalapa, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Xalapa, Residencial Monte Magno",
+                "descripcion": "Descripción Casa de tres plantas, 4 Recámaras con baño, la recámara principal con baño y vestidor, recámaras secundarias con clóset de buen tamaño, área de televisión de buen tamaño, Amplia estancia para sala, comedor y recibidor, área de lavado grande, Roof Garden sencillo con medio baño, jardín, patio y área de asador.\nCochera para dos autos.\nLa casa se encuentra en cerrada tipo cluster con pluma y vigilancia \nEscuelas y comercios cercanos\nFácil acceso por varias vías",
+                "amenidades": "Cisterna | Jardin | Seguridad privada | Terraza",
+                "lat": 19.5169819,
+                "lng": -96.8689321,
+                "codigo_postal": null
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:00.274786",
+                "updated_at": "2026-07-29T20:27:00.274786"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-34911f192a88-27c5-19b7cf5-b015-765c": {
+            "data": {
+                "precio": "MN 6,320,000",
+                "precio_valor": 6320000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "230 m² lote | 4 rec. | 4 banos | 2 estac.",
+                "m2_totales": 230.0,
+                "m2_construidos": 250.0,
+                "recamaras": 4,
+                "banos": 4,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónPlayas de Conchal, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Playas de Conchal",
+                "descripcion": "Descripción Casa con 4 recámaras en total, una en planta baja!\n\nLa planta baja de la casa cuenta con garaje techado para 2 autos, recibidor, sala a doble altura, comedor, cocina integral, recámara, baño completo fuera compartido con visitas, jardín trasero, cuarto de lavado y patio.\n\nEn planta alta se encuentra la recámara principal con balcón, amplio vestidor y baño completo, 2 recámaras secundarias con clóset y baño cada una.\n\n*FECHA DE ENTREGA: JULIO 2025*\n\nEl fraccionamiento Punta Tiburón cuenta con vigilancia las 24hrs y acceso controlando. Campo de Golf de 18 hoyos, casa club con canchas de tenis, padel, alberca semi-olimpica, gimnasio, vestidores, 2 albercas recreativas, ludoteca, enfermería, terraza. Restaurant de especialidades. Extensos canales de navegación y marina, circuito ce",
+                "amenidades": "Alberca | Circuito Cerrado | Gimnasio | Jardin | Seguridad privada | Terraza",
+                "lat": 19.06536,
+                "lng": -96.090427,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:00.274802",
+                "updated_at": "2026-07-29T20:27:00.274802"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-8dfd481b925a-6efe-19a7b9f-beb1-7dce": {
+            "data": {
+                "precio": "MN 6,700,000",
+                "precio_valor": 6700000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "230 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 230.0,
+                "m2_construidos": 227.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónPlayas de Conchal, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Playas de Conchal",
+                "descripcion": "Descripción CASA CON ALBERCA, JARDIN Y FRENTE ÁREA VERDE!\n\nLa planta baja de la casa cuenta con garaje techado con portón eléctrico para 2 autos, sala, comedor, cocina integral con isla desayunadora, alacena, medio baño de visitas, terraza, alberca, medio baño para ésta área, 2 bodegas, cuarto de lavado y cuarto de servicio que compate el baño con área de alberca.\n\nEn planta alta se encuentra una sala de TV, clóset de blancos y vertedero, la recámara principal con vestidor y baño, 2 recámaras secundarias con clóset y baño cada una.\n\n*FECHA DE ENTREGA: ABRIL 2026*\n\nEl fraccionamiento Punta Tiburón cuenta con vigilancia las 24hrs y acceso controlando. Campo de Golf de 18 hoyos, casa club con canchas de tenis, padel, alberca semi-olimpica, gimnasio, vestidores, 2 albercas recreativas, ludotec",
+                "amenidades": "Alberca | Circuito Cerrado | Gimnasio | Jardin | Seguridad privada | Terraza",
+                "lat": 19.06536,
+                "lng": -96.090427,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:00.274818",
+                "updated_at": "2026-07-29T20:27:00.274818"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-60b1c9837399-d758-19f9c7b-8110-7c0c": {
+            "data": {
+                "precio": "MN 5,500,000",
+                "precio_valor": 5500000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "250 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 250.0,
+                "m2_construidos": 310.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Descripción CASA EN VENTA EN PUNTA TIBURON.\n\nCuenta con recamara en planta baja y alberca.\nTotalmente climatizada y con cisterna de 3000 lts de agua.\n\nAgenda tu cita.\n\nBAOS\nA-BAO2\nSHO7106981\n\nNotas importantes:\n\n-Todas las propiedades están sujetas a disponibilidad.\n-La información y medidas proporcionadas son aproximadas y deberán ser confirmadas con la documentación correspondiente.\n-Los precios mencionados para renta no incluyen impuestos.\n-Los precios mencionados para venta no incluyen gastos notariales e impuestos correspondientes.\n-Los precios están sujetos a cambios sin previo aviso.\n-En el caso de propiedades en pre-venta, las imágenes son meramente ilustrativas.\n-En las operaciones de crédito, el precio total se determinará considerando los montos variables de conceptos de crédito",
+                "amenidades": "Aire acondicionado | Alberca | Cisterna",
+                "lat": 19.062401,
+                "lng": -96.082381,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:00.274834",
+                "updated_at": "2026-07-29T20:27:00.274834"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-1c80116e77a9-35e-19ee302-82a3-766b": {
+            "data": {
+                "precio": "MN 3,100,000",
+                "precio_valor": 3100000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "148 m² lote | 3 rec. | 3 banos | 3 estac.",
+                "m2_totales": 148.0,
+                "m2_construidos": 132.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 3,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Descripción Casa en venta con Sala Doble Altura y Rec. En PB en Fracc. Lomas de la Rioja, Riviera Veracruzana\n\nPrecio: $3,100,000\nTerreno: 148.75 m2 (8.75 x 17)\nConstrucción: 132.15 m2\n\nPlanta baja\n- Garage para 3 autos.\n- Sala doble altura.\n- Comedor.\n- Cocina integral con estufa, campana y alacena.\n- Recámara con Clóset.\n- Baño completo compartido.\n- Cuarto de lavado.\n- Patio.\n- Pasillo de servicio.\n\nPlanta alta\n- Recámara principal con vestidor y baño completo.\n- Recámara secundaria con clóset y baño completo.\n\nEquipamiento\n- Cortinas\n- Climatizada (excepto una recámara)\n- Luces led en escaleras.\n- Pisos en mármol.\n- Tanque estacionario.\n- Cisterna.\n- Bomba de agua.\n- Calentador.\n\nAmenidades\n- Doble filtro de seguridad.\n- Casa club con Alberca y gimnasio.\n- Áreas verdes.\n- Seguridad 24/",
+                "amenidades": "Alberca | Cisterna | Gimnasio | Jardin | Seguridad privada",
+                "lat": 19.050221,
+                "lng": -96.061431,
+                "codigo_postal": "95250"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:00.274926",
+                "updated_at": "2026-07-29T20:27:00.274926"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-2630d13ffd6-1211-19d94d0-ba89-7501": {
+            "data": {
+                "precio": "MN 2,590,000",
+                "precio_valor": 2590000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "88 m² lote | 3 rec. | 2 banos | 1 estac.",
+                "m2_totales": 88.0,
+                "m2_construidos": 127.0,
+                "recamaras": 3,
+                "banos": 2,
+                "estacionamientos": 1,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónSanta Rosa, Xalapa, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Xalapa, Santa Rosa",
+                "descripcion": "Descripción Casa Tasso \"Hermosa\"\nHermosa casa modelo TASSO\n\n\"COMPLETAMENTE EQUIPADA\"\n*ACABADOS DE LUJO*\n\nINCLUYE:\n\nPLANTA BAJA:\n* SALA COMEDOR\n* COCINA\n* MEDIO BAÑO\n* ÁREA DE LAVADO\n\nPLANTA ALTA:\n* HABITACIÓN PRINCIPAL CON VESTIDOR Y BAÑO COMPLETO.\n* 2 HABITACIONES SECUNDARIAS CON CLOSET\n* BAÑO COMPLETO\n\nEQUIPAMIENTO:\n* COCINA CON BARRA DE GRANITO PARRILLA Y CAMPANA\n* CALENTADOR\n* CISTERNA DE 3,000 Lts\n* TINACO DE 1,100 Lts\n* TANQUE ESTACIONARIO\n* CANCELES DE BAÑO (Cristal templado)\n* MUEBLES DE BAÑO\n* BARANDAL DE CRISTAL TEMPLADO\n* ILUMINACIÓN LED\n\nUNA EXCELENTE OPCIÓN EN UBICACIÓN, CALIDAD, DISEÑO Y OPORTUNIDAD.",
+                "amenidades": "Cisterna",
+                "lat": 19.50338856,
+                "lng": -96.89653358,
+                "codigo_postal": "91095"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:00.274943",
+                "updated_at": "2026-07-29T20:27:00.274943"
+            }
+        },
+        "https://www.lamudi.com.mx/detalle/41032-73-d2ccf1c82ae6-3a8c-19f9d2c-a784-7b78": {
+            "data": {
+                "precio": "MN 4,400,000",
+                "precio_valor": 4400000.0,
+                "precio_moneda": "MN",
+                "mantenimiento_valor": 0.0,
+                "caracteristicas": "179 m² lote | 3 rec. | 3 banos | 2 estac.",
+                "m2_totales": 179.0,
+                "m2_construidos": 268.0,
+                "recamaras": 3,
+                "banos": 3,
+                "estacionamientos": 2,
+                "antiguedad": "N/A",
+                "direccion": "LocalizaciónAlvarado Centro, Alvarado, Veracruz LlaveⓘEl anunciante prefiere no mostrar la dirección exactaVer en mapa",
+                "ubicacion": "Veracruz Llave, Alvarado, Alvarado Centro",
+                "descripcion": "Descripción -3 Niveles-SALA-COMEDOR\n1/2 BAÑO PARA VISITAS\n-COCINA CON ISLA Y BARRA DESAYUNADOR\nALACENA\n-JARDIN\n-TRES RECAMARAS CON BAÑO CADA UNA\nLA PRINCIPAL CON VESTIDOR\n- ROOF GARDEN\n-1/2 PARA VISITAS\n- CUARTO DE SERVICIO CON BAÑO COMPLETO\n\nINFORMES AL Ver teléfono Whatsapp",
+                "amenidades": "Aire acondicionado | Circuito Cerrado | Gimnasio | Jardin | Terraza",
+                "lat": 19.068091,
+                "lng": -96.081604,
+                "codigo_postal": "95264"
+            },
+            "timestamps": {
+                "created_at": "2026-07-29T20:27:00.274960",
+                "updated_at": "2026-07-29T20:27:00.274960"
+            }
+        }
+    }
+}
