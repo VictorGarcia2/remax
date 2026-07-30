@@ -1,5 +1,6 @@
 from fastapi import FastAPI, HTTPException, BackgroundTasks
 from pydantic import BaseModel
+from typing import List, Dict, Any, Optional
 from valuador import buscar_comparables, calcular_estadisticas, normalizar_texto, valuar_con_ia
 from fastapi.middleware.cors import CORSMiddleware
 WEASYPRINT_AVAILABLE = False
