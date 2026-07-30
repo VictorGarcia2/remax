@@ -1,6 +1,5 @@
 # Nixpacks configuration for REMAX FastAPI & Scrapers
 
-[providers]
 providers = ["python"]
 
 [phases.setup]
