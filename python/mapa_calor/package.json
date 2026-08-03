@@ -1,7 +1,9 @@
-{
   "name": "mapa_calor",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=20.9.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build:data": "node scripts/generate_ageb_stats.mjs",
