@@ -20,6 +20,10 @@ async function main() {
   }
   
   if (!fs.existsSync(AGEB_FILE)) {
+    if (fs.existsSync(OUTPUT_FILE)) {
+      console.log(`[INFO] Usando estadísticas AGEB pre-calculadas en ${OUTPUT_FILE}`);
+      process.exit(0);
+    }
     console.error(`Error: Archivo AGEB no encontrado en ${AGEB_FILE}`);
     process.exit(1);
   }
