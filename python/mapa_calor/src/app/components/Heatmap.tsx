@@ -29,7 +29,6 @@ interface HeatmapProps {
 export default function Heatmap({ data, heatmapType, agebStats }: HeatmapProps) {
   const mapRef = useRef<L.Map | null>(null);
   const legendRef = useRef<L.Control | null>(null);
-  const layerControlRef.current = null;
   const layerControlInstanceRef = useRef<L.Control.Layers | null>(null);
   const agebLayerRef = useRef<any>(null);
   const propertyLayerRef = useRef<L.LayerGroup | null>(null);
