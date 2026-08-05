@@ -5,9 +5,17 @@ import MapDashboard from './components/MapDashboard';
 export const revalidate = 0; // Evita el cacheo estático para leer el JSON más reciente
 
 export default async function Home() {
-  const masterPath = path.join(process.cwd(), '..', 'dataset_master.json');
+  const localMasterPath = path.join(process.cwd(), 'data', 'dataset_master.json');
+  const parentMasterPath = path.join(process.cwd(), '..', 'dataset_master.json');
   const fallbackPath = path.join(process.cwd(), 'data', 'veracruz_casas_combinado.json');
-  const filePath = fs.existsSync(masterPath) ? masterPath : fallbackPath;
+  
+  let filePath = fallbackPath;
+  if (fs.existsSync(localMasterPath)) {
+    filePath = localMasterPath;
+  } else if (fs.existsSync(parentMasterPath)) {
+    filePath = parentMasterPath;
+  }
+
   const agebStatsPath = path.join(process.cwd(), 'public', 'data', 'ageb_stats.json');
   
   let data = [];
@@ -25,7 +33,7 @@ export default async function Home() {
       if (Array.isArray(parsed)) {
         data = parsed;
         stats.total_registros = parsed.length;
-        stats.registros_validos_para_valuacion = parsed.filter(p => p.latitud && p.longitud).length;
+        stats.registros_validos_para_valuacion = parsed.filter((p: any) => p.latitud && p.longitud).length;
       } else if (parsed.propiedades) {
         data = parsed.propiedades;
         stats = parsed.metadata || stats;
