@@ -40,6 +40,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# geojson files (large data files)
-/public/geojson/*.geojson
+
 

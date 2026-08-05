@@ -12,6 +12,12 @@ interface PropertyData {
   precio_valor: number;
   precio_m2_construccion: number | null;
   es_valido_para_valuacion: boolean;
+  titulo?: string;
+  colonia?: string;
+  municipio?: string;
+  m2_construidos?: number;
+  tipo_propiedad?: string;
+  url?: string;
 }
 
 interface HeatmapProps {
@@ -23,8 +29,10 @@ interface HeatmapProps {
 export default function Heatmap({ data, heatmapType, agebStats }: HeatmapProps) {
   const mapRef = useRef<L.Map | null>(null);
   const legendRef = useRef<L.Control | null>(null);
-  const layerControlRef = useRef<L.Control.Layers | null>(null);
+  const layerControlRef.current = null;
+  const layerControlInstanceRef = useRef<L.Control.Layers | null>(null);
   const agebLayerRef = useRef<any>(null);
+  const propertyLayerRef = useRef<L.LayerGroup | null>(null);
 
   useEffect(() => {
     // Inicializar el mapa solo una vez
@@ -48,7 +56,7 @@ export default function Heatmap({ data, heatmapType, agebStats }: HeatmapProps) 
         ).addTo(mapRef.current)
       };
       
-      layerControlRef.current = L.control.layers(baseMaps, {}, { position: "topright" }).addTo(mapRef.current);
+      layerControlInstanceRef.current = L.control.layers(baseMaps, {}, { position: "topright" }).addTo(mapRef.current);
     }
 
     const map = mapRef.current;
@@ -103,15 +111,65 @@ export default function Heatmap({ data, heatmapType, agebStats }: HeatmapProps) 
       };
     };
 
-    // Remover capa AGEB anterior si existe
-    if (agebLayerRef.current) {
-      map.removeLayer(agebLayerRef.current);
-      layerControlRef.current?.removeLayer(agebLayerRef.current);
+    // 1. DIBUJAR PUNTOS DE LAS 9,485 PROPIEDADES
+    if (propertyLayerRef.current) {
+      map.removeLayer(propertyLayerRef.current);
+      layerControlInstanceRef.current?.removeLayer(propertyLayerRef.current);
     }
 
-    // Cargar capa AGEB con el estilo actualizado
+    const markersGroup = L.layerGroup();
+    if (Array.isArray(data)) {
+      data.forEach((prop: any) => {
+        if (prop.latitud && prop.longitud) {
+          const color = heatmapType === 'price' 
+            ? getPriceColor(prop.precio_m2_construccion || 0) 
+            : '#2563eb';
+
+          const circle = L.circleMarker([prop.latitud, prop.longitud], {
+            radius: 5,
+            fillColor: color === 'transparent' ? '#3b82f6' : color,
+            color: '#ffffff',
+            weight: 1,
+            opacity: 0.9,
+            fillOpacity: 0.8
+          });
+
+          const title = prop.titulo || `${prop.tipo_propiedad || 'Propiedad'} en ${prop.colonia || prop.municipio || 'Veracruz'}`;
+          const priceFormatted = prop.precio_valor ? `$${Number(prop.precio_valor).toLocaleString()} MXN` : 'N/A';
+          const m2Formatted = prop.m2_construidos ? `${prop.m2_construidos} m²` : '';
+          const m2PriceFormatted = prop.precio_m2_construccion ? `$${Math.round(prop.precio_m2_construccion).toLocaleString()} /m²` : '';
+          
+          const popupContent = `
+            <div style="min-width: 190px;" class="p-1 font-sans">
+              <strong style="display:block; font-size:13px; font-weight:700; color:#0f172a; margin-bottom:3px; line-height:1.2;">${title}</strong>
+              <div style="font-size:11px; color:#64748b; margin-bottom:4px;">${prop.colonia ? prop.colonia + ', ' : ''}${prop.municipio || ''}</div>
+              <div style="font-size:14px; font-weight:700; color:#1d4ed8; margin-bottom:3px;">${priceFormatted}</div>
+              <div style="font-size:11px; color:#334155;">${m2Formatted} ${m2PriceFormatted ? '• ' + m2PriceFormatted : ''}</div>
+              ${prop.url ? `<a href="${prop.url}" target="_blank" style="display:inline-block; margin-top:6px; font-size:11px; color:#0284c7; text-decoration:underline;">Ver Ficha ↗</a>` : ''}
+            </div>
+          `;
+
+          circle.bindPopup(popupContent);
+          markersGroup.addLayer(circle);
+        }
+      });
+    }
+
+    markersGroup.addTo(map);
+    layerControlInstanceRef.current?.addOverlay(markersGroup, 'Puntos de Inmuebles (9,485)');
+    propertyLayerRef.current = markersGroup;
+
+    // 2. CARGAR CAPA AGEB
+    if (agebLayerRef.current) {
+      map.removeLayer(agebLayerRef.current);
+      layerControlInstanceRef.current?.removeLayer(agebLayerRef.current);
+    }
+
     fetch('/geojson/ageb.geojson')
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) throw new Error("HTTP error " + res.status);
+        return res.json();
+      })
       .then(geojsonData => {
         const layer = (L as any).vectorGrid.slicer(geojsonData, {
           vectorTileLayerStyles: {
@@ -126,15 +184,14 @@ export default function Heatmap({ data, heatmapType, agebStats }: HeatmapProps) 
           }
         });
         
-        // Agregar tooltips interactivos (Tooltip de VectorGrid requiere eventos)
         layer.on('mouseover', (e: any) => {
           const p = e.layer.properties;
           const agebId = `${p.CVE_ENT}_${p.CVE_MUN}_${p.CVE_LOC || '0000'}_${p.CVE_AGEB}`;
           const stat = agebStats[agebId];
           if (stat) {
             const popupContent = `
-              <div class="p-1">
-                <strong class="block text-slate-800 border-b pb-1 mb-1">${stat.colonia_predominante || 'Desconocida'}</strong>
+              <div class="p-1 font-sans">
+                <strong class="block text-slate-800 border-b pb-1 mb-1 font-bold">${stat.colonia_predominante || 'Desconocida'}</strong>
                 <span class="block text-slate-400 text-xs mb-1">AGEB: ${p.CVE_AGEB}</span>
                 <span class="block text-slate-600">Propiedades: <b>${stat.count}</b></span>
                 <span class="block text-slate-600">Precio prom: <b>${stat.avg_precio_m2 ? '$'+Math.round(stat.avg_precio_m2).toLocaleString() : 'N/A'} /m²</b></span>
@@ -148,10 +205,10 @@ export default function Heatmap({ data, heatmapType, agebStats }: HeatmapProps) 
         });
 
         layer.addTo(map);
-        layerControlRef.current?.addOverlay(layer, 'INEGI: AGEB Coropleta');
+        layerControlInstanceRef.current?.addOverlay(layer, 'INEGI: AGEB Coropleta');
         agebLayerRef.current = layer;
       })
-      .catch(e => console.error("Error cargando AGEB", e));
+      .catch(e => console.info("AGEB GeoJSON no disponible, usando marcadores de puntos."));
 
     // LEYENDA
     if (legendRef.current) {
@@ -185,10 +242,7 @@ export default function Heatmap({ data, heatmapType, agebStats }: HeatmapProps) 
     legend.addTo(map);
     legendRef.current = legend;
 
-    return () => {
-      // Limpieza si es necesario
-    };
-  }, [heatmapType, agebStats]); // Re-renderizar si cambia el tipo de mapa o los stats
+  }, [data, heatmapType, agebStats]);
 
   return (
     <div id="map" className="w-full h-full z-0 absolute top-0 left-0" />
