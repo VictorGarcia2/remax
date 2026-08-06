@@ -31,7 +31,6 @@ export default function Heatmap({ data, heatmapType, agebStats }: HeatmapProps) 
   const legendRef = useRef<L.Control | null>(null);
   const layerControlInstanceRef = useRef<L.Control.Layers | null>(null);
   const agebLayerRef = useRef<any>(null);
-  const propertyLayerRef = useRef<L.LayerGroup | null>(null);
 
   useEffect(() => {
     // Inicializar el mapa solo una vez
@@ -110,55 +109,7 @@ export default function Heatmap({ data, heatmapType, agebStats }: HeatmapProps) 
       };
     };
 
-    // 1. DIBUJAR PUNTOS DE LAS 9,485 PROPIEDADES
-    if (propertyLayerRef.current) {
-      map.removeLayer(propertyLayerRef.current);
-      layerControlInstanceRef.current?.removeLayer(propertyLayerRef.current);
-    }
-
-    const markersGroup = L.layerGroup();
-    if (Array.isArray(data)) {
-      data.forEach((prop: any) => {
-        if (prop.latitud && prop.longitud) {
-          const color = heatmapType === 'price' 
-            ? getPriceColor(prop.precio_m2_construccion || 0) 
-            : '#2563eb';
-
-          const circle = L.circleMarker([prop.latitud, prop.longitud], {
-            radius: 5,
-            fillColor: color === 'transparent' ? '#3b82f6' : color,
-            color: '#ffffff',
-            weight: 1,
-            opacity: 0.9,
-            fillOpacity: 0.8
-          });
-
-          const title = prop.titulo || `${prop.tipo_propiedad || 'Propiedad'} en ${prop.colonia || prop.municipio || 'Veracruz'}`;
-          const priceFormatted = prop.precio_valor ? `$${Number(prop.precio_valor).toLocaleString()} MXN` : 'N/A';
-          const m2Formatted = prop.m2_construidos ? `${prop.m2_construidos} m²` : '';
-          const m2PriceFormatted = prop.precio_m2_construccion ? `$${Math.round(prop.precio_m2_construccion).toLocaleString()} /m²` : '';
-          
-          const popupContent = `
-            <div style="min-width: 190px;" class="p-1 font-sans">
-              <strong style="display:block; font-size:13px; font-weight:700; color:#0f172a; margin-bottom:3px; line-height:1.2;">${title}</strong>
-              <div style="font-size:11px; color:#64748b; margin-bottom:4px;">${prop.colonia ? prop.colonia + ', ' : ''}${prop.municipio || ''}</div>
-              <div style="font-size:14px; font-weight:700; color:#1d4ed8; margin-bottom:3px;">${priceFormatted}</div>
-              <div style="font-size:11px; color:#334155;">${m2Formatted} ${m2PriceFormatted ? '• ' + m2PriceFormatted : ''}</div>
-              ${prop.url ? `<a href="${prop.url}" target="_blank" style="display:inline-block; margin-top:6px; font-size:11px; color:#0284c7; text-decoration:underline;">Ver Ficha ↗</a>` : ''}
-            </div>
-          `;
-
-          circle.bindPopup(popupContent);
-          markersGroup.addLayer(circle);
-        }
-      });
-    }
-
-    markersGroup.addTo(map);
-    layerControlInstanceRef.current?.addOverlay(markersGroup, 'Puntos de Inmuebles (9,485)');
-    propertyLayerRef.current = markersGroup;
-
-    // 2. CARGAR CAPA AGEB
+    // CARGAR CAPA AGEB COROPLETA
     if (agebLayerRef.current) {
       map.removeLayer(agebLayerRef.current);
       layerControlInstanceRef.current?.removeLayer(agebLayerRef.current);
@@ -207,7 +158,7 @@ export default function Heatmap({ data, heatmapType, agebStats }: HeatmapProps) 
         layerControlInstanceRef.current?.addOverlay(layer, 'INEGI: AGEB Coropleta');
         agebLayerRef.current = layer;
       })
-      .catch(e => console.info("AGEB GeoJSON no disponible, usando marcadores de puntos."));
+      .catch(e => console.info("AGEB GeoJSON no disponible."));
 
     // LEYENDA
     if (legendRef.current) {
