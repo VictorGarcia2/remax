@@ -9,7 +9,7 @@
     "dev": "next dev",
     "build:data": "node scripts/generate_ageb_stats.mjs",
     "predev": "npm run build:data",
-    "build": "next build",
+    "build": "NODE_OPTIONS='--max-old-space-size=512' next build",
     "start": "next start",
     "lint": "eslint"
   },
