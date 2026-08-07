@@ -35,7 +35,7 @@ export default defineConfig(({ command }) => {
         output: {
           manualChunks: {
             'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-            'ui-vendor': ['@fortawesome/react-fontawesome', 'lucide-react'],
+            'ui-vendor': ['lucide-react'],
             'utils-vendor': ['axios']
           }
         }
