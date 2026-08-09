@@ -31,19 +31,12 @@ export default defineConfig(({ command }) => {
       })
     ],
     build: {
-      rollupOptions: {
-        output: {
-          manualChunks: {
-            'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-            'ui-vendor': ['lucide-react'],
-            'utils-vendor': ['axios']
-          }
-        }
-      },
-      chunkSizeWarningLimit: 1000,
-      cssCodeSplit: true,
+      target: 'es2020',
+      cssMinify: 'esbuild',
+      minify: 'esbuild',
       sourcemap: false,
-      minify: 'esbuild'
+      chunkSizeWarningLimit: 2000,
+      cssCodeSplit: false
     },
     server: isDev
       ? {
